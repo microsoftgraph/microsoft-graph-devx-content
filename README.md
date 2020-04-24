@@ -3,5 +3,5 @@ Content used by the DevX API to enhance clients and tooling. At the moment it ha
 - Permissions
 - Samples
 
-And will be used by the localization team to add transalation files, and by feature teams to modify, add, or update samples. 
+This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples. 
 
