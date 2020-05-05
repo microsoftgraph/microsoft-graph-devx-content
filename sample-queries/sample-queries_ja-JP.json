@@ -121,7 +121,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"Test1234\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
         "skipTest": false
     },
     {
@@ -158,7 +158,7 @@
         "humanName": "グループ メンバー",
         "requestUrl": "/v1.0/groups/{group-id}/members",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/group_list_members",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -168,7 +168,7 @@
         "humanName": "グループの会話",
         "requestUrl": "/v1.0/groups/{group-id}/conversations",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/group_list_conversations",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -178,7 +178,7 @@
         "humanName": "グループのイベント",
         "requestUrl": "/v1.0/groups/{group-id}/events",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/group_list_events",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -194,7 +194,7 @@
                 "value": "application/json"
             }
         ],
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -204,7 +204,7 @@
         "humanName": "グループ ドライブ内の項目",
         "requestUrl": "/v1.0/groups/{group-id}/drive/root/children",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/drive_get",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -257,7 +257,7 @@
             }
         ],
         "postBody": "{\r\n        \"message\": {\r\n            \"subject\": \"Meet for lunch?\",\r\n            \"body\": {\r\n                \"contentType\": \"Text\",\r\n                \"content\": \"The new cafeteria is open.\"\r\n            },\r\n            \"toRecipients\": [\r\n                {\r\n                    \"emailAddress\": {\r\n                    \"address\": \"garthf@contoso.com\"\r\n                    }\r\n                }\r\n            ]\r\n        }}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -274,7 +274,7 @@
             }
         ],
         "postBody": "{\r\n  \"comment\": \"FYI\",\r\n  \"toRecipients\": [\r\n    {\r\n      \"emailAddress\": {\r\n        \"address\": \"{user-mail}\",\r\n        \"name\": \"Alex Darrow\"\r\n      }\r\n    }\r\n  ]\r\n}",
-        "tip": "This query requires a message id. To get the ID, run the following query, find the message in the response and use its ID property: GET https://graph.microsoft.com/v1.0/me/messages",
+        "tip": "このクエリでは、メッセージ ID が必要です。ID を取得するには、次のクエリを実行し、返信でメッセージを見つけてその ID プロパティを使用します。GET https://graph.microsoft.com/v1.0/me/messages",
         "skipTest": false
     },
     {
@@ -372,7 +372,7 @@
             }
         ],
         "postBody": "{\r\n        \"attendees\": [\r\n            {\r\n            \"emailAddress\": {\r\n                \"address\": \"{user-mail}\",\r\n                \"name\": \"Alex Darrow\"\r\n            },\r\n            \"type\": \"Required\"\r\n            }\r\n        ],\r\n        \"timeConstraint\": {\r\n            \"timeslots\": [\r\n            {\r\n            \"start\": {\r\n                \"dateTime\": \"{today}\",\r\n                \"timeZone\": \"Pacific Standard Time\"\r\n                },\r\n                \"end\": {\r\n                \"dateTime\": \"{next-week}\",\r\n                \"timeZone\": \"Pacific Standard Time\"\r\n                }\r\n            }\r\n            ]\r\n        },\r\n        \"locationConstraint\": {\r\n        \"isRequired\": \"false\",\r\n        \"suggestLocation\": \"true\",\r\n        \"locations\": [\r\n            {\r\n            \"displayName\": \"Conf Room 32/1368\",\r\n            \"locationEmailAddress\": \"conf32room1368@imgeek.onmicrosoft.com\"\r\n            }\r\n        ]\r\n        },\r\n        \"meetingDuration\": \"PT1H\"\r\n        }",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -389,7 +389,7 @@
             }
         ],
         "postBody": "{\r\n        \"subject\": \"My event\",\r\n        \"start\": {\r\n            \"dateTime\": \"{today}\",\r\n            \"timeZone\": \"UTC\"\r\n        },\r\n        \"end\": {\r\n            \"dateTime\": \"{next-week}\",\r\n            \"timeZone\": \"UTC\"\r\n        }\r\n    }",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -406,7 +406,7 @@
             }
         ],
         "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-        "tip": "Creates the monthly Microsoft Graph community call on your calendar.",
+        "tip": "毎月の Microsoft Graph コミュニティ　コールを予定表に作成します。",
         "skipTest": false
     },
     {
@@ -416,7 +416,7 @@
         "humanName": "来週の自分の予定の変更の追跡",
         "requestUrl": "/v1.0/me/calendarView/delta?startDateTime={today}&endDateTime={next-week}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/concepts/delta_query_events",
-        "tip": "This query uses date and time parameters. Use an ISO 8601 format. For example, \"2017-04-30T19:00:00.0000000\".",
+        "tip": "このクエリは、日付と時刻のパラメーターを使用します。ISO 8601 形式を使用します。例：　\"2017-04-30T19:00:00.0000000\"",
         "skipTest": false
     },
     {
@@ -442,7 +442,7 @@
             }
         ],
         "postBody": "{\r\n    \"givenName\": \"Pavel\",\r\n    \"surname\": \"Bansky\",\r\n    \"emailAddresses\": [\r\n        {\r\n        \"address\": \"pavelb@fabrikam.onmicrosoft.com\",\r\n        \"name\": \"Pavel Bansky\"\r\n        }\r\n    ],\r\n    \"businessPhones\": [\r\n        \"+1 732 555 0102\"\r\n    ]\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -495,7 +495,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"New Folder\",\r\n  \"folder\": { }\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -512,7 +512,7 @@
             }
         ],
         "postBody": "{ \"persistChanges\": true }",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -522,7 +522,7 @@
         "humanName": "ブック内のワークシート",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/workbook_list_worksheets",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -539,7 +539,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"My New Sheet\"\r\n}",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -556,7 +556,7 @@
             }
         ],
         "postBody": "{\r\n \"rate\": 0.035,\r\n \"nper\": 20,\r\n \"pv\": -2000\r\n}",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -566,7 +566,7 @@
         "humanName": "ワークシートの使用範囲",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/usedRange",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/worksheet_usedrange",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -576,7 +576,7 @@
         "humanName": "ワークシートのテーブル",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/Sheet1/tables",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/worksheet_list_tables",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
@@ -586,32 +586,32 @@
         "humanName": "ワークシートのグラフ",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/charts",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/worksheet_list_charts",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "このクエリでは、driveItem ID が必要です。 Excel ブックに対応する driveItem の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl",
         "skipTest": false
     },
     {
         "id": "eaca56a9-fc76-42ba-9099-212fce2c2018",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "グループに関連付けられているすべてのプランナーの計画",
         "requestUrl": "/v1.0/groups/{group-id-with-plan}/planner/plans",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannergroup_list_plans",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
         "id": "6161a316-8212-4a16-a8f1-e200501a4342",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "Planner の計画",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannerplan_get",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "このクエリでは、プラン ID が必要です。 プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans",
         "skipTest": false
     },
     {
         "id": "4dbeacbb-51d3-46ec-836f-b84cb01ae97a",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "PATCH",
         "humanName": "プランナーの計画を更新する",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
@@ -623,22 +623,22 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated plan title\"\r\n}",
-        "tip": "This query requires a Plan ID and value of @odata.etag for a selected task. To find the ID of the Plan, you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks. To get the @odata.etag, run: GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
+        "tip": "このクエリでは、Plan ID と選択したタスクの @odata etag の値が必要です。プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/tasks@odata.etag を取得するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
         "skipTest": false
     },
     {
         "id": "c594b984-66d2-4f8a-8c6a-cb520cbe471f",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "プランナーの計画内のすべてのバケット",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/buckets",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannerplan_list_buckets",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "このクエリでは、プラン ID が必要です。 プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans",
         "skipTest": false
     },
     {
         "id": "d0834295-25b6-4678-b8a1-fc6d1bb60c49",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "POST",
         "humanName": "プランナーの計画内にバケットを作成する",
         "requestUrl": "/v1.0/planner/buckets",
@@ -650,12 +650,12 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"{bucket-name}\",\r\n  \"planId\": \"{plan-id}\",\r\n  \"orderHint\": \" !\"\r\n}",
-        "tip": "This query requires a Plan id.  To find the ID of the Plan you can run: GET https://graph.microsoft.com/v1.0/me/planner/plans",
+        "tip": "このクエリでは、プラン ID が必要です。 プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/plans",
         "skipTest": false
     },
     {
         "id": "8efc3fd6-cbde-43fb-a0d0-a35f8bddd86b",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "PATCH",
         "humanName": "プランナーの計画内のバケットを更新する",
         "requestUrl": "/v1.0/planner/buckets/{bucket-id}",
@@ -667,22 +667,22 @@
             }
         ],
         "postBody": "{\r\n    \"name\": \"Updated bucket name\"\r\n}",
-        "tip": "This query requires a bucket id and value of @odata.etag for a selected bucket.  To find the ID of the bucket run: GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}/buckets and then run: GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
+        "tip": "このクエリには、選択したバケットについて、バケット ID と @odata.etag の値が必要です。 バケットの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}/buckets  次に、@odata.etag を見つけるために、次のコマンドを実行します:GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id}",
         "skipTest": false
     },
     {
         "id": "3ba300c3-d24d-4bf3-bca3-d0e6f158a9cd",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "計画のすべてのプランナー タスク",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/tasks",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannerplan_list_tasks",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "このクエリでは、プラン ID が必要です。 プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans",
         "skipTest": false
     },
     {
         "id": "26e73e65-67d7-4cae-81aa-c829bdec0a89",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "自分のすべてのプランナー タスク",
         "requestUrl": "/v1.0/me/planner/tasks",
@@ -705,12 +705,12 @@
         "humanName": "ID ごとのプランナー タスク",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannertask_get",
-        "tip": "This query requires a task id.  To find the ID of the task you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "このクエリでは、タスク ID が必要です。 タスクの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
         "id": "9f0a62e7-f425-4dda-a842-f81397006321",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "POST",
         "humanName": "プランナー タスクを作成する",
         "requestUrl": "/v1.0/planner/tasks",
@@ -722,12 +722,12 @@
             }
         ],
         "postBody": "{\r\n  \"planId\": \"{plan-id}\",\r\n  \"title\": \"{task-title}\",\r\n  \"assignments\": {}\r\n}",
-        "tip": "This query requires a Plan id.  To find the ID of the Plan you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "このクエリでは、プラン ID が必要です。 プランの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
         "id": "50fd36fd-7420-449e-a051-e3c5cd4c68b0",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "PATCH",
         "humanName": "プランナー タスクを更新する",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
@@ -739,17 +739,17 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
-        "tip": "This query requires a task id and value of @odata.etag for a selected task.  To find the ID of the task and @odata.etag you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "このクエリでは、選択したタスクについて、タスク ID と @odata etag の値が必要です。 タスクの ID と @odata.etagを見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
         "id": "f557e60e-64c9-4daf-b93e-34e55f08d787",
-        "category": "プランナー",
+        "category": "Planner",
         "method": "GET",
         "humanName": "Planner タスクの詳細",
         "requestUrl": "/v1.0/planner/tasks/{task-id}/details",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/plannertaskdetails_get",
-        "tip": "This query requires a task id.  To find the ID of the task you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "このクエリでは、タスク ID が必要です。 タスクの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -923,7 +923,7 @@
         "requestUrl": "/v1.0/me/onenote/notebooks",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/onenote_post_notebooks",
         "postBody": "{\r\n  \"displayName\": \"My Notebook\"\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "要求本文を更新し、[クエリの実行] を選択します。",
         "skipTest": false
     },
     {
@@ -940,7 +940,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"Section 1\"\r\n}",
-        "tip": "This query requires a notebook id.  To find the ID, you can run: GET https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
+        "tip": "このクエリでは、ノートブック ID が必要です。 ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/onenote/notebooks",
         "skipTest": false
     },
     {
@@ -957,7 +957,7 @@
             }
         ],
         "postBody": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>A page with a block of HTML</title>\r\n  </head>\r\n  <body>\r\n    <p>This page contains some <i>formatted</i> <b>text</b>.</p>\r\n  </body>\r\n</html>",
-        "tip": "This query requires a section id.  To find the ID, you can run: GET https://graph.microsoft.com/v1.0/me/onenote/sections.",
+        "tip": "このクエリでは、セクション ID が必要です。 ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/onenote/sections",
         "skipTest": false
     },
     {
@@ -1088,7 +1088,7 @@
             }
         ],
         "postBody": "{\"requests\" : [{\"url\" : \"/me?$select=displayName,jobTitle,userPrincipalName\", \"method\" : \"GET\", \"id\" : \"1\"}, {\"url\" : \"/me/messages?$filter=importance eq 'high'&$select=from,subject,receivedDateTime,bodyPreview\", \"method\" : \"GET\", \"id\" : \"2\"}, {\"url\" : \"/me/events\", \"method\" : \"GET\", \"id\" : \"3\"}]  }",
-        "tip": "This query shows you how to use batching to get your user information, your messages, and your events.",
+        "tip": "このクエリは、バッチ処理を使用してユーザー情報、メッセージ、イベントを取得する方法を示します。",
         "skipTest": false
     },
     {
@@ -1105,7 +1105,7 @@
             }
         ],
         "postBody": "{\r\n \"requests\": [{\r\n   \"url\": \"/me/drive/root/children\",\r\n   \"method\": \"POST\",\r\n   \"id\": \"1\",\r\n   \"body\": {\r\n    \"name\": \"TestBatchingFolder\",\r\n    \"folder\": {}\r\n   },\r\n   \"headers\": {\r\n    \"Content-Type\": \"application/json\"\r\n   }\r\n  }, {\r\n   \"url\": \"/me/drive/root/children/TestBatchingFolder \",\r\n   \"method\": \"GET\",\r\n   \"id\": \"2\",\r\n   \"DependsOn\": [\"1\"]\r\n  }\r\n ]\r\n} ",
-        "tip": "This query will create a folder called TestBatchingFolder in your OneDrive and return it back to you via a GET.",
+        "tip": "このクエリは、OneDrive に TestBatchingFolder という名前のフォルダーを作成し、GET を使ってこのフォルダーをユーザーに返します。",
         "skipTest": false
     },
     {
@@ -1124,7 +1124,7 @@
         "humanName": "チームのメンバー",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/members",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/group_list_memberof",
-        "tip": "This query requires a group id of the Team.  To find the group id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "このクエリでは、チームのグループ ID が必要です。 自分が属しているチームの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1134,7 +1134,7 @@
         "humanName": "自分がメンバーであるチームのチャネル",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/channel_list",
-        "tip": "This query requires a team id.  To find the team id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "このクエリでは、チーム ID が必要です。 自分が属しているチームの チーム ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1144,7 +1144,7 @@
         "humanName": "チャネル情報",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/channel_get",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
+        "tip": "このクエリでは、そのチームのチーム ID とチャネル ID が必要です。チーム ID とチャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1155,7 +1155,7 @@
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/channel_post",
         "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
-        "tip": "This query requires a team id.  To find the team id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams.",
+        "tip": "このクエリでは、チーム ID が必要です。 自分が属しているチームの チーム ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1165,7 +1165,7 @@
         "humanName": "チーム内のアプリ",
         "requestUrl": "/v1.0/teams/{team-id}/installedApps?$expand=teamsAppDefinition",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/teamsappinstallation_list",
-        "tip": "This query requires a team id. To find the team id, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "このクエリでは、チーム ID が必要です。チーム ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1175,7 +1175,7 @@
         "humanName": "チャネル内のタブ",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/tabs?$expand=teamsApp",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/teamstab_list",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
+        "tip": "このクエリでは、そのチームのチーム ID とチャネル ID が必要です。チーム ID とチャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1185,7 +1185,7 @@
         "humanName": "チーム ドライブ内のアイテム",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/item_list_children",
-        "tip": "This query requires a group id of the Team.  To find the group id of Teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "このクエリでは、チームのグループ ID が必要です。 自分が属しているチームの グループ ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1195,7 +1195,7 @@
         "humanName": "チャネル内のメッセージ (返信なし)",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_list_messages",
-        "tip": "This query requires a group id of the Team and channel id of the corresponding channel of that Team. To find the group id  & channel id, you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
+        "tip": "このクエリでは、チームのグループ ID と、そのチームに対応するチャネルのチャネル ID が必要です。グループ ID と チャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
         "skipTest": false
     },
     {
@@ -1205,7 +1205,7 @@
         "humanName": "チャネル内のメッセージ",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_get_message",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team and message id of the message you want to retrieve. To find the group id, channel id and message-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+        "tip": "このクエリでは、チームのグループ ID、そのチームに対応するチャネルのチャネル ID、取得するメッセージのメッセージ ID が必要です。グループ ID、チャネル ID、メッセージ ID を見つけるには、次のコマンドを実行じます。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "skipTest": false
     },
     {    
@@ -1215,7 +1215,7 @@
         "humanName": "チャネル内のメッセージへの返信",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_list_messagereplies",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team and message id of the message of which you need the replies. To find the group id, channel id and message-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+        "tip": "このクエリでは、チームのグループ ID、そのチームに対応するチャネルのチャネル ID、返信が必要なメッセージのメッセージ ID が必要です。グループ ID、チャネル ID、メッセージ ID を見つけるには、次のコマンドを実行じます。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "skipTest": false
     },
     {
@@ -1225,7 +1225,7 @@
         "humanName": "メッセージの返信",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_get_messagereply",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team, message id of the message of which you need the reply and the id of the specific reply. To find the group id, channel id, message-id and reply-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+        "tip": "このクエリでは、チームのグループ ID、そのチームに対応するチャネルのチャネル ID、返信が必要なメッセージのメッセージ ID、その特定の返信の ID が必要です。グループ ID、チャネル ID、メッセージ ID、返信 ID を見つけるには、次のコマンドを実行じます。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
     },
     {
@@ -1236,7 +1236,7 @@
         "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_post_chatthreads",
         "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
+        "tip": "このクエリでは、そのチームのチーム ID とチャネル ID が必要です。チーム ID とチャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1282,7 +1282,7 @@
         "humanName": "宛先アドレスでフィルター処理するアラート",
         "requestUrl": "/v1.0/security/alerts?$filter=networkConnections/any(d:d/destinationAddress eq '{destination-address}')",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/alert_list",
-        "tip": "This query requires a destination address. Run https://graph.microsoft.com/v1.0/security/alerts?$top=1 and search the results for a destinationAddress property.",
+        "tip": "このクエリでは、宛先アドレスが必要です。https://graph.microsoft.com/v1.0/security/alerts?$top=1 を実行し、結果の中で destinationAddress property を探します。",
         "skipTest": false
     },
     {
@@ -1338,7 +1338,7 @@
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/alert_update",
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
-        "tip": "This query requires an alert id. To find the ID of the alert, you can run: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
+        "tip": "このクエリでは、警告 ID が必要です。警告の ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
     },
     {
@@ -1369,7 +1369,7 @@
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/tiindicator-update",
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "このクエリでは、TI インジケーター ID が必要です。ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1380,7 +1380,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/tiindicator-updatetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
+        "tip": "このクエリでは、TI インジケーター ID が必要です。ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
     },
     {
@@ -1391,7 +1391,7 @@
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/securityactions-post",
         "postBody": "{\r\n    \"name\": \"blockIp\",\r\n     \"vendorInformation\" :\r\n     {  \"provider\": \"Windows Defender ATP\",\r\n          \"vendor\": \"Microsoft\"\r\n      },\r\n    \"parameters\" : [\r\n      {\"name\": \"IP\", \"value\":\"1.2.3.4\" }\r\n    ]\r\n}",
-        "tip": "Change the provider, vendor and parameters are needed",
+        "tip": "必要に応じて、プロバイダー、ベンダー、パラメーターを変更します",
         "skipTest": false
     },
     {
@@ -1401,7 +1401,7 @@
         "humanName": "TI インジケーターを削除する (ベータ版)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/tiindicator-delete",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "このクエリでは、TI インジケーター ID が必要です。ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1412,7 +1412,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/tiindicator-deletetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "このクエリでは、TI インジケーター ID が必要です。ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1423,7 +1423,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/tiindicator-deletetiindicatorsbyexternalid",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator external id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "このクエリでは、TI インジケーター 外部 ID が必要です。ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1483,7 +1483,7 @@
         "humanName": "アプリケーションのプロパティを取得する",
         "requestUrl": "/beta/applications/{application-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_get",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
@@ -1500,7 +1500,7 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
@@ -1510,7 +1510,7 @@
         "humanName": "アプリケーションを削除する",
         "requestUrl": "/beta/applications/{application-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
@@ -1520,7 +1520,7 @@
         "humanName": "所有者のリストを取得する",
         "requestUrl": "/beta/applications/{application-id}/owners",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
@@ -1537,7 +1537,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications. In the request body supply a JSON representation of directoryObject object",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications要求本文で、directoryObject オブジェクトの JSON 表記を指定します。",
         "skipTest": false
     },
     {
@@ -1554,7 +1554,7 @@
             }
         ],
         "postBody": "{\r\n  \"targetHostName\": \"graphnotifications.sample.windows.com\",\r\n  \"appNotificationId\": \"sampleRawNotification\",\r\n  \"payload\": {\r\n    \"rawContent\": \"Hello World!\"\r\n  },\r\n  \"targetPolicy\": {\r\n    \"platformTypes\": [\r\n      \"windows\",\r\n      \"ios\",\r\n      \"android\"\r\n    ]\r\n  },\r\n  \"priority\": \"High\",\r\n  \"displayTimeToLive\": \"60\"\r\n}",
-        "tip": "Please enable the Notifications.ReadWrite.CreatedByApp permission in order to use this query.  A raw notification is a notification that is received by the application and processed in an application specific manner.  A raw notification may or may not include UI/UX for the user. Note - This query will only work with a sample application by default. See https://aka.ms/projectRomeSamples/ for additional info.",
+        "tip": "このクエリを使用するには、Notifications.ReadWrite.CreatedByApp アクセス許可を有効にします。 Raw 通知とは、アプリケーションによって受信され、アプリケーション固有の方法で処理される通知のことです。 Raw 通知には、ユーザーの UI/UX が含まれる場合も含まれない場合もあります。注: このクエリは、既定ではサンプル アプリケーションのみで動作します。詳細については、https://aka.ms/projectRomeSamples/ を参照してください。",
         "skipTest": false
     },
     {
@@ -1571,7 +1571,7 @@
             }
         ],
         "postBody": "{\r\n  \"targetHostName\": \"graphnotifications.sample.windows.com\",\r\n  \"appNotificationId\": \"sampleDirectToastNotification\",\r\n  \"payload\": {\r\n    \"visualContent\": {\r\n      \"title\": \"Hello World!\",\r\n      \"body\": \"Notifications are Great!\"\r\n    }\r\n  },\r\n  \"targetPolicy\": {\r\n    \"platformTypes\": [\r\n      \"windows\",\r\n      \"ios\",\r\n      \"android\"\r\n    ]\r\n  },\r\n  \"priority\": \"High\",\r\n  \"displayTimeToLive\": \"60\"\r\n}",
-        "tip": "Please enable the Notifications.ReadWrite.CreatedByApp permission in order to use this query.  A visual notification is a notification that a user can see by default within the notification center of the target platform. Note - This query will only work with a sample application by default. See https://aka.ms/projectRomeSamples/ for additional info.",
+        "tip": "このクエリを使用するには、Notifications.ReadWrite.CreatedByApp アクセス許可を有効にします。 ビジュアル通知とは、目的のプラットフォームの通知センターで既定でユーザーに表示される表示のことです。注: このクエリは、既定ではサンプル アプリケーションのみで動作します。詳細については、https://aka.ms/projectRomeSamples/ を参照してください。",
         "skipTest": false
     },
     {
