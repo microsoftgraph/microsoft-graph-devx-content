@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "Erste Schritte",
+        "method": "GET",
+        "humanName": "Mein Profil (Beta)",
+        "requestUrl": "/beta/me/",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "Erste Schritte",
         "method": "GET",
@@ -763,29 +772,29 @@
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "Insights (Beta)",
+        "category": "Insights",
         "method": "GET",
         "humanName": "Populäre Elemente",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "Insights (Beta)",
+        "category": "Insights",
         "method": "GET",
         "humanName": "Mit mir geteilte Elemente",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "Insights (Beta)",
+        "category": "Insights",
         "method": "GET",
         "humanName": "Von mir angezeigte und geänderte Elemente",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -803,15 +812,6 @@
         "method": "GET",
         "humanName": "Personen, deren Name mit J beginnt",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://docs.microsoft.com/de-de/graph/people-example",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "Personen",
-        "method": "GET",
-        "humanName": "Personen, die für ein Thema relevant sind",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
         "docLink": "https://docs.microsoft.com/de-de/graph/people-example",
         "skipTest": false
     },
@@ -1230,13 +1230,33 @@
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (Beta)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "Chatthread erstellen",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
+        "humanName": "kanalnachricht senden",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/de-de/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "Für diese Abfrage sind eine Team-ID und eine Kanal-ID vom diesem Team erforderlich. Wenn Sie nach der Team-ID & Kanal-ID suchen möchten, können Sie Folgendes ausführen: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Microsoft Teams (Beta)",
+        "method": "GET",
+        "humanName": "Abrufen meines Anwesenheitsstatus ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Für diese Abfrage sind Presence.Read-Berechtigungen erforderlich.",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Microsoft Teams (Beta)",
+        "method": "GET",
+        "humanName": "Abrufen des Anwesenheitsstatus eines Benutzers ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Für diese Abfrage sind eine Benutzer-ID und Presence.Read.All-Berechtigungen erforderlich. Wenn Sie nach der Benutzer-ID suchen möchten, können Sie Folgendes ausführen:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1453,20 +1473,20 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "GET",
         "humanName": "Abrufen der Liste mit Anwendungen",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_list",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "POST",
         "humanName": "Eine neue Anwendung erstellen",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1498,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "GET",
         "humanName": "Abrufen von Anwendungseigenschaften",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_get",
-        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "PATCH",
         "humanName": "Aktualisieren von Anwendungseigenschaften",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1520,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/beta/applications",
+        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung zu finden: GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "DELETE",
         "humanName": "Anwendung löschen",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung zu finden: GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "GET",
         "humanName": "Abrufen einer Liste mit Besitzern",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung zu finden: GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "Anwendungen (Beta)",
+        "category": "Anwendungen",
         "method": "POST",
         "humanName": "Neuen Besitzer erstellen",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1557,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung&#44; zu finden: GET https://graph.microsoft.com/beta/applications. Geben Sie im Anforderungstext eine JSON-Darstellung des directoryObject-Objekts an.",
+        "tip": "Für diese Abfrage ist eine Anwendungs-ID erforderlich. Führen Sie Folgendes aus, um die ID einer Anwendung zu finden: GET https://graph.microsoft.com/v1.0/applications. Geben Sie im Anforderungstext eine JSON-Darstellung des directoryObject-Objekts an.",
         "skipTest": false
     },
     {
