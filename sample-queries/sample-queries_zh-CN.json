@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "开始使用",
+        "method": "GET",
+        "humanName": "我的个人资料（beta 版）",
+        "requestUrl": "/beta/me/",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "开始使用",
         "method": "GET",
@@ -763,34 +772,34 @@
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "我常用的项目",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "与我共享的项",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "由我查看和修改的项",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "e995de85-f1f2-4438-93a6-c5231b2bb1d4",
-        "category": "人员",
+        "category": "人脉",
         "method": "GET",
         "humanName": "与我合作的人员",
         "requestUrl": "/v1.0/me/people",
@@ -803,15 +812,6 @@
         "method": "GET",
         "humanName": "姓名以 J 开头的人员",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/people-example",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "人员",
-        "method": "GET",
-        "humanName": "与主题相关的人员",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/people-example",
         "skipTest": false
     },
@@ -1230,18 +1230,38 @@
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "创建聊天会话",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
+        "humanName": "发送渠道消息",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "此查询需要团队 id 和来自该团队的频道 id。若要查找相应的团队 id 和频道 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
     },
     {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "获取我的状态 ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要 Presence.Read 权限",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "获取用户的状态 ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "9f1cd907-87ed-47dc-b18d-fb19c2d1342f",
-        "category": "安全性",
+        "category": "Security",
         "method": "GET",
         "humanName": "警报",
         "requestUrl": "/v1.0/security/alerts?$top=1",
@@ -1453,20 +1473,20 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
         "humanName": "检索应用程序列表",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_list",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "POST",
         "humanName": "创建新应用程序",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1498,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
         "humanName": "检索应用程序属性",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_get",
-        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID&#44;可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "PATCH",
         "humanName": "更新应用程序属性",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1520,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "DELETE",
         "humanName": "删除应用程序",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
         "humanName": "检索所有者列表",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_list_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
         "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "POST",
         "humanName": "创建一个新的所有者",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1557,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications。在请求正文中，提供 directoryObject 对象的 JSON 表示形式",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications.在请求正文中，提供 directoryObject 对象的 JSON 表示形式",
         "skipTest": false
     },
     {
