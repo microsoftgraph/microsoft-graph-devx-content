@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "Introdução",
+        "method": "GET",
+        "humanName": "meu perfil (beta)",
+        "requestUrl": "/beta/me/",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "Introdução",
         "method": "GET",
@@ -158,7 +167,7 @@
         "humanName": "membros do grupo",
         "requestUrl": "/v1.0/groups/{group-id}/members",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/group_list_members",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -168,7 +177,7 @@
         "humanName": "conversas do grupo",
         "requestUrl": "/v1.0/groups/{group-id}/conversations",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/group_list_conversations",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -178,7 +187,7 @@
         "humanName": "eventos do grupo",
         "requestUrl": "/v1.0/groups/{group-id}/events",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/group_list_events",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -194,7 +203,7 @@
                 "value": "application/json"
             }
         ],
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -204,7 +213,7 @@
         "humanName": "itens de uma unidade de grupo",
         "requestUrl": "/v1.0/groups/{group-id}/drive/root/children",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/drive_get",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -274,7 +283,7 @@
             }
         ],
         "postBody": "{\r\n  \"comment\": \"FYI\",\r\n  \"toRecipients\": [\r\n    {\r\n      \"emailAddress\": {\r\n        \"address\": \"{user-mail}\",\r\n        \"name\": \"Alex Darrow\"\r\n      }\r\n    }\r\n  ]\r\n}",
-        "tip": "Esta consulta exige uma ID de mensagem. Para obter a ID, execute a seguinte consulta, localize a mensagem na resposta e use a respectiva propriedade ID: OBTER https://graph.microsoft.com/v1.0/me/messages",
+        "tip": "Esta consulta exige uma ID de mensagem. Para obter a ID, execute a seguinte consulta, localize a mensagem na resposta e use a respectiva propriedade ID: GET https://graph.microsoft.com/v1.0/me/messages",
         "skipTest": false
     },
     {
@@ -596,7 +605,7 @@
         "humanName": "todos os planos do Planner associados a um grupo",
         "requestUrl": "/v1.0/groups/{group-id-with-plan}/planner/plans",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannergroup_list_plans",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -606,7 +615,7 @@
         "humanName": "Plano do Planner",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannerplan_get",
-        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: OBTER https://Graph.Microsoft.com/v1.0/me/groups/{ID do grupo}/planos.",
+        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
         "skipTest": false
     },
     {
@@ -623,7 +632,7 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated plan title\"\r\n}",
-        "tip": "Esta consulta exige uma ID de plano e um valor de @odata.etag para uma tarefa selecionada. Para encontrar a ID do plano, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/planner/tasks. Para obter o @odata.etag, execute: OBTER https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
+        "tip": "Esta consulta exige uma ID de plano e um valor de @odata.etag para uma tarefa selecionada. Para encontrar a ID do plano, você pode executar o: GET https://graph.microsoft.com/v1.0/me/planner/tasks. Para obter o @odata.etag, execute: GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
         "skipTest": false
     },
     {
@@ -633,7 +642,7 @@
         "humanName": "todos os buckets no plano do Planner",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/buckets",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannerplan_list_buckets",
-        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: OBTER https://Graph.Microsoft.com/v1.0/me/groups/{ID do grupo}/planos.",
+        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
         "skipTest": false
     },
     {
@@ -650,7 +659,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"{bucket-name}\",\r\n  \"planId\": \"{plan-id}\",\r\n  \"orderHint\": \" !\"\r\n}",
-        "tip": "Esta consulta exige uma ID do Plano.  Para encontrar a ID do Plano que você pode executar: OBTER https://graph.microsoft.com/v1.0/me/planner/plans",
+        "tip": "Esta consulta exige uma ID do Plano.  Para encontrar a ID do Plano que você pode executar: GET https://graph.microsoft.com/v1.0/me/planner/plans",
         "skipTest": false
     },
     {
@@ -667,7 +676,7 @@
             }
         ],
         "postBody": "{\r\n    \"name\": \"Updated bucket name\"\r\n}",
-        "tip": "Esta consulta exige uma ID de Bucket e o valor de @odata. ETag de um Bucket selecionado.  Para encontrar a ID do bucket, execute: Obtenha https://Graph.Microsoft.com/v1.0/Planner/Plans/{ID do plano}/buckets e, em seguida, execute: OBTER https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
+        "tip": "Esta consulta exige uma ID de Bucket e o valor de @odata. ETag de um Bucket selecionado.  Para encontrar a ID do bucket, execute: Obtenha https://Graph.Microsoft.com/v1.0/Planner/Plans/{ID do plano}/buckets e, em seguida, execute: GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
         "skipTest": false
     },
     {
@@ -677,7 +686,7 @@
         "humanName": "todas as tarefas do Planner para um plano",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/tasks",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannerplan_list_tasks",
-        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: OBTER https://Graph.Microsoft.com/v1.0/me/groups/{ID do grupo}/planos.",
+        "tip": "Esta consulta exige uma ID do plano.  Para encontrar a ID do plano que você pode executar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
         "skipTest": false
     },
     {
@@ -705,7 +714,7 @@
         "humanName": "tarefa do Planner por id",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannertask_get",
-        "tip": "Esta consulta exige uma ID de tarefa.  Para encontrar a ID da tarefa que você pode executar: OBTER https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "Esta consulta exige uma ID de tarefa.  Para encontrar a ID da tarefa que você pode executar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -722,7 +731,7 @@
             }
         ],
         "postBody": "{\r\n  \"planId\": \"{plan-id}\",\r\n  \"title\": \"{task-title}\",\r\n  \"assignments\": {}\r\n}",
-        "tip": "Esta consulta exige uma ID do Plano.  Para encontrar a ID do Plano que você pode executar: OBTER https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "Esta consulta exige uma ID do Plano.  Para encontrar a ID do Plano que você pode executar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -739,7 +748,7 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
-        "tip": "Esta consulta exige uma ID de tarefa e o valor de @odata.etag para uma tarefa selecionada.  Para encontrar a ID da tarefa e @odata.etag, você pode executar: OBTER https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "Esta consulta exige uma ID de tarefa e o valor de @odata.etag para uma tarefa selecionada.  Para encontrar a ID da tarefa e @odata.etag, você pode executar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -749,7 +758,7 @@
         "humanName": "detalhes da tarefa do Planner",
         "requestUrl": "/v1.0/planner/tasks/{task-id}/details",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannertaskdetails_get",
-        "tip": "Esta consulta exige uma ID de tarefa.  Para encontrar a ID da tarefa que você pode executar: OBTER https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "Esta consulta exige uma ID de tarefa.  Para encontrar a ID da tarefa que você pode executar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -763,29 +772,29 @@
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "Insights (beta)",
+        "category": "Informações",
         "method": "GET",
         "humanName": "itens mais populares à minha volta",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "Insights (beta)",
+        "category": "Informações",
         "method": "GET",
         "humanName": "itens compartilhados comigo",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "Insights (beta)",
+        "category": "Informações",
         "method": "GET",
         "humanName": "itens exibidos e modificados por mim",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -803,15 +812,6 @@
         "method": "GET",
         "humanName": "pessoas cujos nomes começam com J",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/people-example",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "Pessoas",
-        "method": "GET",
-        "humanName": "pessoas relevantes para um tópico",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
         "docLink": "https://docs.microsoft.com/pt-br/graph/people-example",
         "skipTest": false
     },
@@ -940,7 +940,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"Section 1\"\r\n}",
-        "tip": "Esta consulta exige uma ID do bloco de anotações.  Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
+        "tip": "Esta consulta exige uma ID do bloco de anotações.  Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
         "skipTest": false
     },
     {
@@ -957,7 +957,7 @@
             }
         ],
         "postBody": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>A page with a block of HTML</title>\r\n  </head>\r\n  <body>\r\n    <p>This page contains some <i>formatted</i> <b>text</b>.</p>\r\n  </body>\r\n</html>",
-        "tip": "Esta consulta exige uma ID de seção.  Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/v1.0/me/onenote/sections.",
+        "tip": "Esta consulta exige uma ID de seção.  Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/v1.0/me/onenote/sections.",
         "skipTest": false
     },
     {
@@ -1124,7 +1124,7 @@
         "humanName": "membros de uma equipe",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/members",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/group_list_memberof",
-        "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1134,7 +1134,7 @@
         "humanName": "canais de uma equipe da qual sou membro",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/channel_list",
-        "tip": "Esta consulta exige uma ID de equipe.  Para encontrar a ID de equipe das equipes às quais você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "Esta consulta exige uma ID de equipe.  Para encontrar a ID de equipe das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1165,7 +1165,7 @@
         "humanName": "aplicativos em uma equipe",
         "requestUrl": "/v1.0/teams/{team-id}/installedApps?$expand=teamsAppDefinition",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/teamsappinstallation_list",
-        "tip": "Esta consulta exige uma ID de equipe. Para encontrar a ID da equipe, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "Esta consulta exige uma ID de equipe. Para encontrar a ID da equipe, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1185,7 +1185,7 @@
         "humanName": "itens em uma unidade de equipe",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
-        "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: OBTER https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1225,23 +1225,43 @@
         "humanName": "resposta de uma mensagem",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/channel_get_messagereply",
-        "tip": "Esta consulta exige uma ID de grupo da Equipe, ID de canal do canal correspondente dessa Equipe, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) OBTER https://graph.microsoft.com/beta/me/joinedTeams 2) OBTER https://Graph.Microsoft.com/beta/groups/{ID do grupo-para-equipes}/canais 3) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{ID do canal}/mensagens 4) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{Channel-ID}/mensagens/{Message-ID}/respostas",
+        "tip": "Esta consulta exige uma ID de grupo da Equipe, ID de canal do canal correspondente dessa Equipe, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "criar thread de chat",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
+        "humanName": "enviar a mensagem do canal",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
-        "tip": "Esta consulta exige uma ID de equipe e uma ID de canal dessa equipe. Para encontrar a ID da equipe e o ID de canal, você pode executar: 1) OBTER https://graph.microsoft.com/beta/me/joinedTeams 2) OBTER https://graph.microsoft.com/beta/teams/{identificação da equipe}/canais",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
+        "tip": "Esta consulta exige uma ID de equipe e uma ID de canal dessa equipe. Para encontrar a ID da equipe e o ID de canal, você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "Obter minha presença ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta exige permissões Presence.Read",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "Obter uma presença de usuário ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Para encontrar uma ID de usuário, você pode executar:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
         "id": "9f1cd907-87ed-47dc-b18d-fb19c2d1342f",
-        "category": "Segurança",
+        "category": "Security",
         "method": "GET",
         "humanName": "alertas",
         "requestUrl": "/v1.0/security/alerts?$top=1",
@@ -1338,7 +1358,7 @@
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/alert_update",
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
-        "tip": "Esta consulta exige uma ID de alerta. Para encontrar a ID do alerta, você pode executar o: OBTER https://graph.microsoft.com/v1.0/security/alerts?$top=1",
+        "tip": "Esta consulta exige uma ID de alerta. Para encontrar a ID do alerta, você pode executar o: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
     },
     {
@@ -1369,7 +1389,7 @@
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-update",
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
-        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1380,7 +1400,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-updatetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
-        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
+        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
     },
     {
@@ -1401,7 +1421,7 @@
         "humanName": "excluir indicador IT (beta)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-delete",
-        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1412,7 +1432,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-deletetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
-        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1423,7 +1443,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-deletetiindicatorsbyexternalid",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
-        "tip": "Esta consulta requer a ID externa do indicador de TI. Para encontrar a ID, você pode executar: OBTER https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "Esta consulta requer a ID externa do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1453,20 +1473,20 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "GET",
         "humanName": "recuperar a lista de aplicativos",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_list",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "POST",
         "humanName": "criar um novo aplicativo",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1498,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "GET",
         "humanName": "recuperar propriedades do aplicativo",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_get",
-        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar a ID de um aplicativo&#44; você pode executar: OBTER https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar uma ID de aplicativo&#44; você pode executar: OBTER https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "PATCH",
         "humanName": "atualizar propriedades do aplicativo",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1520,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar a ID de um aplicativo&#44; você pode executar: OBTER https://graph.microsoft.com/beta/applications",
+        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar uma ID de aplicativo; você pode executar: OBTER https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "DELETE",
         "humanName": "excluir um aplicativo",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar a ID de um aplicativo&#44; você pode executar: OBTER https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar uma ID de aplicativo; você pode executar: OBTER https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "GET",
         "humanName": "recuperar uma lista de proprietários",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar a ID de um aplicativo&#44; você pode executar: OBTER https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar uma ID de aplicativo; você pode executar: OBTER https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "Aplicativos (beta)",
+        "category": "Aplicativos",
         "method": "POST",
         "humanName": "criar um novo proprietário",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1557,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar a ID de um aplicativo&#44; você pode executar: OBTER o https://graph.microsoft.com/beta/applications. No corpo da solicitação, forneça uma representação JSON do objeto directoryObject",
+        "tip": "Esta consulta exige uma ID de aplicativo. Para encontrar uma ID de aplicativo; você pode executar: OBTER https://graph.microsoft.com/v1.0/applications. No corpo da solicitação, forneça uma representação JSON do objeto directoryObject",
         "skipTest": false
     },
     {
