@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "はじめに",
+        "method": "GET",
+        "humanName": "自分のプロファイル (ベータ版)",
+        "requestUrl": "/beta/me/",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "はじめに",
         "method": "GET",
@@ -758,34 +767,34 @@
         "method": "GET",
         "humanName": "最近使ったファイル",
         "requestUrl": "/v1.0/me/drive/recent",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/drive_recent",
+        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/drive_recent",
         "skipTest": false
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分の周りで人気上昇中の項目",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分と共有されたアイテム",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分が表示また変更したアイテム",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -803,16 +812,7 @@
         "method": "GET",
         "humanName": "J で始まる名前を持つ人",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://docs.microsoft.com/ja-jp/graph/people-example",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "ユーザー",
-        "method": "GET",
-        "humanName": "トピックに関連する人",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
-        "docLink": "https://docs.microsoft.com/ja-jp/graph/people-example",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/people-example",
         "skipTest": false
     },
     {
@@ -1230,13 +1230,33 @@
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (ベータ版)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "チャット スレッドを作成する",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
+        "humanName": "チャネル メッセージを送信する",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "このクエリでは、そのチームのチーム ID とチャネル ID が必要です。チーム ID とチャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Microsoft Teams (ベータ版)",
+        "method": "GET",
+        "humanName": "自分のプレゼンスを入手する ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "このクエリには Presence.Read 権限が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Microsoft Teams (ベータ版)",
+        "method": "GET",
+        "humanName": "ユーザーのプレゼンスを取得する ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "このクエリには、ユーザー ID と Presence.Read.All が必要です。ユーザー ID を見つけるには、次のコマンドを実行します。 GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1453,20 +1473,20 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
         "humanName": "アプリケーションの一覧を取得する",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_list",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "POST",
         "humanName": "新しいアプリケーションを作成する",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1498,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
         "humanName": "アプリケーションのプロパティを取得する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_get",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "PATCH",
         "humanName": "アプリケーションのプロパティを更新する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1520,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "DELETE",
         "humanName": "アプリケーションを削除する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
         "humanName": "所有者のリストを取得する",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "POST",
         "humanName": "新しい所有者を作成する",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/ja-JP/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1557,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications要求本文で、directoryObject オブジェクトの JSON 表記を指定します。",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications.要求本文で、directoryObject オブジェクトの JSON 表記を指定します。",
         "skipTest": false
     },
     {
