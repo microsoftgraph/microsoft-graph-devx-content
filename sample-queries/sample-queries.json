@@ -143,6 +143,26 @@
         "skipTest": false
     },
     {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Users",
+        "method": "GET",
+        "humanName": "Get my presence ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "This query requires Presence.Read permissions",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Users",
+        "method": "GET",
+        "humanName": "Get a user's presence ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "This query requires a user id and Presence.Read.All permissions. To find user id, you can run:  GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "3d040b26-c26b-411a-9700-7fba8b327954",
         "category": "Groups",
         "method": "GET",
@@ -1237,26 +1257,6 @@
         "docLink": "https://docs.microsoft.com/en-us/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
-        "skipTest": false
-    },
-    {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Users",
-        "method": "GET",
-        "humanName": "Get my presence ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "This query requires Presence.Read permissions",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Users",
-        "method": "GET",
-        "humanName": "Get a user's presence ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "This query requires a user id and Presence.Read.All permissions. To find user id, you can run:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
