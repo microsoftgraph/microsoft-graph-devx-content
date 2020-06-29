@@ -14,7 +14,7 @@
         "category": "Introdução",
         "method": "GET",
         "humanName": "meu perfil (beta)",
-        "requestUrl": "/beta/me/",
+        "requestUrl": "/beta/me/profile",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
@@ -140,6 +140,26 @@
         "humanName": "controlar alterações do usuário",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "Obter minha presença ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta exige permissões Presence.Read",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "Obter uma presença de usuário ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Para encontrar uma ID de usuário, você pode executar:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1240,28 +1260,8 @@
         "skipTest": false
     },
     {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "Obter minha presença ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "Esta consulta exige permissões Presence.Read",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "Obter uma presença de usuário ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Para encontrar uma ID de usuário, você pode executar:  GET https://graph.microsoft.com/v1.0/users",
-        "skipTest": false
-    },
-    {
         "id": "9f1cd907-87ed-47dc-b18d-fb19c2d1342f",
-        "category": "Security",
+        "category": "Segurança",
         "method": "GET",
         "humanName": "alertas",
         "requestUrl": "/v1.0/security/alerts?$top=1",
