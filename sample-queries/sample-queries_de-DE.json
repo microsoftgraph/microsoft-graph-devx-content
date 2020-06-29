@@ -14,7 +14,7 @@
         "category": "Erste Schritte",
         "method": "GET",
         "humanName": "Mein Profil (Beta)",
-        "requestUrl": "/beta/me/",
+        "requestUrl": "/beta/me/profile",
         "docLink": "https://docs.microsoft.com/de-de/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
@@ -140,6 +140,26 @@
         "humanName": "Benutzeränderungen nachverfolgen",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/de-de/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "Abrufen meines Anwesenheitsstatus ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Für diese Abfrage sind Presence.Read-Berechtigungen erforderlich.",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "Abrufen des Anwesenheitsstatus eines Benutzers ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Für diese Abfrage sind eine Benutzer-ID und Presence.Read.All-Berechtigungen erforderlich. Wenn Sie nach der Benutzer-ID suchen möchten, können Sie Folgendes ausführen:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1237,26 +1257,6 @@
         "docLink": "https://docs.microsoft.com/de-de/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "Für diese Abfrage sind eine Team-ID und eine Kanal-ID vom diesem Team erforderlich. Wenn Sie nach der Team-ID & Kanal-ID suchen möchten, können Sie Folgendes ausführen: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
-        "skipTest": false
-    },
-    {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (Beta)",
-        "method": "GET",
-        "humanName": "Abrufen meines Anwesenheitsstatus ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "Für diese Abfrage sind Presence.Read-Berechtigungen erforderlich.",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (Beta)",
-        "method": "GET",
-        "humanName": "Abrufen des Anwesenheitsstatus eines Benutzers ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Für diese Abfrage sind eine Benutzer-ID und Presence.Read.All-Berechtigungen erforderlich. Wenn Sie nach der Benutzer-ID suchen möchten, können Sie Folgendes ausführen:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
