@@ -14,7 +14,7 @@
         "category": "Начало работы",
         "method": "GET",
         "humanName": "мой профиль (бета-версия)",
-        "requestUrl": "/beta/me/",
+        "requestUrl": "/beta/me/profile",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
@@ -140,6 +140,26 @@
         "humanName": "отслеживание изменений пользователей",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Пользователи",
+        "method": "GET",
+        "humanName": "Сведения о моем присутствии ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Для этого запроса требуются разрешения Presence.Read",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Пользователи",
+        "method": "GET",
+        "humanName": "Сведения о присутствии пользователя ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Для этого запроса требуется ИД пользователя и разрешения Presence.Read.All. Чтобы узнать ИД пользователя, можно выполнить:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1236,27 +1256,7 @@
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
-        "tip": "Для этого запроса требуется идентификатор команды и идентификатор канала из этой команды. Чтобы узнать идентификатор команды и идентификатор канала, можно выполнить: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
-        "skipTest": false
-    },
-    {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (бета-версия)",
-        "method": "GET",
-        "humanName": "Сведения о моем присутствии ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "Для этого запроса требуются разрешения Presence.Read",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (бета-версия)",
-        "method": "GET",
-        "humanName": "Сведения о присутствии пользователя ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Для этого запроса требуется ИД пользователя и разрешения Presence.Read.All. Чтобы узнать ИД пользователя, можно выполнить:  GET https://graph.microsoft.com/v1.0/users",
+        "tip": "Для этого запроса требуется идентификатор команды и идентификатор канала из этой команды. Чтобы узнать идентификатор команды и идентификатор канала, можно выполнить: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{ИД_команды}/channels",
         "skipTest": false
     },
     {
