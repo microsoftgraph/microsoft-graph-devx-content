@@ -14,7 +14,7 @@
         "category": "Introducción",
         "method": "GET",
         "humanName": "mi perfil (beta)",
-        "requestUrl": "/beta/me/",
+        "requestUrl": "/beta/me/profile",
         "docLink": "https://docs.microsoft.com/es-es/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
@@ -140,6 +140,26 @@
         "humanName": "hacer un seguimiento de los cambios de los usuarios",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/es-es/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Usuarios",
+        "method": "GET",
+        "humanName": "Obtener mi presencia ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/es-es/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta requiere permisos Presence.Read",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Usuarios",
+        "method": "GET",
+        "humanName": "Obtener la presencia de un usuario ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/es-es/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Esta consulta requiere un ID. de usuario y permisos Presence.Read.All. Para buscar el Id. de usuario, puede ejecutar:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1237,26 +1257,6 @@
         "docLink": "https://docs.microsoft.com/es-es/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "Esta consulta necesita un identificador de equipo y un ID. de canal de ese equipo. Para buscar el ID. de equipo y de canal, puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
-        "skipTest": false
-    },
-    {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "Obtener mi presencia ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/es-es/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "Esta consulta requiere permisos Presence.Read",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "Obtener la presencia de un usuario ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/es-es/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Esta consulta requiere un ID. de usuario y permisos Presence.Read.All. Para buscar el Id. de usuario, puede ejecutar:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
