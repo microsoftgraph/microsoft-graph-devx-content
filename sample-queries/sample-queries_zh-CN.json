@@ -14,8 +14,8 @@
         "category": "开始使用",
         "method": "GET",
         "humanName": "我的个人资料（beta 版）",
-        "requestUrl": "/beta/me/",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "requestUrl": "/beta/me/profile",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
     {
@@ -140,6 +140,26 @@
         "humanName": "跟踪用户更改",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "获取我的状态 ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要 Presence.Read 权限",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "获取用户的状态 ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -776,7 +796,7 @@
         "method": "GET",
         "humanName": "我常用的项目",
         "requestUrl": "/v1.0/me/insights/trending",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-trending?view=graph-rest-1.0",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -785,7 +805,7 @@
         "method": "GET",
         "humanName": "与我共享的项",
         "requestUrl": "/v1.0/me/insights/shared",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-shared?view=graph-rest-1.0",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -794,7 +814,7 @@
         "method": "GET",
         "humanName": "由我查看和修改的项",
         "requestUrl": "/v1.0/me/insights/used",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -1240,28 +1260,8 @@
         "skipTest": false
     },
     {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "获取我的状态 ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "此查询需要 Presence.Read 权限",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (beta)",
-        "method": "GET",
-        "humanName": "获取用户的状态 ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
-        "skipTest": false
-    },
-    {
         "id": "9f1cd907-87ed-47dc-b18d-fb19c2d1342f",
-        "category": "Security",
+        "category": "安全性",
         "method": "GET",
         "humanName": "警报",
         "requestUrl": "/v1.0/security/alerts?$top=1",
@@ -1477,7 +1477,7 @@
         "method": "GET",
         "humanName": "检索应用程序列表",
         "requestUrl": "/v1.0/applications",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -1486,7 +1486,7 @@
         "method": "POST",
         "humanName": "创建新应用程序",
         "requestUrl": "/v1.0/applications",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1502,7 +1502,7 @@
         "method": "GET",
         "humanName": "检索应用程序属性",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-get?view=graph-rest-1.0&tabs=http",
         "tip": "此查询需要应用程序 id。若要查找应用程序的 ID&#44;可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
@@ -1512,7 +1512,7 @@
         "method": "PATCH",
         "humanName": "更新应用程序属性",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-update?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1529,7 +1529,7 @@
         "method": "DELETE",
         "humanName": "删除应用程序",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
         "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
@@ -1539,7 +1539,7 @@
         "method": "GET",
         "humanName": "检索所有者列表",
         "requestUrl": "/v1.0/applications/{application-id}/owners",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
         "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
@@ -1549,7 +1549,7 @@
         "method": "POST",
         "humanName": "创建一个新的所有者",
         "requestUrl": "/v1.0/applications/{application-id}/owners",
-        "docLink": "https://docs.microsoft.com/zh-CN/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
