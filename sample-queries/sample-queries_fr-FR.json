@@ -14,8 +14,8 @@
         "category": "Requêtes de base",
         "method": "GET",
         "humanName": "mon profil (bêta)",
-        "requestUrl": "/beta/me/",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "requestUrl": "/beta/me/profile",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/profile-get?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
     {
@@ -140,6 +140,26 @@
         "humanName": "suivre les modifications d’utilisateur",
         "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/concepts/delta_query_users",
+        "skipTest": false
+    },
+    {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "Obtenir ma présence ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "Cette requête nécessite une autorisations Presence.Read",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "Obtenir la présence d’un utilisateur ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "Cette requête nécessite une ID utilisateur et autorisations Presence.Read.All. Pour trouver l’ID utilisateur, vous pouvez exécuter :  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -776,7 +796,7 @@
         "method": "GET",
         "humanName": "éléments qui me sont suggérés",
         "requestUrl": "/v1.0/me/insights/trending",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/insights-list-trending?view=graph-rest-1.0",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -785,7 +805,7 @@
         "method": "GET",
         "humanName": "éléments partagés avec moi",
         "requestUrl": "/v1.0/me/insights/shared",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/insights-list-shared?view=graph-rest-1.0",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -794,7 +814,7 @@
         "method": "GET",
         "humanName": "éléments affichés et modifiés par moi",
         "requestUrl": "/v1.0/me/insights/used",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -1240,28 +1260,8 @@
         "skipTest": false
     },
     {
-        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
-        "category": "Microsoft Teams (version bêta)",
-        "method": "GET",
-        "humanName": "Obtenir ma présence ",
-        "requestUrl": "/beta/me/presence",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/presence-get?view=graph-rest-beta&tabs=http",
-        "tip": "Cette requête nécessite une autorisations Presence.Read",
-        "skipTest": false
-    },
-    {
-        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
-        "category": "Microsoft Teams (version bêta)",
-        "method": "GET",
-        "humanName": "Obtenir la présence d’un utilisateur ",
-        "requestUrl": "/beta/users/{user-id}/presence",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Cette requête nécessite une ID utilisateur et autorisations Presence.Read.All. Pour trouver l’ID utilisateur, vous pouvez exécuter :  GET https://graph.microsoft.com/v1.0/users",
-        "skipTest": false
-    },
-    {
         "id": "9f1cd907-87ed-47dc-b18d-fb19c2d1342f",
-        "category": "Security",
+        "category": "Sécurité",
         "method": "GET",
         "humanName": "alertes",
         "requestUrl": "/v1.0/security/alerts?$top=1",
@@ -1477,7 +1477,7 @@
         "method": "GET",
         "humanName": "récupérer la liste d’applications.",
         "requestUrl": "/v1.0/applications",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-list?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -1486,7 +1486,7 @@
         "method": "POST",
         "humanName": "créer une nouvelle application",
         "requestUrl": "/v1.0/applications",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1502,7 +1502,7 @@
         "method": "GET",
         "humanName": "récupérer les propriétés de l’application",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-get?view=graph-rest-1.0&tabs=http",
         "tip": "Cette requête nécessite un ID d’application. Pour trouver l’ID d’une application&#44; que vous pouvez exécuter, procédez comme suit : GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
@@ -1512,7 +1512,7 @@
         "method": "PATCH",
         "humanName": "mettre à jour les propriétés de l’application",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-update?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1529,7 +1529,7 @@
         "method": "DELETE",
         "humanName": "supprimer une application",
         "requestUrl": "/v1.0/applications/{application-id}",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
         "tip": "Cette requête nécessite un ID d’application. Pour trouver l’ID d’une application ; que vous pouvez exécuter, procédez comme suit : GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
@@ -1539,7 +1539,7 @@
         "method": "GET",
         "humanName": "récupérer une liste de propriétaires",
         "requestUrl": "/v1.0/applications/{application-id}/owners",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
         "tip": "Cette requête nécessite un ID d’application. Pour trouver l’ID d’une application ; que vous pouvez exécuter, procédez comme suit : GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
@@ -1549,7 +1549,7 @@
         "method": "POST",
         "humanName": "créer un propriétaire",
         "requestUrl": "/v1.0/applications/{application-id}/owners",
-        "docLink": "https://docs.microsoft.com/fr-FR/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
