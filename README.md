@@ -7,6 +7,11 @@ This will also be used by the localization team to add translation files, and by
 
 ### Contributing
 #### Sample Queries
+
+**Pre-requisites:**
+1. Download and Install Git to your machine https://git-scm.com/downloads
+2. Download and Install VS Code to your machine https://code.visualstudio.com/download
+
 To add sample queries follow these steps:
 1. Clone this repo (*microsoft-graph-devx-content*) in your local machine.
 2. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
@@ -54,11 +59,55 @@ POST Example includes headers, post body and a tip <br>
 - tip - include a tip giving more information to the user on things like permissions required, and how to get an id if needed.
 
 When done making the changes on the document, 
-1. save the document on your machine
+1. Save the document on your machine
 2. Create a Git branch on this repo and name it using your initials + describe the changes ie. bn/add-xyz-samples
 3. Commit the changes to your branch 
 4. Create a PR and add Bettirose Ngugi and/or Irvine Sunday as the reviewer(s).
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
+
+If you want to use command line or shell:
+
+**1. Cloning the repo**
+In your command line or shell, paste this command to clone this repo:
+`git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
+cd microsoft-graph-devx-content/sample-queries
+`
+
+**2. Opening the sample-queries.json file**
+`code -n sample-queries.json
+`
+or 
+You can open the directory where the file is located by pasting in this command
+`start .
+`
+
+**3. Open the Git command utility**
+If your machine x64, paste in this command 
+`start "" "%PROGRAMFILES%\Git\bin\sh.exe" --login
+`
+else, if x86, paste in this command
+`start "" "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
+`
+
+**4. Create your branch**
+Your branch name has to be of the format: {your-intial}/{purpose-of-change}. Replace the text within the parentheses (inclusive of the parentheses).
+Then in the new Git command line window, paste in this command
+`git checkout -b {your-branch-name}
+`
+
+**5. Update your sample query** 
+Add, update or delete your sample query in the `sample-queries.json` file that opened up in VS Code.
+
+**6. Add, commit and push your changes back to the repo**
+- Add the changes to you local repo: `git add sample-queries.json`
+- Commit your changes: `git commit -m "{add-reason-for-update}"`
+- Push your changes to the remote repo: `git push origin {your-branch-name}`
+
+**7. Loging to GitHub**
+Follow the instructions to login to GitHub using your credentials.
+
+**8. If you get error 403**
+Follow the instructions specified, then run this command again: `git push origin {your-branch-name}`
 
 If you run into any issues, reach out to @BettiroseNgugi 
