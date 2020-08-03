@@ -16,7 +16,7 @@ To add sample queries follow these steps:
 1. Clone this repo (*microsoft-graph-devx-content*) in your local machine.
 2. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 3. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
-4. Add the queries at the end of the list right before the closing square bracket **]** in the following format. <br>
+4. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
 GET example <br>
 >      {
 >       "id": "76ecc500-897d-4a5e-a15c-0f6702a43d32",
@@ -66,7 +66,7 @@ When done making the changes on the document,
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
 
-If you want to use command line or shell:
+#### Using command line or PowerShell:
 
 **1. Cloning the repo**
 In your command line or shell, paste this command to clone this repo:
@@ -76,38 +76,39 @@ cd microsoft-graph-devx-content/sample-queries
 
 **2. Opening the sample-queries.json file**
 `code -n sample-queries.json
-`
-or 
+` <br>
+or<br> 
 You can open the directory where the file is located by pasting in this command
 `start .
 `
 
-**3. Open the Git command utility**
-If your machine x64, paste in this command 
+**3. Open the Git command utility**<br>
+If your machine x64, paste in this command <br>
 `start "" "%PROGRAMFILES%\Git\bin\sh.exe" --login
-`
-else, if x86, paste in this command
+`<br>
+else, if x86, paste in this command<br>
 `start "" "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
 `
 
-**4. Create your branch**
-Your branch name has to be of the format: {your-intial}/{purpose-of-change}. Replace the text within the parentheses (inclusive of the parentheses).
-Then in the new Git command line window, paste in this command
+**4. Create your branch**<br>
+Your branch name has to be of the format: {your-intial}/{purpose-of-change}. <br>
+Replace the text within the parentheses (inclusive of the parentheses).<br>
+Then in the new Git command line window, paste in this command <br>
 `git checkout -b {your-branch-name}
 `
 
-**5. Update your sample query** 
+**5. Update your sample query** <br>
 Add, update or delete your sample query in the `sample-queries.json` file that opened up in VS Code.
 
-**6. Add, commit and push your changes back to the repo**
+**6. Add, commit and push your changes back to the repo**<br>
 - Add the changes to you local repo: `git add sample-queries.json`
 - Commit your changes: `git commit -m "{add-reason-for-update}"`
 - Push your changes to the remote repo: `git push origin {your-branch-name}`
 
-**7. Loging to GitHub**
+**7. Loging to GitHub**<br>
 Follow the instructions to login to GitHub using your credentials.
 
-**8. If you get error 403**
+**8. If you get error 403**<br>
 Follow the instructions specified, then run this command again: `git push origin {your-branch-name}`
 
 If you run into any issues, reach out to @BettiroseNgugi 
