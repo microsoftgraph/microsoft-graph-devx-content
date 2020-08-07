@@ -13,7 +13,7 @@ This will also be used by the localization team to add translation files, and by
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
 
 To add sample queries follow these steps:
-1. Clone this repo (*microsoft-graph-devx-content*) in your local machine.
+1. Clone or fork this repo (*microsoft-graph-devx-content*) in your local machine.
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
 1. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
@@ -69,7 +69,7 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
 ### Using Command Line or PowerShell:
 
 ### 1. Clone the repo
-In your command line or shell, paste this command to clone this repo: <br/>
+In your command line or shell, paste this command to clone or fork this repo: <br/>
 `git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
 cd microsoft-graph-devx-content/sample-queries
 `
