@@ -68,7 +68,7 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
 
 ### Using Command Line or PowerShell:
 
-### 1. Clone the repo
+### 1. Clone or Fork the repo
 In your command line or shell, paste this command to clone or fork this repo: <br/>
 `git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
 cd microsoft-graph-devx-content/sample-queries
