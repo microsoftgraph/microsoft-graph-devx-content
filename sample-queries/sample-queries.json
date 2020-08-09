@@ -1678,6 +1678,31 @@
         "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
         "tip": "enable ExternalItem.Read.All",
         "skipTest": false
+    },
+    {
+        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "category": "Microsoft Todo",
+        "method": "GET",
+        "humanName": "Get Todo task lists",
+        "requestUrl": "/beta/me/todo/lists",
+        "tip": "This query requires the Tasks.ReadWrite permission",
+        "skipTest": false
+    },
+    {
+        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "category": "Microsoft Todo",
+        "method": "POST",
+        "humanName": "Create Todo task list",
+        "requestUrl": "/beta/me/todo/lists",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"List created from MS Graph\"\r\n}",
+        "tip": "This query requires the Tasks.ReadWrite permission and a value for the displayName parameter",
+        "skipTest": false
     }
   ]
 }
