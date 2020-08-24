@@ -1678,6 +1678,65 @@
         "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
         "tip": "enable ExternalItem.Read.All",
         "skipTest": false
+    },
+    {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "List ediscoveryCases",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "Create ediscoveryCase",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "headers": [
+            {
+                "displayName": "My first eDiscovery case"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "List reviewSets",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscoveryCase (List eDiscovery Cases)",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "List reviewSetQueries",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (List eDiscovery Cases) and {reviewSetId} with the ID from a review set that exists in that case (List reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "Create reviewSetQuery",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "headers": [
+            {
+                "displayName":"Quarterly Financials Query",
+                "query":"(subject:\"Quarterly Financials\")"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (List eDiscovery Cases) and {reviewSetId} with the ID from a review set that exists in that case (List reviewSets)",
+        "skipTest": false
     }
   ]
 }
