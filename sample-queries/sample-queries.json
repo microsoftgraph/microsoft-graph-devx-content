@@ -1694,12 +1694,14 @@
         "method": "POST",
         "humanName": "Create ediscoveryCase",
         "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
-                "displayName": "My first eDiscovery case"
+                "name": "Content-type",
+                "value": "application/json"
             }
         ],
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
         "skipTest": false
     },
     {
@@ -1728,13 +1730,14 @@
         "method": "POST",
         "humanName": "Create reviewSetQuery",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
-                "displayName":"Quarterly Financials Query",
-                "query":"(subject:\"Quarterly Financials\")"
+                "name": "Content-type",
+                "value": "application/json"
             }
         ],
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\"\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
         "tip": "Replace {caseId} with the ID from an eDiscovery Case (List eDiscovery Cases) and {reviewSetId} with the ID from a review set that exists in that case (List reviewSets)",
         "skipTest": false
     },
