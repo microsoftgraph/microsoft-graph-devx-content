@@ -1690,6 +1690,70 @@
         "skipTest": false
     },
     {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "list ediscovery cases",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Go to Modify Permissions tab and consent to User.Read permission to run this query",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "create ediscovery case",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
+        "tip": "Go to Modify Permissions tab and consent to User.Read permission to run this query",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "list review sets",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "list review set queries",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "create review set query",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\"\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
         "id": "31464243-ffe3-4d18-82df-af05d3e45221",
         "category": "Microsoft To Do",
         "method": "GET",
