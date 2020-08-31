@@ -60,7 +60,17 @@
         "method": "GET",
         "humanName": "自分の上司",
         "requestUrl": "/v1.0/me/manager",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/user_list_manager",
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/user_list_manager",
+        "skipTest": false
+    },
+    {
+        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "category": "はじめに",
+        "method": "GET",
+        "humanName": "マイ To Do タスク リスト",
+        "requestUrl": "/beta/me/todo/lists",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-list-lists?view=graph-rest-beta",
         "skipTest": false
     },
     {
@@ -1459,7 +1469,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/ja-JP/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/ja-JP/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
+        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/ja-jp/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/ja-jp/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
         "skipTest": false
     },
     {
@@ -1676,7 +1686,132 @@
             }
         ],
         "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
-        "tip": "enable ExternalItem.Read.All",
+        "tip": "ExternalItem.Read.All を有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "電子情報開示ケースを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "電子情報開示ケースを作成する",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
+        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "レビュー セットを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "レビュー セットのクエリを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "レビュー セットのクエリを作成する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\"\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "category": "Microsoft To Do",
+        "method": "GET",
+        "humanName": "To Do タスクの一覧を取得する",
+        "requestUrl": "/beta/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-list-lists?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクの一覧を作成する",
+        "requestUrl": "/beta/me/todo/lists",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-post-lists?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス権限と displayName パラメーターの値が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクを作成する",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
+        "docLink":"https://docs.microsoft.com/ja-jp/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です。TaskListId パラメーターの値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists",
+        "skipTest": false
+    },
+    {
+        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクで LinkedResource を作成する",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です。TaskListId パラメーターの値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists。taskId の値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
         "skipTest": false
     }
   ]
