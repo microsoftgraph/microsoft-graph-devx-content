@@ -1608,16 +1608,16 @@
         "id": "ae8adc92-9f78-4065-b4b9-22572bc98492",
         "category": "Search (beta)",
         "method": "POST",
-        "humanName": "search messages",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "humanName": "Search Messages",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"requests\": [\r\n      {\r\n        \"entityTypes\": [\"microsoft.graph.message\"],\r\n        \"query\": {\r\n          \"query_string\": {\r\n            \"query\": \"test\"\r\n          }\r\n        },\r\n        \"from\": 0,\r\n        \"size\" : 5\r\n     }\r\n    ]\r\n  }",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "enable Mail.Read",
         "skipTest": false
     },
@@ -1626,15 +1626,15 @@
         "category": "Search (beta)",
         "method": "POST",
         "humanName": "search events",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.event\"],\r\n      \"query\": {\r\n          \"query_string\": {\r\n              \"query\": \"test\"\r\n          }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n  }]\r\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"microsoft.graph.event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "enable Calendars.Read",
         "skipTest": false
     },
@@ -1643,16 +1643,67 @@
         "category": "Search (beta)",
         "method": "POST",
         "humanName": "search driveitems",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.driveItem\"],\r\n      \"query\": {\r\n        \"query_string\": {\r\n          \"query\": \"test\"\r\n        }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 25\r\n    }\r\n  ]\r\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n                //\"queryString\": \"contoso filetype:pdf OR filetype:docx\"\n                //\"queryString\": \"contoso path:\\\"https://contoso.sharepoint.com/sites/Team Site/Documents/\\\\\"\"                              \n            }\n        }\n    ]\n}",
         "tip": "enable Files.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "1c82a761-980c-4966-8bde-f35a96dc163e",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Search Lists",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"list\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            }\n        }\n    ]\n}",
+        "tip": "enable Sites.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "1c82a761-980c-4966-8bde-f35a96dc163e",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Search ListItems",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
+        "tip": "enable Sites.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "1c82a761-980c-4966-8bde-f35a96dc163e",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Search Sites",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"site\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "enable Sites.Read.All",
         "skipTest": false
     },
     {
@@ -1660,8 +1711,8 @@
         "category": "Search (beta)",
         "method": "POST",
         "humanName": "search external items",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1670,6 +1721,91 @@
         ],
         "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
         "tip": "enable ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Page Search results",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta#page-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+        "tip": "enable Files.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Sort Search results",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"sortProperties\": [\n                {\n                    \"name\": \"lastModifiedDateTime\",\n                    \"isDescending\": \"true\" // default is false\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "enable Files.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Refine results with String aggregations",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "enable Sites.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Refine results with Numeric aggregations",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"Size\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsNumber\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0,\n                        \"ranges\": [\n                            {\n                                \"to\": \"100\"\n                            },\n                            {\n                                \"from\": \"100\",\n                                \"to\": \"1000\"\n                            },\n                            {\n                                \"from\": \"1000\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "enable Sites.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
+        "category": "Search (beta)",
+        "method": "POST",
+        "humanName": "Apply refined query passing the aggregationToken",
+        "requestUrl": "https://graph.microsoft.com/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "enable Files.Read.All",
         "skipTest": false
     },
     {
