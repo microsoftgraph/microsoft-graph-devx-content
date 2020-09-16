@@ -67,7 +67,7 @@ When done making the changes on the document,
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
 
 ### Please note that:
-1. The order of properties is as outlined below <br>
+1. The order of properties is as outlined below (where applicable for your sample) <br>
       ` "id": `<br>
        `"category": `<br>
       ` "method": `<br>
