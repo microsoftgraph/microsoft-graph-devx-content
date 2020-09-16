@@ -66,6 +66,20 @@ When done making the changes on the document,
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
 
+### Please note that:
+1. The order of properties is as outlined below (where applicable for your sample) <br>
+      ` "id": `<br>
+       `"category": `<br>
+      ` "method": `<br>
+       `"humanName":`<br>
+       `"requestUrl":`<br>
+       `"docLink": `<br>
+       `"headers": `<br>
+      ` "postBody": `<br>
+       `"tip": `<br>
+       `"skipTest": `<br>
+1. The `humanName` value should be in **small caps** only. 
+1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
 ### Using Command Line or PowerShell:
 
 ### 1. Clone or Fork the repo
