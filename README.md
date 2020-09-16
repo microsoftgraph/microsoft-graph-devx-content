@@ -78,8 +78,8 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
       ` "postBody": `<br>
        `"tip": `<br>
        `"skipTest": `<br>
-1. The humanName value should be in **small caps** only. 
-1. The requestUrl value starts from the version ie `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
+1. The `humanName` value should be in **small caps** only. 
+1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
 ### Using Command Line or PowerShell:
 
 ### 1. Clone or Fork the repo
