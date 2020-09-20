@@ -1,7 +1,47 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "サインインしたユーザーの代わりに、アプリがテナントのサービスの正常性情報を読み取れるようにします。正常性情報には、サービスの問題やサービスの正常性の概要が含まれます。",
+      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリがすべての RBAC (ロールベースのアクセス制御) プロバイダーに対する RBAC 設定を読み取れるようにします。 これには、ロール定義の読み取り、およびロールの割り当ても含まれます。",
+      "adminConsentDisplayName": "すべての RBAC プロバイダーのロール管理データを読み取る",
+      "id": "48fec646-b2ba-4019-8681-8eb31435aded",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "ユーザーの代わりに、アプリがすべての RBAC (ロールベースのアクセス制御) プロバイダーに対する RBAC 設定を読み取れるようにします。 これには、ロール定義の読み取り、およびロールの割り当ても含まれます。",
+      "consentDisplayName": "すべての RBAC プロバイダーのロール管理データを読み取る",
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリが組織の条件付きアクセス ポリシーを読み取れるようにします。",
+      "adminConsentDisplayName": "組織の条件付きアクセス ポリシーを読み取る",
+      "id": "633e0fce-8c58-4cfb-9495-12bbd5a24f7c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "ユーザーの代わりに、アプリが組織の条件付きアクセス ポリシーを読み取れるようにします。",
+      "consentDisplayName": "組織の条件付きアクセス ポリシーを読み取る",
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーの短いノートを、アプリが読み取り、作成、編集、削除できるようにします。",
+      "adminConsentDisplayName": "サインインしているユーザーの短いノートを読み取り、作成、編集、削除する",
+      "id": "328438b7-4c01-4c07-a840-e625a749bb89",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "ユーザーの短いノートを、アプリが読み取り、作成、編集、削除できるようにします。",
+      "consentDisplayName": "短いノートを読み取り、作成、編集、削除する",
+      "value": "ShortNotes.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーがアクセス権を持っているすべての短いメモを、アプリが読み取れるようにします。",
+      "adminConsentDisplayName": "サインインしているユーザーの短いノートを読み取る",
+      "id": "50f66e47-eb56-45b7-aaa2-75057d9afe08",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "ユーザーの短いノートを、アプリが読み取れるようにします。",
+      "consentDisplayName": "短いノートを読み取る",
+      "value": "ShortNotes.Read"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリがテナントのサービスの正常性情報を読み取れるようにします。正常性情報には、サービスの問題やサービスの正常性の概要が含まれます。",
       "adminConsentDisplayName": "サービスの正常性を読む",
       "id": "55896846-df78-47a7-aa94-8d3d4442ca7f",
       "isEnabled": true,
@@ -981,7 +1021,7 @@
       "value": "ChannelMessage.Delete"
     },
     {
-      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリで外部データセットとコンテンツの読み取りが実行できるようにします。",
+      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリが外部データセットとコンテンツを読み取れるようにします。",
       "adminConsentDisplayName": "外部データセットのアイテムの読み取り",
       "id": "922f9392-b1b7-483c-a4be-0089be7704fb",
       "isEnabled": true,
@@ -2116,7 +2156,7 @@
       "id": "e4c9e354-4dc5-45b8-9e7c-e1393b0b1a20",
       "isEnabled": true,
       "isAdmin": true,
-      "consentDescription": "ユーザーの代わりに、アプリで監査ログ アクティビティの読み取りとクエリを実行できるようにします。",
+      "consentDescription": "ユーザーの代わりに、アプリが監査ログ アクティビティの読み取りとクエリを実行できるようにします。",
       "consentDisplayName": "監査ログ データの読み取り",
       "value": "AuditLog.Read.All"
     },
@@ -2566,7 +2606,51 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "サインインしたユーザーがいない場合でも、アプリがテナントのサービスのお知らせメッセージを読み取れるようにします。メッセージには、新規または変更された機能に関する情報を含めることができます。",
+      "consentDescription": "サインインしているユーザーがいなくても、アプリがすべての RBAC (ロールベースのアクセス制御) プロバイダーに対する RBAC 設定を読み取れるようにします。これには、ロール定義の読み取り、およびロールの割り当ても含まれます。",
+      "consentDisplayName": "すべての RBAC プロバイダーのロール管理データを読み取る",
+      "id": "c7fbd983-d9aa-4fa7-84b8-17382c103bc4",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "サインインしているユーザーがいなくても、アプリが組織の条件付きアクセス ポリシーを読み取れるようにします。",
+      "consentDisplayName": "組織の条件付きアクセス ポリシーを読み取る",
+      "id": "37730810-e9ba-4e46-b07e-8ca78d182097",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "サインインしているユーザーがいなくても、アプリがすべての短いノートを読み取り、作成、編集、および削除することができるようにします。",
+      "consentDisplayName": "すべてのユーザーの短いノートを読み取り、作成、編集、削除する",
+      "id": "842c284c-763d-4a97-838d-79787d129bab",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "サインインしているユーザーがいなくても、アプリがすべての短いノートを読み取れるようにします。",
+      "consentDisplayName": "すべてのユーザーの短いノートを読む",
+      "id": "0c7d31ec-31ca-4f58-b6ec-9950b6b0de69",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "サインインしているユーザーがいなくても、アプリがテナントのサービスのお知らせメッセージを読み取れるようにします。メッセージには、新規または変更された機能に関する情報を含めることができます。",
       "consentDisplayName": "サービス メッセージを読む",
       "id": "1b620472-6534-4fe6-9df2-4680e8aa28ec",
       "isEnabled": true,
