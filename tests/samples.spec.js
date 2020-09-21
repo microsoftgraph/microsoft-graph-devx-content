@@ -10,6 +10,12 @@ describe('sample query should', function () {
 const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
   describe(`${query.humanName}:`, function () {
+
+    it('id should exist', function () {
+      const idExists = !!query.id;
+      expect(idExists).toEqual(true);
+    });
+
     it('doclink should exist', function () {
       const docLinkExists = !!query.docLink;
       expect(docLinkExists).toEqual(true);
