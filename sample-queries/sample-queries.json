@@ -1652,7 +1652,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n                //\"queryString\": \"contoso filetype:pdf OR filetype:docx\"\n                //\"queryString\": \"contoso path:\\\"https://contoso.sharepoint.com/sites/Team Site/Documents/\\\\\"\"                              \n            }\n        }\n    ]\n}",
-        "tip": "enable Files.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
@@ -1669,7 +1669,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"list\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            }\n        }\n    ]\n}",
-        "tip": "enable Sites.Read.All",
+        "tip": "enable Sites.Read.All, Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
@@ -1686,7 +1686,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
-        "tip": "enable Sites.Read.All",
+        "tip": "enable Sites.Read.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1703,7 +1703,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"site\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
-        "tip": "enable Sites.Read.All",
+        "tip": "enable Sites.Read.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1737,7 +1737,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
-        "tip": "enable Files.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1754,7 +1754,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"sortProperties\": [\n                {\n                    \"name\": \"lastModifiedDateTime\",\n                    \"isDescending\": \"true\" // default is false\n                }\n            ]\n        }\n    ]\n}",
-        "tip": "enable Files.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1771,7 +1771,7 @@
             }
         ],
         "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
-        "tip": "enable Sites.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1788,7 +1788,7 @@
             }
         ],
         "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"Size\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsNumber\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0,\n                        \"ranges\": [\n                            {\n                                \"to\": \"100\"\n                            },\n                            {\n                                \"from\": \"100\",\n                                \"to\": \"1000\"\n                            },\n                            {\n                                \"from\": \"1000\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    ]\n}",
-        "tip": "enable Sites.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
@@ -1805,7 +1805,7 @@
             }
         ],
         "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
-        "tip": "enable Files.Read.All",
+        "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
     {
