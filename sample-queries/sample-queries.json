@@ -74,6 +74,17 @@
         "skipTest": false
     },
     {
+        "id": "0FB601F7-2170-40DE-88B7-4D7387C7B547",
+        "category": "Users",
+        "method": "GET",
+        "humanName": "count the guest users in your tenant (raw count)",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "You are using the advanced query capabilities for Directory Objects, please send us feedback here: https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
         "id": "6eeef6bc-af51-4c38-b93b-d4deb9287a5b",
         "category": "Users",
         "method": "GET",
@@ -95,9 +106,22 @@
         "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
         "category": "Users",
         "method": "GET",
-        "humanName": "all users in the Finance department",
-        "requestUrl": "/v1.0/users?$filter=Department eq 'Finance'",
+        "humanName": "all users in the Finance department sorted by name with count",
+        "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "You are using the advanced query capabilities for Directory Objects, please send us feedback here: https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "31DB5C68-256D-4286-96CC-D1B620A87210",
+        "category": "Users",
+        "method": "GET",
+        "humanName": "users with displayName containing \"room\", mail ending with \"microsoft.com\", and sorted by name",
+        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&select=id,displayName,mail",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "You are using the advanced query capabilities for Directory Objects, please send us feedback here: https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -185,8 +209,8 @@
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "Groups",
         "method": "GET",
-        "humanName": "all groups I belong to",
-        "requestUrl": "/v1.0/me/memberOf",
+        "humanName": "all groups I belong to (direct or indirect membership)",
+        "requestUrl": "/v1.0/me/transitiveMemberOf",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_memberof",
         "skipTest": false
     },
@@ -194,8 +218,9 @@
         "id": "a923ff0c-60ee-4a3b-b54b-d1f913107939",
         "category": "Groups",
         "method": "GET",
-        "humanName": "group members",
-        "requestUrl": "/v1.0/groups/{group-id}/members",
+        "humanName": "direct members of a group with count",
+        "requestUrl": "/v1.0/groups/{group-id}/members?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_list_members",
         "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
@@ -1485,9 +1510,22 @@
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
         "category": "Applications",
         "method": "GET",
-        "humanName": "retrieve the list of applications",
-        "requestUrl": "/v1.0/applications",
+        "humanName": "list all applications with count",
+        "requestUrl": "/v1.0/applications?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://docs.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "tip": "You are using the advanced query capabilities for Directory Objects, please send us feedback here: https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "6A22ECA7-9620-4A82-BA96-E1C955CD42DF",
+        "category": "Applications",
+        "method": "GET",
+        "humanName": "search and count Service Principals with \"teams\" in the displayName",
+        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:team\"&select=id,DisplayName",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/serviceprincipal-list?view=graph-rest-1.0&tabs=http",
+        "tip": "You are using the advanced query capabilities for Directory Objects, please send us feedback here: https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
