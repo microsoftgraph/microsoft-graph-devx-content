@@ -1690,7 +1690,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n                //\"queryString\": \"contoso filetype:pdf OR filetype:docx\"\n                //\"queryString\": \"contoso path:\\\"https://contoso.sharepoint.com/sites/Team Site/Documents/\\\\\"\"                              \n            }\n        }\n    ]\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"                            \r\n            }\r\n        }\r\n    ]\r\n}",
         "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All", 
         "skipTest": false
     },
@@ -1758,7 +1758,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"from\": 0,\r\n            \"size\": 100,\r\n            \"fields\": [\r\n                \"FirstName\"\r\n            ]\r\n        }\r\n    ]\r\n}",
         "tip": "enable ExternalItem.Read.All",
         "skipTest": false
     },
@@ -1792,7 +1792,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"sortProperties\": [\n                {\n                    \"name\": \"lastModifiedDateTime\",\n                    \"isDescending\": \"true\" // default is false\n                }\n            ]\n        }\n    ]\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"\r\n            },\r\n            \"sortProperties\": [\r\n                {\r\n                    \"name\": \"lastModifiedDateTime\",\r\n                    \"isDescending\": \"true\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
         "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
         "skipTest": false
     },
