@@ -5,7 +5,7 @@ for (const query of sampleQueries) {
   describe(`${query.humanName}:`, function () {
 
     it('id should be unique', function () {
-      const count = sampleQueries.filter(samp => samp.id === query.id);
+      const count = sampleQueries.filter(samp => samp.id === query.id).length;
       expect(count).toEqual(1);
     });
 
