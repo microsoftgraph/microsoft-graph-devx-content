@@ -1,25 +1,8 @@
 const samples = require('../sample-queries/sample-queries.json');
 
-describe('sample query should', function () {
-  it('have more than one sample', function () {
-    const sampleQueries = samples.SampleQueries;
-    expect(sampleQueries.length).toBeGreaterThan(1);
-  });
-});
-
 const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
   describe(`${query.humanName}:`, function () {
-
-    it('id should exist', function () {
-      const idExists = !!query.id;
-      expect(idExists).toEqual(true);
-    });
-
-    it('doclink should exist', function () {
-      const docLinkExists = !!query.docLink;
-      expect(docLinkExists).toEqual(true);
-    });
 
     it('humanName first word should be lower cased', function () {
       const firstWord = query.humanName.split(' ')[0];
