@@ -5,6 +5,7 @@ jobs:
   validate-json-schame:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Validate json schema
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
