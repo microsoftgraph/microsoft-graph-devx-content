@@ -2,6 +2,15 @@ name: Validate sample queries
 on: [pull_request,push]
 
 jobs:
+  validate-json-schame:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate json schema
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: /tests/samples.schema.json
+          INPUT_JSONS: /sample-queries/sample-queries.json
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -9,6 +18,8 @@ jobs:
 
       - name: Install 
         run: npm install
+      
+      
 
       - name: Run test
         run: npm run test
