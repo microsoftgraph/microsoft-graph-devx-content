@@ -4,6 +4,11 @@ const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
   describe(`${query.humanName}:`, function () {
 
+    it('id should be unique', function () {
+      const count = sampleQueries.filter(samp => samp.id === query.id);
+      expect(count).toEqual(1);
+    });
+
     it('humanName first word should be lower cased', function () {
       const firstWord = query.humanName.split(' ')[0];
       const lowerCasedHumanName = firstWord.toLowerCase();
