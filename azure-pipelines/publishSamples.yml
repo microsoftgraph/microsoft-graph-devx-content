@@ -7,11 +7,10 @@ trigger:
   branches:
     include: 
     - dev 
-pool:
-  vmImage: 'windows-latest'
 
-# TODO: put pipeline in a directory called /.azure-pipelines (this matches what they are doing in Azure)
-# TODO: rename this pipeline to something useful
+pool:
+  vmImage: 'ubuntu-latest'
+
 # Get files from the dev branch
 # Validate file and content format.
 # Stage files that contain GE samples into an artifact staging directory. Make sure that the files are in the expected format.
