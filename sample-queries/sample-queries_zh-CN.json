@@ -77,8 +77,8 @@
         "id": "0FB601F7-2170-40DE-88B7-4D7387C7B547",
         "category": "用户",
         "method": "GET",
-        "humanName": "计算租户中的访客用户（原始计数）",
-        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "humanName": "对租户内除来宾之外的用户进行计数（原始计数）",
+        "requestUrl": "/v1.0/users/$count?$filter=userType ne 'guest'",
         "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
         "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
@@ -118,7 +118,7 @@
         "category": "用户",
         "method": "GET",
         "humanName": "用户的 displayName 包含\"room\"，邮件以 \"microsoft.com\" 结尾，并按名称排序",
-        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&select=id,displayName,mail",
+        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&$select=id,displayName,mail",
         "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/users",
         "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
@@ -209,8 +209,9 @@
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "组",
         "method": "GET",
-        "humanName": "我所属的所有组（直接或间接成员）",
-        "requestUrl": "/v1.0/me/transitiveMemberOf",
+        "humanName": "我所属的所有组（作为直接或间接成员）以及计数",
+        "requestUrl": "/v1.0/me/transitiveMemberOf/microsoft.graph.group?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/user_list_memberof",
         "skipTest": false
     },
@@ -1522,7 +1523,7 @@
         "category": "应用程序",
         "method": "GET",
         "humanName": "在 displayName 中使用 \"teams\" 所有并统计服务主体",
-        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:team\"&select=id,DisplayName",
+        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:teams\"&$select=id,displayName",
         "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/serviceprincipal-list?view=graph-rest-1.0&tabs=http",
         "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
@@ -1689,7 +1690,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n                //\"queryString\": \"contoso filetype:pdf OR filetype:docx\"\n                //\"queryString\": \"contoso path:\\\"https://contoso.sharepoint.com/sites/Team Site/Documents/\\\\\"\"                              \n            }\n        }\n    ]\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"                            \r\n            }\r\n        }\r\n    ]\r\n}",
         "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All", 
         "skipTest": false
     },
@@ -1757,7 +1758,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"from\": 0,\r\n            \"size\": 100,\r\n            \"fields\": [\r\n                \"FirstName\"\r\n            ]\r\n        }\r\n    ]\r\n}",
         "tip": "启用 ExternalItem.Read.All",
         "skipTest": false
     },
@@ -1791,7 +1792,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"sortProperties\": [\n                {\n                    \"name\": \"lastModifiedDateTime\",\n                    \"isDescending\": \"true\" // default is false\n                }\n            ]\n        }\n    ]\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"\r\n            },\r\n            \"sortProperties\": [\r\n                {\r\n                    \"name\": \"lastModifiedDateTime\",\r\n                    \"isDescending\": \"true\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
         "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
         "skipTest": false
     },
