@@ -3,11 +3,14 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
   branches:
     include: 
-    - dev 
+    - dev
 
+pr: none
 pool:
   vmImage: 'ubuntu-latest'
 
