@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "开始使用",
+        "method": "GET",
+        "humanName": "我的个人资料（beta 版）",
+        "requestUrl": "/beta/me/profile",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "开始使用",
         "method": "GET",
@@ -55,6 +64,27 @@
         "skipTest": false
     },
     {
+        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "category": "入门",
+        "method": "GET",
+        "humanName": "我的微软待办任务列表",
+        "requestUrl": "/beta/me/todo/lists",
+        "tip": "此查询需要 Tasks.ReadWrite 权限",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/todo-list-lists?view=graph-rest-beta",
+        "skipTest": false
+    },
+    {
+        "id": "0FB601F7-2170-40DE-88B7-4D7387C7B547",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "对租户内除来宾之外的用户进行计数（原始计数）",
+        "requestUrl": "/v1.0/users/$count?$filter=userType ne 'guest'",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
         "id": "6eeef6bc-af51-4c38-b93b-d4deb9287a5b",
         "category": "用户",
         "method": "GET",
@@ -76,9 +106,22 @@
         "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
         "category": "用户",
         "method": "GET",
-        "humanName": "财务部门中的所有用户",
-        "requestUrl": "/v1.0/users?$filter=Department eq 'Finance'",
+        "humanName": "按名称及计数排序的所有财务部门用户",
+        "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "31DB5C68-256D-4286-96CC-D1B620A87210",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "用户的 displayName 包含\"room\"，邮件以 \"microsoft.com\" 结尾，并按名称排序",
+        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&$select=id,displayName,mail",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -134,6 +177,26 @@
         "skipTest": false
     },
     {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "获取我的状态 ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要 Presence.Read 权限",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "获取用户的状态 ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "3d040b26-c26b-411a-9700-7fba8b327954",
         "category": "组",
         "method": "GET",
@@ -146,8 +209,9 @@
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "组",
         "method": "GET",
-        "humanName": "我所属的全部组",
-        "requestUrl": "/v1.0/me/memberOf",
+        "humanName": "我所属的所有组（作为直接或间接成员）以及计数",
+        "requestUrl": "/v1.0/me/transitiveMemberOf/microsoft.graph.group?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/user_list_memberof",
         "skipTest": false
     },
@@ -155,10 +219,11 @@
         "id": "a923ff0c-60ee-4a3b-b54b-d1f913107939",
         "category": "组",
         "method": "GET",
-        "humanName": "组成员",
-        "requestUrl": "/v1.0/groups/{group-id}/members",
+        "humanName": "组的直接成员及计数",
+        "requestUrl": "/v1.0/groups/{group-id}/members?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/group_list_members",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -168,7 +233,7 @@
         "humanName": "组对话",
         "requestUrl": "/v1.0/groups/{group-id}/conversations",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/group_list_conversations",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -178,7 +243,7 @@
         "humanName": "组事件",
         "requestUrl": "/v1.0/groups/{group-id}/events",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/group_list_events",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -194,7 +259,7 @@
                 "value": "application/json"
             }
         ],
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -204,7 +269,7 @@
         "humanName": "组驱动器中的项",
         "requestUrl": "/v1.0/groups/{group-id}/drive/root/children",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/drive_get",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -257,7 +322,7 @@
             }
         ],
         "postBody": "{\r\n        \"message\": {\r\n            \"subject\": \"Meet for lunch?\",\r\n            \"body\": {\r\n                \"contentType\": \"Text\",\r\n                \"content\": \"The new cafeteria is open.\"\r\n            },\r\n            \"toRecipients\": [\r\n                {\r\n                    \"emailAddress\": {\r\n                    \"address\": \"garthf@contoso.com\"\r\n                    }\r\n                }\r\n            ]\r\n        }}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -274,7 +339,7 @@
             }
         ],
         "postBody": "{\r\n  \"comment\": \"FYI\",\r\n  \"toRecipients\": [\r\n    {\r\n      \"emailAddress\": {\r\n        \"address\": \"{user-mail}\",\r\n        \"name\": \"Alex Darrow\"\r\n      }\r\n    }\r\n  ]\r\n}",
-        "tip": "This query requires a message id. To get the ID, run the following query, find the message in the response and use its ID property: GET https://graph.microsoft.com/v1.0/me/messages",
+        "tip": "此查询需要邮件 id。若要获取 ID，请运行以下查询，在响应中查找邮件并使用其 ID 属性：GET https://graph.microsoft.com/v1.0/me/messages",
         "skipTest": false
     },
     {
@@ -372,7 +437,7 @@
             }
         ],
         "postBody": "{\r\n        \"attendees\": [\r\n            {\r\n            \"emailAddress\": {\r\n                \"address\": \"{user-mail}\",\r\n                \"name\": \"Alex Darrow\"\r\n            },\r\n            \"type\": \"Required\"\r\n            }\r\n        ],\r\n        \"timeConstraint\": {\r\n            \"timeslots\": [\r\n            {\r\n            \"start\": {\r\n                \"dateTime\": \"{today}\",\r\n                \"timeZone\": \"Pacific Standard Time\"\r\n                },\r\n                \"end\": {\r\n                \"dateTime\": \"{next-week}\",\r\n                \"timeZone\": \"Pacific Standard Time\"\r\n                }\r\n            }\r\n            ]\r\n        },\r\n        \"locationConstraint\": {\r\n        \"isRequired\": \"false\",\r\n        \"suggestLocation\": \"true\",\r\n        \"locations\": [\r\n            {\r\n            \"displayName\": \"Conf Room 32/1368\",\r\n            \"locationEmailAddress\": \"conf32room1368@imgeek.onmicrosoft.com\"\r\n            }\r\n        ]\r\n        },\r\n        \"meetingDuration\": \"PT1H\"\r\n        }",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -389,7 +454,7 @@
             }
         ],
         "postBody": "{\r\n        \"subject\": \"My event\",\r\n        \"start\": {\r\n            \"dateTime\": \"{today}\",\r\n            \"timeZone\": \"UTC\"\r\n        },\r\n        \"end\": {\r\n            \"dateTime\": \"{next-week}\",\r\n            \"timeZone\": \"UTC\"\r\n        }\r\n    }",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -406,7 +471,7 @@
             }
         ],
         "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-        "tip": "Creates the monthly Microsoft Graph community call on your calendar.",
+        "tip": "在日历上创建每月 Microsoft Graph 社区通话。",
         "skipTest": false
     },
     {
@@ -416,7 +481,7 @@
         "humanName": "跟踪我的下周事件更改",
         "requestUrl": "/v1.0/me/calendarView/delta?startDateTime={today}&endDateTime={next-week}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/concepts/delta_query_events",
-        "tip": "This query uses date and time parameters. Use an ISO 8601 format. For example, \"2017-04-30T19:00:00.0000000\".",
+        "tip": "此查询使用日期和时间参数。使用 ISO 8601 格式。例如“2017-04-30T19:00:00.0000000”。",
         "skipTest": false
     },
     {
@@ -442,7 +507,7 @@
             }
         ],
         "postBody": "{\r\n    \"givenName\": \"Pavel\",\r\n    \"surname\": \"Bansky\",\r\n    \"emailAddresses\": [\r\n        {\r\n        \"address\": \"pavelb@fabrikam.onmicrosoft.com\",\r\n        \"name\": \"Pavel Bansky\"\r\n        }\r\n    ],\r\n    \"businessPhones\": [\r\n        \"+1 732 555 0102\"\r\n    ]\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -478,7 +543,7 @@
         "method": "GET",
         "humanName": "搜索我的 OneDrive",
         "requestUrl": "/v1.0/me/drive/root/search(q='finance')?select=name,id,webUrl",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/item_search",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-search?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -487,7 +552,7 @@
         "method": "POST",
         "humanName": "创建文件夹",
         "requestUrl": "/v1.0/me/drive/root/children",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/item_post_children",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-post-children?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -495,7 +560,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"New Folder\",\r\n  \"folder\": { }\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -512,7 +577,7 @@
             }
         ],
         "postBody": "{ \"persistChanges\": true }",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -522,7 +587,7 @@
         "humanName": "工作簿中的工作表",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/workbook_list_worksheets",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -539,7 +604,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"My New Sheet\"\r\n}",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -556,7 +621,7 @@
             }
         ],
         "postBody": "{\r\n \"rate\": 0.035,\r\n \"nper\": 20,\r\n \"pv\": -2000\r\n}",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -566,7 +631,7 @@
         "humanName": "工作表中的使用区域",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/usedRange",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/worksheet_usedrange",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -576,7 +641,7 @@
         "humanName": "工作表中的表",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/Sheet1/tables",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/worksheet_list_tables",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -586,7 +651,7 @@
         "humanName": "工作表中的图表",
         "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/charts",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/worksheet_list_charts",
-        "tip": "This query requires a driveItem id.  To find the ID of the driveItem that corresponds to an Excel Workbook, you can run: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+        "tip": "此查询需要 driveItem id。 若要查找对应于 Excel 工作簿的 driveItem 的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl。",
         "skipTest": false
     },
     {
@@ -596,7 +661,7 @@
         "humanName": "与组关联的所有规划器计划",
         "requestUrl": "/v1.0/groups/{group-id-with-plan}/planner/plans",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannergroup_list_plans",
-        "tip": "This query requires a group id.  To find the ID of a group you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -606,7 +671,7 @@
         "humanName": "规划器计划",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannerplan_get",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans。",
         "skipTest": false
     },
     {
@@ -623,7 +688,7 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated plan title\"\r\n}",
-        "tip": "This query requires a Plan ID and value of @odata.etag for a selected task. To find the ID of the Plan, you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks. To get the @odata.etag, run: GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
+        "tip": "此查询需要所选任务的计划 ID 和 @odata.etag 值。若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks。若要获取 @odata.etag，请运行：GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}",
         "skipTest": false
     },
     {
@@ -633,7 +698,7 @@
         "humanName": "规划器计划中的所有存储桶",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/buckets",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannerplan_list_buckets",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans。",
         "skipTest": false
     },
     {
@@ -650,7 +715,7 @@
             }
         ],
         "postBody": "{\r\n  \"name\": \"{bucket-name}\",\r\n  \"planId\": \"{plan-id}\",\r\n  \"orderHint\": \" !\"\r\n}",
-        "tip": "This query requires a Plan id.  To find the ID of the Plan you can run: GET https://graph.microsoft.com/v1.0/me/planner/plans",
+        "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/plans",
         "skipTest": false
     },
     {
@@ -667,7 +732,7 @@
             }
         ],
         "postBody": "{\r\n    \"name\": \"Updated bucket name\"\r\n}",
-        "tip": "This query requires a bucket id and value of @odata.etag for a selected bucket.  To find the ID of the bucket run: GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}/buckets and then run: GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
+        "tip": "此查询需要所选存储桶的存储桶 ID 和 @odata.etag 值。 若要查找相应存储桶的 ID，请运行：GET https://graph.microsoft.com/v1.0/planner/plans/{plan-id}/buckets，然后运行：GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id}，以发现 @odata.etag",
         "skipTest": false
     },
     {
@@ -677,7 +742,7 @@
         "humanName": "计划的所有规划器任务",
         "requestUrl": "/v1.0/planner/plans/{plan-id}/tasks",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannerplan_list_tasks",
-        "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+        "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans。",
         "skipTest": false
     },
     {
@@ -705,7 +770,7 @@
         "humanName": "按 ID 排序的规划器任务",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannertask_get",
-        "tip": "This query requires a task id.  To find the ID of the task you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "此查询需要任务 id。 若要查找相应任务的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -722,7 +787,7 @@
             }
         ],
         "postBody": "{\r\n  \"planId\": \"{plan-id}\",\r\n  \"title\": \"{task-title}\",\r\n  \"assignments\": {}\r\n}",
-        "tip": "This query requires a Plan id.  To find the ID of the Plan you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -739,7 +804,7 @@
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
-        "tip": "This query requires a task id and value of @odata.etag for a selected task.  To find the ID of the task and @odata.etag you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "此查询需要所选任务的任务 id 和 @odata.etag 值。 若要查找相应任务的 ID 和 @odata.etag，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -749,7 +814,7 @@
         "humanName": "规划器任务的详细信息",
         "requestUrl": "/v1.0/planner/tasks/{task-id}/details",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannertaskdetails_get",
-        "tip": "This query requires a task id.  To find the ID of the task you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+        "tip": "此查询需要任务 id。 若要查找相应任务的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks",
         "skipTest": false
     },
     {
@@ -763,34 +828,34 @@
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "我常用的项目",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "与我共享的项",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "见解 (beta)",
+        "category": "见解",
         "method": "GET",
         "humanName": "由我查看和修改的项",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
         "id": "e995de85-f1f2-4438-93a6-c5231b2bb1d4",
-        "category": "人员",
+        "category": "人脉",
         "method": "GET",
         "humanName": "与我合作的人员",
         "requestUrl": "/v1.0/me/people",
@@ -803,16 +868,7 @@
         "method": "GET",
         "humanName": "姓名以 J 开头的人员",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/person_get",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "人员",
-        "method": "GET",
-        "humanName": "与主题相关的人员",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/person_get",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/people-example",
         "skipTest": false
     },
     {
@@ -923,7 +979,7 @@
         "requestUrl": "/v1.0/me/onenote/notebooks",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/onenote_post_notebooks",
         "postBody": "{\r\n  \"displayName\": \"My Notebook\"\r\n}",
-        "tip": "Update the Request Body and select Run Query.",
+        "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
     },
     {
@@ -940,7 +996,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"Section 1\"\r\n}",
-        "tip": "This query requires a notebook id.  To find the ID, you can run: GET https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
+        "tip": "此查询需要笔记本 id。 若要查找相应 ID，可运行：GET https://graph.microsoft.com/v1.0/me/onenote/notebooks。",
         "skipTest": false
     },
     {
@@ -957,7 +1013,7 @@
             }
         ],
         "postBody": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>A page with a block of HTML</title>\r\n  </head>\r\n  <body>\r\n    <p>This page contains some <i>formatted</i> <b>text</b>.</p>\r\n  </body>\r\n</html>",
-        "tip": "This query requires a section id.  To find the ID, you can run: GET https://graph.microsoft.com/v1.0/me/onenote/sections.",
+        "tip": "此查询需要分区 id。 若要查找相应 ID，可运行：GET https://graph.microsoft.com/v1.0/me/onenote/sections。",
         "skipTest": false
     },
     {
@@ -1011,7 +1067,7 @@
         "method": "GET",
         "humanName": "枚举根网站的网站栏",
         "requestUrl": "/v1.0/sites/root/columns",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/site_list_columns",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1020,7 +1076,7 @@
         "method": "GET",
         "humanName": "枚举根网站的网站内容类型",
         "requestUrl": "/v1.0/sites/root/contentTypes",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/site_list_contenttypes",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1038,7 +1094,7 @@
         "method": "GET",
         "humanName": "枚举列表列",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/columns",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/list_list_columns",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1047,7 +1103,7 @@
         "method": "GET",
         "humanName": "枚举列表内容类型",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/contentTypes",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/list_list_contenttypes",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1088,7 +1144,7 @@
             }
         ],
         "postBody": "{\"requests\" : [{\"url\" : \"/me?$select=displayName,jobTitle,userPrincipalName\", \"method\" : \"GET\", \"id\" : \"1\"}, {\"url\" : \"/me/messages?$filter=importance eq 'high'&$select=from,subject,receivedDateTime,bodyPreview\", \"method\" : \"GET\", \"id\" : \"2\"}, {\"url\" : \"/me/events\", \"method\" : \"GET\", \"id\" : \"3\"}]  }",
-        "tip": "This query shows you how to use batching to get your user information, your messages, and your events.",
+        "tip": "此查询向你展示如何使用批处理来获取你的用户信息、邮件和事件。",
         "skipTest": false
     },
     {
@@ -1105,7 +1161,7 @@
             }
         ],
         "postBody": "{\r\n \"requests\": [{\r\n   \"url\": \"/me/drive/root/children\",\r\n   \"method\": \"POST\",\r\n   \"id\": \"1\",\r\n   \"body\": {\r\n    \"name\": \"TestBatchingFolder\",\r\n    \"folder\": {}\r\n   },\r\n   \"headers\": {\r\n    \"Content-Type\": \"application/json\"\r\n   }\r\n  }, {\r\n   \"url\": \"/me/drive/root/children/TestBatchingFolder \",\r\n   \"method\": \"GET\",\r\n   \"id\": \"2\",\r\n   \"DependsOn\": [\"1\"]\r\n  }\r\n ]\r\n} ",
-        "tip": "This query will create a folder called TestBatchingFolder in your OneDrive and return it back to you via a GET.",
+        "tip": "此查询将在 OneDrive 中创建名为 TestBatchingFolder 的文件夹，并通过 GET 将其返回给你。",
         "skipTest": false
     },
     {
@@ -1124,7 +1180,7 @@
         "humanName": "团队成员",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/members",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/group_list_memberof",
-        "tip": "This query requires a group id of the Team.  To find the group id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1134,7 +1190,7 @@
         "humanName": "我所属团队的频道",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/channel_list",
-        "tip": "This query requires a team id.  To find the team id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "此查询需要团队 id。 若要查找你所属的团队的团队 ID，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1144,7 +1200,7 @@
         "humanName": "频道信息",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/channel_get",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
+        "tip": "此查询需要团队 id 和来自该团队的频道 id。若要查找相应的团队 id 和频道 id，可运行：1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1155,7 +1211,7 @@
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/channel_post",
         "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
-        "tip": "This query requires a team id.  To find the team id of teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams.",
+        "tip": "此查询需要团队 id。 若要查找你所属的团队的团队 ID，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams。",
         "skipTest": false
     },
     {
@@ -1165,7 +1221,7 @@
         "humanName": "团队中的应用",
         "requestUrl": "/v1.0/teams/{team-id}/installedApps?$expand=teamsAppDefinition",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/teamsappinstallation_list",
-        "tip": "This query requires a team id. To find the team id, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "此查询需要团队 id。若要查找相应的团队 id，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1175,7 +1231,7 @@
         "humanName": "频道中的选项卡",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/tabs?$expand=teamsApp",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/teamstab_list",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
+        "tip": "此查询需要团队 id 和来自该团队的频道 id。若要查找相应的团队 id 和频道 id，可运行：1) GET https://graph.microsoft.com/v1.0/me/joinedTeams 2) GET https://graph.microsoft.com/v1.0/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1184,8 +1240,8 @@
         "method": "GET",
         "humanName": "团队驱动器中的项",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/item_list_children",
-        "tip": "This query requires a group id of the Team.  To find the group id of Teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
     {
@@ -1195,7 +1251,7 @@
         "humanName": "频道中的消息（没有答复）",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_list_messages",
-        "tip": "This query requires a group id of the Team and channel id of the corresponding channel of that Team. To find the group id  & channel id, you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
+        "tip": "此查询需要团队的组 id 和该团队的对应频道的频道 id。若要查找相应的组 id 和频道 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
         "skipTest": false
     },
     {
@@ -1205,7 +1261,7 @@
         "humanName": "频道中的消息",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_get_message",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team and message id of the message you want to retrieve. To find the group id, channel id and message-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+        "tip": "此查询需要团队的组 id、该团队的对应频道的频道 id 和要检索的消息的消息 id。若要查找相应的组 id、频道 id 和消息 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "skipTest": false
     },
     {    
@@ -1215,7 +1271,7 @@
         "humanName": "频道中消息的答复",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_list_messagereplies",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team and message id of the message of which you need the replies. To find the group id, channel id and message-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+        "tip": "此查询需要团队的组 id、该团队的对应频道的频道 id 和你需要的答复所对应的消息的消息 id。若要查找相应的组 id、频道 id 和消息 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
         "skipTest": false
     },
     {
@@ -1225,18 +1281,18 @@
         "humanName": "消息的答复",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_get_messagereply",
-        "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team, message id of the message of which you need the reply and the id of the specific reply. To find the group id, channel id, message-id and reply-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+        "tip": "此查询需要团队的组 id、该团队的对应频道的频道 id、你需要的答复所对应的消息的消息 id 和特定答复的 id。若要查找相应的组 id、频道 id、消息 id 和答复 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "创建聊天会话",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_post_chatthreads",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
-        "tip": "This query requires a team id and a channel id from that team. To find the team id  & channel id, you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
+        "humanName": "发送渠道消息",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
+        "tip": "此查询需要团队 id 和来自该团队的频道 id。若要查找相应的团队 id 和频道 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
     },
     {
@@ -1282,7 +1338,7 @@
         "humanName": "按目标地址筛选警报",
         "requestUrl": "/v1.0/security/alerts?$filter=networkConnections/any(d:d/destinationAddress eq '{destination-address}')",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/alert_list",
-        "tip": "This query requires a destination address. Run https://graph.microsoft.com/v1.0/security/alerts?$top=1 and search the results for a destinationAddress property.",
+        "tip": "此查询需要目标地址。运行 https://graph.microsoft.com/v1.0/security/alerts?$top=1，然后在结果中搜索 destinationAddress 属性。",
         "skipTest": false
     },
     {
@@ -1338,7 +1394,7 @@
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/alert_update",
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
-        "tip": "This query requires an alert id. To find the ID of the alert, you can run: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
+        "tip": "此查询需要警报 id。若要查找相应警报的 ID，可运行：GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
     },
     {
@@ -1369,7 +1425,7 @@
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-update",
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1380,7 +1436,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-updatetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
+        "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
     },
     {
@@ -1391,7 +1447,7 @@
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/securityactions-post",
         "postBody": "{\r\n    \"name\": \"blockIp\",\r\n     \"vendorInformation\" :\r\n     {  \"provider\": \"Windows Defender ATP\",\r\n          \"vendor\": \"Microsoft\"\r\n      },\r\n    \"parameters\" : [\r\n      {\"name\": \"IP\", \"value\":\"1.2.3.4\" }\r\n    ]\r\n}",
-        "tip": "Change the provider, vendor and parameters are needed",
+        "tip": "需要更改提供商、供应商和参数",
         "skipTest": false
     },
     {
@@ -1401,7 +1457,7 @@
         "humanName": "删除 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-delete",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
+        "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
     },
     {
@@ -1412,7 +1468,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-deletetiindicators",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1423,7 +1479,7 @@
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-deletetiindicatorsbyexternalid",
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
-        "tip": "This query requires the TI indicator external id. To find the ID, you can run: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
+        "tip": "此查询需要 TI 指示器外部 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
     },
     {
@@ -1439,7 +1495,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/zh-CN/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/zh-CN/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
+        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/zh-cn/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/zh-cn/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
         "skipTest": false
     },
     {
@@ -1453,20 +1509,33 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
-        "humanName": "检索应用程序列表",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_list",
+        "humanName": "列出所有应用及计数",
+        "requestUrl": "/v1.0/applications?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "6A22ECA7-9620-4A82-BA96-E1C955CD42DF",
+        "category": "应用程序",
+        "method": "GET",
+        "humanName": "在 displayName 中使用 \"teams\" 所有并统计服务主体",
+        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:teams\"&$select=id,displayName",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/serviceprincipal-list?view=graph-rest-1.0&tabs=http",
+        "tip": "你正在使用目录对象的高级查询功能，请在此处向我们发送反馈： https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "POST",
         "humanName": "创建新应用程序",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1547,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
         "humanName": "检索应用程序属性",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_get",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID&#44;可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "PATCH",
         "humanName": "更新应用程序属性",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1569,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "DELETE",
         "humanName": "删除应用程序",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "GET",
         "humanName": "检索所有者列表",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "应用程序 (beta)",
+        "category": "应用程序",
         "method": "POST",
         "humanName": "创建一个新的所有者",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1606,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "This query requires an application id. To find the ID of an application&#44; you can run: GET https://graph.microsoft.com/beta/applications. In the request body supply a JSON representation of directoryObject object",
+        "tip": "此查询需要应用程序 id。若要查找应用程序的 ID，可运行：GET https://graph.microsoft.com/v1.0/applications.在请求正文中，提供 directoryObject 对象的 JSON 表示形式",
         "skipTest": false
     },
     {
@@ -1546,7 +1615,7 @@
         "method": "POST",
         "humanName": "创建原始通知",
         "requestUrl": "/beta/me/notifications",
-        "docLink": "https://aka.ms/graphNotificationsDocs",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-post-notifications?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1554,7 +1623,7 @@
             }
         ],
         "postBody": "{\r\n  \"targetHostName\": \"graphnotifications.sample.windows.com\",\r\n  \"appNotificationId\": \"sampleRawNotification\",\r\n  \"payload\": {\r\n    \"rawContent\": \"Hello World!\"\r\n  },\r\n  \"targetPolicy\": {\r\n    \"platformTypes\": [\r\n      \"windows\",\r\n      \"ios\",\r\n      \"android\"\r\n    ]\r\n  },\r\n  \"priority\": \"High\",\r\n  \"displayTimeToLive\": \"60\"\r\n}",
-        "tip": "Please enable the Notifications.ReadWrite.CreatedByApp permission in order to use this query.  A raw notification is a notification that is received by the application and processed in an application specific manner.  A raw notification may or may not include UI/UX for the user. Note - This query will only work with a sample application by default. See https://aka.ms/projectRomeSamples/ for additional info.",
+        "tip": "为了使用此查询，请启用 Notifications.ReadWrite.CreatedByApp 权限。 原始通知是指由应用程序接收并以特定于应用程序的方式进行处理的通知。 原始通知可能包括用户的 UI/UX，也可能不包括。请注意 - 默认情况下，此查询将仅适用于示例应用程序。有关详细信息，请参阅 https://aka.ms/projectRomeSamples/。",
         "skipTest": false
     },
     {
@@ -1563,7 +1632,7 @@
         "method": "POST",
         "humanName": "创建可视化通知",
         "requestUrl": "/beta/me/notifications",
-        "docLink": "https://aka.ms/graphNotificationsDocs",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-post-notifications?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1571,7 +1640,7 @@
             }
         ],
         "postBody": "{\r\n  \"targetHostName\": \"graphnotifications.sample.windows.com\",\r\n  \"appNotificationId\": \"sampleDirectToastNotification\",\r\n  \"payload\": {\r\n    \"visualContent\": {\r\n      \"title\": \"Hello World!\",\r\n      \"body\": \"Notifications are Great!\"\r\n    }\r\n  },\r\n  \"targetPolicy\": {\r\n    \"platformTypes\": [\r\n      \"windows\",\r\n      \"ios\",\r\n      \"android\"\r\n    ]\r\n  },\r\n  \"priority\": \"High\",\r\n  \"displayTimeToLive\": \"60\"\r\n}",
-        "tip": "Please enable the Notifications.ReadWrite.CreatedByApp permission in order to use this query.  A visual notification is a notification that a user can see by default within the notification center of the target platform. Note - This query will only work with a sample application by default. See https://aka.ms/projectRomeSamples/ for additional info.",
+        "tip": "为了使用此查询，请启用 Notifications.ReadWrite.CreatedByApp 权限。 可视通知是指默认情况下用户在目标平台的通知中心中可以看到的通知。请注意 - 默认情况下，此查询将仅适用于示例应用程序。有关详细信息，请参阅 https://aka.ms/projectRomeSamples/。",
         "skipTest": false
     },
     {
@@ -1580,15 +1649,15 @@
         "method": "POST",
         "humanName": "搜索邮件",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"requests\": [\r\n      {\r\n        \"entityTypes\": [\"microsoft.graph.message\"],\r\n        \"query\": {\r\n          \"query_string\": {\r\n            \"query\": \"test\"\r\n          }\r\n        },\r\n        \"from\": 0,\r\n        \"size\" : 5\r\n     }\r\n    ]\r\n  }",
-        "tip": "enable Mail.Read",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "启用 Mail.Read",
         "skipTest": false
     },
     {
@@ -1597,15 +1666,15 @@
         "method": "POST",
         "humanName": "搜索事件",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.event\"],\r\n      \"query\": {\r\n          \"query_string\": {\r\n              \"query\": \"test\"\r\n          }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n  }]\r\n}",
-        "tip": "enable Calendars.Read",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"microsoft.graph.event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "启用 Calendars.Read",
         "skipTest": false
     },
     {
@@ -1614,49 +1683,303 @@
         "method": "POST",
         "humanName": "搜索 driveitems",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.driveItem\"],\r\n      \"query\": {\r\n        \"query_string\": {\r\n          \"query\": \"test\"\r\n        }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 25\r\n    }\r\n  ]\r\n}",
-        "tip": "enable Files.Read.All",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"                            \r\n            }\r\n        }\r\n    ]\r\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
-        "id": "27e73cb0-6584-457d-af0d-f775fbe18605",
+        "id": "3af74c70-f90d-428e-aaab-42e3547546e5",
         "category": "搜索 (beta)",
         "method": "POST",
-        "humanName": "搜索外部文件",
+        "humanName": "搜索列表",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{    \r\n    \"entityTypes\": [\"microsoft.graph.externalFile\"],    \r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25\r\n  }]\r\n}",
-        "tip": "enable ExternalItem.Read.All",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"list\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            }\n        }\n    ]\n}",
+        "tip": "启用 Sites.Read.All、Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
-        "id": "b4d2041e-376e-41db-85a9-d03afcf14e84",
+        "id": "13e6d7f4-ce51-4b7e-922d-0113f1061c3e",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "搜索列表项",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
+        "tip": "启用 Sites.Read.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "8269ac81-deeb-4598-bc56-b34042637ef8",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "搜索网站",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"site\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "启用 Sites.Read.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "400f04eb-e630-441c-82f1-15c1f631dd34",
         "category": "搜索 (beta)",
         "method": "POST",
         "humanName": "搜索外部项目",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
-        "tip": "enable ExternalItem.Read.All",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"from\": 0,\r\n            \"size\": 100,\r\n            \"fields\": [\r\n                \"FirstName\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+        "tip": "启用 ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "页面搜索结果",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#page-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "排序搜索结果",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"\r\n            },\r\n            \"sortProperties\": [\r\n                {\r\n                    \"name\": \"lastModifiedDateTime\",\r\n                    \"isDescending\": \"true\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "使用字符串聚合优化结果",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "使用数字聚合优化结果",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"Size\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsNumber\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0,\n                        \"ranges\": [\n                            {\n                                \"to\": \"100\"\n                            },\n                            {\n                                \"from\": \"100\",\n                                \"to\": \"1000\"\n                            },\n                            {\n                                \"from\": \"1000\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
+        "category": "搜索 (beta)",
+        "method": "POST",
+        "humanName": "应用精简查询传递 aggregationToken",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "启用 Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "合规性 (beta)",
+        "method": "GET",
+        "humanName": "列出电子数据展示事例",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "skipTest": false
+    },
+    {
+        "id": "83670efe-06f3-4777-bef9-00b1ef450985",
+        "category": "合规性 (beta)",
+        "method": "GET",
+        "humanName": "获取电子数据展示事例",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/ediscoverycase-get?view=graph-rest-beta",
+        "tip": "此查询需要事例 ID。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "合规性 (beta)",
+        "method": "POST",
+        "humanName": "创建电子数据展示事例",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
+        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "合规性 (beta)",
+        "method": "GET",
+        "humanName": "列出审阅集",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "合规性 (beta)",
+        "method": "GET",
+        "humanName": "列出审阅集查询",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "合规性 (beta)",
+        "method": "POST",
+        "humanName": "创建审阅集查询",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "category": "微软待办",
+        "method": "GET",
+        "humanName": "获取微软待办任务列表",
+        "requestUrl": "/beta/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/todo-list-lists?view=graph-rest-beta",
+        "tip": "此查询需要 Tasks.ReadWrite 权限",
+        "skipTest": false
+    },
+    {
+        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "category": "微软待办",
+        "method": "POST",
+        "humanName": "创建微软待办任务列表",
+        "requestUrl": "/beta/me/todo/lists",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/todo-post-lists?view=graph-rest-beta",
+        "tip": "此查询需要 Tasks.ReadWrite 权限和 displayName 参数的值",
+        "skipTest": false
+    },
+    {
+        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "category": "微软待办",
+        "method": "POST",
+        "humanName": "创建微软待办任务",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
+        "docLink":"https://docs.microsoft.com/zh-cn/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "tip": "此查询需要 Tasks.ReadWrite 权限。若要查找 taskListId 参数的值，可运行：GET https://graph.microsoft.com/beta/me/todo/lists",
+        "skipTest": false
+    },
+    {
+        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "category": "微软待办",
+        "method": "POST",
+        "humanName": "在微软待办任务中创建 LinkedResource",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
+        "tip": "此查询需要 Tasks.ReadWrite 权限。若要查找 taskListId 参数的值，可运行：GET https://graph.microsoft.com/beta/me/todo/lists。若要查找 taskId 参数的值，可运行：GET https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
         "skipTest": false
     }
   ]

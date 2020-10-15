@@ -10,6 +10,15 @@
         "skipTest": false
     },
     {
+        "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
+        "category": "はじめに",
+        "method": "GET",
+        "humanName": "自分のプロファイル (ベータ版)",
+        "requestUrl": "/beta/me/profile",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/profile-get?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
         "id": "fc9c9832-399d-47ef-941c-46ada54e9a49",
         "category": "はじめに",
         "method": "GET",
@@ -51,7 +60,28 @@
         "method": "GET",
         "humanName": "自分の上司",
         "requestUrl": "/v1.0/me/manager",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/user_list_manager",
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/user_list_manager",
+        "skipTest": false
+    },
+    {
+        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "category": "はじめに",
+        "method": "GET",
+        "humanName": "マイ To Do タスク リスト",
+        "requestUrl": "/beta/me/todo/lists",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-list-lists?view=graph-rest-beta",
+        "skipTest": false
+    },
+    {
+        "id": "0FB601F7-2170-40DE-88B7-4D7387C7B547",
+        "category": "ユーザー",
+        "method": "GET",
+        "humanName": "ゲストを除くテナント内のユーザーをカウントします (生の数)",
+        "requestUrl": "/v1.0/users/$count?$filter=userType ne 'guest'",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "ディレクトリオブジェクトの高度なクエリ機能を使用している場合は、こちらからフィードバックをお寄せください: https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -76,9 +106,22 @@
         "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
         "category": "ユーザー",
         "method": "GET",
-        "humanName": "財務部門のすべてのユーザー",
-        "requestUrl": "/v1.0/users?$filter=Department eq 'Finance'",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/users",
+        "humanName": "Finance 部門のすべてのユーザーが名前順に count で並べ替えられています",
+        "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "ディレクトリオブジェクトの高度なクエリ機能を使用している場合は、こちらからフィードバックをお寄せください: https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "31DB5C68-256D-4286-96CC-D1B620A87210",
+        "category": "ユーザー",
+        "method": "GET",
+        "humanName": "\"会議室\" を含む displayName、\"microsoft.com\" を含むメール、名前順に並べ替えられた displayName を持つユーザー",
+        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&$select=id,displayName,mail",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "ディレクトリオブジェクトの高度なクエリ機能を使用している場合は、こちらからフィードバックをお寄せください: https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -134,6 +177,26 @@
         "skipTest": false
     },
     {
+        "id": "3f05c89a-cd21-4570-85ac-cb67c10d63d4",
+        "category": "ユーザー",
+        "method": "GET",
+        "humanName": "自分のプレゼンスを取得する ",
+        "requestUrl": "/beta/me/presence",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/presence-get?view=graph-rest-beta&tabs=http",
+        "tip": "このクエリには Presence.Read 権限が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "386d7300-b9e9-4383-a53c-7536289b97ce",
+        "category": "ユーザー",
+        "method": "GET",
+        "humanName": "ユーザーのプレゼンスを取得する ",
+        "requestUrl": "/beta/users/{user-id}/presence",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
+        "tip": "このクエリには、ユーザー ID と Presence.Read.All が必要です。ユーザー ID を見つけるには、次のコマンドを実行します。 GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "3d040b26-c26b-411a-9700-7fba8b327954",
         "category": "グループ",
         "method": "GET",
@@ -146,18 +209,20 @@
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "グループ",
         "method": "GET",
-        "humanName": "自分の所属するすべてのグループ",
-        "requestUrl": "/v1.0/me/memberOf",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/user_list_memberof",
+        "humanName": "所属しているすべてのカウント付きグループ (直接または間接のメンバーシップ)",
+        "requestUrl": "/v1.0/me/transitiveMemberOf/microsoft.graph.group?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/user_list_memberof",
         "skipTest": false
     },
     {
         "id": "a923ff0c-60ee-4a3b-b54b-d1f913107939",
         "category": "グループ",
         "method": "GET",
-        "humanName": "グループ メンバー",
-        "requestUrl": "/v1.0/groups/{group-id}/members",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/api/group_list_members",
+        "humanName": "アカウントを持つグループの直接的なメンバー",
+        "requestUrl": "/v1.0/groups/{group-id}/members?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/group_list_members",
         "tip": "このクエリでは、グループ ID が必要です。 自分が属しているグループの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
@@ -478,7 +543,7 @@
         "method": "GET",
         "humanName": "自分の OneDrive を検索",
         "requestUrl": "/v1.0/me/drive/root/search(q='finance')?select=name,id,webUrl",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/item_search",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/driveitem-search?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -487,7 +552,7 @@
         "method": "POST",
         "humanName": "フォルダーを作成する",
         "requestUrl": "/v1.0/me/drive/root/children",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/item_post_children",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/driveitem-post-children?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -763,29 +828,29 @@
     },
     {
         "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分の周りで人気上昇中の項目",
-        "requestUrl": "/beta/me/insights/trending",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_trending",
+        "requestUrl": "/v1.0/me/insights/trending",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/insights-list-trending?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "656c104a-9c8d-46a7-98b4-31b09f340601",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分と共有されたアイテム",
-        "requestUrl": "/beta/me/insights/shared",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_shared",
+        "requestUrl": "/v1.0/me/insights/shared",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/insights-list-shared?view=graph-rest-1.0",
         "skipTest": false
     },
     {
         "id": "8af3e5da-85ef-4051-9ae5-0fde5d2730e3",
-        "category": "Insights (ベータ版)",
+        "category": "分析情報",
         "method": "GET",
         "humanName": "自分が表示また変更したアイテム",
-        "requestUrl": "/beta/me/insights/used",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/insights_list_used",
+        "requestUrl": "/v1.0/me/insights/used",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/insights-list-used?view=graph-rest-1.0&tabs=http",
         "skipTest": false
     },
     {
@@ -803,16 +868,7 @@
         "method": "GET",
         "humanName": "J で始まる名前を持つ人",
         "requestUrl": "/v1.0/me/people/?$search=j",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/person_get",
-        "skipTest": false
-    },
-    {
-        "id": "18268b2f-da49-427d-9407-9f38a1eba347",
-        "category": "ユーザー",
-        "method": "GET",
-        "humanName": "トピックに関連する人",
-        "requestUrl": "/v1.0/me/people/?$search=\"topic: contoso\"",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/person_get",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/people-example",
         "skipTest": false
     },
     {
@@ -1011,7 +1067,7 @@
         "method": "GET",
         "humanName": "ルート サイトのサイト列を列挙する",
         "requestUrl": "/v1.0/sites/root/columns",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/site_list_columns",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1020,7 +1076,7 @@
         "method": "GET",
         "humanName": "ルート サイトのサイト コンテンツ タイプを列挙する",
         "requestUrl": "/v1.0/sites/root/contentTypes",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/site_list_contenttypes",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1038,7 +1094,7 @@
         "method": "GET",
         "humanName": "リスト列を列挙する",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/columns",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/list_list_columns",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1047,7 +1103,7 @@
         "method": "GET",
         "humanName": "リスト コンテンツ タイプを列挙する",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/contentTypes",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/list_list_contenttypes",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1184,7 +1240,7 @@
         "method": "GET",
         "humanName": "チーム ドライブ内のアイテム",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/v1.0/api/item_list_children",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
         "tip": "このクエリでは、チームのグループ ID が必要です。 自分が属しているチームの グループ ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/me/joinedTeams",
         "skipTest": false
     },
@@ -1230,12 +1286,12 @@
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams (ベータ版)",
+        "category": "Microsoft Teams",
         "method": "POST",
-        "humanName": "チャット スレッドを作成する",
-        "requestUrl": "/beta/teams/{team-id}/channels/{channel-id}/chatThreads",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_post_chatthreads",
-        "postBody": "{\r\n\"rootMessage\": {\r\n       \"body\": {\r\n         \"contentType\": 2,\r\n         \"content\": \"Hello world\"\r\n       }\r\n   }\r\n }",
+        "humanName": "チャネル メッセージを送信する",
+        "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
+        "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "このクエリでは、そのチームのチーム ID とチャネル ID が必要です。チーム ID とチャネル ID を見つけるには、次のコマンドを実行します。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
     },
@@ -1439,7 +1495,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/ja-JP/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/ja-JP/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
+        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/ja-jp/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/ja-jp/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
         "skipTest": false
     },
     {
@@ -1453,20 +1509,33 @@
     },
     {
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
-        "humanName": "アプリケーションの一覧を取得する",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_list",
+        "humanName": "カウント を持つすべてのアプリケーションの一覧を表示する",
+        "requestUrl": "/v1.0/applications?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "tip": "ディレクトリオブジェクトの高度なクエリ機能を使用している場合は、こちらからフィードバックをお寄せください: https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "6A22ECA7-9620-4A82-BA96-E1C955CD42DF",
+        "category": "アプリケーション",
+        "method": "GET",
+        "humanName": "displayName に\"チーム\"を持つサービスプリンシパルを検索してカウントする",
+        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:teams\"&$select=id,displayName",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/serviceprincipal-list?view=graph-rest-1.0&tabs=http",
+        "tip": "ディレクトリオブジェクトの高度なクエリ機能を使用している場合は、こちらからフィードバックをお寄せください: https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
         "id": "50887d50-2f03-4cdb-8fe2-76b1366ae6ca",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "POST",
         "humanName": "新しいアプリケーションを作成する",
-        "requestUrl": "/beta/applications",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_post_applications",
+        "requestUrl": "/v1.0/applications",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1478,21 +1547,21 @@
     },
     {
         "id": "b4fbcb7a-b80e-4254-b37c-224b8513badb",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
         "humanName": "アプリケーションのプロパティを取得する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_get",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-get?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "34bf8e06-aa71-4156-87a5-da8cb48bcb21",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "PATCH",
         "humanName": "アプリケーションのプロパティを更新する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_update",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-update?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1500,36 +1569,36 @@
             }
         ],
         "postBody": "{\r\n        \"signInAudience\": \"AzureADMyOrg\"\r\n    }",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "a6d6708b-2cc1-4dfb-a5c3-b404aea3f511",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "DELETE",
         "humanName": "アプリケーションを削除する",
-        "requestUrl": "/beta/applications/{application-id}",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_delete",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications",
         "skipTest": false
     },
     {
         "id": "85a99374-8d40-4b61-9969-0792853b18f3",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "GET",
         "humanName": "所有者のリストを取得する",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_list_owners",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-list-owners?view=graph-rest-1.0&tabs=http",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications",
         "skipTest": false
     },
     {
         "id": "450cc1d6-d3d1-4240-82ad-03a42fead0ec",
-        "category": "アプリケーション (ベータ版)",
+        "category": "アプリケーション",
         "method": "POST",
         "humanName": "新しい所有者を作成する",
-        "requestUrl": "/beta/applications/{application-id}/owners",
-        "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/application_post_owners",
+        "requestUrl": "/v1.0/applications/{application-id}/owners",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/application-post-owners?view=graph-rest-1.0&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -1537,7 +1606,7 @@
             }
         ],
         "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
-        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーション&#44;の ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/applications要求本文で、directoryObject オブジェクトの JSON 表記を指定します。",
+        "tip": "このクエリでは、アプリケーション ID が必要です。アプリケーションの ID を検索するには、次のコマンドを実行します。GET https://graph.microsoft.com/v1.0/applications.要求本文で、directoryObject オブジェクトの JSON 表記を指定します。",
         "skipTest": false
     },
     {
@@ -1546,7 +1615,7 @@
         "method": "POST",
         "humanName": "直接通知を作成する",
         "requestUrl": "/beta/me/notifications",
-        "docLink": "https://aka.ms/graphNotificationsDocs",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/user-post-notifications?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1563,7 +1632,7 @@
         "method": "POST",
         "humanName": "ビジュアル通知を作成する",
         "requestUrl": "/beta/me/notifications",
-        "docLink": "https://aka.ms/graphNotificationsDocs",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/user-post-notifications?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1580,14 +1649,14 @@
         "method": "POST",
         "humanName": "メッセージを検索する",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"requests\": [\r\n      {\r\n        \"entityTypes\": [\"microsoft.graph.message\"],\r\n        \"query\": {\r\n          \"query_string\": {\r\n            \"query\": \"test\"\r\n          }\r\n        },\r\n        \"from\": 0,\r\n        \"size\" : 5\r\n     }\r\n    ]\r\n  }",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "enable Mail.Read",
         "skipTest": false
     },
@@ -1597,14 +1666,14 @@
         "method": "POST",
         "humanName": "イベントを検索する",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.event\"],\r\n      \"query\": {\r\n          \"query_string\": {\r\n              \"query\": \"test\"\r\n          }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n  }]\r\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"microsoft.graph.event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "enable Calendars.Read",
         "skipTest": false
     },
@@ -1614,49 +1683,303 @@
         "method": "POST",
         "humanName": "ドライブアイテムを検索する",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.driveItem\"],\r\n      \"query\": {\r\n        \"query_string\": {\r\n          \"query\": \"test\"\r\n        }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 25\r\n    }\r\n  ]\r\n}",
-        "tip": "enable Files.Read.All",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"                            \r\n            }\r\n        }\r\n    ]\r\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする", 
         "skipTest": false
     },
     {
-        "id": "27e73cb0-6584-457d-af0d-f775fbe18605",
+        "id": "3af74c70-f90d-428e-aaab-42e3547546e5",
         "category": "検索 (ベータ版)",
         "method": "POST",
-        "humanName": "外部ファイルの検索",
+        "humanName": "検索一覧",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{    \r\n    \"entityTypes\": [\"microsoft.graph.externalFile\"],    \r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25\r\n  }]\r\n}",
-        "tip": "enable ExternalItem.Read.All",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"list\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            }\n        }\n    ]\n}",
+        "tip": "Sites.Read.Allを有効にする、Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
-        "id": "b4d2041e-376e-41db-85a9-d03afcf14e84",
+        "id": "13e6d7f4-ce51-4b7e-922d-0113f1061c3e",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "listItems の検索",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
+        "tip": "Sites.Read.Allを有効にする、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "8269ac81-deeb-4598-bc56-b34042637ef8",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "サイトの検索",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"site\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "Sites.Read.Allを有効にする、Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "400f04eb-e630-441c-82f1-15c1f631dd34",
         "category": "検索 (ベータ版)",
         "method": "POST",
         "humanName": "外部アイテムの検索",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
-        "tip": "enable ExternalItem.Read.All",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"from\": 0,\r\n            \"size\": 100,\r\n            \"fields\": [\r\n                \"FirstName\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+        "tip": "ExternalItem.Read.All を有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "検索結果のページング",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#page-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "検索結果の並び替え",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"\r\n            },\r\n            \"sortProperties\": [\r\n                {\r\n                    \"name\": \"lastModifiedDateTime\",\r\n                    \"isDescending\": \"true\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "文字列集計を使用して結果を絞り込む",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "数値集計を使用して結果を絞り込む",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"Size\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsNumber\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0,\n                        \"ranges\": [\n                            {\n                                \"to\": \"100\"\n                            },\n                            {\n                                \"from\": \"100\",\n                                \"to\": \"1000\"\n                            },\n                            {\n                                \"from\": \"1000\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
+        "category": "検索 (ベータ版)",
+        "method": "POST",
+        "humanName": "絞り込みクエリを適用して aggregationToken を渡します。",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "電子情報開示ケースを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "skipTest": false
+    },
+    {
+        "id": "83670efe-06f3-4777-bef9-00b1ef450985",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "電子情報開示ケースを取得する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/ediscoverycase-get?view=graph-rest-beta",
+        "tip": "このクエリでは、チーム ID が必要です。ケースの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "電子情報開示ケースを作成する",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
+        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "レビュー セットを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "レビュー セットのクエリを一覧表示する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "レビュー セットのクエリを作成する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "category": "Microsoft To Do",
+        "method": "GET",
+        "humanName": "To Do タスクの一覧を取得する",
+        "requestUrl": "/beta/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-list-lists?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクの一覧を作成する",
+        "requestUrl": "/beta/me/todo/lists",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todo-post-lists?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス権限と displayName パラメーターの値が必要です",
+        "skipTest": false
+    },
+    {
+        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクを作成する",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
+        "docLink":"https://docs.microsoft.com/ja-jp/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です。TaskListId パラメーターの値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists",
+        "skipTest": false
+    },
+    {
+        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "To Do タスクで LinkedResource を作成する",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
+        "tip": "このクエリには Tasks.ReadWrite アクセス許可が必要です。TaskListId パラメーターの値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists。taskId の値を検索するには、以下を実行します。GET https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
         "skipTest": false
     }
   ]
