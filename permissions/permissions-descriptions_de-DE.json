@@ -1,6 +1,46 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Ermöglicht es der App, die Einstellungen der rollenbasierten Zugriffskontrolle (RBAC) für alle RBAC-Anbieter im Namen des angemeldeten Benutzers zu lesen.  Das umfasst das Lesen von Rollendefinitionen und Rollenzuweisungen.",
+      "adminConsentDisplayName": "Rollenverwaltungsdaten für alle RBAC-Anbieter lesen",
+      "id": "48fec646-b2ba-4019-8681-8eb31435aded",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Ermöglicht es der App, die Einstellungen der rollenbasierten Zugriffskontrolle (RBAC) für alle RBAC-Anbieter an Ihrer Stelle zu lesen.  Das umfasst das Lesen von Rollendefinitionen und Rollenzuweisungen.",
+      "consentDisplayName": "Rollenverwaltungsdaten für alle RBAC-Anbieter lesen",
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "adminConsentDescription": "Ermöglicht es der App, die Zugangskontrollrichtlinien Ihrer Organisation im Namen des angemeldeten Benutzers zu lesen.",
+      "adminConsentDisplayName": "Zugangskontrollrichtlinien Ihrer Organisation lesen",
+      "id": "633e0fce-8c58-4cfb-9495-12bbd5a24f7c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Ermöglicht es der App, die Zugangskontrollrichtlinien Ihrer Organisation in Ihrem Auftrag zu lesen.",
+      "consentDisplayName": "Zugangskontrollrichtlinien Ihrer Organisation lesen",
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "adminConsentDescription": "Ermöglicht es der App, kurze Notizen eines angemeldeten Benutzers zu lesen, zu erstellen, zu bearbeiten und zu löschen.",
+      "adminConsentDisplayName": "Kurznotizen des angemeldeten Benutzers lesen, erstellen, bearbeiten und löschen",
+      "id": "328438b7-4c01-4c07-a840-e625a749bb89",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Ermöglicht es der App, Ihre kurzen Notizen zu lesen, zu erstellen, zu bearbeiten und zu löschen.",
+      "consentDisplayName": "Lesen, erstellen, bearbeiten und löschen Ihrer kurzen Notizen",
+      "value": "ShortNotes.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Ermöglicht es der App, alle kurzen Notizen zu lesen, auf die ein angemeldeter Benutzer Zugriff hat.",
+      "adminConsentDisplayName": "Kurznotizen des angemeldeten Benutzers lesen",
+      "id": "50f66e47-eb56-45b7-aaa2-75057d9afe08",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Erlaubt der App, Ihre kurzen Notizen zu lesen.",
+      "consentDisplayName": "Ihre kurzen Notizen lesen",
+      "value": "ShortNotes.Read"
+    },
+    {
       "adminConsentDescription": "Ermöglicht es der App Informationen über den Dienststatus des Mandanten im Namen des angemeldeten Benutzers zu lesen. Statusinformationen können Dienstprobleme oder Übersichten über den Dienststatus umfassen.",
       "adminConsentDisplayName": "Dienststatus lesen",
       "id": "55896846-df78-47a7-aa94-8d3d4442ca7f",
@@ -981,7 +1021,7 @@
       "value": "ChannelMessage.Delete"
     },
     {
-      "adminConsentDescription": "Zulassen, dass die App externe Datasets und Inhalte im Namen des angemeldeten Benutzers liest.",
+      "adminConsentDescription": "Zulassen, dass die App externe Datensätze und Inhalte im Namen des angemeldeten Benutzers liest.",
       "adminConsentDisplayName": "Lesen von Elementen in externen Datasets",
       "id": "922f9392-b1b7-483c-a4be-0089be7704fb",
       "isEnabled": true,
@@ -2116,7 +2156,7 @@
       "id": "e4c9e354-4dc5-45b8-9e7c-e1393b0b1a20",
       "isEnabled": true,
       "isAdmin": true,
-      "consentDescription": "Ermöglicht der App, Ihre Überwachungsprotokoll-Aktivitäten in Ihrem Namen zu lesen und zu abzufragen.",
+      "consentDescription": "Ermöglicht es der App, Ihre Überwachungsprotokoll-Aktivitäten in Ihrem Namen zu lesen und zu abzufragen.",
       "consentDisplayName": "Lesen von Überwachungsprotokolldaten",
       "value": "AuditLog.Read.All"
     },
@@ -2557,11 +2597,55 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Ermöglicht der App, E-Mails im Postfach des angemeldeten Benutzers zu lesen, außer Text, previewBody, Anlagen und alle erweiterten Eigenschaften.",
-      "consentDisplayName": "Grundlegende Mail des Benutzers lesen",
+      "consentDisplayName": "Grundlegende E-Mail des Benutzers lesen",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Ermöglicht es der App, die Einstellungen der rollenbasierten Zugriffskontrolle (RBAC) für alle RBAC-Anbieter ohne angemeldeten Benutzer zu lesen. Das umfasst das Lesen von Rollendefinitionen und Rollenzuweisungen.",
+      "consentDisplayName": "Rollenverwaltungsdaten für alle RBAC-Anbieter lesen",
+      "id": "c7fbd983-d9aa-4fa7-84b8-17382c103bc4",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Ermöglicht es der App, die Zugangskontrollrichtlinien Ihres Unternehmens zu lesen, ohne dass ein angemeldeter Benutzer erforderlich ist.",
+      "consentDisplayName": "Zugangskontrollrichtlinien Ihrer Organisation lesen",
+      "id": "37730810-e9ba-4e46-b07e-8ca78d182097",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Ermöglicht der App, alle Kurznotizen zu lesen, erstellen, bearbeiten und löschen, ohne dass ein Benutzer angemeldet ist.",
+      "consentDisplayName": "Kurznotizen aller Benutzern lesen, erstellen, bearbeiten und löschen",
+      "id": "842c284c-763d-4a97-838d-79787d129bab",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Ermöglicht der App, alle Kurznotizen zu lesen, ohne dass ein Benutzer angemeldet ist.",
+      "consentDisplayName": "Kurznotizen aller Benutzer lesen",
+      "id": "0c7d31ec-31ca-4f58-b6ec-9950b6b0de69",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"

@@ -1,7 +1,47 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "允许此应用代表已登录的用户读取租户的服务运行状况信息。服务运行状况信息可能包括服务问题或服务运行状况概述。",
+      "adminConsentDescription": "允许应用代表登录用户读取所有 RBAC 提供程序基于角色的访问控制 (RBAC) 设置。 这包括读取角色定义和角色分配。",
+      "adminConsentDisplayName": "读取所有 RBAC 提供程序的角色管理数据",
+      "id": "48fec646-b2ba-4019-8681-8eb31435aded",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "允许应用代表你读取所有 RBAC 提供程序基于角色的访问控制 (RBAC) 设置。 这包括读取角色定义和角色分配。",
+      "consentDisplayName": "读取所有 RBAC 提供程序的角色管理数据",
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "adminConsentDescription": "允许应用代表登录用户读取你的组织的条件访问策略。",
+      "adminConsentDisplayName": "读取你的组织的条件访问策略",
+      "id": "633e0fce-8c58-4cfb-9495-12bbd5a24f7c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "允许应用代表你读取你的组织的条件访问策略。",
+      "consentDisplayName": "读取你的组织的条件访问策略",
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "adminConsentDescription": "允许应用读取、创建、编辑和删除已登录用户的简短注释。",
+      "adminConsentDisplayName": "读取、创建、编辑和删除已登录用户的简短注释",
+      "id": "328438b7-4c01-4c07-a840-e625a749bb89",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "允许应用读取、创建、编辑和删除你的简短注释。",
+      "consentDisplayName": "读取、创建、编辑和删除你的简短注释",
+      "value": "ShortNotes.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "允许应用读取登录用户有权访问的所有简短注释。",
+      "adminConsentDisplayName": "读取已登录用户的简短注释",
+      "id": "50f66e47-eb56-45b7-aaa2-75057d9afe08",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "允许应用读取你的简短注释。",
+      "consentDisplayName": "读取简短注释",
+      "value": "ShortNotes.Read"
+    },
+    {
+      "adminConsentDescription": "允许此应用代表登录用户读取租户的服务运行状况信息。服务运行状况信息可能包括服务问题或服务运行状况概述。",
       "adminConsentDisplayName": "读取服务运行状况",
       "id": "55896846-df78-47a7-aa94-8d3d4442ca7f",
       "isEnabled": true,
@@ -981,7 +1021,7 @@
       "value": "ChannelMessage.Delete"
     },
     {
-      "adminConsentDescription": "允许应用代表已登录的用户读取外部数据集和内容。",
+      "adminConsentDescription": "允许应用代表登录用户读取外部数据集和内容。",
       "adminConsentDisplayName": "读取外部数据集中的项目",
       "id": "922f9392-b1b7-483c-a4be-0089be7704fb",
       "isEnabled": true,
@@ -2562,6 +2602,50 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有已登录用户的情况下读取所有 RBAC 提供程序基于角色的访问控制 (RBAC) 设置。这包括读取角色定义和角色分配。",
+      "consentDisplayName": "读取所有 RBAC 提供程序的角色管理数据",
+      "id": "c7fbd983-d9aa-4fa7-84b8-17382c103bc4",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取你的组织的条件访问策略。",
+      "consentDisplayName": "读取你的组织的条件访问策略",
+      "id": "37730810-e9ba-4e46-b07e-8ca78d182097",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用阅读、创建、编辑和删除已登录用户的所有简短注释。",
+      "consentDisplayName": "读取、创建、编辑和删除所有用户的简短注释",
+      "id": "842c284c-763d-4a97-838d-79787d129bab",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有已登录用户的情况下读取所有简短注释。",
+      "consentDisplayName": "读取所有用户的简短注释",
+      "id": "0c7d31ec-31ca-4f58-b6ec-9950b6b0de69",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"

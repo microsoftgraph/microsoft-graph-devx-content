@@ -1,6 +1,46 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Permite a la aplicación leer la configuración de control de acceso basado en roles (RBAC) de todos los proveedores de RBAC, en nombre del usuario que ha iniciado sesión.  Esto incluye leer las definiciones y las asignaciones de roles.",
+      "adminConsentDisplayName": "Leer los datos de administración de roles para todos los proveedores RBAC",
+      "id": "48fec646-b2ba-4019-8681-8eb31435aded",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite a la aplicación leer la configuración de control de acceso basado en roles (RBAC) de todos los proveedores de RBAC, en su nombre.  Esto incluye leer las definiciones y las asignaciones de roles.",
+      "consentDisplayName": "Leer los datos de administración de roles para todos los proveedores RBAC",
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite a la aplicación leer y escribir las directivas de acceso condicional de la organización en nombre del usuario que ha iniciado sesión.",
+      "adminConsentDisplayName": "Leer las directivas de acceso condicional de la organización",
+      "id": "633e0fce-8c58-4cfb-9495-12bbd5a24f7c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite a la aplicación leer las directivas de acceso condicional de la organización en su nombre.",
+      "consentDisplayName": "Leer las directivas de acceso condicional de la organización",
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea, cree, edite y elimine notas breves del usuario que ha iniciado sesión.",
+      "adminConsentDisplayName": "Leer, crear, editar y eliminar notas breves del usuario con la sesión iniciada",
+      "id": "328438b7-4c01-4c07-a840-e625a749bb89",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que la aplicación lea, cree, edite y elimine sus notas breves.",
+      "consentDisplayName": "Leer, crear, editar y eliminar las notas breves",
+      "value": "ShortNotes.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea todas las notas breves a las que tenga acceso el usuario que ha iniciado sesión.",
+      "adminConsentDisplayName": "Leer notas breves del usuario con la sesión iniciada",
+      "id": "50f66e47-eb56-45b7-aaa2-75057d9afe08",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que la aplicación lea sus notas breves.",
+      "consentDisplayName": "Leer sus notas breves",
+      "value": "ShortNotes.Read"
+    },
+    {
       "adminConsentDescription": "Permite que la aplicación lea la información de estado del servicio del inquilino en nombre del usuario que ha iniciado sesión. La información de estado puede incluir problemas de servicio o información general sobre el estado del servicio.",
       "adminConsentDisplayName": "Leer el estado del servicio",
       "id": "55896846-df78-47a7-aa94-8d3d4442ca7f",
@@ -981,7 +1021,7 @@
       "value": "ChannelMessage.Delete"
     },
     {
-      "adminConsentDescription": "Permite que la aplicación lea el contenido y los conjuntos de datos externos, en nombre del usuario que ha iniciado sesión.",
+      "adminConsentDescription": "Permite que la aplicación lea el contenido y los conjuntos de datos externos en nombre del usuario que ha iniciado sesión.",
       "adminConsentDisplayName": "Leer elementos en conjuntos de datos externos",
       "id": "922f9392-b1b7-483c-a4be-0089be7704fb",
       "isEnabled": true,
@@ -2557,11 +2597,55 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Permite a la aplicación leer el correo en el buzón del usuario que haya iniciado sesión a excepción del cuerpo, previewBody, los datos adjuntos y las propiedades extendidas.",
-      "consentDisplayName": "Leer el correo básico de usuario",
+      "consentDisplayName": "Leer el correo básico del usuario",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación lea la configuración de control de acceso basado en roles (RBAC) de todos los proveedores RBAC sin un usuario con la sesión iniciada. Esto incluye leer las definiciones y las asignaciones de roles.",
+      "consentDisplayName": "Leer los datos de administración de roles para todos los proveedores RBAC",
+      "id": "c7fbd983-d9aa-4fa7-84b8-17382c103bc4",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite a la aplicación leer las directivas de acceso condicional de la organización, sin que ningún usuario haya iniciado sesión.",
+      "consentDisplayName": "Leer las directivas de acceso condicional de la organización",
+      "id": "37730810-e9ba-4e46-b07e-8ca78d182097",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.Read.ConditionalAccess"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación lea, cree, edite y elimine todas las notas breves sin necesidad de que un usuario haya iniciado sesión.",
+      "consentDisplayName": "Leer, crear, editar y eliminar las notas breves de todos los usuarios",
+      "id": "842c284c-763d-4a97-838d-79787d129bab",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación lea todas las notas breves sin necesidad de que un usuario haya iniciado sesión.",
+      "consentDisplayName": "Leer las notas breves de todos los usuarios",
+      "id": "0c7d31ec-31ca-4f58-b6ec-9950b6b0de69",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ShortNotes.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"

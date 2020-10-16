@@ -64,6 +64,27 @@
         "skipTest": false
     },
     {
+        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "category": "Prise en main",
+        "method": "GET",
+        "humanName": "mes listes de tâches To Do",
+        "requestUrl": "/beta/me/todo/lists",
+        "tip": "Cette requête nécessite l’autorisation Tasks.ReadWrite",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/todo-list-lists?view=graph-rest-beta",
+        "skipTest": false
+    },
+    {
+        "id": "0FB601F7-2170-40DE-88B7-4D7387C7B547",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "comptent les utilisateurs de votre client à l’exception des invités (nombre brut)",
+        "requestUrl": "/v1.0/users/$count?$filter=userType ne 'guest'",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "Vous utilisez les fonctionnalités de requête avancée pour les objets d’annuaire, envoyez-nous vos commentaires ici : https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
         "id": "6eeef6bc-af51-4c38-b93b-d4deb9287a5b",
         "category": "Utilisateurs",
         "method": "GET",
@@ -85,9 +106,22 @@
         "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
         "category": "Utilisateurs",
         "method": "GET",
-        "humanName": "tous les utilisateurs du service financier",
-        "requestUrl": "/v1.0/users?$filter=Department eq 'Finance'",
+        "humanName": "tous les utilisateurs du service finance triés par nom avec count",
+        "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Vous utilisez les fonctionnalités de requête avancée pour les objets d’annuaire, envoyez-nous vos commentaires ici : https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "31DB5C68-256D-4286-96CC-D1B620A87210",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "les utilisateurs avec l’affichage de noms complet contenant « salle », les messages se terminant par « microsoft.com » et triés par nom.",
+        "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&$select=id,displayName,mail",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Vous utilisez les fonctionnalités de requête avancée pour les objets d’annuaire, envoyez-nous vos commentaires ici : https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -175,8 +209,9 @@
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "Groupes",
         "method": "GET",
-        "humanName": "tous les groupes auxquels j’appartiens",
-        "requestUrl": "/v1.0/me/memberOf",
+        "humanName": "tous les groupes auxquels j’appartiens (adhésion directe ou indirecte) avec nombre",
+        "requestUrl": "/v1.0/me/transitiveMemberOf/microsoft.graph.group?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/api/user_list_memberof",
         "skipTest": false
     },
@@ -184,8 +219,9 @@
         "id": "a923ff0c-60ee-4a3b-b54b-d1f913107939",
         "category": "Groupes",
         "method": "GET",
-        "humanName": "membres du groupe",
-        "requestUrl": "/v1.0/groups/{group-id}/members",
+        "humanName": "diriger les membres d’un groupe avec count",
+        "requestUrl": "/v1.0/groups/{group-id}/members?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/api/group_list_members",
         "tip": "Cette requête nécessite un ID de groupe.  Pour trouver l’ID d’un groupe auquel vous appartenez, vous pouvez exécuter les opérations suivantes : GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
@@ -1459,7 +1495,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/fr-FR/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/fr-FR/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
+        "postBody": "{\r\n    \"appActivityId\": \"uniqueIdInAppContext\",\r\n    \"activitySourceHost\": \"https://graphexplorer.blob.core.windows.net\",\r\n    \"userTimezone\": \"America/Los Angeles\",\r\n    \"appDisplayName\": \"Graph Explorer\",\r\n    \"activationUrl\": \"https://developer.microsoft.com/fr-fr/graph/graph-explorer\",\r\n    \"fallbackUrl\": \"https://developer.microsoft.com/fr-fr/graph/graph-explorer\",\r\n    \"contentInfo\": {\r\n        \"@context\": \"http://schema.org\",\r\n        \"@type\": \"CreativeWork\",\r\n        \"author\": \"Jennifer Booth\",\r\n        \"name\": \"Graph Explorer User Activity\"\r\n    },\r\n    \"visualElements\": {\r\n        \"attribution\": {\r\n            \"iconUrl\": \"https://graphexplorer.blob.core.windows.net/explorerIcon.png\",\r\n            \"alternateText\": \"Microsoft Graph Explorer\",\r\n            \"addImageQuery\": \"false\"\r\n        },\r\n        \"description\": \"A user activity made through the Microsoft Graph Explorer\",\r\n        \"backgroundColor\": \"#008272\",\r\n        \"displayText\": \"Graph Explorer Sample User Activity\",\r\n        \"content\": {\r\n            \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n            \"type\": \"AdaptiveCard\",\r\n            \"body\":\r\n            [{\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"With activities, developers have a way to capture the unique tasks for users of their app which flow seamlessly across any platform and device, allowing them to quickly resume working on their preferred screen. Using the Activity Feed, developers can create a human-centric view of the tasks most important to users helping reduce friction when switching from web to mobile to PC and beyond.\"\r\n            }]\r\n        }\r\n    },\r\n    \"historyItems\":[\r\n        {\r\n            \"userTimezone\": \"America/Los Angeles\",\r\n            \"startedDateTime\": \"{todayMinusHour}\",\r\n            \"lastActiveDateTime\": \"{today}\"\r\n        }\r\n    ]\r\n}",
         "skipTest": false
     },
     {
@@ -1475,9 +1511,22 @@
         "id": "c6f11ce0-7bf6-4fc9-9e56-a2472f91be2e",
         "category": "Applications",
         "method": "GET",
-        "humanName": "récupérer la liste d’applications.",
-        "requestUrl": "/v1.0/applications",
+        "humanName": "répertorier toutes les applications avec count",
+        "requestUrl": "/v1.0/applications?$count=true",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/application-list?view=graph-rest-1.0&tabs=http",
+        "tip": "Vous utilisez les fonctionnalités de requête avancée pour les objets d’annuaire, envoyez-nous vos commentaires ici : https://aka.ms/aadmgs",
+        "skipTest": false
+    },
+    {
+        "id": "6A22ECA7-9620-4A82-BA96-E1C955CD42DF",
+        "category": "Applications",
+        "method": "GET",
+        "humanName": "rechercher et compter les principaux de service avec « équipes » dans le displayName",
+        "requestUrl": "/v1.0/servicePrincipals?$count=true&$search=\"displayName:teams\"&$select=id,displayName",
+        "headers": [ { "name": "ConsistencyLevel", "value": "eventual" } ],
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/serviceprincipal-list?view=graph-rest-1.0&tabs=http",
+        "tip": "Vous utilisez les fonctionnalités de requête avancée pour les objets d’annuaire, envoyez-nous vos commentaires ici : https://aka.ms/aadmgs",
         "skipTest": false
     },
     {
@@ -1600,14 +1649,14 @@
         "method": "POST",
         "humanName": "rechercher des messages",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n    \"requests\": [\r\n      {\r\n        \"entityTypes\": [\"microsoft.graph.message\"],\r\n        \"query\": {\r\n          \"query_string\": {\r\n            \"query\": \"test\"\r\n          }\r\n        },\r\n        \"from\": 0,\r\n        \"size\" : 5\r\n     }\r\n    ]\r\n  }",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "activer Mail.Read",
         "skipTest": false
     },
@@ -1617,14 +1666,14 @@
         "method": "POST",
         "humanName": "rechercher des événements",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.event\"],\r\n      \"query\": {\r\n          \"query_string\": {\r\n              \"query\": \"test\"\r\n          }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n  }]\r\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"microsoft.graph.event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "activer Calendars.Read.",
         "skipTest": false
     },
@@ -1634,49 +1683,303 @@
         "method": "POST",
         "humanName": "rechercher driveitems",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\"microsoft.graph.driveItem\"],\r\n      \"query\": {\r\n        \"query_string\": {\r\n          \"query\": \"test\"\r\n        }\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 25\r\n    }\r\n  ]\r\n}",
-        "tip": "activer Files.Read.All",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"                            \r\n            }\r\n        }\r\n    ]\r\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
-        "id": "27e73cb0-6584-457d-af0d-f775fbe18605",
+        "id": "3af74c70-f90d-428e-aaab-42e3547546e5",
         "category": "Recherche (bêta)",
         "method": "POST",
-        "humanName": "rechercher des fichiers externes",
+        "humanName": "rechercher des listes",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{    \r\n    \"entityTypes\": [\"microsoft.graph.externalFile\"],    \r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25\r\n  }]\r\n}",
-        "tip": "activer ExternalItem.Read.All",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"list\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            }\n        }\n    ]\n}",
+        "tip": "activer Sites.Read.All, Sites.ReadWrite.All", 
         "skipTest": false
     },
     {
-        "id": "b4d2041e-376e-41db-85a9-d03afcf14e84",
+        "id": "13e6d7f4-ce51-4b7e-922d-0113f1061c3e",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "rechercher les listItems",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
+        "tip": "activer Sites.Read.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "8269ac81-deeb-4598-bc56-b34042637ef8",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "rechercher dans les sites",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"site\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "activer Sites.Read.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "400f04eb-e630-441c-82f1-15c1f631dd34",
         "category": "Recherche (bêta)",
         "method": "POST",
         "humanName": "rechercher des éléments externes",
         "requestUrl": "/beta/search/query",
-        "docLink": "https://aka.ms/mssearchapi",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [{\r\n    \"entityTypes\": [\"microsoft.graph.externalItem\"],\r\n    \"contentSources\": [\"/external/connections/connection_friendly_name\"],\r\n    \"query\": {\r\n      \"query_string\": {\r\n        \"query\": \"test\"\r\n      }\r\n    },\r\n    \"from\": 0,\r\n    \"size\": 25,\r\n    \"stored_fields\": [\r\n      \t\"number\",\r\n      \t\"shortdescription\"\r\n       ]\r\n  }]\r\n}",
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"from\": 0,\r\n            \"size\": 100,\r\n            \"fields\": [\r\n                \"FirstName\"\r\n            ]\r\n        }\r\n    ]\r\n}",
         "tip": "activer ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "résultats de la recherche de pages",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#page-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "trier les résultats de la recherche",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"contoso\"\r\n            },\r\n            \"sortProperties\": [\r\n                {\r\n                    \"name\": \"lastModifiedDateTime\",\r\n                    \"isDescending\": \"true\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "affiner les résultats avec les agrégations de chaînes",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "affiner les résultats avec les agrégations numériques",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregations\": [\n                {\n                    \"field\": \"Size\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsNumber\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0,\n                        \"ranges\": [\n                            {\n                                \"to\": \"100\"\n                            },\n                            {\n                                \"from\": \"100\",\n                                \"to\": \"1000\"\n                            },\n                            {\n                                \"from\": \"1000\"\n                            }\n                        ]\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
+        "category": "Recherche (bêta)",
+        "method": "POST",
+        "humanName": "appliquer une requête affinée en passant l'agrégationToken",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
+        "tip": "activer Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+        "skipTest": false
+    },
+    {
+        "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "répertorier les cas eDiscovery",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Accédez à l’onglet Modifier les autorisations et autorisez User.Read pour exécuter cette requête",
+        "skipTest": false
+    },
+    {
+        "id": "83670efe-06f3-4777-bef9-00b1ef450985",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "obtenir un cas eDiscovery",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/ediscoverycase-get?view=graph-rest-beta",
+        "tip": "Cette requête nécessite un ID de cas. Pour trouver l’ID d’un cas, vous pouvez exécuter : GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "skipTest": false
+    },
+    {
+        "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
+        "category": "Conformité (bêta)",
+        "method": "POST",
+        "humanName": "créer un cas eDiscovery",
+        "requestUrl": "/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
+        "tip": "Accédez à l’onglet Modifier les autorisations et autorisez User.Read pour exécuter cette requête",
+        "skipTest": false
+    },
+    {
+        "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "répertorier les ensembles de révision",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "skipTest": false
+    },
+    {
+        "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "requêtes concernant la liste des ensembles de révision",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
+        "category": "Conformité (bêta)",
+        "method": "POST",
+        "humanName": "créer une requête d’ensemble de révision",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
+        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "skipTest": false
+    },
+    {
+        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "category": "Microsoft To Do",
+        "method": "GET",
+        "humanName": "obtenir des listes de tâches To Do",
+        "requestUrl": "/beta/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/todo-list-lists?view=graph-rest-beta",
+        "tip": "Cette requête nécessite l’autorisation Tasks.ReadWrite",
+        "skipTest": false
+    },
+    {
+        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "créer une liste de tâches To Do",
+        "requestUrl": "/beta/me/todo/lists",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/todo-post-lists?view=graph-rest-beta",
+        "tip": "Cette requête nécessite l’autorisation Tasks.ReadWrite et une valeur pour le paramètre displayName",
+        "skipTest": false
+    },
+    {
+        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "créer une tâche To Do",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
+        "docLink":"https://docs.microsoft.com/fr-fr/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "tip": "Cette requête nécessite l’autorisation Tasks.ReadWrite. Pour rechercher une valeur pour le paramètre taskListId, vous pouvez exécuter : OBTENIR https://graph.microsoft.com/beta/me/todo/lists",
+        "skipTest": false
+    },
+    {
+        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "category": "Microsoft To Do",
+        "method": "POST",
+        "humanName": "créer LinkedResource dans une tâche To Do",
+        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
+        "tip": "Cette requête nécessite l’autorisation Tasks.ReadWrite. Pour rechercher une valeur pour le paramètre taskListId, vous pouvez exécuter : OBTENIR https://graph.microsoft.com/beta/me/todo/lists. pour trouver une valeur pour taskId, vous pouvez exécuter : OBTENIR https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
         "skipTest": false
     }
   ]
