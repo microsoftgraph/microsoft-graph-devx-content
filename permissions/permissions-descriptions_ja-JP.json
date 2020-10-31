@@ -1,6 +1,76 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "アプリで、サインインしているユーザーのタスクと、そのユーザーと共有されているものを含むタスク リスト読み取ることができるようにします。これには、作成、削除、または更新のアクセス許可は含まれません。",
+      "adminConsentDisplayName": "ユーザーのタスクおよびタスク リストを読み取る",
+      "id": "f45671fb-e0fe-4b4b-be20-3d3ce43f1bcb",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "アプリがあなたと共有しているものを含め、あなたのタスクとタスクリストを読みとることを許可します。これには、作成、削除、または更新のアクセス許可は含まれません。",
+      "consentDisplayName": "タスクおよびタスク リストを読み取る",
+      "value": "Tasks.Read"
+    },
+    {
+      "adminConsentDescription": "サインインしたユーザーのタスクとタスクリストをアプリが作成、読み取り、更新、削除できるようにします。これには、共有されているものも含まれます。",
+      "adminConsentDisplayName": "ユーザーのタスクとタスク リストの作成、読み取り、更新、削除",
+      "id": "2219042f-cab5-40cc-b0d2-16b1540b4c5f",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "アプリがタスクとタスクリストを作成、読み取り、更新、削除できるようにします。これには、共有されているものも含まれます。",
+      "consentDisplayName": "タスクとタスクリストの作成、読み取り、更新、削除",
+      "value": "Tasks.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーがアクセスできるチャットで Teams アプリの読み取り、インストール、アップグレード、アンインストールをアプリに許可します。アプリケーション固有の設定の読み取りはできません。",
+      "adminConsentDisplayName": "チャットでインストールされている Teams アプリを管理する",
+      "id": "aa85bf13-d771-4d5d-a9e6-bca04ce44edf",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "アクセスできるチャット内の Teams アプリの読み取り、インストール、アップグレード、アンインストールをアプリに許可します。アプリケーション固有の設定の読み取りはできません。",
+      "consentDisplayName": "チャットでインストールされている Teams アプリを管理する",
+      "value": "TeamsAppInstallation.ReadWriteForChat"
+    },
+    {
+      "adminConsentDescription": "サインインしたユーザーの代わりに、アプリがクラウドPCのプロパティを読み取ることを許可します。",
+      "adminConsentDisplayName": "クラウド PC の読み取り",
+      "id": "5252ec4e-fd40-4d92-8c68-89dd1d3c6110",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "ユーザーの代わりに、アプリがクラウドPCのプロパティを読み取ることを許可します。",
+      "consentDisplayName": "クラウド PC の読み取り",
+      "value": "CloudPC.Read.All"
+    },
+    {
+      "adminConsentDescription": "サインインしたユーザーの代わりに、アプリがクラウドPCのプロパティの読み取りと書き込みを実行することを許可します。",
+      "adminConsentDisplayName": "クラウド PC の読み取りと書き込み",
+      "id": "9d77138f-f0e2-47ba-ab33-cd246c8b79d1",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "ユーザーの代わりに、アプリがクラウドPCのプロパティの読み取りと書き込みを実行することを許可します。",
+      "consentDisplayName": "クラウド PC の読み取りと書き込み",
+      "value": "CloudPC.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーに代わり、1 対 1 のチャットとグループ チャットのメンバーと説明をアプリが読み取れるようにします。",
+      "adminConsentDisplayName": "ユーザーのチャット スレッドの名前とメンバーの読み取り",
+      "id": "9547fcb5-d03f-419d-9948-5928bbf71b0f",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "あなたに代わり、1 対 1 のチャットとグループ チャットのメンバーと説明をアプリが読み取れるようにします。",
+      "consentDisplayName": "自分のチャット スレッドの名前とメンバーの読み取り",
+      "value": "Chat.ReadBasic"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーに代わりに、アプリが 1 対 1 のチャットとグループ チャットを送信できるようにします。",
+      "adminConsentDisplayName": "ユーザーのチャット メッセージを送信",
+      "id": "116b7235-7cc6-461e-b163-8e55691d839e",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "あなたに代わり、アプリが 1 対 1 のチャットとグループ チャットを送信できるようにします。",
+      "consentDisplayName": "チャット メッセージを送信",
+      "value": "ChatMessage.Send"
+    },
+    {
       "adminConsentDescription": "サインインしているユーザーの代わりに、アプリがすべての RBAC (ロールベースのアクセス制御) プロバイダーに対する RBAC 設定を読み取れるようにします。 これには、ロール定義の読み取り、およびロールの割り当ても含まれます。",
       "adminConsentDisplayName": "すべての RBAC プロバイダーのロール管理データの読み取り",
       "id": "48fec646-b2ba-4019-8681-8eb31435aded",
@@ -147,21 +217,11 @@
       "isEnabled": true,
       "isAdmin": true,
       "consentDescription": "アクセスできるチーム内の Teams アプリの読み取り、インストール、アップグレード、アンインストールをアプリに許可します。アプリケーション固有の設定の読み取りはできません。",
-      "consentDisplayName": "インストールされている Teams アプリの読み取り",
+      "consentDisplayName": "インストールされている Teams アプリをチームで管理する",
       "value": "TeamsAppInstallation.ReadWriteForTeam"
     },
     {
-      "adminConsentDescription": "サインインしているユーザーがアクセスできるチャットで Teams アプリの読み取り、インストール、アップグレード、アンインストールをアプリに許可します。アプリケーション固有の設定の読み取りはできません。",
-      "adminConsentDisplayName": "チャットでインストールされている Teams アプリを管理する",
-      "id": "aa85bf13-d771-4d5d-a9e6-bca04ce44edf",
-      "isEnabled": true,
-      "isAdmin": false,
-      "consentDescription": "アクセスできるチャット内の Teams アプリの読み取り、インストール、アップグレード、アンインストールをアプリに許可します。アプリケーション固有の設定の読み取りはできません。",
-      "consentDisplayName": "チャットでインストールされている Teams アプリを管理する",
-      "value": "TeamsAppInstallation.ReadWriteForChat"
-    },
-    {
-      "adminConsentDescription": "アプリでサインインしているユーザーにインストールされている Teams アプリの読み取りを実行できるようにします。アプリケーション固有の設定の読み取りはできません。",
+      "adminConsentDescription": "アプリが、サインインしたユーザー用にインストールされている Teams アプリを読み取れるようにします。アプリケーション固有の設定の読み取りはできません。",
       "adminConsentDisplayName": "ユーザーのインストールされている Teams アプリの読み取り",
       "id": "c395395c-ff9a-4dba-bc1f-8372ba9dca84",
       "isEnabled": true,
@@ -367,31 +427,11 @@
       "isEnabled": true,
       "isAdmin": true,
       "consentDescription": "あなたに代わり、アプリケーションに対する同意とアクセス許可の付与に関するポリシーをこのアプリが読み取れるようにします。",
-      "consentDisplayName": "同意とアクセス許可の付与に関するポリシーの読み取り",
+      "consentDisplayName": "同意とアクセス許可付与ポリシーの読み取り",
       "value": "Policy.Read.PermissionGrant"
     },
     {
-      "adminConsentDescription": "サインインしているユーザーに代わり、アプリが 1 対 1 のチャットとグループ チャットを送信できるようにします。",
-      "adminConsentDisplayName": "ユーザーのチャット メッセージを送信",
-      "id": "116b7235-7cc6-461e-b163-8e55691d839e",
-      "isEnabled": true,
-      "isAdmin": true,
-      "consentDescription": "あなたに代わり、アプリが 1 対 1 のチャットとグループ チャットを送信できるようにします。",
-      "consentDisplayName": "チャット メッセージを送信",
-      "value": "ChatMessage.Send"
-    },
-    {
-      "adminConsentDescription": "サインインしているユーザーに代わり、1 対 1 のチャットとグループ チャットのメンバーと説明をアプリが読み取れるようにします。",
-      "adminConsentDisplayName": "ユーザーのチャット スレッドの名前とメンバーの読み取り",
-      "id": "9547fcb5-d03f-419d-9948-5928bbf71b0f",
-      "isEnabled": true,
-      "isAdmin": true,
-      "consentDescription": "あなたに代わり、1 対 1 のチャットとグループ チャットのメンバーと説明をアプリが読み取れるようにします。",
-      "consentDisplayName": "自分のチャット スレッドの名前とメンバーの読み取り",
-      "value": "Chat.ReadBasic"
-    },
-    {
-      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリで組織の承認ポリシーの読み取りと書き込みを実行できるようにします。 たとえば、承認ポリシーでは既定のユーザー ロールに既定で割り当てられるアクセス許可の一部を制御できます。",
+      "adminConsentDescription": "サインインしたユーザーに代わって、アプリが組織の承認ポリシーの読み取りと書き込みを実行できるようにします。 たとえば、承認ポリシーでは既定のユーザー ロールに既定で割り当てられるアクセス許可の一部を制御できます。",
       "adminConsentDisplayName": "組織の承認ポリシーの読み取りと書き込み",
       "id": "edd3c878-b384-41fd-95ad-e7407dd775be",
       "isEnabled": true,
@@ -981,7 +1021,7 @@
       "value": "TeamsApp.ReadWrite"
     },
     {
-      "adminConsentDescription": "アプリでサインインしているユーザーにインストールされている Teams アプリの読み取りを実行できるようにします。アプリケーション固有の設定の読み取りはできません。",
+      "adminConsentDescription": "アプリが、サインインしたユーザー用にインストールされている Teams アプリを読み取れるようにします。アプリケーション固有の設定の読み取りはできません。",
       "adminConsentDisplayName": "ユーザーのインストールされている Teams アプリの読み取り",
       "id": "daef10fc-047a-48b0-b1a5-da4b5e72fabc",
       "isEnabled": true,
@@ -1371,17 +1411,7 @@
       "value": "People.Read"
     },
     {
-      "adminConsentDescription": "アプリでサインインしているユーザーに割り当てられている、またはサインしているユーザーと共有しているタスクとプラン (およびプラン内のタスク) の作成、読み取り、更新、削除を実行できるようにします。",
-      "adminConsentDisplayName": "ユーザーのタスクとプロジェクトの作成、読み取り、更新および削除",
-      "id": "2219042f-cab5-40cc-b0d2-16b1540b4c5f",
-      "isEnabled": true,
-      "isAdmin": false,
-      "consentDescription": "アプリで自分に割り当てられているタスクと、自分と共有または所有しているプラ​​ン (およびその中のタスク) を作成、読み取り、更新、削除できるようにします。",
-      "consentDisplayName": "タスクとプロジェクトの作成、読み取り、更新および削除",
-      "value": "Tasks.ReadWrite"
-    },
-    {
-      "adminConsentDescription": "サインインしているユーザーの代わりに、アプリで非表示のグループおよび管理単位のメンバーシップの読み取りを実行できるようにします。サインインしているユーザーがアクセスできる非表示のグループおよび管理単位が対象です。",
+      "adminConsentDescription": "サインインしているユーザーのために、非表示のグループおよび管理単位のメンバーシップをアプリが読み取ることを許可します。サインインしているユーザーがアクセス権を持つ非表示のグループおよび管理ユニットが対象です。",
       "adminConsentDisplayName": "非表示のメンバーシップの読み取り",
       "id": "f6a3db3e-f7e8-4ed2-a414-557c8c9830be",
       "isEnabled": true,
@@ -1421,17 +1451,7 @@
       "value": "email"
     },
     {
-      "adminConsentDescription": "アプリでユーザー タスクの読み取りを実行できるようにします。",
-      "adminConsentDisplayName": "ユーザー タスクの読み取り",
-      "id": "f45671fb-e0fe-4b4b-be20-3d3ce43f1bcb",
-      "isEnabled": true,
-      "isAdmin": false,
-      "consentDescription": "アプリでタスクの読み取りを実行できるようにします。",
-      "consentDisplayName": "タスクの読み取り",
-      "value": "Tasks.Read"
-    },
-    {
-      "adminConsentDescription": "ユーザーが職場または学校アカウントでアプリにサインインできるようにします。またアプリでユーザーの基本的なプロファイル情報の読み取りを実行できるようにします。",
+      "adminConsentDescription": "ユーザーが職場または学校のアカウントでアプリにサインインできるようにし、アプリが基本的なユーザープロファイル情報を表示できるようにします。",
       "adminConsentDisplayName": "ユーザーのサインイン",
       "id": "37f7f235-527c-4136-accd-4a02d197296e",
       "isEnabled": true,
@@ -2131,7 +2151,7 @@
       "value": "DeviceManagementConfiguration.ReadWrite.All"
     },
     {
-      "adminConsentDescription": "アプリで Microsoft Intune で管理されるデバイス構成のプロパティおよびデバイスのコンプライアンス ポリシーとそのポリシーのグループへの割り当ての読み取りを実行できるようにします。",
+      "adminConsentDescription": "アプリが Microsoft Intune で管理されているデバイス構成とデバイス コンプライアンス ポリシーのプロパティ、およびそれらのグループへの割り当てを読み取ることができるようにします。",
       "adminConsentDisplayName": "Microsoft Intune のデバイスの構成とポリシーの読み取り",
       "id": "f1493658-876a-4c87-8fa7-edb559b3476a",
       "isEnabled": true,
@@ -2597,11 +2617,22 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "アプリで本文、PreviewBody、添付書類や他の拡張プロパティ以外のサインインしているユーザーのメールボックス内のメールの読み取りを実行できるようにします。",
-      "consentDisplayName": "ユーザーの基本的なメールの読み取り",
+      "consentDisplayName": "ユーザーの基本メールの読み取り",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "サインインしたユーザーがいなくても、PSTN およびダイレクトルーティングのすべての通話記録データを読み取ることができます。",
+      "consentDisplayName": "PSTN および ダイレクト ルーティングの通話記録データの読み取り",
+      "id": "a2611786-80b3-417e-adaa-707d4261a5f0",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CallRecord-PstnCalls.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
