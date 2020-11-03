@@ -64,13 +64,13 @@
         "skipTest": false
     },
     {
-        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "id": "58e876d9-2491-4335-a2e5-e60515c541ec",
         "category": "Getting Started",
         "method": "GET",
         "humanName": "my To Do task lists",
-        "requestUrl": "/beta/me/todo/lists",
+        "requestUrl": "/v1.0/me/todo/lists",
         "tip": "This query requires the Tasks.ReadWrite permission",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -668,7 +668,7 @@
         "id": "6161a316-8212-4a16-a8f1-e200501a4342",
         "category": "Planner",
         "method": "GET",
-        "humanName": "Planner plan",
+        "humanName": "get Planner plan",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/plannerplan_get",
         "tip": "This query requires a plan id.  To find the ID of the plan you can run: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
@@ -767,7 +767,7 @@
         "id": "009536f5-9a7d-4de5-ad47-a714d1c3f116",
         "category": "Planner",
         "method": "GET",
-        "humanName": "Planner task by id",
+        "humanName": "get Planner task by id",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/plannertask_get",
         "tip": "This query requires a task id.  To find the ID of the task you can run: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
@@ -1029,7 +1029,7 @@
         "id": "3dedf59e-8407-4ba2-a916-e5a40426c214",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "Enumerate the document libraries under the root site",
+        "humanName": "enumerate the document libraries under the root site",
         "requestUrl": "/v1.0/sites/root/drives",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/drive_list#list-a-sites-drives",
         "skipTest": false
@@ -1038,7 +1038,7 @@
         "id": "a696c30e-9d43-4269-8591-5b263833602d",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "SharePoint site based on relative path of the site",
+        "humanName": "get SharePoint site based on relative path of the site",
         "requestUrl": "/v1.0/sites/{host-name}:/{server-relative-path}",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/site_getbypath",
         "skipTest": false
@@ -1047,7 +1047,7 @@
         "id": "73fa11fa-e984-444b-94cf-b843141339bd",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "Search for a SharePoint site by keyword",
+        "humanName": "search for a SharePoint site by keyword",
         "requestUrl": "/v1.0/sites?search=contoso",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/site_search",
         "skipTest": false
@@ -1056,7 +1056,7 @@
         "id": "1f8dd913-d2d5-4485-aac0-a8acde3dc529",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "Enumerate subsites of the root site",
+        "humanName": "enumerate subsites of the root site",
         "requestUrl": "/v1.0/sites/root/sites",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/site_list_subsites",
         "skipTest": false
@@ -1065,7 +1065,7 @@
         "id": "198473e0-b580-400f-a4a3-a8086e68b51d",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "Enumerate site columns of the root site",
+        "humanName": "enumerate site columns of the root site",
         "requestUrl": "/v1.0/sites/root/columns",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
@@ -1074,7 +1074,7 @@
         "id": "da5a8521-b780-45d4-ab49-fd8f3f71fca9",
         "category": "SharePoint Sites",
         "method": "GET",
-        "humanName": "Enumerate site content types of the root site",
+        "humanName": "enumerate site content types of the root site",
         "requestUrl": "/v1.0/sites/root/contentTypes",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/site?view=graph-rest-1.0",
         "skipTest": false
@@ -1083,7 +1083,7 @@
         "id": "b7d7134b-6509-48c5-8ce6-79d431ac4e98",
         "category": "SharePoint Lists",
         "method": "GET",
-        "humanName": "Enumerate the lists in the root site",
+        "humanName": "enumerate the lists in the root site",
         "requestUrl": "/v1.0/sites/root/lists",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/list_list",
         "skipTest": false
@@ -1092,7 +1092,7 @@
         "id": "659659dc-afd0-4ff9-a1fc-06c0f1636d21",
         "category": "SharePoint Lists",
         "method": "GET",
-        "humanName": "Enumerate list columns",
+        "humanName": "enumerate list columns",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/columns",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
@@ -1101,7 +1101,7 @@
         "id": "898adf6f-7299-4803-b472-30ef7dc843ce",
         "category": "SharePoint Lists",
         "method": "GET",
-        "humanName": "Enumerate list content types",
+        "humanName": "enumerate list content types",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/contentTypes",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/listitem?view=graph-rest-1.0",
         "skipTest": false
@@ -1110,7 +1110,7 @@
         "id": "5df47910-768c-49f4-bf9d-9922e7abfff5",
         "category": "SharePoint Lists",
         "method": "GET",
-        "humanName": "Enumerate the list items in a list",
+        "humanName": "enumerate the list items in a list",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/items",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/listitem_list",
         "skipTest": false
@@ -1119,7 +1119,7 @@
         "id": "ae717dfe-a350-4182-9842-97f60faa77a4",
         "category": "SharePoint Lists",
         "method": "GET",
-        "humanName": "Enumerate list items with specific column values",
+        "humanName": "enumerate list items with specific column values",
         "requestUrl": "/v1.0/sites/root/lists/{list-id}/items?$filter=fields/Title eq '{list-title}'",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/listitem_list",
         "headers": [
@@ -1134,7 +1134,7 @@
         "id": "3d13b070-b6c1-4739-90a9-6ff3ed68ff93",
         "category": "Batching",
         "method": "POST",
-        "humanName": "Perform parallel GETs",
+        "humanName": "perform parallel GETs",
         "requestUrl": "/v1.0/$batch",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/concepts/json_batching",
         "headers": [
@@ -1151,7 +1151,7 @@
         "id": "bb6a319a-ac5c-443a-8242-8abee849205a",
         "category": "Batching",
         "method": "POST",
-        "humanName": "Combine a POST and a GET",
+        "humanName": "combine a POST and a GET",
         "requestUrl": "/v1.0/$batch",
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/concepts/json_batching",
         "headers": [
@@ -1372,7 +1372,7 @@
         "id": "d5418cff-d035-498c-91f3-b9f85b2fb51a",
         "category": "Security",
         "method": "GET",
-        "humanName": "TI indicators (beta)",
+        "humanName": "list TI indicators (beta)",
         "requestUrl": "/beta/security/tiIndicators",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/tiindicators-list",
         "skipTest": false
@@ -1384,6 +1384,42 @@
         "humanName": "security actions (beta)",
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/securityactions-list",
+        "skipTest": false
+    },
+    {
+        "id": "7d3116a3-1690-4a15-ba47-153cb7891d00",
+        "category": "Security",
+        "method": "GET",
+        "humanName": "get all conditional access policies",
+        "requestUrl": "/v1.0/identity/conditionalAccess/policies",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "4fc821e4-f291-4944-999a-6d5b84ec8735",
+        "category": "Security",
+        "method": "GET",
+        "humanName": "get all named locations",
+        "requestUrl": "/v1.0/identity/conditionalAccess/namedLocations",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "473bd812-0df6-4fcb-bd23-d4b81eaa5f3e",
+        "category": "Security",
+        "method": "GET",
+        "humanName": "get all conditional access policies (beta)",
+        "requestUrl": "/beta/identity/conditionalAccess/policies",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "d565b5f3-a268-4acf-a068-565294b5cdae",
+        "category": "Security",
+        "method": "GET",
+        "humanName": "get all named locations (beta)",
+        "requestUrl": "/beta/identity/conditionalAccess/namedLocations",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-beta&tabs=http",
         "skipTest": false
     },
     {
@@ -1922,21 +1958,21 @@
         "skipTest": false
     },
     {
-        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "id": "ced9c5ee-7745-49b2-9e08-018e22dbc41a",
         "category": "Microsoft To Do",
         "method": "GET",
         "humanName": "get To Do task lists",
-        "requestUrl": "/beta/me/todo/lists",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-beta",
+        "requestUrl": "/v1.0/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission",
         "skipTest": false
     },
     {
-        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "id": "fae2370c-4f38-4efa-8e81-991991ce61a7",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create To Do task list",
-        "requestUrl": "/beta/me/todo/lists",
+        "requestUrl": "/v1.0/me/todo/lists",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1944,16 +1980,16 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-post-lists?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-post-lists?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission and a value for the displayName parameter",
         "skipTest": false
     },
     {
-        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "id": "6ef483ae-9692-4a53-8960-34b01a1c8cf2",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create To Do task",
-        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "requestUrl": "/v1.0/me/todo/lists/{taskListId}/tasks",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1961,25 +1997,101 @@
             }
         ],
         "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
-        "docLink":"https://docs.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "docLink":"https://docs.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission. To find a value for the taskListId parameter, you can run: GET https://graph.microsoft.com/beta/me/todo/lists",
         "skipTest": false
     },
     {
-        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "id": "ce73e818-6b31-4c3b-bd57-812b90d0cf49",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create LinkedResource in a To Do task",
-        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "requestUrl": "/v1.0/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todotask-post-linkedresources?view=graph-rest-1.0",
         "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
         "tip": "This query requires the Tasks.ReadWrite permission. To find a value for the taskListId parameter, you can run: GET https://graph.microsoft.com/beta/me/todo/lists. to find a value for the taskId, you can run: GET https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
+        "skipTest": false
+    },
+    {
+        "id": "fd58d371-315e-49d8-aa74-58fc4ad1337c",
+        "category": "Identity and Access",
+        "method": "GET",
+        "humanName": "list Azure AD gallery apps",
+        "requestUrl": "/beta/applicationTemplates",
+        "docLink": "https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/appTemplateAPISurvey",
+        "skipTest": false
+    },
+    {
+        "id": "101af4d8-4697-4347-906e-9c3659bf2a29",
+        "category": "Identity and Access",
+        "method": "POST",
+        "humanName": "instantiate an Azure AD gallery app",
+        "requestUrl": "/beta/applicationTemplates/{id}/instantiate",
+        "docLink": "https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/appTemplateAPISurvey",
+        "postBody": "{\r\n \"displayName\": \"appDisplayName\"\r\n}",
+        "skipTest": false
+    },
+    {
+        "id": "3155cff4-2d16-4d45-a9f7-214b6a246dc5",
+        "category": "Identity and Access",
+        "method": "PATCH",
+        "humanName": "update properties on the servicePrincipal",
+        "requestUrl": "/v1.0/servicePrincipals/{id}",
+        "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/servicePrincipalAPISurvey",
+        "postBody":"{\r\n  \"appRoleAssignmentRequired\": true\r\n}",
+        "skipTest": false
+    },
+    {
+        "id": "42d5a2bc-4376-4b40-bbb5-dfad82879fff",
+        "category": "Identity and Access",
+        "method": "PATCH",
+        "humanName": "update properties on the application",
+        "requestUrl": "/v1.0/applications/{id}",
+        "docLink": "https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/applicationsAPISurvey",
+        "postBody":"{\r\n  \"displayName\": \"New display name\"\r\n}",
+        "skipTest": false
+    },
+    {
+        "id": "faf23cd6-070e-4c98-bbba-61c7d73163cc",
+        "category": "Identity and Access",
+        "method": "POST",
+        "humanName": "create a claim mapping policy",
+        "requestUrl": "/v1.0/policies/claimsMappingPolicies",
+        "docLink": "https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/claimsMappingPolicyAPISurvey",
+        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true,\r\n}",
+        "skipTest": false
+    },
+    {
+        "id": "5a15e65b-d074-4ac0-a161-f30e7e88dd55",
+        "category": "Identity and Access",
+        "method": "POST",
+        "humanName": "assign a claims mapping policy to a serviceprincipal",
+        "requestUrl": "/v1.0/servicePrincipals/{id}/claimsMappingPolicies/$ref",
+        "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/claimsMappingPolicyAPISurvey",
+        "postBody":"{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/policies\/claimsMappingPolicies\/cd3d9b57-0aee-4f25-8ee3-ac74ef5986a9\"\r\n}",
+        "skipTest": false
+    },
+    {
+        "id": "59360756-5b4b-44b5-968b-82b55734b4c7",
+        "category": "Identity and Access",
+        "method": "POST",
+        "humanName": "assign an appRoleAssignment to a serviceprincipal",
+        "requestUrl": "/v1.0/servicePrincipals/{id}/appRoleAssignments",
+        "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/appRoleAssignmentAPISurvey",
+        "postBody": "{\r\n  \"principalId\": \"principalId-value\",\r\n  \"resourceId\": \"resourceId-value\",\r\n  \"appRoleId\": \"appRoleId-value\"\r\n}",
         "skipTest": false
     }
   ]

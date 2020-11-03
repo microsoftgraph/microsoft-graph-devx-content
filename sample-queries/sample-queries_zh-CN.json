@@ -668,7 +668,7 @@
         "id": "6161a316-8212-4a16-a8f1-e200501a4342",
         "category": "Planner",
         "method": "GET",
-        "humanName": "规划器计划",
+        "humanName": "获取 Planner 计划",
         "requestUrl": "/v1.0/planner/plans/{plan-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannerplan_get",
         "tip": "此查询需要计划 id。 若要查找相应计划的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans。",
@@ -767,7 +767,7 @@
         "id": "009536f5-9a7d-4de5-ad47-a714d1c3f116",
         "category": "Planner",
         "method": "GET",
-        "humanName": "按 ID 排序的规划器任务",
+        "humanName": "按 ID 获取 Planner 任务",
         "requestUrl": "/v1.0/planner/tasks/{task-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannertask_get",
         "tip": "此查询需要任务 id。 若要查找相应任务的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/planner/tasks",
@@ -1038,7 +1038,7 @@
         "id": "a696c30e-9d43-4269-8591-5b263833602d",
         "category": "SharePoint 网站",
         "method": "GET",
-        "humanName": "基于网站相对路径的 SharePoint 网站",
+        "humanName": "获取基于网站相对路径的 SharePoint 网站",
         "requestUrl": "/v1.0/sites/{host-name}:/{server-relative-path}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/site_getbypath",
         "skipTest": false
@@ -1372,7 +1372,7 @@
         "id": "d5418cff-d035-498c-91f3-b9f85b2fb51a",
         "category": "安全性",
         "method": "GET",
-        "humanName": "列出 TI 指示器",
+        "humanName": "列出 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicators-list",
         "skipTest": false
@@ -1673,7 +1673,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"microsoft.graph.event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"event\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
         "tip": "启用 Calendars.Read",
         "skipTest": false
     },
@@ -1724,7 +1724,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"stored_fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"issue\"\n            },\n            \"fields\": [\n                \"id\",\n                \"name\",                \n                \"contentclass\",\n                \"title\",\n                \"fooCustomProperty\"\n            ]\n        }\n    ]\n}",
         "tip": "启用 Sites.Read.All、Sites.ReadWrite.All",
         "skipTest": false
     },

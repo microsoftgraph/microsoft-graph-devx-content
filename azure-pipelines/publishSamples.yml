@@ -13,15 +13,14 @@ trigger:
 
 pr: none
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'windows-latest'
 steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     Contents: |
-      **/permissions/** 
-      **/sample-queries/**
+      **\permissions\** 
+      **\sample-queries\**
     TargetFolder: '$(build.artifactstagingdirectory)'
    
 - task: PublishBuildArtifacts@1
