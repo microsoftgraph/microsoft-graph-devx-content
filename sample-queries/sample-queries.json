@@ -64,13 +64,13 @@
         "skipTest": false
     },
     {
-        "id": "6d9500f7-24b1-4f3f-a76f-20a4c8f89dcf",
+        "id": "58e876d9-2491-4335-a2e5-e60515c541ec",
         "category": "Getting Started",
         "method": "GET",
         "humanName": "my To Do task lists",
-        "requestUrl": "/beta/me/todo/lists",
+        "requestUrl": "/v1.0/me/todo/lists",
         "tip": "This query requires the Tasks.ReadWrite permission",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-1.0",
         "skipTest": false
     },
     {
@@ -1958,21 +1958,21 @@
         "skipTest": false
     },
     {
-        "id": "31464243-ffe3-4d18-82df-af05d3e45221",
+        "id": "ced9c5ee-7745-49b2-9e08-018e22dbc41a",
         "category": "Microsoft To Do",
         "method": "GET",
         "humanName": "get To Do task lists",
-        "requestUrl": "/beta/me/todo/lists",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-beta",
+        "requestUrl": "/v1.0/me/todo/lists",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-list-lists?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission",
         "skipTest": false
     },
     {
-        "id": "7fa9ed28-4342-4e7e-bac3-17503aed51fd",
+        "id": "fae2370c-4f38-4efa-8e81-991991ce61a7",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create To Do task list",
-        "requestUrl": "/beta/me/todo/lists",
+        "requestUrl": "/v1.0/me/todo/lists",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1980,16 +1980,16 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"List created from Microsoft Graph Explorer\"\r\n}",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-post-lists?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todo-post-lists?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission and a value for the displayName parameter",
         "skipTest": false
     },
     {
-        "id": "8b601ef3-fb32-4dd2-af24-ab80609cb6f7",
+        "id": "6ef483ae-9692-4a53-8960-34b01a1c8cf2",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create To Do task",
-        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks",
+        "requestUrl": "/v1.0/me/todo/lists/{taskListId}/tasks",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1997,23 +1997,23 @@
             }
         ],
         "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
-        "docLink":"https://docs.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-beta",
+        "docLink":"https://docs.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-1.0",
         "tip": "This query requires the Tasks.ReadWrite permission. To find a value for the taskListId parameter, you can run: GET https://graph.microsoft.com/beta/me/todo/lists",
         "skipTest": false
     },
     {
-        "id": "9ea157b2-7e7d-4e87-8e49-6775d98a5b9a",
+        "id": "ce73e818-6b31-4c3b-bd57-812b90d0cf49",
         "category": "Microsoft To Do",
         "method": "POST",
         "humanName": "create LinkedResource in a To Do task",
-        "requestUrl": "/beta/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
+        "requestUrl": "/v1.0/me/todo/lists/{taskListId}/tasks/{taskId}/linkedResources",
         "headers": [
             {
                 "name": "Content-Type",
                 "value": "application/json"
             }
         ],
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/todotask-post-linkedresources?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/todotask-post-linkedresources?view=graph-rest-1.0",
         "postBody": "{\r\n  \"applicationName\": \"LinkedResource created from Microsoft Graph Explorer\"\r\n}",
         "tip": "This query requires the Tasks.ReadWrite permission. To find a value for the taskListId parameter, you can run: GET https://graph.microsoft.com/beta/me/todo/lists. to find a value for the taskId, you can run: GET https://graph.microsoft.com/beta/me/todo/lists/{taskListId}",
         "skipTest": false
