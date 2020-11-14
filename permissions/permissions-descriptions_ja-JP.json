@@ -1,7 +1,17 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "アプリで、サインインしているユーザーのタスクと、そのユーザーと共有されているものを含むタスク リスト読み取ることができるようにします。これには、作成、削除、または更新のアクセス許可は含まれません。",
+      "adminConsentDescription": "1 対 1 のメッセージまたグループ チャット メッセージをサインインしているユーザーに代わってアプリが読み取ることを許可します。",
+      "adminConsentDisplayName": "ユーザーのチャット メッセージの読み取り",
+      "id": "cdcdac3a-fd45-410d-83ef-554db620e5c7",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Microsoft Teams で 1 対 1 のメッセージまたグループ チャット メッセージをユーザーに代わってアプリが読み取ることを許可します。",
+      "consentDisplayName": "ユーザーのチャット メッセージの読み取り",
+      "value": "ChatMessage.Read"
+    },
+    {
+      "adminConsentDescription": "サインインしているユーザーのタスクと、そのユーザーと共有されているものを含むタスク リストをアプリが読み取ることを許可します。これには、作成、削除、または更新のアクセス許可は含まれません。",
       "adminConsentDisplayName": "ユーザーのタスクおよびタスク リストを読み取る",
       "id": "f45671fb-e0fe-4b4b-be20-3d3ce43f1bcb",
       "isEnabled": true,
@@ -2141,7 +2151,7 @@
       "value": "DeviceManagementApps.Read.All"
     },
     {
-      "adminConsentDescription": "アプリで Microsoft Intune で管理されるデバイスの構成のプロパティおよびデバイスのコンプライアンス ポリシーとそのポリシーのグループへの割り当ての読み取りと書き込みを実行できるようにします。",
+      "adminConsentDescription": "アプリで、Microsoft Intune で管理されるデバイスの構成のプロパティおよびデバイスのコンプライアンス ポリシーとそのポリシーのグループへの割り当てを読み書きできるようにします。",
       "adminConsentDisplayName": "Microsoft Intune のデバイスの構成とポリシーの読み取りと書き込み",
       "id": "0883f392-0a7a-443d-8c76-16a6d39c7b63",
       "isEnabled": true,
@@ -2622,6 +2632,17 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Microsoft Teams ですべての 1 対 1 のメッセージとグループ チャット メッセージを、アプリがサインイン ユーザーなしで読み取ることを許可します。",
+      "consentDisplayName": "すべてのチャット メッセージの読み取り",
+      "id": "b9bb2381-47a4-46cd-aafb-00cb12f68504",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMessage.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
@@ -3957,7 +3978,7 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "アプリでサインインしているユーザーがいなくても、任意のユーザーとしてメールを送信できるようにします。",
+      "consentDescription": "サインインしているユーザーなしで、任意のユーザーとしてアプリでメールを送信できるようにします。",
       "consentDisplayName": "任意のユーザーからのメールを送信",
       "id": "b633e1c5-b582-4048-a93e-9f11b44c7e96",
       "isEnabled": true,
