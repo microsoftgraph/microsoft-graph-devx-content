@@ -1,6 +1,96 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the application to create print jobs on behalf of the signed-in user and upload document content to print jobs that the signed-in user created.",
+      "adminConsentDisplayName": "Create print jobs",
+      "id": "21f0d9c0-9f13-48b3-94e0-b6b231c7d320",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows the application to create print jobs on your behalf and upload document content to print jobs  that you created.",
+      "consentDisplayName": "Create your print jobs",
+      "value": "PrintJob.Create"
+    },
+    {
+      "adminConsentDescription": "Allows the application to read basic information about printer shares on behalf of the signed-in user. Does not allow reading access control information.",
+      "adminConsentDisplayName": "Read basic information about printer shares",
+      "id": "5fa075e9-b951-4165-947b-c63396ff0a37",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows the application to read basic information about printer shares on your behalf.",
+      "consentDisplayName": "Read basic information about printer shares",
+      "value": "PrinterShare.ReadBasic.All"
+    },
+    {
+      "adminConsentDescription": "Allows the application to read print connectors on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read print connectors",
+      "id": "d69c2d6d-4f72-4f99-a6b9-663e32f8cf68",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the application to read print connectors on your behalf.",
+      "consentDisplayName": "Read print connectors",
+      "value": "PrintConnector.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the application to read and write print connectors on behalf of the signed-in user. ",
+      "adminConsentDisplayName": "Read and write print connectors",
+      "id": "79ef9967-7d59-4213-9c64-4b10687637d8",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the application to read and write print connectors on your behalf.",
+      "consentDisplayName": "Read and write print connectors",
+      "value": "PrintConnector.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the application to read tenant-wide print settings on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read tenant-wide print settings",
+      "id": "490f32fd-d90f-4dd7-a601-ff6cdc1a3f6c",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the application to read tenant-wide print settings on your behalf.",
+      "consentDisplayName": "Read tenant-wide print settings",
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the application to read and write tenant-wide print settings on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write tenant-wide print settings",
+      "id": "9ccc526a-c51c-4e5c-a1fd-74726ef50b8f",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the application to read and write tenant-wide print settings on your behalf.",
+      "consentDisplayName": "Read and write tenant-wide print settings",
+      "value": "PrintSettings.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to create chats on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Create chats",
+      "id": "38826093-1258-4dea-98f0-00003be2b8d0",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows the app to create chats on your behalf. ",
+      "consentDisplayName": "Create chats",
+      "value": "Chat.Create"
+    },
+    {
+      "adminConsentDescription": "Add and remove members from chats, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Add and remove members from chats",
+      "id": "dea13482-7ea6-488f-8b98-eb5bbecf033d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Add and remove members from chats, on your behalf.",
+      "consentDisplayName": "Add and remove members from chats",
+      "value": "ChatMember.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Read the members of chats, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read the members of chats",
+      "id": "c5a9e2b1-faf6-41d4-8875-d381aa549b24",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Read the members of chats, on your behalf.",
+      "consentDisplayName": "Read the members of chats",
+      "value": "ChatMember.Read"
+    },
+    {
       "adminConsentDescription": "Allow the app to get the list of available sensitive types, including out of box and custom configured, on behalf of the signed-in user. ",
       "adminConsentDisplayName": "Read available sensitive information types",
       "id": "2884dbf9-deb7-4665-a380-2a5a11805f09",
@@ -2722,6 +2812,50 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the application to read tenant-wide print settings without a signed-in user.",
+      "consentDisplayName": "Read tenant-wide print settings",
+      "id": "b5991872-94cf-4652-9765-29535087c6d8",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to create chats without a signed-in user. ",
+      "consentDisplayName": "Create chats",
+      "id": "d9c48af6-9ad9-47ad-82c3-63757137b9af",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.Create"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Add and remove members from all chats, without a signed-in user.",
+      "consentDisplayName": "Add and remove members from all chats",
+      "id": "57257249-34ce-4810-a8a2-a03adf0c5693",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Read the members of all chats, without a signed-in user.",
+      "consentDisplayName": "Read the members of all chats",
+      "id": "a3410be2-8e48-4f32-8454-c29a7465209d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
