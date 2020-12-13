@@ -204,7 +204,69 @@
         "requestUrl": "/v1.0/groups",
         "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/group",
         "skipTest": false
+    },    
+    {
+        "id": "6433ec9c-1ad5-4245-a5f2-8136c79856a9",
+        "category": "グループ",
+        "method": "GET",
+        "humanName": "自分の組織内のすべてのグループを一覧表示する",
+        "requestUrl": "/v1.0/groups",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-list?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback",
+        "skipTest": false
     },
+    {
+        "id": "ed4996d8-318a-45f2-a036-0abb52640d19",
+        "category": "グループ",
+        "method": "GET",
+        "humanName": "グループのプロパティと関係を取得する",
+        "requestUrl": "/v1.0/groups/{group-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-get?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback.group-idを取得するには、以下を実行します: https://graph.microsoft.com/v1.0/groups/",
+        "skipTest": false
+    },
+    {
+        "id": "b15626bb-d583-4505-a7ee-85f48f1710f4",
+        "category": "グループ",
+        "method": "POST",
+        "humanName": "新しいグループを作成する",
+        "requestUrl": "/v1.0/groups",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback",
+        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true\",\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\"\r\n}",
+        "skipTest": false
+    },    
+    {
+        "id": "1f7e23f9-55e2-4c4f-8506-c6bdb5a502c1",
+        "category": "グループ",
+        "method": "POST",
+        "humanName": "グループにメンバーを追加する",
+        "requestUrl": "/v1.0/groups/{group-id}/members/$ref",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-post-members?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback.group-idを取得するには、以下を実行します: https://graph.microsoft.com/v1.0/groups/",
+        "postBody": "{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/directoryObjects\/{id}\"\r\n}",
+        "skipTest": false
+    },    
+    {
+        "id": "c165c350-26ab-41bb-97d6-0e8b3fec051e",
+        "category": "グループ",
+        "method": "DELETE",
+        "humanName": "グループからメンバーを削除する",
+        "requestUrl": "/v1.0/groups/{group-id}/members/{member-id}/$ref",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-delete-members?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback.group-id を取得するには、以下を実行します: https://graph.microsoft.com/v1.0/groups/member-id を取得するには https://graph.microsoft.com/v1.0/groups/{id}/members",
+        "skipTest": false
+    },
+    {
+        "id": "3b3a66f3-1f74-4881-b632-0ac5a954e4f3",
+        "category": "グループ",
+        "method": "DELETE",
+        "humanName": "グループを削除する",
+        "requestUrl": "/v1.0/groups/{group-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/group-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "こちらで、グループ API に関するフィードバックを提供してください: https://aka.ms/GroupsAPIFeedback.group-idを取得するには、以下を実行します: https://graph.microsoft.com/v1.0/groups/",
+        "skipTest": false
+    },      
     {
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "グループ",
