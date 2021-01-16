@@ -1318,7 +1318,7 @@
     },
     {
         "id": "6baa40f3-e5a0-422e-894c-3cb7931e0d30",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams（beta 版）",
         "method": "GET",
         "humanName": "频道中的消息",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}",
@@ -2178,6 +2178,37 @@
         "requestUrl": "/beta/onPremisesPublishingProfiles/applicationProxy/connectorgroups",
         "docLink": "https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-beta&tabs=http",
         "tip": "欢迎大家向我们提供反馈。请在此处留下有关此 API 的反馈： https://aka.ms/msgraphaadsurveyconnectorgroups",
+        "skipTest": false
+    },
+    {
+        "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
+        "category": "标识和访问",
+        "method": "GET",
+        "humanName": "获取高风险用户",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers?$filter=riskLevel eq 'high'",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0",
+        "tip": "欢迎大家向我们提供反馈。请在此留下关于此 API 的反馈：https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "56d5b259-d132-462b-9576-ce7109681581",
+        "category": "标识和访问",
+        "method": "POST",
+        "humanName": "确认用户已遭泄露",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
+        "tip": "欢迎大家向我们提供反馈。请在此留下关于此 API 的反馈：https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "4c169640-29d7-46aa-9c83-8d59eb12b4d1",
+        "category": "标识和访问",
+        "method": "GET",
+        "humanName": "获取风险检测",
+        "requestUrl": "/v1.0/identityProtection/riskDetections",
+        "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
+        "tip": "欢迎大家向我们提供反馈。请在此留下关于此 API 的反馈：https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
     }
   ]
