@@ -1,7 +1,97 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "Permitir que o aplicativo obtenha a lista de tipos confidenciais disponíveis, incluindo fora da caixa e configuração personalizada, em nome do usuário conectado. ",
+      "adminConsentDescription": "Permite que o aplicativo crie trabalhos de impressão em nome do usuário conectado e carregue o conteúdo do documento para imprimir os trabalhos que o usuário conectado criou.",
+      "adminConsentDisplayName": "Crie trabalhos de impressão",
+      "id": "21f0d9c0-9f13-48b3-94e0-b6b231c7d320",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que o aplicativo crie trabalhos de impressão em seu nome e carregue o conteúdo do documento para imprimir trabalhos que você criou.",
+      "consentDisplayName": "Crie seus trabalhos de impressão",
+      "value": "PrintJob.Create"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia informações básicas sobre os compartilhamentos da impressora em nome do usuário conectado. Não permite a leitura de informações de controle de acesso.",
+      "adminConsentDisplayName": "Leia as informações básicas sobre os compartilhamento da impressora",
+      "id": "5fa075e9-b951-4165-947b-c63396ff0a37",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que o aplicativo leia informações básicas sobre os compartilhamentos da impressora em seu nome.",
+      "consentDisplayName": "Leia as informações básicas sobre os compartilhamento da impressora",
+      "value": "PrinterShare.ReadBasic.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia os conectores de impressão em nome do usuário conectado.",
+      "adminConsentDisplayName": "Leia os conectores de impressão",
+      "id": "d69c2d6d-4f72-4f99-a6b9-663e32f8cf68",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia conectores de impressão em seu nome.",
+      "consentDisplayName": "Leia os conectores de impressão",
+      "value": "PrintConnector.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia e escreva conectores de impressão em nome do usuário conectado. ",
+      "adminConsentDisplayName": "Leia e grave os conectores de impressão",
+      "id": "79ef9967-7d59-4213-9c64-4b10687637d8",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia e escreva conectores de impressão em seu nome.",
+      "consentDisplayName": "Leia e grave os conectores de impressão",
+      "value": "PrintConnector.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia as configurações de impressão em todo o locatário em nome do usuário conectado.",
+      "adminConsentDisplayName": "Leia as configurações de impressão em todo o locatário",
+      "id": "490f32fd-d90f-4dd7-a601-ff6cdc1a3f6c",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia as configurações de impressão de todo o locatário em seu nome.",
+      "consentDisplayName": "Leia as configurações de impressão em todo o locatário",
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia e escreva as configurações de impressão em todo o locatário em nome do usuário conectado.",
+      "adminConsentDisplayName": "Leia e grave as configurações de impressão em todo o locatário",
+      "id": "9ccc526a-c51c-4e5c-a1fd-74726ef50b8f",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia e escreva as configurações de impressão de todo o locatário em seu nome.",
+      "consentDisplayName": "Leia e grave as configurações de impressão em todo o locatário",
+      "value": "PrintSettings.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo crie bate-papos em nome do usuário conectado.",
+      "adminConsentDisplayName": "Crie bate-papos",
+      "id": "38826093-1258-4dea-98f0-00003be2b8d0",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que o aplicativo crie bate-papos em seu nome. ",
+      "consentDisplayName": "Crie bate-papos",
+      "value": "Chat.Create"
+    },
+    {
+      "adminConsentDescription": "Adicione e remova membros de bate-papos, em nome do usuário conectado.",
+      "adminConsentDisplayName": "Adicione e remova membros de bate-papos",
+      "id": "dea13482-7ea6-488f-8b98-eb5bbecf033d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Adicione e remova membros de bate-papos, em seu nome.",
+      "consentDisplayName": "Adicione e remova membros de bate-papos",
+      "value": "ChatMember.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Leia os membros de bate-papos, em nome do usuário conectado.",
+      "adminConsentDisplayName": "Leia os membros de bate-papos",
+      "id": "c5a9e2b1-faf6-41d4-8875-d381aa549b24",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Leia os membros de bate-papos em seu nome.",
+      "consentDisplayName": "Leia os membros de bate-papos",
+      "value": "ChatMember.Read"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo obtenha a lista de tipos sensíveis disponíveis, inclusive os não incluídos e configurados sob medida, em nome do usuário conectado. ",
       "adminConsentDisplayName": "Leia os tipos de informações confidenciais disponíveis",
       "id": "2884dbf9-deb7-4665-a380-2a5a11805f09",
       "isEnabled": true,
@@ -961,7 +1051,7 @@
       "value": "UserAuthenticationMethod.ReadWrite.All"
     },
     {
-      "adminConsentDescription": "Permite que o aplicativo gerencie a agenda, grupos de agendamento, turnos e entidades associadas no aplicativo do Teams ou Turnos, em nome do usuário conectado.",
+      "adminConsentDescription": "Permite que o aplicativo gerencie horários, grupos de horários, turnos e entidades associadas no aplicativo do Teams ou Turnos, em nome do usuário conectado.",
       "adminConsentDisplayName": "Ler e gravar itens agendados do usuário",
       "id": "63f27281-c9d9-4f29-94dd-6942f7f1feb0",
       "isEnabled": true,
@@ -2076,7 +2166,7 @@
       "id": "2ef770a1-622a-47c4-93ee-28d6adbed3a0",
       "isEnabled": true,
       "isAdmin": true,
-      "consentDescription": "Permite que o aplicativo exiba e modifique suas tarefas sem ver as notas, em seu nome.",
+      "consentDescription": "Permite que o aplicativo veja e modifique suas atribuições em seu nome sem ver as notas.",
       "consentDisplayName": "Exibir e modificar suas tarefas sem notas",
       "value": "EduAssignments.ReadWriteBasic"
     },
@@ -2717,7 +2807,7 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Permite que o aplicativo leia emails na caixa de correio do usuário conectado, exceto corpo, previewBody, anexos e quaisquer propriedades estendidas.",
-      "consentDisplayName": "Ler emails básicos do usuário",
+      "consentDisplayName": "Leia os emails básicos do usuário",
       "value": "Mail.ReadBasic"
     }
   ],
@@ -2726,7 +2816,62 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permitir que o aplicativo avalie as entradas fornecidas contra as políticas de prevenção contra perda de dados e recomende ações aplicáveis, sem um usuário conectado.",
+      "consentDescription": "Permitir que o aplicativo acesse um subconjunto de conjuntos de sites sem um usuário conectado.  Os conjuntos de sites específicos e as permissões concedidas serão configurados no SharePoint Online.",
+      "consentDisplayName": "Acessar conjuntos de sites selecionados (visualização)",
+      "id": "883ea226-0bf2-4a8f-9f9d-92c9162a727d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Sites.Selected"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia as configurações de impressão em todo o locatário sem um usuário conectado.",
+      "consentDisplayName": "Leia as configurações de impressão em todo o locatário",
+      "id": "b5991872-94cf-4652-9765-29535087c6d8",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo crie bate-papos sem um usuário conectado. ",
+      "consentDisplayName": "Crie bate-papos",
+      "id": "d9c48af6-9ad9-47ad-82c3-63757137b9af",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.Create"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Adicione e remova membros de todos os bate-papos, sem um usuário conectado.",
+      "consentDisplayName": "Adicione e remova membros de todos os bate-papos",
+      "id": "57257249-34ce-4810-a8a2-a03adf0c5693",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Leia os membros de todos os bate-papos, sem um usuário conectado.",
+      "consentDisplayName": "Leia os membros de todos os bate-papos",
+      "id": "a3410be2-8e48-4f32-8454-c29a7465209d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo avalie as entradas fornecidas em relação às políticas de Prevenção de Perda de Dados e recomendar ações aplicáveis, sem um usuário conectado.",
       "consentDisplayName": "Avaliar política de prevenção contra perda de dados",
       "id": "ba7b8302-40ad-475c-a768-5b990aa1dba1",
       "isEnabled": true,
@@ -3661,7 +3806,7 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permite que o aplicativo leia, instale, atualize e desinstale  os aplicativos do Teams para qualquer usuário, sem um usuário conectado. Não oferece a capacidade de ler ou gravar configurações específicas do aplicativo.",
+      "consentDescription": "Permite que o aplicativo leia, instale, atualize e desinstale os aplicativos do Teams para qualquer usuário, sem um usuário conectado. Não oferece a capacidade de ler ou gravar configurações específicas do aplicativo.",
       "consentDisplayName": "Gerencia os aplicativos do Teams de todos os usuários",
       "id": "eb6b3d76-ed75-4be6-ac36-158d04c0a555",
       "isEnabled": true,
@@ -3672,7 +3817,7 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permite que o aplicativo leia os aplicativos do Teams que estão instalados para qualquer usuário, sem um usuário conectado. Não oferece a capacidade de ler configurações específicas do aplicativo.",
+      "consentDescription": "Permite que o aplicativo leia os aplicativos do Teams para qualquer usuário, sem um usuário conectado. Não oferece a capacidade de ler configurações específicas do aplicativo.",
       "consentDisplayName": "Lê os aplicativos do Teams instalados de todos os usuários",
       "id": "afdb422a-4b2a-4e07-a708-8ceed48196bf",
       "isEnabled": true,

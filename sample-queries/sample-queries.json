@@ -1452,36 +1452,40 @@
         "id": "7d3116a3-1690-4a15-ba47-153cb7891d00",
         "category": "Security",
         "method": "GET",
-        "humanName": "get all conditional access policies",
+        "humanName": "get all Conditional Access policies",
         "requestUrl": "/v1.0/identity/conditionalAccess/policies",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0&tabs=http",
+        "tip": "We’d like to hear from you. Please leave your feedback on Conditional Access API here: https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
         "id": "4fc821e4-f291-4944-999a-6d5b84ec8735",
         "category": "Security",
         "method": "GET",
-        "humanName": "get all named locations",
+        "humanName": "get all Named Locations",
         "requestUrl": "/v1.0/identity/conditionalAccess/namedLocations",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0&tabs=http",
+        "tip": "We’d like to hear from you. Please leave your feedback on Conditional Access API here: https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
         "id": "473bd812-0df6-4fcb-bd23-d4b81eaa5f3e",
         "category": "Security",
         "method": "GET",
-        "humanName": "get all conditional access policies (beta)",
+        "humanName": "get all Conditional Access policies (beta)",
         "requestUrl": "/beta/identity/conditionalAccess/policies",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http",
+        "tip": "We’d like to hear from you. Please leave your feedback on Conditional Access API here: https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
         "id": "d565b5f3-a268-4acf-a068-565294b5cdae",
         "category": "Security",
         "method": "GET",
-        "humanName": "get all named locations (beta)",
+        "humanName": "get all Named Locations (beta)",
         "requestUrl": "/beta/identity/conditionalAccess/namedLocations",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-beta&tabs=http",
+        "tip": "We’d like to hear from you. Please leave your feedback on Conditional Access API here: https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
@@ -2174,6 +2178,37 @@
         "requestUrl": "/beta/onPremisesPublishingProfiles/applicationProxy/connectorgroups",
         "docLink": "https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-beta&tabs=http",
         "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/msgraphaadsurveyconnectorgroups",
+        "skipTest": false
+    },
+    {
+        "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
+        "category": "Identity and Access",
+        "method": "GET",
+        "humanName": "get high risk users",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers?$filter=riskLevel eq 'high'",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "56d5b259-d132-462b-9576-ce7109681581",
+        "category": "Identity and Access",
+        "method": "POST",
+        "humanName": "confirm a user as compromised",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "4c169640-29d7-46aa-9c83-8d59eb12b4d1",
+        "category": "Identity and Access",
+        "method": "GET",
+        "humanName": "get risk detections",
+        "requestUrl": "/v1.0/identityProtection/riskDetections",
+        "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
+        "tip": "We’d like to hear from you. Please leave your feedback on this API here: https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
     }
   ]

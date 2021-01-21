@@ -204,7 +204,69 @@
         "requestUrl": "/v1.0/groups",
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/group",
         "skipTest": false
+    },    
+    {
+        "id": "6433ec9c-1ad5-4245-a5f2-8136c79856a9",
+        "category": "Groupes",
+        "method": "GET",
+        "humanName": "répertorier tous les groupes au sein de mon organisation",
+        "requestUrl": "/v1.0/groups",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-list?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback",
+        "skipTest": false
     },
+    {
+        "id": "ed4996d8-318a-45f2-a036-0abb52640d19",
+        "category": "Groupes",
+        "method": "GET",
+        "humanName": "obtenir les propriétés et les relations du groupe",
+        "requestUrl": "/v1.0/groups/{group-id}",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-get?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback. Pour obtenir l’ID de groupe, exécutez https://graph.microsoft.com/v1.0/groups/",
+        "skipTest": false
+    },
+    {
+        "id": "b15626bb-d583-4505-a7ee-85f48f1710f4",
+        "category": "Groupes",
+        "method": "POST",
+        "humanName": "créer un groupe",
+        "requestUrl": "/v1.0/groups",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback",
+        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true\",\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\"\r\n}",
+        "skipTest": false
+    },    
+    {
+        "id": "1f7e23f9-55e2-4c4f-8506-c6bdb5a502c1",
+        "category": "Groupes",
+        "method": "POST",
+        "humanName": "ajouter un membre au groupe",
+        "requestUrl": "/v1.0/groups/{group-id}/members/$ref",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-post-members?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback. Pour obtenir l’ID de groupe, exécutez https://graph.microsoft.com/v1.0/groups/",
+        "postBody": "{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/directoryObjects\/{id}\"\r\n}",
+        "skipTest": false
+    },    
+    {
+        "id": "c165c350-26ab-41bb-97d6-0e8b3fec051e",
+        "category": "Groupes",
+        "method": "DELETE",
+        "humanName": "supprimer un membre d’un groupe",
+        "requestUrl": "/v1.0/groups/{group-id}/members/{member-id}/$ref",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-delete-members?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback. Pour obtenir l’ID de groupe, exécutez https://graph.microsoft.com/v1.0/groups/. Pour obtenir les ID de membre https://graph.microsoft.com/v1.0/groups/{id}/members",
+        "skipTest": false
+    },
+    {
+        "id": "3b3a66f3-1f74-4881-b632-0ac5a954e4f3",
+        "category": "Groupes",
+        "method": "DELETE",
+        "humanName": "supprimer le groupe",
+        "requestUrl": "/v1.0/groups/{group-id}",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/group-delete?view=graph-rest-1.0&tabs=http",
+        "tip": "Merci de nous faire part de vos commentaires sur l’API groupes ici : https://aka.ms/GroupsAPIFeedback. Pour obtenir l’ID de groupe, exécutez https://graph.microsoft.com/v1.0/groups/",
+        "skipTest": false
+    },      
     {
         "id": "1e019c9d-0b90-49e1-bd4c-c587f75b2b45",
         "category": "Groupes",
@@ -1393,6 +1455,7 @@
         "humanName": "obtenir toutes les stratégies d’accès conditionnel",
         "requestUrl": "/v1.0/identity/conditionalAccess/policies",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur l’API d’accès conditionnel ici : https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
@@ -1402,15 +1465,17 @@
         "humanName": "obtenir tous les emplacements nommés",
         "requestUrl": "/v1.0/identity/conditionalAccess/namedLocations",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur l’API d’accès conditionnel ici : https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
         "id": "473bd812-0df6-4fcb-bd23-d4b81eaa5f3e",
         "category": "Sécurité",
         "method": "GET",
-        "humanName": "obtenir toutes les stratégies d’accès conditionnel (beta)",
+        "humanName": "obtenir toutes les stratégies d’accès conditionnel (bêta)",
         "requestUrl": "/beta/identity/conditionalAccess/policies",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur l’API d’accès conditionnel ici : https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
@@ -1420,6 +1485,7 @@
         "humanName": "obtenir tous les emplacements nommés (bêta)",
         "requestUrl": "/beta/identity/conditionalAccess/namedLocations",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-beta&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur l’API d’accès conditionnel ici : https://aka.ms/caapifeedback",
         "skipTest": false
     },
     {
@@ -2112,6 +2178,37 @@
         "requestUrl": "/beta/onPremisesPublishingProfiles/applicationProxy/connectorgroups",
         "docLink": "https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-beta&tabs=http",
         "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/msgraphaadsurveyconnectorgroups",
+        "skipTest": false
+    },
+    {
+        "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
+        "category": "Identité et accès",
+        "method": "GET",
+        "humanName": "obtenir les utilisateurs à haut risque",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers?$filter=riskLevel eq 'high'",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0",
+        "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "56d5b259-d132-462b-9576-ce7109681581",
+        "category": "Identité et accès",
+        "method": "POST",
+        "humanName": "Confirmer qu’un utilisateur est compromis",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
+        "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "4c169640-29d7-46aa-9c83-8d59eb12b4d1",
+        "category": "Identité et accès",
+        "method": "GET",
+        "humanName": "détecter les risques",
+        "requestUrl": "/v1.0/identityProtection/riskDetections",
+        "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
+        "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
     }
   ]

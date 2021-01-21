@@ -1,7 +1,97 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "Permite que la aplicación obtenga la lista de tipos de información confidencial disponibles, incluidos los tipos predeterminados y personalizados, en nombre del usuario que ha iniciado sesión. ",
+      "adminConsentDescription": "Permite que la aplicación cree trabajos de impresión en nombre del usuario que inició sesión y cargue el contenido del documento para imprimir trabajos que creó el usuario que inició sesión.",
+      "adminConsentDisplayName": "Crear trabajos de impresión",
+      "id": "21f0d9c0-9f13-48b3-94e0-b6b231c7d320",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que la aplicación cree trabajos de impresión en su nombre y cargue el contenido del documento para imprimir las tareas que ha creado.",
+      "consentDisplayName": "Crear sus trabajos de impresión",
+      "value": "PrintJob.Create"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea información básica sobre los recursos compartidos de impresoras en nombre del usuario que inició sesión. No permite la lectura de la información de control de acceso.",
+      "adminConsentDisplayName": "Leer información básica acerca de los recursos compartidos de impresoras",
+      "id": "5fa075e9-b951-4165-947b-c63396ff0a37",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que la aplicación lea información básica sobre las impresoras compartidas en su nombre.",
+      "consentDisplayName": "Leer información básica acerca de los recursos compartidos de impresoras",
+      "value": "PrinterShare.ReadBasic.All"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea conectores de impresión en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Leer conectores de impresión",
+      "id": "d69c2d6d-4f72-4f99-a6b9-663e32f8cf68",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que la aplicación lea conectores de impresión en su nombre.",
+      "consentDisplayName": "Leer conectores de impresión",
+      "value": "PrintConnector.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea y escriba conectores de impresión en nombre del usuario que inició sesión. ",
+      "adminConsentDisplayName": "Leer y escribir conectores de impresión",
+      "id": "79ef9967-7d59-4213-9c64-4b10687637d8",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que la aplicación lea y escriba conectores de impresión en su nombre.",
+      "consentDisplayName": "Leer y escribir conectores de impresión",
+      "value": "PrintConnector.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea la configuración de impresión de todo el espacio empresarial en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Leer la configuración de impresión de todo el espacio empresarial",
+      "id": "490f32fd-d90f-4dd7-a601-ff6cdc1a3f6c",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que la aplicación lea la configuración de impresión de todo el espacio empresarial en su nombre.",
+      "consentDisplayName": "Leer la configuración de impresión de todo el espacio empresarial",
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación lea y escriba la configuración de impresión de todo el espacio empresarial en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Leer y escribir la configuración de impresión en todo el espacio empresarial",
+      "id": "9ccc526a-c51c-4e5c-a1fd-74726ef50b8f",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que la aplicación lea y escriba la configuración de impresión de todo el espacio empresarial en su nombre.",
+      "consentDisplayName": "Leer y escribir la configuración de impresión en todo el espacio empresarial",
+      "value": "PrintSettings.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación cree chats en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Crear chats",
+      "id": "38826093-1258-4dea-98f0-00003be2b8d0",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Permite que la aplicación cree chats en su nombre. ",
+      "consentDisplayName": "Crear chats",
+      "value": "Chat.Create"
+    },
+    {
+      "adminConsentDescription": "Agrega y quita miembros de los chats en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Agregar y quitar miembros de chats",
+      "id": "dea13482-7ea6-488f-8b98-eb5bbecf033d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Agregar y quitar miembros de chats en su nombre.",
+      "consentDisplayName": "Agregar y quitar miembros de chats",
+      "value": "ChatMember.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Lee los miembros de los chats en nombre del usuario que inició sesión.",
+      "adminConsentDisplayName": "Leer los miembros de los chats",
+      "id": "c5a9e2b1-faf6-41d4-8875-d381aa549b24",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Lee los miembros de los chats en su nombre.",
+      "consentDisplayName": "Leer los miembros de los chats",
+      "value": "ChatMember.Read"
+    },
+    {
+      "adminConsentDescription": "Permite que la aplicación obtenga la lista de tipos de información confidencial disponibles, incluidos los tipos predeterminados y personalizados en nombre del usuario que inicio sesión. ",
       "adminConsentDisplayName": "Leer los tipos de información confidencial disponibles",
       "id": "2884dbf9-deb7-4665-a380-2a5a11805f09",
       "isEnabled": true,
@@ -961,7 +1051,7 @@
       "value": "UserAuthenticationMethod.ReadWrite.All"
     },
     {
-      "adminConsentDescription": "Permite que la aplicación administre programación, programe grupos, turnos y entidades asociadas en la aplicación de Teams o Turnos en nombre del usuario que ha iniciado sesión.",
+      "adminConsentDescription": "Permite que la aplicación administre la programación, programe grupos, turnos y entidades asociadas en la aplicación de Teams o Turnos en nombre del usuario que inició sesión.",
       "adminConsentDisplayName": "Leer y escribir elementos de programación de usuario",
       "id": "63f27281-c9d9-4f29-94dd-6942f7f1feb0",
       "isEnabled": true,
@@ -2076,7 +2166,7 @@
       "id": "2ef770a1-622a-47c4-93ee-28d6adbed3a0",
       "isEnabled": true,
       "isAdmin": true,
-      "consentDescription": "Permite a la aplicación ver y modificar sus tareas en su nombre sin ver las calificaciones.",
+      "consentDescription": "Permite que la aplicación vea y modifique las tareas en su nombre sin ver las calificaciones.",
       "consentDisplayName": "Ver y modificar sus tareas sin calificaciones",
       "value": "EduAssignments.ReadWriteBasic"
     },
@@ -2726,7 +2816,62 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permite que la aplicación evalúe las entradas proporcionadas según las directivas de prevención de pérdida de datos y recomiende acciones aplicables sin que un usuario haya iniciado sesión.",
+      "consentDescription": "Permite que la aplicación tenga acceso a un subconjunto de colecciones de sitios sin que un usuario haya iniciado sesión.  Las colecciones de sitios específicas y los permisos concedidos se configurarán en SharePoint Online.",
+      "consentDisplayName": "Acceder a las colecciones de sitios seleccionadas (versión preliminar)",
+      "id": "883ea226-0bf2-4a8f-9f9d-92c9162a727d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Sites.Selected"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación lea la configuración de impresión de todo el espacio empresarial sin necesidad de que un usuario haya iniciado sesión.",
+      "consentDisplayName": "Leer la configuración de impresión de todo el espacio empresarial",
+      "id": "b5991872-94cf-4652-9765-29535087c6d8",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrintSettings.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación cree chats sin necesidad de que un usuario haya iniciado sesión. ",
+      "consentDisplayName": "Crear chats",
+      "id": "d9c48af6-9ad9-47ad-82c3-63757137b9af",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.Create"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Agrega y quita miembros de todos los chats sin necesidad de que un usuario haya iniciado sesión.",
+      "consentDisplayName": "Agregar y quitar miembros de todos los chats",
+      "id": "57257249-34ce-4810-a8a2-a03adf0c5693",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Lee los miembros de todos los chats sin necesidad de que un usuario haya iniciado sesión.",
+      "consentDisplayName": "Leer los miembros de todos los chats",
+      "id": "a3410be2-8e48-4f32-8454-c29a7465209d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que la aplicación evalúe las entradas proporcionadas según las directivas de prevención de pérdida de datos y recomiende acciones aplicables sin necesidad de que un usuario haya iniciado sesión.",
       "consentDisplayName": "Evaluar la directiva de prevención de pérdida de datos",
       "id": "ba7b8302-40ad-475c-a768-5b990aa1dba1",
       "isEnabled": true,
@@ -3661,7 +3806,7 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permite que la aplicación lea, instale, actualice y desinstale aplicaciones de Teams para cualquier usuario, sin necesidad de que un usuario haya iniciado sesión. No ofrece la posibilidad de leer o escribir configuraciones específicas de la aplicación.",
+      "consentDescription": "Permite que la aplicación lea, instale, actualice y desinstale aplicaciones de Teams para cualquier usuario sin que un usuario haya iniciado sesión. No ofrece la posibilidad de leer o escribir configuraciones específicas de la aplicación.",
       "consentDisplayName": "Administrar aplicaciones de Teams de todos los usuarios",
       "id": "eb6b3d76-ed75-4be6-ac36-158d04c0a555",
       "isEnabled": true,
@@ -3672,7 +3817,7 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permite que la aplicación lea las aplicaciones de Teams que están instaladas para cualquier usuario sin la necesidad de que un usuario haya iniciado sesión. No ofrece la posibilidad de leer configuraciones específicas de la aplicación.",
+      "consentDescription": "Permite que la aplicación lea las aplicaciones de Teams que están instaladas para cualquier usuario sin necesidad de que un usuario haya iniciado sesión. No ofrece la posibilidad de leer configuraciones específicas de la aplicación.",
       "consentDisplayName": "Lea todas las aplicaciones de Teams instaladas de los usuarios",
       "id": "afdb422a-4b2a-4e07-a708-8ceed48196bf",
       "isEnabled": true,
