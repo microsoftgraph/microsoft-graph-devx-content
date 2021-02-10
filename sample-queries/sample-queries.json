@@ -1955,8 +1955,8 @@
         "method": "GET",
         "humanName": "list ediscovery cases",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Go to Modify Permissions tab and consent to User.Read permission to run this query",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query",
         "skipTest": false
     },
     {
@@ -1965,8 +1965,8 @@
         "method": "GET",
         "humanName": "get ediscovery case",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/en-us/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "This query requires a case id. To find the id of a case; you can run: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "Go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query",
         "skipTest": false
     },
     {
@@ -1975,7 +1975,7 @@
         "method": "POST",
         "humanName": "create ediscovery case",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -1983,7 +1983,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Go to Modify Permissions tab and consent to User.Read permission to run this query",
+        "tip": "Go to Modify Permissions tab and consent to eDiscovery.ReadWrite.All permission to run this query",
         "skipTest": false
     },
     {
@@ -1992,8 +1992,8 @@
         "method": "GET",
         "humanName": "list review sets",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "Go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query",
         "skipTest": false
     },
     {
@@ -2002,8 +2002,8 @@
         "method": "GET",
         "humanName": "list review set queries",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets). Then go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query.",
         "skipTest": false
     },
     {
@@ -2012,7 +2012,7 @@
         "method": "POST",
         "humanName": "create review set query",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2020,7 +2020,17 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {reviewSetId} with the ID from a review set that exists in that case (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets).  Then go to Modify Permissions tab and consent to eDiscovery.ReadWrite.All permission to run this query.",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "Get a list of custodians for a case",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Then go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query.",
         "skipTest": false
     },
     {
