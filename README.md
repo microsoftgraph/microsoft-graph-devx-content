@@ -83,7 +83,7 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
 ### Using Command Line or PowerShell:
 
 ### 1. Clone or Fork the repo
-In your command line or shell, paste this command to clone or fork this repo: <br/>
+Open the command line terminal and paste this command to clone or fork this repo: <br/>
 `git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
 cd microsoft-graph-devx-content/sample-queries
 `
@@ -99,10 +99,10 @@ Alternatively, you can open the directory where the file is located by pasting i
 
 ### 3. Open the Git command utility
 If your machine's OS/CPU is x64, paste in this command: <br/>
-`start "" "%PROGRAMFILES%\Git\bin\sh.exe" --login
+`start "%PROGRAMFILES%\Git\bin\sh.exe" --login
 `
 else, if x86, paste in this command: <br/>
-`start "" "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
+`start "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
 `
 
 ### 4. Create your local branch
