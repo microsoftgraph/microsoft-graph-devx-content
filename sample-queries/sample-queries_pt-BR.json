@@ -100,6 +100,27 @@
         "humanName": "todos os usuários da organização",
         "requestUrl": "/v1.0/users",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "707499b7-807b-44cd-a347-e629b47128ad",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "todos os usuários associados na organização",
+        "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "b7f18a0d-0c34-4b6a-81a4-1fe75d3467d7",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "conte os usuários convidados em sua organização",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -125,6 +146,33 @@
         "skipTest": false
     },
     {
+        "id": "6f644b1c-3b2a-4dcf-9125-9fb3ac961531",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "eu",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2a79aa2b-8f42-461b-9256-b790cc64e211",
+        "category": "Usuários",
+        "method": "PATCH",
+        "humanName": "eu",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "cd894894-b427-4394-814c-461d8f93468d",
         "category": "Usuários",
         "method": "GET",
@@ -140,6 +188,17 @@
         "humanName": "usuário por email",
         "requestUrl": "/v1.0/users/{user-mail}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "22892a8f-9370-49cb-bb64-1328e53c174f",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "identidades de usuários",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -165,7 +224,25 @@
             }
         ],
         "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
+    },
+    {
+        "id": "cadd1d98-446a-426f-afdf-c899bc03102f",
+        "category": "Usuários",
+        "method": "PATCH",
+        "humanName": "atualizar usuário",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false    
     },
     {
         "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
@@ -194,6 +271,16 @@
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
         "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Para encontrar uma ID de usuário, você pode executar:  GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
+        "id": "4c3f99ec-e58b-4a09-9dc2-0369db061d61",
+        "category": "Usuários",
+        "method": "DELETE",
+        "humanName": "excluir usuário",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_delete",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
