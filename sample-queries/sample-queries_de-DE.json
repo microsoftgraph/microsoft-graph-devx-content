@@ -100,6 +100,27 @@
         "humanName": "Alle Benutzer in der Organisation",
         "requestUrl": "/v1.0/users",
         "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "707499b7-807b-44cd-a347-e629b47128ad",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "alle Gastbenutzer in der Organisation",
+        "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "b7f18a0d-0c34-4b6a-81a4-1fe75d3467d7",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "Zählen der Gastbenutzer in Ihrer Organisation",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -125,6 +146,33 @@
         "skipTest": false
     },
     {
+        "id": "6f644b1c-3b2a-4dcf-9125-9fb3ac961531",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "Ich",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2a79aa2b-8f42-461b-9256-b790cc64e211",
+        "category": "Benutzer",
+        "method": "PATCH",
+        "humanName": "Ich",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "cd894894-b427-4394-814c-461d8f93468d",
         "category": "Benutzer",
         "method": "GET",
@@ -140,6 +188,17 @@
         "humanName": "Benutzer nach E-Mail",
         "requestUrl": "/v1.0/users/{user-mail}",
         "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "22892a8f-9370-49cb-bb64-1328e53c174f",
+        "category": "Benutzer",
+        "method": "GET",
+        "humanName": "Benutzeridentitäten",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -165,7 +224,25 @@
             }
         ],
         "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
+    },
+    {
+        "id": "cadd1d98-446a-426f-afdf-c899bc03102f",
+        "category": "Benutzer",
+        "method": "PATCH",
+        "humanName": "Benutzer aktualisieren",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false    
     },
     {
         "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
@@ -194,6 +271,16 @@
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/de-de/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
         "tip": "Für diese Abfrage sind eine Benutzer-ID und Presence.Read.All-Berechtigungen erforderlich. Wenn Sie nach der Benutzer-ID suchen möchten, können Sie Folgendes ausführen:  GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
+        "id": "4c3f99ec-e58b-4a09-9dc2-0369db061d61",
+        "category": "Benutzer",
+        "method": "DELETE",
+        "humanName": "Benutzer löschen",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/v1.0/api/user_delete",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -2178,6 +2265,37 @@
         "requestUrl": "/beta/onPremisesPublishingProfiles/applicationProxy/connectorgroups",
         "docLink": "https://docs.microsoft.com/graph/api/connectorgroup-get?view=graph-rest-beta&tabs=http",
         "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/msgraphaadsurveyconnectorgroups",
+        "skipTest": false
+    },
+    {
+        "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
+        "category": "Identität und Zugriff",
+        "method": "GET",
+        "humanName": "Benutzer mit hohem Risiko abrufen",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers?$filter=riskLevel eq 'high'",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte geben Sie Ihr Feedback zu dieser API hier ab: https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "56d5b259-d132-462b-9576-ce7109681581",
+        "category": "Identität und Zugriff",
+        "method": "POST",
+        "humanName": "Einen Benutzer als kompromittiert bestätigen",
+        "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
+        "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte geben Sie Ihr Feedback zu dieser API hier ab: https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "4c169640-29d7-46aa-9c83-8d59eb12b4d1",
+        "category": "Identität und Zugriff",
+        "method": "GET",
+        "humanName": "Risikoerkennungen abrufen",
+        "requestUrl": "/v1.0/identityProtection/riskDetections",
+        "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
+        "tip": "Wir freuen uns über Ihr Feedback. Bitte geben Sie Ihr Feedback zu dieser API hier ab: https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
     }
   ]
