@@ -1,6 +1,46 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Permet à l'application d’accéder en lecture et en écriture aux objets eDiscovery tels que des dossiers, des consignataires, des jeux à réviser et d'autres objets connexes au nom de l'utilisateur connecté.",
+      "adminConsentDisplayName": "Accéder en lecture et en écriture à tous les objets eDiscovery",
+      "id": "acb8f680-0834-4146-b69e-4ab1b39745ad",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l'application d’accéder en lecture et en écriture aux objets eDiscovery tels que des dossiers, des consignataires, des jeux à réviser et d'autres objets connexes en votre nom.",
+      "consentDisplayName": "Accéder en lecture et en écriture à tous les objets eDiscovery",
+      "value": "eDiscovery.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l'application d’accéder en lecture aux objets eDiscovery tels que des dossiers, des consignataires, des jeux à réviser et d'autres objets connexes au nom de l'utilisateur connecté.",
+      "adminConsentDisplayName": "Accéder en lecture à tous les objets eDiscovery",
+      "id": "99201db3-7652-4d5a-809a-bdb94f85fe3c",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l'application d’accéder en lecture aux objets eDiscovery tels que des dossiers, des consignataires, des jeux à réviser et d'autres objets connexes en votre nom.",
+      "consentDisplayName": "Accéder en lecture à tous les objets eDiscovery",
+      "value": "eDiscovery.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l’application d’accéder en lecture et en écriture aux affectations d’attributs de sécurité personnalisées pour tous les principaux dans le client au nom d’un utilisateur connecté.",
+      "adminConsentDisplayName": "Accéder en lecture et en écriture aux affectations d’attributs de sécurité personnalisés",
+      "id": "ca46335e-8453-47cd-a001-8459884efeae",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application d’accéder en lecture et en écriture aux affectations d’attributs de sécurité personnalisées pour tous les principaux dans le client en votre nom.",
+      "consentDisplayName": "Accéder en lecture et en écriture aux affectations d’attributs de sécurité personnalisés",
+      "value": "CustomSecAttributeAssignment.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l’application d’accéder en lecture et en écriture aux définitions d’attribut de sécurité personnalisées pour le client au nom d’un utilisateur connecté.",
+      "adminConsentDisplayName": "Accéder en lecture et en écriture aux définitions d’attribut de sécurité personnalisées",
+      "id": "8b0160d4-5743-482b-bb27-efc0a485ca4a",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application d’accéder en lecture et en écriture aux définitions d’attribut de sécurité personnalisées pour le client en votre nom.",
+      "consentDisplayName": "Accéder en lecture et en écriture aux définitions d’attribut de sécurité personnalisées",
+      "value": "CustomSecAttributeDefinition.ReadWrite.All"
+    },
+    {
       "adminConsentDescription": "Permet à l’application de créer des tâches d’impression au nom de l’utilisateur connecté et de charger le contenu d’un document dans les tâches d’impression créées par l’utilisateur connecté.",
       "adminConsentDisplayName": "Créer des tâches d’impression",
       "id": "21f0d9c0-9f13-48b3-94e0-b6b231c7d320",
@@ -2807,11 +2847,77 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Permet à l’application de lire l’e-mail dans la boîte aux lettres de l’utilisateur connecté sauf le corps, l’aperçu du corps, les pièces jointes et tout autre propriété étendue.",
-      "consentDisplayName": "Lire le courrier de base utilisateur",
+      "consentDisplayName": "Accéder en lecture au courrier de base utilisateur",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture aux statuts d’acceptation des conditions d’utilisation sans utilisateur connecté.",
+      "consentDisplayName": "Accéder en lecture à toutes les conditions d’utilisation des statuts d’acceptation statuts d’acceptation des conditions d’utilisation",
+      "id": "d8e4ec18-f6c0-4620-8122-c8b1f2bf400e",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "AgreementAcceptance.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture et en écriture aux conditions d’utilisation sans utilisateur connecté.",
+      "consentDisplayName": "Accéder en lecture et en écriture à toutes les conditions d’utilisation",
+      "id": "c9090d00-6101-42f0-a729-c41074260d47",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Agreement.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture aux conditions d’utilisation sans utilisateur connecté.",
+      "consentDisplayName": "Lire toutes les conditions d’utilisation",
+      "id": "2f3e6f8c-093b-4c57-a58b-ba5ce494a169",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Agreement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture aux demandes et approbations de consentement d’application, et de refuser ou d’approuver ces demandes sans utilisateur connecté.",
+      "consentDisplayName": "Lire et écrire toutes les demandes de consentement",
+      "id": "9f1b81a7-0223-4428-bfa4-0bcb5535f27d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ConsentRequest.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture et en écriture à la stratégie de demandes de consentement de votre organisation sans utilisateur connecté.",
+      "consentDisplayName": "Accéder en lecture et en écriture à la stratégie de demande de consentement de votre organisation",
+      "id": "999f8c63-0a38-4f1b-91fd-ed1947bdd1a9",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.ReadWrite.ConsentRequest"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application d’accéder en lecture aux demandes et approbations de consentement sans utilisateur connecté.",
+      "consentDisplayName": "Accéder en lecture à toutes les demandes de consentement",
+      "id": "1260ad83-98fb-4785-abbb-d6cc1806fd41",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ConsentRequest.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
