@@ -1,7 +1,47 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "允许应用程序代表已登录的用户创建打印作业，并将文档内容上传到已登录用户创建的打印作业。",
+      "adminConsentDescription": "允许应用代表已登录用户读取和写入电子数据展示对象，例如事例、保管人、审阅集和其他相关对象。",
+      "adminConsentDisplayName": "读取和写入所有电子数据展示对象",
+      "id": "acb8f680-0834-4146-b69e-4ab1b39745ad",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "允许应用代表你读取和写入电子数据展示对象，例如事例、保管人、审阅集和其他相关对象。",
+      "consentDisplayName": "读取和写入所有电子数据展示对象",
+      "value": "eDiscovery.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "允许应用代表已登录的用户读取电子数据展示对象，例如事例、保管人、审阅集和其他相关对象。",
+      "adminConsentDisplayName": "读取所有电子数据展示对象",
+      "id": "99201db3-7652-4d5a-809a-bdb94f85fe3c",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "允许应用代表你读取电子数据展示对象，例如事例、保管人、审阅集和其他相关对象。",
+      "consentDisplayName": "读取所有电子数据展示对象",
+      "value": "eDiscovery.Read.All"
+    },
+    {
+      "adminConsentDescription": "允许应用代表已登录的用户读取和写入租户中所有主体的自定义安全属性分配。",
+      "adminConsentDisplayName": "读取和写入自定义安全属性分配",
+      "id": "ca46335e-8453-47cd-a001-8459884efeae",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "允许应用代表你读取和写入租户中所有主体的自定义安全属性分配。",
+      "consentDisplayName": "读取和写入自定义安全属性分配",
+      "value": "CustomSecAttributeAssignment.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "允许应用代表已登录用户读取和写入租户的自定义安全属性定义。",
+      "adminConsentDisplayName": "读取和写入自定义安全属性定义",
+      "id": "8b0160d4-5743-482b-bb27-efc0a485ca4a",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "允许应用代表你读取和写入租户的自定义安全属性定义。",
+      "consentDisplayName": "读取和写入自定义安全属性定义",
+      "value": "CustomSecAttributeDefinition.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "允许应用程序代表已登录用户创建打印作业，并将文档内容上传到已登录用户创建的打印作业。",
       "adminConsentDisplayName": "创建打印作业",
       "id": "21f0d9c0-9f13-48b3-94e0-b6b231c7d320",
       "isEnabled": true,
@@ -2816,7 +2856,73 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "允许应用程序在不登录用户的情况下访问网站集的子集。  将在 SharePoint Online 中配置特定网站集和已授予的权限。",
+      "consentDescription": "允许应用在没有登录用户的情况下读取使用条款接受状态。",
+      "consentDisplayName": "读取所有的使用条款接受状态",
+      "id": "d8e4ec18-f6c0-4620-8122-c8b1f2bf400e",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "AgreementAcceptance.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取和写入使用条款协议。",
+      "consentDisplayName": "读取和写入所有使用条款协议",
+      "id": "c9090d00-6101-42f0-a729-c41074260d47",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Agreement.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取使用条款协议。",
+      "consentDisplayName": "读取所有使用条款协议",
+      "id": "2f3e6f8c-093b-4c57-a58b-ba5ce494a169",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Agreement.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取应用许可请求和审批，以及拒绝或批准这些请求。",
+      "consentDisplayName": "读取和写入所有许可请求",
+      "id": "9f1b81a7-0223-4428-bfa4-0bcb5535f27d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ConsentRequest.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取和写入你的组织的许可请求策略。",
+      "consentDisplayName": "读取并写入你的组织的许可请求策略",
+      "id": "999f8c63-0a38-4f1b-91fd-ed1947bdd1a9",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.ReadWrite.ConsentRequest"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用在没有登录用户的情况下读取许可请求和审批。",
+      "consentDisplayName": "读取所有许可请求",
+      "id": "1260ad83-98fb-4785-abbb-d6cc1806fd41",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ConsentRequest.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "允许应用程序在没有登录用户的情况下访问网站集的子集。  将在 SharePoint Online 中配置特定网站集和已授予的权限。",
       "consentDisplayName": "访问选定的网站集（预览版）",
       "id": "883ea226-0bf2-4a8f-9f9d-92c9162a727d",
       "isEnabled": true,
