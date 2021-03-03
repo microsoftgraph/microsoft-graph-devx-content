@@ -100,6 +100,27 @@
         "humanName": "tous les utilisateurs de l’organisation",
         "requestUrl": "/v1.0/users",
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "707499b7-807b-44cd-a347-e629b47128ad",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "tous les utilisateurs invités de l’organisation",
+        "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "b7f18a0d-0c34-4b6a-81a4-1fe75d3467d7",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "compter les utilisateurs invités de votre organisation",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -125,6 +146,33 @@
         "skipTest": false
     },
     {
+        "id": "6f644b1c-3b2a-4dcf-9125-9fb3ac961531",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "moi",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2a79aa2b-8f42-461b-9256-b790cc64e211",
+        "category": "Utilisateurs",
+        "method": "PATCH",
+        "humanName": "moi",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "cd894894-b427-4394-814c-461d8f93468d",
         "category": "Utilisateurs",
         "method": "GET",
@@ -140,6 +188,17 @@
         "humanName": "utilisateur par e-mail",
         "requestUrl": "/v1.0/users/{user-mail}",
         "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "22892a8f-9370-49cb-bb64-1328e53c174f",
+        "category": "Utilisateurs",
+        "method": "GET",
+        "humanName": "identités des utilisateurs",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -165,7 +224,25 @@
             }
         ],
         "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
         "skipTest": false
+    },
+    {
+        "id": "cadd1d98-446a-426f-afdf-c899bc03102f",
+        "category": "Utilisateurs",
+        "method": "PATCH",
+        "humanName": "mettre à jour l’utilisateur",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
+        "skipTest": false    
     },
     {
         "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
@@ -194,6 +271,16 @@
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
         "tip": "Cette requête nécessite une ID utilisateur et autorisations Presence.Read.All. Pour trouver l’ID utilisateur, vous pouvez exécuter :  GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
+        "id": "4c3f99ec-e58b-4a09-9dc2-0369db061d61",
+        "category": "Utilisateurs",
+        "method": "DELETE",
+        "humanName": "supprimer un utilisateur",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/fr-fr/graph/docs/api-reference/v1.0/api/user_delete",
+        "tip": "Vos commentaires sont les bienvenus. N’hésitez pas à nous faire part de vos commentaires sur cette API : https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -2181,6 +2268,23 @@
         "skipTest": false
     },
     {
+        "id": "bb952c79-f916-4e22-bda3-ac2a76eb2bb2",
+        "category": "Identité et accès",
+        "method": "GET",
+        "humanName": "répertorient des appareils Azure AD",
+        "requestUrl": "/v1/devices",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/device-list?view=graph-rest-1.0&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "51106daa-19c8-4f94-b9be-8190f16f4f03",
+        "category": "Identité et accès",
+        "method": "GET",
+        "humanName": "obtenir un appareil azure ad spécifié",
+        "requestUrl": "/v1/devices/{id}",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/device-get?view=graph-rest-1.0&tabs=http",
+        "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/deviceAPIFeedback",
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "Identité et accès",
         "method": "GET",
