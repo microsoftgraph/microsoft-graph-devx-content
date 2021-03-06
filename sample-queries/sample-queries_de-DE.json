@@ -2037,6 +2037,23 @@
         "skipTest": false
     },
     {
+        "id": "8a1bca0a-b80c-4cde-b7a2-e6b24dadd3a2",
+        "category": "Suche",
+        "method": "POST",
+        "humanName": "(Beta) Rechtschreibkorrektur anfordern",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta#request-spelling-correction",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "tip": "Calendars.Read, Mail.Read, Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, ExternalItem.Read.All aktivieren",
+        "skipTest": false
+    },
+    {
         "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
         "category": "Compliance (Beta)",
         "method": "GET",
@@ -2285,6 +2302,9 @@
         "requestUrl": "/v1/devices/{id}",
         "docLink": "https://docs.microsoft.com/de-de/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "Wir freuen uns über Ihr Feedback. Bitte hinterlassen Sie Ihr Feedback zu dieser API hier: https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "Identität und Zugriff",
         "method": "GET",
