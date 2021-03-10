@@ -2034,6 +2034,50 @@
         "skipTest": false
     },
     {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "Add custodian",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {custodian email} with the ID email address of a user in your tenant.",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "Compliance (beta)",
+        "method": "GET",
+        "humanName": "Get a list of source collections for a case",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Then go to Modify Permissions tab and consent to eDiscovery.Read.All or eDiscovery.ReadWrite.All permission to run this query.",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "Compliance (beta)",
+        "method": "POST",
+        "humanName": "Add source collection",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "Replace {caseId} with the ID from an eDiscovery Case (https://graph.microsoft.com/beta/compliance/ediscovery/cases) and {user source url} odata url for the user source - see [Create sourceCollection](https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta) for more details.",
+        "skipTest": false
+    },
+    {
         "id": "ced9c5ee-7745-49b2-9e08-018e22dbc41a",
         "category": "Microsoft To Do",
         "method": "GET",
