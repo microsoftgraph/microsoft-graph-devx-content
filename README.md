@@ -127,4 +127,31 @@ Follow the instructions to login to GitHub using your credentials.
 Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
+## Testing of Sample Queries
+Once you've added/updated the sample queries, you can test them out by going to [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), and appending this to the Graph Explorer url.
+
+`?devx-api=https://graphexplorerapi.azurewebsites.net&org=microsoftgraph&branchName=dev`
+
+
+This overrides the default DevX API url that fetches from blob storage and instead, fetches the files from your branch by adding two optional query params to the url i.e **org** and **branchName** to represent the path of the file.
+
+#### Full url/path format:
+```
+https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org=microsoftgraph&branchName=dev
+```
+#### NB: 
+i. Replace *branchName* with the name of your current branch.
+
+ii. In the case of a forked repo, replace the *org* parameter with your Github username.
+
+#### Example:
+
+```
+https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org=MeganBowen&branchName=mk/update-sample
+```
+
+The samples will be populated on Graph Explorer, you'll see a 200 status code and you can do further testing.
+#### Please Note:
+In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page. 
+ 
 If you run into any issues, reach out to @BettiroseNgugi 
