@@ -6,7 +6,7 @@ Content used by the DevX API to enhance clients and tooling. At the moment it ha
 This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples. 
 
 ## Contributing
-### 1. Sample Queries
+## Adding Sample Queries
 
 ### Pre-requisites:
 1. Download and Install Git to your machine https://git-scm.com/downloads
