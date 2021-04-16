@@ -2033,7 +2033,24 @@
             }
         ],
         "postBody": "{\n    \"Requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"aggregationFilters\": [\n                \"contentclass:\\\"ǂǂ5354535f4c6973744974656d5f446f63756d656e744c696272617279\\\"\",\n                \"FileType:\\\"ǂǂ646f6378\\\"\"                \n            ],\n            \"aggregations\": [\n                {\n                    \"field\": \"FileType\",\n                    \"size\": 20,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"count\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                },\n                {\n                    \"field\": \"contentclass\",\n                    \"size\": 15,\n                    \"bucketDefinition\": {\n                        \"sortBy\": \"keyAsString\",\n                        \"isDescending\": \"true\",\n                        \"minimumCount\": 0\n                    }\n                }\n            ]\n        }\n    ]\n}",
-        "tip": " Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.Allを有効にする",
+        "tip": "Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All を有効にする",
+        "skipTest": false
+    },
+    {
+        "id": "8a1bca0a-b80c-4cde-b7a2-e6b24dadd3a2",
+        "category": "検索",
+        "method": "POST",
+        "humanName": "(ベータ) スペル修正を要求する",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta#request-spelling-correction",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "tip": "enable Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
         "skipTest": false
     },
     {
@@ -2285,6 +2302,9 @@
         "requestUrl": "/v1/devices/{id}",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "ご意見をお聞かせください。この API に関するご意見、ご感想をお寄せください: https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "ID とアクセス",
         "method": "GET",

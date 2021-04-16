@@ -2037,8 +2037,25 @@
         "skipTest": false
     },
     {
+        "id": "8a1bca0a-b80c-4cde-b7a2-e6b24dadd3a2",
+        "category": "搜索",
+        "method": "POST",
+        "humanName": "（beta 版）请求拼写更正",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#request-spelling-correction",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "tip": "启用 Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
         "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "列出电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases",
@@ -2285,6 +2302,9 @@
         "requestUrl": "/v1/devices/{id}",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "标识和访问",
         "method": "GET",
