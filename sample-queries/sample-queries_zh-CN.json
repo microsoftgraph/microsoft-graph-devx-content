@@ -2059,27 +2059,27 @@
         "method": "GET",
         "humanName": "列出电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询",
         "skipTest": false
     },
     {
         "id": "83670efe-06f3-4777-bef9-00b1ef450985",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "获取电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "此查询需要事例 ID。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。此查询需要事例 ID。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
         "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "POST",
         "humanName": "创建电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -2087,36 +2087,36 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.ReadWrite.All 权限以运行此查询。",
         "skipTest": false
     },
     {
         "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "列出审阅集",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
         "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "列出审阅集查询",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
         "skipTest": false
     },
     {
         "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "POST",
         "humanName": "创建审阅集查询",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2124,7 +2124,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)。 然后转到“修改权限”选项卡并同意 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "合规性（beta 版）",
+        "method": "GET",
+        "humanName": "获取案件保管人列表",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "合规性（beta 版）",
+        "method": "POST",
+        "humanName": "添加保管人",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {custodian email} 替换为租户中用户的 ID 电子邮件地址。",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "合规性（beta 版）",
+        "method": "GET",
+        "humanName": "获取案件的源集合列表",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "合规性（beta 版）",
+        "method": "POST",
+        "humanName": "添加源集合",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，替换用户源的 {user source url} odata URL - 有关详细信息，请参阅 [创建 sourceCollection] (https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta)。",
         "skipTest": false
     },
     {
@@ -2289,7 +2343,7 @@
         "category": "标识和访问",
         "method": "GET",
         "humanName": "列出 Azure AD 设备",
-        "requestUrl": "/v1/devices",
+        "requestUrl": "/v1.0/devices",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/device-list?view=graph-rest-1.0&tabs=http",
         "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/deviceAPIFeedback",
         "skipTest": false
@@ -2299,7 +2353,7 @@
         "category": "标识和访问",
         "method": "GET",
         "humanName": "获取指定的 Azure AD 设备",
-        "requestUrl": "/v1/devices/{id}",
+        "requestUrl": "/v1.0/devices/{id}",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/deviceAPIFeedback",
         "skipTest": false
