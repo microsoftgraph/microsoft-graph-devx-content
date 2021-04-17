@@ -2059,8 +2059,8 @@
         "method": "GET",
         "humanName": "répertorier les cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Accédez à l’onglet Modifier les autorisations et autorisez User.Read pour exécuter cette requête",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête",
         "skipTest": false
     },
     {
@@ -2069,8 +2069,8 @@
         "method": "GET",
         "humanName": "obtenir un cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "Cette requête nécessite un ID de cas. Pour trouver l’ID d’un cas, vous pouvez exécuter : GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Cette requête nécessite un ID de cas. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
         "skipTest": false
     },
     {
@@ -2079,7 +2079,7 @@
         "method": "POST",
         "humanName": "créer un cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -2087,7 +2087,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Accédez à l’onglet Modifier les autorisations et autorisez User.Read pour exécuter cette requête",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.ReadWrite.All. pour exécuter cette requête",
         "skipTest": false
     },
     {
@@ -2096,8 +2096,8 @@
         "method": "GET",
         "humanName": "répertorier les ensembles de révision",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
         "skipTest": false
     },
     {
@@ -2106,8 +2106,8 @@
         "method": "GET",
         "humanName": "requêtes concernant la liste des ensembles de révision",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) Ensuite, accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête.",
         "skipTest": false
     },
     {
@@ -2116,7 +2116,7 @@
         "method": "POST",
         "humanName": "créer une requête d’ensemble de révision",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2124,7 +2124,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {reviewSetId} par l’ID d’un ensemble de révision existant dans ce cas (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)  Ensuite, accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.ReadWrite.All. pour exécuter cette requête.",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "obtenir une liste de consignataires pour un cas",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Ensuite, accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête.",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "Conformité (bêta)",
+        "method": "POST",
+        "humanName": "ajouter un consignataire",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases).et {e-mail d’un consignataire} l’adresse ID d’un utilisateur dans votre client.",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "Conformité (bêta)",
+        "method": "GET",
+        "humanName": "obtenir une liste de collections source pour un cas",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Ensuite, accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête.",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "Conformité (bêta)",
+        "method": "POST",
+        "humanName": "ajouter une collection source",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "Remplacez {caseId} par l’ID d’un cas eDiscovery (https://graph.microsoft.com/beta/compliance/ediscovery/cases) et {l’url source de l’utilisateur} l’url odata de la source de l’utilisateur : consultez [Créer sourceCollection](https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcelections?view=graph-rest-beta) pour plus d’informations.",
         "skipTest": false
     },
     {
@@ -2289,7 +2343,7 @@
         "category": "Identité et accès",
         "method": "GET",
         "humanName": "répertorient des appareils Azure AD",
-        "requestUrl": "/v1/devices",
+        "requestUrl": "/v1.0/devices",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/device-list?view=graph-rest-1.0&tabs=http",
         "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/deviceAPIFeedback",
         "skipTest": false
@@ -2299,7 +2353,7 @@
         "category": "Identité et accès",
         "method": "GET",
         "humanName": "obtenir un appareil azure ad spécifié",
-        "requestUrl": "/v1/devices/{id}",
+        "requestUrl": "/v1.0/devices/{id}",
         "docLink": "https://docs.microsoft.com/fr-fr/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "Vos commentaires sont les bienvenus. Faites-nous part de vos commentaires sur cette API ici : https://aka.ms/deviceAPIFeedback",
         "skipTest": false
