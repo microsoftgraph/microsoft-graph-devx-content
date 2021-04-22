@@ -2059,8 +2059,8 @@
         "method": "GET",
         "humanName": "電子情報開示ケースを一覧表示する",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します ",
         "skipTest": false
     },
     {
@@ -2069,8 +2069,8 @@
         "method": "GET",
         "humanName": "電子情報開示ケースを取得する",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "このクエリでは、チーム ID が必要です。ケースの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します。このクエリでは、チーム ID が必要です。ケースの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
@@ -2079,7 +2079,7 @@
         "method": "POST",
         "humanName": "電子情報開示ケースを作成する",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -2087,7 +2087,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "[アクセス許可の変更] タブに移動して、このクエリを実行するための User.Read アクセス許可に同意します",
+        "tip": "[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.ReadWrite.All アクセス許可に同意します",
         "skipTest": false
     },
     {
@@ -2096,8 +2096,8 @@
         "method": "GET",
         "humanName": "レビュー セットを一覧表示する",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換えます。",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します。ケースの ID を見つけるには、次のコマンドを実行します。GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
@@ -2106,8 +2106,8 @@
         "method": "GET",
         "humanName": "レビュー セットのクエリを一覧表示する",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。次に、[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します。",
         "skipTest": false
     },
     {
@@ -2116,7 +2116,7 @@
         "method": "POST",
         "humanName": "レビュー セットのクエリを作成する",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2124,7 +2124,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{reviewSetId} をそのケース内に存在するレビュー セット (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets) の ID で置き換えます。 次に、[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.ReadWrite.All アクセス許可に同意します。",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "ケースのカストディアンのリストを取得する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換えます。次に、[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します。",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "カストディアンを追加する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換え、{カストディアン メール} を、テナント内のユーザーの ID メール アドレスに置き換えます。",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "GET",
+        "humanName": "ケースのソース コレクションの一覧を取得する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID で置き換えます。次に、[アクセス許可の変更] タブに移動し、このクエリを実行するための eDiscovery.Read.All または eDiscovery.ReadWrite.All アクセス許可に同意します。",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "コンプライアンス (ベータ版)",
+        "method": "POST",
+        "humanName": "ソース コレクションを追加する",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "{caseId} を電子情報開示ケース (https://graph.microsoft.com/beta/compliance/ediscovery/cases) の ID と、ユーザー ソース用の {ユーザー ソース URL} odata の URL に置き換えます。詳細については、「[sourceCollectionの作成] （https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta)」 を参照してください。",
         "skipTest": false
     },
     {
@@ -2289,7 +2343,7 @@
         "category": "ID とアクセス",
         "method": "GET",
         "humanName": "Azure AD デバイスの一覧",
-        "requestUrl": "/v1/devices",
+        "requestUrl": "/v1.0/devices",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/device-list?view=graph-rest-1.0&tabs=http",
         "tip": "ご意見をお聞かせください。この API に関するご意見、ご感想をお寄せください: https://aka.ms/deviceAPIFeedback",
         "skipTest": false
@@ -2299,7 +2353,7 @@
         "category": "ID とアクセス",
         "method": "GET",
         "humanName": "指定された Azure AD デバイスを取得する",
-        "requestUrl": "/v1/devices/{id}",
+        "requestUrl": "/v1.0/devices/{id}",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "ご意見をお聞かせください。この API に関するご意見、ご感想をお寄せください: https://aka.ms/deviceAPIFeedback",
         "skipTest": false

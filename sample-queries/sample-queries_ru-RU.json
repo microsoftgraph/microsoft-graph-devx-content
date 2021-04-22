@@ -2059,8 +2059,8 @@
         "method": "GET",
         "humanName": "перечисление дел обнаружения электронных данных",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Откройте вкладку \"Изменить разрешения\" и согласитесь предоставить разрешение User.Read, чтобы выполнить этот запрос",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса",
         "skipTest": false
     },
     {
@@ -2069,8 +2069,8 @@
         "method": "GET",
         "humanName": "получение дела обнаружения электронных данных",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "Для этого запроса требуется идентификатор дела. Чтобы узнать идентификатор дела, можно выполнить: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/ru-ru/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "Перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса. Для этого запроса требуется идентификатор дела. Чтобы узнать идентификатор дела, можно выполнить: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {
@@ -2079,7 +2079,7 @@
         "method": "POST",
         "humanName": "создание дела обнаружения электронных данных",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -2087,7 +2087,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Откройте вкладку \"Изменить разрешения\" и согласитесь предоставить разрешение User.Read, чтобы выполнить этот запрос",
+        "tip": "Перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.ReadWrite.All для выполнения этого запроса",
         "skipTest": false
     },
     {
@@ -2096,8 +2096,8 @@
         "method": "GET",
         "humanName": "перечисление наборов для проверки",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "Перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса. Чтобы узнать идентификатор дела, можно выполнить: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {
@@ -2106,8 +2106,8 @@
         "method": "GET",
         "humanName": "перечисление запросов наборов для проверки",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {reviewSetId} — на идентификатор из набора для проверки, существующего в этом деле (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {reviewSetId} — на идентификатор из набора для проверки, существующего в этом деле (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets). Затем перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса.",
         "skipTest": false
     },
     {
@@ -2116,7 +2116,7 @@
         "method": "POST",
         "humanName": "создание запроса набора для проверки",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2124,7 +2124,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {reviewSetId} — на идентификатор из набора для проверки, существующего в этом деле (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {reviewSetId} — на идентификатор из набора для проверки, существующего в этом деле (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets).  Затем перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.ReadWrite.All для выполнения этого запроса.",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "Соответствие требованиям (бета-версия)",
+        "method": "GET",
+        "humanName": "получение списка хранителей для дела",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Затем перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса.",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "Соответствие требованиям (бета-версия)",
+        "method": "POST",
+        "humanName": "добавление хранителя",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {custodian email} — на адрес электронной почты пользователя вашего клиента.",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "Соответствие требованиям (бета-версия)",
+        "method": "GET",
+        "humanName": "получение списка исходных коллекций для дела",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Затем перейдите на вкладку \"Изменить разрешения\" и предоставьте разрешение eDiscovery.Read.All или eDiscovery.ReadWrite.All для выполнения этого запроса.",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "Соответствие требованиям (бета-версия)",
+        "method": "POST",
+        "humanName": "добавление коллекции источников",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "Замените {caseId} на идентификатор из дела обнаружения электронных данных (https://graph.microsoft.com/beta/compliance/ediscovery/cases), а {user source url} — на URL-адрес OData для источника пользователя. Дополнительные сведения см. в статье [Создание sourceCollection](https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta).",
         "skipTest": false
     },
     {
@@ -2289,7 +2343,7 @@
         "category": "Удостоверение и доступ",
         "method": "GET",
         "humanName": "перечисление устройств Azure AD",
-        "requestUrl": "/v1/devices",
+        "requestUrl": "/v1.0/devices",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/device-list?view=graph-rest-1.0&tabs=http",
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/deviceAPIFeedback",
         "skipTest": false
@@ -2299,7 +2353,7 @@
         "category": "Удостоверение и доступ",
         "method": "GET",
         "humanName": "получение указанного устройства Azure AD",
-        "requestUrl": "/v1/devices/{id}",
+        "requestUrl": "/v1.0/devices/{id}",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/device-get?view=graph-rest-1.0&tabs=http",
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/deviceAPIFeedback",
         "skipTest": false
