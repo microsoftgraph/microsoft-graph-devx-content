@@ -1,4 +1,5 @@
 const samples = require('../sample-queries/sample-queries.json');
+const { includesAllowedVersions, validateJson } = require("./validator");
 
 const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
@@ -15,22 +16,21 @@ for (const query of sampleQueries) {
       expect(lowerCasedHumanName).toEqual(firstWord);
     });
 
+    it('version should be v1.0 or beta', function () {
+      const allowedVersions = ['v1.0', 'beta'];
+      const includes = includesAllowedVersions(allowedVersions, query.requestUrl);
+      expect(includes).toEqual(true);
+    });
+
     if (query.postBody) {
       it(`postbody should be a valid json string`, function () {
         let isValidJson = true;
         if (query.headers) {
-          const contentTypeHeaders = query.headers.find(header => header.name.toLowerCase().includes('content-type'));
-          // xml content will not pass test
-          if (contentTypeHeaders && !contentTypeHeaders.value.includes('xml')) {
-            try {
-              JSON.parse(query.postBody);
-            } catch (error) {
-              isValidJson = false;
-            }
-          }
+          isValidJson = validateJson(query, isValidJson);
         }
         expect(isValidJson).toEqual(true);
       });
     }
   });
 }
+
