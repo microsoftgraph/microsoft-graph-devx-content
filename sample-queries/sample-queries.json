@@ -2490,7 +2490,7 @@
     {
         "id": "aa39791a-1819-48de-88bf-8862d8cc8501",
         "category": "Windows Updates",
-        "method": "POST",
+        "method": "PATCH",
         "humanName": "update deployment (replace monitoring rules)",
         "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
         "headers": [
@@ -2507,7 +2507,7 @@
     {
         "id": "08365e7b-d2cd-425d-87f6-47f03571c0ef",
         "category": "Windows Updates",
-        "method": "POST",
+        "method": "PATCH",
         "humanName": "update deployment (request paused state)",
         "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
         "headers": [
@@ -2524,7 +2524,7 @@
     {
         "id": "acbc7219-fcdf-47f2-a4d1-a7080f49dc28",
         "category": "Windows Updates",
-        "method": "POST",
+        "method": "PATCH",
         "humanName": "update deployment (clear requested state)",
         "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
         "headers": [
@@ -2700,7 +2700,7 @@
         "id": "68c359ea-cc63-4ab0-bfa9-0d5517919a36",
         "category": "Windows Updates",
         "method": "POST",
-        "humanName": "enroll in update management",
+        "humanName": "enroll in feature update management",
         "requestUrl": "/beta/admin/windows/updates/updatableAssets/enrollAssets",
         "headers": [
             {
@@ -2709,15 +2709,15 @@
             }
         ],
         "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-enrollassets?view=graph-rest-beta",
-        "postBody": "{\r\n    \"updateCategory\": \"{enrollmentUpdateCategory}\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
-        "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. The enrollmentUpdateCategory parameter may be set to \"feature\".",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
         "skipTest": false
     },
     {
         "id": "76313b13-2306-4b9f-9231-999c103dc208",
         "category": "Windows Updates",
         "method": "POST",
-        "humanName": "unenroll from update management",
+        "humanName": "unenroll from feature update management",
         "requestUrl": "/beta/admin/windows/updates/updatableAssets/unenrollAssets",
         "headers": [
             {
@@ -2726,7 +2726,7 @@
             }
         ],
         "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-unenrollassets?view=graph-rest-beta",
-        "postBody": "{\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
         "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
         "skipTest": false
     }
