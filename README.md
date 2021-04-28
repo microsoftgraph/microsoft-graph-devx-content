@@ -149,7 +149,7 @@ iii. If your branch is in this repo, replace *{org}* with microsoftgraph
 https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org=MeganBowen&branchName=mk/update-sample
 ```
 
-The samples will be populated on Graph Explorer, you'll see a 200 status code and you can do further testing.
+The samples/permissions will be populated on Graph Explorer and you can do further testing.
 
 #### Please Note:
 In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
