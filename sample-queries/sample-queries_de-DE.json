@@ -2054,6 +2054,23 @@
         "skipTest": false
     },
     {
+        "id": "bcfa3d7a-e833-4bac-a2a8-4113d0f8337f",
+        "category": "Suche",
+        "method": "POST",
+        "humanName": "(Beta) Ergebnisvorlage anfordern",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"resultTemplateOptions\": {\r\n  \"enableResultTemplate\": true \r\n}\r\n}\r\n]\r\n}",
+        "tip": "ExternalItem.Read.All aktivieren",
+        "skipTest": false
+    },
+    {
         "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
         "category": "Compliance (Beta)",
         "method": "GET",

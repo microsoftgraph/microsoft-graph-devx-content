@@ -151,7 +151,7 @@
         "method": "GET",
         "humanName": "自分",
         "requestUrl": "/v1.0/me",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
+        "docLink": "://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
         "tip": "ご意見をお聞かせください。ここにこの API に関するフィードバックを入力してください。https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
@@ -187,7 +187,7 @@
         "method": "GET",
         "humanName": "メールごとのユーザー",
         "requestUrl": "/v1.0/users/{user-mail}",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
+        "docLink": "://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
         "tip": "ご意見をお聞かせください。ここにこの API に関するフィードバックを入力してください。https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
@@ -197,7 +197,7 @@
         "method": "GET",
         "humanName": "ユーザー ID",
         "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
-        "docLink": "https://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
+        "docLink": "://developer.microsoft.com/ja-JP/graph/docs/api-reference/v1.0/resources/user",
         "tip": "ご意見をお聞かせください。ここにこの API に関するフィードバックを入力してください。https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
@@ -2051,6 +2051,23 @@
         ],
         "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
         "tip": "enable Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "bcfa3d7a-e833-4bac-a2a8-4113d0f8337f",
+        "category": "検索",
+        "method": "POST",
+        "humanName": "(ベータ版) 要求結果テンプレート",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"resultTemplateOptions\": {\r\n  \"enableResultTemplate\": true \r\n}\r\n}\r\n]\r\n}",
+        "tip": "ExternalItem.Read.All を有効にする",
         "skipTest": false
     },
     {

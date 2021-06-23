@@ -2050,7 +2050,24 @@
             }
         ],
         "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
-        "tip": "habilitar Calendars.Read, Email do Outlook.Read, Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, ExternalItem.Read.All",
+        "tip": "habilitar Calendars.Read, Mail.Read, Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "bcfa3d7a-e833-4bac-a2a8-4113d0f8337f",
+        "category": "Pesquisar",
+        "method": "POST",
+        "humanName": "(beta) solicitar modelo de resultado",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"resultTemplateOptions\": {\r\n  \"enableResultTemplate\": true \r\n}\r\n}\r\n]\r\n}",
+        "tip": "habilitar ExternalItem.Read.All",
         "skipTest": false
     },
     {
