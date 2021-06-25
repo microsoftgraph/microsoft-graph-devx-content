@@ -1394,6 +1394,23 @@
         "skipTest": false
     },
     {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "create chat",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "This query requires your user id and another user's id.  To find your user id & another user's id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/ 2) GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
         "category": "Microsoft Teams (beta)",
         "method": "GET",
