@@ -270,7 +270,7 @@
         "humanName": "get a user's presence ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "This query requires a user id and Presence.Read.All permissions. To find user id, you can run:  GET https://graph.microsoft.com/v1.0/users",
+        "tip": "This query requires a user id and Presence.Read.All permissions. To find a user id, you can run:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1407,6 +1407,23 @@
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
         "docLink": "https://docs.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
         "tip": "This query requires a group id of the Team.  To find the group id of Teams you belong to, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "skipTest": false
+    },
+    {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "create chat",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "This query requires your user id and another user's id.  To find your user id & another user's id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/ 2) GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
