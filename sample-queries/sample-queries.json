@@ -1427,6 +1427,23 @@
         "skipTest": false
     },
     {
+        "id": "8cd7a323-478e-4828-878f-7e6962728a9b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "send activity notification",
+        "requestUrl": "/v1.0/teams/{id}/sendActivityNotification",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/team-sendactivitynotification?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"topic\": {\r\n    \"source\": \"entityUrl\",\r\n    \"value\": \"https://graph.microsoft.com/v1.0/teams/b126aba2-a1fb-4e03-acc3-410b5d5af2dc\"\r\n    },\r\n    \"activityType\": \"pendingFinanceApprovalRequests\",\r\n    \"previewText\": {\r\n    \"content\": \"Internal spending team has a pending finance approval requests\"\r\n    },\r\n    \"recipient\": {\r\n    \"@odata.type\": \"microsoft.graph.aadUserNotificationRecipient\",\r\n    \"userId\": \"d4c3656e-7215-4624-bfe3-5f08b2592b8d\"\r\n    },\r\n    \"templateParameters\": [\r\n    {\r\n    \"name\": \"pendingRequestCount\",\r\n    \"value\": \"5\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "This query requires a teams id. To find the team id, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "skipTest": false
+    },
+    {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
         "category": "Microsoft Teams (beta)",
         "method": "GET",
