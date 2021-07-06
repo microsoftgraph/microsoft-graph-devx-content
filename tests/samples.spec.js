@@ -23,6 +23,10 @@ for (const query of sampleQueries) {
     });
 
     if (query.postBody) {
+      it (`sample with postBody property should have corresponding headers property`, function () {
+        expect(query.headers).toBeDefined();        
+      });
+
       it(`postbody should be a valid json string`, function () {
         let isValidJson = true;
         if (query.headers) {
