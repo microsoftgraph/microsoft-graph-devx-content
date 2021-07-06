@@ -1427,6 +1427,23 @@
         "skipTest": false
     },
     {
+        "id": "8cd7a323-478e-4828-878f-7e6962728a9b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "send activity notification in the scope of a team",
+        "requestUrl": "/v1.0/teams/{id}/sendActivityNotification",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/team-sendactivitynotification?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"topic\": {\r\n    \"source\": \"entityUrl\",\r\n    \"value\": \"https://graph.microsoft.com/v1.0/teams/{teams-id}\"\r\n    },\r\n    \"activityType\": \"pendingFinanceApprovalRequests\",\r\n    \"previewText\": {\r\n    \"content\": \"Test activity feed notification from Graph Explorer\"\r\n    },\r\n    \"recipient\": {\r\n    \"@odata.type\": \"microsoft.graph.aadUserNotificationRecipient\",\r\n    \"userId\": \"{recipient-user-id}\"\r\n    },\r\n    \"templateParameters\": [\r\n    {\r\n    \"name\": \"pendingRequestCount\",\r\n    \"value\": \"5\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "This query requires a teams id and a recipient's user id. To find the team id, you can run: GET https://graph.microsoft.com/v1.0/me/joinedTeams . To find a user's id, you can run: 1) GET https://graph.microsoft.com/v1.0/me/ or 2) GET https://graph.microsoft.com/v1.0/users . The recipient of the notification must also have the application installed.",
+        "skipTest": false
+    },
+    {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
         "category": "Microsoft Teams (beta)",
         "method": "GET",
