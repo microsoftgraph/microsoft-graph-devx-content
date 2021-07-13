@@ -319,8 +319,14 @@
         "humanName": "создание группы",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Поделитесь с нами своим мнением об API групп: https://aka.ms/GroupsAPIFeedback",
-        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true\",\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\"\r\n}",
+        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true,\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\r\n}",
         "skipTest": false
     },    
     {
@@ -330,6 +336,12 @@
         "humanName": "добавление участника в группу",
         "requestUrl": "/v1.0/groups/{group-id}/members/$ref",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/group-post-members?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Поделитесь с нами своим мнением об API групп: https://aka.ms/GroupsAPIFeedback. Чтобы получить идентификатор группы, выполните https://graph.microsoft.com/v1.0/groups/",
         "postBody": "{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/directoryObjects\/{id}\"\r\n}",
         "skipTest": false
@@ -948,8 +960,8 @@
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/plannertask_update",
         "headers": [
             {
-                "name": "If-Match",
-                "value": "{if-match}"
+                "name": "Content-Type",
+                "value": "application/json"
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
@@ -1052,6 +1064,12 @@
         "humanName": "обновление открытого расширения",
         "requestUrl": "/v1.0/me/extensions/{extension-id}",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/opentypeextension_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"theme\":\"light\",\r\n    \"color\":\"yellow\",\r\n    \"lang\":\"Swahili\"\r\n}",
         "skipTest": false
     },
@@ -1080,6 +1098,12 @@
         "humanName": "создание группы с данными расширения",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"displayName\": \"Extensions sample group\",\r\n    \"description\": \"Extensions sample group\",\r\n    \"groupTypes\": [\"Unified\"],\r\n    \"mailEnabled\": true,\r\n    \"mailNickname\": \"extSample123\",\r\n    \"securityEnabled\": false,\r\n    \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1090,6 +1114,12 @@
         "humanName": "обновление группы с данными расширения",
         "requestUrl": "/v1.0/groups/{group-id}",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1127,6 +1157,12 @@
         "humanName": "создать записную книжку",
         "requestUrl": "/v1.0/me/onenote/notebooks",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/onenote_post_notebooks",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"displayName\": \"My Notebook\"\r\n}",
         "tip": "Обновите текст запроса и выберите \"Выполнить запрос\".",
         "skipTest": false
@@ -1359,6 +1395,12 @@
         "humanName": "создание канала",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/channel_post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
         "tip": "Для этого запроса требуется идентификатор команды.  Чтобы узнать идентификатор команды Teams, к которой вы принадлежите, можно выполнить: GET https://graph.microsoft.com/v1.0/me/joinedTeams.",
         "skipTest": false
@@ -1440,6 +1482,12 @@
         "humanName": "Отправка сообщения канала",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "Для этого запроса требуется идентификатор команды и идентификатор канала из этой команды. Чтобы узнать идентификатор команды и идентификатор канала, можно выполнить: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{ИД_команды}/channels",
         "skipTest": false
@@ -1582,6 +1630,12 @@
         "humanName": "оповещение об обновлении",
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/ru-ru/graph/docs/api-reference/v1.0/api/alert_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
         "tip": "Для этого запроса требуется идентификатор оповещения. Чтобы узнать идентификатор оповещения, можно выполнить: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
@@ -1593,6 +1647,12 @@
         "humanName": "создание индикатора аналитики угроз (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicators-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"activityGroupNames\": [\r\n      \"activityGroupNames-value\"\r\n    ],\r\n  \"confidence\": 90,\r\n  \"description\": \"This is a test indicator for demo purpose.\",\r\n  \"expirationDateTime\": \"{next-week}\",\r\n  \"externalId\": \"Test-8586502158541347997MS342\",\r\n  \"fileHashType\": \"sha256\",\r\n  \"fileHashValue\": \"289a8e8c330c27ab893fb769db38046feaca9d0b11e0aaa416ba70b0a51d58a4\",\r\n  \"targetProduct\": \"Azure ATP\",\r\n  \"threatType\": \"WatchList\",\r\n  \"tlpLevel\": \"green\"\r\n}",
         "skipTest": false
     },
@@ -1603,6 +1663,12 @@
         "humanName": "создание нескольких индикаторов аналитики угроз (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.submitTiIndicators",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicator-submittiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-0\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"0c0ebb4c90fa39785745bcc5e5cb40e3db7791be030061e2818684bc128b8f97\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    },\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-1\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"86267de22dbad234ecf97870fdcf1a0e31149ee7a5fb595c050f69ca00f3529e\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    }\r\n  ]\r\n}",
         "skipTest": false
     },
@@ -1613,6 +1679,12 @@
         "humanName": "обновление индикатора аналитики угроз (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicator-update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
         "tip": "Для этого запроса требуется идентификатор индикатора TI. Чтобы узнать идентификатор, можно выполнить: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
@@ -1624,6 +1696,12 @@
         "humanName": "обновление нескольких индикаторов аналитики угроз (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicator-updatetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
         "tip": "Для этого запроса требуется идентификатор индикатора TI. Чтобы узнать идентификатор, можно выполнить: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
@@ -1635,6 +1713,12 @@
         "humanName": "создание действия по обеспечению безопасности (бета-версия)",
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/securityactions-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"name\": \"blockIp\",\r\n     \"vendorInformation\" :\r\n     {  \"provider\": \"Windows Defender ATP\",\r\n          \"vendor\": \"Microsoft\"\r\n      },\r\n    \"parameters\" : [\r\n      {\"name\": \"IP\", \"value\":\"1.2.3.4\" }\r\n    ]\r\n}",
         "tip": "Необходимо изменить поставщика и параметры",
         "skipTest": false
@@ -1656,6 +1740,12 @@
         "humanName": "удаление нескольких индикаторов аналитики угроз (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicator-deletetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
         "tip": "Для этого запроса требуется идентификатор индикатора TI. Чтобы узнать идентификатор, можно выполнить: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -1667,6 +1757,12 @@
         "humanName": "удаление нескольких индикаторов аналитики угроз по внешнему ИД (бета-версия)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/ru-ru/graph/api/tiindicator-deletetiindicatorsbyexternalid",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
         "tip": "Для этого запроса требуется внешний идентификатор индикатора TI. Чтобы узнать идентификатор, можно выполнить: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -2276,6 +2372,12 @@
         "humanName": "создание экземпляра приложения коллекции Azure AD",
         "requestUrl": "/beta/applicationTemplates/{id}/instantiate",
         "docLink": "https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/appTemplateAPISurvey",
         "postBody": "{\r\n \"displayName\": \"appDisplayName\"\r\n}",
         "skipTest": false
@@ -2287,6 +2389,12 @@
         "humanName": "обновление свойств объекта servicePrincipal",
         "requestUrl": "/v1.0/servicePrincipals/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/servicePrincipalAPISurvey",
         "postBody":"{\r\n  \"appRoleAssignmentRequired\": true\r\n}",
         "skipTest": false
@@ -2298,6 +2406,12 @@
         "humanName": "обновление свойств приложения",
         "requestUrl": "/v1.0/applications/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/applicationsAPISurvey",
         "postBody":"{\r\n  \"displayName\": \"New display name\"\r\n}",
         "skipTest": false
@@ -2309,8 +2423,14 @@
         "humanName": "создание политики сопоставления утверждений",
         "requestUrl": "/v1.0/policies/claimsMappingPolicies",
         "docLink": "https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/claimsMappingPolicyAPISurvey",
-        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true,\r\n}",
+        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true\r\n}",
         "skipTest": false
     },
     {
@@ -2320,6 +2440,12 @@
         "humanName": "назначение политики сопоставления утверждений субъекту-службе",
         "requestUrl": "/v1.0/servicePrincipals/{id}/claimsMappingPolicies/$ref",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/claimsMappingPolicyAPISurvey",
         "postBody":"{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/policies\/claimsMappingPolicies\/cd3d9b57-0aee-4f25-8ee3-ac74ef5986a9\"\r\n}",
         "skipTest": false
@@ -2331,6 +2457,12 @@
         "humanName": "назначение appRoleAssignment субъекту-службе",
         "requestUrl": "/v1.0/servicePrincipals/{id}/appRoleAssignments",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/appRoleAssignmentAPISurvey",
         "postBody": "{\r\n  \"principalId\": \"principalId-value\",\r\n  \"resourceId\": \"resourceId-value\",\r\n  \"appRoleId\": \"appRoleId-value\"\r\n}",
         "skipTest": false
@@ -2392,6 +2524,12 @@
         "humanName": "подтверждение, что пользователь скомпрометирован",
         "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
         "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
         "tip": "Нам важно ваше мнение. Оставьте свой отзыв об этом API здесь: https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
