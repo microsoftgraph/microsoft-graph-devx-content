@@ -1524,6 +1524,35 @@
         "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/channel_get_messagereply",
         "tip": "This query requires a group id of the Team, channel id of the corresponding channel of that Team, message id of the message of which you need the reply and the id of the specific reply. To find the group id, channel id, message-id and reply-id you can run: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "apps installed for user",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "list members of a chat",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "This query requires a chat id. To find a list of chats and their corresponding ids, run GET https://graph.microsoft.com/beta/me/chats/",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "member in a chat",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "This query requires a chat id and a membership id. To find the corresponding ids, run 1) GET https://graph.microsoft.com/beta/me/chats/ and 2) GET https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
+        "skipTest": false
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
