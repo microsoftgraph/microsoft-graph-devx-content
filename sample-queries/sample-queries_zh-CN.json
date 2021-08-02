@@ -270,7 +270,7 @@
         "humanName": "获取用户的状态 ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
+        "tip": "此查询需要用户 ID 和 Presence.Read.All 权限。使用以下调用以获取用户 ID: 获取 https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1350,6 +1350,22 @@
         "skipTest": false
     },
     {
+        "id": "191dc268-4601-4f57-8533-b8afc16f2f8c",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "创建团队",
+        "requestUrl": "/v1.0/teams",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/team-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n   \"template@odata.bind\": \"https://graph.microsoft.com/v1.0/teamsTemplates('standard')\",\r\n   \"displayName\": \"Architecture Team\",\r\n   \"description\": \"The team for those in architecture design.\"\r\n}",
+        "skipTest": false
+    },
+    {
         "id": "dbfc18b5-5aed-4a99-96df-ba2d1198d000",
         "category": "Microsoft Teams",
         "method": "GET",
@@ -1432,12 +1448,29 @@
         "humanName": "团队驱动器中的项",
         "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
-        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：获取 https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "skipTest": false
+    },
+    {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "创建聊天",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "此查询需要你的用户 ID 和其他用户的 ID。使用以下调用获取用户 ID:1) 获取 https://graph.microsoft.com/v1.0/me/ 2) 获取 https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams (beta 版本)",
         "method": "GET",
         "humanName": "频道中的消息（没有答复）",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
@@ -1473,6 +1506,35 @@
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_get_messagereply",
         "tip": "此查询需要团队的组 id、该团队的对应频道的频道 id、你需要的答复所对应的消息的消息 id 和特定答复的 id。若要查找相应的组 id、频道 id、消息 id 和答复 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+        "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "为用户安装的应用",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "列出聊天成员",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "此查询需要聊天 ID。使用以下调用查找聊天及其相应 ID 的列表：获取 https://graph.microsoft.com/beta/me/chats/",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "聊天中的成员",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "此查询需要聊天 ID 和成员身份 ID。使用以下调用获取 ID：1) 获取 https://graph.microsoft.com/beta/me/chats/ and 2) 获取 https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
         "skipTest": false
     },
     {
@@ -2162,7 +2224,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
         "tip": "启用 Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
         "skipTest": false
     },
