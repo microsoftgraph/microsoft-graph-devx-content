@@ -270,7 +270,7 @@
         "humanName": "Abrufen des Anwesenheitsstatus eines Benutzers ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/de-de/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Für diese Abfrage sind eine Benutzer-ID und Presence.Read.All-Berechtigungen erforderlich. Wenn Sie nach der Benutzer-ID suchen möchten, können Sie Folgendes ausführen:  GET https://graph.microsoft.com/v1.0/users",
+        "tip": "Für diese Abfrage sind eine Benutzer-ID und die Berechtigung Presence.Read.All erforderlich. Verwenden Sie den folgenden Aufruf, um eine Benutzer-ID abzurufen:  GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1350,8 +1350,24 @@
         "skipTest": false
     },
     {
+        "id": "191dc268-4601-4f57-8533-b8afc16f2f8c",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "Team erstellen",
+        "requestUrl": "/v1.0/teams",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/team-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n   \"template@odata.bind\": \"https://graph.microsoft.com/v1.0/teamsTemplates('standard')\",\r\n   \"displayName\": \"Architecture Team\",\r\n   \"description\": \"The team for those in architecture design.\"\r\n}",
+        "skipTest": false
+    },
+    {
         "id": "dbfc18b5-5aed-4a99-96df-ba2d1198d000",
-        "category": "Microsoft Teams",
+        "category": "Microsoft Teams",
         "method": "GET",
         "humanName": "Meine verknüpften Teams",
         "requestUrl": "/v1.0/me/joinedTeams",
@@ -1436,6 +1452,23 @@
         "skipTest": false
     },
     {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "Chat erstellen",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "Diese Abfrage erfordert Ihre Benutzer-ID und die ID eines anderen Benutzers. Verwenden Sie die folgenden Aufrufe, um die Benutzer-IDs abzurufen: 1) GET https://graph.microsoft.com/v1.0/me/ 2) GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
         "category": "Microsoft Teams (Beta)",
         "method": "GET",
@@ -1474,10 +1507,39 @@
         "docLink": "https://developer.microsoft.com/de-de/graph/docs/api-reference/beta/api/channel_get_messagereply",
         "tip": "Für diese Abfrage ist die Gruppen-ID des Teams, die Kanal-ID des entsprechenden Kanals dieses Teams und die Nachrichten-ID der Nachricht, von der Sie die Antwort suchen, sowie die ID der konkreten Antwort erforderlich. Führen Sie Folgendes aus, um die Gruppen-ID, die Kanal-ID, die Nachrichten-ID und die Antwort-ID zu finden: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (Beta)",
+        "method": "GET",
+        "humanName": "für Benutzer installierte Apps",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (Beta)",
+        "method": "GET",
+        "humanName": "Mitglieder eines Chats auflisten",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "Für diese Abfrage ist eine Chat-ID erforderlich. Verwenden Sie den folgenden Anruf, um eine Liste der Chats und der entsprechenden IDs zu suchen: GET https://graph.microsoft.com/beta/me/chats/",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (Beta)",
+        "method": "GET",
+        "humanName": "Mitglied in einem Chat",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "Diese Abfrage erfordert eine Chat-ID und eine Mitgliedschafts-ID. Verwenden Sie die folgenden Aufrufe, um die IDs abzurufen: 1) GET https://graph.microsoft.com/beta/me/chats/ und 2) GET https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
+        "skipTest": false
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
-        "category": "Microsoft Teams",
+        "category": "Microsoft Teams",
         "method": "POST",
         "humanName": "kanalnachricht senden",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
@@ -2162,7 +2224,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
         "tip": "Calendars.Read, Mail.Read, Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, ExternalItem.Read.All aktivieren",
         "skipTest": false
     },
