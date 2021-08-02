@@ -270,7 +270,7 @@
         "humanName": "ユーザーのプレゼンスを取得する ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/ja-jp/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "このクエリには、ユーザー ID と Presence.Read.All が必要です。ユーザー ID を見つけるには、次のコマンドを実行します。 GET https://graph.microsoft.com/v1.0/users",
+        "tip": "このクエリには、ユーザー ID と Presence.Read.All アクセス許可が必要です。次の呼び出しを使用して、ユーザー ID を取得します。 GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1350,6 +1350,22 @@
         "skipTest": false
     },
     {
+        "id": "191dc268-4601-4f57-8533-b8afc16f2f8c",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "チームの作成",
+        "requestUrl": "/v1.0/teams",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/team-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n   \"template@odata.bind\": \"https://graph.microsoft.com/v1.0/teamsTemplates('standard')\",\r\n   \"displayName\": \"Architecture Team\",\r\n   \"description\": \"The team for those in architecture design.\"\r\n}",
+        "skipTest": false
+    },
+    {
         "id": "dbfc18b5-5aed-4a99-96df-ba2d1198d000",
         "category": "Microsoft Teams",
         "method": "GET",
@@ -1436,6 +1452,23 @@
         "skipTest": false
     },
     {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "チャットの作成",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "このクエリには、ユーザー ID と別のユーザーの ID が必要です。次の呼び出しを使用して、ユーザー ID を取得します。1) GET https://graph.microsoft.com/v1.0/me/ 2) GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
         "category": "Microsoft Teams (ベータ版)",
         "method": "GET",
@@ -1473,6 +1506,35 @@
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/ja-jp/graph/docs/api-reference/beta/api/channel_get_messagereply",
         "tip": "このクエリでは、チームのグループ ID、そのチームに対応するチャネルのチャネル ID、返信が必要なメッセージのメッセージ ID、その特定の返信の ID が必要です。グループ ID、チャネル ID、メッセージ ID、返信 ID を見つけるには、次のコマンドを実行じます。1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+        "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (ベータ版)",
+        "method": "GET",
+        "humanName": "ユーザー用にインストールされたアプリ",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (ベータ版)",
+        "method": "GET",
+        "humanName": "チャットのメンバーを一覧表示する",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "このクエリにはチャット ID が必要です。次の呼び出しを使用して、チャットとそれに対応する ID の一覧を検索します。GET https://graph.microsoft.com/beta/me/chats/",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (ベータ版)",
+        "method": "GET",
+        "humanName": "チャットのメンバー",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "このクエリには、チャット ID とメンバーシップ ID が必要です。次の呼び出しを使用して、ID を取得します。1) GET https://graph.microsoft.com/beta/me/chats/ and 2) GET https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
         "skipTest": false
     },
     {
@@ -2162,7 +2224,7 @@
                 "value": "application/json"
             }
         ],
-        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"testt\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
         "tip": "enable Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
         "skipTest": false
     },
