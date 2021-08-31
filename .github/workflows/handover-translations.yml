@@ -3,7 +3,7 @@ name: Hand over tranlation files
 on:
   push:
     branches:
-      - task/automate-update-loc-files
+      - dev
     paths:
       - 'messages/**'
       - '!messages/GE.json'
@@ -31,7 +31,7 @@ jobs:
         source_folder: 'messages/translated-content/**'
         destination_repo: 'microsoftgraph/microsoft-graph-explorer-v4'
         destination_folder: 'src/messages'
-        destination_base_branch: 'task/automate-english-file-transfer'
+        destination_base_branch: 'dev'
         destination_head_branch: handover-translations/${{ env.today }}
         user_email: ${{ secrets.ACTION_EMAIL }}
         user_name: ${{ secrets.ACTION_USERNAME }}
