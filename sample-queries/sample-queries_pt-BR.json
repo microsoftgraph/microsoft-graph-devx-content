@@ -100,6 +100,27 @@
         "humanName": "todos os usuários da organização",
         "requestUrl": "/v1.0/users",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "707499b7-807b-44cd-a347-e629b47128ad",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "todos os usuários associados na organização",
+        "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "b7f18a0d-0c34-4b6a-81a4-1fe75d3467d7",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "conte os usuários convidados em sua organização",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -125,6 +146,33 @@
         "skipTest": false
     },
     {
+        "id": "6f644b1c-3b2a-4dcf-9125-9fb3ac961531",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "eu",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2a79aa2b-8f42-461b-9256-b790cc64e211",
+        "category": "Usuários",
+        "method": "PATCH",
+        "humanName": "eu",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "cd894894-b427-4394-814c-461d8f93468d",
         "category": "Usuários",
         "method": "GET",
@@ -140,6 +188,17 @@
         "humanName": "usuário por email",
         "requestUrl": "/v1.0/users/{user-mail}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "22892a8f-9370-49cb-bb64-1328e53c174f",
+        "category": "Usuários",
+        "method": "GET",
+        "humanName": "identidades de usuários",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -165,7 +224,25 @@
             }
         ],
         "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
+    },
+    {
+        "id": "cadd1d98-446a-426f-afdf-c899bc03102f",
+        "category": "Usuários",
+        "method": "PATCH",
+        "humanName": "atualizar usuário",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+        "skipTest": false    
     },
     {
         "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
@@ -193,7 +270,17 @@
         "humanName": "obter a presença de um usuário ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Para encontrar uma ID de usuário, você pode executar:  GET https://graph.microsoft.com/v1.0/users",
+        "tip": "Esta consulta exige uma ID de usuário e permissões Presence.Read.All. Use a seguinte chamada para obter uma ID de usuário:  GET https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
+        "id": "4c3f99ec-e58b-4a09-9dc2-0369db061d61",
+        "category": "Usuários",
+        "method": "DELETE",
+        "humanName": "excluir usuário",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/user_delete",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -232,8 +319,14 @@
         "humanName": "criar um novo grupo",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Envie seus comentários sobre a API de grupos aqui: https://aka.ms/GroupsAPIFeedback",
-        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true\",\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\"\r\n}",
+        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true,\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\r\n}",
         "skipTest": false
     },    
     {
@@ -243,6 +336,12 @@
         "humanName": "adicionar membro ao grupo",
         "requestUrl": "/v1.0/groups/{group-id}/members/$ref",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-post-members?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Envie seus comentários sobre a API de grupos aqui: https://aka.ms/GroupsAPIFeedback. Para obter a ID do grupo, execute https://graph.microsoft.com/v1.0/groups/",
         "postBody": "{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/directoryObjects\/{id}\"\r\n}",
         "skipTest": false
@@ -328,10 +427,10 @@
         "id": "5efc4790-5233-4ce9-ac31-1a6878d5a650",
         "category": "Grupos",
         "method": "GET",
-        "humanName": "itens de uma unidade de grupo",
-        "requestUrl": "/v1.0/groups/{group-id}/drive/root/children",
-        "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/drive_get",
-        "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+        "humanName": "itens em uma unidade de grupo",
+        "requestUrl": "/v1.0/groups/{group-id}/drive/items/root/children",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
+        "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
     {
@@ -861,8 +960,8 @@
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/plannertask_update",
         "headers": [
             {
-                "name": "If-Match",
-                "value": "{if-match}"
+                "name": "Content-Type",
+                "value": "application/json"
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
@@ -965,6 +1064,12 @@
         "humanName": "atualizar uma extensão aberta",
         "requestUrl": "/v1.0/me/extensions/{extension-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/opentypeextension_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"theme\":\"light\",\r\n    \"color\":\"yellow\",\r\n    \"lang\":\"Swahili\"\r\n}",
         "skipTest": false
     },
@@ -993,6 +1098,12 @@
         "humanName": "criar um grupo com dados de extensão",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"displayName\": \"Extensions sample group\",\r\n    \"description\": \"Extensions sample group\",\r\n    \"groupTypes\": [\"Unified\"],\r\n    \"mailEnabled\": true,\r\n    \"mailNickname\": \"extSample123\",\r\n    \"securityEnabled\": false,\r\n    \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1003,6 +1114,12 @@
         "humanName": "atualizar um grupo com dados de extensão",
         "requestUrl": "/v1.0/groups/{group-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1040,6 +1157,12 @@
         "humanName": "criar bloco de anotações",
         "requestUrl": "/v1.0/me/onenote/notebooks",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/onenote_post_notebooks",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"displayName\": \"My Notebook\"\r\n}",
         "tip": "Atualize o Corpo da Solicitação e selecione Executar Consulta.",
         "skipTest": false
@@ -1227,6 +1350,22 @@
         "skipTest": false
     },
     {
+        "id": "191dc268-4601-4f57-8533-b8afc16f2f8c",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "criar equipe",
+        "requestUrl": "/v1.0/teams",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/team-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n   \"template@odata.bind\": \"https://graph.microsoft.com/v1.0/teamsTemplates('standard')\",\r\n   \"displayName\": \"Architecture Team\",\r\n   \"description\": \"The team for those in architecture design.\"\r\n}",
+        "skipTest": false
+    },
+    {
         "id": "dbfc18b5-5aed-4a99-96df-ba2d1198d000",
         "category": "Microsoft Teams",
         "method": "GET",
@@ -1272,6 +1411,12 @@
         "humanName": "criar canal",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/channel_post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
         "tip": "Esta consulta exige uma ID de equipe.  Para encontrar a ID de equipe das equipes às quais você pertence, você pode executar o: Obtenha o https://graph.microsoft.com/v1.0/me/joinedTeams.",
         "skipTest": false
@@ -1301,9 +1446,26 @@
         "category": "Microsoft Teams",
         "method": "GET",
         "humanName": "itens em uma unidade de equipe",
-        "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
+        "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/items/root/children",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
         "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "skipTest": false
+    },
+    {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "criar chat",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "Essa consulta requer sua ID de usuário e a ID de outro usuário. Use as seguintes chamadas para obter as IDs de usuário: 1) GET https://graph.microsoft.com/v1.0/me/ 2) GET https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
@@ -1343,7 +1505,36 @@
         "humanName": "resposta de uma mensagem",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/beta/api/channel_get_messagereply",
-        "tip": "Esta consulta exige uma ID de grupo da Equipe, ID de canal do canal correspondente dessa Equipe, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+        "tip": "Esta consulta exige uma ID de grupo da Equipe, ID de canal do canal correspondente dessa Equipe, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) OBTER https://graph.microsoft.com/beta/me/joinedTeams 2) OBTER https://Graph.Microsoft.com/beta/groups/{ID do grupo-para-equipes}/canais 3) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{ID do canal}/mensagens 4) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{Channel-ID}/mensagens/{Message-ID}/respostas",
+        "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "lista de aplicativos instalados para o usuário",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "Liste os membros de um bate-papo.",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "Essa consulta exige uma ID do caso. Use a chamada a seguir para localizar uma lista de chats e suas IDs correspondentes: GET https://graph.microsoft.com/beta/me/todo/lists",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (beta)",
+        "method": "GET",
+        "humanName": "membro em um bate-papo",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "Essa consulta requer uma ID de chat e uma ID de associação. Use as seguintes chamadas para obter as IDs: 1) GET https://graph.microsoft.com/beta/me/chats/ and 2) GET https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
         "skipTest": false
     },
     {
@@ -1353,6 +1544,12 @@
         "humanName": "enviar a mensagem do canal",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "Esta consulta exige uma ID de equipe e uma ID de canal dessa equipe. Para encontrar a ID da equipe e o ID de canal, você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
@@ -1495,6 +1692,12 @@
         "humanName": "alerta de atualização",
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/pt-br/graph/docs/api-reference/v1.0/api/alert_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
         "tip": "Esta consulta exige uma ID de alerta. Para encontrar a ID do alerta, você pode executar o: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
@@ -1506,6 +1709,12 @@
         "humanName": "criar um indicador IT (beta)",
         "requestUrl": "/beta/security/tiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicators-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"activityGroupNames\": [\r\n      \"activityGroupNames-value\"\r\n    ],\r\n  \"confidence\": 90,\r\n  \"description\": \"This is a test indicator for demo purpose.\",\r\n  \"expirationDateTime\": \"{next-week}\",\r\n  \"externalId\": \"Test-8586502158541347997MS342\",\r\n  \"fileHashType\": \"sha256\",\r\n  \"fileHashValue\": \"289a8e8c330c27ab893fb769db38046feaca9d0b11e0aaa416ba70b0a51d58a4\",\r\n  \"targetProduct\": \"Azure ATP\",\r\n  \"threatType\": \"WatchList\",\r\n  \"tlpLevel\": \"green\"\r\n}",
         "skipTest": false
     },
@@ -1516,6 +1725,12 @@
         "humanName": "criar vários indicadores IT (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.submitTiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-submittiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-0\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"0c0ebb4c90fa39785745bcc5e5cb40e3db7791be030061e2818684bc128b8f97\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    },\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-1\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"86267de22dbad234ecf97870fdcf1a0e31149ee7a5fb595c050f69ca00f3529e\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    }\r\n  ]\r\n}",
         "skipTest": false
     },
@@ -1526,6 +1741,12 @@
         "humanName": "atualizar um indicador IT (beta)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
         "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
@@ -1537,6 +1758,12 @@
         "humanName": "atualizar vários indicadores IT (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-updatetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
         "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
@@ -1548,6 +1775,12 @@
         "humanName": "criar ação de segurança (beta)",
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/securityactions-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"name\": \"blockIp\",\r\n     \"vendorInformation\" :\r\n     {  \"provider\": \"Windows Defender ATP\",\r\n          \"vendor\": \"Microsoft\"\r\n      },\r\n    \"parameters\" : [\r\n      {\"name\": \"IP\", \"value\":\"1.2.3.4\" }\r\n    ]\r\n}",
         "tip": "Alterar o provedor, o fornecedor e os parâmetros são necessários",
         "skipTest": false
@@ -1569,6 +1802,12 @@
         "humanName": "excluir vários indicadores IT (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-deletetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
         "tip": "Esta consulta requer a ID do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -1580,6 +1819,12 @@
         "humanName": "excluir vários indicadores IT por ID externa (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/pt-br/graph/api/tiindicator-deletetiindicatorsbyexternalid",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
         "tip": "Esta consulta requer a ID externa do indicador de TI. Para encontrar a ID, você pode executar: GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -1797,6 +2042,23 @@
         "skipTest": false
     },
     {
+        "id": "cc1ebc82-b80c-42f1-a407-a14cf318f1f1",
+        "category": "Pesquisar",
+        "method": "POST",
+        "humanName": "(beta) pesquisar pessoas",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"person\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "habilitar People.Read",
+        "skipTest": false
+    },    
+    {
         "id": "3af74c70-f90d-428e-aaab-42e3547546e5",
         "category": "Pesquisar",
         "method": "POST",
@@ -1885,9 +2147,9 @@
         "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
         "category": "Pesquisar",
         "method": "POST",
-        "humanName": "(beta) classificar os resultados da pesquisa",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "humanName": "classificar os resultados da busca",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-v1.0#sort-search-results",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1902,9 +2164,9 @@
         "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
         "category": "Pesquisar",
         "method": "POST",
-        "humanName": "(beta) Refine os resultados com agregações de cadeias de caracteres",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "melhorar os resultados com agregações de cadeias de caracteres",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1919,9 +2181,9 @@
         "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
         "category": "Pesquisar",
         "method": "POST",
-        "humanName": "(beta) Refine os resultados com agregações numéricas",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "humanName": "melhorar os resultados com agregações numéricas",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregationsw",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1950,23 +2212,57 @@
         "skipTest": false
     },
     {
+        "id": "8a1bca0a-b80c-4cde-b7a2-e6b24dadd3a2",
+        "category": "Pesquisar",
+        "method": "POST",
+        "humanName": "(beta) solicitar correção ortográfica",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta#request-spelling-correction",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "tip": "habilitar Calendars.Read, Mail.Read, Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "bcfa3d7a-e833-4bac-a2a8-4113d0f8337f",
+        "category": "Pesquisar",
+        "method": "POST",
+        "humanName": "(beta) solicitar modelo de resultado",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"resultTemplateOptions\": {\r\n  \"enableResultTemplate\": true \r\n}\r\n}\r\n]\r\n}",
+        "tip": "habilitar ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
         "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
         "category": "Conformidade (beta)",
         "method": "GET",
-        "humanName": "listar casos de Descoberta Eletrônica",
+        "humanName": "listar casos de descoberta eletrônica",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Vá para a guia Modificar Permissões e consenta a permissão User.Read de executar a consulta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "Vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta",
         "skipTest": false
     },
     {
         "id": "83670efe-06f3-4777-bef9-00b1ef450985",
         "category": "Conformidade (beta)",
         "method": "GET",
-        "humanName": "caso de descoberta eletrônica",
+        "humanName": "obter caso de descoberta eletrônica",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/pt-br/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "Esta consulta exige uma ID do caso. Para encontrar a ID de um caso, execute: OBTER https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "Vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta. Essa consulta exige uma ID do caso. Para encontrar a ID de um caso, execute: OBTER https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {
@@ -1975,7 +2271,7 @@
         "method": "POST",
         "humanName": "criar um caso de descoberta eletrônica",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -1983,7 +2279,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Vá para a guia Modificar Permissões e consenta a permissão User.Read de executar a consulta",
+        "tip": "Vá para a guia Modificar Permissões e consinta à eDiscovery.ReadWrite.All a permissão para executar essa consulta",
         "skipTest": false
     },
     {
@@ -1992,8 +2288,8 @@
         "method": "GET",
         "humanName": "listar conjuntos de revisão",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "Substitua {caseID} pela ID de um caso de descoberta eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases).",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "Vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta. Para encontrar a ID de um caso, execute: OBTER https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {
@@ -2002,8 +2298,8 @@
         "method": "GET",
         "humanName": "listar lista de conjuntos de revisões",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "Substitua {caseID} pela ID de um caso de descoberta eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e a {reviewSetId} pela ID de um conjunto de revisão existente nesse caso (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "Substitua {caseId} pela ID de um caso de Descoberta Eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e {reviewSetId} pela ID de um conjunto de revisão que existe nesse caso (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets). Em seguida, vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta.",
         "skipTest": false
     },
     {
@@ -2012,7 +2308,7 @@
         "method": "POST",
         "humanName": "criar consulta do conjunto de revisão",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2020,7 +2316,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "Substitua {caseID} pela ID de um caso de descoberta eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e a {reviewSetId} pela ID de um conjunto de revisão existente nesse caso (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "Substitua {caseId} pela ID de um caso de Descoberta Eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e {reviewSetId} pela ID de um conjunto de revisão que existe nesse caso (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets).  Em seguida, vá para a guia Modificar Permissões e consinta à eDiscovery.ReadWrite.All permissão para executar essa consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "Conformidade (beta)",
+        "method": "GET",
+        "humanName": "obter uma lista de guardiões para um caso",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "Substitua {caseID} pela ID de um caso de Descoberta Eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Em seguida, vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "Conformidade (beta)",
+        "method": "POST",
+        "humanName": "adicionar guardião",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "Substitua {caseId} pela ID de um Caso de Descoberta Eletrônico (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e {email do guardião} pelo endereço de email de ID de um usuário em seu locatário.",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "Conformidade (beta)",
+        "method": "GET",
+        "humanName": "obter uma lista de coleções de origem para um caso",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "Substitua {caseID} pela ID de um caso de Descoberta Eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases). Em seguida, vá para a guia Modificar Permissões e consinta à eDiscovery.Read.All ou eDiscovery.ReadWrite.All permissão para executar essa consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "Conformidade (beta)",
+        "method": "POST",
+        "humanName": "adicionar conjunto de fontes",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "Substitua {caseId} pela ID de um caso de Descoberta Eletrônica (https://graph.microsoft.com/beta/compliance/ediscovery/cases) e {url de origem do usuário} odata da fonte de usuário - consulte [Criar sourceCollection](https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecoctions?view=graph-rest-beta) para obter mais detalhes.",
         "skipTest": false
     },
     {
@@ -2101,6 +2451,12 @@
         "humanName": "instanciar um aplicativo da galeria do Microsoft Azure AD",
         "requestUrl": "/beta/applicationTemplates/{id}/instantiate",
         "docLink": "https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/appTemplateAPISurvey",
         "postBody": "{\r\n \"displayName\": \"appDisplayName\"\r\n}",
         "skipTest": false
@@ -2112,6 +2468,12 @@
         "humanName": "atualize as propriedades no servicePrincipal",
         "requestUrl": "/v1.0/servicePrincipals/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/servicePrincipalAPISurvey",
         "postBody":"{\r\n  \"appRoleAssignmentRequired\": true\r\n}",
         "skipTest": false
@@ -2123,6 +2485,12 @@
         "humanName": "atualize as propriedades da aplicação",
         "requestUrl": "/v1.0/applications/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/applicationsAPISurvey",
         "postBody":"{\r\n  \"displayName\": \"New display name\"\r\n}",
         "skipTest": false
@@ -2134,8 +2502,14 @@
         "humanName": "crie uma política de mapeamento de reclamações",
         "requestUrl": "/v1.0/policies/claimsMappingPolicies",
         "docLink": "https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/claimsMappingPolicyAPISurvey",
-        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true,\r\n}",
+        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true\r\n}",
         "skipTest": false
     },
     {
@@ -2145,6 +2519,12 @@
         "humanName": "atribuir uma política de mapeamento de declarações a um serviceprincipal.",
         "requestUrl": "/v1.0/servicePrincipals/{id}/claimsMappingPolicies/$ref",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/claimsMappingPolicyAPISurvey",
         "postBody":"{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/policies\/claimsMappingPolicies\/cd3d9b57-0aee-4f25-8ee3-ac74ef5986a9\"\r\n}",
         "skipTest": false
@@ -2156,6 +2536,12 @@
         "humanName": "atribuir um appRoleAssignment a um serviceprincipal",
         "requestUrl": "/v1.0/servicePrincipals/{id}/appRoleAssignments",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/appRoleAssignmentAPISurvey",
         "postBody": "{\r\n  \"principalId\": \"principalId-value\",\r\n  \"resourceId\": \"resourceId-value\",\r\n  \"appRoleId\": \"appRoleId-value\"\r\n}",
         "skipTest": false
@@ -2181,6 +2567,26 @@
         "skipTest": false
     },
     {
+        "id": "bb952c79-f916-4e22-bda3-ac2a76eb2bb2",
+        "category": "Identidade e Acesso",
+        "method": "GET",
+        "humanName": "listar dispositivos de anúncio azure",
+        "requestUrl": "/v1.0/devices",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/device-list?view=graph-rest-1.0&tabs=http",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "51106daa-19c8-4f94-b9be-8190f16f4f03",
+        "category": "Identidade e Acesso",
+        "method": "GET",
+        "humanName": "obter um dispositivo de anúncio azul específico",
+        "requestUrl": "/v1.0/devices/{id}",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/device-get?view=graph-rest-1.0&tabs=http",
+        "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "Identidade e Acesso",
         "method": "GET",
@@ -2197,6 +2603,12 @@
         "humanName": "confirmar que um usuário foi comprometido",
         "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
         "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
@@ -2209,6 +2621,347 @@
         "requestUrl": "/v1.0/identityProtection/riskDetections",
         "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
         "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2e3f8628-5aa8-49f4-89b9-b30ee0b7b4c8",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "listar entradas do catálogo",
+        "requestUrl": "/beta/admin/windows/updates/catalog/entries",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-catalog-list-entries?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "94b74c3a-e10c-4c11-b48e-3889d7b13083",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "implantações de lista",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-deployments?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "095585eb-48da-4f1b-bc99-f9ea83d64036",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "criar implantação (atualização de recurso)",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro featureUpdateVersion, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "b5964c4e-4036-41d3-b9aa-60536e3ea8de",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "criar implantação (atualização de segurança acelerada)",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.expeditedQualityUpdateReference\",\r\n        \"releaseDate\": \"{qualityUpdateReleaseDate}\"\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro qualityUpdateReleaseDate, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "277d3473-9595-4f7d-ab3f-d1249be1cfd0",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "criar implantação (implantação gradual com base na taxa)",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"devicesPerOffer\": 100,\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro featureUpdateVersion, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "f080401b-6f3d-4412-ac69-a62c7ea4c1c8",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "criar implantação (lançamento gradual baseado em data)",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"startDateTime\": \"{deploymentStartDateTime}\",\r\n            \"endDateTime\": \"{deploymentEndDateTime}\",\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro featureUpdateVersion, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "475c44d9-0461-4078-9a53-e2f8eb8f5f3f",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "obter implantação",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "aa39791a-1819-48de-88bf-8862d8cc8501",
+        "category": "Atualizações do Windows",
+        "method": "PATCH",
+        "humanName": "atualização de implantação (substituir regras de monitoramento)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "08365e7b-d2cd-425d-87f6-47f03571c0ef",
+        "category": "Atualizações do Windows",
+        "method": "PATCH",
+        "humanName": "atualização de implantação (solicitação de estado de pausa)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"state\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.deploymentState\",\r\n        \"requestedValue\": \"paused\"\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "acbc7219-fcdf-47f2-a4d1-a7080f49dc28",
+        "category": "Atualizações do Windows",
+        "method": "PATCH",
+        "humanName": "atualização de implantação (limpar estado solicitado)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"state\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.deploymentState\",\r\n        \"requestedValue\": \"none\"\r\n    }\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "58323509-9a78-4a63-9a2d-6d317ab1450a",
+        "category": "Atualizações do Windows",
+        "method": "DELETE",
+        "humanName": "excluir implantação",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "60120373-19db-47a4-8933-3dbba0add8dd",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "lista de implantação de membros do público",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/members",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "c19b7572-177f-4082-b267-59efa0e54e8c",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "listar exclusões de público de implantação",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/exclusions",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "885f06ba-b5c4-49eb-9e0c-e6c33fbde358",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "atualizar público de implantação (adicionar membros)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"addMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "a57c002b-c14f-4b51-a5c2-1140dc6f5bbc",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "atualizar público de implantação (adicionar exclusões)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"addExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "f2bc2604-0b71-470a-b294-2544c5b14648",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "atualizar público de implantação (remover membros)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"removeMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "dbbaa3cf-4b3e-466c-82bd-b247328e781a",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "atualizar público de implantação (remover exclusões)",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"removeExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro deploymentId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "a5de9df6-7936-41df-9363-d455d2c1c46f",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "listar ativos atualizáveis",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "40fe42ff-e9e0-40e9-a083-881c446da6cf",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "obter ativo atualizável",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro updatableAssetId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "343d7fb9-c951-4f5f-a9c6-b7b00cad44f1",
+        "category": "Atualizações do Windows",
+        "method": "DELETE",
+        "humanName": "excluir ativo atualizável",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-delete?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro updatableAssetId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "7bd2acc5-891d-4554-86c3-2e6173be6304",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "listar dispositivos do Azure Active Directory",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.azureADDevice')",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets-azureaddevice?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "47588996-4f53-4a51-80d2-65b4f5ef2f15",
+        "category": "Atualizações do Windows",
+        "method": "GET",
+        "humanName": "obter dispositivo Azure Active Directory",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro updatableAssetId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "06857251-2bb6-416e-8617-dfb06c218395",
+        "category": "Atualizações do Windows",
+        "method": "DELETE",
+        "humanName": "excluir o dispositivo Azure Active Directory",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-azureaddevice-delete?view=graph-rest-beta",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta. Para localizar um valor para o parâmetro updatableAssetId, você pode executar: OBTER https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "68c359ea-cc63-4ab0-bfa9-0d5517919a36",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "registrar-se no gerenciamento de atualização de recursos",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/enrollAssets",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-enrollassets?view=graph-rest-beta",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
+        "skipTest": false
+    },
+    {
+        "id": "76313b13-2306-4b9f-9231-999c103dc208",
+        "category": "Atualizações do Windows",
+        "method": "POST",
+        "humanName": "cancelar o registro do gerenciamento de atualização de recursos",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/unenrollAssets",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-unenrollassets?view=graph-rest-beta",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "Habilitar a permissão WindowsUpdates.ReadWrite.All para usar esta consulta.",
         "skipTest": false
     }
   ]

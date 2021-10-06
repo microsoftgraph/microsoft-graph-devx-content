@@ -1,12 +1,12 @@
 # microsoft-graph-devx-content
-Content used by the DevX API to enhance clients and tooling. At the moment it has: 
+Content used by the DevX API to enhance clients and tooling. At the moment it has:
 - Permissions
 - Samples
 
-This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples. 
+This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples.
 
 ## Contributing
-### 1. Sample Queries
+## Adding Sample Queries
 
 ### Pre-requisites:
 1. Download and Install Git to your machine https://git-scm.com/downloads
@@ -58,10 +58,10 @@ POST Example includes headers, post body and a tip <br>
 - postBody - add the post body required to run the query
 - tip - include a tip giving more information to the user on things like permissions required, and how to get an id if needed.
 
-When done making the changes on the document, 
+When done making the changes on the document,
 1. Save the document on your machine
 1. Create a Git branch on this repo and name it using your initials + describe the changes ie. bn/add-xyz-samples
-1. Commit the changes to your branch 
+1. Commit the changes to your branch
 1. Create a PR and add Bettirose Ngugi and/or Irvine Sunday as the reviewer(s).
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
@@ -78,12 +78,12 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
       ` "postBody": `<br>
        `"tip": `<br>
        `"skipTest": `<br>
-1. The `humanName` value should be in **small caps** only. 
+1. The `humanName` value should be in **small caps** only.
 1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
 ### Using Command Line or PowerShell:
 
 ### 1. Clone or Fork the repo
-In your command line or shell, paste this command to clone or fork this repo: <br/>
+Open the command line terminal and paste this command to clone or fork this repo: <br/>
 `git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
 cd microsoft-graph-devx-content/sample-queries
 `
@@ -99,10 +99,10 @@ Alternatively, you can open the directory where the file is located by pasting i
 
 ### 3. Open the Git command utility
 If your machine's OS/CPU is x64, paste in this command: <br/>
-`start "" "%PROGRAMFILES%\Git\bin\sh.exe" --login
+`start "%PROGRAMFILES%\Git\bin\sh.exe" --login
 `
 else, if x86, paste in this command: <br/>
-`start "" "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
+`start "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
 `
 
 ### 4. Create your local branch
@@ -127,4 +127,31 @@ Follow the instructions to login to GitHub using your credentials.
 Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
-If you run into any issues, reach out to @BettiroseNgugi 
+## Testing of Sample Queries
+Once you've added/updated the sample queries, you can test them out by going to [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), and appending this to the end of the Graph Explorer url.
+
+`?devx-api=https://graphexplorerapi.azurewebsites.net&org={org}&branchName={branchName}`
+
+This fetches the permissions/samples from your specific branch or repo.
+
+#### Full url/path format:
+```
+https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org={org}&branchName={branchName}
+```
+#### NB:
+i. Replace *{branchName}* with the name of your current branch.
+
+ii. In the case of a forked repo, replace the *{org}* parameter with your Github username.
+iii. If your branch is in this repo, replace *{org}* with microsoftgraph
+
+#### Example:
+```
+https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org=MeganBowen&branchName=mk/update-sample
+```
+
+The samples/permissions will be populated on Graph Explorer and you can do further testing.
+
+#### Please Note:
+In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
+
+If you run into any issues, reach out to @BettiroseNgugi

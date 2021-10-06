@@ -100,6 +100,27 @@
         "humanName": "组织中的所有用户",
         "requestUrl": "/v1.0/users",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "707499b7-807b-44cd-a347-e629b47128ad",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "组织的所有来宾用户",
+        "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/users",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "b7f18a0d-0c34-4b6a-81a4-1fe75d3467d7",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "统计你组织的来宾用户数量",
+        "requestUrl": "/v1.0/users/$count?$filter=userType eq 'guest'",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-list?view=graph-rest-beta&tabs=http#example-6-get-only-a-count-of-users",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -125,6 +146,33 @@
         "skipTest": false
     },
     {
+        "id": "6f644b1c-3b2a-4dcf-9125-9fb3ac961531",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "我",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2a79aa2b-8f42-461b-9256-b790cc64e211",
+        "category": "用户",
+        "method": "PATCH",
+        "humanName": "我",
+        "requestUrl": "/v1.0/me",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "cd894894-b427-4394-814c-461d8f93468d",
         "category": "用户",
         "method": "GET",
@@ -140,6 +188,17 @@
         "humanName": "按电子邮件地址排序的用户",
         "requestUrl": "/v1.0/users/{user-mail}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "22892a8f-9370-49cb-bb64-1328e53c174f",
+        "category": "用户",
+        "method": "GET",
+        "humanName": "用户标识",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/resources/user",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -165,7 +224,25 @@
             }
         ],
         "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
         "skipTest": false
+    },
+    {
+        "id": "cadd1d98-446a-426f-afdf-c899bc03102f",
+        "category": "用户",
+        "method": "PATCH",
+        "humanName": "更新用户",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/user_update",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
+        "skipTest": false    
     },
     {
         "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
@@ -193,7 +270,17 @@
         "humanName": "获取用户的状态 ",
         "requestUrl": "/beta/users/{user-id}/presence",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-beta&tabs=http",
-        "tip": "此查询需要用户 id 和 Presence.Read.All 权限。若要查找用户 ID，可运行： GET https://graph.microsoft.com/v1.0/users",
+        "tip": "此查询需要用户 ID 和 Presence.Read.All 权限。使用以下调用以获取用户 ID: 获取 https://graph.microsoft.com/v1.0/users",
+        "skipTest": false
+    },
+    {
+        "id": "4c3f99ec-e58b-4a09-9dc2-0369db061d61",
+        "category": "用户",
+        "method": "DELETE",
+        "humanName": "删除用户",
+        "requestUrl": "/v1.0/users/{id | userPrincipalName}",
+        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/user_delete",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/UsersAPIFeedback",
         "skipTest": false
     },
     {
@@ -232,8 +319,14 @@
         "humanName": "创建新组",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/group-post-groups?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "请在此处向我们提供有关组 API 的反馈：https://aka.ms/GroupsAPIFeedback",
-        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true\",\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\"\r\n}",
+        "postBody": "{\r\n  \"displayName\": \"Library Assist\",\r\n  \"mailEnabled\": true,\r\n  \"mailNickname\": \"library\",\r\n  \"securityEnabled\": true\r\n}",
         "skipTest": false
     },    
     {
@@ -243,6 +336,12 @@
         "humanName": "将成员添加到组",
         "requestUrl": "/v1.0/groups/{group-id}/members/$ref",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/group-post-members?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "请在此处向我们提供有关组 API 的反馈：https://aka.ms/GroupsAPIFeedback。若要使组 id 运行：https://graph.microsoft.com/v1.0/groups/",
         "postBody": "{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/directoryObjects\/{id}\"\r\n}",
         "skipTest": false
@@ -329,8 +428,8 @@
         "category": "组",
         "method": "GET",
         "humanName": "组驱动器中的项",
-        "requestUrl": "/v1.0/groups/{group-id}/drive/root/children",
-        "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/drive_get",
+        "requestUrl": "/v1.0/groups/{group-id}/drive/items/root/children",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
         "tip": "此查询需要组 id。 若要查找你所属的组的 ID，可运行：GET https://graph.microsoft.com/v1.0/me/memberOf",
         "skipTest": false
     },
@@ -861,8 +960,8 @@
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/plannertask_update",
         "headers": [
             {
-                "name": "If-Match",
-                "value": "{if-match}"
+                "name": "Content-Type",
+                "value": "application/json"
             }
         ],
         "postBody": "{\r\n    \"title\": \"Updated task title\"\r\n}",
@@ -965,6 +1064,12 @@
         "humanName": "更新开放扩展",
         "requestUrl": "/v1.0/me/extensions/{extension-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/opentypeextension_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"theme\":\"light\",\r\n    \"color\":\"yellow\",\r\n    \"lang\":\"Swahili\"\r\n}",
         "skipTest": false
     },
@@ -993,6 +1098,12 @@
         "humanName": "创建包含扩展数据的组",
         "requestUrl": "/v1.0/groups",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"displayName\": \"Extensions sample group\",\r\n    \"description\": \"Extensions sample group\",\r\n    \"groupTypes\": [\"Unified\"],\r\n    \"mailEnabled\": true,\r\n    \"mailNickname\": \"extSample123\",\r\n    \"securityEnabled\": false,\r\n    \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1003,6 +1114,12 @@
         "humanName": "使用扩展数据更新组",
         "requestUrl": "/v1.0/groups/{group-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/schemaextension_post_schemaextensions",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"adatumisv_courses\": {\r\n        \"id\":\"123\",\r\n        \"name\":\"New Managers\",\r\n        \"type\":\"Online\"\r\n    }\r\n}",
         "skipTest": false
     },
@@ -1040,6 +1157,12 @@
         "humanName": "创建笔记本",
         "requestUrl": "/v1.0/me/onenote/notebooks",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/onenote_post_notebooks",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"displayName\": \"My Notebook\"\r\n}",
         "tip": "更新“请求正文”并选择“运行查询”。",
         "skipTest": false
@@ -1227,6 +1350,22 @@
         "skipTest": false
     },
     {
+        "id": "191dc268-4601-4f57-8533-b8afc16f2f8c",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "创建团队",
+        "requestUrl": "/v1.0/teams",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/team-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n   \"template@odata.bind\": \"https://graph.microsoft.com/v1.0/teamsTemplates('standard')\",\r\n   \"displayName\": \"Architecture Team\",\r\n   \"description\": \"The team for those in architecture design.\"\r\n}",
+        "skipTest": false
+    },
+    {
         "id": "dbfc18b5-5aed-4a99-96df-ba2d1198d000",
         "category": "Microsoft Teams",
         "method": "GET",
@@ -1272,6 +1411,12 @@
         "humanName": "创建频道",
         "requestUrl": "/v1.0/teams/{team-id}/channels",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/channel_post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
         "tip": "此查询需要团队 id。 若要查找你所属的团队的团队 ID，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams。",
         "skipTest": false
@@ -1301,14 +1446,31 @@
         "category": "Microsoft Teams",
         "method": "GET",
         "humanName": "团队驱动器中的项",
-        "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/root/children",
+        "requestUrl": "/v1.0/groups/{group-id-for-teams}/drive/items/root/children",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http",
-        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "tip": "此查询需要团队的组 id。 若要查找你所属的团队的组 id，可运行：获取 https://graph.microsoft.com/v1.0/me/joinedTeams",
+        "skipTest": false
+    },
+    {
+        "id": "36cc8748-1ac3-42b2-8529-59d810c40e0b",
+        "category": "Microsoft Teams",
+        "method": "POST",
+        "humanName": "创建聊天",
+        "requestUrl": "/v1.0/chats",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-post?view=graph-rest-1.0&tabs=http",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"chatType\": \"oneOnOne\",\r\n    \"members\": [\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{your-user-id}')\"\r\n    },\r\n    {\r\n    \"@odata.type\": \"#microsoft.graph.aadUserConversationMember\",\r\n    \"roles\": [\"owner\"],\r\n    \"user@odata.bind\": \"https://graph.microsoft.com/v1.0/users('{user-id}')\"\r\n    }\r\n    ]\r\n    }",
+        "tip": "此查询需要你的用户 ID 和其他用户的 ID。使用以下调用获取用户 ID:1) 获取 https://graph.microsoft.com/v1.0/me/ 2) 获取 https://graph.microsoft.com/v1.0/users",
         "skipTest": false
     },
     {
         "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
-        "category": "Microsoft Teams (beta)",
+        "category": "Microsoft Teams (beta 版本)",
         "method": "GET",
         "humanName": "频道中的消息（没有答复）",
         "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
@@ -1345,6 +1507,35 @@
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/beta/api/channel_get_messagereply",
         "tip": "此查询需要团队的组 id、该团队的对应频道的频道 id、你需要的答复所对应的消息的消息 id 和特定答复的 id。若要查找相应的组 id、频道 id、消息 id 和答复 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
         "skipTest": false
+    },    
+    {
+        "id": "0d0cddaf-aae2-4541-8104-1964d22a8da4",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "为用户安装的应用",
+        "requestUrl": "/beta/me/teamwork/installedApps?$expand=teamsApp",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/userteamwork-list-installedapps?view=graph-rest-beta&tabs=http",
+        "skipTest": false
+    },
+    {
+        "id": "6d1a6a27-0400-425f-a05e-594669e8fbc1",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "列出聊天成员",
+        "requestUrl": "/beta/chats/{chat-id}/members",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-list-members?view=graph-rest-beta",
+        "tip": "此查询需要聊天 ID。使用以下调用查找聊天及其相应 ID 的列表：获取 https://graph.microsoft.com/beta/me/chats/",
+        "skipTest": false
+    },
+    {
+        "id": "25344aeb-872a-467d-b202-bdc3b21470b1",
+        "category": "Microsoft Teams (beta 版本)",
+        "method": "GET",
+        "humanName": "聊天中的成员",
+        "requestUrl": "/beta/chats/{chat-id}/members/{membership-id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/chat-get-members?view=graph-rest-beta",
+        "tip": "此查询需要聊天 ID 和成员身份 ID。使用以下调用获取 ID：1) 获取 https://graph.microsoft.com/beta/me/chats/ and 2) 获取 https://graph.microsoft.com/beta/me/chats/{chat-id}/members/",
+        "skipTest": false
     },
     {
         "id": "f39a37b9-76de-4ead-994d-ee14a3adebf0",
@@ -1353,6 +1544,12 @@
         "humanName": "发送渠道消息",
         "requestUrl": "/v1.0/teams/{team-id}/channels/{channel-id}/messages",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/channel-post-messages?view=graph-rest-beta&tabs=http",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n       \"body\": {\r\n         \"content\": \"Hello world\"\r\n       }\r\n }",
         "tip": "此查询需要团队 id 和来自该团队的频道 id。若要查找相应的团队 id 和频道 id，可运行：1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/teams/{team-id}/channels",
         "skipTest": false
@@ -1495,6 +1692,12 @@
         "humanName": "更新警报",
         "requestUrl": "/v1.0/security/alerts/{alert-id}",
         "docLink": "https://developer.microsoft.com/zh-cn/graph/docs/api-reference/v1.0/api/alert_update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
         "tip": "此查询需要警报 id。若要查找相应警报的 ID，可运行：GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
         "skipTest": false
@@ -1506,6 +1709,12 @@
         "humanName": "创建 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicators-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"activityGroupNames\": [\r\n      \"activityGroupNames-value\"\r\n    ],\r\n  \"confidence\": 90,\r\n  \"description\": \"This is a test indicator for demo purpose.\",\r\n  \"expirationDateTime\": \"{next-week}\",\r\n  \"externalId\": \"Test-8586502158541347997MS342\",\r\n  \"fileHashType\": \"sha256\",\r\n  \"fileHashValue\": \"289a8e8c330c27ab893fb769db38046feaca9d0b11e0aaa416ba70b0a51d58a4\",\r\n  \"targetProduct\": \"Azure ATP\",\r\n  \"threatType\": \"WatchList\",\r\n  \"tlpLevel\": \"green\"\r\n}",
         "skipTest": false
     },
@@ -1516,6 +1725,12 @@
         "humanName": "创建多个 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.submitTiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-submittiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-0\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"0c0ebb4c90fa39785745bcc5e5cb40e3db7791be030061e2818684bc128b8f97\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    },\r\n    {\r\n      \"activityGroupNames\": [],\r\n      \"confidence\": 0,\r\n      \"description\": \"This is a test indicator for demo purpose. Take no action on any observables set in this indicator.\",\r\n      \"externalId\": \"Test-8586502120486653922MS812-1\",\r\n      \"fileHashType\": \"sha256\",\r\n      \"fileHashValue\": \"86267de22dbad234ecf97870fdcf1a0e31149ee7a5fb595c050f69ca00f3529e\",\r\n      \"killChain\": [],\r\n      \"malwareFamilyNames\": [],\r\n      \"severity\": 0,\r\n      \"tags\": [],\r\n      \"targetProduct\": \"Azure ATP\",\r\n      \"threatType\": \"WatchList\",\r\n      \"tlpLevel\": \"green\"\r\n    }\r\n  ]\r\n}",
         "skipTest": false
     },
@@ -1526,6 +1741,12 @@
         "humanName": "更新 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/{id}",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-update",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "postBody": " {\r\n      \"additionalInformation\": \"Testing\"\r\n    }",
         "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=1",
         "skipTest": false
@@ -1537,6 +1758,12 @@
         "humanName": "更新多个 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.updateTiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-updatetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"id\": \"tiindicator-id-1\",\r\n      \"additionalInformation\": \"Testing\"\r\n    },\r\n    {\r\n      \"id\": \"tiindicator-id-2\",\r\n      \"additionalInformation\": \"Testing 2\"\r\n    }\r\n  ]\r\n}",
         "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5\r\n\r\n ",
         "skipTest": false
@@ -1548,6 +1775,12 @@
         "humanName": "创建安全操作 (beta)",
         "requestUrl": "/beta/security/securityActions",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/securityactions-post",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n    \"name\": \"blockIp\",\r\n     \"vendorInformation\" :\r\n     {  \"provider\": \"Windows Defender ATP\",\r\n          \"vendor\": \"Microsoft\"\r\n      },\r\n    \"parameters\" : [\r\n      {\"name\": \"IP\", \"value\":\"1.2.3.4\" }\r\n    ]\r\n}",
         "tip": "需要更改提供商、供应商和参数",
         "skipTest": false
@@ -1569,6 +1802,12 @@
         "humanName": "删除多个 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicators",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-deletetiindicators",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicatorid-value1\",\r\n    \"tiindicatorid-value2\"\r\n  ]\r\n}",
         "tip": "此查询需要 TI 指示器 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -1580,6 +1819,12 @@
         "humanName": "按外部 ID 删除多个 TI 指示器 (beta)",
         "requestUrl": "/beta/security/tiIndicators/microsoft.graph.deleteTiIndicatorsByExternalId",
         "docLink": "https://docs.microsoft.com/zh-cn/graph/api/tiindicator-deletetiindicatorsbyexternalid",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n  \"value\": [\r\n    \"tiindicator-externalId-value1\",\r\n     \"tiindicator-externalId-value2\"\r\n  ]\r\n}",
         "tip": "此查询需要 TI 指示器外部 id。若要查找相应 ID，可运行：GET https://graph.microsoft.com/beta/security/tiIndicators?$top=5",
         "skipTest": false
@@ -1797,6 +2042,23 @@
         "skipTest": false
     },
     {
+        "id": "cc1ebc82-b80c-42f1-a407-a14cf318f1f1",
+        "category": "搜索",
+        "method": "POST",
+        "humanName": "（beta 版）搜索人员",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"person\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "启用 People.Read",
+        "skipTest": false
+    },    
+    {
         "id": "3af74c70-f90d-428e-aaab-42e3547546e5",
         "category": "搜索",
         "method": "POST",
@@ -1885,9 +2147,9 @@
         "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
         "category": "搜索",
         "method": "POST",
-        "humanName": "（beta 版）对搜索结果进行排序",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "humanName": "排序搜索结果",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-v1.0#sort-search-results",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1902,9 +2164,9 @@
         "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
         "category": "搜索",
         "method": "POST",
-        "humanName": "（beta 版）使用字符串聚合优化结果",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "使用字符串聚合优化结果",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1919,9 +2181,9 @@
         "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
         "category": "搜索",
         "method": "POST",
-        "humanName": "（beta 版）通过数值聚合优化结果",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "humanName": "使用数字聚合优化结果",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregationsw",
         "headers": [
             {
                 "name": "Content-Type",
@@ -1950,32 +2212,66 @@
         "skipTest": false
     },
     {
+        "id": "8a1bca0a-b80c-4cde-b7a2-e6b24dadd3a2",
+        "category": "搜索",
+        "method": "POST",
+        "humanName": "（beta 版）请求拼写更正",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta#request-spelling-correction",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+        "tip": "启用 Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
+        "id": "bcfa3d7a-e833-4bac-a2a8-4113d0f8337f",
+        "category": "搜索",
+        "method": "POST",
+        "humanName": "（beta 版）请求结果模板",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"externalItem\"\r\n            ],\r\n            \"contentSources\": [\r\n                \"/external/connections/azuresqlconnector\",\r\n                \"/external/connections/azuresqlconnector2\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"*\"\r\n            },\r\n            \"resultTemplateOptions\": {\r\n  \"enableResultTemplate\": true \r\n}\r\n}\r\n]\r\n}",
+        "tip": "启用 ExternalItem.Read.All",
+        "skipTest": false
+    },
+    {
         "id": "26743d2a-2306-40f9-b3e8-3f857af69269",
         "category": "合规性 (beta)",
         "method": "GET",
         "humanName": "列出电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-list?view=graph-rest-beta",
-        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询",
         "skipTest": false
     },
     {
         "id": "83670efe-06f3-4777-bef9-00b1ef450985",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "获取电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/ediscoverycase-get?view=graph-rest-beta",
-        "tip": "此查询需要事例 ID。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。此查询需要事例 ID。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
         "id": "d3f13cd9-2c89-4876-a88c-081e41370a02",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "POST",
         "humanName": "创建电子数据展示事例",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-type",
@@ -1983,36 +2279,36 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "转到“修改权限”选项卡并同意授予 User.Read 权限以运行此查询",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.ReadWrite.All 权限以运行此查询。",
         "skipTest": false
     },
     {
         "id": "9caaaa95-4f2b-4404-83f1-990fea9a3fc5",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "列出审阅集",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewset-list?view=graph-rest-beta",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
+        "tip": "转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。若要查找事例的 ID，可运行：GET https://graph.microsoft.com/beta/compliance/ediscovery/cases。",
         "skipTest": false
     },
     {
         "id": "f9b82da2-91ca-4e87-8ac7-39d8c755050d",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "GET",
         "humanName": "列出审阅集查询",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-list?view=graph-rest-beta",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-list?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
         "skipTest": false
     },
     {
         "id": "af8a5db2-d4c6-47b9-a62f-5cfdbf159aa2",
-        "category": "合规性 (beta)",
+        "category": "合规性（beta 版）",
         "method": "POST",
         "humanName": "创建审阅集查询",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets/{reviewSetId}/queries",
-        "docLink": "https://docs.microsoft.com/graph/api/reviewsetquery-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewsetquery-post?view=graph-rest-beta",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2020,7 +2316,61 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"reviewSet Query created from Graph Explorer\",\r\n  \"query\": \"(subject:'Quartely Financials')\"\r\n}",
-        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {reviewSetId} 替换为该事例中存在的审阅集中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases/{caseid}/reviewSets)。 然后转到“修改权限”选项卡并同意 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "70e2712f-e41a-46d8-89c8-df110e8a8c03",
+        "category": "合规性（beta 版）",
+        "method": "GET",
+        "humanName": "获取案件保管人列表",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/resources/ediscovery-custodian?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "2d689787-b518-45f0-b665-447e92a4584d",
+        "category": "合规性（beta 版）",
+        "method": "POST",
+        "humanName": "添加保管人",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/custodians",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-custodians?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"email\": \"custodian email\",\r\n  \"applyHoldToSources\": \"true\"\r\n}",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，将 {custodian email} 替换为租户中用户的 ID 电子邮件地址。",
+        "skipTest": false
+    },
+    {
+        "id": "b99c02b7-d303-4df1-b905-9df91e9b0492",
+        "category": "合规性（beta 版）",
+        "method": "GET",
+        "humanName": "获取案件的源集合列表",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)。然后转到“修改权限”选项卡并同意 eDiscovery.Read.All 或 eDiscovery.ReadWrite.All 权限以运行此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "11da44ac-ee9b-4973-b257-4324dba41a8c",
+        "category": "合规性（beta 版）",
+        "method": "POST",
+        "humanName": "添加源集合",
+        "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/sourceCollections",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\r\n  \"displayName\": \"Quarterly Financials search\",\r\n  \"contentQuery\": \"subject:'Quarterly Financials'\",\r\n \"custodianSources@odata.bind\": \"user source url\"\r\n}",
+        "tip": "将 {caseId} 替换为电子数据展示事例中的 ID (https://graph.microsoft.com/beta/compliance/ediscovery/cases)，替换用户源的 {user source url} odata URL - 有关详细信息，请参阅 [创建 sourceCollection] (https://docs.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta)。",
         "skipTest": false
     },
     {
@@ -2101,6 +2451,12 @@
         "humanName": "实例化 Azure AD 库应用",
         "requestUrl": "/beta/applicationTemplates/{id}/instantiate",
         "docLink": "https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/appTemplateAPISurvey",
         "postBody": "{\r\n \"displayName\": \"appDisplayName\"\r\n}",
         "skipTest": false
@@ -2112,6 +2468,12 @@
         "humanName": "更新 servicePrincipal 上的属性",
         "requestUrl": "/v1.0/servicePrincipals/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/servicePrincipalAPISurvey",
         "postBody":"{\r\n  \"appRoleAssignmentRequired\": true\r\n}",
         "skipTest": false
@@ -2123,6 +2485,12 @@
         "humanName": "更新应用程序上的属性",
         "requestUrl": "/v1.0/applications/{id}",
         "docLink": "https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/applicationsAPISurvey",
         "postBody":"{\r\n  \"displayName\": \"New display name\"\r\n}",
         "skipTest": false
@@ -2134,8 +2502,14 @@
         "humanName": "创建声明映射策略",
         "requestUrl": "/v1.0/policies/claimsMappingPolicies",
         "docLink": "https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/claimsMappingPolicyAPISurvey",
-        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true,\r\n}",
+        "postBody":"{\r\n  \"definition\": [\r\n    \"definition-value\"\r\n  ],\r\n  \"displayName\": \"displayName-value\",\r\n  \"isOrganizationDefault\": true\r\n}",
         "skipTest": false
     },
     {
@@ -2145,6 +2519,12 @@
         "humanName": "向服务主体分配声明映射策略",
         "requestUrl": "/v1.0/servicePrincipals/{id}/claimsMappingPolicies/$ref",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-claimsmappingpolicies?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/claimsMappingPolicyAPISurvey",
         "postBody":"{\r\n  \"@odata.id\":\"https:\/\/graph.microsoft.com\/v1.0\/policies\/claimsMappingPolicies\/cd3d9b57-0aee-4f25-8ee3-ac74ef5986a9\"\r\n}",
         "skipTest": false
@@ -2156,6 +2536,12 @@
         "humanName": "向服务主体授予 appRoleAssignment",
         "requestUrl": "/v1.0/servicePrincipals/{id}/appRoleAssignments",
         "docLink": "https://docs.microsoft.com/graph/api/serviceprincipal-post-approleassignments?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "tip": "欢迎大家向我们提供反馈。请在此处就此 API 提供反馈：https://aka.ms/appRoleAssignmentAPISurvey",
         "postBody": "{\r\n  \"principalId\": \"principalId-value\",\r\n  \"resourceId\": \"resourceId-value\",\r\n  \"appRoleId\": \"appRoleId-value\"\r\n}",
         "skipTest": false
@@ -2181,6 +2567,26 @@
         "skipTest": false
     },
     {
+        "id": "bb952c79-f916-4e22-bda3-ac2a76eb2bb2",
+        "category": "标识和访问",
+        "method": "GET",
+        "humanName": "列出 Azure AD 设备",
+        "requestUrl": "/v1.0/devices",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/device-list?view=graph-rest-1.0&tabs=http",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "51106daa-19c8-4f94-b9be-8190f16f4f03",
+        "category": "标识和访问",
+        "method": "GET",
+        "humanName": "获取指定的 Azure AD 设备",
+        "requestUrl": "/v1.0/devices/{id}",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/device-get?view=graph-rest-1.0&tabs=http",
+        "tip": "欢迎大家向我们提供反馈。请在此 API 上留下你的反馈：https://aka.ms/deviceAPIFeedback",
+        "skipTest": false
+    },
+    {
         "id": "64ca0722-6ee9-4e31-8b59-90dc6a05bb1e",
         "category": "标识和访问",
         "method": "GET",
@@ -2197,6 +2603,12 @@
         "humanName": "确认用户已遭泄露",
         "requestUrl": "/v1.0/identityProtection/riskyUsers/confirmCompromised",
         "docLink": "https://docs.microsoft.com/graph/api/riskyuser-confirmcompromised?view=graph-rest-1.0",
+        "headers": [
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ],
         "postBody": "{\r\n \"userIds\": [\r\n    \"targeted-userId-1\",\r\n     \"targeted-userId-2\"\r\n  ]\r\n}",
         "tip": "欢迎大家向我们提供反馈。请在此留下关于此 API 的反馈：https://aka.ms/IdentityProtectionAPIFeedback",
         "skipTest": false
@@ -2209,6 +2621,347 @@
         "requestUrl": "/v1.0/identityProtection/riskDetections",
         "docLink": "https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0",
         "tip": "欢迎大家向我们提供反馈。请在此留下关于此 API 的反馈：https://aka.ms/IdentityProtectionAPIFeedback",
+        "skipTest": false
+    },
+    {
+        "id": "2e3f8628-5aa8-49f4-89b9-b30ee0b7b4c8",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出目录项",
+        "requestUrl": "/beta/admin/windows/updates/catalog/entries",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-catalog-list-entries?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "94b74c3a-e10c-4c11-b48e-3889d7b13083",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出部署",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-deployments?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "095585eb-48da-4f1b-bc99-f9ea83d64036",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "创建部署（功能更新）",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 featureUpdateVersion 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "b5964c4e-4036-41d3-b9aa-60536e3ea8de",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "创建部署（加速安全更新）",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.expeditedQualityUpdateReference\",\r\n        \"releaseDate\": \"{qualityUpdateReleaseDate}\"\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 qualityUpdateReleaseDate 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "277d3473-9595-4f7d-ab3f-d1249be1cfd0",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "创建部署（基于速率的逐步推出）",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"devicesPerOffer\": 100,\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 featureUpdateVersion 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "f080401b-6f3d-4412-ac69-a62c7ea4c1c8",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "创建部署（基于日期的逐步推出）",
+        "requestUrl": "/beta/admin/windows/updates/deployments",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
+        "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"startDateTime\": \"{deploymentStartDateTime}\",\r\n            \"endDateTime\": \"{deploymentEndDateTime}\",\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 featureUpdateVersion 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+        "skipTest": false
+    },
+    {
+        "id": "475c44d9-0461-4078-9a53-e2f8eb8f5f3f",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "获取部署",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "aa39791a-1819-48de-88bf-8862d8cc8501",
+        "category": "Windows 更新",
+        "method": "PATCH",
+        "humanName": "更新部署（替换监视规则）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "08365e7b-d2cd-425d-87f6-47f03571c0ef",
+        "category": "Windows 更新",
+        "method": "PATCH",
+        "humanName": "更新部署（请求暂停状态）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"state\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.deploymentState\",\r\n        \"requestedValue\": \"paused\"\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "acbc7219-fcdf-47f2-a4d1-a7080f49dc28",
+        "category": "Windows 更新",
+        "method": "PATCH",
+        "humanName": "更新部署（清除请求状态）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta",
+        "postBody": "{\r\n    \"state\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.deploymentState\",\r\n        \"requestedValue\": \"none\"\r\n    }\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "58323509-9a78-4a63-9a2d-6d317ab1450a",
+        "category": "Windows 更新",
+        "method": "DELETE",
+        "humanName": "删除部署",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "60120373-19db-47a4-8933-3dbba0add8dd",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出部署受众成员",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/members",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "c19b7572-177f-4082-b267-59efa0e54e8c",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出部署受众排除",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/exclusions",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "885f06ba-b5c4-49eb-9e0c-e6c33fbde358",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "更新部署受众（添加成员）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"addMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "a57c002b-c14f-4b51-a5c2-1140dc6f5bbc",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "更新部署受众（添加排除）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"addExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "f2bc2604-0b71-470a-b294-2544c5b14648",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "更新部署受众（删除成员）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"removeMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "dbbaa3cf-4b3e-466c-82bd-b247328e781a",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "更新部署受众（删除排除）",
+        "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+        "postBody": "{\r\n    \"removeExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 deploymentId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
+        "skipTest": false
+    },
+    {
+        "id": "a5de9df6-7936-41df-9363-d455d2c1c46f",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出可更新资产",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "40fe42ff-e9e0-40e9-a083-881c446da6cf",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "获取可更新资产",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-get?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 updatableAssetId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "343d7fb9-c951-4f5f-a9c6-b7b00cad44f1",
+        "category": "Windows 更新",
+        "method": "DELETE",
+        "humanName": "删除可更新资产",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-delete?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 updatableAssetId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "7bd2acc5-891d-4554-86c3-2e6173be6304",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "列出 Azure AD 设备",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.azureADDevice')",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets-azureaddevice?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "47588996-4f53-4a51-80d2-65b4f5ef2f15",
+        "category": "Windows 更新",
+        "method": "GET",
+        "humanName": "获取 Azure AD 设备",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 updatableAssetId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "06857251-2bb6-416e-8617-dfb06c218395",
+        "category": "Windows 更新",
+        "method": "DELETE",
+        "humanName": "删除 Azure AD 设备",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/{updatableAssetId}",
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-azureaddevice-delete?view=graph-rest-beta",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。若要查找 updatableAssetId 参数的值，可运行：GET https://graph.microsoft.com/beta/admin/windows/updatableAssets.",
+        "skipTest": false
+    },
+    {
+        "id": "68c359ea-cc63-4ab0-bfa9-0d5517919a36",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "注册功能更新管理",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/enrollAssets",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-enrollassets?view=graph-rest-beta",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
+        "skipTest": false
+    },
+    {
+        "id": "76313b13-2306-4b9f-9231-999c103dc208",
+        "category": "Windows 更新",
+        "method": "POST",
+        "humanName": "从功能更新管理取消注册",
+        "requestUrl": "/beta/admin/windows/updates/updatableAssets/unenrollAssets",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-unenrollassets?view=graph-rest-beta",
+        "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+        "tip": "请启用 WindowsUpdates.ReadWrite.All 权限以使用此查询。",
         "skipTest": false
     }
   ]
