@@ -464,12 +464,14 @@
         "Application": [
           "AppRoleAssignment.ReadWrite.All",
           "Application.Read.All",
+          "Application.ReadWrite.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ],
         "DelegatedWork": [
           "AppRoleAssignment.ReadWrite.All",
           "Application.Read.All",
+          "Application.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
@@ -743,7 +745,6 @@
           "User.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "AccessAsUser.All",
           "Application.Read.All",
           "Application.ReadWrite.All",
           "Directory.AccessAsUser.All",
@@ -996,6 +997,7 @@
         "Application": [
           "Application.Read.All",
           "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ],
@@ -1500,6 +1502,20 @@
         ]
       }
     },
+    "/serviceprincipals/{id}/addkey": {
+      "POST": {
+        "Application": [
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Application.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.ReadWrite.All"
+        ]
+      }
+    },
     "/serviceprincipals/{id}/addpassword": {
       "POST": {
         "Application": [
@@ -1509,6 +1525,20 @@
         "DelegatedWork": [
           "Application.ReadWrite.All",
           "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/serviceprincipals/{id}/removekey": {
+      "POST": {
+        "Application": [
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Application.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.ReadWrite.All"
         ]
       }
     },
@@ -1527,7 +1557,8 @@
     "/auditlogs/directoryaudits": {
       "GET": {
         "Application": [
-          "AuditLog.Read.All"
+          "AuditLog.Read.All",
+          "Directory.Read.All"
         ],
         "DelegatedWork": [
           "AuditLog.Read.All",
@@ -1538,7 +1569,8 @@
     "/auditlogs/directoryaudits/{id}": {
       "GET": {
         "Application": [
-          "AuditLog.Read.All"
+          "AuditLog.Read.All",
+          "Directory.Read.All"
         ],
         "DelegatedWork": [
           "AuditLog.Read.All",
@@ -1549,7 +1581,8 @@
     "/auditlogs/provisioning": {
       "GET": {
         "Application": [
-          "AuditLog.Read.All"
+          "AuditLog.Read.All",
+          "Directory.Read.All"
         ],
         "DelegatedWork": [
           "AuditLog.Read.All",
@@ -1600,7 +1633,6 @@
           "Calendars.ReadWrite"
         ],
         "DelegatedWork": [
-          "Calendars.ReadWrite",
           "Calendars.ReadWrite",
           "Group.ReadWrite.All"
         ],
@@ -1682,7 +1714,6 @@
           "Calendars.ReadWrite"
         ],
         "DelegatedWork": [
-          "Calendars.ReadWrite",
           "Calendars.ReadWrite",
           "Group.ReadWrite.All"
         ],
@@ -3922,6 +3953,22 @@
         ]
       }
     },
+    "/communications/callrecords/getdirectroutingcalls": {
+      "GET": {
+        "Application": [
+          "CallRecords.Read.All",
+          "PstnCalls.Read.All"
+        ]
+      }
+    },
+    "/communications/callrecords/getpstncalls": {
+      "GET": {
+        "Application": [
+          "CallRecords.Read.All",
+          "PstnCalls.Read.All"
+        ]
+      }
+    },
     "/communications/callrecords/{id}": {
       "GET": {
         "Application": [
@@ -4167,7 +4214,7 @@
           "ChatMember.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "ChatMember.ReadWrite.All"
+          "ChatMember.ReadWrite"
         ]
       }
     },
@@ -4251,7 +4298,7 @@
           "Chat.Read",
           "Chat.ReadWrite",
           "Group.Read.All",
-          "Group.Read.WriteAll"
+          "Group.ReadWrite.All"
         ]
       },
       "PATCH": {
@@ -4306,7 +4353,14 @@
           "Chat.Read",
           "Chat.ReadWrite",
           "Group.Read.All",
-          "Group.Read.WriteAll"
+          "Group.ReadWrite.All"
+        ]
+      }
+    },
+    "/teams/{id}/channels/getallmessages": {
+      "GET": {
+        "Application": [
+          "ChannelMessage.Read.All"
         ]
       }
     },
@@ -4358,7 +4412,7 @@
           "Chat.Read",
           "Chat.ReadWrite",
           "Group.Read.All",
-          "Group.Read.WriteAll"
+          "Group.ReadWrite.All"
         ]
       }
     },
@@ -4433,7 +4487,7 @@
           "Chat.Read",
           "Chat.ReadWrite",
           "Group.Read.All",
-          "Group.Read.WriteAll"
+          "Group.ReadWrite.All"
         ]
       }
     },
@@ -4482,7 +4536,7 @@
           "Chat.Read",
           "Chat.ReadWrite",
           "Group.Read.All",
-          "Group.Read.WriteAll"
+          "Group.ReadWrite.All"
         ]
       }
     },
@@ -4626,6 +4680,14 @@
         "DelegatedWork": [
           "Chat.Read",
           "Chat.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/chats/getallmessages": {
+      "GET": {
+        "Application": [
+          "Chat.Read.All",
+          "Chat.ReadWrite.All"
         ]
       }
     },
@@ -5551,20 +5613,20 @@
     "/devices": {
       "GET": {
         "Application": [
+          "Device.Read.All",
           "Device.ReadWrite.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ]
       },
       "POST": {
-        "Application": [
-          "Device.ReadWrite.All"
-        ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All"
         ]
@@ -5573,24 +5635,111 @@
     "/devices/{id}": {
       "GET": {
         "Application": [
+          "Device.Read.All",
           "Device.ReadWrite.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ]
       },
+      "PATCH": {
+        "Application": [
+          "Device.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Device.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.ReadWrite.All"
+        ]
+      },
       "DELETE": {
+        "DelegatedWork": [
+          "Device.ReadWrite.All",
+          "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/devices/{id}/memberof": {
+      "GET": {
+        "Application": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ]
+      }
+    },
+    "/devices/{id}/registeredowners": {
+      "GET": {
+        "Application": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ]
+      },
+      "POST": {
         "DelegatedWork": [
           "Directory.AccessAsUser.All"
         ]
-      },
-      "PATCH": {
+      }
+    },
+    "/devices/{id}/registeredusers": {
+      "GET": {
+        "Application": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
         "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
           "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/devices/{id}/checkmemberobjects": {
+      "POST": {
+        "Application": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Device.Read.All",
+          "Device.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
           "Directory.ReadWrite.All"
         ]
       }
@@ -8054,6 +8203,8 @@
           "DeviceManagementConfiguration.Read.All",
           "DeviceManagementConfiguration.Read.All",
           "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
@@ -8062,6 +8213,8 @@
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementRBAC.Read.All",
@@ -8072,6 +8225,8 @@
           "DeviceManagementServiceConfig.Read.All",
           "DeviceManagementServiceConfig.Read.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
@@ -8092,6 +8247,8 @@
           "DeviceManagementConfiguration.Read.All",
           "DeviceManagementConfiguration.Read.All",
           "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
@@ -8100,6 +8257,8 @@
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementRBAC.Read.All",
@@ -8110,6 +8269,8 @@
           "DeviceManagementServiceConfig.Read.All",
           "DeviceManagementServiceConfig.Read.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
@@ -8129,9 +8290,12 @@
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementRBAC.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
@@ -8149,9 +8313,12 @@
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementRBAC.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
@@ -8442,9 +8609,15 @@
         "Application": [
           "DeviceManagementApps.Read.All",
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.Read.All",
           "Directory.Read.All",
@@ -8459,9 +8632,15 @@
         "DelegatedWork": [
           "DeviceManagementApps.Read.All",
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.AccessAsUser.All",
@@ -8480,14 +8659,20 @@
       "POST": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.ReadWrite.All",
           "User.ReadWrite.All"
         ],
         "DelegatedWork": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.ReadWrite.All",
@@ -8500,9 +8685,15 @@
         "Application": [
           "DeviceManagementApps.Read.All",
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.Read.All",
           "Directory.Read.All",
@@ -8517,9 +8708,15 @@
         "DelegatedWork": [
           "DeviceManagementApps.Read.All",
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.AccessAsUser.All",
@@ -8544,21 +8741,30 @@
       "DELETE": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "User.ReadWrite.All"
         ],
         "DelegatedWork": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
-          "Directory.AccessAsUser.All"
+          "DeviceManagementServiceConfig.ReadWrite.All",
+          "User.ReadWrite.All"
         ]
       },
       "PATCH": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.ReadWrite.All",
           "User.ManageIdentities.All",
@@ -8566,7 +8772,10 @@
         ],
         "DelegatedWork": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All",
           "DeviceManagementServiceConfig.ReadWrite.All",
           "Directory.AccessAsUser.All",
           "Directory.ReadWrite.All",
@@ -8919,9 +9128,11 @@
       "POST": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ]
@@ -8943,9 +9154,11 @@
       "POST": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ]
@@ -8967,9 +9180,11 @@
       "POST": {
         "Application": [
           "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All",
           "DeviceManagementApps.ReadWrite.All"
         ]
@@ -9062,6 +9277,212 @@
         ],
         "DelegatedWork": [
           "DeviceManagementApps.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/applepushnotificationcertificate": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}/manageddevices": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}/manageddevices/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/devicecategory": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
@@ -10369,6 +10790,114 @@
         ]
       }
     },
+    "/devicemanagement/manageddeviceoverview": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/manageddevices": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/manageddevices/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
     "/devicemanagement/softwareupdatestatussummary": {
       "GET": {
         "Application": [
@@ -10389,93 +10918,29 @@
         ]
       }
     },
-    "/officeconfiguration/clientconfigurations": {
-      "GET": {
-        "Application": [
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ]
-      }
-    },
-    "/officeconfiguration/clientconfigurations/{id}": {
-      "GET": {
-        "Application": [
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
-        ]
-      }
-    },
     "/reports": {
       "GET": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
           "DeviceManagementConfiguration.Read.All",
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       },
       "PATCH": {
         "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
@@ -10496,6 +10961,124 @@
         ],
         "DelegatedWork": [
           "DeviceManagementConfiguration.Read.All"
+        ]
+      }
+    },
+    "/users/{id}/manageddevices": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/users/{id}/manageddevices/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.Read.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/applepushnotificationcertificate/downloadapplepushnotificationcertificatesigningrequest": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/requestremoteassistance": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/wipe": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ]
       }
     },
@@ -10529,33 +11112,63 @@
         ]
       }
     },
-    "/officeconfiguration/clientconfigurations/microsoft.management.services.api.updatepriorities": {
+    "/devicemanagement/manageddevices/{id}/requestremoteassistance": {
       "POST": {
         "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ]
       }
     },
-    "/officeconfiguration/clientconfigurations/{id}/assign": {
+    "/devicemanagement/manageddevices/{id}/wipe": {
       "POST": {
         "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ]
       }
     },
-    "/officeconfiguration/clientconfigurations/{id}/assignments": {
+    "/users/{id}/manageddevices/{id}/requestremoteassistance": {
       "POST": {
         "Application": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "DeviceManagementConfiguration.ReadWrite.All"
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ]
+      }
+    },
+    "/users/{id}/manageddevices/{id}/wipe": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.PriviligedOperation.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
+          "DeviceManagementServiceConfig.ReadWrite.All"
         ]
       }
     },
@@ -10719,18 +11332,6 @@
         ]
       }
     },
-    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/wipe": {
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
     "/devicemanagement/manageddevices/{id}/bypassactivationlock": {
       "POST": {
         "Application": [
@@ -10888,18 +11489,6 @@
         ],
         "DelegatedWork": [
           "DeviceManagementManagedDevices.PriviligedOperation.All"
-        ]
-      }
-    },
-    "/devicemanagement/manageddevices/{id}/wipe": {
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
@@ -11063,18 +11652,6 @@
         ]
       }
     },
-    "/users/{id}/manageddevices/{id}/wipe": {
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.PriviligedOperation.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
     "/users/{id}/removealldevicesfrommanagement": {
       "POST": {
         "Application": [
@@ -11082,142 +11659,6 @@
         ],
         "DelegatedWork": [
           "DeviceManagementManagedDevices.PriviligedOperation.All"
-        ]
-      }
-    },
-    "/devicemanagement/applepushnotificationcertificate": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/detectedapps": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/detectedapps/{id}": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/detectedapps/{id}/manageddevices": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/detectedapps/{id}/manageddevices/{id}": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/devicecategory": {
-      "GET": {
-        "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
@@ -11269,75 +11710,69 @@
         ]
       }
     },
-    "/devicemanagement/manageddeviceoverview": {
+    "/devicemanagement/troubleshootingevents": {
       "GET": {
         "Application": [
           "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
           "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/manageddevices": {
-      "GET": {
-        "Application": [
           "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       },
       "POST": {
         "Application": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
-    "/devicemanagement/manageddevices/{id}": {
+    "/devicemanagement/troubleshootingevents/{id}": {
       "GET": {
         "Application": [
           "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
           "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       },
       "DELETE": {
         "Application": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       },
       "PATCH": {
         "Application": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "DeviceManagementManagedDevices.ReadWrite.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
     },
-    "/users/{id}/manageddevices": {
+    "/users/{id}/getmanageddeviceswithappfailures": {
       "GET": {
         "Application": [
           "DeviceManagementManagedDevices.Read.All",
@@ -11347,37 +11782,11 @@
           "DeviceManagementManagedDevices.Read.All",
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
-      },
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
       }
     },
-    "/users/{id}/manageddevices/{id}": {
+    "/reports/manageddeviceenrollmentfailuredetails": {
       "GET": {
         "Application": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.Read.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
         "DelegatedWork": [
@@ -11385,28 +11794,8 @@
         ]
       }
     },
-    "/devicemanagement/detectedapps/{id}/manageddevices/{id}/requestremoteassistance": {
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/devicemanagement/manageddevices/{id}/requestremoteassistance": {
-      "POST": {
-        "Application": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "/users/{id}/manageddevices/{id}/requestremoteassistance": {
-      "POST": {
+    "/reports/manageddeviceenrollmenttopfailures": {
+      "GET": {
         "Application": [
           "DeviceManagementManagedDevices.ReadWrite.All"
         ],
@@ -12576,16 +12965,6 @@
         ]
       }
     },
-    "/devicemanagement/applepushnotificationcertificate/downloadapplepushnotificationcertificatesigningrequest": {
-      "GET": {
-        "Application": [
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DeviceManagementServiceConfig.ReadWrite.All"
-        ]
-      }
-    },
     "/devicemanagement/verifywindowsenrollmentautodiscovery": {
       "GET": {
         "Application": [
@@ -12703,37 +13082,6 @@
         ],
         "DelegatedWork": [
           "DeviceManagementServiceConfig.ReadWrite.All"
-        ]
-      }
-    },
-    "/groups/{id}/owners": {
-      "GET": {
-        "Application": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "GroupMember.Read.All",
-          "GroupMember.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "GroupMember.Read.All",
-          "GroupMember.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All",
-          "Group.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All",
-          "Group.ReadWrite.All"
         ]
       }
     },
@@ -12901,63 +13249,6 @@
         ],
         "DelegatedWork": [
           "Directory.Read.All"
-        ]
-      }
-    },
-    "/devices/{id}/memberof": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ]
-      }
-    },
-    "/devices/{id}/registeredowners": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All"
-        ]
-      }
-    },
-    "/devices/{id}/registeredusers": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All"
         ]
       }
     },
@@ -13247,7 +13538,9 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.Read.All"
+          "Directory.Read.All",
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
         ]
       },
       "POST": {
@@ -13255,7 +13548,7 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.AccessAsUser.All"
+          "Domain.ReadWrite.All"
         ]
       }
     },
@@ -13267,7 +13560,9 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.Read.All"
+          "Directory.Read.All",
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
         ]
       },
       "DELETE": {
@@ -13275,7 +13570,7 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.AccessAsUser.All"
+          "Domain.ReadWrite.All"
         ]
       },
       "PATCH": {
@@ -13283,7 +13578,21 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.AccessAsUser.All"
+          "Domain.ReadWrite.All"
+        ]
+      }
+    },
+    "/domains/{id}/serviceconfigurationrecords": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
         ]
       }
     },
@@ -13291,10 +13600,13 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
+          "Domain.Read.All",
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.Read.All"
+          "Directory.Read.All",
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
         ]
       }
     },
@@ -13564,6 +13876,36 @@
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
           "GroupMember.ReadWrite.All"
+        ]
+      }
+    },
+    "/groups/{id}/owners": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All",
+          "GroupMember.Read.All",
+          "GroupMember.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All",
+          "GroupMember.Read.All",
+          "GroupMember.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Directory.ReadWrite.All",
+          "Group.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.ReadWrite.All",
+          "Group.ReadWrite.All"
         ]
       }
     },
@@ -13907,6 +14249,19 @@
         ]
       }
     },
+    "/oauth2permissiongrants/delta": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ]
+      }
+    },
     "/oauth2permissiongrants/{id}": {
       "GET": {
         "Application": [
@@ -14004,6 +14359,114 @@
         ],
         "DelegatedWork": [
           "Policy.ReadWrite.PermissionGrant"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignments": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignments/{id}": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roledefinitions": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roledefinitions/{id}": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
         ]
       }
     },
@@ -14528,19 +14991,6 @@
         ]
       }
     },
-    "/devices/{id}/checkmemberobjects": {
-      "POST": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ]
-      }
-    },
     "/directoryobjects/getavailableextensionproperties": {
       "POST": {
         "Application": [
@@ -14619,17 +15069,6 @@
           "Directory.Read.All",
           "Group.Read.All",
           "User.Read.All"
-        ]
-      }
-    },
-    "/domains/{id}/verify": {
-      "POST": {
-        "Application": [
-          "Directory.Read.All",
-          "Domain.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.Read.All"
         ]
       }
     },
@@ -14875,28 +15314,6 @@
           "User.Read.All",
           "User.Read.All",
           "User.ReadWrite.All"
-        ]
-      }
-    },
-    "/devices/{id}/registeredowners/{id}": {
-      "DELETE": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All"
-        ]
-      }
-    },
-    "/devices/{id}/registeredusers/{id}": {
-      "DELETE": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All"
         ]
       }
     },
@@ -15151,6 +15568,11 @@
     "/domains/{id}/domainnamereferences": {
       "GET": {
         "Application": [
+          "Domain.Read.All",
+          "Domain.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Domain.Read.All",
           "Domain.ReadWrite.All"
         ]
       }
@@ -15161,105 +15583,27 @@
           "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.AccessAsUser.All"
+          "Domain.ReadWrite.All"
         ]
       }
     },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignmentdefaults": {
-      "GET": {
+    "/domains/{id}/verify": {
+      "POST": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "Domain.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      },
-      "PATCH": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454": {
-      "GET": {
-        "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ],
-        "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      },
-      "DELETE": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      },
-      "PATCH": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/resources": {
-      "GET": {
-        "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ],
-        "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/resources/8b01c1d0-aafc-4f8c-bd73-89faa3df1c1c": {
-      "GET": {
-        "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ],
-        "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      },
-      "DELETE": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "Domain.ReadWrite.All"
         ]
       }
     },
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/rubric": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15290,10 +15634,10 @@
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15306,10 +15650,10 @@
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7/outcomes": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15322,10 +15666,10 @@
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7/resources": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15338,10 +15682,10 @@
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7/resources/8b01c1d0-aafc-4f8c-bd73-89faa3df1c1c": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15357,35 +15701,13 @@
         ]
       }
     },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignmentsettings": {
-      "GET": {
-        "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ],
-        "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      },
-      "PATCH": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
     "/education/classes/{id}/assignmentcategories": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15398,10 +15720,26 @@
     "/education/classes/{id}/assignmentcategories/{id}": {
       "GET": {
         "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
+        ],
+        "DelegatedWork": [
           "EduAssignments.Read",
           "EduAssignments.ReadBasic",
           "EduAssignments.ReadWrite",
           "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/{id}/assignmentdefaults": {
+      "GET": {
+        "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15414,10 +15752,10 @@
     "/education/classes/{id}/assignments": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15427,6 +15765,28 @@
         ]
       },
       "POST": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/{id}/assignments/{id}": {
+      "GET": {
+        "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
+        ],
+        "DelegatedWork": [
+          "EduAssignments.Read",
+          "EduAssignments.ReadBasic",
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      },
+      "DELETE": {
         "DelegatedWork": [
           "EduAssignments.ReadWrite",
           "EduAssignments.ReadWriteBasic"
@@ -15436,10 +15796,10 @@
     "/education/classes/{id}/assignments/{id}/categories": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15455,13 +15815,51 @@
         ]
       }
     },
-    "/education/classes/{id}/assignments/{id}/submissions": {
+    "/education/classes/{id}/assignments/{id}/resources": {
       "GET": {
         "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
+        ],
+        "DelegatedWork": [
           "EduAssignments.Read",
           "EduAssignments.ReadBasic",
           "EduAssignments.ReadWrite",
           "EduAssignments.ReadWriteBasic"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/{id}/assignments/{id}/resources/{id}": {
+      "GET": {
+        "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
+        ],
+        "DelegatedWork": [
+          "EduAssignments.Read",
+          "EduAssignments.ReadBasic",
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/{id}/assignments/{id}/submissions": {
+      "GET": {
+        "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15474,10 +15872,10 @@
     "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15490,10 +15888,26 @@
     "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}": {
       "GET": {
         "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
+        ],
+        "DelegatedWork": [
           "EduAssignments.Read",
           "EduAssignments.ReadBasic",
           "EduAssignments.ReadWrite",
           "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/{id}/assignmentsettings": {
+      "GET": {
+        "Application": [
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15506,10 +15920,10 @@
     "/education/me/rubrics/ceb3863e-6912-4ea9-ac41-3c2bb7b6672d": {
       "GET": {
         "Application": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
+          "EduAssignments.Read.All",
+          "EduAssignments.ReadBasic.All",
+          "EduAssignments.ReadWrite.All",
+          "EduAssignments.ReadWriteBasic.All"
         ],
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -15552,7 +15966,7 @@
         "Application": [
           "EduRoster.Read.All",
           "EduRoster.ReadBasic.All",
-          "EduRoster.WriteWrite.All"
+          "EduRoster.ReadWrite.All"
         ],
         "DelegatedWork": [
           "EduRoster.Read",
@@ -15867,6 +16281,132 @@
       "DELETE": {
         "Application": [
           "EduRoster.ReadWrite.All"
+        ]
+      }
+    },
+    "/connections/{id}": {
+      "DELETE": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections": {
+      "GET": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/operations/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/schema": {
+      "GET": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/external/connections": {
+      "POST": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/external/connections/{id}/schema": {
+      "POST": {
+        "Application": [
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/groups/{id}": {
+      "DELETE": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/groups/{id}/members/{id}": {
+      "DELETE": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/items/{id}": {
+      "DELETE": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/external/connections/{id}/items/{id}": {
+      "PATCH": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/groups": {
+      "POST": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/groups/{id}/members": {
+      "POST": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/connections/{id}/items": {
+      "POST": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ]
       }
     },
@@ -17598,6 +18138,30 @@
           "Sites.Read.All",
           "Sites.ReadWrite.All",
           "User.Read"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/shares/{id}/driveitem/content": {
+      "GET": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "Files.Read",
@@ -20196,6 +20760,66 @@
         ]
       }
     },
+    "/identity/identityproviders": {
+      "GET": {
+        "Application": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.ReadWrite.All"
+        ]
+      }
+    },
+    "/identity/identityproviders/availableprovidertypes": {
+      "GET": {
+        "Application": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ]
+      }
+    },
+    "/identity/identityproviders/{id}": {
+      "GET": {
+        "Application": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.Read.All",
+          "IdentityProvider.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "IdentityProvider.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityProvider.ReadWrite.All"
+        ]
+      }
+    },
     "/identityproviders/availableprovidertypes": {
       "GET": {
         "Application": [
@@ -20228,20 +20852,6 @@
         ]
       }
     },
-    "/identityprotection/riskyusers/{id}/history": {
-      "GET": {
-        "Application": [
-          "IdentityRiskUser.ReadWrite.All",
-          "IdentityRiskyUser.Read.All",
-          "IdentityRiskyUser.Read.All"
-        ],
-        "DelegatedWork": [
-          "IdentityRiskUser.ReadWrite.All",
-          "IdentityRiskyUser.Read.All",
-          "IdentityRiskyUser.Read.All"
-        ]
-      }
-    },
     "/identityprotection/riskyusers": {
       "GET": {
         "Application": [
@@ -20259,6 +20869,20 @@
         ],
         "DelegatedWork": [
           "IdentityRiskyUser.Read.All"
+        ]
+      }
+    },
+    "/identityprotection/riskyusers/{id}/history": {
+      "GET": {
+        "Application": [
+          "IdentityRiskyUser.Read.All",
+          "IdentityRiskyUser.Read.All",
+          "IdentityRiskyUser.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "IdentityRiskyUser.Read.All",
+          "IdentityRiskyUser.Read.All",
+          "IdentityRiskyUser.ReadWrite.All"
         ]
       }
     },
@@ -20488,7 +21112,7 @@
         ],
         "DelegatedWork": [
           "IdentityUserFlow.Read.All",
-          "IdentityUserflow.ReadWrite.All"
+          "IdentityUserFlow.ReadWrite.All"
         ]
       },
       "POST": {
@@ -24575,10 +25199,12 @@
     "/communications/onlinemeetings/": {
       "GET": {
         "Application": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read.All",
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
@@ -24587,10 +25213,12 @@
     "/me/onlinemeetings": {
       "GET": {
         "Application": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read.All",
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
@@ -24607,10 +25235,12 @@
     "/me/onlinemeetings/{id}": {
       "GET": {
         "Application": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read.All",
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
@@ -24632,13 +25262,29 @@
         ]
       }
     },
-    "/users/{id}/onlinemeetings": {
+    "/me/onlinemeetings/{id}/attendeereport": {
       "GET": {
         "Application": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read.All",
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
+          "OnlineMeetings.Read",
+          "OnlineMeetings.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/onlinemeetings": {
+      "GET": {
+        "Application": [
+          "OnlineMeetingArtifact.Read.All",
+          "OnlineMeetings.Read.All",
+          "OnlineMeetings.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
@@ -24655,10 +25301,12 @@
     "/users/{id}/onlinemeetings/{id}": {
       "GET": {
         "Application": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read.All",
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
@@ -24676,6 +25324,20 @@
           "OnlineMeetings.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "OnlineMeetings.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/onlinemeetings/{id}/attendeereport": {
+      "GET": {
+        "Application": [
+          "OnlineMeetingArtifact.Read.All",
+          "OnlineMeetings.Read.All",
+          "OnlineMeetings.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetingArtifact.Read.All",
+          "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
         ]
       }
@@ -25266,6 +25928,14 @@
           "Policy.ReadWrite.AuthenticationMethod"
         ]
       },
+      "GET": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ]
+      },
       "PATCH": {
         "Application": [
           "Policy.ReadWrite.AuthenticationMethod"
@@ -25327,13 +25997,35 @@
         ]
       }
     },
-    "/policies/authenticationmethodspolicy/email": {
+    "/policies/authenticationmethodspolicy": {
       "GET": {
         "Application": [
           "Policy.ReadWrite.AuthenticationMethod"
         ],
         "DelegatedWork": [
           "Policy.ReadWrite.AuthenticationMethod"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ]
+      }
+    },
+    "/users/{id}/presence/clearpresence": {
+      "POST": {
+        "Application": [
+          "Presence.ReadWrite.All"
+        ]
+      }
+    },
+    "/users/{id}/presence/setpresence": {
+      "POST": {
+        "Application": [
+          "Presence.ReadWrite.All"
         ]
       }
     },
@@ -27061,6 +27753,292 @@
         ]
       }
     },
+    "/admin/serviceannouncement/healthoverviews": {
+      "GET": {
+        "Application": [
+          "ServiceHealth.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceHealth.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/healthoverviews/{id}": {
+      "GET": {
+        "Application": [
+          "ServiceHealth.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceHealth.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/issues": {
+      "GET": {
+        "Application": [
+          "ServiceHealth.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceHealth.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/issues/{id}": {
+      "GET": {
+        "Application": [
+          "ServiceHealth.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceHealth.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/issues/{id}/incidentreport": {
+      "GET": {
+        "Application": [
+          "ServiceHealth.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceHealth.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages": {
+      "GET": {
+        "Application": [
+          "ServiceMessage.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceMessage.Read.All"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/{id}": {
+      "GET": {
+        "Application": [
+          "ServiceMessage.Read.All"
+        ],
+        "DelegatedWork": [
+          "ServiceMessage.Read.All"
+        ]
+      }
+    },
+    "/sites/{id}/columns/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/columns/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/columns/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/contenttypes/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/contenttypes/{id}/columns/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
     "/sites/{id}/permissions/{id}": {
       "DELETE": {
         "Application": [
@@ -27078,6 +28056,178 @@
         ]
       }
     },
+    "/sites/{id}/columns": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/columns": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/ispublished": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All"
+        ]
+      }
+    },
+    "/sites/{id}/getapplicablecontenttypesforlist": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/columns": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/contenttypes": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/contenttypes/{id}/columns": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
     "/sites/{id}/permissions": {
       "GET": {
         "Application": [
@@ -27086,6 +28236,58 @@
       },
       "POST": {
         "Application": [
+          "Sites.FullControl.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/associatewithhubsites": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/copytodefaultcontentlocation": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/publish": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All"
+        ],
+        "DelegatedPersonal": [
+          "Sites.FullControl.All"
+        ]
+      }
+    },
+    "/sites/{id}/contenttypes/{id}/unpublish": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All"
+        ],
+        "DelegatedPersonal": [
           "Sites.FullControl.All"
         ]
       }
@@ -27101,6 +28303,18 @@
           "Sites.FullControl.All",
           "Sites.Manage.All",
           "Sites.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/contenttypes/addcopy": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All"
         ]
       }
     },
@@ -27736,6 +28950,16 @@
         ]
       }
     },
+    "/teams/{id}/members/add": {
+      "POST": {
+        "Application": [
+          "TeamMember.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "TeamMember.ReadWrite.All"
+        ]
+      }
+    },
     "/chats/{id}/sendactivitynotification": {
       "POST": {
         "Application": [
@@ -27749,7 +28973,8 @@
     "/teams/{id}/sendactivitynotification": {
       "POST": {
         "Application": [
-          "TeamsActivity.Send"
+          "TeamsActivity.Send",
+          "TeamsActivity.Send.Group"
         ],
         "DelegatedWork": [
           "TeamsActivity.Send"
@@ -28845,7 +30070,7 @@
         ]
       }
     },
-    "/me/authentication/fido2authenticationmethod/{id}": {
+    "/me/authentication/fido2methods": {
       "GET": {
         "Application": [
           "UserAuthenticationMethod.Read.All",
@@ -28859,7 +30084,7 @@
         ]
       }
     },
-    "/me/authentication/fido2methods": {
+    "/me/authentication/fido2methods/{id}": {
       "GET": {
         "Application": [
           "UserAuthenticationMethod.Read.All",
@@ -28975,7 +30200,7 @@
         ]
       }
     },
-    "/users/{id}/authentication/fido2authenticationmethod/{id}": {
+    "/users/{id}/authentication/fido2methods": {
       "GET": {
         "Application": [
           "UserAuthenticationMethod.Read.All",
@@ -28989,7 +30214,7 @@
         ]
       }
     },
-    "/users/{id}/authentication/fido2methods": {
+    "/users/{id}/authentication/fido2methods/{id}": {
       "GET": {
         "Application": [
           "UserAuthenticationMethod.Read.All",
@@ -28998,6 +30223,15 @@
         "DelegatedWork": [
           "UserAuthenticationMethod.Read",
           "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
           "UserAuthenticationMethod.ReadWrite",
           "UserAuthenticationMethod.ReadWrite.All"
         ]
@@ -29107,17 +30341,6 @@
           "UserAuthenticationMethod.ReadWrite.All"
         ]
       },
-      "DELETE": {
-        "Application": [
-          "UserAuthenticationMethod.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "UserAuthenticationMethod.ReadWrite",
-          "UserAuthenticationMethod.ReadWrite.All"
-        ]
-      }
-    },
-    "/users/{id}/authentication/fido2methods/{id}": {
       "DELETE": {
         "Application": [
           "UserAuthenticationMethod.ReadWrite.All"
@@ -29293,10 +30516,49 @@
         ]
       }
     },
+    "/teams/{id}/channels/{id}/provisionemail": {
+      "POST": {
+        "DelegatedWork": [
+          "ChannelSettings.ReadWrite.All"
+        ]
+      }
+    },
+    "/teams/{id}/channels/{id}/removeemail": {
+      "POST": {
+        "DelegatedWork": [
+          "ChannelSettings.ReadWrite.All"
+        ]
+      }
+    },
     "/chats": {
       "POST": {
         "DelegatedWork": [
           "Chat.Create",
+          "Chat.ReadWrite"
+        ]
+      },
+      "GET": {
+        "DelegatedWork": [
+          "Chat.Read",
+          "Chat.ReadBasic",
+          "Chat.ReadWrite"
+        ]
+      }
+    },
+    "/me/chats": {
+      "GET": {
+        "DelegatedWork": [
+          "Chat.Read",
+          "Chat.ReadBasic",
+          "Chat.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/chats": {
+      "GET": {
+        "DelegatedWork": [
+          "Chat.Read",
+          "Chat.ReadBasic",
           "Chat.ReadWrite"
         ]
       }
@@ -29335,12 +30597,31 @@
         ]
       }
     },
-    "/oauth2permissiongrants/delta": {
-      "GET": {
+    "/devices/{id}/registeredowners/{id}": {
+      "DELETE": {
         "DelegatedWork": [
-          "Directory.AccessAsUser.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/devices/{id}/registeredusers/{id}": {
+      "DELETE": {
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/me/changepassword": {
+      "POST": {
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All"
+        ]
+      }
+    },
+    "/users/{id}/changepassword": {
+      "POST": {
+        "DelegatedWork": [
+          "Directory.AccessAsUser.All"
         ]
       }
     },
@@ -29387,6 +30668,16 @@
         ]
       }
     },
+    "/education/me/assignments": {
+      "GET": {
+        "DelegatedWork": [
+          "EduAssignments.Read",
+          "EduAssignments.ReadBasic",
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
     "/education/me/rubrics": {
       "GET": {
         "DelegatedWork": [
@@ -29403,17 +30694,7 @@
         ]
       }
     },
-    "/education/users/{id}/assignments": {
-      "GET": {
-        "DelegatedWork": [
-          "EduAssignments.Read",
-          "EduAssignments.ReadBasic",
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/setupresourcesfolder": {
+    "/education/classes/{id}/assignments/{id}/setupresourcesfolder": {
       "POST": {
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -29421,7 +30702,7 @@
         ]
       }
     },
-    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7/setupresourcesfolder": {
+    "/education/classes/{id}/assignments/{id}/submissions/{id}/setupresourcesfolder": {
       "POST": {
         "DelegatedWork": [
           "EduAssignments.Read",
@@ -29437,6 +30718,14 @@
         ]
       }
     },
+    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/resources/8b01c1d0-aafc-4f8c-bd73-89faa3df1c1c": {
+      "DELETE": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
     "/education/classes/{id}/assignments/{id}/categories/{id}": {
       "DELETE": {
         "DelegatedWork": [
@@ -29445,7 +30734,31 @@
         ]
       }
     },
+    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignmentdefaults": {
+      "PATCH": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454": {
+      "PATCH": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignments/cf6005fc-9e13-44a2-a6ac-a53322006454/submissions/d1bee293-d8bb-48d4-af3e-c8cb0e3c7fe7/outcomes/9c0f2850-ff8f-4fd6-b3ac-e23077b59141": {
+      "PATCH": {
+        "DelegatedWork": [
+          "EduAssignments.ReadWrite",
+          "EduAssignments.ReadWriteBasic"
+        ]
+      }
+    },
+    "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignmentsettings": {
       "PATCH": {
         "DelegatedWork": [
           "EduAssignments.ReadWrite",
@@ -29486,14 +30799,6 @@
       }
     },
     "/education/classes/{id}/assignments/{id}/publish": {
-      "POST": {
-        "DelegatedWork": [
-          "EduAssignments.ReadWrite",
-          "EduAssignments.ReadWriteBasic"
-        ]
-      }
-    },
-    "/education/classes/{id}/assignments/{id}/resources": {
       "POST": {
         "DelegatedWork": [
           "EduAssignments.ReadWrite",
@@ -29554,6 +30859,14 @@
         ]
       }
     },
+    "/me/drive/items/{id}/workbook/tables": {
+      "GET": {
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.ReadWrite"
+        ]
+      }
+    },
     "/me/drive/root/subscriptions/socketio": {
       "GET": {
         "DelegatedWork": [
@@ -29566,6 +30879,14 @@
           "Files.Read",
           "Files.ReadWrite",
           "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/me/drive/root:/{id}:/workbook/tables": {
+      "GET": {
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.ReadWrite"
         ]
       }
     },
@@ -29584,6 +30905,14 @@
         ]
       }
     },
+    "/users/{id}/drive/items/{id}/workbook/tables": {
+      "GET": {
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.ReadWrite"
+        ]
+      }
+    },
     "/users/{id}/drive/root/subscriptions/socketio": {
       "GET": {
         "DelegatedWork": [
@@ -29596,6 +30925,14 @@
           "Files.Read",
           "Files.ReadWrite",
           "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/users/{id}/drive/root:/{id}:/workbook/tables": {
+      "GET": {
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.ReadWrite"
         ]
       }
     },
@@ -30143,6 +31480,13 @@
         ]
       }
     },
+    "/driveitem/workbook/tablerowoperationresult(key={value})": {
+      "GET": {
+        "DelegatedWork": [
+          "Files.ReadWrite"
+        ]
+      }
+    },
     "/me/drive/items/{id}/workbook/application": {
       "GET": {
         "DelegatedWork": [
@@ -30372,14 +31716,6 @@
         ]
       }
     },
-    "/me/drive/items/{id}/workbook/tables": {
-      "GET": {
-        "DelegatedWork": [
-          "Files.ReadWrite",
-          "Files.ReadWrite"
-        ]
-      }
-    },
     "/me/drive/items/{id}/workbook/tables/{id}/columns": {
       "GET": {
         "DelegatedWork": [
@@ -30602,6 +31938,11 @@
       "GET": {
         "DelegatedWork": [
           "Files.ReadWrite",
+          "Files.ReadWrite"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
           "Files.ReadWrite"
         ]
       }
@@ -31260,6 +32601,11 @@
           "Files.ReadWrite",
           "Files.ReadWrite"
         ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "Files.ReadWrite"
+        ]
       }
     },
     "/me/drive/items/{id}/workbook/worksheets/{id}/tables/{id}/rows/{id}/range": {
@@ -31510,14 +32856,6 @@
         ]
       }
     },
-    "/me/drive/root:/{id}:/workbook/tables": {
-      "GET": {
-        "DelegatedWork": [
-          "Files.ReadWrite",
-          "Files.ReadWrite"
-        ]
-      }
-    },
     "/me/drive/root:/{id}:/workbook/tables/{id}/columns": {
       "GET": {
         "DelegatedWork": [
@@ -31740,6 +33078,11 @@
       "GET": {
         "DelegatedWork": [
           "Files.ReadWrite",
+          "Files.ReadWrite"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
           "Files.ReadWrite"
         ]
       }
@@ -32669,14 +34012,6 @@
         ]
       }
     },
-    "/users/{id}/drive/items/{id}/workbook/tables": {
-      "GET": {
-        "DelegatedWork": [
-          "Files.ReadWrite",
-          "Files.ReadWrite"
-        ]
-      }
-    },
     "/users/{id}/drive/items/{id}/workbook/tables/{id}/columns": {
       "GET": {
         "DelegatedWork": [
@@ -32899,6 +34234,11 @@
       "GET": {
         "DelegatedWork": [
           "Files.ReadWrite",
+          "Files.ReadWrite"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
           "Files.ReadWrite"
         ]
       }
@@ -33557,6 +34897,11 @@
           "Files.ReadWrite",
           "Files.ReadWrite"
         ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "Files.ReadWrite"
+        ]
       }
     },
     "/users/{id}/drive/items/{id}/workbook/worksheets/{id}/tables/{id}/rows/{id}/range": {
@@ -33807,14 +35152,6 @@
         ]
       }
     },
-    "/users/{id}/drive/root:/{id}:/workbook/tables": {
-      "GET": {
-        "DelegatedWork": [
-          "Files.ReadWrite",
-          "Files.ReadWrite"
-        ]
-      }
-    },
     "/users/{id}/drive/root:/{id}:/workbook/tables/{id}/columns": {
       "GET": {
         "DelegatedWork": [
@@ -34037,6 +35374,11 @@
       "GET": {
         "DelegatedWork": [
           "Files.ReadWrite",
+          "Files.ReadWrite"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
           "Files.ReadWrite"
         ]
       }
@@ -34985,7 +36327,6 @@
     "/me/drive/items/{id}/workbook/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -35309,7 +36650,6 @@
     "/me/drive/items/{id}/workbook/worksheets/{id}/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -35590,7 +36930,6 @@
     "/me/drive/root:/{id}:/workbook/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -35914,7 +37253,6 @@
     "/me/drive/root:/{id}:/workbook/worksheets/{id}/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -35941,6 +37279,13 @@
       }
     },
     "/me/drive/root:/{id}:/workbook/worksheets/{id}/tables/{id}/sort/reapply": {
+      "POST": {
+        "DelegatedWork": [
+          "Files.ReadWrite"
+        ]
+      }
+    },
+    "/me/drive/root:/{id}:/workbookworksheets/{id}/tables/{id}/rows": {
       "POST": {
         "DelegatedWork": [
           "Files.ReadWrite"
@@ -36195,7 +37540,6 @@
     "/users/{id}/drive/items/{id}/workbook/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -36519,7 +37863,6 @@
     "/users/{id}/drive/items/{id}/workbook/worksheets/{id}/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -36800,7 +38143,6 @@
     "/users/{id}/drive/root:/{id}:/workbook/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -37124,7 +38466,6 @@
     "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/tables/{id}/rows/add": {
       "POST": {
         "DelegatedWork": [
-          "Files.ReadWrite",
           "Files.ReadWrite"
         ]
       }
@@ -37151,6 +38492,13 @@
       }
     },
     "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/tables/{id}/sort/reapply": {
+      "POST": {
+        "DelegatedWork": [
+          "Files.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/drive/root:/{id}:/workbookworksheets/{id}/tables/{id}/rows": {
       "POST": {
         "DelegatedWork": [
           "Files.ReadWrite"
@@ -37605,6 +38953,41 @@
         ]
       }
     },
+    "/organization/{id}/branding": {
+      "GET": {
+        "DelegatedWork": [
+          "Organization.Read.All",
+          "User.Read",
+          "User.Read.All",
+          "User.ReadBasic.All"
+        ]
+      },
+      "DELETE": {
+        "DelegatedWork": [
+          "Organization.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "DelegatedWork": [
+          "Organization.ReadWrite.All"
+        ]
+      }
+    },
+    "/organization/{id}/branding/localizations": {
+      "GET": {
+        "DelegatedWork": [
+          "Organization.Read.All",
+          "User.Read",
+          "User.Read.All",
+          "User.ReadBasic.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "Organization.ReadWrite.All"
+        ]
+      }
+    },
     "/organization/{id}/branding/localizations/{id}": {
       "GET": {
         "DelegatedWork": [
@@ -37625,50 +39008,6 @@
         ]
       },
       "PUT": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      }
-    },
-    "/organization/{id}/branding/{id}": {
-      "GET": {
-        "DelegatedWork": [
-          "Organization.Read.All",
-          "User.Read",
-          "User.Read.All",
-          "User.ReadBasic.All"
-        ]
-      },
-      "PATCH": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      },
-      "PUT": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      }
-    },
-    "/organization/{id}/branding": {
-      "DELETE": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      },
-      "PUT": {
-        "DelegatedWork": [
-          "Organization.ReadWrite.All"
-        ]
-      }
-    },
-    "/organization/{id}/branding/localizations": {
-      "POST": {
         "DelegatedWork": [
           "Organization.ReadWrite.All"
         ]
@@ -38008,6 +39347,48 @@
         ]
       }
     },
+    "/admin/serviceannouncement/messages/archive": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/favorite": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/markread": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/markunread": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/unarchive": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
+    "/admin/serviceannouncement/messages/unfavorite": {
+      "POST": {
+        "DelegatedWork": [
+          "ServiceMessageViewpoint.Write"
+        ]
+      }
+    },
     "/me/todo/lists/{id}": {
       "DELETE": {
         "DelegatedWork": [
@@ -38317,6 +39698,151 @@
         ],
         "DelegatedPersonal": [
           "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/sites/{id}/termstore": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/groups": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/groups/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/groups/{id}/sets": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/groups/{id}/sets/{id}/terms/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}/children": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}/relations": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}/terms/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}/terms/{id}/children": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets/{id}/terms/{id}/relations": {
+      "GET": {
+        "DelegatedWork": [
+          "TermStore.Read.All",
+          "TermStore.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
+        ]
+      }
+    },
+    "/sites/{id}/termstore/sets": {
+      "POST": {
+        "DelegatedWork": [
+          "TermStore.ReadWrite.All"
         ]
       }
     },
@@ -39152,6 +40678,12 @@
         "Grant": "admin"
       },
       {
+        "Name": "DelegatedPermissionGrant.ReadWrite.All",
+        "Description": "Allows the app to manage delegated permission grants for any API (including Microsoft Graph), on behalf of the signed-in user.",
+        "CosentDescription": "Manage delegated permission grants",
+        "Grant": "admin"
+      },
+      {
         "Name": "AuditLog.Read.All",
         "Description": "Allows the app to read and query your audit log activities, on behalf of the signed-in user.",
         "CosentDescription": "Read audit log data",
@@ -39788,6 +41320,12 @@
         "Grant": "user"
       },
       {
+        "Name": "OnlineMeetingArtifact.Read.All",
+        "Description": "Allows the app to read online meeting artifacts on behalf of the signed-in user.",
+        "CosentDescription": "Read Online Meeting artifacts.",
+        "Grant": "user"
+      },
+      {
         "Name": "OnPremisesPublishingProfiles.ReadWrite.All",
         "Description": "Allows the app to manage hybrid identity service configuration by creating, viewing, updating and deleting on-premises published resources, on-premises agents and agent groups, on behalf of the signed-in user.",
         "CosentDescription": "Access  On-Premises Publishing Profiles",
@@ -39830,7 +41368,7 @@
         "Grant": "admin"
       },
       {
-        "Name": "PrivilegedAccess.ReadWrite.AzureADGroups",
+        "Name": "PrivilegedAccess.ReadWrite.AzureADGroup",
         "Description": "Allows the app to have read and write access to Privileged Identity Management APIs for groups.",
         "CosentDescription": "Read and write Privileged Identity Management data for privileged access groups",
         "Grant": "admin"
@@ -40624,6 +42162,12 @@
         "Grant": "admin"
       },
       {
+        "Name": "DelegatedPermissionGrant.ReadWrite.All",
+        "Description": "Allows the app to grant or revoke any delegated permission for any API (including Microsoft Graph), without a signed-in user.",
+        "CosentDescription": "Manage all delegated permission grants",
+        "Grant": "admin"
+      },
+      {
         "Name": "AuditLog.Read.All",
         "Description": "Allows the app to read and query your audit log activities, without a signed-in user.",
         "CosentDescription": "Read all audit log data",
@@ -40675,6 +42219,12 @@
         "Name": "CallRecords.Read.All",
         "Description": "Allows the app to read call records for all calls and online meetings without a signed-in user.",
         "CosentDescription": "Read all call records",
+        "Grant": "admin"
+      },
+      {
+        "Name": "PstnCalls.Read.All",
+        "Description": "Allows the app to read all PSTN and direct routing call log data without a signed-in user.",
+        "CosentDescription": "Read PSTN and direct routing call log data",
         "Grant": "admin"
       },
       {
@@ -40819,6 +42369,24 @@
         "Name": "OnlineMeeting.ReadBasic.Chat",
         "Description": "Allows the app to read basic properties\u2014such as name, schedule, organizer, and join link\u2014of a meeting associated with this chat, without a signed-in user.",
         "CosentDescription": "Read basic properties of a meeting associated with this chat.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Calls.AccessMedia.Chat",
+        "Description": "Allows the app to access media streams in calls associated with this chat or meeting, without a signed-in user.",
+        "CosentDescription": "Access media streams in calls associated with this chat or meeting.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Calls.JoinGroupCalls.Chat",
+        "Description": "Allows the app to join calls associated with this chat or meeting, without a signed-in user.",
+        "CosentDescription": "Join calls associated with this chat or meeting.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TeamsActivity.Send.Chat",
+        "Description": "Allows the app to create new notifications in the teamwork activity feeds of the users in this chat, without a signed-in user.",
+        "CosentDescription": "Send activity feed notifications to users in this chat.",
         "Grant": "admin"
       },
       {
@@ -40991,7 +42559,7 @@
       },
       {
         "Name": "GroupMember.ReadWrite.All",
-        "Description": "Allows the app to list groups, read basic properties, read and update the membership of the groups this app has access to without a signed-in user. Group properties and owners cannot be updated and groups cannot be deleted.",
+        "Description": "Allows the app to list groups, read basic properties, read and update the membership of the groups without a signed-in user. Group properties and owners cannot be updated and groups cannot be deleted.",
         "CosentDescription": "Read and write group memberships",
         "Grant": "admin"
       },
@@ -41159,14 +42727,20 @@
       },
       {
         "Name": "OnlineMeetings.Read.All",
-        "Description": "Allows the app to read online meeting details in your organization without a signed-in user.",
+        "Description": "Allows the app to read Online Meeting details in your organization without a signed-in user.",
         "CosentDescription": "Read Online Meeting details from the app",
         "Grant": "admin"
       },
       {
         "Name": "OnlineMeetings.ReadWrite.All",
-        "Description": "Allows an app to create, read online meetings without a signed-in user.",
+        "Description": "Allows an app to create, read Online Meetings without a signed-in user.",
         "CosentDescription": "Read Online Meeting details from the app",
+        "Grant": "admin"
+      },
+      {
+        "Name": "OnlineMeetingArtifact.Read.All",
+        "Description": "Allows the app to read Online Meeting artifacts in your organization, without a signed-in user.",
+        "CosentDescription": "Read Online Meeting artifacts from the app",
         "Grant": "admin"
       },
       {
@@ -41206,13 +42780,13 @@
         "Grant": "admin"
       },
       {
-        "Name": "PrivilegedAccess.Read.AzureADGroups",
+        "Name": "PrivilegedAccess.Read.AzureADGroup",
         "Description": "Allows the app to have read access to Privileged Identity Management APIs for groups.",
         "CosentDescription": "Read Privileged Identity Management data for privileged access groups",
         "Grant": "admin"
       },
       {
-        "Name": "PrivilegedAccess.Read.AzureADResources",
+        "Name": "PrivilegedAccess.Read.AzureResources",
         "Description": "Allows the app to have read access to Privileged Identity Management APIs for Azure AD resources.",
         "CosentDescription": "Read Privileged Identity Management data for Azure resources",
         "Grant": "admin"
@@ -41344,9 +42918,21 @@
         "Grant": "admin"
       },
       {
+        "Name": "ExternalConnection.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external connections and their settings without a signed-in user. The app can only read and write external connections that it is authorized to, or it can create new external connections.",
+        "CosentDescription": "Read and write external connections and connection settings",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external items without a signed-in user. The app can only read external items of the connection that it is authorized to.",
+        "CosentDescription": "Read and write external items",
+        "Grant": "admin"
+      },
+      {
         "Name": "ExternalItem.ReadWrite.All",
-        "Description": "Allows an app to write external with the Microsoft Graph connectors indexing API.",
-        "CosentDescription": "Read and Write external data",
+        "Description": "Allows the app to read and write all external items without a signed-in user.",
+        "CosentDescription": "Read and write all external items",
         "Grant": "admin"
       },
       {
@@ -41635,6 +43221,12 @@
         "Name": "File.Read.Group",
         "Description": "Limited support \u003Cbr/\u003E (Preview) Read this team\u0027s files and folders, without a signed-in users.",
         "CosentDescription": "Read this team\u0027s files and folders.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TeamsActivity.Send.Group",
+        "Description": "Allows the app to create new notifications in the teamwork activity feeds of the users in this team, without a signed-in user.",
+        "CosentDescription": "Send activity feed notifications to users in this team.",
         "Grant": "admin"
       },
       {

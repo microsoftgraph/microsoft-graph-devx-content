@@ -2147,9 +2147,9 @@
         "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
         "category": "Suche",
         "method": "POST",
-        "humanName": "(Beta) Suchergebnisse sortieren",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "humanName": "Sortieren von Suchergebnissen",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-v1.0#sort-search-results",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2164,9 +2164,9 @@
         "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
         "category": "Suche",
         "method": "POST",
-        "humanName": "(Beta) Verfeinern von Ergebnissen mithilfe von Zeichenfolgenaggregationen",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "Verfeinern von Ergebnissen mithilfe von Zeichenfolgenaggregationen",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2181,9 +2181,9 @@
         "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
         "category": "Suche",
         "method": "POST",
-        "humanName": "(Beta) Verfeinern von Ergebnissen mithilfe numerischer Aggregationen",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "humanName": "Verfeinern von Ergebnissen mithilfe numerischer Aggregationen",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregationsw",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2198,9 +2198,9 @@
         "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
         "category": "Suche",
         "method": "POST",
-        "humanName": "(Beta) Anwendung einer verfeinerten Abfrage durch das „aggregationToken“",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "Anwenden einer optimierten Abfrage über das „aggregationToken“",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2251,8 +2251,8 @@
         "method": "GET",
         "humanName": "eDiscovery-Fälle auflisten",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Wechseln Sie zur Registerkarte \"Berechtigungen ändern\", und gestatten Sie \"eDiscovery.Read.All\" oder \"eDiscovery.ReadWrite.All\" das Ausführen dieser Abfrage.",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-beta&tabs=http",
+        "tip": "Wechseln Sie zur Registerkarte „Berechtigungen ändern“, und gestatten Sie „eDiscovery.Read.All“ oder „eDiscovery.ReadWrite.All“ das Ausführen dieser Abfrage",
         "skipTest": false
     },
     {
@@ -2261,8 +2261,8 @@
         "method": "GET",
         "humanName": "eDiscovery-Fall abrufen",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/de-de/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
-        "tip": "Wechseln Sie zur Registerkarte \"Berechtigungen ändern\", und gestatten Sie \"eDiscovery.Read.All\" oder \"eDiscovery.ReadWrite.All\" das Ausführen dieser Abfrage. Für diese Abfrage ist eine Fall-ID erforderlich. Sie erhalten die Fall-ID, indem Sie folgenden Befehl ausführen: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-beta&tabs=http",
+        "tip": "Wechseln Sie zur Registerkarte „Berechtigungen ändern“, und gestatten Sie „eDiscovery.Read.All“ oder „eDiscovery.ReadWrite.All“ das Ausführen dieser Abfrage. Für diese Abfrage ist eine Fall-ID erforderlich. Sie erhalten die Fall-ID, indem Sie folgenden Befehl ausführen: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {
@@ -2271,7 +2271,7 @@
         "method": "POST",
         "humanName": "Einen eDiscovery-Fall erstellen",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-beta&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -2279,7 +2279,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Wechseln Sie zur Registerkarte \"Berechtigungen ändern\", und gestatten Sie \"eDiscovery.ReadWrite.All\" das Ausführen dieser Abfrage.",
+        "tip": "Wechseln Sie zur Registerkarte „Berechtigungen ändern“, und gestatten Sie „eDiscovery.ReadWrite.All“ das Ausführen dieser Abfrage.",
         "skipTest": false
     },
     {
@@ -2288,8 +2288,8 @@
         "method": "GET",
         "humanName": "Prüfdateisätze auflisten",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
-        "tip": "Wechseln Sie zur Registerkarte \"Berechtigungen ändern\", und gestatten Sie \"eDiscovery.Read.All\" oder \"eDiscovery.ReadWrite.All\" das Ausführen dieser Abfrage. Sie erhalten die Fall-ID, indem Sie folgenden Befehl ausführen: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-reviewsets?view=graph-rest-beta&tabs=http",
+        "tip": "Wechseln Sie zur Registerkarte „Berechtigungen ändern“, und gestatten Sie „eDiscovery.Read.All“ oder „eDiscovery.ReadWrite.All“ das Ausführen dieser Abfrage. Sie erhalten die Fall-ID, indem Sie folgenden Befehl ausführen: GET https://graph.microsoft.com/beta/compliance/ediscovery/cases.",
         "skipTest": false
     },
     {

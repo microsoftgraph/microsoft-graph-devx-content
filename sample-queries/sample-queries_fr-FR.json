@@ -2145,11 +2145,11 @@
     },
     {
         "id": "dac56b00-97a5-4072-a3fe-56750819f28d",
-        "category": "Recherche",
+        "category": "Rechercher",
         "method": "POST",
-        "humanName": "(bêta) trier les résultats de la recherche",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#sort-search-results",
+        "humanName": "trier les résultats de la recherche",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-v1.0#sort-search-results",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2162,11 +2162,11 @@
     },
     {
         "id": "6e0a3dec-0fb4-4a53-a3cd-6062511e244a",
-        "category": "Recherche",
+        "category": "Rechercher",
         "method": "POST",
-        "humanName": "(bêta) affiner les résultats avec les agrégations de chaînes",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "affiner les résultats avec les agrégations de chaînes",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2179,11 +2179,11 @@
     },
     {
         "id": "3fcfed04-55b0-4946-87e5-a9c725c97fc7",
-        "category": "Recherche",
+        "category": "Rechercher",
         "method": "POST",
-        "humanName": "(bêta) affiner les résultats à l’aide d’agrégations numériques",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregationsw",
+        "humanName": "affiner les résultats avec les agrégations numériques",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregationsw",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2196,11 +2196,11 @@
     },
     {
         "id": "7434ca1b-8fd1-463f-8940-81a8e729e257",
-        "category": "Recherche",
+        "category": "Rechercher",
         "method": "POST",
-        "humanName": "(bêta) appliquer la requête soigné qui réussit le jeton d’aggrégation",
-        "requestUrl": "/beta/search/query",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-beta#refine-results-using-aggregations",
+        "humanName": "appliquer une requête affinée en passant l'agrégationToken",
+        "requestUrl": "/v1.0/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview?view=graph-rest-v1.0#refine-results-using-aggregations",
         "headers": [
             {
                 "name": "Content-Type",
@@ -2251,8 +2251,8 @@
         "method": "GET",
         "humanName": "répertorier les cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-list?view=graph-rest-beta",
-        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list?view=graph-rest-beta&tabs=http",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête",
         "skipTest": false
     },
     {
@@ -2261,8 +2261,8 @@
         "method": "GET",
         "humanName": "obtenir un cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}",
-        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/ediscovery-ediscoverycase-get?view=graph-rest-beta",
-        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Cette requête nécessite un ID de cas. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-beta&tabs=http",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Cette requête nécessite un ID de cas. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
         "skipTest": false
     },
     {
@@ -2271,7 +2271,7 @@
         "method": "POST",
         "humanName": "créer un cas eDiscovery",
         "requestUrl": "/beta/compliance/ediscovery/cases",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-ediscoverycase-post?view=graph-rest-beta",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-post?view=graph-rest-beta&tabs=http",
         "headers": [
             {
                 "name": "Content-type",
@@ -2279,7 +2279,7 @@
             }
         ],
         "postBody": "{\r\n  \"displayName\": \"eDiscovery case created from Graph Explorer\"\r\n}",
-        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.ReadWrite.All. pour exécuter cette requête",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.ReadWrite.All. pour exécuter cette requête",
         "skipTest": false
     },
     {
@@ -2288,8 +2288,8 @@
         "method": "GET",
         "humanName": "répertorier les ensembles de révision",
         "requestUrl": "/beta/compliance/ediscovery/cases/{caseId}/reviewSets",
-        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-reviewset-list?view=graph-rest-beta",
-        "tip": "Accédez à l’onglet Modifier des autorisations et accordez  l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
+        "docLink": "https://docs.microsoft.com/graph/api/ediscovery-case-list-reviewsets?view=graph-rest-beta&tabs=http",
+        "tip": "Accédez à l’onglet Modifier des autorisations et accordez l’autorisation eDiscovery.Read.All ou eDiscovery.ReadWrite.All. pour exécuter cette requête. Pour trouver l’ID d’un cas, vous pouvez exécuter : Obtenir HTTPS://GRAPH.MICROSOFT.COM/BETA/COMPLIANCE/EDISCOVERY/CASES.",
         "skipTest": false
     },
     {
