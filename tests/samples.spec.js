@@ -1,5 +1,5 @@
 const samples = require('../sample-queries/sample-queries.json');
-const { includesAllowedVersions, validateJson } = require("./validator");
+const { includesAllowedVersions, validateJson, validateLink } = require("./validator");
 
 const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
@@ -24,7 +24,7 @@ for (const query of sampleQueries) {
 
     if (query.postBody) {
       it (`sample with postBody property should have corresponding headers property`, function () {
-        expect(query.headers).toBeDefined();        
+        expect(query.headers).toBeDefined();
       });
 
       it(`postbody should be a valid json string`, function () {
@@ -35,6 +35,10 @@ for (const query of sampleQueries) {
         expect(isValidJson).toEqual(true);
       });
     }
+
+    it('docLink should be valid', async function() {
+      const isValidLink = await validateLink(query.docLink);
+      expect(isValidLink).toBe(true);
+    });
   });
 }
-
