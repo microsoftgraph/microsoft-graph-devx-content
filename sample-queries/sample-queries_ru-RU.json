@@ -148,7 +148,7 @@
       "id": "31DB5C68-256D-4286-96CC-D1B620A87210",
       "category": "Пользователи",
       "method": "GET",
-      "humanName": "Пользователи с displayName, содержащим слово \"комната\", и почтой, заканчивающейся на \"microsoft.com\", отсортированные по имени",
+      "humanName": "пользователи с displayName, содержащим слово \"комната\", и почтой, заканчивающейся на \"microsoft.com\", отсортированные по имени",
       "requestUrl": "/v1.0/users?$count=true&$search=\"displayName:room\"&$filter=endsWith(mail,'microsoft.com')&$orderBy=displayName&$select=id,displayName,mail",
       "headers": [
         {
@@ -541,7 +541,7 @@
       "id": "9a718c8a-588d-4130-8cdf-c47c5a5e77e0",
       "category": "Почта Outlook",
       "method": "GET",
-      "humanName": "мои правила для папки \"входящие\"",
+      "humanName": "мои правила для папки \"Входящие\"",
       "requestUrl": "/beta/me/mailFolders/inbox/messagerules",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/resources/messagerule?view=graph-rest-beta",
       "skipTest": false
@@ -550,7 +550,7 @@
       "id": "41683db9-63a8-4bea-903d-6812535d478f",
       "category": "Почта Outlook",
       "method": "GET",
-      "humanName": "мои категории outlook ",
+      "humanName": "мои категории Outlook ",
       "requestUrl": "/beta/me/outlook/masterCategories",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/outlookuser-list-mastercategories?view=graph-rest-beta",
       "skipTest": false
@@ -559,7 +559,7 @@
       "id": "ba5b9178-8dd6-408d-9fa0-451c555f096b",
       "category": "Почта Outlook",
       "method": "GET",
-      "humanName": "получить заголовки сообщений электронной почты",
+      "humanName": "получение заголовков сообщений электронной почты",
       "requestUrl": "/beta/me/messages?$select=internetMessageHeaders&$top=1",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/resources/message?view=graph-rest-beta",
       "skipTest": false
@@ -568,7 +568,7 @@
       "id": "5375c9af-0c41-40a6-a93d-410403286f5a",
       "category": "Почта Outlook",
       "method": "GET",
-      "humanName": "Перечисление конференц-залов",
+      "humanName": "перечисление конференц-залов",
       "requestUrl": "/beta/me/findRooms",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/user-findrooms?view=graph-rest-beta",
       "skipTest": false
@@ -647,7 +647,7 @@
       "id": "0ccc92bc-0fb6-4322-bbdf-9489760bf637",
       "category": "Календарь Outlook",
       "method": "POST",
-      "humanName": "добавить видеоконференцию сообщества graph",
+      "humanName": "добавление видеоконференции сообщества Graph",
       "requestUrl": "/v1.0/me/events",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/user-post-events?view=graph-rest-1.0",
       "headers": [
@@ -657,7 +657,7 @@
         }
       ],
       "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-      "tip": "Создание ежемесячной видеоконференции сообщества Microsoft Graph в вашем календаре.",
+      "tip": "Создайте ежемесячную видеоконференцию сообщества Microsoft Graph в своем календаре.",
       "skipTest": false
     },
     {
@@ -881,7 +881,7 @@
       "id": "c594b984-66d2-4f8a-8c6a-cb520cbe471f",
       "category": "Планировщик",
       "method": "GET",
-      "humanName": "Все сегменты плана в Планировщике",
+      "humanName": "все сегменты плана в Планировщике",
       "requestUrl": "/v1.0/planner/plans/{plan-id}/buckets",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/plannerplan-list-buckets?view=graph-rest-1.0",
       "tip": "Для этого запроса требуется идентификатор плана.  Чтобы узнать идентификатор плана, можно выполнить: GET https://graph.microsoft.com/v1.0/me/groups/{ИД_группы}/plans.",
@@ -891,7 +891,7 @@
       "id": "d0834295-25b6-4678-b8a1-fc6d1bb60c49",
       "category": "Планировщик",
       "method": "POST",
-      "humanName": "Создание сегмента плана в Планировщике",
+      "humanName": "создание сегмента плана в Планировщике",
       "requestUrl": "/v1.0/planner/buckets",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/planner-post-buckets?view=graph-rest-1.0",
       "headers": [
@@ -980,7 +980,7 @@
       "id": "50fd36fd-7420-449e-a051-e3c5cd4c68b0",
       "category": "Планировщик",
       "method": "PATCH",
-      "humanName": "Обновление задачи в Планировщике",
+      "humanName": "обновление задачи в Планировщике",
       "requestUrl": "/v1.0/planner/tasks/{task-id}",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/plannertask-update?view=graph-rest-1.0",
       "headers": [
@@ -1403,7 +1403,7 @@
       "id": "ccb5a185-603e-4c0a-8968-5ab47a30306e",
       "category": "Microsoft Teams",
       "method": "GET",
-      "humanName": "члены команды",
+      "humanName": "участники команды",
       "requestUrl": "/v1.0/groups/{group-id-for-teams}/members",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/group-list-memberof?view=graph-rest-1.0",
       "tip": "Для этого запроса требуется идентификатор группы Teams.  Чтобы узнать идентификатор группы Teams, к которой вы принадлежите, можно выполнить: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
@@ -1413,7 +1413,7 @@
       "id": "dca29936-83eb-41e5-b8a5-4050bda71165",
       "category": "Microsoft Teams",
       "method": "GET",
-      "humanName": "каналы команды, в которую я вхожу",
+      "humanName": "каналы команды, в которой я состою",
       "requestUrl": "/v1.0/teams/{team-id}/channels",
       "docLink": "https://docs.microsoft.com/ru-ru/graph/api/channel-list?view=graph-rest-1.0",
       "tip": "Для этого запроса требуется идентификатор команды.  Чтобы узнать идентификатор команды Teams, к которой вы принадлежите, можно выполнить: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
