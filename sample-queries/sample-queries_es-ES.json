@@ -132,7 +132,7 @@
       "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
       "category": "Usuarios",
       "method": "GET",
-      "humanName": "todos los usuarios del Departamento de finanzas ordenados por nombre con recuento",
+      "humanName": "todos los usuarios del departamento de finanzas ordenados por nombre con recuento",
       "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
       "headers": [
         {
@@ -263,7 +263,7 @@
       "id": "9cc05df4-13ef-411f-b0af-e91046cceee2",
       "category": "Usuarios",
       "method": "GET",
-      "humanName": "hacer un seguimiento de los cambios de los usuarios",
+      "humanName": "realizar un seguimiento de los cambios de usuario",
       "requestUrl": "/v1.0/users/delta?$select=displayName,givenName,surname",
       "docLink": "https://docs.microsoft.com/es-es/graph/delta-query-users",
       "skipTest": false
@@ -409,7 +409,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/es-es/graph/api/group-list-members?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de grupo.  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Esta consulta necesita un id. de grupo  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -419,7 +419,7 @@
       "humanName": "conversaciones del grupo",
       "requestUrl": "/v1.0/groups/{group-id}/conversations",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/group-list-conversations?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de grupo.  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Esta consulta necesita un id. de grupo  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -429,7 +429,7 @@
       "humanName": "eventos del grupo",
       "requestUrl": "/v1.0/groups/{group-id}/events",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/group-list-events?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de grupo.  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Esta consulta necesita un id. de grupo  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -445,7 +445,7 @@
           "value": "application/json"
         }
       ],
-      "tip": "Esta consulta necesita un ID. de grupo.  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Esta consulta necesita un id. de grupo  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -462,7 +462,7 @@
       "id": "5499b532-b8a6-4ff9-9dc1-ed991880611b",
       "category": "Grupos",
       "method": "GET",
-      "humanName": "hacer un seguimientos de los cambios en los grupos",
+      "humanName": "realizar un seguimiento de los cambios de grupo",
       "requestUrl": "/v1.0/groups/delta?$select=displayName,description",
       "docLink": "https://docs.microsoft.com/es-es/graph/delta-query-groups",
       "skipTest": false
@@ -525,7 +525,7 @@
         }
       ],
       "postBody": "{\r\n  \"comment\": \"FYI\",\r\n  \"toRecipients\": [\r\n    {\r\n      \"emailAddress\": {\r\n        \"address\": \"{user-mail}\",\r\n        \"name\": \"Alex Darrow\"\r\n      }\r\n    }\r\n  ]\r\n}",
-      "tip": "Esta consulta requiere un ID. de mensaje. Para obtener el ID., ejecute la siguiente consulta, busque el mensaje en la respuesta y use la propiedad ID: GET https://graph.microsoft.com/v1.0/me/messages",
+      "tip": "Esta consulta requiere un id. de mensaje Para obtener el ID., ejecute la siguiente consulta, busque el mensaje en la respuesta y use la propiedad ID: GET https://graph.microsoft.com/v1.0/me/messages",
       "skipTest": false
     },
     {
@@ -541,7 +541,7 @@
       "id": "9a718c8a-588d-4130-8cdf-c47c5a5e77e0",
       "category": "Correo de Outlook",
       "method": "GET",
-      "humanName": "mis reglas de la Bandeja de entrada",
+      "humanName": "mis reglas de la bandeja de entrada",
       "requestUrl": "/beta/me/mailFolders/inbox/messagerules",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/resources/messagerule?view=graph-rest-beta",
       "skipTest": false
@@ -577,7 +577,7 @@
       "id": "38792887-68ae-493c-b2d5-5deb4febc3aa",
       "category": "Correo de Outlook (beta)",
       "method": "GET",
-      "humanName": "correo electrónico en el que se me menciona",
+      "humanName": "correo electrónico que se me ha @ mencionado ",
       "requestUrl": "/beta/me/messages?$filter=mentionsPreview/isMentioned eq true&$select=subject,sender,receivedDateTime",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/user-list-messages#request-2?view=graph-rest-beta",
       "skipTest": false
@@ -613,7 +613,7 @@
       "id": "73f6df96-9358-4073-a4f8-3b9dd06ffa68",
       "category": "Calendario de Outlook",
       "method": "POST",
-      "humanName": "buscar horas de reunión",
+      "humanName": "buscar hora de reunión",
       "requestUrl": "/v1.0/me/findMeetingTimes",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/user-findmeetingtimes?view=graph-rest-1.0",
       "headers": [
@@ -657,7 +657,7 @@
         }
       ],
       "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-      "tip": "Crea la llamada de la comunidad de Microsoft Graph mensual en su calendario.",
+      "tip": "Crea la llamada de la comunidad de Microsoft Graph mensual en el calendario.",
       "skipTest": false
     },
     {
@@ -763,7 +763,7 @@
         }
       ],
       "postBody": "{ \"persistChanges\": true }",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -773,7 +773,7 @@
       "humanName": "hojas de cálculo de un libro",
       "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/workbook-list-worksheets?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -790,7 +790,7 @@
         }
       ],
       "postBody": "{\r\n  \"name\": \"My New Sheet\"\r\n}",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -807,7 +807,7 @@
         }
       ],
       "postBody": "{\r\n \"rate\": 0.035,\r\n \"nper\": 20,\r\n \"pv\": -2000\r\n}",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -817,7 +817,7 @@
       "humanName": "rango utilizado en una hoja de cálculo",
       "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/usedRange",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/worksheet-usedrange?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -827,7 +827,7 @@
       "humanName": "tablas en una hoja de cálculo",
       "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/Sheet1/tables",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/worksheet-list-tables?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -837,7 +837,7 @@
       "humanName": "gráficos en una hoja de cálculo",
       "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets('Sheet1')/charts",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/worksheet-list-charts?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de driveItem.  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
+      "tip": "Esta consulta requiere un identificador de driveItem  Para buscar el ID. del driveItem que corresponde a un libro de Excel, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/drive/root/search(q='.xlsx')?select=name,id,webUrl.",
       "skipTest": false
     },
     {
@@ -847,7 +847,7 @@
       "humanName": "todos los planes de Planner asociados a un grupo",
       "requestUrl": "/v1.0/groups/{group-id-with-plan}/planner/plans",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannergroup-list-plans?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de grupo.  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Esta consulta necesita un id. de grupo  Para buscar el ID. de un grupo al que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -857,7 +857,7 @@
       "humanName": "obtener plan de Planner",
       "requestUrl": "/v1.0/planner/plans/{plan-id}",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannerplan-get?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de plan.  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+      "tip": "Esta consulta necesita un id. de plan  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
       "skipTest": false
     },
     {
@@ -884,7 +884,7 @@
       "humanName": "todos los depósitos de un plan de Planner",
       "requestUrl": "/v1.0/planner/plans/{plan-id}/buckets",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannerplan-list-buckets?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de plan.  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+      "tip": "Esta consulta necesita un id. de plan  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
       "skipTest": false
     },
     {
@@ -901,7 +901,7 @@
         }
       ],
       "postBody": "{\r\n  \"name\": \"{bucket-name}\",\r\n  \"planId\": \"{plan-id}\",\r\n  \"orderHint\": \" !\"\r\n}",
-      "tip": "Esta consulta necesita un ID. de plan.  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/plans",
+      "tip": "Esta consulta necesita un id. de plan  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/plans",
       "skipTest": false
     },
     {
@@ -925,10 +925,10 @@
       "id": "3ba300c3-d24d-4bf3-bca3-d0e6f158a9cd",
       "category": "Planner",
       "method": "GET",
-      "humanName": "todas las tareas de Planner para un plan",
+      "humanName": "todas las tareas de Planner de un plan",
       "requestUrl": "/v1.0/planner/plans/{plan-id}/tasks",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannerplan-list-tasks?view=graph-rest-1.0",
-      "tip": "Esta consulta necesita un ID. de plan.  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
+      "tip": "Esta consulta necesita un id. de plan  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/groups/{group-id}/plans.",
       "skipTest": false
     },
     {
@@ -956,7 +956,7 @@
       "humanName": "obtener tarea de Planner por identificador",
       "requestUrl": "/v1.0/planner/tasks/{task-id}",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannertask-get?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de tarea.  Para buscar el ID. de la tarea, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+      "tip": "Esta consulta requiere un identificador de tarea  Para buscar el ID. de la tarea, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
       "skipTest": false
     },
     {
@@ -973,7 +973,7 @@
         }
       ],
       "postBody": "{\r\n  \"planId\": \"{plan-id}\",\r\n  \"title\": \"{task-title}\",\r\n  \"assignments\": {}\r\n}",
-      "tip": "Esta consulta necesita un ID. de plan.  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+      "tip": "Esta consulta necesita un id. de plan  Para buscar el ID. del plan puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
       "skipTest": false
     },
     {
@@ -1000,7 +1000,7 @@
       "humanName": "detalles de una tarea de Planner",
       "requestUrl": "/v1.0/planner/tasks/{task-id}/details",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/plannertaskdetails-get?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de tarea.  Para buscar el ID. de la tarea, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
+      "tip": "Esta consulta requiere un identificador de tarea  Para buscar el ID. de la tarea, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/planner/tasks",
       "skipTest": false
     },
     {
@@ -1014,7 +1014,7 @@
     },
     {
       "id": "cbc7a138-4b3d-41b1-91be-0f52c1aa42d0",
-      "category": "Información",
+      "category": "Ideas",
       "method": "GET",
       "humanName": "elementos populares de mi entorno",
       "requestUrl": "/v1.0/me/insights/trending",
@@ -1050,7 +1050,7 @@
     },
     {
       "id": "b6498cca-6b3f-447d-a964-8d25062c2ff0",
-      "category": "Personas",
+      "category": "Contactos",
       "method": "GET",
       "humanName": "personas cuyo nombre empiece por J",
       "requestUrl": "/v1.0/me/people/?$search=j",
@@ -1206,7 +1206,7 @@
         }
       ],
       "postBody": "{\r\n  \"displayName\": \"Section 1\"\r\n}",
-      "tip": "Esta consulta necesita un identificador de Bloc de notas.  Para buscar el ID., puede ejecutar: GET https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
+      "tip": "Esta consulta necesita un id. de Bloc de notas  Para buscar el ID., puede ejecutar: GET https://graph.microsoft.com/v1.0/me/onenote/notebooks. ",
       "skipTest": false
     },
     {
@@ -1223,7 +1223,7 @@
         }
       ],
       "postBody": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>A page with a block of HTML</title>\r\n  </head>\r\n  <body>\r\n    <p>This page contains some <i>formatted</i> <b>text</b>.</p>\r\n  </body>\r\n</html>",
-      "tip": "Esta consulta requiere un ID. de sección.  Para buscar el ID., puede ejecutar: GET https://graph.microsoft.com/v1.0/me/onenote/sections.",
+      "tip": "Esta consulta requiere un id. de sección  Para buscar el ID., puede ejecutar: GET https://graph.microsoft.com/v1.0/me/onenote/sections.",
       "skipTest": false
     },
     {
@@ -1416,7 +1416,7 @@
       "humanName": "canales de un equipo del que soy miembro",
       "requestUrl": "/v1.0/teams/{team-id}/channels",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/channel-list?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de equipo.  Para buscar el ID. de equipo de equipos a los que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+      "tip": "Esta consulta requiere un identificador de equipo  Para buscar el ID. de equipo de equipos a los que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
       "skipTest": false
     },
     {
@@ -1443,7 +1443,7 @@
         }
       ],
       "postBody": "{\r\n   \"displayName\": \"Architecture Discussion\",\r\n   \"description\": \"This channel is where we debate all future architecture plans\"\r\n }",
-      "tip": "Esta consulta requiere un identificador de equipo.  Para buscar el ID. de equipo de equipos a los que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams.",
+      "tip": "Esta consulta requiere un identificador de equipo  Para buscar el ID. de equipo de equipos a los que pertenece, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams.",
       "skipTest": false
     },
     {
@@ -1453,7 +1453,7 @@
       "humanName": "aplicaciones en un equipo",
       "requestUrl": "/v1.0/teams/{team-id}/installedApps?$expand=teamsAppDefinition",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/team-list-installedapps?view=graph-rest-1.0",
-      "tip": "Esta consulta requiere un identificador de equipo. Para buscar el ID. de equipo, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+      "tip": "Esta consulta requiere un identificador de equipo Para buscar el ID. de equipo, puede ejecutar: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
       "skipTest": false
     },
     {
@@ -1500,7 +1500,7 @@
       "humanName": "mensajes (sin respuestas) en un canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/channel-list-messages?view=graph-rest-beta",
-      "tip": "Esta consulta necesita un ID. de grupo del equipo y el ID. de canal del canal correspondiente de ese equipo. Para buscar el ID. de grupo y de canal, puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
+      "tip": "Esta consulta requiere un identificador de grupo del equipo y el identificador de canal del canal correspondiente de ese equipo. Para buscar el ID. de grupo y de canal, puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels",
       "skipTest": false
     },
     {
@@ -1510,7 +1510,7 @@
       "humanName": "mensaje en un canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta necesita un ID. de grupo del equipo, el ID. de canal del canal correspondiente al equipo y el ID. del mensaje que quiere recuperar. Para buscar el ID. de grupo, el ID. de canal y el ID. de mensaje que puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+      "tip": "Esta consulta requiere un id. de grupo del equipo, el identificador de canal del canal correspondiente de ese equipo y el id. de mensaje del mensaje que desea recuperar. Para buscar el ID. de grupo, el ID. de canal y el ID. de mensaje que puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
       "skipTest": false
     },
     {
@@ -1520,7 +1520,7 @@
       "humanName": "respuestas a un mensaje en un canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta necesita un ID. de grupo del equipo, el ID. de canal del canal correspondiente a ese equipo y el ID. de mensaje del mensaje del que necesita las respuestas. Para buscar el ID. de grupo, el ID. de canal y el ID. de mensaje que puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
+      "tip": "Esta consulta requiere un id. de grupo del equipo, el identificador de canal del canal correspondiente de ese equipo y el identificador de mensaje del mensaje del que necesita las respuestas. Para buscar el ID. de grupo, el ID. de canal y el ID. de mensaje que puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
       "skipTest": false
     },
     {
@@ -1530,7 +1530,7 @@
       "humanName": "respuesta de un mensaje",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta necesita un ID. de grupo del equipo, el ID. de canal del canal correspondiente de ese equipo, el ID. de mensaje del mensaje del que necesita la respuesta y el ID. de la respuesta específica. Para buscar el ID. de grupo, el identificador de canal, el ID. de mensaje y el ID. de respuesta, puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
+      "tip": "Esta consulta requiere un id. de grupo del equipo, el identificador de canal del canal correspondiente de ese equipo, el id. de mensaje del mensaje del que necesita la respuesta y el identificador de la respuesta específica. Para buscar el ID. de grupo, el identificador de canal, el ID. de mensaje y el ID. de respuesta, puede ejecutar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://graph.microsoft.com/beta/groups/{group-id-for-teams}/channels 3) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages 4) GET https://graph.microsoft.com/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
       "skipTest": false
     },
     {
@@ -1601,7 +1601,7 @@
       "id": "cbe4d296-0290-4582-a0b8-e87ff0eda9b3",
       "category": "Seguridad",
       "method": "GET",
-      "humanName": "alertas de “Azure Security Center”",
+      "humanName": "alertas de \"Azure Security Center\"",
       "requestUrl": "/v1.0/security/alerts?$filter=vendorInformation/provider eq 'ASC'&$top=5",
       "docLink": "https://docs.microsoft.com/es-es/graph/api/alert-list?view=graph-rest-1.0",
       "skipTest": false
@@ -1724,7 +1724,7 @@
         }
       ],
       "postBody": "{\r\n  \"assignedTo\": \"test@contoso.com\",\r\n  \"comments\": [\"Comment 0\", \"Comment 1\"],\r\n  \"tags\": [\"Tag 0\", \"Tag 1\"],\r\n  \"feedback\": \"truePositive\",\r\n  \"status\": \"newAlert\",\r\n  \"vendorInformation\": {\r\n    \"provider\": \"provider\",\r\n    \"providerVersion\": \"3.0\",\r\n    \"subProvider\": null,\r\n    \"vendor\": \"vendor\"\r\n  }\r\n}",
-      "tip": "Esta consulta requiere un identificador de alerta. Para buscar el ID. de la alerta, puede ejecutar: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
+      "tip": "Esta consulta requiere un identificador de alerta Para buscar el ID. de la alerta, puede ejecutar: GET https://graph.microsoft.com/v1.0/security/alerts?$top=1",
       "skipTest": false
     },
     {
