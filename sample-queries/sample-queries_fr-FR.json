@@ -11,7 +11,7 @@
     },
     {
       "id": "47e05ca9-40d7-485e-b8cf-fdbce55f1970",
-      "category": "Requêtes de base",
+      "category": "Prise en main",
       "method": "GET",
       "humanName": "mon profil (bêta)",
       "requestUrl": "/beta/me/profile",
@@ -29,16 +29,16 @@
     },
     {
       "id": "4f1770a0-b24e-49d6-98b3-df2941de4018",
-      "category": "Requêtes de base",
+      "category": "Prise en main",
       "method": "GET",
-      "humanName": "mon courrier électronique",
+      "humanName": "mon e-mail",
       "requestUrl": "/v1.0/me/messages",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-list-messages?view=graph-rest-1.0",
       "skipTest": false
     },
     {
       "id": "7867209e-306d-41d2-bce7-30ca56bbab54",
-      "category": "Requêtes de base",
+      "category": "Prise en main",
       "method": "GET",
       "humanName": "tous les éléments de mon disque",
       "requestUrl": "/v1.0/me/drive/root/children",
@@ -49,14 +49,14 @@
       "id": "4a36b271-6247-4a01-b5ac-7e33aeb42d04",
       "category": "Requêtes de base",
       "method": "GET",
-      "humanName": "éléments qui me sont suggérés",
+      "humanName": "Éléments qui me sont suggérés",
       "requestUrl": "/beta/me/insights/trending",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/insights-list-trending?view=graph-rest-beta",
       "skipTest": false
     },
     {
       "id": "fe4a9fe8-c43e-413a-aad8-a842b1308e89",
-      "category": "Requêtes de base",
+      "category": "Prise en main",
       "method": "GET",
       "humanName": "mon responsable",
       "requestUrl": "/v1.0/me/manager",
@@ -93,7 +93,7 @@
       "id": "6eeef6bc-af51-4c38-b93b-d4deb9287a5b",
       "category": "Utilisateurs",
       "method": "GET",
-      "humanName": "mes collaborateurs directs",
+      "humanName": "mes rapports directs",
       "requestUrl": "/v1.0/me/directReports",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-list-directreports?view=graph-rest-1.0",
       "skipTest": false
@@ -568,7 +568,7 @@
       "id": "5375c9af-0c41-40a6-a93d-410403286f5a",
       "category": "Messagerie Outlook",
       "method": "GET",
-      "humanName": "répertorier les salles de conférence",
+      "humanName": "liste des salles de conférence",
       "requestUrl": "/beta/me/findRooms",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-findrooms?view=graph-rest-beta",
       "skipTest": false
@@ -577,7 +577,7 @@
       "id": "38792887-68ae-493c-b2d5-5deb4febc3aa",
       "category": "Messagerie Outlook (version bêta)",
       "method": "GET",
-      "humanName": "courrier où je suis mentionné",
+      "humanName": "e-mail où je suis mentionné",
       "requestUrl": "/beta/me/messages?$filter=mentionsPreview/isMentioned eq true&$select=subject,sender,receivedDateTime",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-list-messages#request-2?view=graph-rest-beta",
       "skipTest": false
@@ -647,7 +647,7 @@
       "id": "0ccc92bc-0fb6-4322-bbdf-9489760bf637",
       "category": "Calendrier Outlook",
       "method": "POST",
-      "humanName": "ajouter le webinaire de la communauté graph",
+      "humanName": "ajouter un appel à la communauté graphique",
       "requestUrl": "/v1.0/me/events",
       "docLink": "https://docs.microsoft.com/fr-fr/graph/api/user-post-events?view=graph-rest-1.0",
       "headers": [
@@ -657,7 +657,7 @@
         }
       ],
       "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-      "tip": "Crée l’appel de communauté Microsoft Graph mensuel sur votre calendrier.",
+      "tip": "Crée l'appel mensuel de la communauté Microsoft Graph sur votre calendrier.",
       "skipTest": false
     },
     {
@@ -1050,7 +1050,7 @@
     },
     {
       "id": "b6498cca-6b3f-447d-a964-8d25062c2ff0",
-      "category": "Contacts",
+      "category": "Personnes",
       "method": "GET",
       "humanName": "personnes dont le nom commence par J",
       "requestUrl": "/v1.0/me/people/?$search=j",
