@@ -93,7 +93,7 @@
       "id": "6eeef6bc-af51-4c38-b93b-d4deb9287a5b",
       "category": "Usuários",
       "method": "GET",
-      "humanName": "meus subordinados diretos",
+      "humanName": "meus relatórios diretos",
       "requestUrl": "/v1.0/me/directReports",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-list-directreports?view=graph-rest-1.0",
       "skipTest": false
@@ -105,17 +105,17 @@
       "humanName": "todos os usuários da organização",
       "requestUrl": "/v1.0/users",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/users?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
       "id": "707499b7-807b-44cd-a347-e629b47128ad",
       "category": "Usuários",
       "method": "GET",
-      "humanName": "todos os usuários associados na organização",
+      "humanName": "todos os usuários convidados na organização",
       "requestUrl": "/v1.0/users/?$filter=userType eq 'guest'",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/users?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -132,7 +132,7 @@
       "id": "136e0fa2-3533-489f-a91d-52005cdb23a0",
       "category": "Usuários",
       "method": "GET",
-      "humanName": "todos os usuários do departamento financeiro classificados por nome com contagem",
+      "humanName": "todos os usuários do Departamento financeiro classificados por nome com contagem",
       "requestUrl": "/v1.0/users?$count=true&$filter=Department eq 'Finance'&$orderBy=displayName&$select=id,displayName,department",
       "headers": [
         {
@@ -141,7 +141,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/users?view=graph-rest-1.0",
-      "tip": "Você está usando os recursos de consulta avançada para objetos de diretório, envie seu feedback aqui: https://aka.ms/aadmgs",
+      "tip": "Você está usando os recursos de consulta avançada para objetos de diretório. Envie seu comentário aqui: https://aka.ms/aadmgs",
       "skipTest": false
     },
     {
@@ -157,7 +157,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/users?view=graph-rest-1.0",
-      "tip": "Você está usando os recursos de consulta avançada para objetos de diretório, envie seu feedback aqui: https://aka.ms/aadmgs",
+      "tip": "Você está usando os recursos de consulta avançada para objetos de diretório. Envie seu comentário aqui: https://aka.ms/aadmgs",
       "skipTest": false
     },
     {
@@ -167,7 +167,7 @@
       "humanName": "eu",
       "requestUrl": "/v1.0/me",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/user?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -184,7 +184,7 @@
         }
       ],
       "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -203,7 +203,7 @@
       "humanName": "usuário por email",
       "requestUrl": "/v1.0/users/{user-mail}",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/user?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -213,7 +213,7 @@
       "humanName": "identidades de usuários",
       "requestUrl": "/v1.0/users/{id | userPrincipalName}/identities",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/user?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -239,7 +239,7 @@
         }
       ],
       "postBody": "{\r\n        \"accountEnabled\": true,\r\n        \"city\": \"Seattle\",\r\n        \"country\": \"United States\",\r\n        \"department\": \"Sales & Marketing\",\r\n        \"displayName\": \"Melissa Darrow\",\r\n        \"givenName\": \"Melissa\",\r\n        \"jobTitle\": \"Marketing Director\",\r\n        \"mailNickname\": \"MelissaD\",\r\n        \"passwordPolicies\": \"DisablePasswordExpiration\",\r\n        \"passwordProfile\": {\r\n            \"password\": \"{Placeholder Password}\",\r\n            \"forceChangePasswordNextSignIn\": false\r\n        },\r\n        \"officeLocation\": \"131/1105\",\r\n        \"postalCode\": \"98052\",\r\n        \"preferredLanguage\": \"en-US\",\r\n        \"state\": \"WA\",\r\n        \"streetAddress\": \"9256 Towne Center Dr., Suite 400\",\r\n        \"surname\": \"Darrow\",\r\n        \"mobilePhone\": \"+1 206 555 0110\",\r\n        \"usageLocation\": \"US\",\r\n        \"userPrincipalName\": \"MelissaD@{domain}\"\r\n    }",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -256,7 +256,7 @@
         }
       ],
       "postBody": "{\r\n        \"department\": \"Sales & Marketing\"\r\n    }",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -295,7 +295,7 @@
       "humanName": "excluir usuário",
       "requestUrl": "/v1.0/users/{id | userPrincipalName}",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-delete?view=graph-rest-1.0",
-      "tip": "Gostaríamos de ouvir de você. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
+      "tip": "Queremos saber sua opinião. Deixe seus comentários sobre esta API aqui: https://aka.ms/UsersAPIFeedback",
       "skipTest": false
     },
     {
@@ -409,7 +409,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-list-members?view=graph-rest-1.0",
-      "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -419,7 +419,7 @@
       "humanName": "conversas do grupo",
       "requestUrl": "/v1.0/groups/{group-id}/conversations",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-list-conversations?view=graph-rest-1.0",
-      "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -429,7 +429,7 @@
       "humanName": "eventos do grupo",
       "requestUrl": "/v1.0/groups/{group-id}/events",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-list-events?view=graph-rest-1.0",
-      "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -445,7 +445,7 @@
           "value": "application/json"
         }
       ],
-      "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -568,7 +568,7 @@
       "id": "5375c9af-0c41-40a6-a93d-410403286f5a",
       "category": "Email do Outlook",
       "method": "GET",
-      "humanName": "enumerar salas de conferência",
+      "humanName": "listar salas de conferência",
       "requestUrl": "/beta/me/findRooms",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-findrooms?view=graph-rest-beta",
       "skipTest": false
@@ -647,7 +647,7 @@
       "id": "0ccc92bc-0fb6-4322-bbdf-9489760bf637",
       "category": "Calendário do Outlook",
       "method": "POST",
-      "humanName": "adicionar chamada à comunidade do graph",
+      "humanName": "adicionar chamada à comunidade do microsoft graph",
       "requestUrl": "/v1.0/me/events",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-post-events?view=graph-rest-1.0",
       "headers": [
@@ -657,7 +657,7 @@
         }
       ],
       "postBody": "{\r\n  \"subject\": \"Microsoft Graph Community call\",\r\n  \"body\": {\r\n    \"contentType\": \"HTML\",\r\n    \"content\": \"Call link: https://aka.ms/mmkv1b Submit a question: https://aka.ms/ybuw2i\"\r\n  },\r\n  \"start\": {\r\n      \"dateTime\": \"2018-09-04T08:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"end\": {\r\n      \"dateTime\": \"2018-09-04T09:00:00\",\r\n      \"timeZone\": \"Pacific Standard Time\"\r\n  },\r\n  \"location\":{\r\n      \"displayName\":\"Skype for Business\"\r\n  },\r\n    \"recurrence\": {\r\n      \"pattern\": {\r\n      \"type\": \"relativeMonthly\",\r\n      \"interval\": 1,\r\n      \"daysOfWeek\": [ \"Tuesday\" ],\r\n      \"index\": \"first\"\r\n    },\r\n      \"range\": {\r\n        \"type\": \"noEnd\",\r\n        \"startDate\": \"2017-08-29\"\r\n      }\r\n    }\r\n}",
-      "tip": "Cria uma chamada mensal da comunidade Microsoft Graph em seu calendário.",
+      "tip": "Cria uma chamada mensal à comunidade do Microsoft Graph em seu calendário.",
       "skipTest": false
     },
     {
@@ -847,7 +847,7 @@
       "humanName": "todos os planos do Planner associados a um grupo",
       "requestUrl": "/v1.0/groups/{group-id-with-plan}/planner/plans",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/plannergroup-list-plans?view=graph-rest-1.0",
-      "tip": "Esta consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
+      "tip": "Essa consulta exige uma ID de grupo.  Para encontrar a ID de um grupo ao qual você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/memberOf",
       "skipTest": false
     },
     {
@@ -918,7 +918,7 @@
         }
       ],
       "postBody": "{\r\n    \"name\": \"Updated bucket name\"\r\n}",
-      "tip": "Esta consulta exige uma ID de Bucket e o valor de @odata. ETag de um Bucket selecionado.  Para encontrar a ID do bucket, execute: Obtenha https://Graph.Microsoft.com/v1.0/Planner/Plans/{ID do plano}/buckets e, em seguida, execute: GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
+      "tip": "Esta consulta exige uma ID de Bucket e o valor de @odata.etag de um Bucket selecionado.  Para encontrar a ID do bucket, execute: Obtenha https://Graph.Microsoft.com/v1.0/Planner/Plans/{ID do plano}/buckets e, em seguida, execute: GET https://graph.microsoft.com/v1.0/planner/buckets/{bucket-id} to discover @odata.etag",
       "skipTest": false
     },
     {
@@ -944,7 +944,7 @@
       "id": "b5a9e5f0-d3c5-487b-bb58-cd7ca70bad1b",
       "category": "Planner",
       "method": "GET",
-      "humanName": "todas as tarefas do Planner de usuário",
+      "humanName": "todas as tarefas do Planner para o usuário",
       "requestUrl": "/v1.0/users/{coworker-mail}/planner/tasks",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/planneruser-list-tasks?view=graph-rest-1.0",
       "skipTest": false
@@ -1230,14 +1230,14 @@
       "id": "03bc7528-425b-4346-80c5-4fe4403622a0",
       "category": "Sites do SharePoint",
       "method": "GET",
-      "humanName": "site padrão do SharePoint da minha organização",
+      "humanName": "site padrão do MIcrosoft Office SharePoint Online da minha organização",
       "requestUrl": "/v1.0/sites/root",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/site-get?view=graph-rest-1.0",
       "skipTest": false
     },
     {
       "id": "3dedf59e-8407-4ba2-a916-e5a40426c214",
-      "category": "Sites do SharePoint",
+      "category": "Sites do Microsoft Office SharePoint Online",
       "method": "GET",
       "humanName": "enumerar as bibliotecas de documentos no site raiz",
       "requestUrl": "/v1.0/sites/root/drives",
@@ -1246,25 +1246,25 @@
     },
     {
       "id": "a696c30e-9d43-4269-8591-5b263833602d",
-      "category": "Sites do SharePoint",
+      "category": "Sites do Microsoft Office SharePoint Online",
       "method": "GET",
-      "humanName": "Obter site do SharePoint baseado no caminho relativo do site",
+      "humanName": "Obter site do Microsoft Office SharePoint Online baseado no caminho relativo do site",
       "requestUrl": "/v1.0/sites/{host-name}:/{server-relative-path}",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/site-getbypath?view=graph-rest-1.0",
       "skipTest": false
     },
     {
       "id": "73fa11fa-e984-444b-94cf-b843141339bd",
-      "category": "Sites do SharePoint",
+      "category": "Sites do Microsoft Office SharePoint Online",
       "method": "GET",
-      "humanName": "Pesquisar um site do SharePoint por palavra-chave",
+      "humanName": "Pesquisar um site do Microsoft Office SharePoint Online por palavra-chave",
       "requestUrl": "/v1.0/sites?search=contoso",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/site-search?view=graph-rest-1.0",
       "skipTest": false
     },
     {
       "id": "1f8dd913-d2d5-4485-aac0-a8acde3dc529",
-      "category": "Sites do SharePoint",
+      "category": "Sites do Microsoft Office SharePoint Online",
       "method": "GET",
       "humanName": "enumerar subsites do site raiz",
       "requestUrl": "/v1.0/sites/root/sites",
@@ -1273,7 +1273,7 @@
     },
     {
       "id": "198473e0-b580-400f-a4a3-a8086e68b51d",
-      "category": "Sites do SharePoint",
+      "category": "Sites do Microsoft Office SharePoint Online",
       "method": "GET",
       "humanName": "enumerar colunas de site do site raiz",
       "requestUrl": "/v1.0/sites/root/columns",
@@ -1300,7 +1300,7 @@
     },
     {
       "id": "659659dc-afd0-4ff9-a1fc-06c0f1636d21",
-      "category": "Listas do SharePoint",
+      "category": "Listas do Microsoft Office SharePoint Online",
       "method": "GET",
       "humanName": "enumerar colunas de lista",
       "requestUrl": "/v1.0/sites/root/lists/{list-id}/columns",
@@ -1327,7 +1327,7 @@
     },
     {
       "id": "ae717dfe-a350-4182-9842-97f60faa77a4",
-      "category": "Listas do SharePoint",
+      "category": "Listas do Microsoft Office SharePoint Online",
       "method": "GET",
       "humanName": "enumerar itens de lista com valores de uma coluna específica",
       "requestUrl": "/v1.0/sites/root/lists/{list-id}/items?$filter=fields/Title eq '{list-title}'",
@@ -1406,7 +1406,7 @@
       "humanName": "membros de uma equipe",
       "requestUrl": "/v1.0/groups/{group-id-for-teams}/members",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/group-list-memberof?view=graph-rest-1.0",
-      "tip": "Esta consulta exige uma ID de grupo da Equipe.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
+      "tip": "Esta consulta exige uma ID de grupo do Microsoft Teams.  Para encontrar a ID do grupo das equipes às quais você pertence, você pode executar o: GET https://graph.microsoft.com/v1.0/me/joinedTeams",
       "skipTest": false
     },
     {
@@ -1500,7 +1500,7 @@
       "humanName": "mensagens (sem respostas) em um canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/channel-list-messages?view=graph-rest-beta",
-      "tip": "Esta consulta exige uma ID de grupo da ID de canal e da equipe do canal correspondente dessa equipe. Para encontrar a ID do grupo e o ID de canal, você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais",
+      "tip": "Esta consulta exige uma ID de grupo do Microsoft Teams e uma ID de canal do canal correspondente desse Microsoft Teams. Para encontrar a ID do grupo e o ID de canal, você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais",
       "skipTest": false
     },
     {
@@ -1510,7 +1510,7 @@
       "humanName": "mensagem em um canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta exige uma ID de grupo da equipe, ID de canal do canal correspondente da ID da mensagem e da mensagem que você deseja recuperar. Para encontrar a ID do grupo, ID do canal e ID da mensagem que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais 3) GET https://Graph.Microsoft.com/beta/Teams/{Group-ID-para-Teams}/canais/{ID do canal}/mensagens",
+      "tip": "Esta consulta exige uma ID de grupo do Microsoft Teams, ID de canal do canal correspondente desse Microsoft Teams e ID de mensagem da mensagem que você deseja recuperar. Para encontrar a ID do grupo, ID do canal e ID da mensagem que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais 3) GET https://Graph.Microsoft.com/beta/Teams/{Group-ID-para-Teams}/canais/{ID do canal}/mensagens",
       "skipTest": false
     },
     {
@@ -1520,7 +1520,7 @@
       "humanName": "respostas a uma mensagem em um canal",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta exige uma ID de grupo da equipe, ID de canal do canal correspondente da ID da mensagem e da mensagem das quais você precisa das respostas. Para encontrar a ID do grupo, ID do canal e ID da mensagem que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais 3) GET https://Graph.Microsoft.com/beta/Teams/{Group-ID-para-Teams}/canais/{ID do canal}/mensagens",
+      "tip": "Esta consulta exige uma ID de grupo do Microsoft Teams, ID de canal do canal correspondente desse Microsoft Teams e ID de mensagem da mensagem da qual você precisa das respostas. Para encontrar a ID do grupo, ID do canal e ID da mensagem que você pode executar: 1) GET https://graph.microsoft.com/beta/me/joinedTeams 2) GET https://Graph.Microsoft.com/beta/groups/{Group-ID-para-Teams}/canais 3) GET https://Graph.Microsoft.com/beta/Teams/{Group-ID-para-Teams}/canais/{ID do canal}/mensagens",
       "skipTest": false
     },
     {
@@ -1530,7 +1530,7 @@
       "humanName": "resposta de uma mensagem",
       "requestUrl": "/beta/teams/{group-id-for-teams}/channels/{channel-id}/messages/{message-id}/replies/{reply-id}",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/chatmessage-get?view=graph-rest-beta",
-      "tip": "Esta consulta exige uma ID de grupo da Equipe, ID de canal do canal correspondente dessa Equipe, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) OBTER https://graph.microsoft.com/beta/me/joinedTeams 2) OBTER https://Graph.Microsoft.com/beta/groups/{ID do grupo-para-equipes}/canais 3) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{ID do canal}/mensagens 4) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{Channel-ID}/mensagens/{Message-ID}/respostas",
+      "tip": "Esta consulta exige uma ID de grupo do Microsoft Teams, ID de canal do canal correspondente desse Microsoft Teams, ID da mensagem da qual você precisa da resposta e a ID da resposta específica. Para encontrar a ID do grupo, ID do canal, ID da mensagem e a ID da resposta que você pode executar: 1) OBTER https://graph.microsoft.com/beta/me/joinedTeams 2) OBTER https://Graph.Microsoft.com/beta/groups/{ID do grupo-para-equipes}/canais 3) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{ID do canal}/mensagens 4) OBTER https://Graph.Microsoft.com/beta/Teams/{ID do grupo-para-equipes}/canais/{Channel-ID}/mensagens/{Message-ID}/respostas",
       "skipTest": false
     },
     {
@@ -1860,7 +1860,7 @@
       "method": "PUT",
       "humanName": "criar um item de histórico e atividade do usuário",
       "requestUrl": "/v1.0/me/activities/uniqueIdInAppContext",
-      "docLink": "https://docs.microsoft.com/pt-br/graph/api/projectrome-put-activity#example-2---?view=graph-rest-1.0",
+      "docLink": "https://docs.microsoft.com/pt-br/graph/api/projectrome-put-activity#example-2---deep-insert?view=graph-rest-1.0",
       "headers": [
         {
           "name": "Content-Type",
