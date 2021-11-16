@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 function includesAllowedVersions (versions, request) {
   return versions.some(version => {
     return request.toLowerCase().includes(version.toLowerCase());
@@ -16,5 +18,15 @@ function validateJson (query, isValidJson) {
   return isValidJson;
 }
 
+async function validateLink (linkUrl) {
+  try {
+    const response = await fetch(linkUrl);
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+}
+
 exports.validateJson = validateJson;
 exports.includesAllowedVersions = includesAllowedVersions;
+exports.validateLink = validateLink;
