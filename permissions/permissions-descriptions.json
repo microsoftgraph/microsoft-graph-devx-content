@@ -1,6 +1,86 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to read the presence information and write activity and availability on-behalf-of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+      "adminConsentDisplayName": "Read and write a user's presence information",
+      "id": "8d3c54a7-cf58-4773-bf81-c0cd6ad522bb",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows the app to read the presence information and write activity and availability on-behalf-of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+      "consentDisplayName": "Read and write your presence information",
+      "value": "Presence.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs for the signed-in user.",
+      "adminConsentDisplayName": "Allow the Teams app to manage only its own tabs for a user",
+      "id": "395dfec1-a0b9-465f-a783-8250a430cb8c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs for you.",
+      "consentDisplayName": "Allow the Teams app to manage only its own tabs for you",
+      "value": "TeamsTab.ReadWriteSelfForUser"
+    },
+    {
+      "adminConsentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs to teams the signed-in user can access.",
+      "adminConsentDisplayName": "Allow the Teams app to manage only its own tabs in teams",
+      "id": "f266662f-120a-4314-b26a-99b08617c7ef",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs to teams you can access.",
+      "consentDisplayName": "Allow the app to manage only its own tabs in teams",
+      "value": "TeamsTab.ReadWriteSelfForTeam"
+    },
+    {
+      "adminConsentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs in chats the signed-in user can access.",
+      "adminConsentDisplayName": "Allow the Teams app to manage only its own tabs in chats",
+      "id": "0c219d04-3abf-47f7-912d-5cca239e90e6",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs in chats you can access.",
+      "consentDisplayName": "Allow the Teams app to manage only its own tabs in chats",
+      "value": "TeamsTab.ReadWriteSelfForChat"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read and update identity risky service principal information for all service principals in your organization, on behalf of the signed-in user. Update operations include dismissing risky service principals.",
+      "adminConsentDisplayName": "Read and write all risky service principal information",
+      "id": "bb6f654c-d7fd-4ae3-85c3-fc380934f515",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and update identity risky service principal information for all service principals in your organization, on your behalf. Update operations include dismissing risky service principals.",
+      "consentDisplayName": "Read and write all risky service principal information",
+      "value": "IdentityRiskyServicePrincipal.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read all risky service principal information for your organization, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read all identity risky service principal information",
+      "id": "ea5c4ab0-5a73-4f35-8272-5d5337884e5d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read all risky service principal information for your organization, on your behalf.",
+      "consentDisplayName": "Read all identity risky service principal information",
+      "value": "IdentityRiskyServicePrincipal.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read and write search configuration, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write your organization's search configuration",
+      "id": "b1a7d408-cab0-47d2-a2a5-a74a3733600d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and write search configuration, on your behalf.",
+      "consentDisplayName": "Read and write your organization's search configuration",
+      "value": "SearchConfiguration.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read search configuration, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read your organization's search configuration",
+      "id": "7d307522-aa38-4cd0-bd60-90c6f0ac50bd",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read search configuration, on your behalf.",
+      "consentDisplayName": "Read your organization's search configuration",
+      "value": "SearchConfiguration.Read.All"
+    },
+    {
       "adminConsentDescription": "Allows the app to read online meeting artifacts on behalf of the signed-in user.",
       "adminConsentDisplayName": "Read user's online meeting artifacts",
       "id": "110e5abb-a10c-4b59-8b55-9b4daa4ef743",
@@ -2852,6 +2932,83 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs for any user, without a signed-in user.",
+      "consentDisplayName": "Allow the Teams app to manage only its own tabs for all users",
+      "id": "3c42dec6-49e8-4a0a-b469-36cff0d9da93",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "TeamsTab.ReadWriteSelfForUser.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs in any team, without a signed-in user.",
+      "consentDisplayName": "Allow the Teams app to manage only its own tabs for all teams",
+      "id": "91c32b81-0ef0-453f-a5c7-4ce2e562f449",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "TeamsTab.ReadWriteSelfForTeam.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows a Teams app to read, install, upgrade, and uninstall its own tabs for any chat, without a signed-in user.",
+      "consentDisplayName": "Allow the Teams app to manage only its own tabs for all chats",
+      "id": "9f62e4a2-a2d6-4350-b28b-d244728c4f86",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "TeamsTab.ReadWriteSelfForChat.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and update identity risky service principal for your organization, without a signed-in user.",
+      "consentDisplayName": "Read and write all risky service principal information",
+      "id": "cb8d6980-6bcb-4507-afec-ed6de3a2d798",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "IdentityRiskyServicePrincipal.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all risky service principal information for your organization, without a signed-in user.",
+      "consentDisplayName": "Read all identity risky service principal information",
+      "id": "607c7344-0eed-41e5-823a-9695ebe1b7b0",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "IdentityRiskyServicePrincipal.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write search configurations, without a signed-in user.",
+      "consentDisplayName": "Read and write your organization's search configuration",
+      "id": "0e778b85-fefa-466d-9eec-750569d92122",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SearchConfiguration.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read search configurations, without a signed-in user.",
+      "consentDisplayName": "Read your organization's search configuration",
+      "id": "ada977a5-b8b1-493b-9a91-66c206d76ecf",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SearchConfiguration.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
