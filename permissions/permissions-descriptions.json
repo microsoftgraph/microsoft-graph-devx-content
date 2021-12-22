@@ -1,6 +1,66 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to read and write security incidents, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write to incidents",
+      "id": "128ca929-1a19-45e6-a3b8-435ec44a36ba",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and write to all security incidents that you have access to.",
+      "consentDisplayName": "Read and write to security incidents",
+      "value": "SecurityIncident.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read security incidents, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read incidents",
+      "id": "b9abcc4f-94fc-4457-9141-d20ce80ec952",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read all security incidents that you have access to.",
+      "consentDisplayName": "Read security incidents",
+      "value": "SecurityIncident.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read and write to all security alerts, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write to all security alerts",
+      "id": "471f2a7f-2a42-4d45-a2bf-594d0838070d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and write all alerts that you have access to.",
+      "consentDisplayName": "Read and write all alerts",
+      "value": "SecurityAlert.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read all security alerts, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read all security alerts",
+      "id": "bc257fb8-46b4-4b15-8713-01e91bfbe4ea",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read all security alerts that you have access to.",
+      "consentDisplayName": "Read all alerts",
+      "value": "SecurityAlert.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to update service announcement messages' user status on behalf of the signed-in user. The message status can be marked as read, archive, or favorite.",
+      "adminConsentDisplayName": "Update user status on service announcement messages",
+      "id": "636e1b0b-1cc2-4b1c-9aa9-4eeed9b9761b",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to update service announcement messages' status on your behalf. Your status for messages can be marked as read, archive, or favorite.",
+      "consentDisplayName": "Update your user status on service announcement messages",
+      "value": "ServiceMessageViewpoint.Write"
+    },
+    {
+      "adminConsentDescription": "Allows the app to run hunting queries, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Run hunting queries",
+      "id": "b152eca8-ea73-4a48-8c98-1a6742673d99",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to run hunting queries that you can execute.",
+      "consentDisplayName": "Run hunting queries",
+      "value": "ThreatHunting.Read.All"
+    },
+    {
       "adminConsentDescription": "Allows a Teams app to read, install, upgrade, and uninstall itself to teams the signed-in user can access.",
       "adminConsentDisplayName": "Allow the app to manage itself in teams",
       "id": "0f4595f7-64b1-4e13-81bc-11a249df07a9",
@@ -2972,6 +3032,83 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write to all security incidents, without a signed-in user.",
+      "consentDisplayName": "Read and write to all security incidents",
+      "id": "34bf0e97-1971-4929-b999-9e2442d941d7",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SecurityIncident.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all security incidents, without a signed-in user.",
+      "consentDisplayName": "Read all security incidents",
+      "id": "45cc0394-e837-488b-a098-1918f48d186c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SecurityIncident.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write to all security alerts, without a signed-in user.",
+      "consentDisplayName": "Read and write to all security alerts",
+      "id": "ed4fca05-be46-441f-9803-1873825f8fdb",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SecurityAlert.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all security alerts, without a signed-in user.",
+      "consentDisplayName": "Read all security alerts",
+      "id": "472e4a4d-bb4a-4026-98d1-0b0d74cb74a5",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SecurityAlert.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects without a signed-in user.",
+      "consentDisplayName": "Read and write all eDiscovery objects",
+      "id": "b2620db1-3bf7-4c5b-9cb9-576d29eac736",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "eDiscovery.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects without a signed-in user.",
+      "consentDisplayName": "Read all eDiscovery objects",
+      "id": "50180013-6191-4d1e-a373-e590ff4e66af",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "eDiscovery.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to run hunting queries, without a signed-in user.",
+      "consentDisplayName": "Run hunting queries",
+      "id": "dd98c7f5-2d42-42d3-a0e4-633161547251",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ThreatHunting.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
