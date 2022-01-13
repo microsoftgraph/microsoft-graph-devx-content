@@ -7,6 +7,7 @@ on:
     paths:
       - 'messages/**'
       - '!messages/GE.json'
+      - '.github/workflows/handover-translations.yml'
 
 jobs:
   pull-request:
@@ -32,6 +33,6 @@ jobs:
         destination_repo: 'microsoftgraph/microsoft-graph-explorer-v4'
         destination_folder: 'src/messages'
         destination_base_branch: 'dev'
-        destination_head_branch: chore/handover-translations
+        destination_head_branch: chore/handover-translations-${{ env.today }}
         user_email: ${{ secrets.ACTION_EMAIL }}
         user_name: ${{ secrets.ACTION_USERNAME }}
