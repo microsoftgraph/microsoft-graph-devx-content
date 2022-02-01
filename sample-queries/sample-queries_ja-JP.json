@@ -2259,8 +2259,42 @@
           "value": "application/json"
         }
       ],
-      "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5\r\n    }\r\n  ],\r\n  \"queryAlterationOptions\": {\r\n    \"enableSuggestion\": true,\r\n    \"enableModification\": true\r\n  }\r\n}",
+      "postBody": "{\r\n  \"requests\": [\r\n    {\r\n      \"entityTypes\": [\r\n        \"message\"\r\n      ],\r\n      \"query\": {\r\n        \"queryString\": \"informatino\"\r\n      },\r\n      \"from\": 0,\r\n      \"size\": 5,\r\n      \"queryAlterationOptions\": {\r\n        \"enableSuggestion\": true,\r\n        \"enableModification\": true\r\n      }\r\n    }\r\n  ]  \r\n}",
       "tip": "enable Calendars.Read、Mail.Read、Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All、ExternalItem.Read.All",
+      "skipTest": false
+    },
+    {
+      "id": "781a102a-310a-1fa9-1433-c05ec792e194",
+      "category": "検索",
+      "method": "POST",
+      "humanName": "(ベータ版) 重複した SharePoint 検索結果をトリミングする",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            },\n            \"trimDuplicates\": true,\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+      "tip": "Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All を有効にする",
+      "skipTest": false
+    },
+    {
+      "id": "bb61ec27-b5db-db71-a12c-305c7665e6e2",
+      "category": "検索",
+      "method": "POST",
+      "humanName": "(ベータ版) queryTemplate を使用した検索",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\",\n                \"queryTemplate\": \"({searchTerms})\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+      "tip": "Files.Read.All、Sites.Read.All、Files.ReadWrite.All、Sites.ReadWrite.All を有効にする",
       "skipTest": false
     },
     {
