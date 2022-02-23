@@ -892,6 +892,70 @@
         ]
       }
     },
+    "/directory/administrativeunits": {
+      "GET": {
+        "Application": [
+          "AdministrativeUnit.Read.All",
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AdministrativeUnit.Read.All",
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "AdministrativeUnit.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.AccessAsUser.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/administrativeunits/{id}": {
+      "GET": {
+        "Application": [
+          "AdministrativeUnit.Read.All",
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AdministrativeUnit.Read.All",
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.AccessAsUser.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "AdministrativeUnit.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AdministrativeUnit.ReadWrite.All",
+          "Directory.AccessAsUser.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/appcatalogs/teamsapps": {
       "GET": {
         "Application": [
@@ -8167,6 +8231,36 @@
       }
     },
     "/devicemanagement/virtualendpoint/serviceplans": {
+      "GET": {
+        "Application": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/virtualendpoint/snapshots": {
+      "GET": {
+        "Application": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/virtualendpoint/snapshots/{id}": {
       "GET": {
         "Application": [
           "CloudPC.Read.All",
@@ -65503,7 +65597,7 @@
         ]
       }
     },
-    "/informationprotection/bitlocker/recoverykeys/'{bitlockeryrecoverykeyid}'": {
+    "/informationprotection/bitlocker/recoverykeys/{id}": {
       "GET": {
         "Application": [
           "N/A"
@@ -101599,6 +101693,18 @@
         "Description": "Allows the app to send mail as users in the organization.",
         "ConsentDescription": "Send mail as a user using SMTP AUTH",
         "Grant": "user"
+      },
+      {
+        "Name": "ManagedTenants.Read.All",
+        "Description": "Allows the app to read all managed tenant information on behalf of the signed-in user.",
+        "ConsentDescription": "Read all managed tenant specific information",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ManagedTenants.ReadWrite.All",
+        "Description": "Allows the app to read and write all managed tenant information on behalf of the signed-in user.",
+        "ConsentDescription": "Read and write all managed tenant specific information",
+        "Grant": "admin"
       },
       {
         "Name": "Member.Read.Hidden",
