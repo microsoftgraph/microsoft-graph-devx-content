@@ -277,6 +277,56 @@
         ]
       }
     },
+    "/identitygovernance/accessreviews/historydefinitions": {
+      "GET": {
+        "Application": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/accessreviews/historydefinitions/{id}": {
+      "GET": {
+        "Application": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/accessreviews/historydefinitions/{id}/instances": {
+      "GET": {
+        "Application": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/applydecisions": {
       "POST": {
         "Application": [
@@ -330,6 +380,19 @@
       }
     },
     "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/stop": {
+      "POST": {
+        "Application": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "AccessReview.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/accessreviews/historydefinitions/{id}/instances/{id}/generatedownloaduri": {
       "POST": {
         "Application": [
           "AccessReview.ReadWrite.All"
@@ -816,6 +879,37 @@
         ]
       },
       "POST": {
+        "Application": [
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "Application.ReadWrite.All",
+          "Directory.AccessAsUser.All"
+        ],
+        "DelegatedPersonal": [
+          "Application.ReadWrite.All"
+        ]
+      }
+    },
+    "/applications/{id}/extensionproperties/{id}": {
+      "GET": {
+        "Application": [
+          "Application.Read.All",
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "Application.Read.All",
+          "Application.ReadWrite.All",
+          "Directory.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "Application.Read.All",
+          "Application.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
         "Application": [
           "Application.ReadWrite.All",
           "Application.ReadWrite.OwnedBy"
@@ -2338,21 +2432,6 @@
         ],
         "DelegatedPersonal": [
           "N/A"
-        ]
-      }
-    },
-    "/applications/{id}/extensionproperties/{id}": {
-      "DELETE": {
-        "Application": [
-          "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "Application.ReadWrite.All",
-          "Directory.AccessAsUser.All"
-        ],
-        "DelegatedPersonal": [
-          "Application.ReadWrite.All"
         ]
       }
     },
@@ -15948,12 +16027,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -15976,12 +16059,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16054,12 +16141,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16082,12 +16173,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16813,7 +16908,8 @@
           "Group.ReadWrite.All",
           "TeamsAppInstallation.Read.Group",
           "TeamsAppInstallation.ReadForTeam.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
@@ -16821,7 +16917,8 @@
           "Group.Read.All",
           "Group.ReadWrite.All",
           "TeamsAppInstallation.ReadForTeam",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16831,12 +16928,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16873,12 +16972,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -17347,12 +17448,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -17399,12 +17502,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -19177,6 +19282,30 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/drive/items/{id}": {
+      "GET": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -48840,7 +48969,7 @@
           "N/A"
         ]
       },
-      "PATCH": {
+      "PUT": {
         "Application": [
           "Schedule.ReadWrite.All"
         ],
@@ -54280,6 +54409,18 @@
         "Grant": "admin"
       },
       {
+        "Name": "SearchConfiguration.Read.All",
+        "Description": "Allows the app to read search configuration, on behalf of the signed-in user.",
+        "ConsentDescription": "Read your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.ReadWrite.All",
+        "Description": "Allows the app to read and write search configurations, on behalf of the signed-in user.",
+        "ConsentDescription": "Read and write your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
         "Name": "SecurityEvents.Read.All",
         "Description": "Allows the app to read your organization’s security events on behalf of the signed-in user.",
         "ConsentDescription": "Read your organization’s security events",
@@ -55677,6 +55818,18 @@
         "Name": "ExternalItem.ReadWrite.All",
         "Description": "Allows the app to read and write all external items without a signed-in user.",
         "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.Read.All",
+        "Description": "Allows the app to read search configurations, without a signed-in user.",
+        "ConsentDescription": "Read your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.ReadWrite.All",
+        "Description": "Allows the app to read and write search configurations, without a signed-in user.",
+        "ConsentDescription": "Read and write your organization's search configuration",
         "Grant": "admin"
       },
       {

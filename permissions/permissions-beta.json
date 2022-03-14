@@ -1378,7 +1378,6 @@
         "DelegatedWork": [
           "Application.Read.All",
           "Application.ReadWrite.All",
-          "Directory.AccessAsUser.All",
           "Directory.Read.All",
           "Directory.ReadWrite.All"
         ],
@@ -1396,6 +1395,38 @@
         "DelegatedWork": [
           "Application.ReadWrite.All",
           "Directory.AccessAsUser.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Application.ReadWrite.All"
+        ]
+      }
+    },
+    "/applications/{id}/extensionproperties/{id}": {
+      "GET": {
+        "Application": [
+          "Application.Read.All",
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "Application.Read.All",
+          "Application.ReadWrite.All",
+          "Directory.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "Application.Read.All",
+          "Application.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Application.ReadWrite.All",
+          "Application.ReadWrite.OwnedBy",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Application.ReadWrite.All",
           "Directory.ReadWrite.All"
         ],
         "DelegatedPersonal": [
@@ -3001,23 +3032,6 @@
         ],
         "DelegatedPersonal": [
           "N/A"
-        ]
-      }
-    },
-    "/applications/{id}/extensionproperties/{id}": {
-      "DELETE": {
-        "Application": [
-          "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Application.ReadWrite.All",
-          "Directory.AccessAsUser.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "Application.ReadWrite.All"
         ]
       }
     },
@@ -8961,6 +8975,19 @@
         ]
       }
     },
+    "/devicemanagement/manageddevices/bulkrestorecloudpc": {
+      "POST": {
+        "Application": [
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/manageddevices/{id}/reprovisioncloudpc": {
       "POST": {
         "Application": [
@@ -8975,6 +9002,19 @@
       }
     },
     "/devicemanagement/manageddevices/{id}/resizecloudpc": {
+      "POST": {
+        "Application": [
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/manageddevices/{id}/restorecloudpc": {
       "POST": {
         "Application": [
           "CloudPC.ReadWrite.All"
@@ -47264,12 +47304,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -47292,12 +47336,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -47808,6 +47856,25 @@
         ]
       }
     },
+    "/rolemanagement/directory/transitiveroleassignments": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/rolemanagement/entitlementmanagement/roleassignments": {
       "GET": {
         "Application": [
@@ -47884,12 +47951,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -47912,12 +47983,16 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.AccessAsUser.All",
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "Group.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48149,7 +48224,8 @@
           "Group.ReadWrite.All",
           "TeamsAppInstallation.Read.Group",
           "TeamsAppInstallation.ReadForTeam.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
@@ -48157,7 +48233,8 @@
           "Group.Read.All",
           "Group.ReadWrite.All",
           "TeamsAppInstallation.ReadForTeam",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48167,12 +48244,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48209,12 +48288,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48877,12 +48958,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48929,12 +49012,14 @@
         "Application": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam.All"
+          "TeamsAppInstallation.ReadWriteForTeam.All",
+          "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
-          "TeamsAppInstallation.ReadWriteForTeam"
+          "TeamsAppInstallation.ReadWriteForTeam",
+          "TeamsAppInstallation.ReadWriteSelfForTeam"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -50669,6 +50754,21 @@
         ]
       }
     },
+    "/identitygovernance/entitlementmanagement/accesspackagecatalogs/32efb28c-9a7a-446c-986b-ca6528c6669d/customaccesspackageworkflowextensions": {
+      "GET": {
+        "Application": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}": {
       "GET": {
         "Application": [
@@ -50729,6 +50829,69 @@
         ],
         "DelegatedWork": [
           "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/customaccesspackageworkflowextensions": {
+      "GET": {
+        "Application": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/customaccesspackageworkflowextensions/{id}": {
+      "GET": {
+        "Application": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
           "EntitlementManagement.ReadWrite.All"
         ],
         "DelegatedPersonal": [
@@ -51052,6 +51215,19 @@
         ]
       },
       "PATCH": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/entitlementmanagement/accesspackagecatalogs/32efb28c-9a7a-446c-986b-ca6528c6669d/customaccesspackageworkflowextensions/98ffaec5-ae8e-4902-a434-5ffc5d3d3cd0": {
+      "DELETE": {
         "Application": [
           "EntitlementManagement.ReadWrite.All"
         ],
@@ -51436,6 +51612,56 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/drive/items/{id}": {
+      "GET": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "N/A",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "N/A",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -60863,46 +61089,6 @@
         ]
       }
     },
-    "/drive/items/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "Files.ReadWrite",
-          "Files.ReadWrite.All"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "Files.Read",
-          "Files.Read.All",
-          "Files.ReadWrite",
-          "Files.ReadWrite.All"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "Files.ReadWrite",
-          "Files.ReadWrite.All"
-        ]
-      }
-    },
     "/education/classes/{id}/assignments/{id}/categories/{id}": {
       "DELETE": {
         "Application": [
@@ -64418,6 +64604,20 @@
         ]
       }
     },
+    "/auditevent": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "ManagedTenant.Read.All",
+          "ManagedTenant.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/bookingbusinesses": {
       "GET": {
         "Application": [
@@ -65605,6 +65805,34 @@
         "DelegatedWork": [
           "BitLockerKey.Read.All",
           "BitLockerKey.ReadBasic.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/managedtenant/auditevents": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "ManagedTenant.Read.All",
+          "ManagedTenant.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/managedtenant/auditevents/{id}": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "ManagedTenant.Read.All",
+          "ManagedTenant.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -70726,6 +70954,31 @@
           "Group.ReadWrite.All",
           "Tasks.Read",
           "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/settings/contactmergesuggestions": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "User.Read",
+          "User.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "User.ReadWrite"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -78229,6 +78482,31 @@
           "Group.ReadWrite.All",
           "Tasks.Read",
           "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/users/{id}/settings/contactmergesuggestions": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "User.Read",
+          "User.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "User.ReadWrite"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -90270,6 +90548,74 @@
         ]
       }
     },
+    "/rolemanagement/directory/resourcenamespaces": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/resourcenamespaces/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/rolemanagement/directory/roleassignmentscheduleinstances": {
       "GET": {
         "Application": [
@@ -91184,6 +91530,215 @@
         ],
         "DelegatedWork": [
           "Group.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/acronyms/{id}": {
+      "DELETE": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/bookmarks/{id}": {
+      "DELETE": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/qnas/{id}": {
+      "DELETE": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/acronyms": {
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/bookmarks": {
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/qnas": {
+      "GET": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/search/qna/{id}": {
+      "PATCH": {
+        "Application": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SearchConfiguration.Read.All",
+          "SearchConfiguration.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -102049,6 +102604,18 @@
         "Grant": "admin"
       },
       {
+        "Name": "SearchConfiguration.Read.All",
+        "Description": "Allows the app to read search configuration, on behalf of the signed-in user.",
+        "ConsentDescription": "Read your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.ReadWrite.All",
+        "Description": "Allows the app to read and write search configurations, on behalf of the signed-in user.",
+        "ConsentDescription": "Read and write your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
         "Name": "SecurityEvents.Read.All",
         "Description": "Allows the app to read your organization’s security events on behalf of the signed-in user.",
         "ConsentDescription": "Read your organization’s security events",
@@ -103446,6 +104013,18 @@
         "Name": "ExternalItem.ReadWrite.All",
         "Description": "Allows the app to read and write all external items without a signed-in user.",
         "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.Read.All",
+        "Description": "Allows the app to read search configurations, without a signed-in user.",
+        "ConsentDescription": "Read your organization's search configuration",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SearchConfiguration.ReadWrite.All",
+        "Description": "Allows the app to read and write search configurations, without a signed-in user.",
+        "ConsentDescription": "Read and write your organization's search configuration",
         "Grant": "admin"
       },
       {
