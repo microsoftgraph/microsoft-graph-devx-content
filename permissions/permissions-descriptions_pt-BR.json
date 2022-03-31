@@ -1,7 +1,27 @@
 {
   "delegatedScopesList": [
     {
-      "adminConsentDescription": "Permite que o aplicativo liste e consulte quaisquer informações de perfil do usuário compartilhadas associada ao locatário atual em nome do usuário conectado.  Ele também permite que o aplicativo exporte os dados de usuários externos (por exemplo, o conteúdo do cliente ou os logs gerados pelo sistema), para qualquer usuário associado ao locatário atual em nome do usuário conectado.",
+      "adminConsentDescription": "Permite que o aplicativo leia as configurações no nível do locatário no Microsoft Office SharePoint Online e no OneDrive em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "id": "2ef70e10-5bfd-4ede-a5f6-67720500b258",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia as configurações no nível do locatário no Microsoft Office SharePoint Online e no OneDrive em seu nome.",
+      "consentDisplayName": "Ler as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "value": "SharePointTenantSettings.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia e altere as configurações no nível do locatário do Microsoft Office SharePoint Online e do OneDrive em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler e alterar as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "id": "aa07f155-3612-49b8-a147-6c590df35536",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia e altere as configurações no nível do locatário do Microsoft Office SharePoint Online e do OneDrive em seu nome.",
+      "consentDisplayName": "Ler e alterar as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "value": "SharePointTenantSettings.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo liste e consulte quaisquer informações de perfil do usuário compartilhadas associadas ao locatário atual em nome do usuário conectado.  Ele também permite que o aplicativo exporte os dados de usuários externos (por exemplo, o conteúdo do cliente ou os logs gerados pelo sistema), para qualquer usuário associado ao locatário atual em nome do usuário conectado.",
       "adminConsentDisplayName": "Leia sobre todos os perfis de usuário compartilhados entre locatários e exporte seus dados",
       "id": "759dcd16-3c90-463c-937e-abf89f991c18",
       "isEnabled": true,
@@ -3267,11 +3287,55 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Permite que o aplicativo leia emails na caixa de correio do usuário conectado, exceto corpo, previewBody, anexos e quaisquer propriedades estendidas.",
-      "consentDisplayName": "Leia os emails básicos do usuário",
+      "consentDisplayName": "Ler email básico do usuário",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia as configurações no nível do locatário do Microsoft Office SharePoint Online e do OneDrive, sem um usuário conectado.",
+      "consentDisplayName": "Ler as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "id": "83d4163d-a2d8-4d3b-9695-4ae3ca98f888",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SharePointTenantSettings.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia todas as recomendações do Azure Active Directory, sem um usuário conectado. ",
+      "consentDisplayName": "Ler todas as recomendações do Azure Active Directory",
+      "id": "ae73097b-cb2a-4447-b064-5d80f6093921",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "DirectoryRecommendations.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia e atualize todas as recomendações do Azure Active Directory, sem um usuário conectado. ",
+      "consentDisplayName": "Ler e atualizar todas as recomendações do Azure Active Directory",
+      "id": "0e9eea12-4f01-45f6-9b8d-3ea4c8144158",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "DirectoryRecommendations.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia e altere as configurações no nível do locatário do Microsoft Office SharePoint Online e do OneDrive, sem um usuário conectado.",
+      "consentDisplayName": "Ler e alterar as configurações de locatário do Microsoft Office SharePoint Online e do OneDrive",
+      "id": "19b94e34-907c-4f43-bde9-38b1909ed408",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "SharePointTenantSettings.ReadWrite.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
