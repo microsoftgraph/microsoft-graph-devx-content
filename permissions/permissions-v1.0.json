@@ -7116,6 +7116,49 @@
         ]
       }
     },
+    "/oauth2permissiongrants/{id}": {
+      "DELETE": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/me/oauth2permissiongrants": {
       "GET": {
         "Application": [
@@ -7126,6 +7169,52 @@
           "DelegatedPermissionGrant.ReadWrite.All",
           "Directory.Read.All",
           "User.ReadBasic.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/oauth2permissiongrants": {
+      "GET": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/oauth2permissiongrants/delta": {
+      "GET": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -16422,89 +16511,6 @@
         ]
       }
     },
-    "/oauth2permissiongrants": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/oauth2permissiongrants/delta": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/oauth2permissiongrants/{id}": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/policies/adminconsentrequestpolicy": {
       "GET": {
         "Application": [
@@ -16594,7 +16600,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16612,7 +16619,7 @@
       },
       "POST": {
         "Application": [
-          "N/A",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
@@ -16629,7 +16636,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16647,7 +16655,7 @@
       },
       "DELETE": {
         "Application": [
-          "N/A",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
@@ -16664,7 +16672,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16697,7 +16706,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16741,7 +16751,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16759,7 +16770,7 @@
       },
       "POST": {
         "Application": [
-          "N/A",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
@@ -16776,7 +16787,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16794,7 +16806,7 @@
       },
       "DELETE": {
         "Application": [
-          "N/A",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
@@ -16811,7 +16823,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16833,7 +16846,8 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
-          "N/A",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -19271,37 +19285,60 @@
         ]
       }
     },
-    "/external/connections/{id}": {
-      "DELETE": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/external/connections": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ]
       },
       "POST": {
         "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      }
+    },
+    "/external/connections/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ]
       }
@@ -19309,6 +19346,13 @@
     "/external/connections/{id}/operations/{id}": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ]
       }
@@ -19316,35 +19360,51 @@
     "/external/connections/{id}/schema": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ]
       },
       "POST": {
         "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ]
       }
     },
     "/external/connections/{id}/groups/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
       "DELETE": {
         "Application": [
           "ExternalItem.ReadWrite.All",
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
           "ExternalItem.ReadWrite.All",
           "ExternalItem.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -19356,7 +19416,64 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/external/connections/{id}/items/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -19370,36 +19487,11 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
-        ]
-      }
-    },
-    "/external/connections/{id}/items/{id}": {
-      "DELETE": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ]
-      },
-      "PUT": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
         ]
       }
     },
@@ -19410,7 +19502,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -19424,7 +19517,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -40045,6 +40139,37 @@
         ]
       }
     },
+    "/policies/rolemanagementpolicies/{id}/rules/{id}": {
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/admin/serviceannouncement/messages/archive": {
       "POST": {
         "Application": [
@@ -49429,6 +49554,477 @@
         ]
       }
     },
+    "/rolemanagement/directory/roleassignmentschedulerequests": {
+      "POST": {
+        "Application": [
+          "RoleAssignmentSchedule.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": {
+      "POST": {
+        "Application": [
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedulerequests": {
+      "POST": {
+        "Application": [
+          "RoleAssignmentSchedule.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicies": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicies/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicies/{id}/rules": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicyassignments": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicyassignments/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentscheduleinstances": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedulerequests/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedules": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleassignmentschedules/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleAssignmentSchedule.Read.Directory",
+          "RoleAssignmentSchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityscheduleinstances": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedules": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedules/{id}": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.Read.Directory",
+          "RoleEligibilitySchedule.ReadWrite.Directory",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/directoryroles/roletemplateid={roletemplateid}/members/{id}": {
       "DELETE": {
         "Application": [
@@ -49448,6 +50044,20 @@
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": {
+      "POST": {
+        "Application": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleEligibilitySchedule.ReadWrite.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedPersonal": [
@@ -54908,9 +55518,39 @@
         "Grant": "admin"
       },
       {
+        "Name": "ExternalConnection.Read.All",
+        "Description": "Allows the app to read all external connections on behalf of a signed-in user.",
+        "ConsentDescription": "Read all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.All",
+        "Description": "Allows the app to read and write all external connections on behalf of a signed-in user.",
+        "ConsentDescription": "Read and write all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external connections on behalf of a signed-in user. The app can only read and write external connections that it is authorized to, or it can create new external connections.",
+        "ConsentDescription": "Read and write external connections",
+        "Grant": "admin"
+      },
+      {
         "Name": "ExternalItem.Read.All",
-        "Description": "Allows an app to query data ingested with Microsoft Graph connectors",
+        "Description": "Allow the app to read external datasets and content on behalf of the signed-in user.",
         "ConsentDescription": "Read external data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.All",
+        "Description": "Allows the app to read and write all external items on behalf of a signed-in user.",
+        "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external items on behalf of a signed-in user. The app can only read external items of the connection that it is authorized to.",
+        "ConsentDescription": "Read and write external items",
         "Grant": "admin"
       },
       {
@@ -56338,21 +56978,39 @@
         "Grant": "admin"
       },
       {
+        "Name": "ExternalConnection.Read.All",
+        "Description": "Allows the app to read all external connections without a signed-in user.",
+        "ConsentDescription": "Read all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.All",
+        "Description": "Allows the app to read and write all external connections without a signed-in user.",
+        "ConsentDescription": "Read and write all external connections",
+        "Grant": "admin"
+      },
+      {
         "Name": "ExternalConnection.ReadWrite.OwnedBy",
         "Description": "Allows the app to read and write external connections and their settings without a signed-in user. The app can only read and write external connections that it is authorized to, or it can create new external connections.",
         "ConsentDescription": "Read and write external connections and connection settings",
         "Grant": "admin"
       },
       {
-        "Name": "ExternalItem.ReadWrite.OwnedBy",
-        "Description": "Allows the app to read and write external items without a signed-in user. The app can only read external items of the connection that it is authorized to.",
-        "ConsentDescription": "Read and write external items",
+        "Name": "ExternalItem.Read.All",
+        "Description": "Allows the app to read all external items without a signed-in user.",
+        "ConsentDescription": "Read all external items",
         "Grant": "admin"
       },
       {
         "Name": "ExternalItem.ReadWrite.All",
         "Description": "Allows the app to read and write all external items without a signed-in user.",
         "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external items without a signed-in user. The app can only read external items of the connection that it is authorized to.",
+        "ConsentDescription": "Read and write external items",
         "Grant": "admin"
       },
       {

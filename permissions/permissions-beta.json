@@ -6993,6 +6993,38 @@
         ]
       }
     },
+    "/communications/calls/{id}/contentsharingsessions": {
+      "GET": {
+        "Application": [
+          "Calls.Initiate.All",
+          "Calls.InitiateGroupCall.All",
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/communications/calls/{id}/contentsharingsessions/{id}": {
+      "GET": {
+        "Application": [
+          "Calls.Initiate.All",
+          "Calls.InitiateGroupCall.All",
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/app/calls": {
       "POST": {
         "Application": [
@@ -7086,6 +7118,36 @@
         "Application": [
           "Calls.InitiateGroupCalls.All",
           "Calls.JoinGroupCalls.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/app/calls/{id}/addlargegalleryview": {
+      "POST": {
+        "Application": [
+          "Calls.InitiateGroupCall.All",
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/communications/calls/{id}/addlargegalleryview": {
+      "POST": {
+        "Application": [
+          "Calls.InitiateGroupCall.All",
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
         ],
         "DelegatedWork": [
           "N/A"
@@ -7426,7 +7488,7 @@
         ]
       }
     },
-    "/teams/{id}/channels/{id}/incomingchannels/{id}": {
+    "/teams/{id}/incomingchannels/{id}": {
       "DELETE": {
         "Application": [
           "Channel.Delete.All"
@@ -10774,6 +10836,49 @@
         ]
       }
     },
+    "/oauth2permissiongrants/{id}": {
+      "DELETE": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/me/oauth2permissiongrants": {
       "GET": {
         "Application": [
@@ -10784,6 +10889,36 @@
           "DelegatedPermissionGrant.ReadWrite.All",
           "Directory.Read.All",
           "User.ReadBasic.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/oauth2permissiongrants": {
+      "GET": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DelegatedPermissionGrant.ReadWrite.All",
+          "Directory.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -48644,74 +48779,6 @@
         ]
       }
     },
-    "/oauth2permissiongrants": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/oauth2permissiongrants/{id}": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "DelegatedPermissionGrant.ReadWrite.All",
-          "Directory.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/policies/adminconsentrequestpolicy": {
       "GET": {
         "Application": [
@@ -52359,48 +52426,17 @@
         ]
       }
     },
-    "/external/connections/{id}": {
-      "DELETE": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "ExternalConnection.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/external/connections": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52408,10 +52444,55 @@
       },
       "POST": {
         "Application": [
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/external/connections/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52421,10 +52502,14 @@
     "/external/connections/{id}/operations/{id}": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52434,10 +52519,14 @@
     "/external/connections/{id}/schema": {
       "GET": {
         "Application": [
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalConnection.Read.All",
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52445,10 +52534,12 @@
       },
       "PATCH": {
         "Application": [
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52456,10 +52547,68 @@
       },
       "POST": {
         "Application": [
+          "ExternalConnection.ReadWrite.All",
           "ExternalConnection.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
+          "ExternalConnection.ReadWrite.All",
+          "ExternalConnection.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/external/connections/{id}/items/{id}": {
+      "GET": {
+        "Application": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.Read.All",
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
+        "Application": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
+        ],
+        "DelegatedWork": [
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52473,7 +52622,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52487,57 +52637,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/external/connections/{id}/items/{id}": {
-      "DELETE": {
-        "Application": [
           "ExternalItem.ReadWrite.All",
           "ExternalItem.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PUT": {
-        "Application": [
-          "ExternalItem.ReadWrite.All",
-          "ExternalItem.ReadWrite.OwnedBy"
-        ],
-        "DelegatedWork": [
-          "N/A"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52551,7 +52652,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -52565,7 +52667,8 @@
           "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedWork": [
-          "N/A"
+          "ExternalItem.ReadWrite.All",
+          "ExternalItem.ReadWrite.OwnedBy"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -55825,6 +55928,30 @@
         ]
       }
     },
+    "/drives/{id}/items/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
     "/drives/{id}/items/{id}/follow": {
       "POST": {
         "Application": [
@@ -55867,6 +55994,54 @@
         ]
       }
     },
+    "/drives/{id}/root:/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/groups/{id}/drive/items/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
     "/groups/{id}/drive/items/{id}/follow": {
       "POST": {
         "Application": [
@@ -55906,6 +56081,54 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/groups/{id}/drive/root:/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/me/drive/items/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -55972,6 +56195,30 @@
         ]
       }
     },
+    "/me/drive/root:/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
     "/shares/{id}/driveitem/preview": {
       "POST": {
         "Application": [
@@ -55990,6 +56237,30 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/sites/{id}/drive/items/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -56032,6 +56303,54 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/sites/{id}/drive/root:/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
+        ]
+      }
+    },
+    "/users/{id}/drive/items/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -56095,6 +56414,30 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/users/{id}/drive/root:/{id}/extractsensitivitylabels": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "Files.Read",
+          "Files.Read.All",
+          "Files.ReadWrite",
+          "Files.ReadWrite.All"
         ]
       }
     },
@@ -66611,6 +66954,20 @@
         ]
       }
     },
+    "/identitygovernance/entitlementmanagement/accesspackageassignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/identitygovernance/entitlementmanagement/accesspackageassignments/filterbycurrentuser(on={value})": {
       "GET": {
         "Application": [
@@ -67091,6 +67448,34 @@
           "Chat.Read",
           "Chat.ReadBasic",
           "Chat.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/cloudpcs": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/cloudpcs/{id}/getcloudpclaunchinfo": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -74781,6 +75166,34 @@
         ]
       }
     },
+    "/users/{id}/cloudpcs": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/users/{id}/devices": {
       "GET": {
         "Application": [
@@ -79879,37 +80292,6 @@
         ],
         "DelegatedWork": [
           "Place.Read.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/policies/rolemanagementpolicies/{id}/effectiverules/{id}": {
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "RoleManagement.ReadWrite.Directory",
-          "RoleManagementPolicy.ReadWrite.Directory"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "RoleManagement.Read.All",
-          "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory"
-        ],
-        "DelegatedWork": [
-          "RoleManagement.Read.All",
-          "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory",
-          "RoleManagementPolicy.Read.Directory",
-          "RoleManagementPolicy.ReadWrite.Directory"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -90320,7 +90702,7 @@
         ]
       }
     },
-    "/reports/getcredentialusagesummary": {
+    "/reports/getcredentialusagesummary(period={value})": {
       "GET": {
         "Application": [
           "Reports.Read.All"
@@ -91308,6 +91690,45 @@
         ]
       }
     },
+    "/reports/getteamsteamactivitycounts(period={value})": {
+      "GET": {
+        "Application": [
+          "Reports.Read.All"
+        ],
+        "DelegatedWork": [
+          "Reports.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/reports/getteamsteamactivitydetail(period={value})": {
+      "GET": {
+        "Application": [
+          "Reports.Read.All"
+        ],
+        "DelegatedWork": [
+          "Reports.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/reports/getteamsteamactivitydistributioncounts(period={value})": {
+      "GET": {
+        "Application": [
+          "Reports.Read.All"
+        ],
+        "DelegatedWork": [
+          "Reports.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/reports/getteamsuseractivitycounts(period={value})": {
       "GET": {
         "Application": [
@@ -91614,6 +92035,25 @@
       }
     },
     "/policies/rolemanagementpolicies/{id}/effectiverules": {
+      "GET": {
+        "Application": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagementPolicy.Read.Directory",
+          "RoleManagementPolicy.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/rolemanagementpolicies/{id}/effectiverules/{id}": {
       "GET": {
         "Application": [
           "RoleManagement.Read.All",
@@ -93466,6 +93906,42 @@
         ]
       }
     },
+    "/sites/{id}/lists/{id}/items/{id}/documentsetversions/{id}": {
+      "DELETE": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All",
+          "Sites.Selected"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All",
+          "Sites.Selected"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/sites/{id}/permissions/{id}": {
       "DELETE": {
         "Application": [
@@ -93736,6 +94212,42 @@
         ]
       }
     },
+    "/sites/{id}/lists/{id}/items/{id}/documentsetversions": {
+      "GET": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All",
+          "Sites.Selected"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All",
+          "Sites.Selected"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/sites/{id}/lists/{id}/operations": {
       "GET": {
         "Application": [
@@ -93947,6 +94459,24 @@
         "DelegatedWork": [
           "Sites.FullControl.All",
           "Sites.Manage.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/items/{id}/documentsetversions/{id}/restore": {
+      "POST": {
+        "Application": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All",
+          "Sites.Selected"
+        ],
+        "DelegatedWork": [
+          "Sites.FullControl.All",
+          "Sites.Manage.All",
+          "Sites.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -100882,6 +101412,26 @@
         ]
       }
     },
+    "/app/calls/{id}/operations/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/communications/calls/{id}/operations/{id}": {
+      "GET": {
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/communications/presences": {
       "GET": {
         "DelegatedWork": [
@@ -103746,9 +104296,39 @@
         "Grant": "admin"
       },
       {
+        "Name": "ExternalConnection.Read.All",
+        "Description": "Allows the app to read all external connections on behalf of a signed-in user.",
+        "ConsentDescription": "Read all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.All",
+        "Description": "Allows the app to read and write all external connections on behalf of a signed-in user.",
+        "ConsentDescription": "Read and write all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external connections on behalf of a signed-in user. The app can only read and write external connections that it is authorized to, or it can create new external connections.",
+        "ConsentDescription": "Read and write external connections",
+        "Grant": "admin"
+      },
+      {
         "Name": "ExternalItem.Read.All",
-        "Description": "Allows an app to query data ingested with Microsoft Graph connectors",
+        "Description": "Allow the app to read external datasets and content on behalf of the signed-in user.",
         "ConsentDescription": "Read external data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.All",
+        "Description": "Allows the app to read and write all external items on behalf of a signed-in user.",
+        "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external items on behalf of a signed-in user. The app can only read external items of the connection that it is authorized to.",
+        "ConsentDescription": "Read and write external items",
         "Grant": "admin"
       },
       {
@@ -105176,21 +105756,39 @@
         "Grant": "admin"
       },
       {
+        "Name": "ExternalConnection.Read.All",
+        "Description": "Allows the app to read all external connections without a signed-in user.",
+        "ConsentDescription": "Read all external connections",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalConnection.ReadWrite.All",
+        "Description": "Allows the app to read and write all external connections without a signed-in user.",
+        "ConsentDescription": "Read and write all external connections",
+        "Grant": "admin"
+      },
+      {
         "Name": "ExternalConnection.ReadWrite.OwnedBy",
         "Description": "Allows the app to read and write external connections and their settings without a signed-in user. The app can only read and write external connections that it is authorized to, or it can create new external connections.",
         "ConsentDescription": "Read and write external connections and connection settings",
         "Grant": "admin"
       },
       {
-        "Name": "ExternalItem.ReadWrite.OwnedBy",
-        "Description": "Allows the app to read and write external items without a signed-in user. The app can only read external items of the connection that it is authorized to.",
-        "ConsentDescription": "Read and write external items",
+        "Name": "ExternalItem.Read.All",
+        "Description": "Allows the app to read all external items without a signed-in user.",
+        "ConsentDescription": "Read all external items",
         "Grant": "admin"
       },
       {
         "Name": "ExternalItem.ReadWrite.All",
         "Description": "Allows the app to read and write all external items without a signed-in user.",
         "ConsentDescription": "Read and write all external items",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ExternalItem.ReadWrite.OwnedBy",
+        "Description": "Allows the app to read and write external items without a signed-in user. The app can only read external items of the connection that it is authorized to.",
+        "ConsentDescription": "Read and write external items",
         "Grant": "admin"
       },
       {
