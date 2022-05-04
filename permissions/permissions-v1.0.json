@@ -2409,6 +2409,34 @@
         ]
       }
     },
+    "/directoryobjects/{id}": {
+      "DELETE": {
+        "Application": [
+          "Application.ReadWrite.All",
+          "Group.ReadWrite.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Application.ReadWrite.All",
+          "Group.ReadWrite.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Directory.Read.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/serviceprincipals/{id}/claimsmappingpolicies/{id}": {
       "DELETE": {
         "Application": [
@@ -2710,7 +2738,7 @@
           "User.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.AccessAsUser.All",
+          "Application.ReadWrite.All",
           "Group.ReadWrite.All",
           "User.ReadWrite.All"
         ],
@@ -2727,8 +2755,8 @@
           "Directory.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "Directory.ReadWrite.All",
-          "sApplication.ReadWrite.All"
+          "Application.ReadWrite.All",
+          "Directory.ReadWrite.All"
         ]
       }
     },
@@ -5212,6 +5240,28 @@
         ]
       }
     },
+    "/communications/calls/{id}": {
+      "DELETE": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/participants": {
+      "GET": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      }
+    },
     "/communications/calls/logteleconferencedevicequality": {
       "POST": {
         "Application": [
@@ -5225,10 +5275,42 @@
         ]
       }
     },
+    "/communications/calls/{id}/cancelmediaprocessing": {
+      "POST": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      }
+    },
     "/communications/calls/{id}/changescreensharingrole": {
       "POST": {
         "Application": [
           "Calls.AccessMedia.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/keepalive": {
+      "POST": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/mute": {
+      "POST": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/playprompt": {
+      "POST": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
         ]
       }
     },
@@ -5243,6 +5325,20 @@
       "POST": {
         "Application": [
           "Calls.AccessMedia.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/unmute": {
+      "POST": {
+        "Application": [
+          "Calls.AccessMedia.All",
+          "Calls.Initiate.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -5320,12 +5416,62 @@
     "/communications/calls/57dab8b1894c409ab240bd8beae78896/answer": {
       "POST": {
         "Application": [
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/communications/calls/{id}/answer": {
+      "POST": {
+        "Application": [
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/communications/calls/{id}/participants/{id}": {
+      "DELETE": {
+        "Application": [
+          "Calls.JoinGroupCalls.All",
+          "Calls.JoinGroupCallsasGuest.All"
+        ]
+      },
+      "GET": {
+        "Application": [
           "Calls.JoinGroupCalls.All",
           "Calls.JoinGroupCallsasGuest.All"
         ]
       }
     },
-    "/communications/calls/{id}/answer": {
+    "/communications/calls/{id}/participants/{id}/mute": {
+      "POST": {
+        "Application": [
+          "Calls.JoinGroupCalls.All",
+          "Calls.JoinGroupCallsasGuest.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/participants/{id}/startholdmusic": {
+      "POST": {
+        "Application": [
+          "Calls.JoinGroupCalls.All",
+          "Calls.JoinGroupCallsasGuest.All"
+        ]
+      }
+    },
+    "/communications/calls/{id}/participants/{id}/stopholdmusic": {
       "POST": {
         "Application": [
           "Calls.JoinGroupCalls.All",
@@ -15268,30 +15414,6 @@
         ]
       }
     },
-    "/directoryobjects/{id}": {
-      "GET": {
-        "Application": [
-          "Directory.Read.All"
-        ],
-        "DelegatedWork": [
-          "Directory.Read.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Directory.AccessAsUser.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/directoryroles": {
       "GET": {
         "Application": [
@@ -16240,6 +16362,66 @@
         ]
       }
     },
+    "/me/owneddevices": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/ownedobjects": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/registereddevices": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "User.Read",
+          "User.Read.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/oauth2permissiongrants": {
       "GET": {
         "Application": [
@@ -16412,12 +16594,15 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "N/A",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16427,9 +16612,11 @@
       },
       "POST": {
         "Application": [
+          "N/A",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedPersonal": [
@@ -16442,12 +16629,15 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "N/A",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16457,9 +16647,11 @@
       },
       "DELETE": {
         "Application": [
+          "N/A",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedPersonal": [
@@ -16472,12 +16664,15 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "N/A",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16502,12 +16697,15 @@
         "Application": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "N/A",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
           "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
@@ -16531,6 +16729,120 @@
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedWork": [
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/entitlementmanagement/roleassignments": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "N/A",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "N/A",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/entitlementmanagement/roleassignments/{id}": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "N/A",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "N/A",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/entitlementmanagement/roledefinitions": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "N/A",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/rolemanagement/entitlementmanagement/roledefinitions/{id}": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "N/A",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.Directory"
         ],
         "DelegatedPersonal": [
@@ -18588,6 +18900,69 @@
         ]
       },
       "PATCH": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/entitlementmanagement/assignmentpolicies": {
+      "GET": {
+        "Application": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/entitlementmanagement/assignmentpolicies/{id}": {
+      "GET": {
+        "Application": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "EntitlementManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
         "Application": [
           "EntitlementManagement.ReadWrite.All"
         ],
@@ -52595,16 +52970,6 @@
         ]
       }
     },
-    "/communications/calls/{id}/unmute": {
-      "POST": {
-        "DelegatedWork": [
-          "N/A"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/communications/presences": {
       "GET": {
         "DelegatedWork": [
@@ -52948,20 +53313,6 @@
         ]
       }
     },
-    "/me/owneddevices": {
-      "GET": {
-        "DelegatedWork": [
-          "User.Read"
-        ]
-      }
-    },
-    "/me/ownedobjects": {
-      "GET": {
-        "DelegatedWork": [
-          "User.Read"
-        ]
-      }
-    },
     "/me/photo": {
       "GET": {
         "DelegatedWork": [
@@ -52987,13 +53338,6 @@
       }
     },
     "/me/photos/{id}": {
-      "GET": {
-        "DelegatedWork": [
-          "User.Read"
-        ]
-      }
-    },
-    "/me/registereddevices": {
       "GET": {
         "DelegatedWork": [
           "User.Read"
@@ -53676,12 +54020,6 @@
         "Grant": "admin"
       },
       {
-        "Name": "ChannelMessage.Delete",
-        "Description": "Allows an app to delete channel messages in Microsoft Teams, on behalf of the signed-in user.",
-        "ConsentDescription": "Delete user's channel messages",
-        "Grant": "admin"
-      },
-      {
         "Name": "ChannelMessage.Edit",
         "Description": "Allows an app to edit channel messages in Microsoft Teams, on behalf of the signed-in user.",
         "ConsentDescription": "Edit user's channel messages",
@@ -53743,7 +54081,7 @@
       },
       {
         "Name": "CloudPC.ReadWrite.All",
-        "Description": "Allows the app to create, read, update, and delete Cloud PC objects such as on-premises connections, provisioning policies, and device images, on behalf of the user.",
+        "Description": "Allows the app to create, read, update, and delete Cloud PC objects such as Azure network connections, provisioning policies, and device images, on behalf of the user.",
         "ConsentDescription": "Read and write Cloud PCs",
         "Grant": "admin"
       },
@@ -53805,6 +54143,18 @@
         "Name": "CustomSecAttributeDefinition.ReadWrite.All",
         "Description": "Allows the app to read and write custom security attribute definitions for the tenant on behalf of a signed in user.",
         "ConsentDescription": "Read and write custom security attribute definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DelegatedAdminRelationship.Read.All",
+        "Description": "Allows the app to read details of delegated admin relationships with customers like access details (that includes roles) and the duration as well as specific role assignments to security groups on behalf of the signed-in user.",
+        "ConsentDescription": "Read Delegated Admin relationships with customers",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DelegatedAdminRelationship.ReadWrite.All",
+        "Description": "Allows the app to manage (create-update-terminate) Delegated Admin relationships with customers and role assignments to security groups for active Delegated Admin relationships on your behalf.",
+        "ConsentDescription": "Manage Delegated Admin relationships with customers",
         "Grant": "admin"
       },
       {
@@ -55154,6 +55504,30 @@
         "Grant": "admin"
       },
       {
+        "Name": "Bookings.Read.All",
+        "Description": "Intended for read-only applications. Typical target user is the customer of a booking business.",
+        "ConsentDescription": "Allows an app to read Bookings appointments, businesses, customers, services, and staff on behalf of the signed-in user.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BookingsAppointment.ReadWrite.All",
+        "Description": "Intended for scheduling applications which need to manipulate appointments and customers. Cannot change fundamental information about the booking business, nor its services and staff members. Typical target user is the customer of a booking business.",
+        "ConsentDescription": "Allows an app to read and write Bookings appointments and customers, and additionally allows reading businesses, services, and staff on behalf of the signed-in user.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Bookings.ReadWrite.All",
+        "Description": "Intended for management applications that manipulate existing businesses, their services and staff members. Cannot create, delete, or change the publishing status of a booking business. Typical target user is the support staff of an organization.",
+        "ConsentDescription": "Allows an app to read and write Bookings appointments, businesses, customers, services, and staff on behalf of the signed-in user. Does not allow create, delete, or publish of Bookings businesses.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Bookings.Manage.All",
+        "Description": "Allows the app to have full access. Intended for a full management experience. Typical target user is the administrator of an organization.",
+        "ConsentDescription": "Allows an app to read, write, and manage Bookings appointments, businesses, customers, services, and staff on behalf of the signed-in user.",
+        "Grant": "admin"
+      },
+      {
         "Name": "Calendars.Read",
         "Description": "Allows the app to read events of all calendars without a signed-in user.",
         "ConsentDescription": "Read calendars in all mailboxes",
@@ -55377,7 +55751,7 @@
       },
       {
         "Name": "CloudPC.ReadWrite.All",
-        "Description": "Allows the app to create, read, update, and delete Cloud PC objects such as on-premises connections, provisioning policies, and device images, without a signed-in user.",
+        "Description": "Allows the app to create, read, update, and delete Cloud PC objects such as Azure network connections, provisioning policies, and device images, without a signed-in user.",
         "ConsentDescription": "Read and write Cloud PCs",
         "Grant": "admin"
       },
@@ -55427,6 +55801,18 @@
         "Name": "CustomSecAttributeDefinition.ReadWrite.All",
         "Description": "Allows the app to read and write custom security attribute definitions for the tenant without a signed in user.",
         "ConsentDescription": "Read and write custom security attribute definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DelegatedAdminRelationship.Read.All",
+        "Description": "Allows the app to read details of delegated admin relationships with customers like access details (that includes roles) and the duration as well as specific role assignments to security groups without a signed-in user.",
+        "ConsentDescription": "Read Delegated Admin relationships with customers",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DelegatedAdminRelationship.ReadWrite.All",
+        "Description": "Allows the app to manage (create-update-terminate) Delegated Admin relationships with customers and role assignments to security groups for active Delegated Admin relationships without a signed-in user.",
+        "ConsentDescription": "Manage Delegated Admin relationships with customers",
         "Grant": "admin"
       },
       {
