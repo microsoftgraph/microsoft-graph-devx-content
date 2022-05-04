@@ -1,5 +1,5 @@
 const samples = require('../sample-queries/sample-queries.json');
-const { includesAllowedVersions, validateJson, validateLink } = require("./validator");
+const { includesAllowedVersions, validateJson, validateLink, hasWhiteSpace } = require("./validator");
 
 const sampleQueries = samples.SampleQueries;
 for (const query of sampleQueries) {
@@ -40,5 +40,9 @@ for (const query of sampleQueries) {
       const isValidLink = await validateLink(query.docLink);
       expect(isValidLink).toBe(true);
     });
+
+    it('requestUrl should not have whitespace before parameters', function () {
+      expect(hasWhiteSpace(query.requestUrl)).toBe(false);
+    })
   });
 }

@@ -27,6 +27,14 @@ async function validateLink (linkUrl) {
   }
 }
 
+function hasWhiteSpace( sampleUrl ){
+  if(!sampleUrl) { return false }
+  const requestUrl = sampleUrl.split('?');
+  const whiteSpace = (requestUrl && requestUrl.length > 0) ? requestUrl[0].trim().indexOf(' ') : -1;
+  return whiteSpace === 1;
+}
+
 exports.validateJson = validateJson;
 exports.includesAllowedVersions = includesAllowedVersions;
 exports.validateLink = validateLink;
+exports.hasWhiteSpace = hasWhiteSpace;
