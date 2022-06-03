@@ -1,6 +1,26 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to read and write channel messages, on behalf of the signed-in user. This doesn't allow the app to edit the policyViolation of a channel message.",
+      "adminConsentDisplayName": "Read and write user channel messages",
+      "id": "5922d31f-46c8-4404-9eaf-2117e390a8a4",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and write channel messages, on your behalf. This doesn't allow the app to edit the policyViolation of a channel message.",
+      "consentDisplayName": "Read and write user channel messages",
+      "value": "ChannelMessage.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read and write your organization's directory access review default policy on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write your organization's directory access review default policy",
+      "id": "4f5bc9c8-ea54-4772-973a-9ca119cb0409",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and write your organization's directory access review default policy on your behalf.",
+      "consentDisplayName": "Read and write your organization's directory access review default policy",
+      "value": "Policy.ReadWrite.AccessReview"
+    },
+    {
       "adminConsentDescription": "Allows the app to read your organization's threat submissions and threat submission policies on behalf of the signed-in user.",
       "adminConsentDisplayName": "Read all threat submissions",
       "id": "7083913a-4966-44b6-9886-c5822a5fd910",
@@ -2146,7 +2166,7 @@
       "id": "14dad69e-099b-42c9-810b-d002981feec1",
       "isEnabled": true,
       "isAdmin": false,
-      "consentDescription": "Allows the app to see your basic profile (name, picture, user name)",
+      "consentDescription": "Allows the app to see your basic profile (e.g., name, picture, user name, email address)",
       "consentDisplayName": "View your basic profile",
       "value": "profile"
     },
@@ -3332,6 +3352,17 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write your organization's directory access review default policy without a signed-in user.",
+      "consentDisplayName": "Read and write your organization's directory access review default policy",
+      "id": "77c863fd-06c0-47ce-a7eb-49773e89d319",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.ReadWrite.AccessReview"
+    },
     {
       "allowedMemberTypes": [
         "Application"
