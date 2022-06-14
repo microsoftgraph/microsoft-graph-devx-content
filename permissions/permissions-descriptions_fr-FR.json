@@ -1,6 +1,46 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Permet à l’application de lire les extensions d’authentification personnalisées de votre organisation pour le compte de l’utilisateur connecté.",
+      "adminConsentDisplayName": "Lire les extensions d’authentification personnalisées de votre organisation",
+      "id": "b2052569-c98c-4f36-a5fb-43e5c111e6d0",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application de lire les extensions d’authentification personnalisées de votre organisation en votre nom.",
+      "consentDisplayName": "Lire les extensions d’authentification personnalisée de votre organisation",
+      "value": "CustomAuthenticationExtension.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l’application de lire ou d’écrire les extensions d’authentification personnalisées de votre organisation pour le compte de l’utilisateur connecté.",
+      "adminConsentDisplayName": "Lire et écrire les extensions d’authentification personnalisées de votre organisation",
+      "id": "8dfcf82f-15d0-43b3-bc78-a958a13a5792",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application de lire ou d’écrire les extensions d’authentification personnalisées de votre organisation en votre nom.",
+      "consentDisplayName": "Lire et écrire les extensions d’authentification personnalisées de votre organisation",
+      "value": "CustomAuthenticationExtension.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l’application de lire ou d’écrire les écouteurs d’événements d’authentification de votre organisation pour le compte de l’utilisateur connecté.",
+      "adminConsentDisplayName": "Lire et écrire les écouteurs d’événement d’authentification de votre organisation",
+      "id": "d11625a6-fe21-4fc6-8d3d-063eba5525ad",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application de lire ou d’écrire les écouteurs d’événements d’authentification de votre organisation en votre nom.",
+      "consentDisplayName": "Lire et écrire les écouteurs d’événement d’authentification de votre organisation",
+      "value": "EventListener.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permet à l’application de lire les écouteurs d’événements d’authentification de votre organisation pour le compte de l’utilisateur connecté.",
+      "adminConsentDisplayName": "Lire les écouteurs d’événements d’authentification de votre organisation",
+      "id": "f7dd3bed-5eec-48da-bc73-1c0ef50bc9a1",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permet à l’application de lire les écouteurs d’événements d’authentification de votre organisation en votre nom.",
+      "consentDisplayName": "Lire les écouteurs d’événements d’authentification de votre organisation",
+      "value": "EventListener.Read.All"
+    },
+    {
       "adminConsentDescription": "Autorise l’application à lire et à écrire des messages de canal pour le compte de l’utilisateur connecté. Cela n’autorise pas l’application à modifier la stratégieViolation d’un message de canal.",
       "adminConsentDisplayName": "Lire et écrire des messages du canal utilisateur",
       "id": "5922d31f-46c8-4404-9eaf-2117e390a8a4",
@@ -3356,7 +3396,62 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Permet à l'application de lire et d'écrire la stratégie par défaut d'examen des accès au répertoire de votre organisation, sans utilisateur connecté.",
+      "consentDescription": "Permet à l’application de lire ou d’écrire les extensions d’authentification personnalisée de votre organisation sans utilisateur connecté.",
+      "consentDisplayName": "Lire et écrire toutes les extensions d’authentification personnalisées",
+      "id": "c2667967-7050-4e7e-b059-4cbbb3811d03",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application de lire les extensions d’authentification personnalisées de votre organisation sans utilisateur connecté.",
+      "consentDisplayName": "Lire toutes les extensions d’authentification personnalisées",
+      "id": "88bb2658-5d9e-454f-aacd-a3933e079526",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application de lire ou d’écrire les écouteurs d’événements d’authentification de votre organisation sans utilisateur connecté.",
+      "consentDisplayName": "Lire et écrire tous les écouteurs d’événements d’authentification",
+      "id": "0edf5e9e-4ce8-468a-8432-d08631d18c43",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "EventListener.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l’application de lire les écouteurs d’événements d’authentification de votre organisation sans utilisateur connecté.",
+      "consentDisplayName": "Lire tous les écouteurs d’événements d’authentification",
+      "id": "b7f6385c-6ce6-4639-a480-e23c42ed9784",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "EventListener.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet aux extensions d’authentification personnalisées associées à l’application de recevoir des requêtes HTTP déclenchées par un événement d’authentification. La demande peut inclure des informations sur un utilisateur, un client, des principaux de service de ressource, ainsi que d’autres informations sur l’authentification.",
+      "consentDisplayName": "Recevoir des requêtes HTTP d’extension d’authentification personnalisée",
+      "id": "214e810f-fda8-4fd7-a475-29461495eb00",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.Receive.Payload"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permet à l'application de lire et d'écrire la stratégie par défaut de révision de l’accès au répertoire de votre organisation, sans utilisateur connecté.",
       "consentDisplayName": "Lire et écrire la stratégie par défaut de gestion des risques internes de révision d’accès au répertoire de votre organisation",
       "id": "77c863fd-06c0-47ce-a7eb-49773e89d319",
       "isEnabled": true,
