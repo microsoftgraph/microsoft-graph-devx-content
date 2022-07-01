@@ -1,6 +1,76 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Permite que o aplicativo leia os dados de treinamento e simulação de ataque de uma organização para o usuário conectado.",
+      "adminConsentDisplayName": "Ler os dados de simulação de ataque de uma organização",
+      "id": "104a7a4b-ca76-4677-b7e7-2f4bc482f381",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia dados de treinamento e simulação de ataque de uma organização em seu nome.",
+      "consentDisplayName": "Ler os dados de simulação de ataque de uma organização",
+      "value": "AttackSimulation.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia as extensões de autenticação personalizadas da sua organização em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler as extensões de autenticação personalizada da sua organização",
+      "id": "b2052569-c98c-4f36-a5fb-43e5c111e6d0",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia as extensões de autenticação personalizadas da sua organização em seu nome.",
+      "consentDisplayName": "Ler as extensões de autenticação personalizadas da sua organização",
+      "value": "CustomAuthenticationExtension.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia ou grave as extensões de autenticação personalizadas da sua organização em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler e gravar as extensões de autenticação personalizadas da sua organização",
+      "id": "8dfcf82f-15d0-43b3-bc78-a958a13a5792",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia ou grave as extensões de autenticação personalizadas da sua organização em seu nome.",
+      "consentDisplayName": "Ler e gravar as extensões de autenticação personalizadas da sua organização",
+      "value": "CustomAuthenticationExtension.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia ou grave os ouvintes de eventos de autenticação da sua organização em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler e gravar os ouvintes de eventos de autenticação da sua organização",
+      "id": "d11625a6-fe21-4fc6-8d3d-063eba5525ad",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia ou grave os ouvintes de eventos de autenticação da sua organização em seu nome.",
+      "consentDisplayName": "Ler e gravar os ouvintes de eventos de autenticação da sua organização",
+      "value": "EventListener.ReadWrite.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia os ouvintes de eventos de autenticação da sua organização em nome do usuário conectado.",
+      "adminConsentDisplayName": "Leitura dos ouvintes de eventos de autenticação da sua organização",
+      "id": "f7dd3bed-5eec-48da-bc73-1c0ef50bc9a1",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia os ouvintes de eventos de autenticação da sua organização em seu nome.",
+      "consentDisplayName": "Leitura dos ouvintes de eventos de autenticação da sua organização",
+      "value": "EventListener.Read.All"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia e grave mensagens de canal, em nome do usuário conectado. Isso não permite que o aplicativo edite a policyViolation de uma mensagem de canal.",
+      "adminConsentDisplayName": "Ler e gravar as mensagens do canal do usuário",
+      "id": "5922d31f-46c8-4404-9eaf-2117e390a8a4",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia e grave as mensagens do canal, em seu nome. Isso não permite que o aplicativo edite a policyViolation de uma mensagem de canal.",
+      "consentDisplayName": "Ler e gravar as mensagens do canal do usuário",
+      "value": "ChannelMessage.ReadWrite"
+    },
+    {
+      "adminConsentDescription": "Permite que o aplicativo leia e grave a política padrão de análise de acesso ao diretório da sua organização em nome do usuário conectado.",
+      "adminConsentDisplayName": "Ler e gravar a política padrão de análise de acesso ao diretório da sua organização",
+      "id": "4f5bc9c8-ea54-4772-973a-9ca119cb0409",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Permite que o aplicativo leia e grave a política padrão de análise de acesso ao diretório da sua organização em seu nome.",
+      "consentDisplayName": "Ler e gravar a política padrão de análise de acesso ao diretório da sua organização",
+      "value": "Policy.ReadWrite.AccessReview"
+    },
+    {
       "adminConsentDescription": "Permite que o aplicativo leia os envios de ameaças e as políticas de envio de ameaças da sua organização em nome do usuário conectado.",
       "adminConsentDisplayName": "Leitura de todos os envios de ameaças",
       "id": "7083913a-4966-44b6-9886-c5822a5fd910",
@@ -2146,8 +2216,8 @@
       "id": "14dad69e-099b-42c9-810b-d002981feec1",
       "isEnabled": true,
       "isAdmin": false,
-      "consentDescription": "Permite que o aplicativo veja o seu perfil básico (nome, foto, nome de usuário)",
-      "consentDisplayName": "Exibir o seu perfil básico",
+      "consentDescription": "Permite que o aplicativo veja seu perfil básico (por exemplo, nome, imagem, nome de usuário, endereço de email)",
+      "consentDisplayName": "Exibir seu perfil básico",
       "value": "profile"
     },
     {
@@ -3327,11 +3397,110 @@
       "isEnabled": true,
       "isAdmin": false,
       "consentDescription": "Permite que o aplicativo leia emails na caixa de correio do usuário conectado, exceto corpo, previewBody, anexos e quaisquer propriedades estendidas.",
-      "consentDisplayName": "Leitura de emails básicos do usuário",
+      "consentDisplayName": "Ler emails básicos do usuário",
       "value": "Mail.ReadBasic"
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia as configurações deste chat, sem um usuário conectado.",
+      "consentDisplayName": "Ler as configurações do aplicativo Teams",
+      "id": "475ebe88-f071-4bd7-af2b-642952bd4986",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "TeamworkAppSettings.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia e grave as configurações deste chat, sem um usuário conectado.",
+      "consentDisplayName": "Ler e gravar as configurações do aplicativo Teams",
+      "id": "ab5b445e-8f10-45f4-9c79-dd3f8062cc4e",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "TeamworkAppSettings.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia os dados de treinamento e simulação de ataque de uma organização sem um usuário conectado.",
+      "consentDisplayName": "Ler os dados de simulação de ataque de uma organização",
+      "id": "93283d0a-6322-4fa8-966b-8c121624760d",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "AttackSimulation.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia ou grave as extensões de autenticação personalizadas da sua organização sem um usuário conectado.",
+      "consentDisplayName": "Ler e gravar todas as extensões de autenticação personalizadas",
+      "id": "c2667967-7050-4e7e-b059-4cbbb3811d03",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia as extensões de autenticação personalizadas da sua organização sem um usuário conectado.",
+      "consentDisplayName": "Ler todas as extensões de autenticação personalizadas",
+      "id": "88bb2658-5d9e-454f-aacd-a3933e079526",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia ou grave os ouvintes de eventos de autenticação da sua organização sem um usuário conectado.",
+      "consentDisplayName": "Ler e gravar todos os ouvintes de eventos de autenticação",
+      "id": "0edf5e9e-4ce8-468a-8432-d08631d18c43",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "EventListener.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia os ouvintes de eventos de autenticação da sua organização sem um usuário conectado.",
+      "consentDisplayName": "Ler todos os ouvintes de eventos de autenticação",
+      "id": "b7f6385c-6ce6-4639-a480-e23c42ed9784",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "EventListener.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que extensões de autenticação personalizadas associadas ao aplicativo recebam solicitações HTTP disparadas por um evento de autenticação. A solicitação pode incluir informações sobre um usuário, entidades de serviço do cliente e de recursos e outras informações sobre a autenticação.",
+      "consentDisplayName": "Receber solicitações HTTP da extensão de autenticação personalizada",
+      "id": "214e810f-fda8-4fd7-a475-29461495eb00",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CustomAuthenticationExtension.Receive.Payload"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Permite que o aplicativo leia e grave a política padrão de análise de acesso ao diretório da sua organização sem um usuário conectado.",
+      "consentDisplayName": "Ler e gravar a política padrão de análise de acesso ao diretório da sua organização",
+      "id": "77c863fd-06c0-47ce-a7eb-49773e89d319",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Policy.ReadWrite.AccessReview"
+    },
     {
       "allowedMemberTypes": [
         "Application"
