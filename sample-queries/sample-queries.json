@@ -5,7 +5,7 @@
       "category": "Getting Started",
       "method": "GET",
       "humanName": "my profile",
-      "requestUrl": "/v1.0/me/",
+      "requestUrl": "/v1.0/me",
       "docLink": "https://docs.microsoft.com/en-us/graph/api/user-get",
       "skipTest": false
     },
@@ -772,7 +772,7 @@
       "category": "Excel",
       "method": "POST",
       "humanName": "add a new worksheet",
-      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/",
+      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
       "docLink": "https://docs.microsoft.com/en-us/graph/api/worksheetcollection-add?view=graph-rest-1.0",
       "headers": [
         {
@@ -2032,6 +2032,23 @@
       "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
       "tip": "enable Mail.Read",
       "skipTest": false
+    },
+    {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "Search",
+        "method": "POST",
+        "humanName": "(beta) search Teams message",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "enable (Chat.Read or Chat.ReadWrite) and ChannelMessage.Read.All",
+        "skipTest": false
     },
     {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",
