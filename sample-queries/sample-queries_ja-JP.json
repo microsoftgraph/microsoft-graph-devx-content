@@ -2034,6 +2034,23 @@
       "skipTest": false
     },
     {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "検索",
+        "method": "POST",
+        "humanName": "(ベータ版) Teams のメッセージを検索する",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/ja-jp/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "(Chat.Read または Chat.ReadWrite) と ChannelMessage.Read.All を有効にする",
+        "skipTest": false
+    },
+    {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",
       "category": "検索",
       "method": "POST",
