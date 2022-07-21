@@ -2034,8 +2034,25 @@
       "skipTest": false
     },
     {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "Rechercher",
+        "method": "POST",
+        "humanName": "(bêta) rechercher le message Teams",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/fr-fr/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "activer (Chat.Read ou Chat.ReadWrite) et ChannelMessage.Read.All",
+        "skipTest": false
+    },
+    {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",
-      "category": "Recherche",
+      "category": "Rechercher",
       "method": "POST",
       "humanName": "rechercher des événements",
       "requestUrl": "/v1.0/search/query",
