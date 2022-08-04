@@ -5,7 +5,7 @@
       "category": "开始使用",
       "method": "GET",
       "humanName": "我的个人资料",
-      "requestUrl": "/v1.0/me/",
+      "requestUrl": "/v1.0/me",
       "docLink": "https://docs.microsoft.com/zh-cn/graph/api/user-get",
       "skipTest": false
     },
@@ -772,7 +772,7 @@
       "category": "Excel",
       "method": "POST",
       "humanName": "添加新的工作表",
-      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/",
+      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
       "docLink": "https://docs.microsoft.com/zh-cn/graph/api/worksheetcollection-add?view=graph-rest-1.0",
       "headers": [
         {
@@ -2032,6 +2032,23 @@
       "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
       "tip": "启用 Mail.Read",
       "skipTest": false
+    },
+    {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "搜索",
+        "method": "POST",
+        "humanName": "（beta） 搜索 Teams 消息",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/zh-cn/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "启用（Chat.Read 或 Chat.ReadWrite）和 ChannelMessage.Read.All",
+        "skipTest": false
     },
     {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",

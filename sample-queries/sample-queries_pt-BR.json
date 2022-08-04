@@ -5,7 +5,7 @@
       "category": "Introdução",
       "method": "GET",
       "humanName": "meu perfil",
-      "requestUrl": "/v1.0/me/",
+      "requestUrl": "/v1.0/me",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/user-get",
       "skipTest": false
     },
@@ -772,7 +772,7 @@
       "category": "Excel",
       "method": "POST",
       "humanName": "adicionar uma nova planilha",
-      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/",
+      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
       "docLink": "https://docs.microsoft.com/pt-br/graph/api/worksheetcollection-add?view=graph-rest-1.0",
       "headers": [
         {
@@ -2032,6 +2032,23 @@
       "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"message\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
       "tip": "habilitar Mail.Read",
       "skipTest": false
+    },
+    {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "Pesquisar",
+        "method": "POST",
+        "humanName": "(beta) pesquisar mensagem do Teams",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/pt-br/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "habilitar (Chat.Read ou Chat.ReadWrite) e ChannelMessage.Read.All",
+        "skipTest": false
     },
     {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",

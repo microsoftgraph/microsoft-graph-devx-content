@@ -5,7 +5,7 @@
       "category": "Erste Schritte",
       "method": "GET",
       "humanName": "mein Profil",
-      "requestUrl": "/v1.0/me/",
+      "requestUrl": "/v1.0/me",
       "docLink": "https://docs.microsoft.com/de-de/graph/api/user-get",
       "skipTest": false
     },
@@ -772,7 +772,7 @@
       "category": "Excel",
       "method": "POST",
       "humanName": "neues Arbeitsblatt hinzufügen",
-      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets/",
+      "requestUrl": "/v1.0/me/drive/items/{drive-item-id}/workbook/worksheets",
       "docLink": "https://docs.microsoft.com/de-de/graph/api/worksheetcollection-add?view=graph-rest-1.0",
       "headers": [
         {
@@ -2034,8 +2034,25 @@
       "skipTest": false
     },
     {
+        "id": "f122fdcd-9312-404b-a084-6d3562c8f4d6",
+        "category": "Suchen",
+        "method": "POST",
+        "humanName": "(Beta) Teams-Nachricht durchsuchen",
+        "requestUrl": "/beta/search/query",
+        "docLink": "https://docs.microsoft.com/de-de/graph/api/resources/search-api-overview",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            }
+        ],
+        "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"chatMessage\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\"\n            }\n        }\n    ]\n}",
+        "tip": "aktivieren (Chat.Read oder Chat.ReadWrite) und ChannelMessage.Read.All",
+        "skipTest": false
+    },
+    {
       "id": "a90002df-c4f8-4764-a55f-d25f9e2e1b77",
-      "category": "Suche",
+      "category": "Suchen",
       "method": "POST",
       "humanName": "Suchen in Ereignissen",
       "requestUrl": "/v1.0/search/query",
