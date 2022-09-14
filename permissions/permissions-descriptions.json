@@ -1,6 +1,26 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to list and read all workflows, tasks and related lifecycle workflows resources on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read all lifecycle workflows resources",
+      "id": "9bcb9916-765a-42af-bf77-02282e26b01a",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to list and read all workflows, tasks and related lifecycle workflows resources on your behalf.",
+      "consentDisplayName": "Read all lifecycle workflows resources",
+      "value": "LifecycleWorkflows.Read.All"
+    },
+    {
+      "adminConsentDescription": "Allows the app to create, update, list, read and delete all workflows, tasks and related lifecycle workflows resources on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read and write all lifecycle workflows resources",
+      "id": "84b9d731-7db8-4454-8c90-fd9e95350179",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to create, update, list, read and delete all workflows, tasks and related lifecycle workflows resources on your behalf.",
+      "consentDisplayName": "Read and write all lifecycle workflows resources",
+      "value": "LifecycleWorkflows.ReadWrite.All"
+    },
+    {
       "adminConsentDescription": "Allows the app to read and update admin report settings, such as whether to display concealed information in reports, on behalf of the signed-in user.",
       "adminConsentDisplayName": "Read and write admin report settings",
       "id": "b955410e-7715-4a88-a940-dfd551018df3",
@@ -3466,6 +3486,83 @@
       "allowedMemberTypes": [
         "Application"
       ],
+      "consentDescription": "Allows the app to list and read all workflows, tasks and related lifecycle workflows resources without a signed-in user.",
+      "consentDisplayName": "Read all lifecycle workflows resources",
+      "id": "7c67316a-232a-4b84-be22-cea2c0906404",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "LifecycleWorkflows.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read names and members of all one-to-one and group chats in Microsoft Teams where the associated Teams application is installed, without a signed-in user.",
+      "consentDisplayName": "Read names and members of all chat threads where the associated Teams application is installed.",
+      "id": "818ba5bd-5b3e-4fe0-bbe6-aa4686669073",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.ReadBasic.WhereInstalled"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write all chat messages in Microsoft Teams for chats where the associated Teams application is installed, without a signed-in user.",
+      "consentDisplayName": "Read and write all chat messages for chats where the associated Teams application is installed.",
+      "id": "ad73ce80-f3cd-40ce-b325-df12c33df713",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.ReadWrite.WhereInstalled"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all one-to-one or group chat messages in Microsoft Teams for chats where the associated Teams application is installed, without a signed-in user.",
+      "consentDisplayName": "Read all chat messages for chats where the associated Teams application is installed.",
+      "id": "1c1b4c8e-3cc7-4c58-8470-9b92c9d5848b",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "Chat.Read.WhereInstalled"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to add and remove members from all chats where the associated Teams application is installed, without a signed-in user.",
+      "consentDisplayName": "Add and remove members from all chats where the associated Teams application is installed.",
+      "id": "e32c2cd9-0124-4e44-88fc-772cd98afbdb",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.ReadWrite.WhereInstalled"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read the members of all chats where the associated Teams application is installed, without a signed-in user.",
+      "consentDisplayName": "Read the members of all chats where the associated Teams application is installed.",
+      "id": "93e7c9e4-54c5-4a41-b796-f2a5adaacda7",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "ChatMember.Read.WhereInstalled"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to create, update, list, read and delete all workflows, tasks and related lifecycle workflows resources without a signed-in user.",
+      "consentDisplayName": "Read and write all lifecycle workflows resources",
+      "id": "5c505cf4-8424-4b8e-aa14-ee06e3bb23e3",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "LifecycleWorkflows.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
       "consentDescription": "Allows the app to read and update all admin report settings, such as whether to display concealed information in reports, without a signed-in user.",
       "consentDisplayName": "Read and write all admin report settings",
       "id": "2a60023f-3219-47ad-baa4-40e17cd02a1d",
@@ -5336,28 +5433,6 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Allows an app to read basic BitLocker key properties for all devices, without a signed-in user. Does not allow read of the recovery key.",
-      "consentDisplayName": "Read all BitLocker keys basic information",
-      "id": "f690d423-6b29-4d04-98c6-694c42282419",
-      "isEnabled": true,
-      "isAdmin": false,
-      "value": "BitlockerKey.ReadBasic.All"
-    },
-    {
-      "allowedMemberTypes": [
-        "Application"
-      ],
-      "consentDescription": "Allows an app to read BitLocker keys for all devices, without a signed-in user. Allows read of the recovery key.",
-      "consentDisplayName": "Read all BitLocker keys",
-      "id": "57f1cf28-c0c4-4ec3-9a30-19a2eaaf2f6e",
-      "isEnabled": true,
-      "isAdmin": false,
-      "value": "BitlockerKey.Read.All"
-    },
-    {
-      "allowedMemberTypes": [
-        "Application"
-      ],
       "consentDescription": "Allows the app to read all applications and service principals without a signed-in user.",
       "consentDisplayName": "Read all applications",
       "id": "9a5d68dd-52b0-4cc2-bd40-abcf44ac3a30",
@@ -6040,8 +6115,8 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Allows the app to read and write assignments and their grades for all users.",
-      "consentDisplayName": "Read and write class assignments with grades",
+      "consentDescription": "Allows the app to create, read, update and delete all class assignments with grades for all users without a signed-in user.",
+      "consentDisplayName": "Create, read, update and delete all class assignments with grades",
       "id": "0d22204b-6cad-4dd0-8362-3e3f2ae699d9",
       "isEnabled": true,
       "isAdmin": false,
@@ -6051,8 +6126,8 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Allows the app to read assignments and their grades for all users.",
-      "consentDisplayName": "Read class assignments with grades",
+      "consentDescription": "Allows the app to read all class assignments with grades for all users without a signed-in user.",
+      "consentDisplayName": "Read all class assignments with grades",
       "id": "4c37e1b6-35a1-43bf-926a-6f30f2cdf585",
       "isEnabled": true,
       "isAdmin": false,
@@ -6062,8 +6137,8 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Allows the app to read and write assignments without grades for all users.",
-      "consentDisplayName": "Read and write class assignments without grades",
+      "consentDescription": "Allows the app to create, read, update and delete all class assignments without grades for all users without a signed-in user.",
+      "consentDisplayName": "Create, read, update and delete all class assignments without grades",
       "id": "f431cc63-a2de-48c4-8054-a34bc093af84",
       "isEnabled": true,
       "isAdmin": false,
@@ -6073,8 +6148,8 @@
       "allowedMemberTypes": [
         "Application"
       ],
-      "consentDescription": "Allows the app to read assignments without grades for all users.",
-      "consentDisplayName": "Read class assignments without grades",
+      "consentDescription": "Allows the app to read all class assignments without grades for all users without a signed-in user.",
+      "consentDisplayName": "Read all class assignments without grades",
       "id": "6e0a958b-b7fc-4348-b7c4-a6ab9fd3dd0e",
       "isEnabled": true,
       "isAdmin": false,
