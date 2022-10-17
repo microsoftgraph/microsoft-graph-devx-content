@@ -2170,6 +2170,40 @@
       "skipTest": false
     },
     {
+      "id": "7ee9c682-d933-41e4-a2ff-7d4a9749d12e",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "search bookmark",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"bookmark\"\n            ],\n            \"query\": {\n                \"queryString\": \"yammer\"\n            }\n        }\n    ]\n}",
+      "tip": "enable Bookmark.Read.All",
+      "skipTest": false
+    },
+    {
+      "id": "7295f5c9-aacd-4636-9a03-180cc28c6c4c",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "search acronym",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"acronym\"\n            ],\n            \"query\": {\n                \"queryString\": \"define KQL\"\n            }\n        }\n    ]\n}",
+      "tip": "enable Acronym.Read.All",
+      "skipTest": false
+    },
+    {
       "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
       "category": "Search",
       "method": "POST",
@@ -2302,6 +2336,23 @@
         }
       ],
       "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"contoso\",\n                \"queryTemplate\": \"({searchTerms})\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
+      "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+      "skipTest": false
+    },
+    {
+      "id": "1d9d195b-9fde-4be8-94f2-6914d97e938a",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta) Search with XRANK",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://docs.microsoft.com/en-us/graph/api/resources/search-api-overview?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"cat XRANK(cb=100) dog\"\n            },\n            \"from\": 0,\n            \"size\": 15\n        }\n    ]\n}",
       "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
       "skipTest": false
     },
