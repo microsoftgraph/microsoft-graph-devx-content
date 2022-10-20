@@ -2340,6 +2340,57 @@
       "skipTest": false
     },
     {
+      "id": "fb658ec5-c16a-4e21-bb09-6307cba1f47a",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta) Search Results with Basic Collapse",
+      "requestUrl": "/beta/search/query",
+      "docLink": "",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"test\"\n            },\n            \"fields\": [\n                \"title\"\n            ],\n            \"collapseProperties\": [\n                {\n                    \"fields\": [\n                        \"title\"\n                    ],\n                    \"limit\": 3\n                }\n            ]\n        }\n    ]\n}",
+      "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+      "skipTest": false
+    },
+    {
+      "id": "b7271915-e301-42fd-b315-ea1e8f8c6343",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta) Search Results with Multi-Level Collapse",
+      "requestUrl": "/beta/search/query",
+      "docLink": "",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"cat\"\n            },\n            \"fields\": [\n                \"title\",\n                \"createdBy\"\n            ],\n            \"collapseProperties\": [\n                {\n                    \"fields\": [\n                        \"title\"\n                    ],\n                    \"limit\": 3\n                },\n                {\n                    \"fields\": [\n                        \"createdBy\"\n                    ],\n                    \"limit\": 2\n                }\n            ]\n        }\n    ]\n}",
+      "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+      "skipTest": false
+    },
+    {
+      "id": "53e3a346-538f-4351-bad4-3d156f7dad86",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta) Search Results with Compound Collapse",
+      "requestUrl": "/beta/search/query",
+      "docLink": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"listItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"cat\"\n            },\n            \"fields\": [\n                \"title\",\n                \"createdBy\"\n            ],\n            \"collapseProperties\": [\n                {\n                    \"fields\": [\n                        \"title\",\n                        \"createdBy\"\n                    ],\n                    \"limit\": 3\n                }\n            ]\n        }\n    ]\n}",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "",
+      "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+      "skipTest": false
+    },
+    {
       "id": "bb61ec27-b5db-db71-a12c-305c7665e6e2",
       "category": "Search",
       "method": "POST",
