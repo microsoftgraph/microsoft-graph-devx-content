@@ -3159,6 +3159,60 @@
       "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
       "skipTest": false
+    },
+    {
+      "id": "814ffcd1-d2e2-460c-a64a-1253657c4978",
+      "category": "Edge",
+      "method": "GET",
+      "humanName": "list IE Mode site lists in my organization",
+      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists",
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-beta",
+      "tip": "Please enable the BrowserSiteLists.Read.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "fda36358-b876-4dd5-af8b-a12166a99ad1",
+      "category": "Edge",
+      "method": "POST",
+      "humanName": "create an IE Mode site list",
+      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-beta",
+      "postBody": "{\r\n    \"displayName\": \"Sample Site List\",\r\n    \"description\": \"A sample site list created with Graph Explorer.\"\r\n}",
+      "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "a6616900-ebd8-49e4-85d6-94ee64848cf3",
+      "category": "Edge",
+      "method": "POST",
+      "humanName": "publish an IE Mode site list",
+      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists/{siteListId}/publish",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://learn.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-beta",
+      "postBody": "{\r\n    \"revision\": \"1.0\"\r\n}",
+      "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "d0399b03-5eac-4c47-95f8-889eb8aa7100",
+      "category": "Edge",
+      "method": "DELETE",
+      "humanName": "delete an IE Mode site list",
+      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists/{siteListId}",
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-beta",
+      "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
+      "skipTest": false
     }
   ]
 }
