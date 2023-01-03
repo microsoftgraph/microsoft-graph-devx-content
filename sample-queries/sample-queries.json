@@ -2190,7 +2190,7 @@
       "id": "7ee9c682-d933-41e4-a2ff-7d4a9749d12e",
       "category": "Search",
       "method": "POST",
-      "humanName": "search bookmark",
+      "humanName": "(beta)search bookmark",
       "requestUrl": "/beta/search/query",
       "docLink": "https://learn.microsoft.com/en-us/graph/api/resources/search-api-overview",
       "headers": [
@@ -2207,7 +2207,7 @@
       "id": "7295f5c9-aacd-4636-9a03-180cc28c6c4c",
       "category": "Search",
       "method": "POST",
-      "humanName": "search acronym",
+      "humanName": "(beta)search acronym",
       "requestUrl": "/beta/search/query",
       "docLink": "https://learn.microsoft.com/en-us/graph/api/resources/search-api-overview",
       "headers": [
@@ -2218,6 +2218,23 @@
       ],
       "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"acronym\"\n            ],\n            \"query\": {\n                \"queryString\": \"define KQL\"\n            }\n        }\n    ]\n}",
       "tip": "enable Acronym.Read.All",
+      "skipTest": false
+    },
+    {
+      "id": "dd952e03-a149-4219-8fd5-cc1db7ba8a8d",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta)search qna",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/resources/search-api-overview",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"qna\"\n            ],\n            \"query\": {\n                \"queryString\": \"what is Azure\"\n            }\n        }\n    ]\n}",
+      "tip": "enable QnA.Read.All",
       "skipTest": false
     },
     {
