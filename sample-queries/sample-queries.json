@@ -3213,6 +3213,80 @@
       "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-beta",
       "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
       "skipTest": false
+    },
+    {
+      "id": "0b2b9b7f-11e3-4997-8439-242a95cd6077",
+      "category": "SharePoint Pages (beta)",
+      "method": "GET",
+      "humanName": "list all pages in a site",
+      "requestUrl": "/beta/sites/{siteId}/pages",
+      "tip": "This query requires the Sites.Read.All permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-list?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "04b38829-7d1b-4277-952a-7074ffcba4fc",
+      "category": "SharePoint Pages (beta)",
+      "method": "GET",
+      "humanName": "get a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages/{pageId}",
+      "tip": "This query requires the Sites.Read.All permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-get?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "cd4f4344-7223-471f-a284-f10ac12b94f5",
+      "category": "SharePoint Pages (beta)",
+      "method": "POST",
+      "humanName": "create a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-create?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-type",
+          "value": "application/json"
+        }
+      ],
+      "tip": "This query requires the Sites.ReadWrite.All permission",
+      "postBody": "{\r\n    \"description\": \"Share your creative work with the global Microsoft community by joining this annual showcase of visual art.\",\n    \"name\": \"Contribute-to-the-Employee-Art-Exhibition.aspx\",\n    \"title\": \"Contribute to the Employee Art Exhibition\",\n    \"pageLayout\": \"article\",\n    \"promotionKind\": \"page\"\n\r}",
+      "skipTest": false
+    },
+    {
+      "id": "37e21feb-3f4f-4386-9a1c-4f40491cafe2",
+      "category": "SharePoint Pages (beta)",
+      "method": "PATCH",
+      "humanName": "update a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages/{pageId}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-update?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-type",
+          "value": "application/json"
+        }
+      ],
+      "tip": "This query requires the Sites.ReadWrite.All permission",
+      "postBody": "{\r\n        \"title\": \"Title of the page\"\r\n    }",
+      "skipTest": false
+    },
+    {
+      "id": "4cbed9c2-f947-4363-aa39-6934a56d7a85",
+      "category": "SharePoint Pages (beta)",
+      "method": "POST",
+      "humanName": "publish a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages/{pageId}/publish",
+      "tip": "This query requires the Sites.ReadWrite.All permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-publish?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "4f55102f-6dae-4ce5-9fab-cc4584a09ce2",
+      "category": "SharePoint Pages (beta)",
+      "method": "DELETE",
+      "humanName": "delete a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages/{pageId}",
+      "tip": "This query requires the Sites.ReadWrite.All permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-delete?view=graph-rest-beta",
+      "skipTest": false
     }
   ]
 }
