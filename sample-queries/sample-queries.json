@@ -3264,12 +3264,12 @@
         }
       ],
       "docLink": "https://review.learn.microsoft.com/graph/api/adminwindowsupdates-post-updatepolicies?view=graph-rest-beta",
-      "postBody": "{\r\n    \"audience\": {\r\n        \"id\": \"{deploymentAudienceId}\"\r\n    }\r\n    \"autoEnrollmentUpdateCategories\": [\r\n        \"driver\"\r\n    ]\r\n}",
+      "postBody": "{\r\n    \"autoEnrollmentUpdateCategories\": [\"driver\"],\r\n    \"audience\": {\r\n        \"id\": \"{deploymentAudienceId}\"\r\n    }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
       "skipTest": false
     },
     {
-      "id": "88eab117-0665-4312-995f-e0dec54388f2",
+      "id": "17dda34b-5a1a-4e2b-b6b1-9482774cffa6",
       "category": "Windows Updates",
       "method": "GET",
       "humanName": "get update policy (drivers)",
@@ -3279,7 +3279,7 @@
       "skipTest": false
     },
     {
-      "id": "88eab117-0665-4312-995f-e0dec54388f2",
+      "id": "f2fe5b23-1a35-498b-92d3-9ac30a4f2aaa",
       "category": "Windows Updates",
       "method": "GET",
       "humanName": "list update policies (drivers)",
@@ -3313,7 +3313,7 @@
       "category": "Windows Updates",
       "method": "POST",
       "humanName": "create driver approval",
-      "requestUrl": "/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges",
       "headers": [
         {
           "name": "Content-Type",
