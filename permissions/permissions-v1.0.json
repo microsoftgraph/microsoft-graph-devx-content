@@ -55268,6 +55268,60 @@
         ]
       }
     },
+    "/security/alerts_v2": {
+      "GET": {
+        "Application": [
+          "SecurityAlert.Read.All",
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityAlert.Read.All",
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/alerts_v2/{id}": {
+      "GET": {
+        "Application": [
+          "SecurityAlert.Read.All",
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityAlert.Read.All",
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/alerts_v2/{id}/comments": {
+      "POST": {
+        "Application": [
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityAlert.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/security/alerts": {
       "GET": {
         "Application": [
@@ -55374,6 +55428,60 @@
         "DelegatedWork": [
           "SecurityEvents.Read.All",
           "SecurityEvents.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/incidents": {
+      "GET": {
+        "Application": [
+          "SecurityIncident.Read.All",
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityIncident.Read.All",
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/incidents/{id}": {
+      "GET": {
+        "Application": [
+          "SecurityIncident.Read.All",
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityIncident.Read.All",
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/incidents/{id}/comments": {
+      "POST": {
+        "Application": [
+          "SecurityIncident.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "SecurityIncident.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -57721,6 +57829,19 @@
         ],
         "DelegatedWork": [
           "ThreatAssessment.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/runhuntingquery": {
+      "POST": {
+        "Application": [
+          "ThreatHunting.Read.All"
+        ],
+        "DelegatedWork": [
+          "ThreatHunting.Read.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -60621,6 +60742,12 @@
         "Name": "Bookmark.Read.All",
         "Description": "Allows the app to read all bookmarks on behalf of a signed-in user.",
         "ConsentDescription": "Read all bookmarks",
+        "Grant": "user"
+      },
+      {
+        "Name": "QnA.Read.All",
+        "Description": "Allows the app to read all question and answer sets on behalf of a signed-in user.",
+        "ConsentDescription": "Read all qnas",
         "Grant": "user"
       },
       {
