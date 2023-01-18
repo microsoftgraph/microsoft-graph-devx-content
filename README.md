@@ -13,7 +13,8 @@ This will also be used by the localization team to add translation files, and by
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
 
 To add sample queries follow these steps:
-1. Clone or fork this repo (*microsoft-graph-devx-content*) in your local machine.
+1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
+   - If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
 1. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
@@ -82,11 +83,13 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
 1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
 ### Using Command Line or PowerShell:
 
-### 1. Clone or Fork the repo
+### 1. Clone the repo (If you have write access)
 Open the command line terminal and paste this command to clone or fork this repo: <br/>
 `git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
 cd microsoft-graph-devx-content/sample-queries
 `
+
+**Please Note: If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.**
 
 ### 2. Open the sample-queries.json file
 To open the sample-queries.json file, paste in this command: <br/>
@@ -154,4 +157,4 @@ The samples/permissions will be populated on Graph Explorer and you can do furth
 #### Please Note:
 In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
 
-If you run into any issues, reach out to @BettiroseNgugi
+If you run into any issues, reach out to @MaggieKimani1, @irvinesunday or @thewahome.
