@@ -68847,53 +68847,6 @@
         ]
       }
     },
-    "/me/onlinemeetings/{id}/virtualappointment": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.Read",
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PUT": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/me/outlook/taskfolders/{id}": {
       "DELETE": {
         "Application": [
@@ -71420,53 +71373,6 @@
         ]
       },
       "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/users/{id}/onlinemeetings/{id}/virtualappointment": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.Read",
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetings.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "PUT": {
         "Application": [
           "N/A"
         ],
@@ -96888,7 +96794,81 @@
         ]
       }
     },
+    "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/voice": {
       "GET": {
         "Application": [
           "Policy.Read.All",
@@ -109741,6 +109721,112 @@
         ]
       }
     },
+    "/me/onlinemeetings/{id}/virtualappointment": {
+      "GET": {
+        "Application": [
+          "VirtualAppointment.Read.All",
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.Read",
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.Read",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/users/{id}/onlinemeetings/{id}/virtualappointment": {
+      "GET": {
+        "Application": [
+          "VirtualAppointment.Read.All",
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.Read",
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.Read",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PUT": {
+        "Application": [
+          "VirtualAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/admin/windows/updates/deployments/{id}": {
       "DELETE": {
         "Application": [
@@ -110279,6 +110365,13 @@
       "POST": {
         "DelegatedWork": [
           "Presence.Read.All"
+        ]
+      }
+    },
+    "/users/{id}/presence/setstatusmessage": {
+      "POST": {
+        "DelegatedWork": [
+          "Presence.ReadWrite"
         ]
       }
     },
@@ -113207,6 +113300,12 @@
         "Grant": "user"
       },
       {
+        "Name": "QnA.Read.All",
+        "Description": "Allows the app to read all question and answer sets on behalf of a signed-in user.",
+        "ConsentDescription": "Read all qnas",
+        "Grant": "user"
+      },
+      {
         "Name": "ExternalConnection.Read.All",
         "Description": "Allows the app to read all external connections on behalf of a signed-in user.",
         "ConsentDescription": "Read all external connections",
@@ -113241,12 +113340,6 @@
         "Description": "Allows the app to read and write external items on behalf of a signed-in user. The app can only read external items of the connection that it is authorized to.",
         "ConsentDescription": "Read and write external items",
         "Grant": "admin"
-      },
-      {
-        "Name": "QnA.Read.All",
-        "Description": "Allows the app to read all questions and answers on behalf of a signed-in user.",
-        "ConsentDescription": "Read all questions and answers",
-        "Grant": "user"
       },
       {
         "Name": "SearchConfiguration.Read.All",
