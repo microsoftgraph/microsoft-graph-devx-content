@@ -6,15 +6,12 @@ Content used by the DevX API to enhance clients and tooling. At the moment it ha
 This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples.
 
 ## Contributing
-## Adding Sample Queries
-
 ### Pre-requisites:
 1. Download and Install Git to your machine https://git-scm.com/downloads
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
-
+## Adding Sample Queries
 To add sample queries follow these steps:
-1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
-   - If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.
+1. Fork your copy of this repo (*microsoft-graph-devx-content*) to your GitHub (unless you have write access).
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
 1. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
@@ -81,17 +78,9 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
        `"skipTest": `<br>
 1. The `humanName` value should be in **small caps** only.
 1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
-### Using Command Line or PowerShell:
 
-### 1. Clone the repo (If you have write access)
-Open the command line terminal and paste this command to clone or fork this repo: <br/>
-`git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
-cd microsoft-graph-devx-content/sample-queries
-`
-
-**Please Note: If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.**
-
-### 2. Open the sample-queries.json file
+### Using Command Line or PowerShell (After Fork/Clone):
+### 1. Open the sample-queries.json file
 To open the sample-queries.json file, paste in this command: <br/>
 `code -n sample-queries.json
 ` <br/>
@@ -100,7 +89,7 @@ Alternatively, you can open the directory where the file is located by pasting i
 `start .
 `
 
-### 3. Open the Git command utility
+### 2. Open the Git command utility
 If your machine's OS/CPU is x64, paste in this command: <br/>
 `start "%PROGRAMFILES%\Git\bin\sh.exe" --login
 `
@@ -108,25 +97,25 @@ else, if x86, paste in this command: <br/>
 `start "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
 `
 
-### 4. Create your local branch
+### 3. Create your local branch
 Your branch name has to be of the format: {your-intial}/{purpose-of-change}.
 Replace the text within the curly braces (inclusive of the curly braces). <br/>
 Then in the new Git command line window, paste in this command to create and checkout your branch: <br/>
 `git checkout -b {your-branch-name}
 `
 
-### 5. Update your sample query
+### 4. Update your sample query
 Now you can add, update or delete your sample query in the `sample-queries.json` file that opened up in VS Code earlier.
 
-### 6. Add, commit and push your changes back to the remote repo with the following commands
+### 5. Add, commit and push your changes back to the remote repo with the following commands
 - Add the changes to you local repo: `git add sample-queries.json`
 - Commit your changes: `git commit -m "{add-reason-for-update}"`
 - Push your changes to the remote repo: `git push origin {your-branch-name}`
 
-### 7. Login to GitHub
+### 6. Login to GitHub
 Follow the instructions to login to GitHub using your credentials.
 
-### 8. If you get error 403
+### 7. If you get error 403
 Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
