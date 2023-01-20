@@ -6633,9 +6633,16 @@
       "POST": {
         "Application": [
           "Calls.Initiate.All",
-          "Calls.InitiateGroupCalls.All",
-          "Calls.JoinGroupCalls.All",
-          "Calls.JoinGroupCallsasGuest.All"
+          "Calls.InitiateGroupCall.All",
+          "Calls.JoinGroupCall.All",
+          "Calls.JoinGroupCallAsGuest.All",
+          "Calls.JoinGroupCalls.Chat"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -7263,7 +7270,6 @@
       },
       "POST": {
         "Application": [
-          "ChannelMessage.ReadWrite.All",
           "N/A",
           "Teamwork.Migrate.All"
         ],
@@ -11088,6 +11094,69 @@
         ]
       }
     },
+    "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/containedapps": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/containedapps/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/files": {
       "GET": {
         "Application": [
@@ -11241,6 +11310,69 @@
       }
     },
     "/deviceappmanagement/mobileapps/{id}/microsoft.graph.mobilelobapp/contentversions/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/mobileapps/{id}/microsoft.graph.windowsuniversalappx/committedcontainedapps": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/mobileapps/{id}/microsoft.graph.windowsuniversalappx/committedcontainedapps/{id}": {
       "GET": {
         "Application": [
           "DeviceManagementApps.Read.All",
@@ -12499,6 +12631,29 @@
       }
     },
     "/devicemanagement/reports/getdevicenoncompliancereport": {
+      "POST": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All",
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/reports/getdeviceswithoutcompliancepolicyreport": {
       "POST": {
         "Application": [
           "DeviceManagementApps.Read.All",
@@ -15157,6 +15312,19 @@
       }
     },
     "/devicemanagement/microsofttunnelserverlogcollectionresponses/{id}/generatedownloadurl": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/microsofttunnelsites/{id}/microsofttunnelservers/{id}/generateserverlogcollectionrequest": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All"
@@ -37880,6 +38048,20 @@
         ]
       }
     },
+    "/print/connectors": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "PrintConnector.Read.All",
+          "PrintConnector.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/print/operations/{id}": {
       "GET": {
         "Application": [
@@ -58817,14 +58999,6 @@
         ]
       }
     },
-    "/print/connectors": {
-      "GET": {
-        "DelegatedWork": [
-          "PrintConnector.Read.All",
-          "PrintConnector.ReadWrite.All"
-        ]
-      }
-    },
     "/print/connectors/{id}": {
       "GET": {
         "DelegatedWork": [
@@ -59711,6 +59885,42 @@
         "Description": "Allows an app to read and write the browser site lists configured for your organization, on behalf of the signed-in user.",
         "ConsentDescription": "Read and write browser site lists for your organization",
         "Grant": "user"
+      },
+      {
+        "Name": "BusinessScenarioConfig.Read.All",
+        "Description": "Allows the app to read the configurations for the business scenarios of your organization, on behalf of the signed-in user.",
+        "ConsentDescription": "Read business scenario configurations",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioConfig.Read.OwnedBy",
+        "Description": "Allows the app to read the configurations of business scenarios it owns, on behalf of the signed-in user.",
+        "ConsentDescription": "Read business scenario configurations this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioConfig.ReadWrite.All",
+        "Description": "Allows the app to read and write the configurations for the business scenarios of your organization, on behalf of the signed-in user.",
+        "ConsentDescription": "Read and write business scenario configurations",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioConfig.ReadWrite.OwnedBy",
+        "Description": "Allows the app to create new business scenarios and fully manage the configurations of scenarios it owns, on behalf of the signed-in user.",
+        "ConsentDescription": "Read and write business scenario configurations this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioData.Read.OwnedBy",
+        "Description": "Allows the app to read all data associated with the business scenarios it owns. Data access will be attributed to the signed-in user.",
+        "ConsentDescription": "Read all data for business scenarios this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioData.ReadWrite.OwnedBy",
+        "Description": "Allows the app to fully manage all data associated with the business scenarios it owns. Data access and changes will be attributed to the signed-in user.",
+        "ConsentDescription": "Read and write all data for business scenarios this app creates or owns",
+        "Grant": "admin"
       },
       {
         "Name": "Calendars.Read",
@@ -61482,6 +61692,30 @@
         "Name": "BrowserSiteLists.ReadWrite.All",
         "Description": "Allows an app to read and write all browser site lists configured for your organization, without a signed-in user.",
         "ConsentDescription": "Read and write all browser site lists for your organization",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioConfig.Read.OwnedBy",
+        "Description": "Allows the app to read the configurations of business scenarios it owns, without a signed-in user.",
+        "ConsentDescription": "Read all business scenario configurations this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioConfig.ReadWrite.OwnedBy",
+        "Description": "Allows the app to create new business scenarios and fully manage the configurations of scenarios it owns, without a signed-in user.",
+        "ConsentDescription": "Read and write all business scenario configurations this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioData.Read.OwnedBy",
+        "Description": "Allows the app to read the data associated with the business scenarios it owns, without a signed-in user.",
+        "ConsentDescription": "Read data for all business scenarios this app creates or owns",
+        "Grant": "admin"
+      },
+      {
+        "Name": "BusinessScenarioData.ReadWrite.OwnedBy",
+        "Description": "Allows the app to fully manage the data associated with the business scenarios it owns, without a signed-in user.",
+        "ConsentDescription": "Read and write data for all business scenarios this app creates or owns",
         "Grant": "admin"
       },
       {
