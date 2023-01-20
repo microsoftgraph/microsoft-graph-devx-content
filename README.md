@@ -6,12 +6,16 @@ Content used by the DevX API to enhance clients and tooling. At the moment it ha
 This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples.
 
 ## Contributing
+## Adding Sample Queries
+
 ### Pre-requisites:
 1. Download and Install Git to your machine https://git-scm.com/downloads
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
-## Adding Sample Queries
+
 To add sample queries follow these steps:
-1. Fork your copy of this repo (*microsoft-graph-devx-content*) to your GitHub (unless you have write access).
+1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
+   - If you don't have write access or you are a new contributor, fork your copy of the repo by clicking on the Fork button at the top right of this page.
+   ![Image of the Fork Button](https://user-images.githubusercontent.com/40403681/213385808-b5716824-e76a-4549-9d96-cacfa2a4168d.png)
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
 1. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
@@ -78,7 +82,6 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
        `"skipTest": `<br>
 1. The `humanName` value should be in **small caps** only.
 1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
-
 ### Using Command Line or PowerShell (After Fork/Clone):
 ### 1. Open the sample-queries.json file
 To open the sample-queries.json file, paste in this command: <br/>
