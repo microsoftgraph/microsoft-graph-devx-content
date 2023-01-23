@@ -146,7 +146,10 @@ https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://grap
 
 The samples/permissions will be populated on Graph Explorer and you can do further testing.
 
-#### Please Note:
+## Adding Permissions
+Contributions to permissions are limited to contributors with write access. However, issues on missing permissions can be raised as issue requests on the [issues tab](https://github.com/microsoftgraph/microsoft-graph-devx-content/issues).
+
+### Please Note:
 In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
 
 If you run into any issues, reach out to @MaggieKimani1, @irvinesunday or @thewahome.
