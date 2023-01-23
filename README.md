@@ -14,7 +14,7 @@ This will also be used by the localization team to add translation files, and by
 
 To add sample queries follow these steps:
 1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
-   - If you don't have write access or you are a new contributor, fork your copy of the repo by clicking on the Fork button at the top right of this page.
+   - If you don't have write access or you are a new contributor, fork your copy of the repo by clicking on the **Fork** button at the top right of this page.
    ![Image of the Fork Button](https://user-images.githubusercontent.com/40403681/213385808-b5716824-e76a-4549-9d96-cacfa2a4168d.png)
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
