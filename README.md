@@ -13,7 +13,11 @@ This will also be used by the localization team to add translation files, and by
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
 
 To add sample queries follow these steps:
-1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
+1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine. You can do so using this command:
+
+            git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
+            cd microsoft-graph-devx-content/sample-queries
+
    - If you don't have write access or you are a new contributor, fork your copy of the repo by clicking on the **Fork** button at the top right of this page.
    ![Image of the Fork Button](https://user-images.githubusercontent.com/40403681/213385808-b5716824-e76a-4549-9d96-cacfa2a4168d.png)
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
@@ -64,7 +68,7 @@ When done making the changes on the document,
 1. Save the document on your machine
 1. Create a Git branch on this repo and name it using your initials + describe the changes ie. bn/add-xyz-samples
 1. Commit the changes to your branch
-1. Create a PR and add Bettirose Ngugi and/or Irvine Sunday as the reviewer(s).
+1. Create a PR (the PR is automatically updated with the relevant reviewers).
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
 
