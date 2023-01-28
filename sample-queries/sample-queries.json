@@ -2869,7 +2869,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    }\r\n}",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -2886,7 +2886,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.expeditedQualityUpdateReference\",\r\n        \"releaseDate\": \"{qualityUpdateReleaseDate}\"\r\n    }\r\n}",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the qualityUpdateReleaseDate parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -2903,8 +2903,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"devicesPerOffer\": 100,\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
-      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    },\r\n    \"settings\":{\r\n        \"@odata.type\":\"microsoft.graph.windowsUpdates.deploymentSettings\",\r\n        \"schedule\":{\r\n            \"startDateTime\":\"{deploymentStartTime}\",\r\n            \"gradualRollout\":{\r\n                \"@odata.type\":\"#microsoft.graph.windowsUpdates.rateDrivenRolloutSettings\",\r\n              \"durationBetweenOffers\":\"P7D\",\r\n              \"devicesPerOffer\":\"100\"\r\n         }\r\n       }\r\n   }\r\n}",
       "skipTest": false
     },
     {
@@ -2920,7 +2919,7 @@
         }
       ],
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"startDateTime\": \"{deploymentStartDateTime}\",\r\n            \"endDateTime\": \"{deploymentEndDateTime}\",\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    },\r\n    \"settings\":{\r\n        \"@odata.type\":\"microsoft.graph.windowsUpdates.deploymentSettings\",\r\n        \"schedule\":{\r\n            \"startDateTime\":\"{deploymentStartTime}\",\r\n            \"gradualRollout\":{\r\n                \"@odata.type\":\"#microsoft.graph.windowsUpdates.dateDrivenRolloutSettings\",\r\n              \"durationBetweenOffers\":\"P7D\",\r\n              \"endDateTime\":\"{deploymentEndTime}\"\r\n         }\r\n       }\r\n   }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -3177,7 +3176,7 @@
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
       "skipTest": false
     },
-     {
+    {
       "id": "b0ce32b3-c4b9-4cee-a342-6a25aab14c39",
       "category": "Windows Updates",
       "method": "POST",
