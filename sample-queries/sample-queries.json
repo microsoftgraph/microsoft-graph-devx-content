@@ -2852,7 +2852,7 @@
       "method": "GET",
       "humanName": "list deployments",
       "requestUrl": "/beta/admin/windows/updates/deployments",
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-deployments?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deployments?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
       "skipTest": false
     },
@@ -2868,8 +2868,8 @@
           "value": "application/json"
         }
       ],
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    }\r\n}",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deployments?view=graph-rest-beta",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -2885,8 +2885,8 @@
           "value": "application/json"
         }
       ],
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.expeditedQualityUpdateReference\",\r\n        \"releaseDate\": \"{qualityUpdateReleaseDate}\"\r\n    }\r\n}",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deployments?view=graph-rest-beta",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the qualityUpdateReleaseDate parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -2902,9 +2902,8 @@
           "value": "application/json"
         }
       ],
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"devicesPerOffer\": 100,\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
-      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deployments?view=graph-rest-beta",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    },\r\n    \"settings\":{\r\n        \"@odata.type\":\"microsoft.graph.windowsUpdates.deploymentSettings\",\r\n        \"schedule\":{\r\n            \"startDateTime\":\"{deploymentStartTime}\",\r\n            \"gradualRollout\":{\r\n                \"@odata.type\":\"#microsoft.graph.windowsUpdates.rateDrivenRolloutSettings\",\r\n              \"durationBetweenOffers\":\"P7D\",\r\n              \"devicesPerOffer\":\"100\"\r\n         }\r\n       }\r\n   }\r\n}",
       "skipTest": false
     },
     {
@@ -2919,8 +2918,8 @@
           "value": "application/json"
         }
       ],
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-post-deployments?view=graph-rest-beta",
-      "postBody": "{\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.featureUpdateReference\",\r\n        \"version\": \"{featureUpdateVersion}\"\r\n    },\r\n    \"settings\": {\r\n        \"@odata.type\": \"microsoft.graph.windowsUpdates.windowsDeploymentSettings\",\r\n        \"rollout\": {\r\n            \"startDateTime\": \"{deploymentStartDateTime}\",\r\n            \"endDateTime\": \"{deploymentEndDateTime}\",\r\n            \"durationBetweenOffers\": \"P7D\"\r\n        },\r\n        \"monitoring\": {\r\n            \"monitoringRules\": [\r\n                {\r\n                    \"@odata.type\": \"#microsoft.graph.windowsUpdates.monitoringRule\",\r\n                    \"signal\": \"rollback\",\r\n                    \"threshold\": 5,\r\n                    \"action\": \"pauseDeployment\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deployments?view=graph-rest-beta",
+      "postBody": "{\r\n    \"content\":{\r\n        \"@odata.type\":\"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\":{\r\n            \"@odata.type\":\"#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry\",\r\n            \"id\":\"{catalogEntryId}\"\r\n        }\r\n    },\r\n    \"settings\":{\r\n        \"@odata.type\":\"microsoft.graph.windowsUpdates.deploymentSettings\",\r\n        \"schedule\":{\r\n            \"startDateTime\":\"{deploymentStartTime}\",\r\n            \"gradualRollout\":{\r\n                \"@odata.type\":\"#microsoft.graph.windowsUpdates.dateDrivenRolloutSettings\",\r\n              \"durationBetweenOffers\":\"P7D\",\r\n              \"endDateTime\":\"{deploymentEndTime}\"\r\n         }\r\n       }\r\n   }\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the featureUpdateVersion parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/catalog/entries.",
       "skipTest": false
     },
@@ -3089,7 +3088,7 @@
       "method": "GET",
       "humanName": "list updatable assets",
       "requestUrl": "/beta/admin/windows/updates/updatableAssets",
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
       "skipTest": false
     },
@@ -3119,7 +3118,7 @@
       "method": "GET",
       "humanName": "list Azure AD devices",
       "requestUrl": "/beta/admin/windows/updates/updatableAssets/?$filter=isof('microsoft.graph.windowsUpdates.azureADDevice')",
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updates-list-updatableassets-azureaddevice?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatableassets-azureaddevice?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
       "skipTest": false
     },
@@ -3175,6 +3174,191 @@
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-unenrollassets?view=graph-rest-beta",
       "postBody": "{\r\n    \"updateCategory\": \"feature\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "b0ce32b3-c4b9-4cee-a342-6a25aab14c39",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "enroll device in driver management",
+      "requestUrl": "/beta/admin/windows/updates/updatableAssets/enrollAssets",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-enrollassets?view=graph-rest-beta",
+      "postBody": "{\r\n    \"updateCategory\": \"driver\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "29010d62-a2f4-4e96-8c99-14c89ee02df7",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "uneroll device from driver management",
+      "requestUrl": "/beta/admin/windows/updates/updatableAssets/unenrollAssets",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-updatableasset-unenrollassets?view=graph-rest-beta",
+      "postBody": "{\r\n    \"updateCategory\": \"driver\",\r\n    \"assets\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "6de49920-c4e1-414e-98fb-87ec26f87c26",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "create a deployment audience",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-deploymentaudiences?view=graph-rest-beta",
+      "postBody": "{\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "416b6e61-5e01-4b72-94af-c04b38fe4d68",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "get deployment audience",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "18d2634a-e990-432b-a9ac-25608a39530d",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "list deployment audiences",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-deploymentaudiences?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "9a3bf68a-7521-453f-947c-11cc8d9c7b7",
+      "category": "Windows Updates",
+      "method": "DELETE",
+      "humanName": "delete deployment audience",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}",
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "88eab117-0665-4312-995f-e0dec54388f2",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "create update policy (drivers)",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-post-updatepolicies?view=graph-rest-beta",
+      "postBody": "{\r\n    \"audience\": {\r\n        \"id\": \"{deploymentAudienceId}\"\r\n    }\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "0800a5be-2965-4c0b-88b6-7b41f2b8e962",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "get update policy (drivers)",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatepolicies?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.",
+      "skipTest": false
+    },
+    {
+      "id": "3e107bb7-af17-4be8-9677-4b92f7cfd4dd",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "list update policies (drivers)",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies",
+      "docLink": "https://learn.microsoft.com/graph/api/adminwindowsupdates-list-updatepolicies?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies.",
+      "skipTest": false
+    },
+    {
+      "id": "fd94a066-fb58-43b5-9ab9-284c4692492c",
+      "category": "Windows Updates",
+      "method": "DELETE",
+      "humanName": "delete update policy (drivers)",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-delete?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies.",
+      "skipTest": false
+    },
+    {
+      "id": "6743b5b0-1166-4ff8-af16-2e4e5360e74a",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "inventory of driver updates",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}/applicableContent",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-get?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "db94e38c-9638-4af8-88a8-932826e4dd8d",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "create driver approval",
+      "requestUrl": "beta/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-post-compliancechanges-contentapproval?view=graph-rest-beta",
+      "postBody": "{\r\n    \"@odata.type\": \"#microsoft.graph.windowsUpdates.contentApproval\",\r\n    \"content\": {\r\n        \"@odata.type\": \"#microsoft.graph.windowsUpdates.catalogContent\",\r\n        \"catalogEntry\": {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry\",\r\n            \"id\": \"{catalogEntryId}\"\r\n        }\r\n    }\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.  To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies.",
+      "skipTest": false
+    },    
+    {
+      "id": "eba3d860-f13d-4eec-8cca-44b62507d67f",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "get compliance change",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges/{complianceChangeId}",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-get?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.  To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies. To find a value for the complianceChangeId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies/{updatePolicyId]/complianceChanges.",
+      "skipTest": false
+    },
+    {
+      "id": "353ce490-6d47-49a7-a733-c347b73118b9",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "list compliance changes",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-updatepolicy-list-compliancechanges?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.  To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies.",
+      "skipTest": false
+    },
+    {
+      "id": "2bf2e82e-2811-4f9a-83d3-b24eee7425cb",
+      "category": "Windows Updates",
+      "method": "DELETE",
+      "humanName": "delete compliance changes",
+      "requestUrl": "/beta/admin/windows/updates/updatePolicies/{updatePolicyId}/complianceChanges/{complianceChangeId}",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-compliancechange-delete?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query.  To find a value for the updatePolicyId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies. To find a value for the complianceChangeId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/updatePolicies/{updatePolicyId]/complianceChanges.",
       "skipTest": false
     },
     {
