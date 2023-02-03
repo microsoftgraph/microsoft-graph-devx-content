@@ -13,8 +13,13 @@ This will also be used by the localization team to add translation files, and by
 1. Download and Install VS Code to your machine https://code.visualstudio.com/download
 
 To add sample queries follow these steps:
-1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine.
-   - If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.
+1. - If you have write access to this repo (*microsoft-graph-devx-content*), clone the repo to your local machine. You can do so using this command:
+
+            git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
+            cd microsoft-graph-devx-content/sample-queries
+
+   - If you don't have write access or you are a new contributor, fork your copy of the repo by clicking on the **Fork** button at the top right of this page.
+   ![Image of the Fork Button](https://user-images.githubusercontent.com/40403681/213385808-b5716824-e76a-4549-9d96-cacfa2a4168d.png)
 1. Navigate to the file *sample-queries.json* in the *sample-queries* folder.
 1. Open the file *sample-queries.json* on your favourite editor (e.g VS Code)
 1. If you are adding a new category (workload) sample (e.g. Teams, Excel), add the queries at the end of the list right before the closing square bracket **]** in the following format. However, if you are adding a sample query to an existing category, find it on the document and add the query next to the other queries in that category. <br>
@@ -63,7 +68,7 @@ When done making the changes on the document,
 1. Save the document on your machine
 1. Create a Git branch on this repo and name it using your initials + describe the changes ie. bn/add-xyz-samples
 1. Commit the changes to your branch
-1. Create a PR and add Bettirose Ngugi and/or Irvine Sunday as the reviewer(s).
+1. Create a PR (the PR is automatically updated with the relevant reviewers).
 
 Once the PR is reviewed and merged, the changes will appear on Graph Explorer in 2 working days.
 
@@ -81,17 +86,8 @@ Once the PR is reviewed and merged, the changes will appear on Graph Explorer in
        `"skipTest": `<br>
 1. The `humanName` value should be in **small caps** only.
 1. The `requestUrl` value should be a relative url, starting from the version, i.e. `"requestUrl": "/v1.0/me/onenote/notebooks/{notebook-id}/sections"` leave out the `https://graph.microsoft.com` part of the url.
-### Using Command Line or PowerShell:
-
-### 1. Clone the repo (If you have write access)
-Open the command line terminal and paste this command to clone or fork this repo: <br/>
-`git clone https://github.com/microsoftgraph/microsoft-graph-devx-content.git microsoft-graph-devx-content
-cd microsoft-graph-devx-content/sample-queries
-`
-
-**Please Note: If you don't have write access or you are a new contributor, fork your copy of the repo to your GitHub.**
-
-### 2. Open the sample-queries.json file
+### Using Command Line or PowerShell (After Fork/Clone):
+### 1. Open the sample-queries.json file
 To open the sample-queries.json file, paste in this command: <br/>
 `code -n sample-queries.json
 ` <br/>
@@ -100,7 +96,7 @@ Alternatively, you can open the directory where the file is located by pasting i
 `start .
 `
 
-### 3. Open the Git command utility
+### 2. Open the Git command utility
 If your machine's OS/CPU is x64, paste in this command: <br/>
 `start "%PROGRAMFILES%\Git\bin\sh.exe" --login
 `
@@ -108,25 +104,25 @@ else, if x86, paste in this command: <br/>
 `start "%SYSTEMDRIVE%\Program Files (x86)\Git\bin\sh.exe"
 `
 
-### 4. Create your local branch
+### 3. Create your local branch
 Your branch name has to be of the format: {your-intial}/{purpose-of-change}.
 Replace the text within the curly braces (inclusive of the curly braces). <br/>
 Then in the new Git command line window, paste in this command to create and checkout your branch: <br/>
 `git checkout -b {your-branch-name}
 `
 
-### 5. Update your sample query
+### 4. Update your sample query
 Now you can add, update or delete your sample query in the `sample-queries.json` file that opened up in VS Code earlier.
 
-### 6. Add, commit and push your changes back to the remote repo with the following commands
+### 5. Add, commit and push your changes back to the remote repo with the following commands
 - Add the changes to you local repo: `git add sample-queries.json`
 - Commit your changes: `git commit -m "{add-reason-for-update}"`
 - Push your changes to the remote repo: `git push origin {your-branch-name}`
 
-### 7. Login to GitHub
+### 6. Login to GitHub
 Follow the instructions to login to GitHub using your credentials.
 
-### 8. If you get error 403
+### 7. If you get error 403
 Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
@@ -154,7 +150,10 @@ https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://grap
 
 The samples/permissions will be populated on Graph Explorer and you can do further testing.
 
-#### Please Note:
+## Adding Permissions
+Contributions to permissions are limited to contributors with write access. However, issues on missing permissions can be raised as issue requests on the [issues tab](https://github.com/microsoftgraph/microsoft-graph-devx-content/issues).
+
+### Please Note:
 In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
 
 If you run into any issues, reach out to @MaggieKimani1, @irvinesunday or @thewahome.
