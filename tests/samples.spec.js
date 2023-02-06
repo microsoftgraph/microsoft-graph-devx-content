@@ -10,6 +10,11 @@ for (const query of sampleQueries) {
       expect(count).toEqual(1);
     });
 
+    it('id should be a valid GUID', function () {
+      const regexPattern = /^[{|\(]?[0-9A-F]{8}[-]?([0-9A-F]{4}[-]?){3}[0-9A-F]{12}[\)|}]?$/i;
+      expect(regexPattern.test(query.id)).toEqual(true);
+    });
+
     it('humanName first word should be lower cased', function () {
       const firstWord = query.humanName.split(' ')[0];
       const lowerCasedHumanName = firstWord.toLowerCase();
@@ -39,6 +44,10 @@ for (const query of sampleQueries) {
     it('docLink should be valid', async function() {
       const isValidLink = await validateLink(query.docLink);
       expect(isValidLink).toBe(true);
+    });
+
+    it('requestUrl should start with a leading /', function () {
+      expect(query.requestUrl.startsWith('/')).toBe(true);
     });
 
     it('requestUrl should not have whitespace before parameters', function () {
