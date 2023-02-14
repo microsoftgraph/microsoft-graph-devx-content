@@ -11035,6 +11035,36 @@
         ]
       }
     },
+    "/devicemanagement/virtualendpoint/shareduseserviceplans": {
+      "GET": {
+        "Application": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/virtualendpoint/shareduseserviceplans/{id}": {
+      "GET": {
+        "Application": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/virtualendpoint/snapshots": {
       "GET": {
         "Application": [
@@ -20035,6 +20065,47 @@
       }
     },
     "/devicemanagement/devicehealthscripts/{id}/devicerunstates/{id}": {
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/devicehealthscriptstates/{id}": {
       "DELETE": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -32398,6 +32469,34 @@
         ]
       }
     },
+    "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/devicehealthscriptstates": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/getfilevaultkey": {
       "GET": {
         "Application": [
@@ -42297,6 +42396,83 @@
         ]
       }
     },
+    "/devicemanagement/userexperienceanalyticsdevicetimelineevent": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/userexperienceanalyticsdevicetimelineevent/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.Read.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.ReadWrite.All",
+          "DeviceManagementManagedDevices.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/userexperienceanalyticsdevicetimelineevents": {
       "GET": {
         "Application": [
@@ -44756,6 +44932,19 @@
         ]
       }
     },
+    "/devicemanagement/androidmanagedstoreaccountenterprisesettings/addapps": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/assignmentfilters/enable": {
       "POST": {
         "Application": [
@@ -44934,6 +45123,21 @@
         ]
       }
     },
+    "/devicemanagement/comanageddevices/{id}/initiateondemandproactiveremediation": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/comanageddevices/{id}/reenable": {
       "POST": {
         "Application": [
@@ -45066,6 +45270,21 @@
       }
     },
     "/devicemanagement/devicecompliancescripts/{id}/devicerunstates/{id}/manageddevice/initiatemobiledevicemanagementkeyrecovery": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/devicecompliancescripts/{id}/devicerunstates/{id}/manageddevice/initiateondemandproactiveremediation": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -45216,6 +45435,21 @@
       }
     },
     "/devicemanagement/devicehealthscripts/{id}/devicerunstates/{id}/manageddevice/initiatemobiledevicemanagementkeyrecovery": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/devicehealthscripts/{id}/devicerunstates/{id}/manageddevice/initiateondemandproactiveremediation": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -45457,6 +45691,21 @@
         ]
       }
     },
+    "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/detectedapps/{id}/manageddevices/{id}/initiateondemandproactiveremediation": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/detectedapps/{id}/manageddevices/{id}/reenable": {
       "POST": {
         "Application": [
@@ -45518,6 +45767,21 @@
       }
     },
     "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/initiatemobiledevicemanagementkeyrecovery": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/initiateondemandproactiveremediation": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -45689,6 +45953,21 @@
       }
     },
     "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/users/{id}/manageddevices/{id}/initiatemobiledevicemanagementkeyrecovery": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/devicemanagementscripts/{id}/devicerunstates/{id}/manageddevice/users/{id}/manageddevices/{id}/initiateondemandproactiveremediation": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -45910,6 +46189,21 @@
       }
     },
     "/devicemanagement/manageddevices/{id}/initiatemobiledevicemanagementkeyrecovery": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementManagedDevices.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/manageddevices/{id}/initiateondemandproactiveremediation": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -46180,6 +46474,21 @@
       }
     },
     "/devicemanagement/reportremoteassistance": {
+      "POST": {
+        "Application": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementServiceConfig.Read.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementConfiguration.Read.All",
+          "DeviceManagementServiceConfig.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/devicemanagement/reportremotehelpsessionstarttime": {
       "POST": {
         "Application": [
           "DeviceManagementConfiguration.Read.All",
@@ -53043,21 +53352,6 @@
         "DelegatedPersonal": [
           "N/A"
         ]
-      },
-      "POST": {
-        "Application": [
-          "Directory.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "GroupMember.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "Directory.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "GroupMember.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
       }
     },
     "/groups/{id}/owners": {
@@ -54873,6 +55167,170 @@
         ],
         "DelegatedWork": [
           "Group.Read.All"
+        ]
+      }
+    },
+    "/directory/recommendations": {
+      "GET": {
+        "Application": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}": {
+      "GET": {
+        "Application": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources": {
+      "GET": {
+        "Application": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources/{id}": {
+      "GET": {
+        "Application": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.Read.All",
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/complete": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/dismiss": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources/{id}/complete": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources/{id}/dismiss": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources/{id}/postpone": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/impactedresources/{id}/reactivate": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/postpone": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/directory/recommendations/{id}/reactivate": {
+      "POST": {
+        "Application": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DirectoryRecommendations.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -65757,6 +66215,21 @@
         ]
       }
     },
+    "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": {
+      "GET": {
+        "Application": [
+          "LifecycleWorkflows.Read.All",
+          "LifecycleWorkflows.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "LifecycleWorkflows.Read.All",
+          "LifecycleWorkflows.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": {
       "GET": {
         "Application": [
@@ -65788,6 +66261,21 @@
       }
     },
     "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": {
+      "GET": {
+        "Application": [
+          "LifecycleWorkflows.Read.All",
+          "LifecycleWorkflows.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "LifecycleWorkflows.Read.All",
+          "LifecycleWorkflows.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": {
       "GET": {
         "Application": [
           "LifecycleWorkflows.Read.All",
@@ -69764,137 +70252,6 @@
         ]
       }
     },
-    "/me/todo/lists/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/attachments/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/linkedresources/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
     "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}": {
       "DELETE": {
         "Application": [
@@ -72116,137 +72473,6 @@
         ],
         "DelegatedPersonal": [
           "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/linkedresources/{id}": {
-      "DELETE": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
           "Tasks.ReadWrite"
         ]
       },
@@ -78721,82 +78947,6 @@
         ],
         "DelegatedPersonal": [
           "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/delta": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/delta": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/attachments": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/linkedresources": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
           "Tasks.ReadWrite"
         ]
       }
@@ -86884,82 +87034,6 @@
         ]
       }
     },
-    "/users/{id}/todo/lists/delta": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/delta": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/linkedresources": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
     "/directory/onpremisessynchronization/{id}": {
       "PATCH": {
         "Application": [
@@ -87124,41 +87198,6 @@
         ],
         "DelegatedPersonal": [
           "N/A"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks": {
-      "PATCH": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "GET": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
         ]
       }
     },
@@ -90121,19 +90160,6 @@
       }
     },
     "/me/tasks/lists/{id}/tasks/{id}/move": {
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": {
       "POST": {
         "Application": [
           "N/A"
@@ -93464,19 +93490,6 @@
       }
     },
     "/users/{id}/tasks/lists/{id}/tasks/{id}/move": {
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": {
       "POST": {
         "Application": [
           "N/A"
@@ -103757,44 +103770,6 @@
         ]
       }
     },
-    "/me/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
     "/me/tasks/lists/{id}/tasks/{id}/linkedresources": {
       "GET": {
         "Application": [
@@ -103860,71 +103835,6 @@
         ]
       }
     },
-    "/me/todo/lists/{id}/tasks/{id}/checklistitems": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks/{id}/checklistitems/{id}": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
     "/users/{id}/tasks/lists/{id}/tasks/{id}/checklistitems": {
       "GET": {
         "Application": [
@@ -103941,44 +103851,6 @@
         ]
       },
       "POST": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
         "Application": [
           "Tasks.ReadWrite"
         ],
@@ -104055,71 +103927,6 @@
         ]
       }
     },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/checklistitems": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/users/{id}/todo/lists/{id}/tasks/{id}/checklistitems/{id}": {
-      "GET": {
-        "Application": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.Read",
-          "Tasks.ReadWrite"
-        ]
-      },
-      "DELETE": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "PATCH": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
     "/groups/{id}/planner/plans": {
       "GET": {
         "Application": [
@@ -104151,6 +103958,384 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/me/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/delta": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/delta": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/attachments": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/attachments/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/checklistitems": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/checklistitems/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/linkedresources": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/linkedresources/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
         ]
       }
     },
@@ -104685,10 +104870,24 @@
         ]
       }
     },
-    "/me/todo/lists": {
+    "/users/{id}/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": {
       "GET": {
         "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
           "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Tasks.ReadWrite"
@@ -104697,33 +104896,9 @@
           "Tasks.ReadWrite"
         ]
       },
-      "POST": {
+      "PATCH": {
         "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      }
-    },
-    "/me/todo/lists/{id}/tasks": {
-      "GET": {
-        "Application": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedWork": [
-          "Tasks.ReadWrite"
-        ],
-        "DelegatedPersonal": [
-          "Tasks.ReadWrite"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "Tasks.ReadWrite"
+          "Tasks.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Tasks.ReadWrite"
@@ -104736,7 +104911,96 @@
     "/users/{id}/todo/lists": {
       "GET": {
         "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
           "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/delta": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Tasks.ReadWrite"
@@ -104747,7 +105011,258 @@
       },
       "POST": {
         "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
           "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/delta": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/checklistitems": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/checklistitems/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/linkedresources": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/linkedresources/{id}": {
+      "GET": {
+        "Application": [
+          "Tasks.Read.All",
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.Read",
+          "Tasks.ReadWrite"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/me/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": {
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Tasks.ReadWrite"
@@ -104767,6 +105282,19 @@
         ],
         "DelegatedPersonal": [
           "N/A"
+        ]
+      }
+    },
+    "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": {
+      "POST": {
+        "Application": [
+          "Tasks.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Tasks.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "Tasks.ReadWrite"
         ]
       }
     },
@@ -110567,6 +111095,30 @@
         ]
       }
     },
+    "/admin/windows/updates/deploymentaudiences/{id}": {
+      "DELETE": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/admin/windows/updates/deployments/{id}": {
       "DELETE": {
         "Application": [
@@ -110650,8 +111202,128 @@
         ]
       }
     },
+    "/admin/windows/updates/updatepolicies/{id}": {
+      "DELETE": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin/windows/updates/updatepolicies/{id}/compliancechanges/{id}": {
+      "DELETE": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin//windows/updates/deploymentaudiences/{id}/exclusions": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin//windows/updates/deploymentaudiences/{id}/members": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/admin/windows/updates/catalog/entries": {
       "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin/windows/updates/deploymentaudiences": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
         "Application": [
           "WindowsUpdates.ReadWrite.All"
         ],
@@ -110676,32 +111348,6 @@
         ]
       },
       "POST": {
-        "Application": [
-          "WindowsUpdates.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "WindowsUpdates.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/admin/windows/updates/deployments/{id}/audience/exclusions": {
-      "GET": {
-        "Application": [
-          "WindowsUpdates.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "WindowsUpdates.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/admin/windows/updates/deployments/{id}/audience/members": {
-      "GET": {
         "Application": [
           "WindowsUpdates.ReadWrite.All"
         ],
@@ -110774,6 +111420,32 @@
         ]
       }
     },
+    "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.azureaddevice": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.updatableassetgroup": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/admin/windows/updates/updatableassets/{id}/microsoft.graph.windowsupdates.updatableassetgroup/members": {
       "GET": {
         "Application": [
@@ -110787,8 +111459,56 @@
         ]
       }
     },
-    "/admin/windows/updates/deployments/{id}/audience/updateaudience": {
+    "/admin/windows/updates/updatepolicies": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
       "POST": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin/windows/updates/updatepolicies/{id}/compliancechanges": {
+      "GET": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "WindowsUpdates.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/admin/windows/updates/updatepolicies/{id}/compliancechanges/microsoft.graph.windowsupdates.contentapproval": {
+      "GET": {
         "Application": [
           "WindowsUpdates.ReadWrite.All"
         ],
@@ -113275,6 +113995,18 @@
         "Grant": "admin"
       },
       {
+        "Name": "DirectoryRecommendations.Read.All",
+        "Description": "Allows the  app to read recommendations on behalf of the signed-in user.",
+        "ConsentDescription": "Read all recommendations",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DirectoryRecommendations.ReadWrite.All",
+        "Description": "Allows the  app to read and write recommendations on behalf of the signed-in user.",
+        "ConsentDescription": "Manage all recommendations",
+        "Grant": "admin"
+      },
+      {
         "Name": "Domain.Read.All",
         "Description": "Allows the app to read all domain properties on behalf of the signed-in user.",
         "ConsentDescription": "Read domains",
@@ -115200,6 +115932,18 @@
         "Name": "Directory.ReadWrite.All",
         "Description": "Allows the app to read and write data in your organization's directory, such as users, and groups, without a signed-in user. Does not allow user or group deletion.",
         "ConsentDescription": "Read and write directory data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DirectoryRecommendations.Read.All",
+        "Description": "Allows the  app to read recommendations without a signed-in user.",
+        "ConsentDescription": "Read all recommendations",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DirectoryRecommendations.ReadWrite.All",
+        "Description": "Allows the  app to read and write recommendations without a signed-in user.",
+        "ConsentDescription": "Manage all recommendations",
         "Grant": "admin"
       },
       {
