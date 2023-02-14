@@ -2998,7 +2998,7 @@
       "id": "60120373-19db-47a4-8933-3dbba0add8dd",
       "category": "Windows Updates",
       "method": "GET",
-      "humanName": "list deployment audience members",
+      "humanName": "list deployment audience members for feature update",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/members",
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
@@ -3008,7 +3008,7 @@
       "id": "c19b7572-177f-4082-b267-59efa0e54e8c",
       "category": "Windows Updates",
       "method": "GET",
-      "humanName": "list deployment audience exclusions",
+      "humanName": "list deployment audience exclusions for feature update",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/exclusions",
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
@@ -3018,7 +3018,7 @@
       "id": "885f06ba-b5c4-49eb-9e0c-e6c33fbde358",
       "category": "Windows Updates",
       "method": "POST",
-      "humanName": "update deployment audience (add members)",
+      "humanName": "update deployment audience for feature update (add members)",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
       "headers": [
         {
@@ -3035,7 +3035,7 @@
       "id": "a57c002b-c14f-4b51-a5c2-1140dc6f5bbc",
       "category": "Windows Updates",
       "method": "POST",
-      "humanName": "update deployment audience (add exclusions)",
+      "humanName": "update deployment audience for feature update (add exclusions)",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
       "headers": [
         {
@@ -3052,7 +3052,7 @@
       "id": "f2bc2604-0b71-470a-b294-2544c5b14648",
       "category": "Windows Updates",
       "method": "POST",
-      "humanName": "update deployment audience (remove members)",
+      "humanName": "update deployment audience for feature update (remove members)",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
       "headers": [
         {
@@ -3069,7 +3069,7 @@
       "id": "dbbaa3cf-4b3e-466c-82bd-b247328e781a",
       "category": "Windows Updates",
       "method": "POST",
-      "humanName": "update deployment audience (remove exclusions)",
+      "humanName": "update deployment audience for feature update (remove exclusions)",
       "requestUrl": "/beta/admin/windows/updates/deployments/{deploymentId}/audience/updateAudience",
       "headers": [
         {
@@ -3255,6 +3255,94 @@
       "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}",
       "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentAudienceId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "786fd281-da19-4524-b233-11ac5ff4f431",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "list deployment audience members for driver update",
+      "requestUrl": "/beta/admin//windows/updates/deploymentAudiences/{deploymentAudienceId}/members",
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-members?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "da9d4dfe-657d-4945-8fca-9060809275d4",
+      "category": "Windows Updates",
+      "method": "GET",
+      "humanName": "list deployment audience exclusions for driver update",
+      "requestUrl": "/beta/admin//windows/updates/deploymentAudiences/{deploymentAudienceId}/exclusions",
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-list-exclusions?view=graph-rest-beta",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "01783234-f60c-40ad-9630-9136fcdb281c",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "update deployment audience for driver update (add members)",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}]/updateAudience",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+      "postBody": "{\r\n    \"addMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "b86d74d5-a962-46e6-bfd1-4d4ec87ac310",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "update deployment audience for driver update (add exclusions)",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}]/updateAudience",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+      "postBody": "{\r\n    \"addExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "398f4689-b1cb-4a27-be68-ac64e821e566",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "update deployment audience for driver update (remove members)",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}]/updateAudience",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+      "postBody": "{\r\n    \"removeMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
+      "skipTest": false
+    },
+    {
+      "id": "9e503c54-90a7-46d0-8fb8-a38faa33e62a",
+      "category": "Windows Updates",
+      "method": "POST",
+      "humanName": "update deployment audience for driver update (remove exclusions)",
+      "requestUrl": "/beta/admin/windows/updates/deploymentAudiences/{deploymentAudienceId}]/updateAudience",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+      "postBody": "{\r\n    \"removeExclusions\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
+      "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deploymentAudiences.",
       "skipTest": false
     },
     {
