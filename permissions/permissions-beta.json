@@ -54450,11 +54450,13 @@
       "PATCH": {
         "Application": [
           "Directory.ReadWrite.All",
+          "User.EnableDisableAccount.All",
           "User.ManageIdentities.All",
           "User.ReadWrite.All"
         ],
         "DelegatedWork": [
           "Directory.ReadWrite.All",
+          "User.EnableDisableAccount.All",
           "User.ManageIdentities.All",
           "User.ReadWrite",
           "User.ReadWrite.All"
@@ -95890,7 +95892,7 @@
         ]
       }
     },
-    "/me/onlinemeetings({meetingid})/transcripts({transcriptid})": {
+    "/me/onlinemeetings/{id}/transcripts/{id}": {
       "GET": {
         "Application": [
           "OnlineMeetingTranscript.Read.All"
@@ -95903,7 +95905,7 @@
         ]
       }
     },
-    "/me/onlinemeetings({meetingid})/transcripts({transcriptid})/content": {
+    "/me/onlinemeetings/{id}/transcripts/{id}/content": {
       "GET": {
         "Application": [
           "OnlineMeetingTranscript.Read.All"
@@ -95929,32 +95931,6 @@
         ]
       }
     },
-    "/users({userid})/onlinemeetings({meetingid})/transcripts({transcriptid})": {
-      "GET": {
-        "Application": [
-          "OnlineMeetingTranscript.Read.All"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetingTranscript.Read.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/users({userid})/onlinemeetings({meetingid})/transcripts({transcriptid})/content": {
-      "GET": {
-        "Application": [
-          "OnlineMeetingTranscript.Read.All"
-        ],
-        "DelegatedWork": [
-          "OnlineMeetingTranscript.Read.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/users/{id}/onlinemeetings({meetingid})/transcripts": {
       "GET": {
         "Application": [
@@ -95968,7 +95944,7 @@
         ]
       }
     },
-    "/users/{id}/onlinemeetings({meetingid})/transcripts({transcriptid})": {
+    "/users/{id}/onlinemeetings/{id}/transcripts/{id}": {
       "GET": {
         "Application": [
           "OnlineMeetingTranscript.Read.All"
@@ -95981,7 +95957,7 @@
         ]
       }
     },
-    "/users/{id}/onlinemeetings({meetingid})/transcripts({transcriptid})/content": {
+    "/users/{id}/onlinemeetings/{id}/transcripts/{id}/content": {
       "GET": {
         "Application": [
           "OnlineMeetingTranscript.Read.All"
@@ -115369,6 +115345,12 @@
         "Grant": "admin"
       },
       {
+        "Name": "User.EnableDisableAccount.All",
+        "Description": "Allows the app to enable and disable users' accounts, on behalf of the signed-in user.",
+        "ConsentDescription": "Enable and disable user accounts",
+        "Grant": "admin"
+      },
+      {
         "Name": "User.Export.All",
         "Description": "Allows the app to export an organizational user's data, when performed by a Company Administrator.",
         "ConsentDescription": "Export users' data",
@@ -117078,6 +117060,12 @@
         "Name": "User.Invite.All",
         "Description": "Allows the app to invite guest users to your organization, without a signed-in user.",
         "ConsentDescription": "Invite guest users to the organization",
+        "Grant": "admin"
+      },
+      {
+        "Name": "User.EnableDisableAccount.All",
+        "Description": "Allows the app to enable and disable users' accounts, without a signed-in user.",
+        "ConsentDescription": "Enable and disable user accounts",
         "Grant": "admin"
       },
       {
