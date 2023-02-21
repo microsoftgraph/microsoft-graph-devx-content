@@ -2085,6 +2085,23 @@
       "skipTest": false
     },
     {
+      "id": "c17e962c-808e-454c-ad30-9a1d512736b2",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta) search driveitems with fields",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/resources/search-api-overview",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\n    \"requests\": [\n        {\n            \"entityTypes\": [\n                \"driveItem\"\n            ],\n            \"query\": {\n                \"queryString\": \"*\"\n            },\n            \"fields\": [\n                \"listId\",\n                \"author\",\n                \"title\"\n            ]\n        }\n    ]\n}",
+      "tip": "enable Files.Read.All, Sites.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All",
+      "skipTest": false
+    },
+    {
       "id": "cc1ebc82-b80c-42f1-a407-a14cf318f1f1",
       "category": "Search",
       "method": "POST",
