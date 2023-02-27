@@ -1,0 +1,63 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# Pipeline for merging permission files into one file
+
+trigger: none
+pr: none
+schedules:
+  - cron: "0 9 * * 1"
+    displayName: Weekly Monday permissions file update
+    branches:
+      include:
+        - master
+    always: true
+
+resources:
+  repositories:
+    - repository: workloads-repo
+      type: git
+      endpoint: permissions-export
+      name: One/AD-AggregatorService-Workloads
+      ref: master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  folderPath: "Permissions"
+  outputFilePath: "microsoft-graph-devx-content/permissions/new/permissions.json"
+
+steps:
+  - checkout: self
+    displayName: Checkout Microsoft Graph DevX Content
+    fetchDepth: 1
+    persistCredentials: true
+    
+  - checkout: workloads-repo
+    displayName: Checkout AD-AggregatorService-Workloads
+    fetchDepth: 1
+    persistCredentials: true
+
+  - pwsh: |
+      # override branch prefix incase the run is manually triggered
+      $branchPrefix = if ($env:BUILD_REASON -eq 'Manual') { "preview-permissions-update" } else { "permissions-update" }
+      Write-Host "##vso[task.setvariable variable=branchPrefix]$branchPrefix"
+      Write-Host "Branch prefix is $branchPrefix"
+    displayName: "Evaluate branch prefix to use"
+    
+  - template: templates/git-config.yml
+
+  - task: Basj@3
+    inputs: 
+        targetType: 'inline'
+        script: |
+            # Set the directory containing the JSON files to be concatenated
+            directory_path = $folderPath
+            
+            # Merge the JSON objects using jq
+            jq -n '[inputs | select(type == "object") | fromjson] | reduce .[] as $item ({}; . * $item)' $directory_path*.json > $outputFilePath
+    displayName: Merge permission JSON files
+    
+  - template: templates/commit-changes.yml
+     
