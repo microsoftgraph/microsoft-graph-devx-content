@@ -1,6 +1,66 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to read the role-based access control (RBAC) settings for your organization's Exchange Online service, on behalf of the signed-in user. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "adminConsentDisplayName": "Read Exchange Online RBAC configuration",
+      "id": "3bc15058-7858-4141-b24f-ae43b4e80b52",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "consentDisplayName": "Read Exchange Online RBAC configuration",
+      "value": "RoleManagement.Read.Exchange"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, on behalf of the signed-in user. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "adminConsentDisplayName": "Read and write Exchange Online RBAC configuration",
+      "id": "c1499fe0-52b1-4b22-bed2-7a244e0e879f",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "consentDisplayName": "Read and write Exchange Online RBAC configuration",
+      "value": "RoleManagement.ReadWrite.Exchange"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+      "id": "ba974594-d163-484e-ba39-c330d5897667",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, on your behalf.",
+      "consentDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+      "value": "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+      "id": "06dbc45d-6708-4ef0-a797-f797ee68bf4b",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, on your behalf.",
+      "consentDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+      "value": "PrivilegedAssignmentSchedule.ReadWrite.AzureADGroup"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read assignment schedules for access to Azure AD groups",
+      "id": "02a32cc4-7ab5-4b58-879a-0586e0f7c495",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, on your behalf.",
+      "consentDisplayName": "Read assignment schedules for access to Azure AD groups",
+      "value": "PrivilegedAssignmentSchedule.Read.AzureADGroup"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read eligibility schedules for access to Azure AD groups",
+      "id": "8f44f93d-ecef-46ae-a9bf-338508d44d6b",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, on your behalf.",
+      "consentDisplayName": "Read eligibility schedules for access to Azure AD groups",
+      "value": "PrivilegedEligibilitySchedule.Read.AzureADGroup"
+    },
+    {
       "adminConsentDescription": "Allows the app to read threat intelligence information, such as indicators, observations, and articles, on behalf of the signed-in user.",
       "adminConsentDisplayName": "Read all threat intelligence information",
       "id": "f266d9c0-ccb9-4fb8-a228-01ac0d8d6627",
@@ -4092,6 +4152,72 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, without a signed-in user.",
+      "consentDisplayName": "Read eligibility schedules for access to Azure AD groups",
+      "id": "edb419d6-7edc-42a3-9345-509bfdf5d87c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrivilegedEligibilitySchedule.Read.AzureADGroup"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, without a signed-in user.",
+      "consentDisplayName": "Read assignment schedules for access to Azure AD groups",
+      "id": "cd4161cb-f098-48f8-a884-1eda9a42434c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrivilegedAssignmentSchedule.Read.AzureADGroup"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, without a signed-in user.",
+      "consentDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+      "id": "41202f2c-f7ab-45be-b001-85c9728b9d69",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrivilegedAssignmentSchedule.ReadWrite.AzureADGroup"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read the role-based access control (RBAC) configuration for your organization's Exchange Online service, without a signed-in user. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "consentDisplayName": "Read Exchange Online RBAC configuration",
+      "id": "c769435f-f061-4d0b-8ff1-3d39870e5f85",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.Read.Exchange"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, without a signed-in user. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+      "consentDisplayName": "Read and write Exchange Online RBAC configuration",
+      "id": "025d3225-3f02-4882-b4c0-cd5b541a4e80",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagement.ReadWrite.Exchange"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, without a signed-in user.",
+      "consentDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+      "id": "618b6020-bca8-4de6-99f6-ef445fa4d857",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup"
+    },
     {
       "allowedMemberTypes": [
         "Application"
