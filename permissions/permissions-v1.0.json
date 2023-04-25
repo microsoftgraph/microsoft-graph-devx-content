@@ -1204,12 +1204,41 @@
         ]
       }
     },
+    "/applications/{id}/appmanagementpolicies": {
+      "DELETE": {
+        "Application": [
+          "Application.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Application.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Application.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Application.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/applications": {
       "GET": {
         "Application": [
           "Application.Read.All",
           "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy"
+          "Application.ReadWrite.OwnedBy",
+          "Directory.Read.All"
         ],
         "DelegatedWork": [
           "Application.Read.All",
@@ -1363,6 +1392,23 @@
         ],
         "DelegatedPersonal": [
           "Application.ReadWrite.All"
+        ]
+      }
+    },
+    "/policies/appmanagementpolicies/{id}/appliesto": {
+      "GET": {
+        "Application": [
+          "Application.Read.All",
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Application.Read.All",
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -4134,6 +4180,35 @@
         ],
         "DelegatedWork": [
           "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/solutions/bookingbusinesses/{id}/customers": {
+      "POST": {
+        "Application": [
+          "BookingsAppointment.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Bookings.Manage.All",
+          "Bookings.ReadWrite.All",
+          "BookingsAppointment.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "Bookings.Manage.All",
+          "Bookings.Read.All",
+          "Bookings.ReadWrite.All",
+          "BookingsAppointment.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -7168,7 +7243,6 @@
       },
       "PATCH": {
         "Application": [
-          "ChannelMessage.ReadWrite.All",
           "ChannelMessage.UpdatePolicyViolation.All",
           "Chat.ReadWrite.All",
           "Chat.UpdatePolicyViolation.All",
@@ -7368,7 +7442,6 @@
       },
       "POST": {
         "Application": [
-          "ChannelMessage.ReadWrite.All",
           "N/A",
           "Teamwork.Migrate.All"
         ],
@@ -7441,6 +7514,19 @@
         ]
       }
     },
+    "/teamwork/deletedteams/{id}/channels/getallmessages": {
+      "GET": {
+        "Application": [
+          "ChannelMessage.Read.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/users/{id}/chats/{id}/messages/{id}": {
       "GET": {
         "Application": [
@@ -7502,7 +7588,6 @@
     "/teams/(team-id)/channels/{id}/messages/{id}": {
       "PATCH": {
         "Application": [
-          "ChannelMessage.ReadWrite.All",
           "ChannelMessage.UpdatePolicyViolation.All",
           "Chat.ReadWrite.All",
           "Chat.UpdatePolicyViolation.All",
@@ -7521,7 +7606,6 @@
     "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": {
       "PATCH": {
         "Application": [
-          "ChannelMessage.ReadWrite.All",
           "ChannelMessage.UpdatePolicyViolation.All",
           "Chat.ReadWrite.All",
           "Chat.UpdatePolicyViolation.All",
@@ -8945,6 +9029,19 @@
         ]
       }
     },
+    "/devices/delta": {
+      "GET": {
+        "Application": [
+          "Device.Read.All"
+        ],
+        "DelegatedWork": [
+          "Device.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/devices/{id}": {
       "GET": {
         "Application": [
@@ -9432,6 +9529,132 @@
         ],
         "DelegatedWork": [
           "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/enterprisecodesigningcertificates": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/enterprisecodesigningcertificates/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/assignments": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/assignments/{id}": {
+      "GET": {
+        "Application": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "DeviceManagementApps.Read.All",
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "DeviceManagementApps.ReadWrite.All"
+        ],
+        "DelegatedWork": [
           "DeviceManagementApps.ReadWrite.All"
         ],
         "DelegatedPersonal": [
@@ -19360,6 +19583,28 @@
         ]
       }
     },
+    "/me/transitivememberof": {
+      "GET": {
+        "Application": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "GroupMember.Read.All",
+          "User.Read.All"
+        ],
+        "DelegatedWork": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "GroupMember.Read.All",
+          "User.Read",
+          "User.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/policies/adminconsentrequestpolicy": {
       "GET": {
         "Application": [
@@ -20106,6 +20351,19 @@
           "N/A"
         ]
       },
+      "DELETE": {
+        "Application": [
+          "Directory.ReadWrite.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Directory.ReadWrite.All",
+          "User.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
       "PUT": {
         "Application": [
           "Directory.ReadWrite.All",
@@ -20201,13 +20459,18 @@
       "GET": {
         "Application": [
           "Directory.Read.All",
-          "Directory.ReadWrite.All"
+          "Directory.ReadWrite.All",
+          "Group.Read.All",
+          "GroupMember.Read.All",
+          "User.Read.All"
         ],
         "DelegatedWork": [
           "Directory.Read.All",
           "Directory.ReadWrite.All",
+          "Group.Read.All",
           "GroupMember.Read.All",
-          "User.Read"
+          "User.Read",
+          "User.Read.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -26056,6 +26319,28 @@
         ]
       }
     },
+    "/search/query": {
+      "POST": {
+        "Application": [
+          "Files.Read.All",
+          "Sites.Read.All"
+        ],
+        "DelegatedWork": [
+          "Acronym.Read.All",
+          "Bookmark.Read.All",
+          "Calendars.Read",
+          "ChannelMessage.Read.All",
+          "Chat.Read",
+          "ExternalItem.Read.All",
+          "Files.Read.All",
+          "Mail.Read",
+          "Sites.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/shares/{id}/driveitem/preview": {
       "POST": {
         "Application": [
@@ -28041,6 +28326,89 @@
         ]
       }
     },
+    "/employeeexperience/learningproviders/{id}/learningcontents": {
+      "GET": {
+        "Application": [
+          "LearningContent.Read.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/employeeexperience/learningproviders/{id}/learningcontents(externalid={value})": {
+      "GET": {
+        "Application": [
+          "LearningContent.Read.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "LearningContent.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "LearningContent.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/employeeexperience/learningproviders/{id}/learningcontents/{id}": {
+      "GET": {
+        "Application": [
+          "LearningContent.Read.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "LearningContent.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "LearningContent.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "N/A"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/me/inferenceclassification/overrides": {
       "GET": {
         "Application": [
@@ -29526,6 +29894,22 @@
         ]
       }
     },
+    "/me/mailboxsettings/userpurpose": {
+      "GET": {
+        "Application": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ],
+        "DelegatedWork": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ]
+      }
+    },
     "/me/mailboxsettings/workinghours": {
       "GET": {
         "Application": [
@@ -29768,6 +30152,22 @@
       }
     },
     "/users/{id}/mailboxsettings/timezone": {
+      "GET": {
+        "Application": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ],
+        "DelegatedWork": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "MailboxSettings.Read",
+          "MailboxSettings.ReadWrite"
+        ]
+      }
+    },
+    "/users/{id}/mailboxsettings/userpurpose": {
       "GET": {
         "Application": [
           "MailboxSettings.Read",
@@ -30079,6 +30479,41 @@
         ]
       }
     },
+    "/employeeexperience/learningproviders/{id}": {
+      "DELETE": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "LearningProvider.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "LearningProvider.Read"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "LearningProvider.ReadWrite"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/identitygovernance/termsofuse/agreements/{id}": {
       "DELETE": {
         "Application": [
@@ -30198,6 +30633,81 @@
         ]
       }
     },
+    "/me/authentication/emailmethods/{id}": {
+      "DELETE": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.Read",
+          "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/authentication/fido2methods/{id}": {
+      "DELETE": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.Read",
+          "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/me/authentication/microsoftauthenticatormethods/{id}": {
       "DELETE": {
         "Application": [
@@ -30265,6 +30775,37 @@
           "UserAuthenticationMethod.ReadWrite.All"
         ],
         "DelegatedWork": [
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/me/authentication/softwareoathmethods/{id}": {
+      "DELETE": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.ReadWrite",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "N/A",
+          "UserAuthenticationMethod.Read.All",
+          "UserAuthenticationMethod.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "UserAuthenticationMethod.Read",
+          "UserAuthenticationMethod.Read.All",
           "UserAuthenticationMethod.ReadWrite",
           "UserAuthenticationMethod.ReadWrite.All"
         ],
@@ -30960,8 +31501,7 @@
         "DelegatedWork": [
           "Organization.Read.All",
           "User.Read",
-          "User.Read.All",
-          "User.ReadBasic.All"
+          "User.Read.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -30998,8 +31538,7 @@
         "DelegatedWork": [
           "Organization.Read.All",
           "User.Read",
-          "User.Read.All",
-          "User.ReadBasic.All"
+          "User.Read.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -32427,6 +32966,20 @@
         ]
       }
     },
+    "/directory/onpremisessynchronization": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "OnPremDirectorySynchronization.Read.All",
+          "OnPremDirectorySynchronization.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/drive/bundles": {
       "GET": {
         "Application": [
@@ -32523,20 +33076,6 @@
         ]
       }
     },
-    "/ediscoveryexportoperation/reviewset": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "eDiscovery.Read.All",
-          "eDiscovery.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/education/me/rubrics": {
       "GET": {
         "Application": [
@@ -32575,6 +33114,30 @@
           "EduAssignments.ReadBasic",
           "EduAssignments.ReadWrite",
           "EduAssignments.ReadWriteBasic"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/employeeexperience/learningproviders": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "LearningProvider.Read"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "LearningProvider.ReadWrite"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -33009,18 +33572,13 @@
         "DelegatedPersonal": [
           "N/A"
         ]
-      }
-    },
-    "/me/authentication/emailmethods/{id}": {
-      "GET": {
+      },
+      "POST": {
         "Application": [
           "N/A",
-          "UserAuthenticationMethod.Read.All",
           "UserAuthenticationMethod.ReadWrite.All"
         ],
         "DelegatedWork": [
-          "UserAuthenticationMethod.Read",
-          "UserAuthenticationMethod.Read.All",
           "UserAuthenticationMethod.ReadWrite",
           "UserAuthenticationMethod.ReadWrite.All"
         ],
@@ -33030,24 +33588,6 @@
       }
     },
     "/me/authentication/fido2methods": {
-      "GET": {
-        "Application": [
-          "N/A",
-          "UserAuthenticationMethod.Read.All",
-          "UserAuthenticationMethod.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "UserAuthenticationMethod.Read",
-          "UserAuthenticationMethod.Read.All",
-          "UserAuthenticationMethod.ReadWrite",
-          "UserAuthenticationMethod.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/me/authentication/fido2methods/{id}": {
       "GET": {
         "Application": [
           "N/A",
@@ -33187,24 +33727,6 @@
       }
     },
     "/me/authentication/softwareoathmethods": {
-      "GET": {
-        "Application": [
-          "N/A",
-          "UserAuthenticationMethod.Read.All",
-          "UserAuthenticationMethod.ReadWrite.All"
-        ],
-        "DelegatedWork": [
-          "UserAuthenticationMethod.Read",
-          "UserAuthenticationMethod.Read.All",
-          "UserAuthenticationMethod.ReadWrite",
-          "UserAuthenticationMethod.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/me/authentication/softwareoathmethods/{id}": {
       "GET": {
         "Application": [
           "N/A",
@@ -37814,8 +38336,7 @@
         "DelegatedWork": [
           "Organization.Read.All",
           "User.Read",
-          "User.Read.All",
-          "User.ReadBasic.All"
+          "User.Read.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -38381,6 +38902,20 @@
         ]
       }
     },
+    "/security/cases/ediscoverycases/{id}/reviewsets/{id}": {
+      "GET": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "eDiscovery.Read.All",
+          "eDiscovery.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": {
       "GET": {
         "Application": [
@@ -38860,35 +39395,6 @@
         "DelegatedWork": [
           "Bookings.Manage.All",
           "Bookings.Read.All",
-          "Bookings.ReadWrite.All",
-          "BookingsAppointment.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
-    "/solutions/bookingbusinesses/{id}/customers": {
-      "GET": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Bookings.Manage.All",
-          "Bookings.Read.All",
-          "Bookings.ReadWrite.All",
-          "BookingsAppointment.ReadWrite.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      },
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Bookings.Manage.All",
           "Bookings.ReadWrite.All",
           "BookingsAppointment.ReadWrite.All"
         ],
@@ -43989,6 +44495,19 @@
         ]
       }
     },
+    "/directory/onpremisessynchronization/{id}": {
+      "PATCH": {
+        "Application": [
+          "N/A"
+        ],
+        "DelegatedWork": [
+          "OnPremDirectorySynchronization.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/education/classes/acdefc6b-2dc6-4e71-b1e9-6d9810ab1793/assignmentsettings": {
       "PATCH": {
         "Application": [
@@ -46755,27 +47274,6 @@
         ]
       }
     },
-    "/search/query": {
-      "POST": {
-        "Application": [
-          "N/A"
-        ],
-        "DelegatedWork": [
-          "Acronym.Read.All",
-          "Bookmark.Read.All",
-          "Calendars.Read",
-          "ChannelMessage.Read.All",
-          "Chat.Read",
-          "ExternalItem.Read.All",
-          "Files.Read.All",
-          "Mail.Read",
-          "Sites.Read.All"
-        ],
-        "DelegatedPersonal": [
-          "N/A"
-        ]
-      }
-    },
     "/security/cases/ediscoverycases/{id}/close": {
       "POST": {
         "Application": [
@@ -47204,7 +47702,7 @@
         ]
       }
     },
-    "/users/{id}/authentication/passwordmethods/{id}/resetpassword": {
+    "/users/{id}/authentication/methods/{id}/resetpassword": {
       "POST": {
         "Application": [
           "N/A"
@@ -52016,6 +52514,69 @@
         ]
       }
     },
+    "/policies/appmanagementpolicies": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/appmanagementpolicies/{id}": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/policies/authenticationflowspolicy": {
       "GET": {
         "Application": [
@@ -52147,7 +52708,118 @@
         ]
       }
     },
+    "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.AuthenticationMethod"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/voice": {
       "GET": {
         "Application": [
           "Policy.Read.All",
@@ -52358,6 +53030,32 @@
         ],
         "DelegatedWork": [
           "Policy.ReadWrite.CrossTenantAccess"
+        ]
+      }
+    },
+    "/policies/defaultappmanagementpolicy": {
+      "GET": {
+        "Application": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.Read.All",
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedWork": [
+          "Policy.ReadWrite.ApplicationConfiguration"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -53084,6 +53782,177 @@
           "Printer.FullControl.All",
           "Printer.Read.All",
           "Printer.ReadWrite.All"
+        ]
+      }
+    },
+    "/security/labels/retentionlabels/{id}/eventtype": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/triggers/retentionevents": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/triggers/retentionevents/{id}": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/triggers/retentionevents/{id}/retentioneventtype": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/triggertypes/retentioneventtypes": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/security/triggertypes/retentioneventtypes/{id}": {
+      "GET": {
+        "Application": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.Read.All",
+          "RecordsManagement.ReadWrite.All"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "RecordsManagement.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -56605,6 +57474,44 @@
         ]
       }
     },
+    "/sites/{id}/lists/{id}/items/{id}": {
+      "GET": {
+        "Application": [
+          "Sites.Manage.All",
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "DELETE": {
+        "Application": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "PATCH": {
+        "Application": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
     "/sites/{id}/lists": {
       "POST": {
         "Application": [
@@ -56612,6 +57519,19 @@
         ],
         "DelegatedWork": [
           "Sites.Manage.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "GET": {
+        "Application": [
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -56807,6 +57727,32 @@
         ],
         "DelegatedWork": [
           "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/items": {
+      "GET": {
+        "Application": [
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.Read.All",
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      },
+      "POST": {
+        "Application": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
           "Sites.ReadWrite.All"
         ],
         "DelegatedPersonal": [
@@ -57075,6 +58021,19 @@
         "DelegatedWork": [
           "Files.ReadWrite",
           "Sites.Read.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
+        ]
+      }
+    },
+    "/sites/{id}/lists/{id}/items/{id}/fields": {
+      "PATCH": {
+        "Application": [
+          "Sites.ReadWrite.All"
+        ],
+        "DelegatedWork": [
+          "Sites.ReadWrite.All"
         ],
         "DelegatedPersonal": [
           "N/A"
@@ -58337,6 +59296,19 @@
         ],
         "DelegatedPersonal": [
           "Tasks.ReadWrite"
+        ]
+      }
+    },
+    "/teamwork/deletedteams": {
+      "GET": {
+        "Application": [
+          "Team.ReadBasic.All"
+        ],
+        "DelegatedWork": [
+          "Team.ReadBasic.All"
+        ],
+        "DelegatedPersonal": [
+          "N/A"
         ]
       }
     },
@@ -60613,7 +61585,7 @@
         ]
       }
     },
-    "/users/{id}/authentication/methods/{id}/resetpassword": {
+    "/users/{id}/authentication/passwordmethods/{id}/resetpassword": {
       "POST": {
         "DelegatedWork": [
           "UserAuthenticationMethod.ReadWrite.All"
@@ -60956,6 +61928,30 @@
         "Grant": "admin"
       },
       {
+        "Name": "CrossTenantUserProfileSharing.Read",
+        "Description": "Allows the application to list and query user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export external user data (e.g. customer content or system-generated logs), associated with the current tenant on behalf of the signed-in user.",
+        "ConsentDescription": "Read shared cross-tenant user profile and export data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.Read.All",
+        "Description": "Allows the application to list and query any shared user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export external user data (e.g. customer content or system-generated logs), for any user associated with the current tenant on behalf of the signed-in user.",
+        "ConsentDescription": "Read all shared cross-tenant user profiles and export their data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.ReadWrite",
+        "Description": "Allows the application to list and query user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export and remove external user data (e.g. customer content or system-generated logs), associated with the current tenant on behalf of the signed-in user.",
+        "ConsentDescription": "Read shared cross-tenant user profile and export or delete data",
+        "Grant": "admin"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.ReadWrite.All",
+        "Description": "Yes",
+        "ConsentDescription": "Allows the application to list and query any shared user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export and remove external user data (e.g. customer content or system-generated logs), for any user associated with the current tenant on behalf of the signed-in user.",
+        "Grant": "user"
+      },
+      {
         "Name": "Contacts.Read",
         "Description": "Allows the app to read user contacts.",
         "ConsentDescription": "Read user contacts",
@@ -61035,7 +62031,7 @@
       },
       {
         "Name": "Directory.Read.All",
-        "Description": "Allows the app to read data in your organization's directory, such as users, groups and apps. Note: Users may consent to applications that require this permission if the application is registered in their own organization’s tenant.",
+        "Description": "Allows the app to read data in your organization's directory, such as users, groups and apps. Note: Users may consent to applications that require this permission if the application is registered in their own organization's tenant.",
         "ConsentDescription": "Read directory data",
         "Grant": "admin"
       },
@@ -61322,6 +62318,78 @@
         "Grant": "admin"
       },
       {
+        "Name": "IndustryData.ReadBasic.All",
+        "Description": "Allows the app to read basic industry data service and resource information on behalf of the signed-in user.",
+        "ConsentDescription": "Read basic industry data service and resource definitions",
+        "Grant": "user"
+      },
+      {
+        "Name": "DataConnector.Read.All",
+        "Description": "Allows the app to read data connectors on behalf of the signed-in user.",
+        "ConsentDescription": "View data connector definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DataConnector.ReadWrite.All",
+        "Description": "Allows the app to read and write data connectors on behalf of the signed-in user.",
+        "ConsentDescription": "Manage data connector definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DataConnector.Upload",
+        "Description": "Allows the app to upload data files to a data connector on behalf of the signed-in user.",
+        "ConsentDescription": "Upload files to a data connector",
+        "Grant": "admin"
+      },
+      {
+        "Name": "InboundFlow.Read.All",
+        "Description": "Allows the app to read inbound data flows on behalf of the signed-in user.",
+        "ConsentDescription": "View inbound flow definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "InboundFlow.ReadWrite.All",
+        "Description": "Allows the app to read and write inbound data flows on behalf of the signed-in user.",
+        "ConsentDescription": "Manage inbound flow definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ReferenceDefinition.Read.All",
+        "Description": "Allows the app to read reference definitions on behalf of the signed-in user.",
+        "ConsentDescription": "View reference definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Run.Read.All",
+        "Description": "Allows the app to read current and previous industry data runs on behalf of the signed-in user.",
+        "ConsentDescription": "View current and previous runs",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SourceSystem.Read.All",
+        "Description": "Allows the app to read source system definitions on behalf of the signed-in user.",
+        "ConsentDescription": "View source system definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SourceSystem.ReadWrite.All",
+        "Description": "Allows the app to read and write source system definitions on behalf of the signed-in user.",
+        "ConsentDescription": "Manage source system definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TimePeriod.Read.All",
+        "Description": "Allows the app to read time period definitions on behalf of the signed-in user.",
+        "ConsentDescription": "Read time period definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TimePeriod.ReadWrite.All",
+        "Description": "Allows the app to read and write time period definitions on behalf of the signed-in user.",
+        "ConsentDescription": "Manage time period definitions",
+        "Grant": "admin"
+      },
+      {
         "Name": "InformationProtectionPolicy.Read",
         "Description": "Allows an app to read information protection sensitivity labels and label policy settings, on behalf of the signed-in user.",
         "ConsentDescription": "Read user sensitivity labels and label policies",
@@ -61365,7 +62433,7 @@
       },
       {
         "Name": "DeviceManagementManagedDevices.ReadWrite.All",
-        "Description": "Allows the app to read and write the properties of devices managed by Microsoft Intune. Does not allow high impact operations such as remote wipe and password reset on the device’s owner.",
+        "Description": "Allows the app to read and write the properties of devices managed by Microsoft Intune. Does not allow high impact operations such as remote wipe and password reset on the device's owner.",
         "ConsentDescription": "Read and write Microsoft Intune devices",
         "Grant": "admin"
       },
@@ -61533,7 +62601,7 @@
       },
       {
         "Name": "Notifications.ReadWrite.CreatedByApp",
-        "Description": "Allow the app to deliver its notifications on behalf of signed-in users. Also allows the app to read, update, and delete the user’s notification items for this app.",
+        "Description": "Allow the app to deliver its notifications on behalf of signed-in users. Also allows the app to read, update, and delete the user's notification items for this app.",
         "ConsentDescription": "Deliver and manage notifications for this app.",
         "Grant": "user"
       },
@@ -61923,13 +62991,13 @@
       },
       {
         "Name": "SecurityActions.Read.All",
-        "Description": "Allows the app to read your organization’s security actions on behalf of the signed-in user.",
+        "Description": "Allows the app to read your organization's security actions on behalf of the signed-in user.",
         "ConsentDescription": "Read your organization's security actions",
         "Grant": "admin"
       },
       {
         "Name": "SecurityActions.ReadWrite.All",
-        "Description": "Allows the app to read or update your organization’s security actions on behalf of the signed-in user.",
+        "Description": "Allows the app to read or update your organization's security actions on behalf of the signed-in user.",
         "ConsentDescription": "Read and update your organization's security actions",
         "Grant": "admin"
       },
@@ -61947,14 +63015,14 @@
       },
       {
         "Name": "SecurityEvents.Read.All",
-        "Description": "Allows the app to read your organization’s security events on behalf of the signed-in user.",
-        "ConsentDescription": "Read your organization’s security events",
+        "Description": "Allows the app to read your organization's security events on behalf of the signed-in user.",
+        "ConsentDescription": "Read your organization's security events",
         "Grant": "admin"
       },
       {
         "Name": "SecurityEvents.ReadWrite.All",
-        "Description": "Allows the app to read your organization’s security events on behalf of the signed-in user. Also allows the app to update editable properties in security events on behalf of the signed-in user.",
-        "ConsentDescription": "Read and update your organization’s security events",
+        "Description": "Allows the app to read your organization's security events on behalf of the signed-in user. Also allows the app to update editable properties in security events on behalf of the signed-in user.",
+        "ConsentDescription": "Read and update your organization's security events",
         "Grant": "admin"
       },
       {
@@ -62043,8 +63111,8 @@
       },
       {
         "Name": "Tasks.Read",
-        "Description": "Allows the app to read the signed-in user’s tasks and task lists, including any shared with the user. Doesn't include permission to create, delete, or update anything.",
-        "ConsentDescription": "Read user’s tasks and task lists",
+        "Description": "Allows the app to read the signed-in user's tasks and task lists, including any shared with the user. Doesn't include permission to create, delete, or update anything.",
+        "ConsentDescription": "Read user's tasks and task lists",
         "Grant": "user"
       },
       {
@@ -62056,7 +63124,7 @@
       {
         "Name": "Tasks.ReadWrite",
         "Description": "Allows the app to create, read, update, and delete the signed-in user's tasks and task lists, including any shared with the user.",
-        "ConsentDescription": "Create, read, update, and delete user’s tasks and task lists",
+        "ConsentDescription": "Create, read, update, and delete user's tasks and task lists",
         "Grant": "user"
       },
       {
@@ -62088,6 +63156,12 @@
         "Description": "Create teams, on behalf of the signed-in user.",
         "ConsentDescription": "Create teams",
         "Grant": "admin"
+      },
+      {
+        "Name": "TeamTemplates.Read",
+        "Description": "Allows read of the available Teams Templates for the user",
+        "ConsentDescription": "TeamTemplates.Read is \"Sign-in and read Teams templates available for this user\"",
+        "Grant": "user"
       },
       {
         "Name": "TeamSettings.Read.All",
@@ -62267,6 +63341,12 @@
         "Name": "ThreatHunting.Read.All",
         "Description": "Allows the app to run hunting queries, on behalf of the signed-in user.",
         "ConsentDescription": "Run hunting queries",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ThreatIntelligence.Read.All",
+        "Description": "Allows the app to read threat intelligence information, such as indicators, observations, and articles, on behalf of the signed-in user.",
+        "ConsentDescription": "Read all threat intelligence information",
         "Grant": "admin"
       },
       {
@@ -62469,7 +63549,7 @@
       },
       {
         "Name": "UserAuthenticationMethod.Read.All",
-        "Description": "Allows the app to read authentication methods of all users in your organization that the signed-in user has access to. Authentication methods include things like a user’s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+        "Description": "Allows the app to read authentication methods of all users in your organization that the signed-in user has access to. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
         "ConsentDescription": "Read users' authentication methods",
         "Grant": "admin"
       },
@@ -62481,7 +63561,7 @@
       },
       {
         "Name": "UserAuthenticationMethod.ReadWrite.All",
-        "Description": "Allows the app to read and write authentication methods of all users in your organization that the signed-in user has access to. Authentication methods include things like a user’s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+        "Description": "Allows the app to read and write authentication methods of all users in your organization that the signed-in user has access to. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
         "ConsentDescription": "Manage users' authentication methods",
         "Grant": "admin"
       },
@@ -62651,7 +63731,7 @@
       },
       {
         "Name": "Calls.Initiate.All",
-        "Description": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization’s directory, without a signed-in user.",
+        "Description": "Allows the app to place outbound calls to a single user and transfer calls to users in your organization's directory, without a signed-in user.",
         "ConsentDescription": "Initiate outgoing 1:1 calls from the app",
         "Grant": "admin"
       },
@@ -62926,6 +64006,18 @@
         "Grant": "admin"
       },
       {
+        "Name": "CrossTenantUserProfileSharing.Read.All",
+        "Description": "Yes",
+        "ConsentDescription": "Allows the application to list and query any shared user profile information associated with the current tenant without a signed-in user.  It also permits the application to export external user data (e.g. customer content or system-generated logs), for any user associated with the current tenant without a signed-in user.",
+        "Grant": "admin"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.ReadWrite.All",
+        "Description": "Yes",
+        "ConsentDescription": "Allows the application to list and query any shared user profile information associated with the current tenant without a signed-in user.  It also permits the application to export and remove external user data (e.g. customer content or system-generated logs), for any user associated with the current tenant without a signed-in user.",
+        "Grant": "admin"
+      },
+      {
         "Name": "Contacts.Read",
         "Description": "Allows the app to read all contacts in all mailboxes without a signed-in user.",
         "ConsentDescription": "Read contacts in all mailboxes",
@@ -63078,13 +64170,13 @@
       {
         "Name": "LearningContent.Read.All",
         "Description": "Allows the app to read all learning content in the organization's directory, without a signed-in user.",
-        "ConsentDescription": "Read learning content",
+        "ConsentDescription": "Read all learning content",
         "Grant": "admin"
       },
       {
         "Name": "LearningContent.ReadWrite.All",
         "Description": "Allows the app to manage all learning content in the organization's directory, without a signed-in user.",
-        "ConsentDescription": "Manage learning content",
+        "ConsentDescription": "Manage all learning content",
         "Grant": "admin"
       },
       {
@@ -63196,6 +64288,78 @@
         "Grant": "admin"
       },
       {
+        "Name": "IndustryData.ReadBasic.All",
+        "Description": "Allows the app to read basic service and resource information without a signed-in user.",
+        "ConsentDescription": "View basic service and resource information",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DataConnector.Read.All",
+        "Description": "Allows the app to read data connectors without a signed-in user.",
+        "ConsentDescription": "View data connector definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DataConnector.ReadWrite.All",
+        "Description": "Allows the app to read and write data connectors without a signed-in user.",
+        "ConsentDescription": "Manage data connector definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "DataConnector.Upload",
+        "Description": "Allows the app to upload data files to a data connector without a signed-in user.",
+        "ConsentDescription": "Upload files to a data connector",
+        "Grant": "admin"
+      },
+      {
+        "Name": "InboundFlow.Read.All",
+        "Description": "Allows the app to read inbound data flows without a signed-in user.",
+        "ConsentDescription": "View inbound flow definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "InboundFlow.ReadWrite.All",
+        "Description": "Allows the app to read and write inbound data flows without a signed-in user.",
+        "ConsentDescription": "Manage inbound flow definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "ReferenceDefinition.Read.All",
+        "Description": "Allows the app to read reference definitions without a signed-in user.",
+        "ConsentDescription": "View reference definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "Run.Read.All",
+        "Description": "Allows the app to read current and previous industry data runs without a signed-in user.",
+        "ConsentDescription": "View current and previous runs",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SourceSystem.Read.All",
+        "Description": "Allows the app to read source system definitions without a signed-in user.",
+        "ConsentDescription": "View source system definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "SourceSystem.ReadWrite.All",
+        "Description": "Allows the app to read and write source system definitions without a signed-in user.",
+        "ConsentDescription": "Manage source system definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TimePeriod.Read.All",
+        "Description": "Allows the app to read time period definitions without a signed-in user.",
+        "ConsentDescription": "Read time period definitions",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TimePeriod.ReadWrite.All",
+        "Description": "Allows the app to read and write time period definitions without a signed-in user.",
+        "ConsentDescription": "Manage time period definitions",
+        "Grant": "admin"
+      },
+      {
         "Name": "InformationProtectionPolicy.Read.All",
         "Description": "Allows an app to read published sensitivity labels and label policy settings for the entire organization or a specific user, without a signed in user.",
         "ConsentDescription": "Read all published labels and label policies for an organization",
@@ -63239,7 +64403,7 @@
       },
       {
         "Name": "DeviceManagementManagedDevices.ReadWrite.All",
-        "Description": "Allows the app to read and write the properties of devices managed by Microsoft Intune. Does not allow high impact operations such as remote wipe and password reset on the device’s owner.",
+        "Description": "Allows the app to read and write the properties of devices managed by Microsoft Intune. Does not allow high impact operations such as remote wipe and password reset on the device's owner.",
         "ConsentDescription": "Read and write Microsoft Intune devices",
         "Grant": "admin"
       },
@@ -63630,7 +64794,7 @@
       {
         "Name": "SecurityActions.Read.All",
         "Description": "Allows the app to create other applications, and fully manage those applications (read, update, update application secrets and delete), without a signed-in user.",
-        "ConsentDescription": "Read and write your organization’s security events",
+        "ConsentDescription": "Read and write your organization's security events",
         "Grant": "admin"
       },
       {
@@ -63653,14 +64817,14 @@
       },
       {
         "Name": "SecurityEvents.Read.All",
-        "Description": "Allows the app to read your organization’s security events.",
-        "ConsentDescription": "Read your organization’s security events",
+        "Description": "Allows the app to read your organization's security events.",
+        "ConsentDescription": "Read your organization's security events",
         "Grant": "admin"
       },
       {
         "Name": "SecurityEvents.ReadWrite.All",
-        "Description": "Allows the app to read your organization’s security events. Also allows the app to update editable properties in security events.",
-        "ConsentDescription": "Read and update your organization’s security events",
+        "Description": "Allows the app to read your organization's security events. Also allows the app to update editable properties in security events.",
+        "ConsentDescription": "Read and update your organization's security events",
         "Grant": "admin"
       },
       {
@@ -63749,14 +64913,14 @@
       },
       {
         "Name": "Tasks.Read.All",
-        "Description": "Allows the app to read all users’ tasks and task lists in your organization, without a signed-in user.",
-        "ConsentDescription": "Read all users’ tasks and tasklist",
+        "Description": "Allows the app to read all users' tasks and task lists in your organization, without a signed-in user.",
+        "ConsentDescription": "Read all users' tasks and tasklist",
         "Grant": "admin"
       },
       {
         "Name": "Tasks.ReadWrite.All",
-        "Description": "Allows the app to create, read, update and delete all users’ tasks and task lists in your organization, without a signed-in user",
-        "ConsentDescription": "Read and write all users’ tasks and tasklists",
+        "Description": "Allows the app to create, read, update and delete all users' tasks and task lists in your organization, without a signed-in user",
+        "ConsentDescription": "Read and write all users' tasks and tasklists",
         "Grant": "admin"
       },
       {
@@ -63775,6 +64939,12 @@
         "Name": "Teamwork.Migrate.All",
         "Description": "Creating and managing resources for migration to Microsoft Teams",
         "ConsentDescription": "Manage migration to Microsoft Teams",
+        "Grant": "admin"
+      },
+      {
+        "Name": "TeamTemplates.Read.All",
+        "Description": "Allows read of the available Teams Templates, without signed user",
+        "ConsentDescription": "Read all available Teams Templates",
         "Grant": "admin"
       },
       {
@@ -63900,13 +65070,13 @@
       {
         "Name": "ChannelSettings.Read.Group",
         "Description": "Read this team's channel names, channel descriptions, and channel settings, without a signed-in user.",
-        "ConsentDescription": "Read the names, descriptions, and settings of this team’s channels.",
+        "ConsentDescription": "Read the names, descriptions, and settings of this team's channels.",
         "Grant": "admin"
       },
       {
         "Name": "ChannelSettings.ReadWrite.Group",
         "Description": "Update this team's channel names, channel descriptions, and channel settings, without a signed-in user.",
-        "ConsentDescription": "Update the names, descriptions, and settings of this team’s channels.",
+        "ConsentDescription": "Update the names, descriptions, and settings of this team's channels.",
         "Grant": "admin"
       },
       {
@@ -63924,7 +65094,7 @@
       {
         "Name": "ChannelMessage.Read.Group",
         "Description": "Allows an app to read this team's channel's messages, without a signed-in user.",
-        "ConsentDescription": "Read the team’s channel messages.",
+        "ConsentDescription": "Read the team's channel messages.",
         "Grant": "admin"
       },
       {
@@ -64072,6 +65242,12 @@
         "Grant": "admin"
       },
       {
+        "Name": "ThreatIntelligence.Read.All",
+        "Description": "Allows the app to read threat intellgence information, such as indicators, observations, and articles, without a signed-in user.",
+        "ConsentDescription": "Read all threat intelligence information",
+        "Grant": "admin"
+      },
+      {
         "Name": "Printer.Read.All",
         "Description": "Allows the application to read printers without a signed-in user.",
         "ConsentDescription": "Read printers",
@@ -64126,12 +65302,6 @@
         "Grant": "admin"
       },
       {
-        "Name": "User.ReadBasic.All",
-        "Description": "Allows the app to read a basic set of profile properties of other users in your organization without a signed-in user. Includes display name, first and last name, email address, open extensions, and photo.",
-        "ConsentDescription": "Read all users' basic profiles",
-        "Grant": "admin"
-      },
-      {
         "Name": "User.ReadWrite.All",
         "Description": "Allows the app to read and write the full set of profile properties, group membership, reports and managers of other users in your organization, without a signed-in user.  Also allows the app to create and delete non-administrative users. Does not allow reset of user passwords.",
         "ConsentDescription": "Read and write all users' full profiles",
@@ -64175,13 +65345,13 @@
       },
       {
         "Name": "UserAuthenticationMethod.Read.All",
-        "Description": "Allows the app to read authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user’s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+        "Description": "Allows the app to read authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
         "ConsentDescription": "Read users' authentication methods",
         "Grant": "admin"
       },
       {
         "Name": "UserAuthenticationMethod.ReadWrite.All",
-        "Description": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user’s phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+        "Description": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user. Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
         "ConsentDescription": "Manage users' authentication methods",
         "Grant": "admin"
       },
@@ -64209,6 +65379,18 @@
         "Name": "Teamwork.Migrate.All",
         "Description": "Creating and managing resources for migration to Microsoft Teams",
         "ConsentDescription": "Manage migration to Microsoft Teams",
+        "Grant": "user"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.Read",
+        "Description": "Allows the application to list and query user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export external user data (e.g. customer content or system-generated logs), associated with the current tenant on behalf of the signed-in user.",
+        "ConsentDescription": "Read shared cross-tenant user profile and export data",
+        "Grant": "user"
+      },
+      {
+        "Name": "CrossTenantUserProfileSharing.Read.All",
+        "Description": "Allows the application to list and query any shared user profile information associated with the current tenant on behalf of the signed-in user.  It also permits the application to export external user data (e.g. customer content or system-generated logs), for any user associated with the current tenant on behalf of the signed-in user.",
+        "ConsentDescription": "Read all shared cross-tenant user profiles and export their data",
         "Grant": "user"
       },
       {
@@ -64375,14 +65557,14 @@
       },
       {
         "Name": "Tasks.Read",
-        "Description": "Allows the app to read the signed-in user’s tasks and task lists, including any shared with the user. Doesn't include permission to create, delete, or update anything.",
-        "ConsentDescription": "Read user’s tasks and task lists",
+        "Description": "Allows the app to read the signed-in user's tasks and task lists, including any shared with the user. Doesn't include permission to create, delete, or update anything.",
+        "ConsentDescription": "Read user's tasks and task lists",
         "Grant": "user"
       },
       {
         "Name": "Tasks.ReadWrite",
         "Description": "Allows the app to create, read, update, and delete the signed-in user's tasks and task lists, including any shared with the user.",
-        "ConsentDescription": "Create, read, update, and delete user’s tasks and task lists",
+        "ConsentDescription": "Create, read, update, and delete user's tasks and task lists",
         "Grant": "user"
       },
       {

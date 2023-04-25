@@ -2841,7 +2841,7 @@
         }
       ],
       "postBody": "{\r\n  \"title\": \"Task created from Microsoft Graph Explorer\"\r\n}",
-      "docLink": "https://docs.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-1.0",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/todotasklist-post-tasks?view=graph-rest-1.0",
       "tip": "This query requires the Tasks.ReadWrite permission. To find a value for the taskListId parameter, you can run: GET https://graph.microsoft.com/beta/me/todo/lists",
       "skipTest": false
     },
@@ -3241,7 +3241,7 @@
           "value": "application/json"
         }
       ],
-      "docLink": "https://docs.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/windowsupdates-deploymentaudience-updateaudience?view=graph-rest-beta&tabs=http",
       "postBody": "{\r\n    \"addMembers\": [\r\n        {\r\n            \"@odata.type\": \"#microsoft.graph.windowsUpdates.azureADDevice\",\r\n            \"id\": \"{azureAdDeviceId}\"\r\n        }\r\n    ]\r\n}",
       "tip": "Please enable the WindowsUpdates.ReadWrite.All permission to use this query. To find a value for the deploymentId parameter, you can run: GET https://graph.microsoft.com/beta/admin/windows/updates/deployments.",
       "skipTest": false
@@ -3669,8 +3669,8 @@
       "category": "Edge",
       "method": "GET",
       "humanName": "list IE Mode site lists in my organization",
-      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists",
-      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-beta",
+      "requestUrl": "/v1.0/admin/edge/internetExplorerMode/siteLists",
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0",
       "tip": "Please enable the BrowserSiteLists.Read.All permission to use this query.",
       "skipTest": false
     },
@@ -3679,14 +3679,14 @@
       "category": "Edge",
       "method": "POST",
       "humanName": "create an IE Mode site list",
-      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists",
+      "requestUrl": "/v1.0/admin/edge/internetExplorerMode/siteLists",
       "headers": [
         {
           "name": "Content-Type",
           "value": "application/json"
         }
       ],
-      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0",
       "postBody": "{\r\n    \"displayName\": \"Sample Site List\",\r\n    \"description\": \"A sample site list created with Graph Explorer.\"\r\n}",
       "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
       "skipTest": false
@@ -3696,14 +3696,14 @@
       "category": "Edge",
       "method": "POST",
       "humanName": "publish an IE Mode site list",
-      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists/{siteListId}/publish",
+      "requestUrl": "/v1.0/admin/edge/internetExplorerMode/siteLists/{siteListId}/publish",
       "headers": [
         {
           "name": "Content-Type",
           "value": "application/json"
         }
       ],
-      "docLink": "https://learn.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-1.0",
       "postBody": "{\r\n    \"revision\": \"1.0\"\r\n}",
       "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
       "skipTest": false
@@ -3713,8 +3713,8 @@
       "category": "Edge",
       "method": "DELETE",
       "humanName": "delete an IE Mode site list",
-      "requestUrl": "/beta/admin/edge/internetExplorerMode/siteLists/{siteListId}",
-      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-beta",
+      "requestUrl": "/v1.0/admin/edge/internetExplorerMode/siteLists/{siteListId}",
+      "docLink": "https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0",
       "tip": "Please enable the BrowserSiteLists.ReadWrite.All permission to use this query.",
       "skipTest": false
     },
@@ -3790,6 +3790,117 @@
       "requestUrl": "/beta/sites/{siteId}/pages/{pageId}",
       "tip": "This query requires the Sites.ReadWrite.All permission",
       "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-delete?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "0047a04a-eba4-4112-a657-4993392f77a9",
+      "category": "Teams Targeting",
+      "method": "GET",
+      "humanName": "get tags in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags",
+      "tip": "This query requires the TeamworkTag.Read permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-list?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "bbc63925-7a31-4d6b-8b8a-55e92ef2a770",
+      "category": "Teams Targeting",
+      "method": "GET",
+      "humanName": "get a single tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}",
+      "tip": "This query requires the TeamworkTag.Read permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-get?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "88b58998-ab6e-44b8-bfdc-b3536aa87edc",
+      "category": "Teams Targeting",
+      "method": "POST",
+      "humanName": "create a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags",
+      "tip": "This query requires the TeamworkTag.ReadWrite permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-post?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody":"{\n   \"displayName\": \"Finance\",\n   \"members\":[\n        {\n            \"userId\":\"92f6952f-61ca-4a94-8910-508a240bc167\"\n        },\n        {\n            \"userId\":\"085d800c-b86b-4bfc-a857-9371ad1caf29\"\n        }\n    ]\n}",
+      "skipTest": false
+    },
+    {
+      "id": "4e5f48d6-120c-4772-848d-f42f61c2c804",
+      "category": "Teams Targeting",
+      "method": "PATCH",
+      "humanName": "update a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}",
+      "tip": "This query requires the TeamworkTag.ReadWrite permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-update?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody":"{\n   \"displayName\": \"Finance\"\n}",
+      "skipTest": false
+    },
+    {
+      "id": "28cbb474-b2bb-49af-a6e6-83207561fb03",
+      "category": "Teams Targeting",
+      "method": "DELETE",
+      "humanName": "delete a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}",
+      "tip": "This query requires the TeamworkTag.ReadWrite permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-delete?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "aa27a0c0-b764-47dc-adac-b927f9c1382a",
+      "category": "Teams Targeting",
+      "method": "GET",
+      "humanName": "gets all the members of a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}/members",
+      "tip": "This query requires the TeamworkTag.Read permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktagmember-list?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "bae6519b-cd9b-4380-a9f8-4bd2da5d5521",
+      "category": "Teams Targeting",
+      "method": "GET",
+      "humanName": "get a single member from a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}/members/{teamworkTagMember-Id}",
+      "tip": "This query requires the TeamworkTag.Read permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktagmember-get?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "f483adbe-3910-49da-b68a-bce48cf222e6",
+      "category": "Teams Targeting",
+      "method": "POST",
+      "humanName": "adds a member to a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}/members",
+      "tip": "This query requires the TeamworkTag.ReadWrite permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktag-post?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody":"{\n   \"userId\": \"92f6952f-61ca-4a94-8910-508a240bc167\"\n}",
+      "skipTest": false
+    },
+    {
+      "id": "edb4ea43-0d51-4652-b42a-f3c3f09c1f8b",
+      "category": "Teams Targeting",
+      "method": "DELETE",
+      "humanName": "delete a member from a tag in a team",
+      "requestUrl": "/beta/teams/{team-Id}/tags/{teamworkTag-Id}/members/{teamworkTagMember-Id}",
+      "tip": "This query requires the TeamworkTag.ReadWrite permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamworktagmember-delete?view=graph-rest-beta",
       "skipTest": false
     }
   ]
