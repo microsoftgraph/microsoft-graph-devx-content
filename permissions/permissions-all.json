@@ -3871,17 +3871,6 @@
     }
   },
   "/bookingbusinesses/{id}/customers": {
-    "GET": {
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Bookings.Manage.All",
-          "Bookings.Read.All",
-          "Bookings.ReadWrite.All",
-          "BookingsAppointment.ReadWrite.All"
-        ]
-      }
-    },
     "POST": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -3893,6 +3882,17 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "Bookings.Manage.All",
+          "Bookings.ReadWrite.All",
+          "BookingsAppointment.ReadWrite.All"
+        ]
+      }
+    },
+    "GET": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Bookings.Manage.All",
+          "Bookings.Read.All",
           "Bookings.ReadWrite.All",
           "BookingsAppointment.ReadWrite.All"
         ]
@@ -4318,6 +4318,8 @@
           "Chat.Manage.Chat",
           "TeamsAppInstallation.Read.Chat",
           "TeamsAppInstallation.ReadForChat.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForChat.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat.All",
           "TeamsAppInstallation.ReadWriteForChat.All",
           "TeamsAppInstallation.ReadWriteSelfForChat.All"
         ]
@@ -4326,6 +4328,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "TeamsAppInstallation.ReadForChat",
+          "TeamsAppInstallation.ReadWriteAndConsentForChat",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat",
           "TeamsAppInstallation.ReadWriteForChat",
           "TeamsAppInstallation.ReadWriteSelfForChat"
         ]
@@ -4336,6 +4340,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "Chat.Manage.Chat",
+          "TeamsAppInstallation.ReadWriteAndConsentForChat.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat.All",
           "TeamsAppInstallation.ReadWriteForChat.All",
           "TeamsAppInstallation.ReadWriteSelfForChat.All"
         ]
@@ -4343,6 +4349,8 @@
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
+          "TeamsAppInstallation.ReadWriteAndConsentForChat",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat",
           "TeamsAppInstallation.ReadWriteForChat",
           "TeamsAppInstallation.ReadWriteSelfForChat"
         ]
@@ -4394,6 +4402,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "Chat.Manage.Chat",
+          "TeamsAppInstallation.ReadWriteAndConsentForChat.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat.All",
           "TeamsAppInstallation.ReadWriteForChat.All",
           "TeamsAppInstallation.ReadWriteSelfForChat.All"
         ]
@@ -4401,6 +4411,8 @@
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
+          "TeamsAppInstallation.ReadWriteAndConsentForChat",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForChat",
           "TeamsAppInstallation.ReadWriteForChat",
           "TeamsAppInstallation.ReadWriteSelfForChat"
         ]
@@ -4945,7 +4957,40 @@
       }
     }
   },
+  "/communications/callrecords/getpstnblockeduserslog(fromdatetime={value},todatetime={value})": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CallRecords.Read.All",
+          "PstnCalls.Read.All"
+        ]
+      }
+    }
+  },
   "/communications/callrecords/getpstncalls": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CallRecords.Read.All",
+          "PstnCalls.Read.All"
+        ]
+      }
+    }
+  },
+  "/communications/callrecords/getpstnonlinemeetingdialoutreport(fromdatetime={value},todatetime={value})": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CallRecords.Read.All",
+          "PstnCalls.Read.All"
+        ]
+      }
+    }
+  },
+  "/communications/callrecords/getsmslog(fromdatetime={value},todatetime={value})": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -13899,6 +13944,40 @@
         "allPermissions": [
           "DeviceManagementConfiguration.Read.All",
           "DeviceManagementManagedDevices.Read.All"
+        ]
+      }
+    }
+  },
+  "/devicelocalcredentials": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceLocalCredential.Read.All",
+          "DeviceLocalCredential.ReadBasic.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceLocalCredential.Read.All",
+          "DeviceLocalCredential.ReadBasic.All"
+        ]
+      }
+    }
+  },
+  "/devicelocalcredentials/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceLocalCredential.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceLocalCredential.Read.All"
         ]
       }
     }
@@ -37511,22 +37590,6 @@
       }
     }
   },
-  "/devicemanagement/geteffectivepermissionsscope={value}": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementRBAC.Read.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementRBAC.Read.All"
-        ]
-      }
-    }
-  },
   "/devicemanagement/getsuggestedenrollmentlimit": {
     "GET": {
       "Application": {
@@ -52133,38 +52196,6 @@
           "DeviceManagementManagedDevices.ReadWrite.All"
         ]
       }
-    },
-    "DELETE": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
-    },
-    "PATCH": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "DeviceManagementConfiguration.ReadWrite.All",
-          "DeviceManagementManagedDevices.ReadWrite.All"
-        ]
-      }
     }
   },
   "/devicemanagement/userexperienceanalyticsimpactingprocess": {
@@ -53597,6 +53628,38 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "CloudPC.Read.All"
+        ]
+      }
+    }
+  },
+  "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": {
+    "POST": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweron": {
+    "POST": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
         ]
       }
     }
@@ -56484,12 +56547,11 @@
         ]
       }
     },
-    "PATCH": {
+    "DELETE": {
       "Application": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
-          "Device.ReadWrite.All",
-          "Directory.ReadWrite.All"
+          "Device.ReadWrite.All"
         ]
       },
       "DelegatedWork": {
@@ -56499,7 +56561,14 @@
         ]
       }
     },
-    "DELETE": {
+    "PATCH": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Device.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ]
+      },
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
@@ -56649,12 +56718,11 @@
         ]
       }
     },
-    "PATCH": {
+    "DELETE": {
       "Application": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
-          "Device.ReadWrite.All",
-          "Directory.ReadWrite.All"
+          "Device.ReadWrite.All"
         ]
       },
       "DelegatedWork": {
@@ -56664,7 +56732,14 @@
         ]
       }
     },
-    "DELETE": {
+    "PATCH": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Device.ReadWrite.All",
+          "Directory.ReadWrite.All"
+        ]
+      },
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
@@ -57400,82 +57475,6 @@
       }
     }
   },
-  "/directory/deleteditems/{id}": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    },
-    "DELETE": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Application.ReadWrite.All",
-          "Directory.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/{id}/restore": {
-    "POST": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.ReadWrite.All",
-          "Application.ReadWrite.OwnedBy",
-          "Group.ReadWrite.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
   "/directory/deleteditems/getuserownedobjects": {
     "POST": {
       "Application": {
@@ -57490,176 +57489,6 @@
         "allPermissions": [
           "Group.Read.All",
           "Group.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/microsoft.graph.administrativeunit": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/microsoft.graph.application": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/microsoft.graph.group": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/microsoft.graph.serviceprincipal": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    }
-  },
-  "/directory/deleteditems/microsoft.graph.user": {
-    "GET": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "AdministrativeUnit.Read.All",
-          "AdministrativeUnit.ReadWrite.All",
-          "Application.Read.All",
-          "Application.ReadWrite.All",
-          "Directory.Read.All",
-          "Directory.ReadWrite.All",
-          "Group.Read.All",
-          "Group.ReadWrite.All",
-          "User.Read.All",
-          "User.ReadWrite.All"
         ]
       }
     }
@@ -58143,24 +57972,6 @@
     }
   },
   "/directoryobjects/{id}": {
-    "DELETE": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Application.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "User.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Application.ReadWrite.All",
-          "Group.ReadWrite.All",
-          "User.ReadWrite.All"
-        ]
-      }
-    },
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -62210,6 +62021,33 @@
       }
     }
   },
+  "/employeeexperience/learningcourseactivities/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read",
+          "LearningSelfInitiatedCourse.Read"
+        ]
+      }
+    },
+    "PATCH": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.ReadWrite.All",
+          "LearningSelfInitiatedCourse.ReadWrite.All"
+        ]
+      }
+    }
+  },
   "/employeeexperience/learningproviders": {
     "GET": {
       "DelegatedWork": {
@@ -62312,6 +62150,46 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "LearningContent.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/employeeexperience/learningproviders/{id}/learningcourseactivities": {
+    "POST": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.ReadWrite.All",
+          "LearningSelfInitiatedCourse.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/employeeexperience/learningproviders/{id}/learningcourseactivities(extern": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read",
+          "LearningSelfInitiatedCourse.Read"
+        ]
+      }
+    }
+  },
+  "/employeeexperience/learningproviders/{id}/learningcourseactivities/{id}": {
+    "DELETE": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.ReadWrite.All",
+          "LearningSelfInitiatedCourse.ReadWrite.All"
         ]
       }
     }
@@ -69561,7 +69439,7 @@
       }
     }
   },
-  "/identity/conditionalaccess/authenticationstrengths/authenticationcombinations": {
+  "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -69581,7 +69459,7 @@
       }
     }
   },
-  "/identity/conditionalaccess/authenticationstrengths/authenticationmethodmodes": {
+  "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -69601,7 +69479,7 @@
       }
     }
   },
-  "/identity/conditionalaccess/authenticationstrengths/authenticationmethodmodes/{id}": {
+  "/identity/conditionalaccess/authenticationstrength/combinations": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -69621,7 +69499,7 @@
       }
     }
   },
-  "/identity/conditionalaccess/authenticationstrengths/policies/{id}/combinationconfigurations": {
+  "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -69657,7 +69535,7 @@
       }
     }
   },
-  "/identity/conditionalaccess/authenticationstrengths/policies/{id}/combinationconfigurations/{id}": {
+  "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": {
     "GET": {
       "Application": {
         "leastPrivilegePermissions": [],
@@ -71977,6 +71855,17 @@
       }
     }
   },
+  "/identitygovernance/entitlementmanagement/accesspackages/b15419bb-5ffc-ea11-b207-c8d9d21f4e9a/getapplicablepolicyrequirements": {
+    "POST": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All"
+        ]
+      }
+    }
+  },
   "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": {
     "GET": {
       "DelegatedWork": {
@@ -73071,6 +72960,22 @@
   },
   "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": {
     "PATCH": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LifecycleWorkflows.ReadWrite.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LifecycleWorkflows.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": {
+    "POST": {
       "Application": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
@@ -76391,6 +76296,26 @@
           "CloudPC.ReadWrite.All"
         ]
       },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/me/cloudpcs/{id}/start": {
+    "POST": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/me/cloudpcs/{id}/stop": {
+    "POST": {
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
@@ -87894,6 +87819,35 @@
       }
     }
   },
+  "/me/employeeexperience/learningcourseactivities": {
+    "GET": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      }
+    }
+  },
+  "/me/employeeexperience/learningcourseactivities/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read",
+          "LearningSelfInitiatedCourse.Read"
+        ]
+      }
+    }
+  },
   "/me/employeeid": {
     "GET": {
       "DelegatedWork": {
@@ -91395,6 +91349,26 @@
           "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
+        ]
+      }
+    }
+  },
+  "/me/onlinemeetings/{id}/getvirtualappointmentjoinweburl": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "VirtualAppointment.Read.All",
+          "VirtualAppointment.ReadWrite.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "OnlineMeetings.Read",
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.Read",
+          "VirtualAppointment.ReadWrite"
         ]
       }
     }
@@ -97580,22 +97554,6 @@
       }
     }
   },
-  "/organization/{id}/activateservice": {
-    "POST": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Directory.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Directory.ReadWrite.All"
-        ]
-      }
-    }
-  },
   "/organization/{id}/branding": {
     "DELETE": {
       "DelegatedWork": {
@@ -103114,6 +103072,38 @@
       }
     }
   },
+  "/reports/getformsuseractivitycounts(period={value})": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Reports.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Reports.Read.All"
+        ]
+      }
+    }
+  },
+  "/reports/getformsuseractivityuserdetail(period={value})": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Reports.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Reports.Read.All"
+        ]
+      }
+    }
+  },
   "/reports/getgrouparchivedprintjobs": {
     "GET": {
       "DelegatedWork": {
@@ -105136,8 +105126,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105198,8 +105190,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105410,8 +105404,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105472,8 +105468,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105622,8 +105620,11 @@
           "Directory.ReadWrite.All",
           "EntitlementManagement.Read.All",
           "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
           "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105639,7 +105640,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "EntitlementManagement.ReadWrite.All",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -105664,8 +105666,11 @@
           "Directory.ReadWrite.All",
           "EntitlementManagement.Read.All",
           "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
           "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -105681,7 +105686,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "EntitlementManagement.ReadWrite.All",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -105943,8 +105949,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -106005,8 +106013,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -106375,8 +106385,11 @@
           "Directory.ReadWrite.All",
           "EntitlementManagement.Read.All",
           "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
           "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -106392,7 +106405,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "EntitlementManagement.ReadWrite.All",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -106417,8 +106431,11 @@
           "Directory.ReadWrite.All",
           "EntitlementManagement.Read.All",
           "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
           "RoleManagement.Read.Directory",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     },
@@ -106434,7 +106451,8 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "EntitlementManagement.ReadWrite.All",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -106471,8 +106489,10 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
           "RoleManagement.ReadWrite.CloudPC",
-          "RoleManagement.ReadWrite.Directory"
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -106511,8 +106531,178 @@
           "RoleManagement.Read.All",
           "RoleManagement.Read.CloudPC",
           "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.CloudPC",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    }
+  },
+  "/rolemanagement/exchange/roleassignments": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    },
+    "POST": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    }
+  },
+  "/rolemanagement/exchange/roleassignments/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    },
+    "DELETE": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    }
+  },
+  "/rolemanagement/exchange/roledefinitions": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All",
+          "DeviceManagementRBAC.Read.All",
+          "DeviceManagementRBAC.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.CloudPC",
+          "RoleManagement.Read.Directory",
           "RoleManagement.ReadWrite.CloudPC",
           "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All",
+          "DeviceManagementRBAC.Read.All",
+          "DeviceManagementRBAC.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.CloudPC",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.CloudPC",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
+        ]
+      }
+    }
+  },
+  "/rolemanagement/exchange/roledefinitions/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All",
+          "DeviceManagementRBAC.Read.All",
+          "DeviceManagementRBAC.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.CloudPC",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.ReadWrite.CloudPC",
+          "RoleManagement.ReadWrite.Directory"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.Read.All",
+          "CloudPC.ReadWrite.All",
+          "DeviceManagementRBAC.Read.All",
+          "DeviceManagementRBAC.ReadWrite.All",
+          "Directory.Read.All",
+          "Directory.ReadWrite.All",
+          "EntitlementManagement.Read.All",
+          "EntitlementManagement.ReadWrite.All",
+          "RoleManagement.Read.All",
+          "RoleManagement.Read.CloudPC",
+          "RoleManagement.Read.Directory",
+          "RoleManagement.Read.Exchange",
+          "RoleManagement.ReadWrite.CloudPC",
+          "RoleManagement.ReadWrite.Directory",
+          "RoleManagement.ReadWrite.Exchange"
         ]
       }
     }
@@ -118116,6 +118306,8 @@
           "Group.ReadWrite.All",
           "TeamsAppInstallation.Read.Group",
           "TeamsAppInstallation.ReadForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All",
           "TeamsAppInstallation.ReadWriteForTeam.All",
           "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ]
@@ -118128,6 +118320,8 @@
           "Group.Read.All",
           "Group.ReadWrite.All",
           "TeamsAppInstallation.ReadForTeam",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam",
           "TeamsAppInstallation.ReadWriteForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam"
         ]
@@ -118139,6 +118333,8 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All",
           "TeamsAppInstallation.ReadWriteForTeam.All",
           "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ]
@@ -118148,6 +118344,7 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam",
           "TeamsAppInstallation.ReadWriteForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam"
         ]
@@ -118165,6 +118362,8 @@
           "Group.ReadWrite.All",
           "TeamsAppInstallation.Read.Group",
           "TeamsAppInstallation.ReadForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All",
           "TeamsAppInstallation.ReadWriteForTeam.All",
           "TeamsAppInstallation.ReadWriteSelfForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam.All"
@@ -118179,6 +118378,8 @@
           "Group.ReadWrite.All",
           "TeamsAppInstallation.ReadForTeam",
           "TeamsAppInstallation.ReadForUser",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam",
           "TeamsAppInstallation.ReadWriteForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam"
         ]
@@ -118212,6 +118413,8 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All",
           "TeamsAppInstallation.ReadWriteForTeam.All",
           "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ]
@@ -118221,6 +118424,8 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam",
           "TeamsAppInstallation.ReadWriteForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam"
         ]
@@ -119531,6 +119736,8 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentForTeam.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam.All",
           "TeamsAppInstallation.ReadWriteForTeam.All",
           "TeamsAppInstallation.ReadWriteSelfForTeam.All"
         ]
@@ -119540,6 +119747,7 @@
         "allPermissions": [
           "Directory.ReadWrite.All",
           "Group.ReadWrite.All",
+          "TeamsAppInstallation.ReadWriteAndConsentSelfForTeam",
           "TeamsAppInstallation.ReadWriteForTeam",
           "TeamsAppInstallation.ReadWriteSelfForTeam"
         ]
@@ -121294,22 +121502,6 @@
         "leastPrivilegePermissions": [],
         "allPermissions": [
           "User.Read"
-        ]
-      }
-    }
-  },
-  "/users/{id}/activateserviceplan": {
-    "POST": {
-      "Application": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Directory.ReadWrite.All"
-        ]
-      },
-      "DelegatedWork": {
-        "leastPrivilegePermissions": [],
-        "allPermissions": [
-          "Directory.ReadWrite.All"
         ]
       }
     }
@@ -124263,6 +124455,26 @@
           "CloudPC.ReadWrite.All"
         ]
       },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/users/{id}/cloudpcs/{id}/start": {
+    "POST": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "CloudPC.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "/users/{id}/cloudpcs/{id}/stop": {
+    "POST": {
       "DelegatedWork": {
         "leastPrivilegePermissions": [],
         "allPermissions": [
@@ -135944,6 +136156,35 @@
       }
     }
   },
+  "/users/{id}/employeeexperience/learningcourseactivities": {
+    "GET": {
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      }
+    }
+  },
+  "/users/{id}/employeeexperience/learningcourseactivities/{id}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read.All",
+          "LearningSelfInitiatedCourse.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "LearningAssignedCourse.Read",
+          "LearningSelfInitiatedCourse.Read"
+        ]
+      }
+    }
+  },
   "/users/{id}/employeeid": {
     "GET": {
       "Application": {
@@ -139877,6 +140118,26 @@
           "OnlineMeetingArtifact.Read.All",
           "OnlineMeetings.Read",
           "OnlineMeetings.ReadWrite"
+        ]
+      }
+    }
+  },
+  "/users/{id}/onlinemeetings/{id}/getvirtualappointmentjoinweburl": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "VirtualAppointment.Read.All",
+          "VirtualAppointment.ReadWrite.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "OnlineMeetings.Read",
+          "OnlineMeetings.ReadWrite",
+          "VirtualAppointment.Read",
+          "VirtualAppointment.ReadWrite"
         ]
       }
     }
@@ -146293,6 +146554,22 @@
         "allPermissions": [
           "LifecycleWorkflows.Read.All",
           "LifecycleWorkflows.ReadWrite.All"
+        ]
+      }
+    }
+  },
+  "devicemanagement/geteffectivepermissionsscope={value}": {
+    "GET": {
+      "Application": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceManagementRBAC.Read.All"
+        ]
+      },
+      "DelegatedWork": {
+        "leastPrivilegePermissions": [],
+        "allPermissions": [
+          "DeviceManagementRBAC.Read.All"
         ]
       }
     }
