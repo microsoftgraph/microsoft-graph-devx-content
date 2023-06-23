@@ -1,6 +1,36 @@
 {
   "delegatedScopesList": [
     {
+      "adminConsentDescription": "Allows the app to read policies in Privileged Identity Management for Groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read all policies in PIM for Groups",
+      "id": "7e26fdff-9cb1-4e56-bede-211fe0e420e8",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read policies in Privileged Identity Management for Groups, on your behalf.",
+      "consentDisplayName": "Read all policies in PIM for Groups",
+      "value": "RoleManagementPolicy.Read.AzureADGroup"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read, update, and delete policies in Privileged Identity Management for Groups, on behalf of the signed-in user.",
+      "adminConsentDisplayName": "Read, update, and delete all policies in PIM for Groups",
+      "id": "0da165c7-3f15-4236-b733-c0b0f6abe41d",
+      "isEnabled": true,
+      "isAdmin": true,
+      "consentDescription": "Allows the app to read, update, and delete policies in Privileged Identity Management for Groups, on your behalf.",
+      "consentDisplayName": "Read, update, and delete all policies in PIM for Groups",
+      "value": "RoleManagementPolicy.ReadWrite.AzureADGroup"
+    },
+    {
+      "adminConsentDescription": "Allows the app to read details of discovered cloud apps in the organization, on behalf of the signed in user.",
+      "adminConsentDisplayName": "Read discovered cloud applications data",
+      "id": "ad46d60e-1027-4b75-af88-7c14ccf43a19",
+      "isEnabled": true,
+      "isAdmin": false,
+      "consentDescription": "Allows the app to read details of discovered cloud apps in the organization, on your behalf.",
+      "consentDisplayName": "Read discovered cloud application data",
+      "value": "CloudApp-Discovery.Read.All"
+    },
+    {
       "adminConsentDescription": "Allows the app to read data for the learner's assignments in the organization's directory, on behalf of the signed-in user.",
       "adminConsentDisplayName": "Read user's assignments",
       "id": "ac08cdae-e845-41db-adf9-5899a0ec9ef6",
@@ -375,7 +405,7 @@
       "adminConsentDisplayName": "Read basic details of user calendars",
       "id": "662d75ba-a364-42ad-adee-f5f880ea4878",
       "isEnabled": true,
-      "isAdmin": true,
+      "isAdmin": false,
       "consentDescription": "Allows the app to read events in your calendars, except for properties such as body, attachments, and extensions.",
       "consentDisplayName": "Read basic details of your calendars",
       "value": "Calendars.ReadBasic"
@@ -4172,6 +4202,61 @@
     }
   ],
   "applicationScopesList": [
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read, update, and delete policies in Privileged Identity Management for Groups, without a signed-in user.",
+      "consentDisplayName": "Read, update, and delete all policies in PIM for Groups",
+      "id": "b38dcc4d-a239-4ed6-aa84-6c65b284f97c",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagementPolicy.ReadWrite.AzureADGroup"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all on-premises directory synchronization information for the organization, without a signed-in user.",
+      "consentDisplayName": "Read all on-premises directory synchronization information",
+      "id": "bb70e231-92dc-4729-aff5-697b3f04be95",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "OnPremDirectorySynchronization.Read.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read and write all on-premises directory synchronization information for the organization, without a signed-in user.",
+      "consentDisplayName": "Read and write all on-premises directory synchronization information",
+      "id": "c22a92cc-79bf-4bb1-8b6c-e0a05d3d80ce",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "OnPremDirectorySynchronization.ReadWrite.All"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read policies in Privileged Identity Management for Groups, without a signed-in user.",
+      "consentDisplayName": "Read all policies in PIM for Groups",
+      "id": "69e67828-780e-47fd-b28c-7b27d14864e6",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "RoleManagementPolicy.Read.AzureADGroup"
+    },
+    {
+      "allowedMemberTypes": [
+        "Application"
+      ],
+      "consentDescription": "Allows the app to read all details of discovered cloud apps in the organization, without a signed-in user.",
+      "consentDisplayName": "Read all discovered cloud applications data",
+      "id": "64a59178-dad3-4673-89db-84fdcd622fec",
+      "isEnabled": true,
+      "isAdmin": false,
+      "value": "CloudApp-Discovery.Read.All"
+    },
     {
       "allowedMemberTypes": [
         "Application"
