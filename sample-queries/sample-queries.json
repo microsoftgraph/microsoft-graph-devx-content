@@ -2453,6 +2453,23 @@
       "skipTest": false
     },
     {
+      "id": "89b74d96-7884-4292-a3c9-73baf80eefc4",
+      "category": "Search",
+      "method": "POST",
+      "humanName": "(beta)search with multiple requests",
+      "requestUrl": "/beta/search/query",
+      "docLink": "https://learn.microsoft.com/en-us/graph/search-concept-multiplerequest",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n    \"requests\": [\r\n        {\r\n            \"entityTypes\": [\r\n                \"bookmark\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"yammer\"\r\n            }\r\n        },\r\n        {\r\n            \"entityTypes\": [\r\n                \"driveItem\",\"drive\",\"site\",\"list\",\"listItem\"\r\n            ],\r\n            \"query\": {\r\n                \"queryString\": \"yammer\"\r\n            }\r\n        }\r\n    ]\r\n}",
+      "tip": "enable Bookmark.Read.All, Sites.Read.All",
+      "skipTest": false
+    },
+    {
       "id": "81fb8b64-cb56-4de3-9cad-fb1e56d5cdba",
       "category": "Search",
       "method": "POST",
