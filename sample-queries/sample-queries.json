@@ -3800,17 +3800,27 @@
       "requestUrl": "/beta/sites/{siteId}/pages/{pageId}/microsoft.graph.sitepage/canvasLayout/horizontalSections",
       "tip": "This query requires the Sites.ReadWrite.All permission",
       "postBody": "{\n    \"@odata.type\": \"#microsoft.graph.horizontalSection\",\n    \"emphasis\": \"strong\"\n}",
-      "docLink": "https://learn.microsoft.com/en-us/graph/api/horizontalSection-create?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-post-horizontalsection?view=graph-rest-beta",
       "skipTest": false
     },
     {
       "id": "e7aebcb3-8feb-4329-9b73-3f174fe1a699",
       "category": "SharePoint Pages (beta)",
       "method": "DELETE",
-      "humanName": "delete a section on a SharePoint page",
+      "humanName": "delete a horizontal section on a SharePoint page",
       "requestUrl": "/beta/sites/{siteId}/pages/{pageId}/microsoft.graph.sitepage/canvasLayout/horizontalSections/{sectionId}",
       "tip": "This query requires the Sites.ReadWrite.All permission",
-      "docLink": "https://learn.microsoft.com/en-us/graph/api/horizontalSection-delete?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/horizontalsection-delete?view=graph-rest-beta",
+      "skipTest": false
+    },
+    {
+      "id": "5e05f3ba-00c0-442b-a258-fea05eb6eba4",
+      "category": "SharePoint Pages (beta)",
+      "method": "GET",
+      "humanName": "list all webparts on a SharePoint page",
+      "requestUrl": "/beta/sites/{siteId}/pages/{pageId}/microsoft.graph.sitepage/webparts",
+      "tip": "This query requires the Sites.Read.All permission",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/webpart-list?view=graph-rest-beta",
       "skipTest": false
     },
     {
@@ -3821,7 +3831,7 @@
       "requestUrl": "/beta/sites/{siteId}/pages/{pageId}/microsoft.graph.sitepage/canvasLayout/horizontalSections/{sectionId}/columns/{columnId}/webparts?index={index}",
       "tip": "This query requires the Sites.ReadWrite.All permission",
       "postBody": "{\n    \"@odata.type\": \"#microsoft.graph.textWebPart\",\n    \"innerHtml\": \"Contribute to the Employee Art Exhibition\"\n}",
-      "docLink": "https://learn.microsoft.com/en-us/graph/api/webpart-create?view=graph-rest-beta",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/sitepage-create-webpart?view=graph-rest-beta",
       "skipTest": false
     },
     {
