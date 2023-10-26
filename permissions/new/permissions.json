@@ -25028,10 +25028,8 @@
             "GET"
           ],
           "paths": {
-            "/reports/partners/billing/manifests/{manifestId}": "least=Application",
-            "/reports/partners/billing/operations/{operationId}": "least=Application",
-            "reports/partners/billing/manifests/{manifestId}": "least=DelegatedWork",
-            "reports/partners/billing/operations/{operationId}": "least=DelegatedWork"
+            "/reports/partners/billing/manifests/{manifestId}": "least=Application,DelegatedWork",
+            "/reports/partners/billing/operations/{operationId}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -39257,7 +39255,7 @@
             "/me/registereddevices": "",
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,Application",
             "/users/{id}/joinedteams": "",
             "/users/{id}/licensedetails": "",
             "/users/{id}/owneddevices": "",
@@ -39279,7 +39277,7 @@
           ],
           "paths": {
             "/me/profile": "least=Application",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/profile": "least=Application"
           }
         },
@@ -39314,7 +39312,7 @@
             "/me/profile/webaccounts": "least=Application",
             "/me/profile/websites": "least=Application",
             "/me/responsibilities": "least=Application",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,Application",
             "/users/{id}/profile/account": "least=Application",
             "/users/{id}/profile/addresses": "least=Application",
             "/users/{id}/profile/anniversaries": "least=Application",
@@ -39369,7 +39367,7 @@
             "/me/profile/webaccounts/{id}": "least=Application",
             "/me/profile/websites/{id}": "least=Application",
             "/me/responsibilities/{id}": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/profile/account/{id}": "least=Application",
             "/users/{id}/profile/addresses/{id}": "least=Application",
             "/users/{id}/profile/anniversaries/{id}": "least=Application",
@@ -39520,7 +39518,7 @@
             "PUT"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,Application",
             "/users/{id}/manager": "least=DelegatedWork,Application"
           }
         },
