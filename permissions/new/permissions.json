@@ -23886,34 +23886,6 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
-    "OnlineMeetingRecording.Read.WhereInstalled": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read all recordings of online meetings where the associated Teams application is installed.",
-          "adminDescription": "Allows the app to read all recordings of online meetings where the associated Teams application is installed, without a signed-in user.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/onlinemeetings/{id}/recordings": "",
-            "/users/{id}/onlinemeetings/{id}/recordings/{id}": "",
-            "/users/{id}/onlinemeetings/{id}/recordings/{id}/content": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
     "OnlineMeetings.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -24298,35 +24270,6 @@
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}": "least=Application",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}/content": "least=Application",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}/metadataContent": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "OnlineMeetingTranscript.Read.WhereInstalled": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read all transcripts of online meetings where the associated Teams application is installed.",
-          "adminDescription": "Allows the app to read all transcripts of online meetings where the associated Teams application is installed, without a signed-in user.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/onlinemeetings/{id}/transcripts": "",
-            "/users/{id}/onlinemeetings/{id}/transcripts/{id}": "",
-            "/users/{id}/onlinemeetings/{id}/transcripts/{id}/content": "",
-            "/users/{id}/onlinemeetings/{id}/transcripts/{id}/metadataContent": ""
           }
         }
       ],
@@ -24961,6 +24904,8 @@
             "/admin/people/feedSettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/itemInsights": "least=DelegatedWork,Application",
             "/admin/people/profileCardProperties": "least=DelegatedWork,Application",
+            "/admin/people/profilePropertySettings": "least=DelegatedWork,Application",
+            "/admin/people/profilePropertySettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/profileSources": "least=DelegatedWork,Application",
             "/admin/people/pronouns": "least=DelegatedWork,Application"
           }
@@ -25013,6 +24958,8 @@
             "/admin/people/feedSettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/itemInsights": "least=DelegatedWork,Application",
             "/admin/people/profileCardProperties": "least=DelegatedWork,Application",
+            "/admin/people/profilePropertySettings": "least=DelegatedWork,Application",
+            "/admin/people/profilePropertySettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/profileSources": "least=DelegatedWork,Application",
             "/admin/people/pronouns": "least=DelegatedWork,Application"
           }
@@ -25027,6 +24974,7 @@
           ],
           "paths": {
             "/admin/people/feedSettings": "least=DelegatedWork,Application",
+            "/admin/people/profilePropertySettings": "least=DelegatedWork,Application",
             "/admin/people/profileSources": "least=DelegatedWork,Application"
           }
         }
@@ -25410,7 +25358,7 @@
             "GET"
           ],
           "paths": {
-            "/policies/deviceregistrationpolicy": "least=DelegatedWork",
+            "/policies/deviceregistrationpolicy": "",
             "/policies/mobileappmanagementpolicies": "least=DelegatedWork",
             "/policies/mobileappmanagementpolicies/{id}": "least=DelegatedWork",
             "/policies/mobileappmanagementpolicies/{id}/includedgroups": "least=DelegatedWork",
@@ -25435,7 +25383,9 @@
         }
       },
       "pathSets": [],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
     },
     "Policy.Read.ConditionalAccess": {
       "schemes": {
@@ -25484,6 +25434,41 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cagraphscopeapproval"
+      }
+    },
+    "Policy.Read.DeviceConfiguration": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's device configuration policies",
+          "adminDescription": "Allows the app to read your organization's device configuration policies on behalf of the signed-in user.  For example, device registration policy can limit initial provisioning controls using quota restrictions, additional authentication and authorization checks.",
+          "userDisplayName": "Read your organization's device configuration policies",
+          "userDescription": "Allows the app to read your organization's device configuration policies on your behalf.  For example, device registration policy can limit initial provisioning controls using quota restrictions, additional authentication and authorization checks.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read your organization's device configuration policies",
+          "adminDescription": "Allows the application to read your organization's device configuration policies without a signed-in user.  For example, device registration policy can limit initial provisioning controls using quota restrictions, additional authentication and authorization checks.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/deviceregistrationpolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
       }
     },
     "Policy.Read.PermissionGrant": {
@@ -25715,7 +25700,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
     },
     "Policy.ReadWrite.AuthenticationFlows": {
       "schemes": {
@@ -25884,7 +25871,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "AuthMethodProvTeam"
+      }
     },
     "Policy.ReadWrite.Authorization": {
       "schemes": {
@@ -26208,19 +26197,38 @@
           "userDescription": "Allows the app to read and write your organization's device configuration policies on your behalf.  For example, device registration policy can limit initial provisioning controls using quota restrictions, additional authentication and authorization checks.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's device configuration policies",
+          "adminDescription": "Allows the application to read and write your organization's device configuration policies without a signed-in user.  For example, device registration policy can limit initial provisioning controls using quota restrictions, additional authentication and authorization checks.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/policies/deviceregistrationpolicy": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH",
             "PUT"
           ],
           "paths": {
-            "/policies/deviceregistrationpolicy": "least=DelegatedWork"
+            "/policies/deviceregistrationpolicy": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32982,8 +32990,8 @@
             "DELETE"
           ],
           "paths": {
-            "/me/tasks/lists/aamkagvjmzjmmwzjltgyyjgtngiyni1hogq0lwrjmjnmmgrmowniyqau/tasks/aakalgaaaaaahyqdeapmec2byacqac-ewg0akoo4xot": "least=DelegatedWork,DelegatedPersonal",
-            "/users/{id}/tasks/lists/aamkagvjmzjmmwzjltgyyjgtngiyni1hogq0lwrjmjnmmgrmowniyqau/tasks/aakalgaaaaaahyqdeapmec2byacqac-ewg0akoo4xot": "least=DelegatedWork,DelegatedPersonal"
+            "/me/tasks/lists/{id}/tasks/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/tasks/lists/{id}/tasks/{id}": "least=DelegatedWork,DelegatedPersonal"
           }
         },
         {
@@ -33038,6 +33046,8 @@
             "POST"
           ],
           "paths": {
+            "/planner/plans/{id}/archive": "least=DelegatedWork",
+            "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork"
           }
         },
@@ -33120,11 +33130,6 @@
             "PATCH"
           ],
           "paths": {
-            "/me/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": "least=Application",
-            "/me/todo/lists/{id}": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}/checklistitems/{id}": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}/linkedresources/{id}": "least=Application",
             "/planner/buckets/{id}": "least=Application",
             "/planner/plans/{id}": "least=Application",
             "/planner/tasks/{id}": "least=Application",
@@ -33144,11 +33149,6 @@
             "POST"
           ],
           "paths": {
-            "/me/todo/lists": "least=Application",
-            "/me/todo/lists/{id}/tasks": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}/attachments": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}/checklistitems": "least=Application",
-            "/me/todo/lists/{id}/tasks/{id}/linkedresources": "least=Application",
             "/planner/buckets": "least=Application",
             "/planner/plans": "least=Application",
             "/planner/rosters/{id}/members": "least=Application",
@@ -33168,7 +33168,6 @@
             "GET"
           ],
           "paths": {
-            "/me/todo/lists/{id}/tasks/{id}/attachments/{id}": "least=Application",
             "/planner/rosters/{id}": "least=Application",
             "/planner/rosters/{id}/members/{id}": "least=Application",
             "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/{id}": "least=Application"
@@ -33182,7 +33181,8 @@
             "POST"
           ],
           "paths": {
-            "/me/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": "least=Application",
+            "/planner/plans/{id}/archive": "least=Application",
+            "/planner/plans/{id}/unarchive": "least=Application",
             "/planner/rosters": "least=Application",
             "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": "least=Application"
           }
@@ -36630,6 +36630,34 @@
           ],
           "paths": {
             "/teams/{id}/tags/{id}/members/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamworkUserInteraction.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all of the possible Teams interactions between the user and other users",
+          "adminDescription": "Allows the app to read all of the possible Teams interactions between the signed-in user and other users",
+          "userDisplayName": "Read all of the possible Teams interactions between you and other users",
+          "userDescription": "Allows the app to read all of the possible Teams interactions between you and other users.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teamwork/determineIfInteractionIsAllowed": "least=DelegatedWork"
           }
         }
       ],
