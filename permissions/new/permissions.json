@@ -14645,6 +14645,7 @@
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}/dependentresources": "",
             "/education/classes/{id}/assignments/delta": "",
             "/education/classes/{id}/assignmentsettings": "",
+            "/education/classes/{id}/assignmentsettings/gradingschemes/{id}": "",
             "/education/classes/{id}/members/{id}/assignments/delta": "",
             "/education/me/assignments": "",
             "/education/me/rubrics": "",
@@ -14750,6 +14751,7 @@
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}/dependentresources": "least=DelegatedWork",
             "/education/classes/{id}/assignments/delta": "least=DelegatedWork",
             "/education/classes/{id}/assignmentsettings": "least=DelegatedWork",
+            "/education/classes/{id}/assignmentsettings/gradingschemes/{id}": "least=DelegatedWork",
             "/education/classes/{id}/members/{id}/assignments/delta": "least=DelegatedWork",
             "/education/me/assignments": "least=DelegatedWork",
             "/education/me/rubrics": "least=DelegatedWork",
@@ -14903,6 +14905,7 @@
           ],
           "paths": {
             "/education/classes/{id}/assignments/{id}": "",
+            "/education/classes/{id}/assignmentsettings/gradingschemes/{id}": "",
             "/education/me/rubrics/{id}": ""
           }
         },
@@ -14962,6 +14965,30 @@
           ],
           "paths": {
             "/education/classes/{id}/assignments/{id}/submissions/{id}/outcomes/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/assignmentsettings/gradingschemes": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/education/classes/{id}/assignments/{id}/gradingscheme/$ref": "",
+            "/education/classes/{id}/assignmentsettings/defaultgradingscheme/$ref": ""
           }
         }
       ],
@@ -15121,6 +15148,7 @@
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}/dependentresources": "",
             "/education/classes/{id}/assignments/delta": "",
             "/education/classes/{id}/assignmentsettings": "",
+            "/education/classes/{id}/assignmentsettings/gradingschemes/{id}": "",
             "/education/classes/{id}/members/{id}/assignments/delta": "",
             "/education/me/assignments": "",
             "/education/me/rubrics": "",
@@ -15150,6 +15178,7 @@
           ],
           "paths": {
             "/education/classes/{id}/assignments/{id}": "least=DelegatedWork",
+            "/education/classes/{id}/assignmentsettings/gradingschemes/{id}": "least=DelegatedWork",
             "/education/me/rubrics/{id}": "least=DelegatedWork"
           }
         },
@@ -15177,6 +15206,30 @@
           ],
           "paths": {
             "/education/classes/{id}/assignments/{id}/rubric": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/assignmentsettings/gradingschemes": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/education/classes/{id}/assignments/{id}/gradingscheme/$ref": "least=DelegatedWork",
+            "/education/classes/{id}/assignmentsettings/defaultgradingscheme/$ref": "least=DelegatedWork"
           }
         }
       ],
