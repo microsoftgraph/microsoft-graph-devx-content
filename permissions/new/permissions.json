@@ -6290,6 +6290,42 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "CloudApp-Discovery.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read discovered cloud applications data",
+          "adminDescription": "Allows the app to read details of discovered cloud apps in the organization, on behalf of the signed in user.",
+          "userDisplayName": "Read discovered cloud application data",
+          "userDescription": "Allows the app to read details of discovered cloud apps in the organization, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all discovered cloud applications data",
+          "adminDescription": "Allows the app to read all details of discovered cloud apps in the organization, without a signed-in user.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataDiscovery/cloudAppDiscovery/uploadedStreams": "least=DelegatedWork,Application",
+            "/security/dataDiscovery/cloudAppDiscovery/uploadedStreams/{id}/aggregatedAppsDetails": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdagraphapiredmond"
+      }
+    },
     "CloudPC.Read.All": {
       "schemes": {
         "DelegatedWork": {
