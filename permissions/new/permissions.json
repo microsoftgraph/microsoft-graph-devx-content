@@ -1787,6 +1787,14 @@
             "/security/attacksimulation/simulations/{id}/landingPage": "least=DelegatedWork,Application",
             "/security/attacksimulation/simulations/{id}/loginPage": "least=DelegatedWork,Application",
             "/security/attacksimulation/simulations/{id}/payload": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/endUserNotificationSetting": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/excludedAccountTarget": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/includedAccountTarget": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/report/campaignUsers": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/report/overview": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/trainingSetting": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings/{id}": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings/{id}/languageDetails": "least=DelegatedWork,Application"
@@ -1824,7 +1832,8 @@
             "POST"
           ],
           "paths": {
-            "/security/attacksimulation/simulations": "least=DelegatedWork,Application"
+            "/security/attacksimulation/simulations": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns": "least=DelegatedWork,Application"
           }
         },
         {
@@ -1837,11 +1846,14 @@
             "PATCH"
           ],
           "paths": {
-            "/security/attacksimulation/simulations/{id}": "least=DelegatedWork,Application"
+            "/security/attacksimulation/simulations/{id}": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "astgraph"
+      }
     },
     "AuditLog.Read.All": {
       "schemes": {
@@ -12312,9 +12324,7 @@
             "/rolemanagement/devicemanagement/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application",
-            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -12394,9 +12404,7 @@
             "/devicemanagement/rolescopetags/hascustomrolescopetag": "",
             "/devicemanagement/scopedforresource": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -15708,10 +15716,7 @@
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "least=DelegatedWork",
-            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork",
-            "/rolemanagement/exchange/roledefinitions": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions": "least=DelegatedWork"
           }
         },
         {
@@ -15763,8 +15768,7 @@
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/entitlementmanagement/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -15833,8 +15837,7 @@
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions": ""
           }
         },
         {
@@ -15964,8 +15967,7 @@
             "/identitygovernance/entitlementmanagement/assignments/{id}": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -16011,30 +16013,6 @@
           ],
           "paths": {
             "/identitygovernance/entitlementmanagement/settings": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -29461,6 +29439,10 @@
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
+            "/roleManagement/exchange/customAppScopes": "",
+            "/roleManagement/exchange/customAppScopes/{id}": "",
+            "/rolemanagement/exchange/roleassignments": "",
+            "/rolemanagement/exchange/roleassignments/{id}": "",
             "/rolemanagement/exchange/roledefinitions": "",
             "/rolemanagement/exchange/roledefinitions/{id}": ""
           }
@@ -29480,9 +29462,7 @@
             "/rolemanagement/directory/roleeligibilityschedulerequests": "",
             "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
             "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments/{id}": ""
+            "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
           }
         }
       ],
@@ -29522,9 +29502,7 @@
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         }
       ],
@@ -29611,11 +29589,7 @@
             "/rolemanagement/entitlementmanagement/roleassignments": "",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "least=Application",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=Application",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -29646,33 +29620,36 @@
           "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Exchange Online RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) configuration for your organization's Exchange Online service, without a signed-in user. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/rolemanagement/cloudpc/roledefinitions": "",
-            "/rolemanagement/cloudpc/roledefinitions/{id}": "",
-            "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/roleManagement/exchange/customAppScopes": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/customAppScopes/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "exorbacgraph"
+      }
     },
     "RoleManagement.ReadWrite.CloudPC": {
       "schemes": {
@@ -29731,9 +29708,7 @@
           ],
           "paths": {
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         }
       ],
@@ -29779,8 +29754,7 @@
             "/rolemanagement/directory/roleassignmentschedulerequests": "least=Application",
             "/rolemanagement/directory/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "least=Application",
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments": "least=Application"
+            "/rolemanagement/entitlementmanagement/roleassignments": ""
           }
         },
         {
@@ -29796,8 +29770,7 @@
             "/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=Application"
+            "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
           }
         },
         {
@@ -29846,9 +29819,7 @@
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/transitiveroleassignments": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -29944,55 +29915,65 @@
           "userDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Exchange Online RBAC configuration",
+          "adminDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, without a signed-in user. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/rolemanagement/cloudpc/roledefinitions": "",
-            "/rolemanagement/cloudpc/roledefinitions/{id}": "",
-            "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
+            "/roleManagement/exchange/customAppScopes": "",
+            "/roleManagement/exchange/customAppScopes/{id}": "",
+            "/roleManagement/exchange/roleassignments": "",
+            "/roleManagement/exchange/roleassignments/{id}": "",
             "/rolemanagement/exchange/roledefinitions": "",
             "/rolemanagement/exchange/roledefinitions/{id}": ""
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments": ""
+            "/roleManagement/exchange/customAppScopes": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
-            "GET"
+            "PATCH"
           ],
           "paths": {
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments/{id}": ""
+            "/roleManagement/exchange/customAppScopes/{id}": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "exorbacgraph"
+      }
     },
     "RoleManagementPolicy.Read.Directory": {
       "schemes": {
