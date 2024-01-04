@@ -30252,6 +30252,47 @@
         "ownerSecurityGroup": "mwtshiftsengfte"
       }
     },
+    "ScheduledPermissions.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Scheduled Permissions under Permissions Management",
+          "adminDescription": "Allows a app to read and write all Scheduled Permissions under Permissions Management.",
+          "userDisplayName": "Read and write Scheduled Permissions under Permissions Management",
+          "userDescription": "Allows the app to read and write all Scheduled Permissions under Permissions Management.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": "",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/{id}": "",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/filterByCurrentUser": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
     "SchedulePermissions.ReadWrite.All": {
       "schemes": {
         "DelegatedWork": {
