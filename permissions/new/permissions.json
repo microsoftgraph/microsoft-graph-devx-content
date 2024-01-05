@@ -30674,6 +30674,71 @@
         "ownerSecurityGroup": "ThreatAPIApprovers"
       }
     },
+    "SecurityAnalyzedMessage.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read security defender analyzed message data of an organization",
+          "adminDescription": "Allows the app to read security defender analyzed message data of an organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails": "least=Application",
+            "/security/collaboration/analyzedEmails/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdographapiteam"
+      }
+    },
+    "SecurityAnalyzedMessage.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read, create, and update all security defender analyzed message data of an organization",
+          "adminDescription": "Allows the app to read, create, and update security defender analyzed message data of an organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails/remediate": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails": "",
+            "/security/collaboration/analyzedEmails/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdographapiteam"
+      }
+    },
     "SecurityEvents.Read.All": {
       "schemes": {
         "DelegatedWork": {
