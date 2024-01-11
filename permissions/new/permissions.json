@@ -1787,6 +1787,14 @@
             "/security/attacksimulation/simulations/{id}/landingPage": "least=DelegatedWork,Application",
             "/security/attacksimulation/simulations/{id}/loginPage": "least=DelegatedWork,Application",
             "/security/attacksimulation/simulations/{id}/payload": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/endUserNotificationSetting": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/excludedAccountTarget": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/includedAccountTarget": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/report/campaignUsers": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/report/overview": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}/trainingSetting": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings/{id}": "least=DelegatedWork,Application",
             "/security/attacksimulation/trainings/{id}/languageDetails": "least=DelegatedWork,Application"
@@ -1824,7 +1832,8 @@
             "POST"
           ],
           "paths": {
-            "/security/attacksimulation/simulations": "least=DelegatedWork,Application"
+            "/security/attacksimulation/simulations": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns": "least=DelegatedWork,Application"
           }
         },
         {
@@ -1837,11 +1846,14 @@
             "PATCH"
           ],
           "paths": {
-            "/security/attacksimulation/simulations/{id}": "least=DelegatedWork,Application"
+            "/security/attacksimulation/simulations/{id}": "least=DelegatedWork,Application",
+            "/security/attacksimulation/trainingCampaigns/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "astgraph"
+      }
     },
     "AuditLog.Read.All": {
       "schemes": {
@@ -6288,6 +6300,42 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "CloudApp-Discovery.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read discovered cloud applications data",
+          "adminDescription": "Allows the app to read details of discovered cloud apps in the organization, on behalf of the signed in user.",
+          "userDisplayName": "Read discovered cloud application data",
+          "userDescription": "Allows the app to read details of discovered cloud apps in the organization, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all discovered cloud applications data",
+          "adminDescription": "Allows the app to read all details of discovered cloud apps in the organization, without a signed-in user.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataDiscovery/cloudAppDiscovery/uploadedStreams": "least=DelegatedWork,Application",
+            "/security/dataDiscovery/cloudAppDiscovery/uploadedStreams/{id}/aggregatedAppsDetails": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdagraphapiredmond"
       }
     },
     "CloudPC.Read.All": {
@@ -12276,9 +12324,7 @@
             "/rolemanagement/devicemanagement/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application",
-            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -12358,9 +12404,7 @@
             "/devicemanagement/rolescopetags/hascustomrolescopetag": "",
             "/devicemanagement/scopedforresource": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -15672,10 +15716,7 @@
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "least=DelegatedWork",
-            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork",
-            "/rolemanagement/exchange/roledefinitions": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions": "least=DelegatedWork"
           }
         },
         {
@@ -15727,8 +15768,7 @@
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/entitlementmanagement/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -15797,8 +15837,7 @@
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions": ""
           }
         },
         {
@@ -15928,8 +15967,7 @@
             "/identitygovernance/entitlementmanagement/assignments/{id}": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -15976,30 +16014,6 @@
           "paths": {
             "/identitygovernance/entitlementmanagement/settings": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork"
-          }
         }
       ],
       "ownerInfo": {
@@ -16040,6 +16054,8 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/conditions/applications/includeApplications": "least=DelegatedWork,Application",
@@ -16116,6 +16132,8 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
@@ -16133,6 +16151,8 @@
           "paths": {
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme/$ref": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onTokenIssuanceStartListener/handler/microsoft.graph.onTokenIssuanceStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application"
@@ -16674,8 +16694,10 @@
             "/drive/root:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{id}/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{id}/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/thumbnails": "least=DelegatedWork,DelegatedPersonal",
@@ -16735,8 +16757,10 @@
             "/shares/{id}/driveitem/content": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/thumbnails": "least=DelegatedWork,DelegatedPersonal",
@@ -16915,8 +16939,10 @@
             "/drive/root:/{id}:/content": "least=Application",
             "/drives/{id}": "least=Application",
             "/drives/{id}/items/{id}": "least=Application",
+            "/drives/{id}/items/{id}/capabilities": "least=Application",
             "/drives/{id}/items/{id}/children": "least=Application",
             "/drives/{id}/items/{id}/content": "least=Application",
+            "/drives/{id}/items/{id}/officeActivities": "least=Application",
             "/drives/{id}/items/{id}/permissions": "least=Application",
             "/drives/{id}/items/{id}/permissions/{id}": "least=Application",
             "/drives/{id}/items/{id}/thumbnails": "least=Application",
@@ -16943,8 +16969,10 @@
             "/groups/{id}/drives": "least=Application",
             "/me/drive": "least=Application",
             "/me/drive/items/{id}": "least=Application",
+            "/me/drive/items/{id}/capabilities": "least=Application",
             "/me/drive/items/{id}/children": "least=Application",
             "/me/drive/items/{id}/content": "least=Application",
+            "/me/drive/items/{id}/officeActivities": "least=Application",
             "/me/drive/items/{id}/permissions": "least=Application",
             "/me/drive/items/{id}/permissions/{id}": "least=Application",
             "/me/drive/items/{id}/thumbnails": "least=Application",
@@ -16969,8 +16997,10 @@
             "/shares/{id}/driveitem/content": "least=Application",
             "/sites/{id}/drive": "least=Application",
             "/sites/{id}/drive/items/{id}": "least=Application",
+            "/sites/{id}/drive/items/{id}/capabilities": "least=Application",
             "/sites/{id}/drive/items/{id}/children": "least=Application",
             "/sites/{id}/drive/items/{id}/content": "least=Application",
+            "/sites/{id}/drive/items/{id}/officeActivities": "least=Application",
             "/sites/{id}/drive/items/{id}/permissions": "least=Application",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "least=Application",
             "/sites/{id}/drive/items/{id}/thumbnails": "least=Application",
@@ -17221,6 +17251,7 @@
             "/drive/items/{id}/content": "",
             "/drive/root:/{id}:/content": "",
             "/drives/{id}": "",
+            "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/permissions": "",
             "/drives/{id}/items/{id}/thumbnails": "",
             "/drives/{id}/items/{id}/versions": "",
@@ -17244,6 +17275,7 @@
             "/groups/{id}/drive/root/subscriptions/socketio": "",
             "/groups/{id}/drives": "",
             "/me/drive": "",
+            "/me/drive/items/{id}/capabilities": "",
             "/me/drive/items/{id}/permissions": "",
             "/me/drive/items/{id}/thumbnails": "",
             "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
@@ -17410,6 +17442,7 @@
             "/shares/{id}/driveitem": "least=DelegatedWork,DelegatedPersonal",
             "/shares/{id}/driveitem/content": "",
             "/sites/{id}/drive": "",
+            "/sites/{id}/drive/items/{id}/capabilities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
             "/sites/{id}/drive/items/{id}/thumbnails": "",
             "/sites/{id}/drive/items/{id}/versions": "",
@@ -18310,6 +18343,8 @@
             "PATCH"
           ],
           "paths": {
+            "/drives/{id}/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/workbook/names/{id}/range": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/workbook/names/{id}/range/format": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/workbook/names/{id}/range/format/borders(sideindex={value})": "least=DelegatedWork,DelegatedPersonal",
@@ -18386,6 +18421,7 @@
             "/me/drive/root:/{id}:/workbook/worksheets/{id}/range(address={value})/format/font": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/workbook/worksheets/{id}/range(address={value})/format/protection": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/workbook/worksheets/{id}/tables/{id}/sort/fields/icon": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/workbook/names/{id}/range": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/workbook/names/{id}/range/format": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/workbook/names/{id}/range/format/borders(sideindex={value})": "least=DelegatedWork,DelegatedPersonal",
@@ -18603,6 +18639,19 @@
             "Application"
           ],
           "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/officeActivities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
             "GET"
           ],
           "paths": {
@@ -18610,6 +18659,8 @@
             "/drive/items/{id}/content": "",
             "/drive/root:/{id}:/content": "",
             "/drives/{id}": "",
+            "/drives/{id}/items/{id}/capabilities": "",
+            "/drives/{id}/items/{id}/officeActivities": "",
             "/drives/{id}/items/{id}/permissions": "",
             "/drives/{id}/items/{id}/thumbnails": "",
             "/drives/{id}/items/{id}/versions": "",
@@ -18649,10 +18700,14 @@
             "/me/drive/special/{id}": "",
             "/me/drive/special/{id}/children": "",
             "/me/drives": "",
+            "/me/drives/items/{id}/capabilities": "",
+            "/me/drives/items/{id}/officeActivities": "",
             "/shares/{id}": "least=Application",
             "/shares/{id}/driveitem": "least=Application",
             "/shares/{id}/driveitem/content": "",
             "/sites/{id}/drive": "",
+            "/sites/{id}/drive/items/{id}/capabilities": "",
+            "/sites/{id}/drive/items/{id}/officeActivities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
             "/sites/{id}/drive/items/{id}/thumbnails": "",
             "/sites/{id}/drive/items/{id}/versions": "",
@@ -25613,6 +25668,7 @@
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/microsoftauthenticator": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/qrcodepin": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": "least=DelegatedWork,Application",
@@ -26149,6 +26205,7 @@
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/microsoftauthenticator": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/qrcodepin": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": "least=DelegatedWork,Application",
@@ -29388,6 +29445,10 @@
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
+            "/roleManagement/exchange/customAppScopes": "",
+            "/roleManagement/exchange/customAppScopes/{id}": "",
+            "/rolemanagement/exchange/roleassignments": "",
+            "/rolemanagement/exchange/roleassignments/{id}": "",
             "/rolemanagement/exchange/roledefinitions": "",
             "/rolemanagement/exchange/roledefinitions/{id}": ""
           }
@@ -29407,9 +29468,7 @@
             "/rolemanagement/directory/roleeligibilityschedulerequests": "",
             "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
             "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments/{id}": ""
+            "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
           }
         }
       ],
@@ -29449,9 +29508,7 @@
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         }
       ],
@@ -29538,11 +29595,7 @@
             "/rolemanagement/entitlementmanagement/roleassignments": "",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "least=Application",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=Application",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -29573,33 +29626,36 @@
           "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Exchange Online RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) configuration for your organization's Exchange Online service, without a signed-in user. This includes reading Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/rolemanagement/cloudpc/roledefinitions": "",
-            "/rolemanagement/cloudpc/roledefinitions/{id}": "",
-            "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/roleManagement/exchange/customAppScopes": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/customAppScopes/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "exorbacgraph"
+      }
     },
     "RoleManagement.ReadWrite.CloudPC": {
       "schemes": {
@@ -29658,9 +29714,7 @@
           ],
           "paths": {
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         }
       ],
@@ -29706,8 +29760,7 @@
             "/rolemanagement/directory/roleassignmentschedulerequests": "least=Application",
             "/rolemanagement/directory/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "least=Application",
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments": "least=Application"
+            "/rolemanagement/entitlementmanagement/roleassignments": ""
           }
         },
         {
@@ -29723,8 +29776,7 @@
             "/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments/{id}": "least=Application"
+            "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
           }
         },
         {
@@ -29773,9 +29825,7 @@
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/transitiveroleassignments": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
-            "/rolemanagement/exchange/roledefinitions": "",
-            "/rolemanagement/exchange/roledefinitions/{id}": ""
+            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
         },
         {
@@ -29871,55 +29921,65 @@
           "userDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, on your behalf. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Exchange Online RBAC configuration",
+          "adminDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your organization's Exchange Online service, without a signed-in user. This includes reading, creating, updating, and deleting Exchange management role definitions, role groups, role group membership, role assignments, management scopes, and role assignment policies.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/rolemanagement/cloudpc/roledefinitions": "",
-            "/rolemanagement/cloudpc/roledefinitions/{id}": "",
-            "/rolemanagement/devicemanagement/roledefinitions": "",
-            "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
+            "/roleManagement/exchange/customAppScopes": "",
+            "/roleManagement/exchange/customAppScopes/{id}": "",
+            "/roleManagement/exchange/roleassignments": "",
+            "/roleManagement/exchange/roleassignments/{id}": "",
             "/rolemanagement/exchange/roledefinitions": "",
             "/rolemanagement/exchange/roledefinitions/{id}": ""
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
-            "/rolemanagement/entitlementmanagement/roleassignments": "",
-            "/rolemanagement/exchange/roleassignments": ""
+            "/roleManagement/exchange/customAppScopes": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
-            "GET"
+            "PATCH"
           ],
           "paths": {
-            "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
-            "/rolemanagement/exchange/roleassignments/{id}": ""
+            "/roleManagement/exchange/customAppScopes/{id}": "least=DelegatedWork,Application",
+            "/roleManagement/exchange/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/exchange/roledefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "exorbacgraph"
+      }
     },
     "RoleManagementPolicy.Read.Directory": {
       "schemes": {
@@ -30196,6 +30256,47 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "mwtshiftsengfte"
+      }
+    },
+    "ScheduledPermissions.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Scheduled Permissions under Permissions Management",
+          "adminDescription": "Allows a app to read and write all Scheduled Permissions under Permissions Management.",
+          "userDisplayName": "Read and write Scheduled Permissions under Permissions Management",
+          "userDescription": "Allows the app to read and write all Scheduled Permissions under Permissions Management.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": "",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/{id}": "",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/filterByCurrentUser": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
       }
     },
     "SchedulePermissions.ReadWrite.All": {
@@ -30577,6 +30678,71 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ThreatAPIApprovers"
+      }
+    },
+    "SecurityAnalyzedMessage.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read security defender analyzed message data of an organization",
+          "adminDescription": "Allows the app to read security defender analyzed message data of an organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails": "least=Application",
+            "/security/collaboration/analyzedEmails/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdographapiteam"
+      }
+    },
+    "SecurityAnalyzedMessage.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read, create, and update all security defender analyzed message data of an organization",
+          "adminDescription": "Allows the app to read, create, and update security defender analyzed message data of an organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails/remediate": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/collaboration/analyzedEmails": "",
+            "/security/collaboration/analyzedEmails/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdographapiteam"
       }
     },
     "SecurityEvents.Read.All": {
@@ -31714,6 +31880,7 @@
             "/drives/{id}/items/{id}/analytics": "",
             "/drives/{id}/items/{id}/analytics/alltime": "",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "",
+            "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/children": "",
             "/drives/{id}/items/{id}/content": "",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
@@ -31722,6 +31889,7 @@
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "",
+            "/drives/{id}/items/{id}/officeActivities": "",
             "/drives/{id}/items/{id}/permissions": "",
             "/drives/{id}/items/{id}/permissions/{id}": "",
             "/drives/{id}/items/{id}/thumbnails": "",
@@ -31750,8 +31918,10 @@
             "/me/drive": "",
             "/me/drive/following": "",
             "/me/drive/items/{id}": "",
+            "/me/drive/items/{id}/capabilities": "",
             "/me/drive/items/{id}/children": "",
             "/me/drive/items/{id}/content": "",
+            "/me/drive/items/{id}/officeActivities": "",
             "/me/drive/items/{id}/permissions": "",
             "/me/drive/items/{id}/permissions/{id}": "",
             "/me/drive/items/{id}/thumbnails": "",
@@ -31794,8 +31964,10 @@
             "/sites/{id}/contenttypes/{id}/columns/{id}": "least=DelegatedWork,Application",
             "/sites/{id}/drive": "",
             "/sites/{id}/drive/items/{id}": "",
+            "/sites/{id}/drive/items/{id}/capabilities": "",
             "/sites/{id}/drive/items/{id}/children": "",
             "/sites/{id}/drive/items/{id}/content": "",
+            "/sites/{id}/drive/items/{id}/officeActivities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "",
             "/sites/{id}/drive/items/{id}/thumbnails": "",
@@ -32026,12 +32198,14 @@
             "/drives/{id}/items/{id}/analytics": "",
             "/drives/{id}/items/{id}/analytics/alltime": "",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "",
+            "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "",
+            "/drives/{id}/items/{id}/officeActivities": "",
             "/drives/{id}/items/{id}/permissions": "",
             "/drives/{id}/items/{id}/thumbnails": "",
             "/drives/{id}/items/{id}/versions": "",
@@ -32054,6 +32228,8 @@
             "/groups/{id}/sites/root": "",
             "/me/drive": "",
             "/me/drive/following": "",
+            "/me/drive/items/{id}/capabilities": "",
+            "/me/drive/items/{id}/officeActivities": "",
             "/me/drive/items/{id}/permissions": "",
             "/me/drive/items/{id}/thumbnails": "",
             "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
@@ -32091,6 +32267,8 @@
             "/sites/{id}/contenttypes/{id}/columns": "",
             "/sites/{id}/contenttypes/{id}/columns/{id}": "",
             "/sites/{id}/drive": "",
+            "/sites/{id}/drive/items/{id}/capabilities": "",
+            "/sites/{id}/drive/items/{id}/officeActivities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
             "/sites/{id}/drive/items/{id}/thumbnails": "",
             "/sites/{id}/drive/items/{id}/versions": "",
@@ -32442,6 +32620,9 @@
             "PATCH"
           ],
           "paths": {
+            "/drives/{id}/items/{id}/officeActivities": "",
+            "/me/drive/items/{id}/officeActivities": "",
+            "/sites/{id}/drive/items/{id}/officeActivities": "",
             "/sites/{id}/lists/{id}/items/{id}/fields": "least=DelegatedWork,Application"
           }
         }
@@ -39617,6 +39798,8 @@
             "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
             "/users/{id}/authentication/phonemethods": "",
             "/users/{id}/authentication/phonemethods/{id}": "",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
@@ -39695,6 +39878,8 @@
             "/users/{id}/authentication/passwordmethods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
             "/users/{id}/authentication/softwareoathmethods": "least=Application",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=Application",
@@ -39809,6 +39994,7 @@
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
             "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "",
+            "/users/{id}/authentication/qrcodepinmethod": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/temporaryaccesspassmethods": "",
             "/users/{id}/authentication/windowshelloforbusinessmethods": ""
@@ -39830,6 +40016,7 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
@@ -39890,6 +40077,7 @@
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
           }
         },
@@ -39953,6 +40141,7 @@
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
+            "/users/{id}/authentication/qrcodepinmethod": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/windowshelloforbusinessmethods": ""
           }
@@ -39974,6 +40163,7 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=Application"
