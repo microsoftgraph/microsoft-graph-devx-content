@@ -33575,7 +33575,8 @@
           "paths": {
             "/planner/plans/{id}/archive": "least=DelegatedWork",
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
-            "/planner/rosters": "least=DelegatedWork"
+            "/planner/rosters": "least=DelegatedWork",
+            "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork"
           }
         },
         {
@@ -33711,6 +33712,7 @@
             "/planner/plans/{id}/archive": "least=Application",
             "/planner/plans/{id}/unarchive": "least=Application",
             "/planner/rosters": "least=Application",
+            "/planner/rosters/{id}/assignSensitivityLabel": "least=Application",
             "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": "least=Application"
           }
         },
@@ -37157,6 +37159,34 @@
           ],
           "paths": {
             "/teams/{id}/tags/{id}/members/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamworkUserInteraction.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all of the possible Teams interactions between the user and other users",
+          "adminDescription": "Allows the app to read all of the possible Teams interactions between the signed-in user and other users",
+          "userDisplayName": "Read all of the possible Teams interactions between you and other users",
+          "userDescription": "Allows the app to read all of the possible Teams interactions between you and other users.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teamwork/determineIfInteractionIsAllowed": "least=DelegatedWork"
           }
         }
       ],
