@@ -1200,7 +1200,7 @@
             "/applications(appid={value})/repair": "least=DelegatedWork",
             "/applications/{id}/addkey": "least=DelegatedWork",
             "/applications/{id}/removekey": "least=DelegatedWork",
-            "/applications/{id}/repair": "least=DelegatedWork",
+            "/applications/{id}/repair": "least=DelegatedWork,Application",
             "/applicationtemplates/{id}/instantiate": "least=DelegatedWork",
             "/contacts/{id}/checkmembergroups": "",
             "/contacts/{id}/checkmemberobjects": "",
@@ -2522,11 +2522,11 @@
             "/bookingbusinesses/{id}": "least=DelegatedWork",
             "/bookingbusinesses/{id}/appointments": "least=DelegatedWork,Application",
             "/bookingbusinesses/{id}/appointments/{id}": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/calendarview": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/customers": "least=DelegatedWork",
+            "/bookingbusinesses/{id}/calendarview": "least=DelegatedWork,Application",
+            "/bookingbusinesses/{id}/customers": "least=DelegatedWork,Application",
             "/bookingbusinesses/{id}/customers/{id}": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/customquestions": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork",
+            "/bookingbusinesses/{id}/customquestions": "least=DelegatedWork,Application",
+            "/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork,Application",
             "/bookingbusinesses/{id}/services": "least=DelegatedWork",
             "/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork",
             "/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork",
@@ -2535,11 +2535,11 @@
             "/solutions/bookingbusinesses/{id}": "least=DelegatedWork",
             "/solutions/bookingbusinesses/{id}/appointments": "least=DelegatedWork",
             "/solutions/bookingbusinesses/{id}/appointments/{id}": "least=DelegatedWork",
-            "/solutions/bookingbusinesses/{id}/calendarview": "least=DelegatedWork",
+            "/solutions/bookingbusinesses/{id}/calendarview": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/customers": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/customers/{id}": "least=DelegatedWork",
-            "/solutions/bookingbusinesses/{id}/customquestions": "least=DelegatedWork",
-            "/solutions/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork",
+            "/solutions/bookingbusinesses/{id}/customquestions": "least=DelegatedWork,Application",
+            "/solutions/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/services": "least=DelegatedWork",
             "/solutions/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork",
             "/solutions/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork",
@@ -2672,18 +2672,18 @@
           "paths": {
             "/bookingbusinesses/{id}/appointments": "",
             "/bookingbusinesses/{id}/appointments/{id}/cancel": "",
-            "/bookingbusinesses/{id}/calendarview": "",
+            "/bookingbusinesses/{id}/calendarview": "least=DelegatedWork,Application",
             "/bookingbusinesses/{id}/customers": "",
-            "/bookingbusinesses/{id}/customquestions": "",
-            "/bookingbusinesses/{id}/services": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork",
+            "/bookingbusinesses/{id}/customquestions": "least=Application",
+            "/bookingbusinesses/{id}/services": "least=DelegatedWork,Application",
+            "/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/appointments": "",
-            "/solutions/bookingbusinesses/{id}/appointments/{id}/cancel": "",
-            "/solutions/bookingbusinesses/{id}/calendarview": "",
+            "/solutions/bookingbusinesses/{id}/appointments/{id}/cancel": "least=Application",
+            "/solutions/bookingbusinesses/{id}/calendarview": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/customers": "",
-            "/solutions/bookingbusinesses/{id}/customquestions": "",
-            "/solutions/bookingbusinesses/{id}/services": "least=DelegatedWork",
-            "/solutions/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork"
+            "/solutions/bookingbusinesses/{id}/customquestions": "least=Application",
+            "/solutions/bookingbusinesses/{id}/services": "least=DelegatedWork,Application",
+            "/solutions/bookingbusinesses/{id}/staffmembers": "least=DelegatedWork,Application"
           }
         },
         {
@@ -2711,14 +2711,14 @@
           "paths": {
             "/bookingbusinesses/{id}/appointments/{id}": "",
             "/bookingbusinesses/{id}/customers/{id}": "",
-            "/bookingbusinesses/{id}/customquestions/{id}": "",
-            "/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork",
-            "/bookingbusinesses/{id}/staffmembers/{id}": "least=DelegatedWork",
+            "/bookingbusinesses/{id}/customquestions/{id}": "least=Application",
+            "/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork,Application",
+            "/bookingbusinesses/{id}/staffmembers/{id}": "least=DelegatedWork,Application",
             "/solutions/bookingbusinesses/{id}/appointments/{id}": "",
             "/solutions/bookingbusinesses/{id}/customers/{id}": "",
-            "/solutions/bookingbusinesses/{id}/customquestions/{id}": "",
-            "/solutions/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork",
-            "/solutions/bookingbusinesses/{id}/staffmembers/{id}": "least=DelegatedWork"
+            "/solutions/bookingbusinesses/{id}/customquestions/{id}": "least=Application",
+            "/solutions/bookingbusinesses/{id}/services/{id}": "least=DelegatedWork,Application",
+            "/solutions/bookingbusinesses/{id}/staffmembers/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -2869,8 +2869,8 @@
             "PATCH"
           ],
           "paths": {
-            "/bookingbusinesses/{id}/customquestions/{id}": "",
-            "/solutions/bookingbusinesses/{id}/customquestions/{id}": ""
+            "/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork",
+            "/solutions/bookingbusinesses/{id}/customquestions/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -3602,8 +3602,8 @@
             "POST"
           ],
           "paths": {
-            "/me/findmeetingtimes": "",
-            "/users/{id}/findmeetingtimes": ""
+            "/me/findmeetingtimes": "least=DelegatedWork",
+            "/users/{id}/findmeetingtimes": "least=DelegatedWork"
           }
         }
       ],
@@ -4452,8 +4452,8 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "",
             "/communications/calls/{id}/participants/{id}/mute": "",
-            "/communications/calls/{id}/participants/{id}/startholdmusic": "",
-            "/communications/calls/{id}/participants/{id}/stopholdmusic": "",
+            "/communications/calls/{id}/participants/{id}/startholdmusic": "least=Application",
+            "/communications/calls/{id}/participants/{id}/stopholdmusic": "least=Application",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": ""
           }
@@ -6411,7 +6411,7 @@
             "/rolemanagement/devicemanagement/roleassignments/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
-            "/rolemanagement/entitlementmanagement/roledefinitions": "",
+            "/rolemanagement/entitlementmanagement/roledefinitions": "least=Application",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
             "/rolemanagement/exchange/roledefinitions": "",
             "/rolemanagement/exchange/roledefinitions/{id}": "",
@@ -6503,7 +6503,7 @@
             "GET"
           ],
           "paths": {
-            "/devicemanagement/manageddevices/{id}/getcloudpcremoteactionresults": "",
+            "/devicemanagement/manageddevices/{id}/getcloudpcremoteactionresults": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/{id}/getcloudpcreviewstatus": "",
             "/devicemanagement/monitoring/alertrecords": "",
             "/devicemanagement/monitoring/alertrecords/{id}": "",
@@ -6519,7 +6519,7 @@
             "/devicemanagement/virtualendpoint/galleryimages/{id}": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "",
-            "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "",
+            "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/serviceplans": "",
@@ -6568,7 +6568,7 @@
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/reports/exportjobs": "",
+            "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "",
@@ -6626,7 +6626,7 @@
             "GET"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": ""
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=Application"
           }
         },
         {
@@ -6652,7 +6652,7 @@
           ],
           "paths": {
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/usersettings/{id}": "",
+            "/devicemanagement/virtualendpoint/usersettings/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roleassignments/{id}": "",
             "/rolemanagement/devicemanagement/roleassignments/{id}": "least=DelegatedWork,Application"
           }
@@ -8312,12 +8312,12 @@
           ],
           "paths": {
             "/devicelocalcredentials": "",
-            "/devicelocalcredentials/{id}": ""
+            "/devicelocalcredentials/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "PreAuthZ"
+        "ownerSecurityGroup": "cdrsmon"
       }
     },
     "DeviceLocalCredential.ReadBasic.All": {
@@ -8352,7 +8352,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "PreAuthZ"
+        "ownerSecurityGroup": "cdrsmon"
       }
     },
     "DeviceManagementApps.Read.All": {
@@ -8648,7 +8648,7 @@
             "/deviceappmanagement/mobileappconfigurations/{id}/devicestatussummary": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileappconfigurations/{id}/userstatussummary": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/installsummary": "least=DelegatedWork,Application",
-            "/deviceappmanagement/symanteccodesigningcertificate": "",
+            "/deviceappmanagement/symanteccodesigningcertificate": "least=DelegatedWork,Application",
             "/deviceappmanagement/targetedmanagedappconfigurations/{id}/deploymentsummary": "least=DelegatedWork,Application",
             "/deviceappmanagement/wdacsupplementalpolicies/{id}/deploysummary": "least=DelegatedWork,Application",
             "/devicemanagement": "least=DelegatedWork,Application",
@@ -8672,9 +8672,9 @@
             "/deviceappmanagement/deviceappmanagementtasks": "",
             "/deviceappmanagement/enterprisecodesigningcertificates": "least=DelegatedWork,Application",
             "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/assignments": "least=DelegatedWork,Application",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/devicestatuses": "",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/groupassignments": "",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/userstatuses": "",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/devicestatuses": "least=DelegatedWork,Application",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/groupassignments": "least=DelegatedWork,Application",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/userstatuses": "least=DelegatedWork,Application",
             "/deviceappmanagement/iosmanagedappprotections": "least=DelegatedWork,Application",
             "/deviceappmanagement/iosmanagedappprotections/{id}/apps": "least=DelegatedWork,Application",
             "/deviceappmanagement/managedappregistrations": "least=DelegatedWork,Application",
@@ -8701,13 +8701,13 @@
             "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/containedapps": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/files": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/devicestatuses": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.iosvppapp/assignedlicenses": "",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.macosvppapp/assignedlicenses": "",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.iosvppapp/assignedlicenses": "least=DelegatedWork,Application",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.macosvppapp/assignedlicenses": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.managedmobilelobapp/contentversions": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.microsoftstoreforbusinessapp/containedapps": "",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.microsoftstoreforbusinessapp/containedapps": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.mobilelobapp/contentversions": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.windowsuniversalappx/committedcontainedapps": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/relationships": "",
+            "/deviceappmanagement/mobileapps/{id}/relationships": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/devicestatuses": "least=DelegatedWork,Application",
             "/deviceappmanagement/targetedmanagedappconfigurations": "least=DelegatedWork,Application",
@@ -8755,9 +8755,9 @@
             "/deviceappmanagement/deviceappmanagementtasks/{id}": "",
             "/deviceappmanagement/enterprisecodesigningcertificates/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/assignments/{id}": "least=DelegatedWork,Application",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/devicestatuses/{id}": "",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/groupassignments/{id}": "",
-            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/userstatuses/{id}": "",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/devicestatuses/{id}": "least=DelegatedWork,Application",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/groupassignments/{id}": "least=DelegatedWork,Application",
+            "/deviceappmanagement/ioslobappprovisioningconfigurations/{id}/userstatuses/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/iosmanagedappprotections/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/iosmanagedappprotections/{id}/apps/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/iosmanagedappprotections/{id}/assignments/{id}": "least=DelegatedWork,Application",
@@ -8786,13 +8786,13 @@
             "/deviceappmanagement/mobileapps/{id}/contentversions/{id}/files/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/devicestatuses/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/devicestatuses/{id}/app": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.iosvppapp/assignedlicenses/{id}": "",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.macosvppapp/assignedlicenses/{id}": "",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.iosvppapp/assignedlicenses/{id}": "least=DelegatedWork,Application",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.macosvppapp/assignedlicenses/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.managedmobilelobapp/contentversions/{id}": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.microsoftstoreforbusinessapp/containedapps/{id}": "",
+            "/deviceappmanagement/mobileapps/{id}/microsoft.graph.microsoftstoreforbusinessapp/containedapps/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.mobilelobapp/contentversions/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/microsoft.graph.windowsuniversalappx/committedcontainedapps/{id}": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/relationships/{id}": "",
+            "/deviceappmanagement/mobileapps/{id}/relationships/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/app": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/devicestatuses/{id}": "least=DelegatedWork,Application",
@@ -8884,13 +8884,13 @@
             "/deviceappmanagement/mobileapps/{id}/devicestatuses/{id}/app/revokealllicenses": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/devicestatuses/{id}/app/revokedevicelicense": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/devicestatuses/{id}/app/revokeuserlicense": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/{id}/revokealllicenses": "",
-            "/deviceappmanagement/mobileapps/{id}/revokedevicelicense": "",
-            "/deviceappmanagement/mobileapps/{id}/revokeuserlicense": "",
+            "/deviceappmanagement/mobileapps/{id}/revokealllicenses": "least=DelegatedWork,Application",
+            "/deviceappmanagement/mobileapps/{id}/revokedevicelicense": "least=DelegatedWork,Application",
+            "/deviceappmanagement/mobileapps/{id}/revokeuserlicense": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/app/revokealllicenses": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/app/revokedevicelicense": "least=DelegatedWork,Application",
             "/deviceappmanagement/mobileapps/{id}/userstatuses/{id}/app/revokeuserlicense": "least=DelegatedWork,Application",
-            "/deviceappmanagement/mobileapps/validatexml": "",
+            "/deviceappmanagement/mobileapps/validatexml": "least=DelegatedWork,Application",
             "/deviceappmanagement/syncmicrosoftstoreforbusinessapps": "",
             "/deviceappmanagement/targetedmanagedappconfigurations/{id}/assign": "least=DelegatedWork,Application",
             "/deviceappmanagement/targetedmanagedappconfigurations/{id}/targetapps": "least=DelegatedWork,Application",
@@ -10363,43 +10363,43 @@
             "/devicemanagement/templates/{id}/migratableto": "least=DelegatedWork,Application",
             "/devicemanagement/templates/{id}/settings": "least=DelegatedWork,Application",
             "/devicemanagement/templatesettings": "least=DelegatedWork,Application",
-            "/devicemanagement/userexperienceanalyticsanomaly": "",
-            "/devicemanagement/userexperienceanalyticsanomalydevice": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformance": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversion": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondetails": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondeviceid": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyosversion": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdevicemodelperformance": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformance": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformancedetails": "",
-            "/devicemanagement/userexperienceanalyticsapphealthosversionperformance": "",
-            "/devicemanagement/userexperienceanalyticsbaselines": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics/metricvalues": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthappimpact": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceappimpact": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceperformance": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceruntimehistory": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthmodelperformance": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthosperformance": "",
-            "/devicemanagement/userexperienceanalyticsdevicemetrichistory": "",
-            "/devicemanagement/userexperienceanalyticsdeviceperformance": "",
-            "/devicemanagement/userexperienceanalyticsdevicescopes": "",
-            "/devicemanagement/userexperienceanalyticsdevicescores": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartuphistory": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartupprocesses": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartupprocessperformance": "",
-            "/devicemanagement/userexperienceanalyticsdeviceswithoutcloudidentity": "",
-            "/devicemanagement/userexperienceanalyticsimpactingprocess": "",
-            "/devicemanagement/userexperienceanalyticsmetrichistory": "",
-            "/devicemanagement/userexperienceanalyticsmodelscores": "",
-            "/devicemanagement/userexperienceanalyticsnotautopilotreadydevice": "",
-            "/devicemanagement/userexperienceanalyticsremoteconnection": "",
-            "/devicemanagement/userexperienceanalyticsresourceperformance": "",
-            "/devicemanagement/userexperienceanalyticsscorehistory": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}/metricdevices": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremodelperformance": "",
+            "/devicemanagement/userexperienceanalyticsanomaly": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsanomalydevice": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversion": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondetails": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondeviceid": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyosversion": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdevicemodelperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformancedetails": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthosversionperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics/metricvalues": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthappimpact": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceappimpact": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceruntimehistory": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthmodelperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthosperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicemetrichistory": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdeviceperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicescopes": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicescores": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartuphistory": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartupprocesses": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartupprocessperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdeviceswithoutcloudidentity": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsimpactingprocess": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsmetrichistory": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsmodelscores": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsnotautopilotreadydevice": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsremoteconnection": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsresourceperformance": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsscorehistory": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}/metricdevices": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremodelperformance": "least=DelegatedWork,Application",
             "/devicemanagement/userpfxcertificates": "least=DelegatedWork,Application",
             "/devicemanagement/windowsdriverupdateprofiles": "least=DelegatedWork,Application",
             "/devicemanagement/windowsdriverupdateprofiles/{id}/assignments": "least=DelegatedWork,Application",
@@ -10737,45 +10737,45 @@
             "/devicemanagement/templates/{id}/migratableto/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/templates/{id}/settings/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/templatesettings/{id}": "least=DelegatedWork,Application",
-            "/devicemanagement/userexperienceanalyticsanomaly/{id}": "",
-            "/devicemanagement/userexperienceanalyticsanomalydevice/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversion/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondetails/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondeviceid/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyosversion/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdevicemodelperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformancedetails/{id}": "",
-            "/devicemanagement/userexperienceanalyticsapphealthosversionperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics/metricvalues/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthappimpact/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceappimpact/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceruntimehistory/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthmodelperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthosperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicemetrichistory/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdeviceperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicescope": "",
-            "/devicemanagement/userexperienceanalyticsdevicescopes/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicescores/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartuphistory/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartupprocesses/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdevicestartupprocessperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsdeviceswithoutcloudidentity/{id}": "",
-            "/devicemanagement/userexperienceanalyticsimpactingprocess/{id}": "",
-            "/devicemanagement/userexperienceanalyticsmetrichistory/{id}": "",
-            "/devicemanagement/userexperienceanalyticsmetrichistory/{id}/userexperienceanalyticsmetric": "",
-            "/devicemanagement/userexperienceanalyticsmodelscores/{id}": "",
-            "/devicemanagement/userexperienceanalyticsnotautopilotreadydevice/{id}": "",
-            "/devicemanagement/userexperienceanalyticsremoteconnection/{id}": "",
-            "/devicemanagement/userexperienceanalyticsresourceperformance/{id}": "",
-            "/devicemanagement/userexperienceanalyticsscorehistory/{id}": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}/metricdevices/{id}": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywheremodelperformance/{id}": "",
+            "/devicemanagement/userexperienceanalyticsanomaly/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsanomalydevice/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversion/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondetails/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyappversiondeviceid/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthapplicationperformancebyosversion/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdevicemodelperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthdeviceperformancedetails/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsapphealthosversionperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics/metricvalues/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthappimpact/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceappimpact/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthdeviceruntimehistory/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthmodelperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthosperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicemetrichistory/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdeviceperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicescope": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicescopes/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicescores/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartuphistory/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartupprocesses/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdevicestartupprocessperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsdeviceswithoutcloudidentity/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsimpactingprocess/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsmetrichistory/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsmetrichistory/{id}/userexperienceanalyticsmetric": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsmodelscores/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsnotautopilotreadydevice/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsremoteconnection/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsresourceperformance/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsscorehistory/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremetrics/{id}/metricdevices/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywheremodelperformance/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/userpfxcertificates/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/windowsdriverupdateprofiles/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/windowsdriverupdateprofiles/{id}/assignments/{id}": "least=DelegatedWork,Application",
@@ -10867,20 +10867,20 @@
             "/devicemanagement/softwareupdatestatussummary": "least=DelegatedWork,Application",
             "/devicemanagement/templates/{id}/microsoft.graph.securitybaselinetemplate/devicestatesummary": "least=DelegatedWork,Application",
             "/devicemanagement/tenantattachrbac": "least=DelegatedWork,Application",
-            "/devicemanagement/userexperienceanalyticsapphealthoverview": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/apphealthmetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/batteryhealthmetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/bestpracticesmetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/rebootanalyticsmetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/resourceperformancemetrics": "",
-            "/devicemanagement/userexperienceanalyticsbaselines/{id}/workfromanywheremetrics": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthcapacitydetails": "",
-            "/devicemanagement/userexperienceanalyticsbatteryhealthruntimedetails": "",
-            "/devicemanagement/userexperienceanalyticscategories/{id}": "",
-            "/devicemanagement/userexperienceanalyticsoverview": "",
-            "/devicemanagement/userexperienceanalyticsregressionsummary": "",
-            "/devicemanagement/userexperienceanalyticsworkfromanywherehardwarereadinessmetric": "",
+            "/devicemanagement/userexperienceanalyticsapphealthoverview": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/apphealthmetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/batteryhealthmetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/bestpracticesmetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/devicebootperformancemetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/rebootanalyticsmetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/resourceperformancemetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbaselines/{id}/workfromanywheremetrics": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthcapacitydetails": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsbatteryhealthruntimedetails": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticscategories/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsoverview": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsregressionsummary": "least=DelegatedWork,Application",
+            "/devicemanagement/userexperienceanalyticsworkfromanywherehardwarereadinessmetric": "least=DelegatedWork,Application",
             "/devicemanagement/zebrafotaconnector": "least=DelegatedWork,Application",
             "/organization/{id}": "",
             "/reports": "least=DelegatedWork,Application",
@@ -12502,7 +12502,7 @@
             "GET"
           ],
           "paths": {
-            "/rolemanagement/cloudpc/roleassignments/{id}": "",
+            "/rolemanagement/cloudpc/roleassignments/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roleassignments/{id}": ""
           }
         }
@@ -13114,17 +13114,17 @@
             "/groupsettings/{id}": "least=DelegatedWork,Application",
             "/groupsettingtemplates": "least=DelegatedWork,Application",
             "/groupsettingtemplates/{id}": "least=DelegatedWork,Application",
-            "/me/approleassignedresources": "least=Application",
-            "/me/createdobjects": "",
-            "/me/directreports": "",
+            "/me/approleassignedresources": "least=DelegatedWork,Application",
+            "/me/createdobjects": "least=Application",
+            "/me/directreports": "least=Application",
             "/me/joinedteams": "",
-            "/me/licensedetails": "",
-            "/me/manager": "",
+            "/me/licensedetails": "least=Application",
+            "/me/manager": "least=Application",
             "/me/memberof": "least=Application",
-            "/me/oauth2permissiongrants": "least=Application",
-            "/me/owneddevices": "",
-            "/me/ownedobjects": "",
-            "/me/registereddevices": "",
+            "/me/oauth2permissiongrants": "least=DelegatedWork,Application",
+            "/me/owneddevices": "least=Application",
+            "/me/ownedobjects": "least=Application",
+            "/me/registereddevices": "least=Application",
             "/me/scopedrolememberof": "least=DelegatedWork,Application",
             "/me/transitivememberof": "",
             "/oauth2permissiongrants": "least=DelegatedWork,Application",
@@ -13185,7 +13185,7 @@
             "/teams/{id}/installedapps/{id}": "",
             "/users": "",
             "/users/{id}": "",
-            "/users/{id}/approleassignedresources": "least=Application",
+            "/users/{id}/approleassignedresources": "least=DelegatedWork,Application",
             "/users/{id}/approleassignments": "least=Application",
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
@@ -13194,13 +13194,13 @@
             "/users/{id}/licenseDetails/getTeamsLicensingDetails": "",
             "/users/{id}/manager": "",
             "/users/{id}/memberof": "least=Application",
-            "/users/{id}/oauth2permissiongrants": "least=Application",
+            "/users/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/users/{id}/owneddevices": "",
             "/users/{id}/ownedobjects": "",
             "/users/{id}/registereddevices": "",
             "/users/{id}/scopedrolememberof": "least=DelegatedWork,Application",
             "/users/{id}/transitivememberof": "",
-            "/users/{id}/transitivereports/$count": "",
+            "/users/{id}/transitivereports/$count": "least=Application",
             "/users/{id}/usagerights": "",
             "/users/delta": ""
           }
@@ -13590,7 +13590,7 @@
             "/me/checkmemberobjects": "",
             "/me/getmembergroups": "",
             "/me/getmemberobjects": "",
-            "/me/revokesigninsessions": "",
+            "/me/revokesigninsessions": "least=Application",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups": "least=DelegatedWork,Application",
             "/serviceprincipals": "",
             "/serviceprincipals(appid={value})/addkey": "",
@@ -13986,7 +13986,7 @@
             "GET"
           ],
           "paths": {
-            "/directory/federationconfigurations/graph.samlorwsfedexternaldomainfederation": "",
+            "/directory/federationconfigurations/graph.samlorwsfedexternaldomainfederation": "least=DelegatedWork,Application",
             "/domains": "least=DelegatedWork,Application",
             "/domains/{id}": "least=DelegatedWork,Application",
             "/domains/{id}/domainnamereferences": "least=DelegatedWork,Application",
@@ -14893,9 +14893,9 @@
             "/education/classes/{id}/assignments": "",
             "/education/classes/{id}/assignments/{id}/categories": "",
             "/education/classes/{id}/assignments/{id}/resources": "",
-            "/education/classes/{id}/assignments/{id}/resources/{id}/dependentresources": "",
+            "/education/classes/{id}/assignments/{id}/resources/{id}/dependentresources": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/resources": "",
-            "/education/classes/{id}/assignments/{id}/submissions/{id}/resources/{id}/dependentresources": "",
+            "/education/classes/{id}/assignments/{id}/submissions/{id}/resources/{id}/dependentresources": "least=DelegatedWork",
             "/education/me/rubrics": ""
           }
         },
@@ -15190,13 +15190,13 @@
             "/education/classes/{id}/assignments/{id}/categories/delta": "",
             "/education/classes/{id}/assignments/{id}/resources": "",
             "/education/classes/{id}/assignments/{id}/resources/{id}": "",
-            "/education/classes/{id}/assignments/{id}/resources/dependentresources": "",
+            "/education/classes/{id}/assignments/{id}/resources/dependentresources": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/rubric": "",
             "/education/classes/{id}/assignments/{id}/submissions": "",
             "/education/classes/{id}/assignments/{id}/submissions/{id}": "",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/resources": "",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/resources/{id}": "",
-            "/education/classes/{id}/assignments/{id}/submissions/{id}/resources/dependentresources": "",
+            "/education/classes/{id}/assignments/{id}/submissions/{id}/resources/dependentresources": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources": "",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}": "",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/submittedresources/{id}/dependentresources": "",
@@ -16979,7 +16979,7 @@
             "/groups/{id}/drives": "least=Application",
             "/me/drive": "least=Application",
             "/me/drive/items/{id}": "least=Application",
-            "/me/drive/items/{id}/capabilities": "least=Application",
+            "/me/drive/items/{id}/capabilities": "least=DelegatedPersonal,Application",
             "/me/drive/items/{id}/children": "least=Application",
             "/me/drive/items/{id}/content": "least=Application",
             "/me/drive/items/{id}/officeActivities": "least=Application",
@@ -18710,8 +18710,8 @@
             "/me/drive/special/{id}": "",
             "/me/drive/special/{id}/children": "",
             "/me/drives": "",
-            "/me/drives/items/{id}/capabilities": "",
-            "/me/drives/items/{id}/officeActivities": "",
+            "/me/drives/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/drives/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal,Application",
             "/shares/{id}": "least=Application",
             "/shares/{id}/driveitem": "least=Application",
             "/shares/{id}/driveitem/content": "",
@@ -23132,7 +23132,7 @@
             "/tenantrelationships/managedtenants/procedures": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/roleAssignments": "least=DelegatedWork",
-            "/tenantrelationships/managedtenants/tenanttags": ""
+            "/tenantrelationships/managedtenants/tenanttags": "least=DelegatedWork"
           }
         },
         {
@@ -23146,7 +23146,7 @@
           ],
           "paths": {
             "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
-            "/tenantrelationships/managedtenants/tenanttags/{id}": ""
+            "/tenantrelationships/managedtenants/tenanttags/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -25188,7 +25188,7 @@
             "POST"
           ],
           "paths": {
-            "/reports/partners/billing/usage/unbilled/export": "least=DelegatedWork"
+            "/reports/partners/billing/usage/unbilled/export": "least=DelegatedWork,Application"
           }
         },
         {
@@ -29232,7 +29232,7 @@
             "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedulerequests": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "",
+            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedules": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedules/{id}": "least=DelegatedWork",
@@ -29241,7 +29241,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "TM"
+        "ownerSecurityGroup": "pimcr"
       }
     },
     "RoleAssignmentSchedule.ReadWrite.Directory": {
@@ -29306,7 +29306,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "TM"
+        "ownerSecurityGroup": "pimcr"
       }
     },
     "RoleEligibilitySchedule.Read.Directory": {
@@ -29333,7 +29333,7 @@
             "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
+            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedules": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedules/{id}": "least=DelegatedWork",
@@ -29342,7 +29342,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "TM"
+        "ownerSecurityGroup": "pimcr"
       }
     },
     "RoleEligibilitySchedule.ReadWrite.Directory": {
@@ -29400,7 +29400,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "TM"
+        "ownerSecurityGroup": "pimcr"
       }
     },
     "RoleManagement.Read.All": {
@@ -29445,21 +29445,21 @@
             "/rolemanagement/directory/resourcenamespaces/{id}": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions/{id}": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
+            "/rolemanagement/directory/roleassignmentscheduleinstances": "least=Application",
+            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "least=Application",
             "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedules": "",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
+            "/rolemanagement/directory/roleassignmentschedules": "least=Application",
+            "/rolemanagement/directory/roleassignmentschedules/{id}": "least=Application",
             "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/directory/roledefinitions": "",
             "/rolemanagement/directory/roledefinitions/{id}": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
+            "/rolemanagement/directory/roleeligibilityscheduleinstances": "least=Application",
+            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "least=Application",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedules": "",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
+            "/rolemanagement/directory/roleeligibilityschedules": "least=Application",
+            "/rolemanagement/directory/roleeligibilityschedules/{id}": "least=Application",
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=Application",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
@@ -29829,14 +29829,14 @@
             "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
             "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleassignmentschedulerequests": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "",
+            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "least=Application",
             "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roledefinitions/{id}/assignedprincipals": "",
             "/rolemanagement/directory/roleeligibilityscheduleinstances": "",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
+            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "least=Application",
             "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedules": "",
             "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
@@ -29870,7 +29870,7 @@
           "paths": {
             "/directoryroles/roletemplateid={roletemplateid}/members": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": ""
+            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": "least=Application"
           }
         },
         {
@@ -30296,9 +30296,9 @@
             "GET"
           ],
           "paths": {
-            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": "",
-            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/{id}": "",
-            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/filterByCurrentUser": ""
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": "least=DelegatedWork",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/{id}": "least=DelegatedWork",
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests/filterByCurrentUser": "least=DelegatedWork"
           }
         },
         {
@@ -30309,7 +30309,7 @@
             "POST"
           ],
           "paths": {
-            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": ""
+            "/identityGovernance/permissionsManagement/scheduledPermissionsRequests": "least=DelegatedWork"
           }
         }
       ],
@@ -30346,7 +30346,7 @@
             "PUT"
           ],
           "paths": {
-            "/teams/{id}/schedule/roleManagement/roleDefinitions/{role}": "least=DelegatedWork"
+            "/teams/{id}/schedule/roleManagement/roleDefinitions/{role}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32639,8 +32639,8 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/officeActivities": "",
-            "/me/drive/items/{id}/officeActivities": "",
-            "/sites/{id}/drive/items/{id}/officeActivities": "",
+            "/me/drive/items/{id}/officeActivities": "least=Application",
+            "/sites/{id}/drive/items/{id}/officeActivities": "least=Application",
             "/sites/{id}/lists/{id}/items/{id}/fields": "least=DelegatedWork,Application"
           }
         }
@@ -37838,7 +37838,7 @@
             "POST"
           ],
           "paths": {
-            "/security/threatsubmission/emailthreatsubmissionpolicies": "least=Application"
+            "/security/threatsubmission/emailthreatsubmissionpolicies": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -38472,8 +38472,8 @@
             "POST"
           ],
           "paths": {
-            "/me/translateexchangeids": "",
-            "/users/{id}/translateexchangeids": ""
+            "/me/translateexchangeids": "least=DelegatedPersonal",
+            "/users/{id}/translateexchangeids": "least=DelegatedPersonal"
           }
         },
         {
@@ -38572,7 +38572,7 @@
           ],
           "paths": {
             "/datapolicyoperations/{id}": "",
-            "/settings/regionalandlanguagesettings": "",
+            "/settings/regionalandlanguagesettings": "least=Application",
             "/users": "",
             "/users/{id}": "",
             "/users/{id}/createdobjects": "least=Application",
@@ -39613,7 +39613,7 @@
             "PATCH"
           ],
           "paths": {
-            "/settings/regionalandlanguagesettings": ""
+            "/settings/regionalandlanguagesettings": "least=Application"
           }
         },
         {
@@ -39625,7 +39625,7 @@
             "PUT"
           ],
           "paths": {
-            "/settings/regionalandlanguagesettings": ""
+            "/settings/regionalandlanguagesettings": "least=Application"
           }
         },
         {
@@ -39639,7 +39639,7 @@
           ],
           "paths": {
             "/users": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/sponsors": "least=DelegatedWork,Application"
           }
         },
@@ -39655,7 +39655,7 @@
           ],
           "paths": {
             "/users/{id}": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application"
+            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork"
           }
         },
         {
@@ -39669,7 +39669,7 @@
             "PUT"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/manager": "least=DelegatedWork,Application"
           }
         },
@@ -39970,8 +39970,8 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/emailmethods": "",
-            "/me/authentication/phonemethods": "",
+            "/me/authentication/emailmethods": "least=DelegatedWork",
+            "/me/authentication/phonemethods": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods": "",
             "/users/{id}/authentication/phonemethods": ""
           }
@@ -40116,9 +40116,9 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
-            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
