@@ -1338,7 +1338,9 @@
             "/applications(appid={value})/setverifiedpublisher": "least=DelegatedWork",
             "/applications(appid={value})/unsetverifiedpublisher": "least=DelegatedWork",
             "/applications/{id}/setverifiedpublisher": "least=DelegatedWork",
-            "/applications/{id}/unsetverifiedpublisher": "least=DelegatedWork"
+            "/applications/{id}/unsetverifiedpublisher": "least=DelegatedWork",
+            "/users/{id}/deletepasswordsinglesignoncredentials": "",
+            "/users/{id}/getpasswordsinglesignoncredentials": ""
           }
         },
         {
@@ -7839,23 +7841,24 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/tenantrelationships/delegatedadmincustomers": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadmincustomers/{id}": "least=DelegatedWork",
+            "/tenantrelationships/delegatedadmincustomers": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadmincustomers/{id}": "least=DelegatedWork,Application",
             "/tenantrelationships/delegatedadmincustomers/{id}/servicemanagementdetails": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments/{id}": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/operations": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/operations/{id}": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/requests": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/requests/{id}": "least=DelegatedWork"
+            "/tenantrelationships/delegatedadminrelationships": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments/{id}": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/operations": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/operations/{id}": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/requests": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/requests/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -7883,7 +7886,8 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
@@ -7899,21 +7903,23 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
             "POST"
           ],
           "paths": {
-            "/tenantrelationships/delegatedadminrelationships": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/requests": "least=DelegatedWork"
+            "/tenantrelationships/delegatedadminrelationships": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/requests": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -7921,8 +7927,8 @@
             "PATCH"
           ],
           "paths": {
-            "/tenantrelationships/delegatedadminrelationships/{id}": "least=DelegatedWork",
-            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments/{id}": "least=DelegatedWork"
+            "/tenantrelationships/delegatedadminrelationships/{id}": "least=DelegatedWork,Application",
+            "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -12917,7 +12923,9 @@
             "/privilegedroleassignments/{id}/makepermanent": "least=DelegatedWork",
             "/privilegedroles/{id}/selfactivate": "least=DelegatedWork",
             "/privilegedroles/{id}/selfdeactivate": "least=DelegatedWork",
-            "/users/{id}/changepassword": "least=DelegatedWork"
+            "/users/{id}/changepassword": "least=DelegatedWork",
+            "/users/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
+            "/users/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork"
           }
         },
         {
@@ -13511,6 +13519,8 @@
             "/onpremisespublishingprofiles/{id}/agentgroups/{id}/agents": "least=DelegatedWork",
             "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups": "least=DelegatedWork",
             "/policies/featurerolloutpolicies/{id}/appliesto": "least=DelegatedWork",
+            "/users/{id}/deletepasswordsinglesignoncredentials": "",
+            "/users/{id}/getpasswordsinglesignoncredentials": "",
             "/users/{id}/invalidateallrefreshtokens": ""
           }
         },
@@ -38293,6 +38303,7 @@
             "/me/settings": "least=DelegatedWork",
             "/me/settings/contactmergesuggestions": "least=DelegatedWork",
             "/me/settings/iteminsights": "least=DelegatedWork",
+            "/me/sponsors": "least=DelegatedWork",
             "/me/transitivememberof": "least=DelegatedWork",
             "/organization": "",
             "/organization/{id}/branding": "least=DelegatedWork",
@@ -38317,6 +38328,7 @@
             "/users/{id}/registereddevices": "least=DelegatedWork",
             "/users/{id}/settings/contactmergesuggestions": "least=DelegatedWork",
             "/users/{id}/settings/iteminsights": "least=DelegatedWork",
+            "/users/{id}/sponsors": "least=DelegatedWork",
             "/users/{id}/transitivememberof": "least=DelegatedWork",
             "/users/{id}/usagerights": "least=DelegatedWork"
           }
@@ -38577,6 +38589,7 @@
             "/users/{id}/ownedobjects": "least=Application",
             "/users/{id}/registereddevices": "least=Application",
             "/users/{id}/settings": "least=DelegatedWork,Application",
+            "/users/{id}/sponsors": "least=Application",
             "/users/{id}/transitivememberof": "least=Application",
             "/users/{id}/transitivereports/$count": "",
             "/users/{id}/usagerights": "least=Application",
@@ -38646,6 +38659,7 @@
             "/me/registereddevices": "",
             "/me/responsibilities": "",
             "/me/settings": "",
+            "/me/sponsors": "",
             "/me/transitivememberof": "",
             "/organization/{id}/branding": "",
             "/organization/{id}/branding/localizations": "",
@@ -39346,7 +39360,8 @@
             "/me/manager": "",
             "/me/owneddevices": "",
             "/me/ownedobjects": "",
-            "/me/registereddevices": ""
+            "/me/registereddevices": "",
+            "/me/sponsors": ""
           }
         },
         {
@@ -39624,7 +39639,8 @@
           ],
           "paths": {
             "/users": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application"
+            "/users/{id}/getTeamsLicensingDetails": "least=Application",
+            "/users/{id}/sponsors": "least=DelegatedWork,Application"
           }
         },
         {
@@ -39691,6 +39707,18 @@
           ],
           "paths": {
             "/users/{id}/settings/shiftpreferences": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/sponsors/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
