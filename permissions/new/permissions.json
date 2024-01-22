@@ -40647,7 +40647,11 @@
             "/solutions/virtualEvent/townhalls": "least=DelegatedWork",
             "/solutions/virtualEvent/townhalls/{id}/cancel": "least=DelegatedWork",
             "/solutions/virtualEvent/townhalls/{id}/presenters": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/publish": "least=DelegatedWork"
+            "/solutions/virtualEvent/townhalls/{id}/publish": "least=DelegatedWork",
+            "/solutions/virtualEvent/webinars/{id}/registrations": "least=DelegatedWork",
+            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/approve": "least=DelegatedWork",
+            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/cancel": "least=DelegatedWork",
+            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/reject": "least=DelegatedWork"
           }
         },
         {
@@ -40659,7 +40663,8 @@
           ],
           "paths": {
             "/solutions/virtualEvent/townhalls/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork"
+            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -40671,6 +40676,43 @@
           ],
           "paths": {
             "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
+    "VirtualEventRegistration-Anon.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write anonymous users' virtual event registrations",
+          "adminDescription": "Allows the app to read and write anonymous users' virtual event registrations, without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/virtualEvent/webinars/{id}/registrations": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": ""
           }
         }
       ],
