@@ -15341,6 +15341,110 @@
         "ownerSecurityGroup": "eduapipreauth"
       }
     },
+    "EduReports-Reading.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reading assignments submissions data",
+          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/readingAssignmentSubmissions": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
+    "EduReports-Reading.ReadAnonymous.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reading assignments submissions data",
+          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data (excludes student-identifying information) without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/readingAssignmentSubmissions": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
+    "EduReports-Reflect.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reflect check-ins submissions data",
+          "adminDescription": "Allows the app to read all tenant users reflect check-ins submissions data without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/reflectCheckInResponses": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
+    "EduReports-Reflect.ReadAnonymous.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reflect check-ins submissions data",
+          "adminDescription": "Allows the app to read all tenant users reflect check-ins submissions data (excludes responder-identifying information) without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/reflectCheckInResponses": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
     "EduRoster.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -21778,15 +21882,16 @@
       "pathSets": [
         {
           "schemeKeys": [
+            "DelegatedWork",
             "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/employeeexperience/learningproviders/{id}/learningcontents": "least=Application",
-            "/employeeexperience/learningproviders/{id}/learningcontents(externalid={value})": "least=Application",
-            "/employeeexperience/learningproviders/{id}/learningcontents/{id}": "least=Application"
+            "/employeeexperience/learningproviders/{id}/learningcontents": "least=DelegatedWork,Application",
+            "/employeeexperience/learningproviders/{id}/learningcontents(externalid={value})": "least=DelegatedWork,Application",
+            "/employeeexperience/learningproviders/{id}/learningcontents/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
