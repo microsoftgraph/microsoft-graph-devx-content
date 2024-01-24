@@ -2036,7 +2036,7 @@
             "POST"
           ],
           "paths": {
-            "/security/auditLog/queries": ""
+            "/security/auditLog/queries": "least=DelegatedWork,Application"
           }
         },
         {
@@ -2048,8 +2048,8 @@
             "GET"
           ],
           "paths": {
-            "/security/auditLog/queries/{id}": "",
-            "/security/auditLog/queries/{id}/records": ""
+            "/security/auditLog/queries/{id}": "least=DelegatedWork,Application",
+            "/security/auditLog/queries/{id}/records": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -2232,7 +2232,7 @@
             "POST"
           ],
           "paths": {
-            "/security/auditLog/queries": "least=DelegatedWork"
+            "/security/auditLog/queries": ""
           }
         },
         {
@@ -2244,8 +2244,8 @@
             "GET"
           ],
           "paths": {
-            "/security/auditLog/queries/{id}": "least=DelegatedWork",
-            "/security/auditLog/queries/{id}/records": "least=DelegatedWork"
+            "/security/auditLog/queries/{id}": "",
+            "/security/auditLog/queries/{id}/records": ""
           }
         }
       ],
@@ -13114,19 +13114,6 @@
             "/groupsettings/{id}": "least=DelegatedWork,Application",
             "/groupsettingtemplates": "least=DelegatedWork,Application",
             "/groupsettingtemplates/{id}": "least=DelegatedWork,Application",
-            "/me/approleassignedresources": "least=DelegatedWork,Application",
-            "/me/createdobjects": "least=Application",
-            "/me/directreports": "least=Application",
-            "/me/joinedteams": "",
-            "/me/licensedetails": "least=Application",
-            "/me/manager": "least=Application",
-            "/me/memberof": "least=Application",
-            "/me/oauth2permissiongrants": "least=DelegatedWork,Application",
-            "/me/owneddevices": "least=Application",
-            "/me/ownedobjects": "least=Application",
-            "/me/registereddevices": "least=Application",
-            "/me/scopedrolememberof": "least=DelegatedWork,Application",
-            "/me/transitivememberof": "",
             "/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/oauth2permissiongrants/{id}": "least=DelegatedWork,Application",
             "/oauth2permissiongrants/delta": "least=DelegatedWork,Application",
@@ -13216,6 +13203,19 @@
             "/appcatalogs/teamsapps": "",
             "/applications/{id}/extensionproperties/{id}": "",
             "/me": "",
+            "/me/approleassignedresources": "least=DelegatedWork",
+            "/me/createdobjects": "",
+            "/me/directreports": "",
+            "/me/joinedteams": "",
+            "/me/licensedetails": "",
+            "/me/manager": "",
+            "/me/memberof": "",
+            "/me/oauth2permissiongrants": "least=DelegatedWork",
+            "/me/owneddevices": "",
+            "/me/ownedobjects": "",
+            "/me/registereddevices": "",
+            "/me/scopedrolememberof": "least=DelegatedWork",
+            "/me/transitivememberof": "",
             "/privilegedroleassignmentrequests": "least=DelegatedWork"
           }
         },
@@ -13269,10 +13269,6 @@
             "/groups/{id}/checkmemberobjects": "",
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
-            "/me/checkmembergroups": "",
-            "/me/checkmemberobjects": "",
-            "/me/getmembergroups": "",
-            "/me/getmemberobjects": "",
             "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=DelegatedWork",
@@ -13299,6 +13295,10 @@
             "POST"
           ],
           "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": "",
             "/privilegedroleassignmentrequests/my": "least=DelegatedWork"
           }
         }
@@ -13388,17 +13388,6 @@
             "/groups/delta": "",
             "/groupsettingtemplates": "",
             "/groupsettingtemplates/{id}": "",
-            "/me/createdobjects": "",
-            "/me/directreports": "",
-            "/me/joinedteams": "",
-            "/me/licensedetails": "",
-            "/me/manager": "",
-            "/me/memberof": "",
-            "/me/owneddevices": "",
-            "/me/ownedobjects": "",
-            "/me/registereddevices": "",
-            "/me/scopedrolememberof": "",
-            "/me/transitivememberof": "",
             "/oauth2permissiongrants/delta": "",
             "/organization": "",
             "/rolemanagement/directory/roleassignments": "",
@@ -13515,7 +13504,12 @@
           ],
           "paths": {
             "/appcatalogs/teamsapps/{id}/appdefinitions": "",
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": "",
             "/me/invalidateallrefreshtokens": "",
+            "/me/revokesigninsessions": "",
             "/onpremisespublishingprofiles/{id}/agentgroups/{id}/agents": "least=DelegatedWork",
             "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups": "least=DelegatedWork",
             "/policies/featurerolloutpolicies/{id}/appliesto": "least=DelegatedWork",
@@ -13534,6 +13528,17 @@
           "paths": {
             "/applications": "",
             "/me": "",
+            "/me/createdobjects": "",
+            "/me/directreports": "",
+            "/me/joinedteams": "",
+            "/me/licensedetails": "",
+            "/me/manager": "",
+            "/me/memberof": "",
+            "/me/owneddevices": "",
+            "/me/ownedobjects": "",
+            "/me/registereddevices": "",
+            "/me/scopedrolememberof": "",
+            "/me/transitivememberof": "",
             "/onpremisespublishingprofiles/{id}": "least=DelegatedWork",
             "/onpremisespublishingprofiles/{id}/agents": "least=DelegatedWork",
             "/onpremisespublishingprofiles/{id}/agents/{id}": "least=DelegatedWork",
@@ -13586,11 +13591,6 @@
             "/groups/{id}/owners": "",
             "/groups/{id}/renew": "",
             "/invitations": "",
-            "/me/checkmembergroups": "",
-            "/me/checkmemberobjects": "",
-            "/me/getmembergroups": "",
-            "/me/getmemberobjects": "",
-            "/me/revokesigninsessions": "least=Application",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups": "least=DelegatedWork,Application",
             "/serviceprincipals": "",
             "/serviceprincipals(appid={value})/addkey": "",
@@ -19550,11 +19550,6 @@
             "/groups/delta": "",
             "/groupsettings": "",
             "/groupsettings/{id}": "",
-            "/me/chats/{id}/messages/{id}": "",
-            "/me/drive/items/{id}": "",
-            "/me/drive/root": "",
-            "/me/drive/root:/{id}": "",
-            "/me/transitivememberof": "",
             "/settings": "",
             "/settings/{id}": "",
             "/sites/{id}/drive/items/{id}": "",
@@ -19613,10 +19608,6 @@
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
             "/groups/{id}/validateproperties": "least=DelegatedWork,Application",
-            "/me/checkmembergroups": "",
-            "/me/checkmemberobjects": "",
-            "/me/getmembergroups": "",
-            "/me/getmemberobjects": "",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/getmembergroups": "",
@@ -19625,6 +19616,20 @@
             "/users/{id}/checkmemberobjects": "",
             "/users/{id}/getmembergroups": "",
             "/users/{id}/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": ""
           }
         },
         {
@@ -19651,12 +19656,17 @@
             "/groups/{id}/rejectedsenders": "least=DelegatedWork",
             "/groups/{id}/threads/{id}/posts/{id}/attachments": "least=DelegatedWork",
             "/groups/{id}/transitivememberof": "",
+            "/me/chats/{id}/messages/{id}": "",
+            "/me/drive/items/{id}": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}": "",
             "/me/planner": "",
             "/me/planner/all/delta": "",
             "/me/planner/favoriteplans": "",
             "/me/planner/plans": "",
             "/me/planner/recentplans": "",
             "/me/planner/tasks": "",
+            "/me/transitivememberof": "",
             "/planner/buckets": "",
             "/planner/buckets/{id}": "",
             "/planner/buckets/{id}/tasks": "",
@@ -19760,6 +19770,10 @@
             "/groups/{id}/subscribebymail": "least=DelegatedWork",
             "/groups/{id}/threads": "least=DelegatedWork",
             "/groups/{id}/threads/{id}/reply": "least=DelegatedWork",
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": "",
             "/teams/{id}/channels/{id}/messages": "",
             "/teams/{id}/channels/{id}/messages/{id}/replies": "",
             "/teams/{id}/schedule/offershiftrequests/{id}/approve": "",
@@ -19819,10 +19833,6 @@
             "/groups/delta": "",
             "/groupsettings": "",
             "/groupsettings/{id}": "",
-            "/me/chats/{id}/messages/{id}": "",
-            "/me/drive/items/{id}": "",
-            "/me/drive/root": "",
-            "/me/drive/root:/{id}": "",
             "/settings": "",
             "/settings/{id}": "",
             "/sites/{id}/drive/items/{id}": "",
@@ -19881,10 +19891,6 @@
             "/groups/{id}/threads/{id}/posts/{id}/reply": "least=DelegatedWork,Application",
             "/groups/{id}/unsubscribebymail": "least=DelegatedWork,Application",
             "/groups/{id}/validateproperties": "",
-            "/me/checkmembergroups": "",
-            "/me/checkmemberobjects": "",
-            "/me/getmembergroups": "",
-            "/me/getmemberobjects": "",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/getmembergroups": "",
@@ -19926,6 +19932,10 @@
             "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/attachments": "",
             "/groups/{id}/planner/plans": "",
             "/groups/{id}/threads/{id}/posts/{id}/attachments": "",
+            "/me/chats/{id}/messages/{id}": "",
+            "/me/drive/items/{id}": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}": "",
             "/me/planner/all/delta": "",
             "/me/planner/plans": "",
             "/me/planner/tasks": "",
@@ -20214,10 +20224,6 @@
             "/groups/{id}/checkmemberobjects": "",
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
-            "/me/checkmembergroups": "",
-            "/me/checkmemberobjects": "",
-            "/me/getmembergroups": "",
-            "/me/getmemberobjects": "",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/getmembergroups": "",
@@ -20226,6 +20232,20 @@
             "/users/{id}/checkmemberobjects": "",
             "/users/{id}/getmembergroups": "",
             "/users/{id}/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": ""
           }
         },
         {
@@ -20245,7 +20265,6 @@
             "/groups/{id}/permissiongrants": "least=DelegatedWork,Application",
             "/groups/{id}/transitivemembers": "least=DelegatedWork,Application",
             "/groups/delta": "least=DelegatedWork,Application",
-            "/me/transitivememberof": "",
             "/users/{id}/transitivememberof": ""
           }
         },
@@ -20259,6 +20278,7 @@
           "paths": {
             "/groups/{id}/transitivememberof": "least=DelegatedWork",
             "/me/memberof": "",
+            "/me/transitivememberof": "",
             "/users/{id}/memberof": ""
           }
         }
@@ -24992,9 +25012,9 @@
           ],
           "paths": {
             "/organization": "",
-            "/organization/{id}/branding": "least=Application",
-            "/organization/{id}/branding/localizations": "least=Application",
-            "/organization/{id}/branding/localizations/{id}": "least=Application",
+            "/organization/{id}/branding": "",
+            "/organization/{id}/branding/localizations": "",
+            "/organization/{id}/branding/localizations/{id}": "",
             "/organization/{id}/certificatebasedauthconfiguration": "least=DelegatedWork,Application",
             "/organization/{id}/certificatebasedauthconfiguration/{id}": "least=DelegatedWork,Application",
             "/subscribedskus": "least=DelegatedWork,Application",
@@ -25060,7 +25080,7 @@
           ],
           "paths": {
             "/organization/{id}": "",
-            "/organization/{id}/branding": "least=DelegatedWork,Application"
+            "/organization/{id}/branding": ""
           }
         },
         {
@@ -25071,7 +25091,7 @@
             "DELETE"
           ],
           "paths": {
-            "/organization/{id}/branding": "least=DelegatedWork"
+            "/organization/{id}/branding": ""
           }
         },
         {
@@ -25083,7 +25103,7 @@
             "POST"
           ],
           "paths": {
-            "/organization/{id}/branding/localizations": "least=DelegatedWork,Application"
+            "/organization/{id}/branding/localizations": ""
           }
         },
         {
@@ -25108,7 +25128,7 @@
             "PUT"
           ],
           "paths": {
-            "/organization/{id}/branding/localizations/{id}/{id}": "least=DelegatedWork,Application"
+            "/organization/{id}/branding/localizations/{id}/{streamObjectType}": ""
           }
         },
         {
@@ -30231,7 +30251,9 @@
             "/teams/{id}/schedule/timeoffrequests/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timesoff": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timesoff/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/joinedTeams/getOpenShifts": "least=DelegatedWork,Application"
+            "/users/{id}/joinedTeams/getOpenShifts": "least=DelegatedWork,Application",
+            "/users/{id}/joinedTeams/getShifts": "least=DelegatedWork,Application",
+            "/users/{id}/joinedTeams/getTimesOff": "least=DelegatedWork,Application"
           }
         },
         {
@@ -30315,7 +30337,9 @@
             "/teams/{id}/schedule/offershiftrequests/{id}": "",
             "/teams/{id}/schedule/openshiftchangerequests/{id}": "",
             "/teams/{id}/schedule/timeoffrequests": "",
-            "/users/{id}/joinedTeams/getOpenShifts": ""
+            "/users/{id}/joinedTeams/getOpenShifts": "",
+            "/users/{id}/joinedTeams/getShifts": "",
+            "/users/{id}/joinedTeams/getTimesOff": ""
           }
         },
         {
@@ -37133,7 +37157,7 @@
             "GET"
           ],
           "paths": {
-            "/teams/{id}/tags": "",
+            "/teams/{id}/tags": "least=DelegatedWork",
             "/teams/{id}/tags/{id}": "",
             "/teams/{id}/tags/{id}/members": "",
             "/teams/{id}/tags/{id}/members/{id}": ""
@@ -37162,7 +37186,7 @@
             "GET"
           ],
           "paths": {
-            "/teams/{id}/tags": "",
+            "/teams/{id}/tags": "least=Application",
             "/teams/{id}/tags/{id}": "",
             "/teams/{id}/tags/{id}/members": "",
             "/teams/{id}/tags/{id}/members/{id}": ""
