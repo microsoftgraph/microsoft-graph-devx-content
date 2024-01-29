@@ -40413,6 +40413,44 @@
         "ownerSecurityGroup": "mfateam"
       }
     },
+    "UserCloudClipboard.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read cloud clipboard items",
+          "adminDescription": "Allows the app to read cloud clipboard data on behalf of the signed-in user.",
+          "userDisplayName": "Read cloud clipboard items",
+          "userDescription": "Allows the app to read your cloud clipboard items.",
+          "requiresAdminConsent": false
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read cloud clipboard items",
+          "adminDescription": "Allows the app to read cloud clipboard data on behalf of the signed-in user.",
+          "userDisplayName": "Read cloud clipboard items",
+          "userDescription": "Allows the app to read your cloud clipboard items.",
+          "requiresAdminConsent": false
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudClipboard/items": "least=DelegatedWork,DelegatedPersonal",
+            "/me/cloudClipboard/items/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/cloudClipboard/items": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/cloudClipboard/items/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
+      }
+    },
     "UserShiftPreferences.Read.All": {
       "schemes": {
         "Application": {
@@ -40514,6 +40552,48 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "UserWindowsSettings.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "adminDescription": "Allows the app to read windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "userDescription": "Allows the app to read your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": false
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "adminDescription": "Allows the app to read windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "userDescription": "Allows the app to read your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": false
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/windows": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}/instances": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}/instances/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}/instances": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}/instances/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
       }
     },
     "VirtualAppointment.Read": {
