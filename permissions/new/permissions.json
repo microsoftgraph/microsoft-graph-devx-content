@@ -7850,7 +7850,7 @@
           "paths": {
             "/tenantrelationships/delegatedadmincustomers": "least=DelegatedWork,Application",
             "/tenantrelationships/delegatedadmincustomers/{id}": "least=DelegatedWork,Application",
-            "/tenantrelationships/delegatedadmincustomers/{id}/servicemanagementdetails": "least=DelegatedWork",
+            "/tenantrelationships/delegatedadmincustomers/{id}/servicemanagementdetails": "least=DelegatedWork,Application",
             "/tenantrelationships/delegatedadminrelationships": "least=DelegatedWork,Application",
             "/tenantrelationships/delegatedadminrelationships/{id}": "least=DelegatedWork,Application",
             "/tenantrelationships/delegatedadminrelationships/{id}/accessassignments": "least=DelegatedWork,Application",
@@ -16805,12 +16805,15 @@
           "paths": {
             "/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/drive/root:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/root:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{id}/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/drives/{id}/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
@@ -16828,6 +16831,7 @@
             "/groups/{id}/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/groups/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/thumbnails": "least=DelegatedWork,DelegatedPersonal",
@@ -16845,6 +16849,7 @@
             "/me/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/thumbnails": "least=DelegatedWork,DelegatedPersonal",
@@ -16859,6 +16864,7 @@
             "/me/drive/root": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/root:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/workbook/worksheets/{id}/names": "least=DelegatedPersonal",
             "/me/drive/root/children": "least=DelegatedWork,DelegatedPersonal",
@@ -16869,11 +16875,13 @@
             "/me/drive/special/{id}/children": "least=DelegatedWork",
             "/me/drives": "least=DelegatedWork,DelegatedPersonal",
             "/shares/{id}/driveitem/content": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{id}/driveitem/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
@@ -16892,6 +16900,7 @@
             "/users/{id}/drive/items/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/children": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/thumbnails": "least=DelegatedWork,DelegatedPersonal",
@@ -16906,6 +16915,7 @@
             "/users/{id}/drive/root": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/drive/root:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}:/permissions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/names": "least=DelegatedPersonal",
             "/users/{id}/drive/root/children": "least=DelegatedWork,DelegatedPersonal",
@@ -17050,12 +17060,15 @@
           "paths": {
             "/drive/items/{id}": "least=Application",
             "/drive/items/{id}/content": "least=Application",
+            "/drive/items/{id}/contentStream": "least=Application",
             "/drive/root:/{id}:/content": "least=Application",
+            "/drive/root:/{id}:/contentStream": "least=Application",
             "/drives/{id}": "least=Application",
             "/drives/{id}/items/{id}": "least=Application",
             "/drives/{id}/items/{id}/capabilities": "least=Application",
             "/drives/{id}/items/{id}/children": "least=Application",
             "/drives/{id}/items/{id}/content": "least=Application",
+            "/drives/{id}/items/{id}/contentStream": "least=Application",
             "/drives/{id}/items/{id}/officeActivities": "least=Application",
             "/drives/{id}/items/{id}/permissions": "least=Application",
             "/drives/{id}/items/{id}/permissions/{id}": "least=Application",
@@ -17071,6 +17084,7 @@
             "/groups/{id}/drive/items/{id}": "least=Application",
             "/groups/{id}/drive/items/{id}/children": "least=Application",
             "/groups/{id}/drive/items/{id}/content": "least=Application",
+            "/groups/{id}/drive/items/{id}/contentStream": "least=Application",
             "/groups/{id}/drive/items/{id}/permissions": "least=Application",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "least=Application",
             "/groups/{id}/drive/items/{id}/thumbnails": "least=Application",
@@ -17086,6 +17100,7 @@
             "/me/drive/items/{id}/capabilities": "least=DelegatedPersonal,Application",
             "/me/drive/items/{id}/children": "least=Application",
             "/me/drive/items/{id}/content": "least=Application",
+            "/me/drive/items/{id}/contentStream": "least=Application",
             "/me/drive/items/{id}/officeActivities": "least=Application",
             "/me/drive/items/{id}/permissions": "least=Application",
             "/me/drive/items/{id}/permissions/{id}": "least=Application",
@@ -17100,6 +17115,7 @@
             "/me/drive/root": "least=Application",
             "/me/drive/root:/{id}": "least=Application",
             "/me/drive/root:/{id}:/content": "least=Application",
+            "/me/drive/root:/{id}:/contentStream": "least=Application",
             "/me/drive/root:/{id}:/permissions": "least=Application",
             "/me/drive/root/children": "least=Application",
             "/me/drive/root/delta": "least=Application",
@@ -17109,11 +17125,13 @@
             "/me/drive/special/{id}/children": "least=Application",
             "/me/drives": "least=Application",
             "/shares/{id}/driveitem/content": "least=Application",
+            "/shares/{id}/driveitem/contentStream": "least=Application",
             "/sites/{id}/drive": "least=Application",
             "/sites/{id}/drive/items/{id}": "least=Application",
             "/sites/{id}/drive/items/{id}/capabilities": "least=Application",
             "/sites/{id}/drive/items/{id}/children": "least=Application",
             "/sites/{id}/drive/items/{id}/content": "least=Application",
+            "/sites/{id}/drive/items/{id}/contentStream": "least=Application",
             "/sites/{id}/drive/items/{id}/officeActivities": "least=Application",
             "/sites/{id}/drive/items/{id}/permissions": "least=Application",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "least=Application",
@@ -17131,6 +17149,7 @@
             "/users/{id}/drive/items/{id}": "least=Application",
             "/users/{id}/drive/items/{id}/children": "least=Application",
             "/users/{id}/drive/items/{id}/content": "least=Application",
+            "/users/{id}/drive/items/{id}/contentStream": "least=Application",
             "/users/{id}/drive/items/{id}/permissions": "least=Application",
             "/users/{id}/drive/items/{id}/permissions/{id}": "least=Application",
             "/users/{id}/drive/items/{id}/thumbnails": "least=Application",
@@ -17144,6 +17163,7 @@
             "/users/{id}/drive/root": "least=Application",
             "/users/{id}/drive/root:/{id}": "least=Application",
             "/users/{id}/drive/root:/{id}:/content": "least=Application",
+            "/users/{id}/drive/root:/{id}:/contentStream": "least=Application",
             "/users/{id}/drive/root:/{id}:/permissions": "least=Application",
             "/users/{id}/drive/root/children": "least=Application",
             "/users/{id}/drive/root/delta": "least=Application",
@@ -17363,7 +17383,9 @@
           "paths": {
             "/drive/items/{id}": "",
             "/drive/items/{id}/content": "",
+            "/drive/items/{id}/contentStream": "",
             "/drive/root:/{id}:/content": "",
+            "/drive/root:/{id}:/contentStream": "",
             "/drives/{id}": "",
             "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/permissions": "",
@@ -17473,6 +17495,7 @@
             "/me/drive/recent": "",
             "/me/drive/root": "",
             "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
             "/me/drive/root:/{id}:/permissions": "",
             "/me/drive/root:/{id}:/workbook/names": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}:/workbook/names/{id}/range/boundingrect": "least=DelegatedWork,DelegatedPersonal",
@@ -17555,6 +17578,7 @@
             "/shares/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/shares/{id}/driveitem": "least=DelegatedWork,DelegatedPersonal",
             "/shares/{id}/driveitem/content": "",
+            "/shares/{id}/driveitem/contentStream": "",
             "/sites/{id}/drive": "",
             "/sites/{id}/drive/items/{id}/capabilities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
@@ -17653,6 +17677,7 @@
             "/users/{id}/drive/recent": "",
             "/users/{id}/drive/root": "",
             "/users/{id}/drive/root:/{id}:/content": "",
+            "/users/{id}/drive/root:/{id}:/contentStream": "",
             "/users/{id}/drive/root:/{id}:/permissions": "",
             "/users/{id}/drive/root:/{id}:/workbook/names": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}:/workbook/names/{id}/range/boundingrect": "least=DelegatedWork,DelegatedPersonal",
@@ -18222,12 +18247,19 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{id}/items/{id}:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/groups/{id}/drive/items/{id}:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/items/{id}:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/foldera/fileb.txt:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/root:/foldera/fileb.txt:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}:/{id}:/content": "least=DelegatedWork,DelegatedPersonal",
-            "/users/{id}/drive/root:/foldera/fileb.txt:/content": "least=DelegatedWork,DelegatedPersonal"
+            "/users/{id}/drive/items/{id}:/{id}:/contentStream": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/content": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/contentStream": "least=DelegatedWork,DelegatedPersonal"
           }
         },
         {
@@ -18292,11 +18324,16 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{id}/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/groups/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/groups/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/me/drive/root:/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/sites/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/sites/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/items/{id}/content": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/drive/items/{id}/contentStream": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/drive/root:/{id}": "least=DelegatedWork,DelegatedPersonal"
           }
         },
@@ -18771,7 +18808,9 @@
           "paths": {
             "/drive/items/{id}": "",
             "/drive/items/{id}/content": "",
+            "/drive/items/{id}/contentStream": "",
             "/drive/root:/{id}:/content": "",
+            "/drive/root:/{id}:/contentStream": "",
             "/drives/{id}": "",
             "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/officeActivities": "",
@@ -18807,6 +18846,7 @@
             "/me/drive/root": "",
             "/me/drive/root:/{id}": "",
             "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
             "/me/drive/root:/{id}:/permissions": "",
             "/me/drive/root/delta": "",
             "/me/drive/root/search(q={value})": "",
@@ -18819,6 +18859,7 @@
             "/shares/{id}": "least=Application",
             "/shares/{id}/driveitem": "least=Application",
             "/shares/{id}/driveitem/content": "",
+            "/shares/{id}/driveitem/contentStream": "",
             "/sites/{id}/drive": "",
             "/sites/{id}/drive/items/{id}/capabilities": "",
             "/sites/{id}/drive/items/{id}/officeActivities": "",
@@ -18846,6 +18887,7 @@
             "/users/{id}/drive/root": "",
             "/users/{id}/drive/root:/{id}": "",
             "/users/{id}/drive/root:/{id}:/content": "",
+            "/users/{id}/drive/root:/{id}:/contentStream": "",
             "/users/{id}/drive/root:/{id}:/permissions": "",
             "/users/{id}/drive/root/delta": "",
             "/users/{id}/drive/root/search(q={value})": "",
@@ -18956,12 +18998,19 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}:/{id}:/content": "least=Application",
+            "/drives/{id}/items/{id}:/{id}:/contentStream": "least=Application",
             "/groups/{id}/drive/items/{id}:/{id}:/content": "least=Application",
+            "/groups/{id}/drive/items/{id}:/{id}:/contentStream": "least=Application",
             "/me/drive/items/{id}:/{id}:/content": "least=Application",
+            "/me/drive/items/{id}:/{id}:/contentStream": "least=Application",
             "/me/drive/root:/foldera/fileb.txt:/content": "least=Application",
+            "/me/drive/root:/foldera/fileb.txt:/contentStream": "least=Application",
             "/sites/{id}/drive/items/{id}:/{id}:/content": "least=Application",
+            "/sites/{id}/drive/items/{id}:/{id}:/contentStream": "least=Application",
             "/users/{id}/drive/items/{id}:/{id}:/content": "least=Application",
-            "/users/{id}/drive/root:/foldera/fileb.txt:/content": "least=Application"
+            "/users/{id}/drive/items/{id}:/{id}:/contentStream": "least=Application",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/content": "least=Application",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/contentStream": "least=Application"
           }
         },
         {
@@ -19091,10 +19140,15 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/content": "least=Application",
+            "/drives/{id}/items/{id}/contentStream": "least=Application",
             "/groups/{id}/drive/items/{id}/content": "least=Application",
+            "/groups/{id}/drive/items/{id}/contentStream": "least=Application",
             "/me/drive/items/{id}/content": "least=Application",
+            "/me/drive/items/{id}/contentStream": "least=Application",
             "/sites/{id}/drive/items/{id}/content": "least=Application",
-            "/users/{id}/drive/items/{id}/content": "least=Application"
+            "/sites/{id}/drive/items/{id}/contentStream": "least=Application",
+            "/users/{id}/drive/items/{id}/content": "least=Application",
+            "/users/{id}/drive/items/{id}/contentStream": "least=Application"
           }
         },
         {
@@ -25192,6 +25246,132 @@
           ],
           "paths": {
             "/subscribedskus/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadorgperms"
+      }
+    },
+    "OrganizationalBranding.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organizational branding information",
+          "adminDescription": "Allows the app to read the organizational branding resources, on behalf of the signed-in user.",
+          "userDisplayName": "Read organizational branding information",
+          "userDescription": "Allows the app to read the organizational branding resources, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read organizational branding information",
+          "adminDescription": "Allows the app to read the organizational branding resources, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/organization/{id}/branding": "least=Application",
+            "/organization/{id}/branding/localizations": "least=Application",
+            "/organization/{id}/branding/localizations/{id}": "least=Application",
+            "/organization/{id}/branding/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations/{id}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadorgperms"
+      }
+    },
+    "OrganizationalBranding.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organizational branding information",
+          "adminDescription": "Allows the app to read and write the organizational branding resources, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organizational branding information",
+          "userDescription": "Allows the app to read and write the organizational branding resources, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organizational branding information",
+          "adminDescription": "Allows the app to read and write the organizational branding resources, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/organization/{id}/branding": "",
+            "/organization/{id}/branding/localizations": "",
+            "/organization/{id}/branding/localizations/{id}": "",
+            "/organization/{id}/branding/themes/{id}": "",
+            "/organization/{id}/branding/themes/{id}/localizations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/organization/{id}/branding": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/localizations/{id}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/organization/{id}/branding/localizations": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PUT"
+          ],
+          "paths": {
+            "/organization/{id}/branding/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application",
+            "/organization/{id}/branding/themes/{id}/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32017,7 +32197,9 @@
           "paths": {
             "/drive/items/{id}": "",
             "/drive/items/{id}/content": "",
+            "/drive/items/{id}/contentStream": "",
             "/drive/root:/{id}:/content": "",
+            "/drive/root:/{id}:/contentStream": "",
             "/drive/root/createdbyuser/trendingaround": "least=DelegatedWork,Application",
             "/drive/root/lastmodifiedbyuser/trendingaround": "least=DelegatedWork,Application",
             "/drives/{id}": "",
@@ -32030,6 +32212,7 @@
             "/drives/{id}/items/{id}/capabilities": "",
             "/drives/{id}/items/{id}/children": "",
             "/drives/{id}/items/{id}/content": "",
+            "/drives/{id}/items/{id}/contentStream": "",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "",
@@ -32051,6 +32234,7 @@
             "/groups/{id}/drive/items/{id}": "",
             "/groups/{id}/drive/items/{id}/children": "",
             "/groups/{id}/drive/items/{id}/content": "",
+            "/groups/{id}/drive/items/{id}/contentStream": "",
             "/groups/{id}/drive/items/{id}/permissions": "",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "",
             "/groups/{id}/drive/items/{id}/thumbnails": "",
@@ -32068,6 +32252,7 @@
             "/me/drive/items/{id}/capabilities": "",
             "/me/drive/items/{id}/children": "",
             "/me/drive/items/{id}/content": "",
+            "/me/drive/items/{id}/contentStream": "",
             "/me/drive/items/{id}/officeActivities": "",
             "/me/drive/items/{id}/permissions": "",
             "/me/drive/items/{id}/permissions/{id}": "",
@@ -32083,6 +32268,7 @@
             "/me/drive/root": "",
             "/me/drive/root:/{id}": "",
             "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
             "/me/drive/root:/{id}:/permissions": "",
             "/me/drive/root:/{id}:/workbook/worksheets/{id}/names": "least=Application",
             "/me/drive/root/children": "",
@@ -32097,6 +32283,7 @@
             "/me/insights/used/{id}/resource": "least=DelegatedWork,Application",
             "/me/trendingaround": "least=DelegatedWork,Application",
             "/shares/{id}/driveitem/content": "",
+            "/shares/{id}/driveitem/contentStream": "",
             "/sites": "least=DelegatedWork,Application",
             "/sites/{id}": "least=DelegatedWork,Application",
             "/sites/{id}:/{id}": "least=DelegatedWork,Application",
@@ -32114,6 +32301,7 @@
             "/sites/{id}/drive/items/{id}/capabilities": "",
             "/sites/{id}/drive/items/{id}/children": "",
             "/sites/{id}/drive/items/{id}/content": "",
+            "/sites/{id}/drive/items/{id}/contentStream": "",
             "/sites/{id}/drive/items/{id}/officeActivities": "",
             "/sites/{id}/drive/items/{id}/permissions": "",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "",
@@ -32181,6 +32369,7 @@
             "/users/{id}/drive/items/{id}": "",
             "/users/{id}/drive/items/{id}/children": "",
             "/users/{id}/drive/items/{id}/content": "",
+            "/users/{id}/drive/items/{id}/contentStream": "",
             "/users/{id}/drive/items/{id}/permissions": "",
             "/users/{id}/drive/items/{id}/permissions/{id}": "",
             "/users/{id}/drive/items/{id}/thumbnails": "",
@@ -32195,6 +32384,7 @@
             "/users/{id}/drive/root": "",
             "/users/{id}/drive/root:/{id}": "",
             "/users/{id}/drive/root:/{id}:/content": "",
+            "/users/{id}/drive/root:/{id}:/contentStream": "",
             "/users/{id}/drive/root:/{id}:/permissions": "",
             "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/names": "least=Application",
             "/users/{id}/drive/root/children": "",
@@ -32338,7 +32528,9 @@
           "paths": {
             "/drive/items/{id}": "",
             "/drive/items/{id}/content": "",
+            "/drive/items/{id}/contentStream": "",
             "/drive/root:/{id}:/content": "",
+            "/drive/root:/{id}:/contentStream": "",
             "/drives/{id}": "",
             "/drives/{id}/activities": "",
             "/drives/{id}/items/{id}/activities": "",
@@ -32388,6 +32580,7 @@
             "/me/drive/recent": "",
             "/me/drive/root": "",
             "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
             "/me/drive/root:/{id}:/permissions": "",
             "/me/drive/root/delta": "",
             "/me/drive/root/search(q={value})": "",
@@ -32401,6 +32594,7 @@
             "/shares/{id}": "",
             "/shares/{id}/driveitem": "",
             "/shares/{id}/driveitem/content": "",
+            "/shares/{id}/driveitem/contentStream": "",
             "/sites": "",
             "/sites/{id}": "",
             "/sites/{id}:/{id}": "",
@@ -32483,6 +32677,7 @@
             "/users/{id}/drive/recent": "",
             "/users/{id}/drive/root": "",
             "/users/{id}/drive/root:/{id}:/content": "",
+            "/users/{id}/drive/root:/{id}:/contentStream": "",
             "/users/{id}/drive/root:/{id}:/permissions": "",
             "/users/{id}/drive/root/delta": "",
             "/users/{id}/drive/root/search(q={value})": "",
@@ -32630,12 +32825,19 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}:/{id}:/content": "",
+            "/drives/{id}/items/{id}:/{id}:/contentStream": "",
             "/groups/{id}/drive/items/{id}:/{id}:/content": "",
+            "/groups/{id}/drive/items/{id}:/{id}:/contentStream": "",
             "/me/drive/items/{id}:/{id}:/content": "",
+            "/me/drive/items/{id}:/{id}:/contentStream": "",
             "/me/drive/root:/foldera/fileb.txt:/content": "",
+            "/me/drive/root:/foldera/fileb.txt:/contentStream": "",
             "/sites/{id}/drive/items/{id}:/{id}:/content": "",
+            "/sites/{id}/drive/items/{id}:/{id}:/contentStream": "",
             "/users/{id}/drive/items/{id}:/{id}:/content": "",
-            "/users/{id}/drive/root:/foldera/fileb.txt:/content": ""
+            "/users/{id}/drive/items/{id}:/{id}:/contentStream": "",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/content": "",
+            "/users/{id}/drive/root:/foldera/fileb.txt:/contentStream": ""
           }
         },
         {
@@ -32671,11 +32873,16 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/content": "",
+            "/drives/{id}/items/{id}/contentStream": "",
             "/groups/{id}/drive/items/{id}/content": "",
+            "/groups/{id}/drive/items/{id}/contentStream": "",
             "/me/drive/items/{id}/content": "",
+            "/me/drive/items/{id}/contentStream": "",
             "/me/drive/root:/{id}": "least=Application",
             "/sites/{id}/drive/items/{id}/content": "",
+            "/sites/{id}/drive/items/{id}/contentStream": "",
             "/users/{id}/drive/items/{id}/content": "",
+            "/users/{id}/drive/items/{id}/contentStream": "",
             "/users/{id}/drive/root:/{id}": "least=Application"
           }
         },
