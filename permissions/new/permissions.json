@@ -17189,11 +17189,11 @@
             "/drives/{id}/items/{id}/analytics/alltime": "least=Application",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "least=Application",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "least=Application",
-            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "",
-            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "",
-            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites": "",
-            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "",
-            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "",
+            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "least=Application",
+            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "least=Application",
+            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites": "least=Application",
+            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "least=Application",
+            "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "least=Application",
             "/me/drive/following": "least=Application",
             "/sites/{id}/analytics": "least=Application",
             "/sites/{id}/analytics/alltime": "least=Application",
@@ -40933,6 +40933,55 @@
           "paths": {
             "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentReminderSms": "",
             "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentSms": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "vvgraphadmins"
+      }
+    },
+    "VirtualAppointmentNotification.Send": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Send notification regarding virtual appointments for the signed-in user",
+          "adminDescription": "Allows an application to send notifications for virtual appointments for the signed-in user.",
+          "userDisplayName": "Send notification regarding virtual appointments",
+          "userDescription": "Allows the app to send notification regarding virtual appointments on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Send notification regarding virtual appointments as any user",
+          "adminDescription": "Allows the application to send notification regarding virtual appointments as any user, without a signed-in user. The app must also be authorized to access an individual user's data by the online meetings application access policy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/onlinemeetings/{id}/sendVirtualAppointmentReminderSms": "least=DelegatedWork",
+            "/me/onlinemeetings/{id}/sendVirtualAppointmentSms": "least=DelegatedWork",
+            "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentReminderSms": "least=DelegatedWork",
+            "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentSms": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentReminderSms": "least=Application",
+            "/users/{id}/onlinemeetings/{id}/sendVirtualAppointmentSms": "least=Application"
           }
         }
       ],
