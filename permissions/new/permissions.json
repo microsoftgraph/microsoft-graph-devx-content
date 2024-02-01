@@ -19588,9 +19588,9 @@
             "/groups/{id}/members": "",
             "/groups/{id}/owners": "",
             "/groups/{id}/permissiongrants": "",
-            "/groups/{id}/photo": "least=DelegatedWork,Application",
-            "/groups/{id}/photos": "least=DelegatedWork,Application",
-            "/groups/{id}/photos/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/photo": "",
+            "/groups/{id}/photos": "",
+            "/groups/{id}/photos/{id}": "",
             "/groups/{id}/settings": "",
             "/groups/{id}/settings/{id}": "",
             "/groups/{id}/team": "least=DelegatedWork,Application",
@@ -20127,11 +20127,12 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
             "PATCH",
             "PUT"
           ],
           "paths": {
-            "/groups/{id}/photo": "least=DelegatedWork,Application"
+            "/groups/{id}/photo": ""
           }
         },
         {
@@ -27375,11 +27376,24 @@
             "POST"
           ],
           "paths": {
+            "/communications/getpresencesbyuserid": "",
             "/users/{id}/presence/clearpresence": "least=Application",
             "/users/{id}/presence/clearuserpreferredpresence": "least=Application",
             "/users/{id}/presence/setpresence": "least=Application",
             "/users/{id}/presence/setstatusmessage": "least=Application",
             "/users/{id}/presence/setuserpreferredpresence": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/communications/presences": "",
+            "/users/{id}/presence": ""
           }
         }
       ],
@@ -28854,6 +28868,140 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "igagraph"
+      }
+    },
+    "ProfilePhoto.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read profile photo of a user or group",
+          "adminDescription": "Allows the app to read all profile photos of users and groups, on behalf of the the signed-in user.",
+          "userDisplayName": "Read profile photo of a user or group",
+          "userDescription": "Allows the app to read all profile photos of users and groups, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read profile photo of a user or group",
+          "adminDescription": "Allows the app to read all profile photos of users and groups, without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/photo": "",
+            "/me/photos": "",
+            "/me/photos/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/photo": "least=Application,DelegatedWork",
+            "/groups/{id}/photos": "least=Application,DelegatedWork",
+            "/groups/{id}/photos/{id}": "least=Application,DelegatedWork",
+            "/users/{id}/photo": "least=Application",
+            "/users/{id}/photos": "least=Application",
+            "/users/{id}/photos/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "fast-ppl-image"
+      }
+    },
+    "ProfilePhoto.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write profile photo of a user or group",
+          "adminDescription": "Allows the app to read and write all profile photos of users and groups, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write profile photo of a user or group",
+          "userDescription": "Allows the app to read and write all profile photos of users and groups, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write profile photo of a user or group",
+          "adminDescription": "Allows the app to read and write all profile photos of users and groups, without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/photo": "",
+            "/me/photos": "",
+            "/me/photos/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/me/photo": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/photo": "",
+            "/groups/{id}/photos": "",
+            "/groups/{id}/photos/{id}": "",
+            "/users/{id}/photo": "",
+            "/users/{id}/photos": "",
+            "/users/{id}/photos/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/groups/{id}/photo": "least=Application,DelegatedWork",
+            "/users/{id}/photo": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "fast-ppl-image"
       }
     },
     "ProgramControl.Read.All": {
@@ -39191,9 +39339,9 @@
             "/users/{id}/outlook/supportedlanguages": "",
             "/users/{id}/outlook/supportedtimezones": "",
             "/users/{id}/outlook/supportedtimezones(timezonestandard={value})": "",
-            "/users/{id}/photo": "least=Application",
-            "/users/{id}/photos": "least=Application",
-            "/users/{id}/photos/{id}": "least=Application"
+            "/users/{id}/photo": "",
+            "/users/{id}/photos": "",
+            "/users/{id}/photos/{id}": ""
           }
         },
         {
@@ -39381,6 +39529,7 @@
             "DelegatedWork"
           ],
           "methods": [
+            "DELETE",
             "PATCH",
             "PUT"
           ],
@@ -40014,11 +40163,12 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
             "PATCH",
             "PUT"
           ],
           "paths": {
-            "/users/{id}/photo": "least=Application"
+            "/users/{id}/photo": ""
           }
         },
         {
