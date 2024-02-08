@@ -4905,10 +4905,6 @@
             "GET"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "least=DelegatedWork",
-            "/chats/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
-            "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=DelegatedWork",
-            "/me/chats/{id}/messages/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
@@ -4917,21 +4913,7 @@
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages/delta": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/search/query": ""
+            "/teams/{id}/channels/{id}/messages/delta": "least=DelegatedWork"
           }
         },
         {
@@ -4970,10 +4952,6 @@
             "GET"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "least=Application",
-            "/chats/{id}/messages/{id}/hostedcontents": "least=Application",
-            "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application",
-            "/me/chats/{id}/messages/{id}": "least=Application",
             "/teams/{id}/channels/{id}/messages": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "least=Application",
@@ -4982,10 +4960,7 @@
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "least=Application",
-            "/teams/{id}/channels/{id}/messages/delta": "least=Application",
-            "/users/{id}/chats/{id}/messages/{id}": "least=Application",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "least=Application",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application"
+            "/teams/{id}/channels/{id}/messages/delta": "least=Application"
           }
         }
       ],
@@ -5013,7 +4988,6 @@
             "PATCH"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "least=DelegatedWork",
             "/teams/(team-id)/channels/{id}/messages/{id}": "least=DelegatedWork",
             "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=DelegatedWork"
           }
@@ -5029,9 +5003,7 @@
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/softdelete": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/undosoftdelete": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/softdelete": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages/{id}/undosoftdelete": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/softdelete": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/undosoftdelete": "least=DelegatedWork"
+            "/teams/{id}/channels/{id}/messages/{id}/undosoftdelete": "least=DelegatedWork"
           }
         }
       ],
@@ -5059,15 +5031,12 @@
             "POST"
           ],
           "paths": {
-            "/chats/{id}/messages": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/setreaction": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/unsetreaction": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/setreaction": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages/{id}/unsetreaction": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
+            "/teams/{id}/channels/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
           }
         }
       ],
@@ -5093,7 +5062,6 @@
             "PATCH"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "least=Application",
             "/teams/(team-id)/channels/{id}/messages/{id}": "least=Application",
             "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=Application"
           }
@@ -5415,31 +5383,24 @@
             "/chats/{id}/members": "",
             "/chats/{id}/members/{id}": "",
             "/chats/{id}/messages": "least=DelegatedWork",
-            "/chats/{id}/messages/{id}": "",
-            "/chats/{id}/messages/{id}/hostedcontents": "",
-            "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=DelegatedWork",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
             "/me/chats": "",
             "/me/chats/{id}": "",
             "/me/chats/{id}/messages": "least=DelegatedWork",
-            "/me/chats/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/members/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
+            "/me/chats/{id}/messages/{id}": "least=DelegatedWork",
             "/users/{id}/chats": "",
             "/users/{id}/chats/{id}": "",
             "/users/{id}/chats/{id}/members": "",
             "/users/{id}/chats/{id}/members/{id}": "",
             "/users/{id}/chats/{id}/messages": "least=DelegatedWork",
-            "/users/{id}/chats/{id}/messages/{id}": "",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": ""
+            "/users/{id}/chats/{id}/messages/{id}": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -5480,7 +5441,7 @@
             "/chats/{id}": "",
             "/chats/{id}/members": "",
             "/chats/{id}/members/{id}": "",
-            "/chats/{id}/messages": "least=Application",
+            "/chats/{id}/messages": "",
             "/chats/{id}/messages/{id}": "",
             "/chats/{id}/messages/{id}/hostedcontents": "",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
@@ -5489,19 +5450,12 @@
             "/chats/{id}/pinnedmessages": "",
             "/me/chats": "",
             "/me/chats/{id}": "",
-            "/me/chats/{id}/messages": "least=Application",
+            "/me/chats/{id}/messages": "",
             "/me/chats/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
-            "/users/{id}/chats": "",
             "/users/{id}/chats/{id}": "",
             "/users/{id}/chats/{id}/members": "",
             "/users/{id}/chats/{id}/members/{id}": "",
-            "/users/{id}/chats/{id}/messages": "least=Application",
+            "/users/{id}/chats/{id}/messages": "",
             "/users/{id}/chats/{id}/messages/{id}": "",
             "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "",
             "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "",
@@ -5556,7 +5510,6 @@
             "/chats/{id}/operations/{id}": "least=DelegatedWork",
             "/me/chats": "least=DelegatedWork",
             "/me/chats/{id}": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/members/{id}": "",
             "/users/{id}/chats": "least=DelegatedWork",
             "/users/{id}/chats/{id}": "least=DelegatedWork",
             "/users/{id}/chats/{id}/members": "",
@@ -5593,9 +5546,9 @@
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/me/chats": "least=Application",
-            "/me/chats/{id}": "least=Application",
+            "/me/chats/{id}": "",
             "/users/{id}/chats": "least=Application",
-            "/users/{id}/chats/{id}": "least=Application",
+            "/users/{id}/chats/{id}": "",
             "/users/{id}/chats/{id}/members": "",
             "/users/{id}/chats/{id}/members/{id}": ""
           }
@@ -5614,7 +5567,20 @@
           "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/chats/{id}": "least=Application",
+            "/users/{id}/chats/{id}": "least=Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
       }
@@ -5656,7 +5622,7 @@
           ],
           "paths": {
             "/chats/{id}": "least=DelegatedWork",
-            "/chats/{id}/messages/{id}": ""
+            "/chats/{id}/messages/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -5671,19 +5637,9 @@
             "/chats/{id}/markchatreadforuser": "least=DelegatedWork",
             "/chats/{id}/markchatunreadforuser": "least=DelegatedWork",
             "/chats/{id}/unhideforuser": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/setreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/softdelete": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/undosoftdelete": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/unsetreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/setreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/softdelete": "",
-            "/teams/{id}/channels/{id}/messages/{id}/undosoftdelete": "",
-            "/teams/{id}/channels/{id}/messages/{id}/unsetreaction": "",
             "/users/{id}/chats/{id}/messages/{id}/setreaction": "",
-            "/users/{id}/chats/{id}/messages/{id}/softdelete": "",
-            "/users/{id}/chats/{id}/messages/{id}/undosoftdelete": "",
+            "/users/{id}/chats/{id}/messages/{id}/softdelete": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/undosoftdelete": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/unsetreaction": ""
           }
         },
@@ -5704,13 +5660,6 @@
             "/me/chats/{id}": "",
             "/me/chats/{id}/messages": "",
             "/me/chats/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/members/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
             "/users/{id}/chats": "",
             "/users/{id}/chats/{id}": "",
             "/users/{id}/chats/{id}/members": "",
@@ -5730,18 +5679,6 @@
           ],
           "paths": {
             "/chats/{id}/pinnedmessages/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/teams/(team-id)/channels/{id}/messages/{id}": "",
-            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": ""
           }
         }
       ],
@@ -5784,12 +5721,6 @@
             "/me/chats/{id}": "",
             "/me/chats/{id}/messages": "",
             "/me/chats/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
             "/users/{id}/chats": "",
             "/users/{id}/chats/{id}": "",
             "/users/{id}/chats/{id}/members": "",
@@ -5807,7 +5738,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -5837,18 +5767,6 @@
           ],
           "paths": {
             "/chats/{id}/pinnedmessages/{id}": "least=Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/teams/(team-id)/channels/{id}/messages/{id}": "",
-            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": ""
           }
         },
         {
@@ -5899,9 +5817,7 @@
             "PATCH"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "",
-            "/teams/(team-id)/channels/{id}/messages/{id}": "",
-            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": ""
+            "/chats/{id}/messages/{id}": "least=Application"
           }
         }
       ],
@@ -6174,22 +6090,17 @@
             "GET"
           ],
           "paths": {
-            "/chats/{id}/messages": "",
-            "/chats/{id}/messages/{id}": "",
-            "/chats/{id}/messages/{id}/hostedcontents": "",
-            "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/me/chats/{id}/messages": "",
-            "/me/chats/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/hostedcontents/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
-            "/users/{id}/chats/{id}/messages": "",
-            "/users/{id}/chats/{id}/messages/{id}": "",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "",
-            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": ""
+            "/chats/{id}/messages": "least=Application",
+            "/chats/{id}/messages/{id}": "least=Application",
+            "/chats/{id}/messages/{id}/hostedcontents": "least=Application",
+            "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application",
+            "/chats/{id}/messages/{id}/hostedcontents/{id}/$value": "least=Application",
+            "/me/chats/{id}/messages": "least=Application",
+            "/me/chats/{id}/messages/{id}": "least=Application",
+            "/users/{id}/chats/{id}/messages": "least=Application",
+            "/users/{id}/chats/{id}/messages/{id}": "least=Application",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "least=Application",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application"
           }
         }
       ],
@@ -6217,16 +6128,10 @@
             "POST"
           ],
           "paths": {
-            "/chats/{id}/messages": "",
+            "/chats/{id}/messages": "least=DelegatedWork",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/setreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}/unsetreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/setreaction": "",
-            "/teams/{id}/channels/{id}/messages/{id}/unsetreaction": "",
-            "/users/{id}/chats/{id}/messages/{id}/setreaction": "",
-            "/users/{id}/chats/{id}/messages/{id}/unsetreaction": ""
+            "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
           }
         }
       ],
@@ -6279,7 +6184,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -6294,6 +6198,7 @@
             "GET"
           ],
           "paths": {
+            "/chats/{id}": "least=Application",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/me/chats/{id}": "",
@@ -37514,9 +37419,9 @@
           ],
           "paths": {
             "/teams/{id}/tags": "least=DelegatedWork",
-            "/teams/{id}/tags/{id}": "",
-            "/teams/{id}/tags/{id}/members": "",
-            "/teams/{id}/tags/{id}/members/{id}": ""
+            "/teams/{id}/tags/{id}": "least=DelegatedWork",
+            "/teams/{id}/tags/{id}/members": "least=DelegatedWork",
+            "/teams/{id}/tags/{id}/members/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -37543,9 +37448,9 @@
           ],
           "paths": {
             "/teams/{id}/tags": "least=Application",
-            "/teams/{id}/tags/{id}": "",
-            "/teams/{id}/tags/{id}/members": "",
-            "/teams/{id}/tags/{id}/members/{id}": ""
+            "/teams/{id}/tags/{id}": "least=Application",
+            "/teams/{id}/tags/{id}/members": "least=Application",
+            "/teams/{id}/tags/{id}/members/{id}": "least=Application"
           }
         }
       ],
@@ -37570,12 +37475,24 @@
             "DelegatedWork"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/tags": "",
+            "/teams/{id}/tags/{id}": "",
+            "/teams/{id}/tags/{id}/members": "",
+            "/teams/{id}/tags/{id}/members/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
-            "/teams/{id}/tags": "least=DelegatedWork",
-            "/teams/{id}/tags/{id}/members": "least=DelegatedWork"
+            "/teams/{id}/tags": "least=DelegatedWork"
           }
         },
         {
@@ -37584,7 +37501,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -37596,8 +37512,7 @@
             "DelegatedWork"
           ],
           "methods": [
-            "DELETE",
-            "GET"
+            "DELETE"
           ],
           "paths": {
             "/teams/{id}/tags/{id}/members/{id}": "least=DelegatedWork"
@@ -37623,7 +37538,20 @@
             "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/tags": "",
+            "/teams/{id}/tags/{id}": "",
+            "/teams/{id}/tags/{id}/members": "",
+            "/teams/{id}/tags/{id}/members/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
@@ -37637,7 +37565,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -37649,8 +37576,7 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET"
+            "DELETE"
           ],
           "paths": {
             "/teams/{id}/tags/{id}/members/{id}": "least=Application"
