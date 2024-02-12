@@ -25421,6 +25421,90 @@
         "ownerSecurityGroup": "pcbilinggraphadmins"
       }
     },
+    "PartnerSecurity.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read security alerts of customer with CSP relationship",
+          "adminDescription": "Allows the app to read security alerts of customer with CSP relationship on behalf of the partner signed-in user.",
+          "userDisplayName": "Read security alerts of customer with CSP relationship",
+          "userDescription": "Allows the app to read security alerts of customer with CSP relationship on behalf of you.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read security alerts of customer with CSP relationship",
+          "adminDescription": "Allows the app to read security alerts of customer with CSP relationship, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/partners/securityalerts": "least=DelegatedWork,Application",
+            "/security/partners/securityalerts/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "smrtsec"
+      }
+    },
+    "PartnerSecurity.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read security alerts and update status of security alerts of customer with CSP relationship",
+          "adminDescription": "Allows the app to read security alerts and update status of alerts of customer with CSP relationship on behalf of the partner signed-in user.",
+          "userDisplayName": "Read security alerts and update status of security alerts of customer with CSP relationship",
+          "userDescription": "Allows the app to read security alerts and update status of alerts of customer with CSP relationship on behalf of you.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read security alerts and update status of security alerts of customer with CSP relationship",
+          "adminDescription": "Allows the app to read security alerts and update status of alerts of customer with CSP relationship, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/partners/securityalerts": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/partners/securityalerts/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "smrtsec"
+      }
+    },
     "People.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -40240,6 +40324,8 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods/creationOptions": "least=DelegatedWork",
@@ -40323,6 +40409,8 @@
             "/reports/authenticationmethods/userregistrationdetails/{id}": "",
             "/users/{id}/authentication/emailmethods": "least=Application",
             "/users/{id}/authentication/emailmethods/{id}": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
             "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/fido2methods/{id}": "",
             "/users/{id}/authentication/fido2methods/creationOptions": "",
@@ -40386,6 +40474,7 @@
             "/me/authentication/emailmethods": "least=DelegatedWork",
             "/me/authentication/phonemethods": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods": "",
             "/users/{id}/authentication/phonemethods": ""
           }
         },
@@ -40472,6 +40561,7 @@
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
@@ -40533,6 +40623,7 @@
             "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
@@ -40619,6 +40710,7 @@
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
