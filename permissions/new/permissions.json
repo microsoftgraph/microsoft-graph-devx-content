@@ -19415,6 +19415,173 @@
         "ownerSecurityGroup": "VivaGoalsOnGraph"
       }
     },
+    "Group-Conversation.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read group conversations",
+          "adminDescription": "Allows the app to read group conversations that the signed-in user has access to.",
+          "userDisplayName": "Read group conversations",
+          "userDescription": "Allows the app to read group conversations that the signed-in user has access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all group conversations",
+          "adminDescription": "Allows the app to read conversations of the groups this app has access to without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/conversations": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/threads": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}/posts": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}/posts/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/attachments": "least=DelegatedWork",
+            "/groups/{id}/threads/{id}/posts/{id}/attachments": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GroupsIDCSG"
+      }
+    },
+    "Group-Conversation.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write group conversations",
+          "adminDescription": "Allows the app to read and write group conversations that the signed-in user has access to.",
+          "userDisplayName": "Read and write group conversations",
+          "userDescription": "Allows the app to read and write group conversations that the signed-in user has access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all group conversations",
+          "adminDescription": "Allows the app to read and write conversations of the groups this app has access to without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/conversations": "least=DelegatedWork",
+            "/groups/{id}/conversations/{id}/threads": "least=DelegatedWork",
+            "/groups/{id}/conversations/{id}/threads/{id}/reply": "least=DelegatedWork",
+            "/groups/{id}/threads": "least=DelegatedWork",
+            "/groups/{id}/threads/{id}/reply": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/conversations": "",
+            "/groups/{id}/conversations/{id}/threads": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}": "",
+            "/groups/{id}/threads": "",
+            "/groups/{id}/threads/{id}/posts": "",
+            "/groups/{id}/threads/{id}/posts/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/reply": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}/posts/{id}/forward": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}/posts/{id}/reply": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/attachments": "",
+            "/groups/{id}/threads/{id}/posts/{id}/attachments": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/conversations/{id}/threads/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/conversations/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GroupsIDCSG"
+      }
+    },
     "Group.Create": {
       "schemes": {
         "Application": {
@@ -19480,12 +19647,12 @@
             "/drives/{id}/root:/{id}": "",
             "/groups": "",
             "/groups/{id}": "",
-            "/groups/{id}/conversations": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads/{id}/posts": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations": "",
+            "/groups/{id}/conversations/{id}": "",
+            "/groups/{id}/conversations/{id}/threads": "",
+            "/groups/{id}/conversations/{id}/threads/{id}": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}": "",
             "/groups/{id}/drive/items/{id}": "",
             "/groups/{id}/drive/root:/{id}": "",
             "/groups/{id}/endpoints": "least=DelegatedWork,Application",
@@ -19502,10 +19669,10 @@
             "/groups/{id}/team": "least=DelegatedWork,Application",
             "/groups/{id}/team/channels": "least=DelegatedWork,Application",
             "/groups/{id}/team/channels/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/threads": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}/posts": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}/posts/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/threads": "",
+            "/groups/{id}/threads/{id}": "",
+            "/groups/{id}/threads/{id}/posts": "",
+            "/groups/{id}/threads/{id}/posts/{id}": "",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
             "/groupsettings": "",
@@ -19609,12 +19776,12 @@
             "/groups/{id}/calendar/events/{id}": "",
             "/groups/{id}/calendarview": "least=DelegatedWork",
             "/groups/{id}/calendarview/delta": "least=DelegatedWork",
-            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/attachments": "least=DelegatedWork",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/attachments": "",
             "/groups/{id}/events": "least=DelegatedWork",
             "/groups/{id}/events/{id}": "",
             "/groups/{id}/planner/plans": "",
             "/groups/{id}/rejectedsenders": "least=DelegatedWork",
-            "/groups/{id}/threads/{id}/posts/{id}/attachments": "least=DelegatedWork",
+            "/groups/{id}/threads/{id}/posts/{id}/attachments": "",
             "/groups/{id}/transitivememberof": "",
             "/me/chats/{id}/messages/{id}": "",
             "/me/drive/items/{id}": "",
@@ -19722,14 +19889,14 @@
           "paths": {
             "/chats/{id}/messages": "",
             "/groups/{id}/addfavorite": "least=DelegatedWork",
-            "/groups/{id}/conversations": "least=DelegatedWork",
-            "/groups/{id}/conversations/{id}/threads": "least=DelegatedWork",
-            "/groups/{id}/conversations/{id}/threads/{id}/reply": "least=DelegatedWork",
+            "/groups/{id}/conversations": "",
+            "/groups/{id}/conversations/{id}/threads": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/reply": "",
             "/groups/{id}/removefavorite": "least=DelegatedWork",
             "/groups/{id}/resetunseencount": "least=DelegatedWork",
             "/groups/{id}/subscribebymail": "least=DelegatedWork",
-            "/groups/{id}/threads": "least=DelegatedWork",
-            "/groups/{id}/threads/{id}/reply": "least=DelegatedWork",
+            "/groups/{id}/threads": "",
+            "/groups/{id}/threads/{id}/reply": "",
             "/me/checkmembergroups": "",
             "/me/checkmemberobjects": "",
             "/me/getmembergroups": "",
@@ -19842,13 +20009,13 @@
             "/groups/{id}/assignlicense": "least=DelegatedWork,Application",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
-            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/reply": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "",
+            "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/reply": "",
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
             "/groups/{id}/renew": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}/posts/{id}/forward": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}/posts/{id}/reply": "least=DelegatedWork,Application",
+            "/groups/{id}/threads/{id}/posts/{id}/forward": "",
+            "/groups/{id}/threads/{id}/posts/{id}/reply": "",
             "/groups/{id}/unsubscribebymail": "least=DelegatedWork,Application",
             "/groups/{id}/validateproperties": "",
             "/serviceprincipals/{id}/checkmembergroups": "",
@@ -19939,8 +20106,8 @@
           ],
           "paths": {
             "/groups/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/conversations/{id}/threads/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/threads/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}/threads/{id}": "",
+            "/groups/{id}/threads/{id}": "",
             "/teams/{id}/channels/{id}": "",
             "/teams/{id}/channels/{id}/tabs/{id}": ""
           }
@@ -20010,7 +20177,7 @@
             "GET"
           ],
           "paths": {
-            "/groups/{id}/conversations/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/conversations/{id}": "",
             "/teams/{id}/installedapps/{id}": ""
           }
         },
@@ -32541,6 +32708,17 @@
         },
         {
           "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/sites/getAllSites": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -32826,6 +33004,17 @@
             "/users/{id}/insights/trending/{id}/resource": "",
             "/users/{id}/insights/used": "",
             "/users/{id}/insights/used/{id}/resource": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/sites/getAllSites": ""
           }
         },
         {
