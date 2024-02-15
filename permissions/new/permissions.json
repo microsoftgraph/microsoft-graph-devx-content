@@ -1339,6 +1339,8 @@
             "/applications(appid={value})/unsetverifiedpublisher": "least=DelegatedWork",
             "/applications/{id}/setverifiedpublisher": "least=DelegatedWork",
             "/applications/{id}/unsetverifiedpublisher": "least=DelegatedWork",
+            "/groups/{id}/deletepasswordsinglesignoncredentials": "",
+            "/groups/{id}/getpasswordsinglesignoncredentials": "",
             "/users/{id}/deletepasswordsinglesignoncredentials": "",
             "/users/{id}/getpasswordsinglesignoncredentials": ""
           }
@@ -1714,8 +1716,18 @@
             "GET"
           ],
           "paths": {
-            "/me/approleassignedresources": "",
             "/users/{id}/approleassignedresources": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/approleassignedresources": ""
           }
         },
         {
@@ -7869,10 +7881,20 @@
             "GET"
           ],
           "paths": {
-            "/me/oauth2permissiongrants": "",
             "/serviceprincipals(appid={value})/oauth2permissiongrants": "least=Application",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/users/{id}/oauth2permissiongrants": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/oauth2permissiongrants": ""
           }
         },
         {
@@ -12823,6 +12845,8 @@
             "/devices/{id}/registeredowners": "least=DelegatedWork",
             "/devices/{id}/registeredusers": "least=DelegatedWork",
             "/directory/administrativeunits/{id}/members": "",
+            "/groups/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
+            "/groups/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
             "/me/changepassword": "least=DelegatedWork",
             "/privilegedapproval": "least=DelegatedWork",
             "/privilegedroleassignments/{id}/makeeligible": "least=DelegatedWork",
@@ -13410,6 +13434,8 @@
           ],
           "paths": {
             "/appcatalogs/teamsapps/{id}/appdefinitions": "",
+            "/groups/{id}/deletepasswordsinglesignoncredentials": "",
+            "/groups/{id}/getpasswordsinglesignoncredentials": "",
             "/me/checkmembergroups": "",
             "/me/checkmemberobjects": "",
             "/me/getmembergroups": "",
@@ -17001,35 +17027,6 @@
             "/groups/{id}/drive/root/delta": "least=Application",
             "/groups/{id}/drive/root/search(q={value})": "least=Application",
             "/groups/{id}/drives": "least=Application",
-            "/me/drive": "least=Application",
-            "/me/drive/items/{id}": "least=Application",
-            "/me/drive/items/{id}/capabilities": "least=DelegatedPersonal,Application",
-            "/me/drive/items/{id}/children": "least=Application",
-            "/me/drive/items/{id}/content": "least=Application",
-            "/me/drive/items/{id}/contentStream": "least=Application",
-            "/me/drive/items/{id}/officeActivities": "least=Application",
-            "/me/drive/items/{id}/permissions": "least=Application",
-            "/me/drive/items/{id}/permissions/{id}": "least=Application",
-            "/me/drive/items/{id}/thumbnails": "least=Application",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}": "least=Application",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "least=Application",
-            "/me/drive/items/{id}/versions": "least=Application",
-            "/me/drive/items/{id}/versions/{id}": "least=Application",
-            "/me/drive/items/{id}/versions/{id}/content": "least=Application",
-            "/me/drive/items/{id}/versions/current": "least=Application",
-            "/me/drive/recent": "least=Application",
-            "/me/drive/root": "least=Application",
-            "/me/drive/root:/{id}": "least=Application",
-            "/me/drive/root:/{id}:/content": "least=Application",
-            "/me/drive/root:/{id}:/contentStream": "least=Application",
-            "/me/drive/root:/{id}:/permissions": "least=Application",
-            "/me/drive/root/children": "least=Application",
-            "/me/drive/root/delta": "least=Application",
-            "/me/drive/root/search(q={value})": "least=Application",
-            "/me/drive/sharedwithme": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/me/drive/special/{id}": "least=Application",
-            "/me/drive/special/{id}/children": "least=Application",
-            "/me/drives": "least=Application",
             "/shares/{id}/driveitem/content": "least=Application",
             "/shares/{id}/driveitem/contentStream": "least=Application",
             "/sites/{id}/drive": "least=Application",
@@ -17078,6 +17075,46 @@
             "/users/{id}/drive/special/{id}": "least=Application",
             "/users/{id}/drive/special/{id}/children": "least=Application",
             "/users/{id}/drives": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/drive": "",
+            "/me/drive/items/{id}": "",
+            "/me/drive/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/items/{id}/children": "",
+            "/me/drive/items/{id}/content": "",
+            "/me/drive/items/{id}/contentStream": "",
+            "/me/drive/items/{id}/officeActivities": "",
+            "/me/drive/items/{id}/permissions": "",
+            "/me/drive/items/{id}/permissions/{id}": "",
+            "/me/drive/items/{id}/thumbnails": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
+            "/me/drive/items/{id}/versions": "",
+            "/me/drive/items/{id}/versions/{id}": "",
+            "/me/drive/items/{id}/versions/{id}/content": "",
+            "/me/drive/items/{id}/versions/current": "",
+            "/me/drive/recent": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}": "",
+            "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
+            "/me/drive/root:/{id}:/permissions": "",
+            "/me/drive/root/children": "",
+            "/me/drive/root/delta": "",
+            "/me/drive/root/search(q={value})": "",
+            "/me/drive/sharedwithme": "least=DelegatedWork,DelegatedPersonal",
+            "/me/drive/special/{id}": "",
+            "/me/drive/special/{id}/children": "",
+            "/me/drives": ""
           }
         },
         {
@@ -18699,7 +18736,7 @@
             "PATCH"
           ],
           "paths": {
-            "/drives/{id}/items/{id}/officeActivities": ""
+            "/drives/{id}/items/{id}/officeActivities": "least=Application"
           }
         },
         {
@@ -18739,29 +18776,6 @@
             "/groups/{id}/drive/root/delta": "",
             "/groups/{id}/drive/root/search(q={value})": "",
             "/groups/{id}/drives": "",
-            "/me/drive": "",
-            "/me/drive/items/{id}/permissions": "",
-            "/me/drive/items/{id}/thumbnails": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
-            "/me/drive/items/{id}/versions": "",
-            "/me/drive/items/{id}/versions/{id}": "",
-            "/me/drive/items/{id}/versions/{id}/content": "",
-            "/me/drive/items/{id}/versions/current": "",
-            "/me/drive/recent": "",
-            "/me/drive/root": "",
-            "/me/drive/root:/{id}": "",
-            "/me/drive/root:/{id}:/content": "",
-            "/me/drive/root:/{id}:/contentStream": "",
-            "/me/drive/root:/{id}:/permissions": "",
-            "/me/drive/root/delta": "",
-            "/me/drive/root/search(q={value})": "",
-            "/me/drive/sharedwithme": "",
-            "/me/drive/special/{id}": "",
-            "/me/drive/special/{id}/children": "",
-            "/me/drives": "",
-            "/me/drives/items/{id}/capabilities": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/me/drives/items/{id}/officeActivities": "least=DelegatedWork,DelegatedPersonal,Application",
             "/shares/{id}": "least=Application",
             "/shares/{id}/driveitem": "least=Application",
             "/shares/{id}/driveitem/content": "",
@@ -18801,6 +18815,38 @@
             "/users/{id}/drive/special/{id}": "",
             "/users/{id}/drive/special/{id}/children": "",
             "/users/{id}/drives": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/drive": "",
+            "/me/drive/items/{id}/permissions": "",
+            "/me/drive/items/{id}/thumbnails": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
+            "/me/drive/items/{id}/versions": "",
+            "/me/drive/items/{id}/versions/{id}": "",
+            "/me/drive/items/{id}/versions/{id}/content": "",
+            "/me/drive/items/{id}/versions/current": "",
+            "/me/drive/recent": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}": "",
+            "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
+            "/me/drive/root:/{id}:/permissions": "",
+            "/me/drive/root/delta": "",
+            "/me/drive/root/search(q={value})": "",
+            "/me/drive/sharedwithme": "",
+            "/me/drive/special/{id}": "",
+            "/me/drive/special/{id}/children": "",
+            "/me/drives": ""
           }
         },
         {
@@ -18885,12 +18931,25 @@
             "/drives/{id}/items/{id}/permissions/{id}": "least=Application",
             "/groups/{id}/drive/items/{id}": "least=Application",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "least=Application",
-            "/me/drive/items/{id}": "least=Application",
-            "/me/drive/items/{id}/permissions/{id}": "least=Application",
             "/sites/{id}/drive/items/{id}": "least=Application",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "least=Application",
             "/users/{id}/drive/items/{id}": "least=Application",
             "/users/{id}/drive/items/{id}/permissions/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/drive/items/{id}": "",
+            "/me/drive/items/{id}/permissions/{id}": ""
           }
         },
         {
@@ -19173,14 +19232,24 @@
             "DELETE"
           ],
           "paths": {
-            "/me/drive/items/{id}/workbook/names/{id}": "",
-            "/me/drive/items/{id}/workbook/worksheets/{id}/names/{id}": "",
-            "/me/drive/root:/{id}:/workbook/names/{id}": "",
-            "/me/drive/root:/{id}:/workbook/worksheets/{id}/names/{id}": "",
             "/users/{id}/drive/items/{id}/workbook/names/{id}": "",
             "/users/{id}/drive/items/{id}/workbook/worksheets/{id}/names/{id}": "",
             "/users/{id}/drive/root:/{id}:/workbook/names/{id}": "",
             "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/names/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/drive/items/{id}/workbook/names/{id}": "",
+            "/me/drive/items/{id}/workbook/worksheets/{id}/names/{id}": "",
+            "/me/drive/root:/{id}:/workbook/names/{id}": "",
+            "/me/drive/root:/{id}:/workbook/worksheets/{id}/names/{id}": ""
           }
         },
         {
@@ -32551,42 +32620,6 @@
             "/groups/{id}/drive/root/search(q={value})": "",
             "/groups/{id}/drives": "",
             "/groups/{id}/sites/root": "least=DelegatedWork,Application",
-            "/me/drive": "",
-            "/me/drive/following": "",
-            "/me/drive/items/{id}": "",
-            "/me/drive/items/{id}/capabilities": "",
-            "/me/drive/items/{id}/children": "",
-            "/me/drive/items/{id}/content": "",
-            "/me/drive/items/{id}/contentStream": "",
-            "/me/drive/items/{id}/officeActivities": "",
-            "/me/drive/items/{id}/permissions": "",
-            "/me/drive/items/{id}/permissions/{id}": "",
-            "/me/drive/items/{id}/thumbnails": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
-            "/me/drive/items/{id}/versions": "",
-            "/me/drive/items/{id}/versions/{id}": "",
-            "/me/drive/items/{id}/versions/{id}/content": "",
-            "/me/drive/items/{id}/versions/current": "",
-            "/me/drive/items/{id}/workbook/worksheets/{id}/names": "least=Application",
-            "/me/drive/recent": "",
-            "/me/drive/root": "",
-            "/me/drive/root:/{id}": "",
-            "/me/drive/root:/{id}:/content": "",
-            "/me/drive/root:/{id}:/contentStream": "",
-            "/me/drive/root:/{id}:/permissions": "",
-            "/me/drive/root:/{id}:/workbook/worksheets/{id}/names": "least=Application",
-            "/me/drive/root/children": "",
-            "/me/drive/root/delta": "",
-            "/me/drive/root/search(q={value})": "",
-            "/me/drive/sharedwithme": "",
-            "/me/drives": "",
-            "/me/insights/shared": "least=DelegatedWork,Application",
-            "/me/insights/trending": "least=DelegatedWork,Application",
-            "/me/insights/trending/{id}/resource": "least=DelegatedWork,Application",
-            "/me/insights/used": "least=DelegatedWork,Application",
-            "/me/insights/used/{id}/resource": "least=DelegatedWork,Application",
-            "/me/trendingaround": "least=DelegatedWork,Application",
             "/shares/{id}/driveitem/content": "",
             "/shares/{id}/driveitem/contentStream": "",
             "/sites": "least=DelegatedWork,Application",
@@ -32719,6 +32752,52 @@
         },
         {
           "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/drive": "",
+            "/me/drive/following": "",
+            "/me/drive/items/{id}": "",
+            "/me/drive/items/{id}/capabilities": "",
+            "/me/drive/items/{id}/children": "",
+            "/me/drive/items/{id}/content": "",
+            "/me/drive/items/{id}/contentStream": "",
+            "/me/drive/items/{id}/officeActivities": "",
+            "/me/drive/items/{id}/permissions": "",
+            "/me/drive/items/{id}/permissions/{id}": "",
+            "/me/drive/items/{id}/thumbnails": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
+            "/me/drive/items/{id}/versions": "",
+            "/me/drive/items/{id}/versions/{id}": "",
+            "/me/drive/items/{id}/versions/{id}/content": "",
+            "/me/drive/items/{id}/versions/current": "",
+            "/me/drive/items/{id}/workbook/worksheets/{id}/names": "",
+            "/me/drive/recent": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}": "",
+            "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
+            "/me/drive/root:/{id}:/permissions": "",
+            "/me/drive/root:/{id}:/workbook/worksheets/{id}/names": "",
+            "/me/drive/root/children": "",
+            "/me/drive/root/delta": "",
+            "/me/drive/root/search(q={value})": "",
+            "/me/drive/sharedwithme": "",
+            "/me/drives": "",
+            "/me/insights/shared": "least=DelegatedWork",
+            "/me/insights/trending": "least=DelegatedWork",
+            "/me/insights/trending/{id}/resource": "least=DelegatedWork",
+            "/me/insights/used": "least=DelegatedWork",
+            "/me/insights/used/{id}/resource": "least=DelegatedWork",
+            "/me/trendingaround": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -32783,10 +32862,21 @@
             "GET"
           ],
           "paths": {
-            "/me/drive/special/{id}": "",
-            "/me/drive/special/{id}/children": "",
             "/users/{id}/drive/special/{id}": "",
             "/users/{id}/drive/special/{id}/children": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/drive/special/{id}": "",
+            "/me/drive/special/{id}/children": ""
           }
         },
         {
@@ -32881,32 +32971,6 @@
             "/groups/{id}/drive/root/search(q={value})": "",
             "/groups/{id}/drives": "",
             "/groups/{id}/sites/root": "",
-            "/me/drive": "",
-            "/me/drive/following": "",
-            "/me/drive/items/{id}/capabilities": "",
-            "/me/drive/items/{id}/officeActivities": "",
-            "/me/drive/items/{id}/permissions": "",
-            "/me/drive/items/{id}/thumbnails": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
-            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
-            "/me/drive/items/{id}/versions": "",
-            "/me/drive/items/{id}/versions/{id}": "",
-            "/me/drive/items/{id}/versions/{id}/content": "",
-            "/me/drive/items/{id}/versions/current": "",
-            "/me/drive/recent": "",
-            "/me/drive/root": "",
-            "/me/drive/root:/{id}:/content": "",
-            "/me/drive/root:/{id}:/contentStream": "",
-            "/me/drive/root:/{id}:/permissions": "",
-            "/me/drive/root/delta": "",
-            "/me/drive/root/search(q={value})": "",
-            "/me/drive/sharedwithme": "",
-            "/me/drives": "",
-            "/me/insights/shared": "",
-            "/me/insights/trending": "",
-            "/me/insights/trending/{id}/resource": "",
-            "/me/insights/used": "",
-            "/me/insights/used/{id}/resource": "",
             "/shares/{id}": "",
             "/shares/{id}/driveitem": "",
             "/shares/{id}/driveitem/content": "",
@@ -33015,6 +33079,45 @@
           ],
           "paths": {
             "/sites/getAllSites": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/drive": "",
+            "/me/drive/following": "",
+            "/me/drive/items/{id}/capabilities": "",
+            "/me/drive/items/{id}/officeActivities": "",
+            "/me/drive/items/{id}/permissions": "",
+            "/me/drive/items/{id}/permissions/{id}": "",
+            "/me/drive/items/{id}/thumbnails": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}": "",
+            "/me/drive/items/{id}/thumbnails/{id}/{id}/content": "",
+            "/me/drive/items/{id}/versions": "",
+            "/me/drive/items/{id}/versions/{id}": "",
+            "/me/drive/items/{id}/versions/{id}/content": "",
+            "/me/drive/items/{id}/versions/current": "",
+            "/me/drive/recent": "",
+            "/me/drive/root": "",
+            "/me/drive/root:/{id}:/content": "",
+            "/me/drive/root:/{id}:/contentStream": "",
+            "/me/drive/root:/{id}:/permissions": "",
+            "/me/drive/root/delta": "",
+            "/me/drive/root/search(q={value})": "",
+            "/me/drive/sharedwithme": "",
+            "/me/drive/special/{id}": "",
+            "/me/drive/special/{id}/children": "",
+            "/me/drives": "",
+            "/me/insights/shared": "",
+            "/me/insights/trending": "",
+            "/me/insights/trending/{id}/resource": "",
+            "/me/insights/used": "",
+            "/me/insights/used/{id}/resource": ""
           }
         },
         {
@@ -33132,8 +33235,6 @@
             "/drives/{id}/items/{id}/permissions/{id}": "",
             "/groups/{id}/drive/items/{id}": "",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "",
-            "/me/drive/items/{id}": "",
-            "/me/drive/items/{id}/permissions/{id}": "",
             "/sites/{id}/drive/items/{id}": "",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "",
             "/sites/{id}/lists/{id}/items/{id}": "least=DelegatedWork,Application",
@@ -33262,8 +33363,6 @@
             "GET"
           ],
           "paths": {
-            "/me/drive/special/{id}": "",
-            "/me/drive/special/{id}/children": "",
             "/users/{id}/drive/special/{id}": "",
             "/users/{id}/drive/special/{id}/children": ""
           }
@@ -41524,7 +41623,7 @@
             "POST"
           ],
           "paths": {
-            "/solutions/virtualEvent/webinars/{id}/registrations": ""
+            "/solutions/virtualEvent/webinars/{id}/registrations": "least=Application"
           }
         },
         {
