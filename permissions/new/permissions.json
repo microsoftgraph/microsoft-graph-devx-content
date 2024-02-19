@@ -20534,6 +20534,150 @@
         "ownerSecurityGroup": "IdentityReq"
       }
     },
+    "HealthMonitoringAlert.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all scenario health monitoring alerts",
+          "adminDescription": "Allows the app to read all scenario health monitoring alerts",
+          "userDisplayName": "Read all alerts",
+          "userDescription": "Allows the app to read all scenario health monitoring alerts, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all scenario health monitoring alerts",
+          "adminDescription": "Allows the app to read all scenario health monitoring alerts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/reports/healthmonitoring/alerts": "least=Application,DelegatedWork",
+            "/reports/healthmonitoring/alerts/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "HealthMonitoringAlert.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all scenario monitoring alerts.",
+          "adminDescription": "Allows the app to read and write all scenario monitoring alerts, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all scenario monitoring alerts",
+          "userDescription": "Allows the app to read and write all scenario monitoring alerts, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all scenario monitoring alerts",
+          "adminDescription": "Allows the app to read and write all scenario monitoring alerts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/reports/healthmonitoring/alerts/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "HealthMonitoringAlertConfig.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all scenario health monitoring alert configurations",
+          "adminDescription": "Allows the app to read all scenario health monitoring alert configurations",
+          "userDisplayName": "Read all alert configurations",
+          "userDescription": "Allows the app to read all scenario health monitoring alert configurations, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all scenario health monitoring alert configurations",
+          "adminDescription": "Allows the app to read all scenario health monitoring alert configurations, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/reports/healthmonitoring/alertconfigurations": "least=Application,DelegatedWork",
+            "/reports/healthmonitoring/alertconfigurations/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "HealthMonitoringAlertConfig.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all scenario monitoring alert configurations.",
+          "adminDescription": "Allows the app to read and write all scenario monitoring alert configurations, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all scenario monitoring alert configurations",
+          "userDescription": "Allows the app to read and write all scenario monitoring alert configurations, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all scenario monitoring alerts",
+          "adminDescription": "Allows the app to read and write all scenario monitoring alerts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/reports/healthmonitoring/alertconfigurations/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
     "IdentityProvider.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -30775,6 +30919,8 @@
             "/teams/{id}/schedule/schedulinggroups/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/shifts": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/shifts/{id}": "least=Application",
+            "/teams/{id}/schedule/shiftsRoleDefinitions": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/swapshiftschangerequests": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/{id}": "least=DelegatedWork,Application",
@@ -30869,6 +31015,8 @@
           "paths": {
             "/teams/{id}/schedule/offershiftrequests/{id}": "",
             "/teams/{id}/schedule/openshiftchangerequests/{id}": "",
+            "/teams/{id}/schedule/shiftsRoleDefinitions": "",
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "",
             "/teams/{id}/schedule/timeoffrequests": "",
             "/users/{id}/joinedTeams/getOpenShifts": "",
             "/users/{id}/joinedTeams/getShifts": "",
@@ -30931,6 +31079,19 @@
           ],
           "paths": {
             "/teams/{id}/schedule/timeoffrequests/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/teams/{id}/schedule/shiftsRoleDefinitions": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -31008,7 +31169,8 @@
             "PUT"
           ],
           "paths": {
-            "/teams/{id}/schedule/roleManagement/roleDefinitions/{role}": "least=DelegatedWork,Application"
+            "/teams/{id}/schedule/shiftsRoleDefinitions": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
