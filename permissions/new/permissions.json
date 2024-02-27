@@ -25718,6 +25718,73 @@
         "ownerSecurityGroup": "aadorgperms"
       }
     },
+    "OrgSettings-Microsoft365Install.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide Microsoft 365 apps installation settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft 365 apps installation settings on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read organization-wide Microsoft 365 apps installation settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft 365 apps installation settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/microsoft365Apps/installationOptions": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "rdxOnGraph"
+      }
+    },
+    "OrgSettings-Microsoft365Install.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide Microsoft 365 apps installation settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft 365 apps installation settings on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization-wide Microsoft 365 apps installation settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft 365 apps installation settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/microsoft365Apps/installationOptions": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "rdxOnGraph"
+      }
+    },
     "Owner.Read.Group": {
       "schemes": {
         "Application": {
