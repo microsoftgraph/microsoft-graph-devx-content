@@ -30959,6 +30959,55 @@
         "ownerSecurityGroup": "TM"
       }
     },
+    "Schedule-WorkingTime.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Trigger your working time policies",
+          "adminDescription": "Allows the app to trigger the working time policies on behalf of the signed-in user.",
+          "userDisplayName": "Trigger your working time policies",
+          "userDescription": "Allows the app to trigger the working time policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Trigger all working time policies",
+          "adminDescription": "Allows the app to trigger the working time policies without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/solutions/schedule/endWorkingTime": "least=DelegatedWork,Application",
+            "/users/{id}/solutions/schedule/startWorkingTime": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/solutions": "least=DelegatedWork,Application",
+            "/users/{id}/solutions/schedule": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mwtshiftsengfte"
+      }
+    },
     "Schedule.Read.All": {
       "schemes": {
         "DelegatedWork": {
