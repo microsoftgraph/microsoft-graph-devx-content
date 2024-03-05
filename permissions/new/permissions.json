@@ -1869,6 +1869,177 @@
         "ownerSecurityGroup": "astgraph"
       }
     },
+    "AttackSurfaceManagement.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Resource information",
+          "adminDescription": "Allows the user to read Resources on behalf of the signed-in user.",
+          "userDisplayName": "Read Resource Information",
+          "userDescription": "Allows the user to read Resources information on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Resources",
+          "adminDescription": "Allows the app to Read Resources, without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/discoveryTemplates": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/discoveryTemplates/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/{id}/auditTrails": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSnapshot": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByFilter": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByMetricCategories": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByMetrics": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/discoveryGroups": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/discoveryGroups/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/discoveryGroups/{id}/discoveryRuns": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/discoveryGroups/{id}/discoveryRuns/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/filters": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/filters/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tags": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tags/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tasks": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "voltron2"
+      }
+    },
+    "AttackSurfaceManagement.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and Write Resources",
+          "adminDescription": "Allows the user to Read and Write Resources, on behalf of the signed-in user.",
+          "userDisplayName": "Read and Write Resources",
+          "userDescription": "Allows the user to Read and Write Resources, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and Write Resources",
+          "adminDescription": "Allows the app to Read and Write Resources, without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/workspace": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/filters/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tags/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/workspace": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/workspace/discoveryGroups": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/discoveryRuns": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/filters": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tags": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/workspace/discoveryGroups/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tags/{id}": "least=DelegatedWork,Application",
+            "/security/attackSurfaceManagement/workspace/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/workspace/assetResources": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/attackSurfaceManagement/discoveryTemplates": "",
+            "/security/attackSurfaceManagement/discoveryTemplates/{id}": "",
+            "/security/attackSurfaceManagement/workspace/assetResources": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/{id}": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/{id}/auditTrails": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSnapshot": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByFilter": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByMetricCategories": "",
+            "/security/attackSurfaceManagement/workspace/assetResources/assetSummaryByMetrics": "",
+            "/security/attackSurfaceManagement/workspace/tasks": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "voltron2"
+      }
+    },
     "AuditLog.Read.All": {
       "schemes": {
         "DelegatedWork": {
