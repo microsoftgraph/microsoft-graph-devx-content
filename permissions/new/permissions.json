@@ -26075,6 +26075,8 @@
             "POST"
           ],
           "paths": {
+            "/reports/partners/billing/reconciliation/billed/export": "least=DelegatedWork,Application",
+            "/reports/partners/billing/usage/billed/export": "least=DelegatedWork,Application",
             "/reports/partners/billing/usage/unbilled/export": "least=DelegatedWork,Application"
           }
         },
@@ -26123,8 +26125,8 @@
             "GET"
           ],
           "paths": {
-            "/security/partners/securityalerts": "least=DelegatedWork,Application",
-            "/security/partners/securityalerts/{id}": "least=DelegatedWork,Application"
+            "/security/partner/securityalerts": "least=DelegatedWork,Application",
+            "/security/partner/securityalerts/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -26159,7 +26161,7 @@
             "GET"
           ],
           "paths": {
-            "/security/partners/securityalerts": ""
+            "/security/partner/securityalerts": ""
           }
         },
         {
@@ -26172,7 +26174,7 @@
             "PATCH"
           ],
           "paths": {
-            "/security/partners/securityalerts/{id}": "least=DelegatedWork,Application"
+            "/security/partner/securityalerts/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -40640,6 +40642,7 @@
             "/users/{id}/assignlicense": "least=DelegatedWork,Application",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/convertExternalToInternalMemberUser": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "least=DelegatedWork,Application",
             "/users/{id}/revokesigninsessions": "least=DelegatedWork,Application",
