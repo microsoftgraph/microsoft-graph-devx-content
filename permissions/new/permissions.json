@@ -15087,6 +15087,8 @@
             "POST"
           ],
           "paths": {
+            "/education/classes/{id}/assignments/{id}/activate": "",
+            "/education/classes/{id}/assignments/{id}/deactivate": "",
             "/education/classes/{id}/assignments/{id}/publish": "",
             "/education/classes/{id}/assignments/{id}/setupfeedbackresourcesfolder": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/setupresourcesfolder": "least=DelegatedWork",
@@ -15253,7 +15255,9 @@
           "paths": {
             "/education/classes/{id}/assignmentcategories": "least=DelegatedWork",
             "/education/classes/{id}/assignments": "least=DelegatedWork",
+            "/education/classes/{id}/assignments/{id}/activate": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/categories": "least=DelegatedWork",
+            "/education/classes/{id}/assignments/{id}/deactivate": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/publish": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/resources": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/resources/dependentresources": "least=DelegatedWork",
@@ -17391,7 +17395,7 @@
             "POST"
           ],
           "paths": {
-            "/search/grounding": ""
+            "/search/grounding": "least=DelegatedWork"
           }
         }
       ],
@@ -26561,6 +26565,134 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "o365location"
+      }
+    },
+    "PlaceDevice.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all workplace devices",
+          "adminDescription": "Allows the app to read all workplace devices, on behalf of the signed-in user.",
+          "userDisplayName": "Read all workplace devices",
+          "userDescription": "Allows the app to read all workplace devices, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all workplace devices",
+          "adminDescription": "Allows the app to read all workplace devices, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/workplace/sensorDevices": "",
+            "/workplace/sensorDevices(deviceId='{id}')": "",
+            "/workplace/sensorDevices/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "places-sensorsignals"
+      }
+    },
+    "PlaceDevice.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all workplace devices",
+          "adminDescription": "Allows the app to read and write all workplace devices, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all workplace devices",
+          "userDescription": "Allows the app to read and write all workplace devices, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all workplace devices",
+          "adminDescription": "Allows the app to read and write all workplace devices, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/workplace/sensorDevices": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/workplace/sensorDevices(deviceId='{id}')": "",
+            "/workplace/sensorDevices/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/workplace/sensorDevices/ingestRawTelemetry": "",
+            "/workplace/sensorDevices/ingestTelemetry": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "places-sensorsignals"
+      }
+    },
+    "PlaceDeviceTelemetry.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write telemetry for all workplace devices.",
+          "adminDescription": "Allows the app to read and write telemetry for all workplace devices, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/workplace/sensorDevices/ingestRawTelemetry": "",
+            "/workplace/sensorDevices/ingestTelemetry": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "places-sensorsignals"
       }
     },
     "Policy.Read.All": {
