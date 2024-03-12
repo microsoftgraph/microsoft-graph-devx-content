@@ -28214,6 +28214,81 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "PrintAlertSettings.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read tenant-wide alert settings",
+          "adminDescription": "Allows the application to read tenant-wide alert settings on behalf of the signed-in user.",
+          "userDisplayName": "Read tenant-wide alert settings",
+          "userDescription": "Allows the application to read tenant-wide alert settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/print/alertSettings": "least=DelegatedWork",
+            "/print/services": "",
+            "/print/services/{id}": "",
+            "/print/services/{id}/endpoints": "",
+            "/print/services/{id}/endpoints/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "updev"
+      }
+    },
+    "PrintAlertSettings.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write tenant-wide alert settings",
+          "adminDescription": "Allows the application to read and write tenant-wide alert settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write tenant-wide alert settings",
+          "userDescription": "Allows the application to read and write tenant-wide alert settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/print/services": "",
+            "/print/services/{id}": "",
+            "/print/services/{id}/endpoints": "",
+            "/print/services/{id}/endpoints/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/print/alertSettings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "updev"
+      }
+    },
     "PrintConnector.Read.All": {
       "schemes": {
         "DelegatedWork": {
