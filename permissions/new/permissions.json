@@ -22790,6 +22790,7 @@
             "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
@@ -22799,12 +22800,12 @@
             "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
@@ -22812,25 +22813,16 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflowtemplates": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application",
-            "/workflow/userprocessingresults": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -22858,13 +22850,40 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork"
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -22877,59 +22896,40 @@
           ],
           "paths": {
             "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "",
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/settings": "",
             "/identitygovernance/lifecycleworkflows/taskdefinitions": "",
             "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}}/runs/{id}/userprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflowtemplates": "",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "",
-            "/workflow/userprocessingresults": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": ""
           }
         },
         {
@@ -22941,7 +22941,8 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": "least=DelegatedWork,Application"
@@ -22953,49 +22954,11 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "PATCH"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
+            "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application"
           }
         }
@@ -26936,6 +26899,44 @@
         "ownerSecurityGroup": "idappcore"
       }
     },
+    "Policy.Read.B2BManagementPolicy": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's B2BManagement policies",
+          "adminDescription": "Allows the app to read your organization's B2BManagement policies on behalf of the signed-in user.",
+          "userDisplayName": "Read your organization's B2BManagement policies",
+          "userDescription": "Allows the app to read your organization's B2BManagement policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read your organization's B2BManagement policies",
+          "adminDescription": "Allows the app to read all your organization's B2BManagement policies without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/b2bmanagementpolicies": "least=DelegatedWork,Application",
+            "/policies/b2bmanagementpolicies/{id}": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/b2bmanagementpolicies": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/b2bmanagementpolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "prgctex"
+      }
+    },
     "Policy.Read.ConditionalAccess": {
       "schemes": {
         "DelegatedWork": {
@@ -27486,6 +27487,56 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
+      }
+    },
+    "Policy.ReadWrite.B2BManagementPolicy": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's B2BManagement policies",
+          "adminDescription": "Allows the app to read and write your organization's B2BManagement policies on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's B2BManagement policies",
+          "userDescription": "Allows the app to read and write your organization's B2BManagement policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's B2BManagement policies",
+          "adminDescription": "Allows the app to read and write all your organization's B2BManagement policies without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/policies/b2bmanagementpolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/b2bmanagementpolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "prgctex"
       }
     },
     "Policy.ReadWrite.ConditionalAccess": {
