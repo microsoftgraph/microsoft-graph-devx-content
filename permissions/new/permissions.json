@@ -26810,6 +26810,7 @@
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies/{id}/appliesto": "least=DelegatedWork,Application",
+            "/policies/hybridAuthenticationPolicy/": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies/{id}": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies/{id}/appliesto": "least=DelegatedWork,Application",
@@ -27019,6 +27020,41 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "adrsmsgraph"
+      }
+    },
+    "Policy.Read.HybridAuthentication": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "adminDescription": "Allows the app to read your organization's hybrid authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "userDescription": "Allows the app to read your organization's hybrid authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read your organization's hybrid authentication policies",
+          "adminDescription": "Allows the app to read your organization's hybrid authentication policies without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/hybridAuthenticationPolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
       }
     },
     "Policy.Read.PermissionGrant": {
@@ -27893,6 +27929,42 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "hybridSvcTeam"
+      }
+    },
+    "Policy.ReadWrite.HybridAuthentication": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "adminDescription": "Allows the app to read and write your organization's hybrid authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "userDescription": "Allows the app to read and write your organization's hybrid authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read  and write your organization's hybrid authentication policies",
+          "adminDescription": "Allows the app to read and wrtie your organization's hybrid authentication policies without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/hybridAuthenticationPolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
       }
     },
     "Policy.ReadWrite.MobilityManagement": {
@@ -36051,6 +36123,84 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "TeamsAppInstallation.ReadSelectedForChat.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read selected installed Teams apps in all chats",
+          "adminDescription": "Allows the app to read the selected Teams apps that are installed in any chat, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadSelectedForTeam.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read selected installed Teams apps in all teams",
+          "adminDescription": "Allows the app to read the selected Teams apps that are installed in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadSelectedForUser.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read selected installed Teams apps for all users",
+          "adminDescription": "Allows an app to read, install, upgrade, and uninstall selected apps to any user, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "TeamsAppInstallation.ReadWriteAndConsentForChat": {
       "schemes": {
         "DelegatedWork": {
@@ -36349,6 +36499,84 @@
           ],
           "paths": {
             "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteAndConsentSelectedForChat.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all chats",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any chat, without a signed-in user. Gives the ability to manage permission grants for accessing those specific chats' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteAndConsentSelectedForTeam.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all teams",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any team, without a signed-in user. Gives the ability to manage permission grants for accessing those specific teams' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteAndConsentSelectedForUser.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps for all user accounts",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any user account, without a signed-in user. Gives the ability to manage permission grants for accessing those specific users' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
           }
         }
       ],
@@ -37030,6 +37258,193 @@
           ],
           "paths": {
             "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteSelectedForChat.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage selected installed Teams apps in all chats",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any chat, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteSelectedForTeam.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage selected installed Teams apps in all teams",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any team, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteSelectedForUser": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage selected Teams apps installed for a user",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps installed for the signed in user. Does not give the ability to read application-specific settings.",
+          "userDisplayName": "Manage selected Teams apps installed for a user",
+          "userDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps installed for the signed in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/chat": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ReadWriteSelectedForUser.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage selected Teams apps installed for all users",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps for any user, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/chat": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
           }
         }
       ],
