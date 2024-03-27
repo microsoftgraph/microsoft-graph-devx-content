@@ -13230,10 +13230,6 @@
             "/policies/permissiongrantpolicies/{id}/includes": "",
             "/policies/tokenissuancepolicies/{id}/appliesto": "",
             "/policies/tokenlifetimepolicies/{id}/appliesto": "",
-            "/reports/reconciliations/provisioning": "",
-            "/reports/reconciliations/provisioning/{id}": "",
-            "/reports/reconciliations/provisioning/{id}/identities": "",
-            "/reports/reconciliations/provisioning/{id}/identities/{id}": "",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
@@ -34510,10 +34506,6 @@
             "/applications/{id}/synchronization/templates": "least=DelegatedWork",
             "/applications/{id}/synchronization/templates/{id}": "least=DelegatedWork",
             "/applications/{id}/synchronization/templates/{id}/schema": "least=DelegatedWork",
-            "/reports/reconciliations/provisioning": "",
-            "/reports/reconciliations/provisioning/{id}": "",
-            "/reports/reconciliations/provisioning/{id}/identities": "",
-            "/reports/reconciliations/provisioning/{id}/identities/{id}": "",
             "/serviceprincipals/{id}/synchronization/jobs": "least=DelegatedWork",
             "/serviceprincipals/{id}/synchronization/jobs/{id}": "least=DelegatedWork",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema": "least=DelegatedWork",
@@ -41058,10 +41050,22 @@
             "POST"
           ],
           "paths": {
-            "/me/invalidateallrefreshtokens": "least=DelegatedWork",
+            "/me/invalidateallrefreshtokens": "",
             "/organization/{id}/settings/profilecardproperties": "least=DelegatedWork",
-            "/users/{id}/invalidateallrefreshtokens": "least=DelegatedWork",
+            "/users/{id}/invalidateallrefreshtokens": "",
             "/users/validatepassword": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/invalidateallrefreshtokens": "least=DelegatedPersonal",
+            "/users/{id}/invalidateallrefreshtokens": "least=DelegatedPersonal"
           }
         },
         {
@@ -41351,7 +41355,7 @@
             "/users/{id}/convertExternalToInternalMemberUser": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "least=DelegatedWork,Application",
-            "/users/{id}/revokesigninsessions": "least=DelegatedWork,Application",
+            "/users/{id}/revokesigninsessions": "",
             "/users/{id}/translateexchangeids": ""
           }
         },
@@ -41366,7 +41370,7 @@
             "/me/checkmembergroups": "",
             "/me/checkmemberobjects": "",
             "/me/getmemberobjects": "",
-            "/me/revokesigninsessions": "least=DelegatedWork",
+            "/me/revokesigninsessions": "",
             "/me/translateexchangeids": ""
           }
         },
@@ -41746,6 +41750,44 @@
           ],
           "paths": {
             "/users/{id}/sponsors/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "azureaduserentity"
+      }
+    },
+    "User.RevokeSessions.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Revoke all sign in sessions for a user",
+          "adminDescription": "Allow the app to revoke all sign in sessions for a user, on behalf of a signed-in user.",
+          "userDisplayName": "Revokes all sign in sessions for a user",
+          "userDescription": "Allow the app to revoke all sign in sessions for a user on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Revoke all sign in sessions for a user",
+          "adminDescription": "Allow the app to revoke all sign in sessions for a user, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/invalidateAllRefreshTokens": "least=DelegatedWork,Application",
+            "/me/revokesigninsessions": "least=DelegatedWork,Application",
+            "/users/{id}/invalidateAllRefreshTokens": "least=DelegatedWork,Application",
+            "/users/{id}/revokeSignInSessions": "least=DelegatedWork,Application"
           }
         }
       ],
