@@ -7830,6 +7830,89 @@
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
+    "CustomSecAttributeProvisioning.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the provisioning configuration of all active custom security attributes",
+          "adminDescription": "Allows the app to read the provisioning configuration of all active custom security attributes on behalf of a signed in user.",
+          "userDisplayName": "Read the provisioning configuration of all active custom security attributes",
+          "userDescription": "Allows the app to read the provisioning configuration of all active custom security attributes on behalf of a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read the provisioning configuration of all active custom security attributes",
+          "adminDescription": "Allows the app to read the provisioning configuration of all active custom security attributes without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "syncfabricadmins"
+      }
+    },
+    "CustomSecAttributeProvisioning.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and edit the provisioning configuration of all active custom security attributes",
+          "adminDescription": "Allows the app to read and edit the provisioning configuration of all active custom security attributes on behalf of a signed in user.",
+          "userDisplayName": "Read and edit the provisioning configuration of all active custom security attributes",
+          "userDescription": "Allows the app to read and edit the provisioning configuration of all active custom security attributes on behalf of a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and edit the provisioning configuration of all active custom security attributes",
+          "adminDescription": "Allows the app to read and edit the provisioning configuration of all active custom security attributes without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PUT"
+          ],
+          "paths": {
+            "/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "syncfabricadmins"
+      }
+    },
     "CustomTags.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -24981,7 +25064,8 @@
           "paths": {
             "/users/{id}/onlinemeetings/{id}/recordings": "least=Application",
             "/users/{id}/onlinemeetings/{id}/recordings/{id}": "least=Application",
-            "/users/{id}/onlinemeetings/{id}/recordings/{id}/content": "least=Application"
+            "/users/{id}/onlinemeetings/{id}/recordings/{id}/content": "least=Application",
+            "/users/{id}/onlinemeetings/getAllRecordings": "least=Application"
           }
         }
       ],
@@ -25357,7 +25441,8 @@
             "/users/{id}/onlinemeetings/{id}/transcripts": "least=Application",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}": "least=Application",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}/content": "least=Application",
-            "/users/{id}/onlinemeetings/{id}/transcripts/{id}/metadataContent": "least=Application"
+            "/users/{id}/onlinemeetings/{id}/transcripts/{id}/metadataContent": "least=Application",
+            "/users/{id}/onlinemeetings/getAllTranscripts": "least=Application"
           }
         }
       ],
