@@ -6435,6 +6435,222 @@
         "ownerSecurityGroup": "mdagraphapiredmond"
       }
     },
+    "CloudLicensing.AssignLicenses": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses from individually-owned allotments",
+          "adminDescription": "Allows the app to assign licenses on behalf of the signed-in user, from allotments that they own.",
+          "userDisplayName": "Assign licenses from your allotments",
+          "userDescription": "Allows the app to assign licenses on your behalf, from allotments that you own.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/assignedTo/$ref": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "CloudLicensing.AssignLicenses.Organization": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses on behalf of the signed-in user, from allotments owned by the organization.",
+          "userDisplayName": "Assign licenses from organization-owned allotments",
+          "userDescription": "Allows the app to assign licenses on your behalf, from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Assign licenses from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments": "least=Application",
+            "/admin/cloudLicensing/assignments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/allotment/$ref": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/assignedTo/$ref": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}/allotment/$ref": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "CloudLicensing.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources",
+          "adminDescription": "Allows the app to read Cloud Licensing resources owned by the signed-in user\u2014including allotments, and assignments\u2014on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources",
+          "userDescription": "Allows the app to read Cloud Licensing resources owned by you\u2014including allotments, and assignments\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/assignments": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/owner": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers": "least=DelegatedWork",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignmentErrors": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignmentErrors/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo": "least=DelegatedWork",
+            "/admin/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/admin/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/admin/cloudLicensing/waitingMembers/{id}/assignedTo": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "CloudLicensing.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources\u2014including allotments, and assignments\u2014on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources",
+          "userDescription": "Allows the app to read all Cloud Licensing resources\u2014including allotments, and assignments\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources, including allotments, and assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/assignments": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/owner": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers": "least=Application",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "least=Application",
+            "/admin/cloudLicensing/assignmentErrors": "least=Application",
+            "/admin/cloudLicensing/assignmentErrors/{id}": "least=Application",
+            "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "least=Application",
+            "/admin/cloudLicensing/assignments": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo": "least=Application",
+            "/admin/cloudLicensing/waitingMembers": "least=Application",
+            "/admin/cloudLicensing/waitingMembers/{id}": "least=Application",
+            "/admin/cloudLicensing/waitingMembers/{id}/assignedTo": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
     "CloudPC.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -6652,6 +6868,7 @@
             "/devicemanagement/monitoring/alertrecords/{id}/setportalnotificationassent": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/changeuseraccounttype": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweron": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
@@ -6659,6 +6876,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/reprovision": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/restore": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrypartneragentinstallation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/start": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/stop": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/troubleshoot": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
@@ -6785,8 +7004,10 @@
           "paths": {
             "/devicemanagement/virtualendpoint/onpremisesconnections": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/runhealthchecks": "least=DelegatedWork",
+            "/me/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/start": "least=DelegatedWork",
             "/me/cloudpcs/{id}/stop": "least=DelegatedWork",
+            "/users/{id}/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/start": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/stop": "least=DelegatedWork"
           }
@@ -8198,6 +8419,238 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "IdentityReq"
+      }
+    },
+    "Device-CloudLicensing.AssignLicenses": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses to devices from individually-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to devices on behalf of the signed-in user, from allotments that they own.",
+          "userDisplayName": "Assign licenses to devices from your allotments",
+          "userDescription": "Allows the app to assign licenses to devices on your behalf, from allotments that you own.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-CloudLicensing.AssignLicenses.Organization": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to devices on behalf of the signed-in user, from allotments owned by the organization.",
+          "userDisplayName": "Assign licenses to devices from organization-owned allotments",
+          "userDescription": "Allows the app to assign licenses to devices on your behalf, from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Assign licenses to devices from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to devices from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "least=Application",
+            "/admin/cloudLicensing/assignments/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-CloudLicensing.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read Cloud Licensing resources for devices owned by the signed-in user\u2014including allotments, assignments and usageRights\u2014on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read Cloud Licensing resources for devices owned by you\u2014including allotments, assignments and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-CloudLicensing.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices\u2014including allotments, assignments, and usageRights\u2014on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read all Cloud Licensing resources for devices\u2014including allotments, assignments, and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices, including allotments, assignments and usageRights.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-UsageRight.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all usageRights",
+          "adminDescription": "Allows the app to read usageRights for all devices on behalf of the signed-in user.",
+          "userDisplayName": "Read all usageRights",
+          "userDescription": "Allows the app to read usageRights for all devices.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all usageRights for devices",
+          "adminDescription": "Allows the app to read usageRights for all devices.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/usageRights": "least=Application,DelegatedWork",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
       }
     },
     "Device.Command": {
@@ -19860,6 +20313,192 @@
         "ownerSecurityGroup": "VivaGoalsOnGraph"
       }
     },
+    "Group-CloudLicensing.AssignLicenses": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses to groups from individually-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to groups on behalf of the signed-in user, from allotments that they own.",
+          "userDisplayName": "Assign licenses to groups from your allotments",
+          "userDescription": "Allows the app to assign licenses to groups on your behalf, from allotments that you own.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Group-CloudLicensing.AssignLicenses.Organization": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses to groups from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to groups on behalf of the signed-in user, from allotments owned by the organization.",
+          "userDisplayName": "Assign licenses to groups from organization-owned allotments",
+          "userDescription": "Allows the app to assign licenses to groups on your behalf, from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Assign licenses to groups from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to groups from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Group-CloudLicensing.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources for groups",
+          "adminDescription": "Allows the app to read Cloud Licensing resources for groups owned by the signed-in user\u2014including allotments, assignments and usageRights\u2014on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources for groups",
+          "userDescription": "Allows the app to read Cloud Licensing resources for groups owned by you\u2014including allotments, assignments and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Group-CloudLicensing.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources for groups",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for groups\u2014including allotments, assignments, and usageRights\u2014on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources for groups",
+          "userDescription": "Allows the app to read all Cloud Licensing resources for groups\u2014including allotments, assignments, and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources for groups.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for groups, including allotments, assignments and usageRights.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "least=Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
     "Group-Conversation.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -20025,6 +20664,42 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "GroupsIDCSG"
+      }
+    },
+    "Group-UsageRight.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all usageRights for groups",
+          "adminDescription": "Allows the app to read usageRights for all groups on behalf of the signed-in user.",
+          "userDisplayName": "Read all usageRights for groups",
+          "userDescription": "Allows the app to read usageRights for all groups.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all usageRights for groups",
+          "adminDescription": "Allows the app to read usageRights for all groups.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/usageRights": "least=Application,DelegatedWork",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
       }
     },
     "Group.Create": {
@@ -40215,6 +40890,273 @@
         "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
+    "User-CloudLicensing.AssignLicenses": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses to users from individually-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to users on behalf of the signed-in user, from allotments that they own.",
+          "userDisplayName": "Assign licenses to users from your allotments",
+          "userDescription": "Allows the app to assign licenses to users on your behalf, from allotments that you own.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "User-CloudLicensing.AssignLicenses.Organization": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Assign licenses to users from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to users on behalf of the signed-in user, from allotments owned by the organization.",
+          "userDisplayName": "Assign licenses to users from organization-owned allotments",
+          "userDescription": "Allows the app to assign licenses to users on your behalf, from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Assign licenses to users from organization-owned allotments",
+          "adminDescription": "Allows the app to assign licenses to users from allotments owned by the organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/cloudLicensing/assignments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/cloudLicensing/assignments/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "User-CloudLicensing.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources for users",
+          "adminDescription": "Allows the app to read Cloud Licensing resources for users owned by the signed-in user\u2014including allotments, assignments and usageRights\u2014on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources for users",
+          "userDescription": "Allows the app to read Cloud Licensing resources for users owned by you\u2014including allotments, assignments and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignmentErrors": "least=DelegatedWork",
+            "/me/cloudLicensing/assignmentErrors/{id}": "least=DelegatedWork",
+            "/me/cloudLicensing/assignments": "least=DelegatedWork",
+            "/me/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/me/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork",
+            "/me/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/me/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignmentErrors": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "User-CloudLicensing.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources for users",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for users\u2014including allotments, assignments, and usageRights\u2014on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources for users",
+          "userDescription": "Allows the app to read all Cloud Licensing resources for users\u2014including allotments, assignments, and usageRights\u2014on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources for users.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for users, including allotments, assignments and usageRights.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/cloudLicensing/assignmentErrors": "least=Application",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "least=Application",
+            "/users/{id}/cloudLicensing/assignments": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "least=Application",
+            "/users/{id}/cloudLicensing/waitingMembers": "least=Application",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "least=Application",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments": "",
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
     "User-ConvertToInternal.ReadWrite.All": {
       "schemes": {
         "DelegatedWork": {
@@ -40302,6 +41244,85 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "azureaduserentity"
+      }
+    },
+    "User-UsageRight.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read an individual's usageRights",
+          "adminDescription": "Allows the app to read usageRights for the signed-in user on their behalf.",
+          "userDisplayName": "Read your usageRights",
+          "userDescription": "Allows the app to read your usageRights on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudLicensing/usageRights": "least=DelegatedWork",
+            "/me/cloudLicensing/usageRights/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/usageRights": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "User-UsageRight.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all usageRights for users",
+          "adminDescription": "Allows the app to read usageRights for all users on behalf of the signed-in user.",
+          "userDisplayName": "Read all usageRights for users",
+          "userDescription": "Allows the app to read usageRights for all users",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all usageRights for users",
+          "adminDescription": "Allows the app to read usageRights for all users.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/cloudLicensing/usageRights": "least=Application",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
       }
     },
     "User.EnableDisableAccount.All": {
