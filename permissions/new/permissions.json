@@ -17590,6 +17590,8 @@
             "/drives/{id}/items/{id}/analytics": "least=DelegatedWork",
             "/drives/{id}/items/{id}/analytics/alltime": "least=DelegatedWork",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "least=DelegatedWork",
+            "/drives/{id}/items/{id}/extensions": "least=DelegatedWork",
+            "/drives/{id}/items/{id}/extensions/{id}": "least=DelegatedWork",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "least=DelegatedWork",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "least=DelegatedWork",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "least=DelegatedWork",
@@ -17597,6 +17599,8 @@
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "least=DelegatedWork",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "least=DelegatedWork",
             "/me/drive/following": "least=DelegatedWork",
+            "/me/drive/items/{id}/extensions": "least=DelegatedWork",
+            "/me/drive/items/{id}/extensions/{id}": "least=DelegatedWork",
             "/me/drive/items/{id}/workbook/tables": "least=DelegatedWork",
             "/me/drive/root:/{id}:/workbook/tables": "least=DelegatedWork",
             "/sites/{id}/analytics": "least=DelegatedWork",
@@ -17849,6 +17853,8 @@
             "/drives/{id}/items/{id}/analytics": "least=Application",
             "/drives/{id}/items/{id}/analytics/alltime": "least=Application",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "least=Application",
+            "/drives/{id}/items/{id}/extensions": "least=Application",
+            "/drives/{id}/items/{id}/extensions/{id}": "least=Application",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "least=Application",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "least=Application",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "least=Application",
@@ -17856,6 +17862,8 @@
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "least=Application",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "least=Application",
             "/me/drive/following": "least=Application",
+            "/me/drive/items/{id}/extensions": "least=Application",
+            "/me/drive/items/{id}/extensions/{id}": "least=Application",
             "/sites/{id}/analytics": "least=Application",
             "/sites/{id}/analytics/alltime": "least=Application",
             "/sites/{id}/analytics/lastsevendays": "least=Application",
@@ -18445,6 +18453,8 @@
             "/drives/{id}/items/{id}/analytics": "",
             "/drives/{id}/items/{id}/analytics/alltime": "",
             "/drives/{id}/items/{id}/analytics/lastsevendays": "",
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": "",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "",
@@ -18452,6 +18462,8 @@
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}/sprites/{id}/content": "",
             "/me/drive/following": "",
+            "/me/drive/items/{id}/extensions": "",
+            "/me/drive/items/{id}/extensions/{id}": "",
             "/me/drive/items/{id}/workbook/application": "least=DelegatedWork",
             "/me/drive/items/{id}/workbook/comments": "least=DelegatedWork",
             "/me/drive/items/{id}/workbook/comments/{id}": "least=DelegatedWork",
@@ -19365,6 +19377,22 @@
             "/users/{id}/drive/items/{id}/workbook/worksheets/{id}/names/{id}": "least=DelegatedPersonal",
             "/users/{id}/drive/root:/{id}:/workbook/worksheets/{id}/names/{id}": "least=DelegatedPersonal"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/extensions": "least=DelegatedWork",
+            "/drives/{id}/items/{id}/extensions/{id}": "least=DelegatedWork",
+            "/me/drive/items/{id}/extensions": "least=DelegatedWork",
+            "/me/drive/items/{id}/extensions/{id}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -19952,6 +19980,24 @@
             "/sites/{site-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/items/{itemId}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/extensions": "least=Application",
+            "/drives/{id}/items/{id}/extensions/{id}": "least=Application",
+            "/me/drive/items/{id}/extensions": "least=Application",
+            "/me/drive/items/{id}/extensions/{id}": "least=Application"
           }
         }
       ],
@@ -34089,6 +34135,22 @@
             "/users/{user-id}/drive/items/{itemId}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -34259,6 +34321,22 @@
             "/users/{user-id}/drive/items/{itemId}/media/reactions": "least=DelegatedWork",
             "/users/{user-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -34318,6 +34396,8 @@
             "/drives/{id}/items/{id}/children": "",
             "/drives/{id}/items/{id}/content": "",
             "/drives/{id}/items/{id}/contentStream": "",
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": "",
             "/drives/{id}/items/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets": "",
             "/drives/{id}/items/{id}/media/previewThumbnailsQualitySets/{id}": "",
@@ -34879,6 +34959,8 @@
             "/drives/{id}/items/{id}/createlink": "",
             "/drives/{id}/items/{id}/createuploadsession": "least=Application",
             "/drives/{id}/items/{id}/discardCheckout": "",
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": "",
             "/drives/{id}/items/{id}/extractsensitivitylabels": "",
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/invite": "",
@@ -34910,6 +34992,8 @@
             "/me/drive/items/{id}/createlink": "",
             "/me/drive/items/{id}/createuploadsession": "least=Application",
             "/me/drive/items/{id}/discardCheckout": "",
+            "/me/drive/items/{id}/extensions": "",
+            "/me/drive/items/{id}/extensions/{id}": "",
             "/me/drive/items/{id}/extractsensitivitylabels": "",
             "/me/drive/items/{id}/follow": "",
             "/me/drive/items/{id}/invite": "",
@@ -34979,6 +35063,8 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}": "",
+            "/drives/{id}/items/{id}/extensions": "",
+            "/drives/{id}/items/{id}/extensions/{id}": "",
             "/drives/{id}/items/{id}/permissions/{id}": "",
             "/groups/{id}/drive/items/{id}": "",
             "/groups/{id}/drive/items/{id}/permissions/{id}": "",
