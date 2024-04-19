@@ -15634,6 +15634,7 @@
             "/education/classes/{id}/assignments/{id}/publish": "",
             "/education/classes/{id}/assignments/{id}/setupfeedbackresourcesfolder": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/setupresourcesfolder": "least=DelegatedWork",
+            "/education/classes/{id}/assignments/{id}/submissions/{id}/excuse": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/outcomes": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/reassign": "least=DelegatedWork",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/return": "least=DelegatedWork",
@@ -15763,6 +15764,7 @@
           ],
           "paths": {
             "/education/classes/{id}/assignments/{id}/setupresourcesfolder": "least=Application",
+            "/education/classes/{id}/assignments/{id}/submissions/{id}/excuse": "least=Application",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/outcomes": "least=Application",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/reassign": "least=Application",
             "/education/classes/{id}/assignments/{id}/submissions/{id}/return": "least=Application",
@@ -26402,6 +26404,30 @@
           "paths": {
             "/onpremisespublishingprofiles/{id}/publishedresources/{id}/agentgroups/{id}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/applicationSegments": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/applicationSegments/{id}": "least=DelegatedWork,Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -26981,7 +27007,11 @@
           ],
           "paths": {
             "/security/partner/securityalerts": "least=DelegatedWork,Application",
-            "/security/partner/securityalerts/{id}": "least=DelegatedWork,Application"
+            "/security/partner/securityalerts/{id}": "least=DelegatedWork,Application",
+            "/security/partner/securityScore": "least=DelegatedWork,Application",
+            "/security/partner/securityScore/customerInsights": "least=DelegatedWork,Application",
+            "/security/partner/securityScore/history": "least=DelegatedWork,Application",
+            "/security/partner/securityScore/history/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -27254,6 +27284,8 @@
             "GET"
           ],
           "paths": {
+            "/identityGovernance/identityAnalytics/aws/findings/topidentities": "least=Application",
+            "/identityGovernance/identityAnalytics/aws/findings/topresources": "least=Application",
             "/identityGovernance/permissionsAnalytics/aws/findings/{id}": "least=Application",
             "/identityGovernance/permissionsAnalytics/aws/findings/microsoft.graph.awsexternalsystemaccessfinding": "least=Application",
             "/identityGovernance/permissionsAnalytics/aws/findings/microsoft.graph.awsexternalsystemaccessrolefinding": "least=Application",
