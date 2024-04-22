@@ -30801,6 +30801,296 @@
         "ownerSecurityGroup": "igagraph"
       }
     },
+    "PrivilegedAssignmentSchedule.Read.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read assignment schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read assignment schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read assignment schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances/filterbycurrentuser(on={value})": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/filterbycurrentuser(on={value})": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentSchedules": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentSchedules/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentSchedules/filterbycurrentuser(on={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "PrivilegedAssignmentSchedule.ReadWrite.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read, create, and delete assignment schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read, create, and delete time-based assignment schedules for access to Azure AD groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/assignmentscheduleinstances": "",
+            "/identityGovernance/privilegedAccess/group/assignmentscheduleinstances/{id}": "",
+            "/identityGovernance/privilegedAccess/group/assignmentscheduleinstances/filterbycurrentuser(on={value})": "",
+            "/identityGovernance/privilegedAccess/group/assignmentschedulerequests/{id}": "",
+            "/identityGovernance/privilegedAccess/group/assignmentschedulerequests/filterbycurrentuser(on={value})": "",
+            "/identityGovernance/privilegedAccess/group/assignmentschedules": "",
+            "/identityGovernance/privilegedAccess/group/assignmentschedules/{id}": "",
+            "/identityGovernance/privilegedAccess/group/assignmentschedules/filterbycurrentuser(on={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/assignmentschedulerequests": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/assignmentschedulerequests/{id}/cancel": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "PrivilegedAssignmentSchedule.Remove.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete assignment schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to delete time-based assignment schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Delete assignment schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to delete time-based assignment schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete assignment schedules for access to Azure AD groups",
+          "adminDescription": "Delete time-based assignment schedules for access to Azure AD groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/assignmentschedulerequests": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "PrivilegedEligibilitySchedule.Read.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read eligibility schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests/filterbycurrentuser(on={value})": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules/filterbycurrentuser(on={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "PrivilegedEligibilitySchedule.ReadWrite.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read, create, and delete eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to read, create, and delete time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances/{id}": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests/{id}": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests/filterbycurrentuser(on={value})": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules/{id}": "",
+            "/identityGovernance/privilegedAccess/group/eligibilityschedules/filterbycurrentuser(on={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests/{id}/cancel": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "PrivilegedEligibilitySchedule.Remove.AzureADGroup": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Allows the app to delete time-based eligibility schedules for access to Azure AD groups, on behalf of the signed-in user.",
+          "userDisplayName": "Delete eligibility schedules for access to Azure AD groups",
+          "userDescription": "Allows the app to delete time-based eligibility schedules for access to Azure AD groups, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete eligibility schedules for access to Azure AD groups",
+          "adminDescription": "Delete time-based eligibility schedules for access to Azure AD groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/eligibilityschedulerequests": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
     "ProfilePhoto.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -31693,6 +31983,41 @@
         "ownerSecurityGroup": "pimcr"
       }
     },
+    "RoleAssignmentSchedule.Remove.Directory": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete all active role assignments for your company's directory",
+          "adminDescription": "Allows the app to delete the active role-based access control (RBAC) assignments for your company's directory, on behalf of the signed-in user.",
+          "userDisplayName": "Delete all active role assignments for your company's directory",
+          "userDescription": "Allows the app to delete the active role-based access control (RBAC) assignments for your company's directory, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete all active role assignments of your company's directory",
+          "adminDescription": "Delete all active privileged role-based access control (RBAC) assignments of your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/rolemanagement/directory/roleassignmentschedulerequests": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
     "RoleEligibilitySchedule.Read.Directory": {
       "schemes": {
         "DelegatedWork": {
@@ -31780,6 +32105,41 @@
           ],
           "paths": {
             "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "pimcr"
+      }
+    },
+    "RoleEligibilitySchedule.Remove.Directory": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete all eligible role assignments for your company's directory",
+          "adminDescription": "Allows the app to delete the eligible role-based access control (RBAC) assignments for your company's directory, on behalf of the signed-in user.",
+          "userDisplayName": "Delete all eligible role assignments for your company's directory",
+          "userDescription": "Allows the app to delete the eligible role-based access control (RBAC) assignments for your company's directory, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete all eligible role assignments of your company's directory",
+          "adminDescription": "Delete all eligible privileged role-based access control (RBAC) assignments of your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/rolemanagement/directory/roleassignmentschedulerequests": ""
           }
         }
       ],
