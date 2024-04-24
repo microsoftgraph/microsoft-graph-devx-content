@@ -27791,13 +27791,172 @@
     },
     "Policy.Read.ApplicationConfiguration": {
       "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's application configuration policies",
+          "adminDescription": "Allows the app to read your organization's application configuration policies on behalf of the signed-in user.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy and tokenLifetimePolicy.",
+          "userDisplayName": "Read your organization's application configuration policies",
+          "userDescription": "Allows the app to read your organization's application configuration policies on your behalf.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy  and tokenLifetimePolicy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
         "Application": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "requiresAdminConsent": true
+          "adminDisplayName": "Read your organization's application configuration policies",
+          "adminDescription": "Allows the app to read your organization's application configuration policies, without a signed-in user.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy  and tokenLifetimePolicy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/applications(appid={value})/tokenissuancepolicies": "",
+            "/applications/{id}/tokenissuancepolicies": "",
+            "/identity/events/onsignupstart": "least=DelegatedWork,Application",
+            "/policies/activitybasedtimeoutpolicies": "least=DelegatedWork,Application",
+            "/policies/appmanagementpolicies": "least=DelegatedWork,Application",
+            "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
+            "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
+            "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
+            "/policies/tokenlifetimepolicies": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/applications(appid={value})/tokenlifetimepolicies": "",
+            "/applications/{id}/tokenlifetimepolicies": "",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "POST"
+          ],
+          "paths": {
+            "/applications/{id}/appmanagementpolicies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/applications/{id}/tokenissuancepolicies/{id}": "",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/identity/events/onsignupstart/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/activitybasedtimeoutpolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/tokenissuancepolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/tokenlifetimepolicies/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/appmanagementpolicies/{id}/appliesto": "",
+            "/policies/claimsmappingpolicies/{id}/appliesto": "",
+            "/policies/homerealmdiscoverypolicies/{id}/appliesto": "",
+            "/policies/tokenissuancepolicies/{id}/appliesto": "",
+            "/policies/tokenlifetimepolicies/{id}/appliesto": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/claimsPolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "idappcore"
       }
@@ -28185,6 +28344,20 @@
           ],
           "paths": {
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/claimsPolicy": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -37243,6 +37416,411 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "TeamsAppInstallation.ManageSelectedForChat": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in chats",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in chats the signed-in user can access. Gives the ability to manage permission grants for accessing those specific chats' data.",
+          "userDisplayName": "Manage installation and permission grants of selected Teams apps in chats",
+          "userDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in chats the signed-in user can access. Gives the ability to manage permission grants for accessing those specific chats' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps/{id}/upgrade": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/chats/{id}/permissiongrants": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ManageSelectedForChat.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all chats",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any chat, without a signed-in user. Gives the ability to manage permission grants for accessing those specific chats' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/chats/{id}/installedapps/{id}/upgrade": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/chats/{id}/permissiongrants": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ManageSelectedForTeam": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in teams",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall Teams apps in teams the signed-in user can access. Gives the ability to manage permission grants for accessing those specific teams' data.",
+          "userDisplayName": "Manage installation and permission grants of selected Teams apps in teams",
+          "userDescription": "Allows the app to read, install, upgrade, and uninstall Teams apps in teams the signed-in user can access. Gives the ability to manage permission grants for accessing those specific teams' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps/{id}/upgrade": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/permissiongrants": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ManageSelectedForTeam.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all teams",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any team, without a signed-in user. Gives the ability to manage permission grants for accessing those specific teams' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/installedapps/{id}/upgrade": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/permissiongrants": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ManageSelectedForUser": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in users' personal scope",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall seleected Teams apps in user accounts, on behalf of the signed-in user. Gives the ability to manage permission grants for accessing those specific users' data.",
+          "userDisplayName": "Manage installation and permission grants of selected Teams apps in users' personal scope",
+          "userDescription": "Allows the app to read, install, upgrade, and uninstall seleected Teams apps in user accounts, on behalf of the signed-in user. Gives the ability to manage permission grants for accessing those specific users' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/permissiongrants": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.ManageSelectedForUser.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage installation and permission grants of selected Teams apps for all user accounts",
+          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any user account, without a signed-in user. Gives the ability to manage permission grants for accessing those specific users' data.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/permissiongrants": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "TeamsAppInstallation.Read.Chat": {
       "schemes": {
         "Application": {
@@ -37855,84 +38433,6 @@
           ],
           "paths": {
             "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamsAppInstallation.ReadWriteAndConsentSelectedForChat.All": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all chats",
-          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any chat, without a signed-in user. Gives the ability to manage permission grants for accessing those specific chats' data.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamsAppInstallation.ReadWriteAndConsentSelectedForTeam.All": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Manage installation and permission grants of selected Teams apps in all teams",
-          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any team, without a signed-in user. Gives the ability to manage permission grants for accessing those specific teams' data.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamsAppInstallation.ReadWriteAndConsentSelectedForUser.All": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Manage installation and permission grants of selected Teams apps for all user accounts",
-          "adminDescription": "Allows the app to read, install, upgrade, and uninstall selected Teams apps in any user account, without a signed-in user. Gives the ability to manage permission grants for accessing those specific users' data.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/appcatalogs/teamsapps/{id}/appdefinitions/{id}/installations": ""
           }
         }
       ],
