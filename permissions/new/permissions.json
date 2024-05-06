@@ -943,6 +943,221 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "AppCertTrustConfiguration.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to read the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on behalf of the signed-in user.",
+          "userDisplayName": "Read the trusted certificate authority configuration for applications",
+          "userDescription": "Allows the app to read the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "",
+          "adminDescription": "",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AppCertTrustConfiguration.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to create, read, update and delete the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write the trusted certificate authority configuration for applications",
+          "userDescription": "Allows the app to to create, read, update and delete the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "",
+          "adminDescription": "",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "Application-RemoteDesktopConfig.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the remote desktop security configuration for all apps",
+          "adminDescription": "Allows the app to read and write other apps' remote desktop security configuration, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write the remote desktop security configuration for apps",
+          "userDescription": "Allows the app to read and write other apps' remote desktop security configuration, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write the remote desktop security configuration for all apps",
+          "adminDescription": "Allows the app to read and write the remote desktop security configuration for all apps in your organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
     "Application.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -5547,6 +5762,65 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "Chat.ManageDeletion.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete and recover deleted chats",
+          "adminDescription": "Allows the app to delete and recover deleted chats, on behalf of the signed-in user.",
+          "userDisplayName": "Delete and recover deleted chats",
+          "userDescription": "Allows the app to delete and recover deleted chats, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Delete and recover deleted chats",
+          "adminDescription": "Allows the app to delete and recover deleted chats, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/chats/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teamwork/deletedchats/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teamwork/deletedchats/{id}/undodelete": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "Chat.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -6787,6 +7061,34 @@
         "ownerSecurityGroup": "cpcgraph"
       }
     },
+    "CloudPC.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Cloud PCs which belong to the signed-in user only. ",
+          "adminDescription": "Allows the app to read and write the properties of Cloud PCs which belong to the signed-in user only.",
+          "userDisplayName": "Read and write Cloud PCs which belong to you only",
+          "userDescription": "Allows the app to read and write the properties of Cloud PCs, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudpcs/{id}/getfrontlinecloudpcaccessstate": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cpcgraph"
+      }
+    },
     "CloudPC.ReadWrite.All": {
       "schemes": {
         "DelegatedWork": {
@@ -6940,7 +7242,8 @@
             "GET"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=Application"
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=Application",
+            "/me/cloudpcs/{id}/getfrontlinecloudpcaccessstate": "least=Application"
           }
         },
         {
@@ -7956,6 +8259,42 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
+      }
+    },
+    "CustomSecAttributeAuditLogs.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all custom security attribute audit logs",
+          "adminDescription": "Allows the app to read audit logs for events that contain information about custom security attributes, on behalf of the signed-in user.",
+          "userDisplayName": "Read custom security attribute audit logs",
+          "userDescription": "Allows the app to read custom security attributes audit logs on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all custom security attribute audit logs",
+          "adminDescription": "Allows the app to read all audit logs for events that contain information about custom security attributes, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/auditlogs/customsecurityattributeaudits": "least=DelegatedWork,Application",
+            "/auditlogs/customsecurityattributeaudits/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ixrdev"
       }
     },
     "CustomSecAttributeDefinition.Read.All": {
@@ -15985,6 +16324,180 @@
             "/education/classes/{id}/members/{id}/assignments/delta": "",
             "/education/me/assignments": "",
             "/education/users/{id}/assignments": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduapipreauth"
+      }
+    },
+    "EduCurricula.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to read the user's modules and resources on behalf of the signed-in user.",
+          "userDisplayName": "Read your class modules and resources",
+          "userDescription": "Allows the app to read modules and resources on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/resources": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/resources/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduapipreauth"
+      }
+    },
+    "EduCurricula.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all class modules and resources",
+          "adminDescription": "Allows the app to read all modules and resources, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules": "least=Application",
+            "/education/classes/{id}/modules/{id}": "least=Application",
+            "/education/classes/{id}/modules/{id}/resources": "least=Application",
+            "/education/classes/{id}/modules/{id}/resources/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduapipreauth"
+      }
+    },
+    "EduCurricula.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to read and write user's modules and resources on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your class modules and resources",
+          "userDescription": "Allows the app to read and write modules and resources on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/resources": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules/{id}": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/resources/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules/{id}/pin": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/publish": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/setupresourcesfolder": "least=DelegatedWork",
+            "/education/classes/{id}/modules/{id}/unpin": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduapipreauth"
+      }
+    },
+    "EduCurricula.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write all class modules and resources",
+          "adminDescription": "Allows the app to read and write all modules and resources, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules": "least=Application",
+            "/education/classes/{id}/modules/{id}/resources": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules/{id}": "least=Application",
+            "/education/classes/{id}/modules/{id}/resources/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/education/classes/{id}/modules/{id}/pin": "least=Application",
+            "/education/classes/{id}/modules/{id}/publish": "least=Application",
+            "/education/classes/{id}/modules/{id}/setupresourcesfolder": "least=Application",
+            "/education/classes/{id}/modules/{id}/unpin": "least=Application"
           }
         }
       ],
@@ -26848,6 +27361,219 @@
         "ownerSecurityGroup": "aadorgperms"
       }
     },
+    "OrgSettings-AppsAndServices.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide apps and services settings",
+          "adminDescription": "Allows the app to read organization-wide apps and services settings on behalf of the signed-in user.",
+          "userDisplayName": "Read organization-wide apps and services settings",
+          "userDescription": "Allows the app to read organization-wide apps and services settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read organization-wide apps and services settings",
+          "adminDescription": "Allows the app to read organization-wide apps and services settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/appsandservices": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-AppsAndServices.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide apps and services settings",
+          "adminDescription": "Allows the app to read and write organization-wide apps and services settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organization-wide apps and services settings",
+          "userDescription": "Allows the app to read and write organization-wide apps and services settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization-wide apps and services settings",
+          "adminDescription": "Allows the app to read and write organization-wide apps and services settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/appsandservices": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-DynamicsVoice.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide Dynamics customer voice settings",
+          "adminDescription": "Allows the app to read organization-wide Dynamics customer voice settings on behalf of the signed-in user.",
+          "userDisplayName": "Read organization-wide dynamics customer voice settings",
+          "userDescription": "Allows the app to read organization-wide Dynamics customer voice settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read organization-wide Dynamics customer voice settings",
+          "adminDescription": "Allows the app to read organization-wide Dynamics customer voice settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/dynamics": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-DynamicsVoice.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide Dynamics customer voice settings",
+          "adminDescription": "Allows the app to read and write organization-wide Dynamics customer voice settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organization-wide Dynamics customer voice settings",
+          "userDescription": "Allows the app to read and write organization-wide Dynamics customer voice settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization-wide Dynamics customer voice settings",
+          "adminDescription": "Allows the app to read and write organization-wide Dynamics customer voice settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/dynamics": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-Forms.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide Microsoft Forms settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft Forms settings on behalf of the signed-in user.",
+          "userDisplayName": "Read organization-wide Microsoft Forms settings",
+          "userDescription": "Allows the app to read organization-wide Microsoft Forms settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read organization-wide Microsoft Forms settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft Forms settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/forms": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-Forms.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide Microsoft Forms settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft Forms settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organization-wide Microsoft Forms settings",
+          "userDescription": "Allows the app to read and write organization-wide Microsoft Forms settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization-wide Microsoft Forms settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft Forms settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/forms": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
     "OrgSettings-Microsoft365Install.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -26913,6 +27639,77 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "rdxOnGraph"
+      }
+    },
+    "OrgSettings-Todo.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide Microsoft To Do settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft To Do settings on behalf of the signed-in user.",
+          "userDisplayName": "Read organization-wide Microsoft To Do settings",
+          "userDescription": "Allows the app to read organization-wide Microsoft To Do settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read organization-wide Microsoft To Do settings",
+          "adminDescription": "Allows the app to read organization-wide Microsoft To Do settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/todo": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "OrgSettings-Todo.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide Microsoft To Do settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft To Do settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organization-wide Microsoft To Do settings",
+          "userDescription": "Allows the app to read and write organization-wide Microsoft To Do settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization-wide Microsoft To Do settings",
+          "adminDescription": "Allows the app to read and write organization-wide Microsoft To Do settings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/todo": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
       }
     },
     "Owner.Read.Group": {
@@ -32916,6 +33713,117 @@
         "ownerSecurityGroup": "exorbacgraph"
       }
     },
+    "RoleManagementAlert.Read.Directory": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all alert data for your company's directory",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) alerts for your company's directory, on behalf of the signed-in user. This includes reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "userDisplayName": "Read all alert data for your company's directory",
+          "userDescription": "Allows the app to read the role-based access control (RBAC) alerts for your company's directory, on your behalf. This includes reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all alert data for your company's directory",
+          "adminDescription": "Allows the app to read all role-based access control (RBAC) alerts for your company's directory, without a signed-in user. This includes reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/rolemanagementalerts/alertconfigurations": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alertconfigurations/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alertdefinitions": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alertdefinitions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}/alertincidents": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}/alertincidents/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/operations/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "PIMPreAuthzApprover"
+      }
+    },
+    "RoleManagementAlert.ReadWrite.Directory": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all alert data, configure alerts, and take actions on all alerts for your company's directory",
+          "adminDescription": "Allows the app to read and manage the role-based access control (RBAC) alerts for your company's directory, on behalf of the signed-in user. This includes managing alert settings, initiating alert scans, dimissing alerts, remediating alert incidents, and reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "userDisplayName": "Read all alert data, configure alerts, and take actions on all alerts for your company's directory",
+          "userDescription": "Allows the app to read and manage the role-based access control (RBAC) alerts for your company's directory, on your behalf. This includes managing alert settings, initiating alert scans, dimissing alerts, remediating alert incidents, and reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all alert data, configure alerts, and take actions on all alerts for your company's directory",
+          "adminDescription": "Allows the app to read and manage all role-based access control (RBAC) alerts for your company's directory, without a signed-in user. This includes managing alert settings, initiating alert scans, dimissing alerts, remediating alert incidents, and reading alert statuses, alert definitions, alert configurations and incidents that lead to an alert.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/rolemanagementalerts/alertconfigurations/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/rolemanagementalerts/alertconfigurations": "",
+            "/identitygovernance/rolemanagementalerts/alertdefinitions": "",
+            "/identitygovernance/rolemanagementalerts/alertdefinitions/{id}": "",
+            "/identitygovernance/rolemanagementalerts/alerts": "",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}/alertincidents": "",
+            "/identitygovernance/rolemanagementalerts/alerts/{id}/alertincidents/{id}": "",
+            "/identitygovernance/rolemanagementalerts/operations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/rolemanagementalerts/alerts/{id}/alertincidents/{id}/remediate": "least=DelegatedWork,Application",
+            "/identitygovernance/rolemanagementalerts/alerts/refresh": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "PIMPreAuthzApprover"
+      }
+    },
     "RoleManagementPolicy.Read.Directory": {
       "schemes": {
         "DelegatedWork": {
@@ -36183,6 +37091,41 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/synchronization/secrets": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ProvisioningFeedback"
+      }
+    },
+    "SynchronizationData-User.Upload": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Upload user data to the identity synchronization service",
+          "adminDescription": "Allows the app to upload bulk user data to the identity synchronization service, on behalf of the signed-in user.",
+          "userDisplayName": "Bulk upload user data to identity synchronization service",
+          "userDescription": "Allows the app to upload bulk user data to the identity synchronization service, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Upload user data to the identity synchronization service",
+          "adminDescription": "Allows the application to upload bulk user data to the identity synchronization service, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/synchronization/jobs/{id}/bulkupload": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -41455,9 +42398,13 @@
             "/security/threatintelligence/articles/{id}/indicators": "least=DelegatedWork,Application",
             "/security/threatintelligence/hostcomponents/{id}": "least=DelegatedWork,Application",
             "/security/threatintelligence/hostcookies/{id}": "least=DelegatedWork,Application",
+            "/security/threatintelligence/hostpairs/{id}": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}": "least=DelegatedWork,Application",
+            "/security/threatintelligence/hosts/{id}/childhostpairs": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}/components": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}/cookies": "least=DelegatedWork,Application",
+            "/security/threatintelligence/hosts/{id}/hostpairs": "least=DelegatedWork,Application",
+            "/security/threatintelligence/hosts/{id}/parenthostpairs": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}/passivedns": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}/passivednsreverse": "least=DelegatedWork,Application",
             "/security/threatintelligence/hosts/{id}/reputation": "least=DelegatedWork,Application",
@@ -41474,7 +42421,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "riskiq-dev"
+      }
     },
     "ThreatSubmission.Read": {
       "schemes": {
