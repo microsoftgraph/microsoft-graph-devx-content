@@ -1121,35 +1121,12 @@
           "methods": [
             "DELETE",
             "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
+            "PATCH",
             "POST"
           ],
           "paths": {
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application"
           }
         }
@@ -1236,6 +1213,8 @@
             "/serviceprincipals/{id}/memberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/owners": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
           }
@@ -1457,6 +1436,8 @@
             "/serviceprincipals/{id}/getmembergroups": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
             "/serviceprincipals/{id}/removepassword": "least=DelegatedWork",
             "/serviceprincipals/{id}/updatepasswordsinglesignoncredentials": "least=DelegatedWork,Application",
@@ -1613,6 +1594,7 @@
             "/serviceprincipals/{id}/createdobjects": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
           }
@@ -1642,7 +1624,9 @@
           ],
           "paths": {
             "/serviceprincipals(appid={value})": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}": "least=DelegatedWork"
+            "/serviceprincipals/{id}": "least=DelegatedWork",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
         }
       ],
@@ -1702,7 +1686,8 @@
             "/applications/{id}": "least=Application",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=Application",
             "/serviceprincipals(appid={value})": "",
-            "/serviceprincipals/{id}": "least=Application"
+            "/serviceprincipals/{id}": "least=Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
         },
         {
@@ -1735,6 +1720,8 @@
             "/serviceprincipals/{id}/addpassword": "least=Application",
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=Application",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=Application",
             "/serviceprincipals/{id}/removepassword": "least=Application",
             "/serviceprincipals/{id}/synchronization/acquireaccesstoken": "least=Application",
@@ -1832,6 +1819,7 @@
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/filteroperators": "least=Application",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/functions": "least=Application",
             "/serviceprincipals/{id}/synchronization/templates": "least=Application",
@@ -9325,6 +9313,129 @@
         "ownerSecurityGroup": "cdrsmon"
       }
     },
+    "DeviceManagement.Scripts.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
+          "userDisplayName": "Read Microsoft Intune Scripts",
+          "userDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}": "",
+            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
+            "/devicemanagement/devicehealthscripts/{id}/deviceRunStates": "",
+            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
+            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
+            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
+            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
+    "DeviceManagement.Scripts.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
+          "userDisplayName": "Read and write Microsoft Intune Scripts",
+          "userDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}": "",
+            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
+            "/devicemanagement/devicehealthscripts/{id}/devicerunstates": "",
+            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
+            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
+            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
+            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/assign": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}/assign": "",
+            "/devicemanagement/devicehealthscripts/{id}/getGlobalScriptHighestAvailableVersion": "",
+            "/devicemanagement/devicehealthscripts/{id}/updateGlobalScript": "",
+            "/devicemanagement/devicehealthscripts/enableGlobalScripts": "",
+            "/devicemanagement/devicehealthscripts/extractParametersFromScript": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceHealthScripts/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
     "DeviceManagementApps.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -14129,6 +14240,8 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "least=DelegatedWork",
             "/settings": "least=DelegatedWork,Application",
@@ -14386,6 +14499,7 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "",
             "/subscribedskus": "",
@@ -14586,6 +14700,8 @@
             "/serviceprincipals/{id}/getmembergroups": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "",
             "/serviceprincipals/{id}/removepassword": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/directories/{id}/discover": "least=DelegatedWork",
@@ -14676,6 +14792,8 @@
             "/rolemanagement/directory/roledefinitions/{id}": "",
             "/serviceprincipals(appid={value})": "",
             "/serviceprincipals/{id}": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/settings/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}": "",
             "/teams/{id}/channels/{id}/tabs/{id}": ""
