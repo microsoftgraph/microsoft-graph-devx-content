@@ -2644,6 +2644,595 @@
         "ownerSecurityGroup": "ipauditengsg"
       }
     },
+    "BackupRestore-Configuration.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read backup configuration policies",
+          "adminDescription": "Allows the app to read the backup configuration, and list of Microsoft 365 service resources to be backed up, on behalf of the signed in user.",
+          "userDisplayName": "Read backup configuration policies",
+          "userDescription": "Allows the app to read the backup configuration, and list of Microsoft 365 service resources to be backed up, on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Read backup configuration policies",
+          "adminDescription": "Allows the app to read all backup configurations, and lists of Microsoft 365 service resources to be backed up, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies": "least=DelegatedWork,Application",
+            "/backupRestore/protectionPolicies": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/protectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnits": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnits": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnits": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/driveProtectionUnits": "least=DelegatedWork,Application",
+            "/backupRestore/mailboxProtectionUnits": "least=DelegatedWork,Application",
+            "/backupRestore/protectionUnits": "least=DelegatedWork,Application",
+            "/backupRestore/siteProtectionUnits": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/protectionUnits/{protectionUnitId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Configuration.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and edit backup configuration policies",
+          "adminDescription": "Allows the app to read and update the backup configuration, and list of Microsoft 365 service resources to be backed up, on behalf of the signed in user.",
+          "userDisplayName": "Read and edit backup configuration policies",
+          "userDescription": "Allows the app to read and update the backup configuration, and list of Microsoft 365 service resources to be backed up, on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Read and edit backup configuration policies",
+          "adminDescription": "Allows the app to read and update the backup configuration, and list of Microsoft 365 service resources to be backed up, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/protectionPolicies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/protectionPolicies/{policyId}/activate": "least=DelegatedWork,Application",
+            "/backupRestore/protectionPolicies/{policyId}/deactivate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/protectionPolicies/{policyId}": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnits": "",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnits": "",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnits": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/driveProtectionUnits": "",
+            "/backupRestore/mailboxProtectionUnits": "",
+            "/backupRestore/protectionUnits": "",
+            "/backupRestore/siteProtectionUnits": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/protectionUnits/{protectionUnitId}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Control.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the status of the M365 backup service",
+          "adminDescription": "Allows the app to read the status of M365 backup service (enable/disable), on behalf of the signed in user.",
+          "userDisplayName": "Read the status of the M365 backup service",
+          "userDescription": "Allows the app to read the status of M365 backup service (enable/disable), on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Read the status of the M365 backup service",
+          "adminDescription": "Allows the app to read the status of M365 backup service (enable/disable), without signed in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps/{serviceAppId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Control.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update or read the status of the M365 backup service",
+          "adminDescription": "Allows the app to update or read the status of M365 backup service (enable/disable), on behalf of the signed in user.",
+          "userDisplayName": "Update or read the status of the M365 backup service",
+          "userDescription": "Allows the app to update or read the status of M365 backup service (enable/disable), on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Update or read the status of the M365 backup service",
+          "adminDescription": "Allows the app to update or read the status of M365 backup service (enable/disable), without signed in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps/{serviceAppId}/activate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps/{serviceAppId}/deactivate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps/{serviceAppId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/serviceApps/{serviceAppId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/enable": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Restore.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read restore sessions",
+          "adminDescription": "Allows the app to read restore sessions, on behalf of the signed in user.",
+          "userDisplayName": "Read restore sessions",
+          "userDescription": "Allows the app to read restore sessions, on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Read all restore sessions",
+          "adminDescription": "Allows the app to read all restore sessions, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeRestoreSessions": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessRestoreSessions": "least=DelegatedWork,Application",
+            "/backupRestore/restoreSessions": "least=DelegatedWork,Application",
+            "/backupRestore/sharepointRestoreSessions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/restoreSessions/{restoreSessionId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifacts": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifacts": "least=DelegatedWork,Application",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Restore.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read restore sessions and start restore sessions from backups",
+          "adminDescription": "Allows the app to search the backup snapshots for Microsoft 365 resources, and restore Microsoft 365 resources from a backed up snapshot, on behalf of the signed in user.",
+          "userDisplayName": "Read restore sessions and start restore sessions from backups",
+          "userDescription": "Allows the app to restore Microsoft 365 resources from a backed up snapshot, on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Read restore all sessions and start restore sessions from backups",
+          "adminDescription": "Allows the app to restore Microsoft 365 resources from a backed up snapshot, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/restoreSessions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/exchangeRestoreSessions": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessRestoreSessions": "least=DelegatedWork,Application",
+            "/backupRestore/sharepointRestoreSessions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/restoreSessions/{restoreSessionId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifacts": "",
+            "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifacts": "",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/restoreSessions/{restoreSessionId}/activate": "least=DelegatedWork,Application",
+            "/backupRestore/restoreSessions/{restoreSessionId}/deactivate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
+    "BackupRestore-Search.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Search for metadata properties in all backup snapshots",
+          "adminDescription": "Allows the app to search the backup snapshots for Microsoft 365 resources, on behalf of the signed in user.",
+          "userDisplayName": "Search for metadata properties in backup snapshots",
+          "userDescription": "Allows the app to search the backup snapshots for Microsoft 365 resources, on your behalf.",
+          "requiresAdminConsent": true
+        },
+        "Application": {
+          "adminDisplayName": "Search for metadata properties in all backup snapshots",
+          "adminDescription": "Allows the app to search all backup snapshots for Microsoft 365 resources, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/restorePoints": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/restorePoints/{restorePointId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/restorePoints/search": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EnhancedRestoreAdmin"
+      }
+    },
     "BitLockerKey.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -22371,26 +22960,19 @@
           "userDescription": "Allows the app to read and write all scenario monitoring alert configurations, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 2
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all scenario monitoring alerts",
-          "adminDescription": "Allows the app to read and write all scenario monitoring alerts, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "GET",
             "PATCH"
           ],
           "paths": {
-            "/reports/healthmonitoring/alertconfigurations/{id}": "least=Application,DelegatedWork"
+            "/reports/healthmonitoring/alertconfigurations/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -29810,7 +30392,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "prgctex"
+        "ownerSecurityGroup": "umtelivesite"
       }
     },
     "Policy.ReadWrite.DeviceConfiguration": {
@@ -32432,6 +33014,122 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "igagraph"
+      }
+    },
+    "PublicKeyInfrastructure.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all certificate based authentication configurations",
+          "adminDescription": "Allows the application to read certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read all certificate based authentication configurations",
+          "userDescription": "Allows the application to read certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all certificate based authentication configurations",
+          "adminDescription": "Allows the application to read certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iamutreviewers"
+      }
+    },
+    "PublicKeyInfrastructure.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all certificate based authentication configurations",
+          "adminDescription": "Allows the application to read and write certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all certificate based authentication configurations",
+          "userDescription": "Allows the application to read and write certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all certificate based authentication configurations",
+          "adminDescription": "Allows the application to read and write certificate-based authentication configuration such as all public key infrastructures (PKI) and certificate authorities (CA) configured for the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations": "",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}": "",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities": "",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/certificateAuthorities": "least=DelegatedWork,Application",
+            "/directory/publicKeyInfrastructure/certificateBasedAuthConfigurations/{id}/upload": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iamutreviewers"
       }
     },
     "QnA.Read.All": {
