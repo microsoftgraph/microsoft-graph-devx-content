@@ -1126,7 +1126,7 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application"
           }
         }
@@ -1172,7 +1172,7 @@
           ],
           "paths": {
             "/applications": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
@@ -1214,7 +1214,6 @@
             "/serviceprincipals/{id}/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/owners": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
@@ -1357,6 +1356,7 @@
           ],
           "paths": {
             "/applications": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1374,7 +1374,7 @@
           ],
           "paths": {
             "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1388,8 +1388,9 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addkey": "least=DelegatedWork",
-            "/applications(appid={value})/removekey": "least=DelegatedWork",
+            "/applications(appid={value})/addkey": "least=DelegatedWork,Application",
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
+            "/applications(appid={value})/removekey": "least=DelegatedWork,Application",
             "/applications(appid={value})/repair": "least=DelegatedWork",
             "/applications/{id}/addkey": "least=DelegatedWork",
             "/applications/{id}/removekey": "least=DelegatedWork",
@@ -1416,14 +1417,14 @@
             "/me/getmembergroups": "",
             "/me/getmemberobjects": "",
             "/schemaextensions": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=Application",
             "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=Application",
             "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=Application",
-            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "least=Application",
             "/serviceprincipals/{id}/addkey": "least=DelegatedWork",
             "/serviceprincipals/{id}/addpassword": "least=DelegatedWork",
@@ -1456,8 +1457,9 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addpassword": "least=DelegatedWork,DelegatedPersonal",
-            "/applications(appid={value})/removepassword": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/addpassword": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
+            "/applications(appid={value})/removepassword": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/addpassword": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/removepassword": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1472,7 +1474,7 @@
             "PUT"
           ],
           "paths": {
-            "/applications(appid={value})/logo": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/logo": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/logo": "least=DelegatedWork,DelegatedPersonal"
           }
         },
@@ -1486,6 +1488,7 @@
             "POST"
           ],
           "paths": {
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=Application",
             "/applications(appid={value})/tokenissuancepolicies": "least=Application",
             "/applications/{id}/owners": "least=DelegatedWork",
@@ -1592,7 +1595,6 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
           }
@@ -1621,7 +1623,7 @@
             "PATCH"
           ],
           "paths": {
-            "/serviceprincipals(appid={value})": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}": "least=DelegatedWork",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
@@ -1652,7 +1654,7 @@
           ],
           "paths": {
             "/applications": "least=Application",
-            "/applications(appid={value})/federatedidentitycredentials": "least=Application",
+            "/applications(appid={value})/federatedidentitycredentials": "",
             "/applications(appid={value})/owners": "",
             "/applications(appid={value})/tokenissuancepolicies": "",
             "/applications/{id}/extensionproperties": "least=Application",
@@ -1679,11 +1681,11 @@
             "PATCH"
           ],
           "paths": {
-            "/applications(appid={value})": "least=Application",
-            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=Application",
+            "/applications(appid={value})": "",
+            "/applications(appid={value})/federatedidentitycredentials/{id}": "",
             "/applications/{id}": "least=Application",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=Application",
-            "/serviceprincipals(appid={value})": "least=Application",
+            "/serviceprincipals(appid={value})": "",
             "/serviceprincipals/{id}": "least=Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
@@ -1696,10 +1698,10 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addkey": "least=Application",
-            "/applications(appid={value})/addpassword": "least=Application",
-            "/applications(appid={value})/removekey": "least=Application",
-            "/applications(appid={value})/removepassword": "least=Application",
+            "/applications(appid={value})/addkey": "",
+            "/applications(appid={value})/addpassword": "",
+            "/applications(appid={value})/removekey": "",
+            "/applications(appid={value})/removepassword": "",
             "/applications(appid={value})/repair": "least=Application",
             "/applications/{id}}/repair": "least=Application",
             "/applications/{id}/addkey": "least=Application",
@@ -1708,12 +1710,12 @@
             "/applications/{id}/removepassword": "least=Application",
             "/applications/{id}/synchronization/acquireaccesstoken": "least=Application",
             "/applicationtemplates/{id}/instantiate": "least=Application",
-            "/serviceprincipals(appid={value})/addkey": "least=Application",
-            "/serviceprincipals(appid={value})/addpassword": "least=Application",
-            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=Application",
+            "/serviceprincipals(appid={value})/addkey": "",
+            "/serviceprincipals(appid={value})/addpassword": "",
+            "/serviceprincipals(appid={value})/addtokensigningcertificate": "",
             "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "",
-            "/serviceprincipals(appid={value})/removekey": "least=Application",
-            "/serviceprincipals(appid={value})/removepassword": "least=Application",
+            "/serviceprincipals(appid={value})/removekey": "",
+            "/serviceprincipals(appid={value})/removepassword": "",
             "/serviceprincipals/{id}/addkey": "least=Application",
             "/serviceprincipals/{id}/addpassword": "least=Application",
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=Application",
@@ -1741,7 +1743,7 @@
             "PUT"
           ],
           "paths": {
-            "/applications(appid={value})/logo": "least=Application",
+            "/applications(appid={value})/logo": "",
             "/applications/{id}/logo": "least=Application",
             "/serviceprincipals/{id}/synchronization/secrets": "least=Application"
           }
@@ -1818,7 +1820,6 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/filteroperators": "least=Application",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/functions": "least=Application",
             "/serviceprincipals/{id}/synchronization/templates": "least=Application",
@@ -2274,6 +2275,8 @@
             "/auditlogs/provisioning": "least=DelegatedWork,Application",
             "/auditlogs/signins": "least=DelegatedWork,Application",
             "/auditlogs/signins/{id}": "least=DelegatedWork,Application",
+            "/auditlogs/signups": "least=DelegatedWork,Application",
+            "/auditlogs/signups/{id}": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails/{id}": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessimpactanalyzerdata": "least=DelegatedWork,Application",
@@ -10402,7 +10405,7 @@
             "/devicemanagement/reports/reportschedules": "",
             "/devicemanagement/windowsinformationprotectionapplearningsummaries": "least=DelegatedWork,Application",
             "/devicemanagement/windowsinformationprotectionnetworklearningsummaries": "least=DelegatedWork,Application",
-            "/users": ""
+            "/users": "least=DelegatedWork,Application"
           }
         },
         {
@@ -10492,7 +10495,7 @@
             "/devicemanagement/reports/reportschedules/{id}": "",
             "/devicemanagement/windowsinformationprotectionapplearningsummaries/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/windowsinformationprotectionnetworklearningsummaries/{id}": "least=DelegatedWork,Application",
-            "/users/{id}": ""
+            "/users/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -14586,7 +14589,6 @@
             "/devices/{id}/registeredowners": "least=DelegatedWork",
             "/devices/{id}/registeredusers": "least=DelegatedWork",
             "/directory/administrativeunits/{id}/members": "",
-            "/domains/{id}": "",
             "/groups/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/groups/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
             "/me/changepassword": "least=DelegatedWork",
@@ -14764,6 +14766,7 @@
             "/directorysettingtemplates/{id}": "least=DelegatedWork,Application",
             "/domains": "",
             "/domains/{id}": "",
+            "/domains/{id}/rootDomain": "",
             "/education/classes/{id}/group": "",
             "/education/me/user": "",
             "/education/schools/{id}/administrativeunit": "",
@@ -14830,7 +14833,6 @@
             "/serviceprincipals/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "least=DelegatedWork",
@@ -15090,7 +15092,6 @@
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "",
             "/subscribedskus": "",
@@ -15309,9 +15310,7 @@
             "/users/{id}/getmembergroups": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "",
-            "/users/{id}/revokesigninsessions": "",
-            "/users/{id}/sponsors": "",
-            "/users/{id}/sponsors/{id}": ""
+            "/users/{id}/revokesigninsessions": ""
           }
         },
         {
@@ -15328,9 +15327,7 @@
             "/applications/{id}/owners/{id}": "",
             "/groups/{id}/members/{id}": "",
             "/groups/{id}/owners/{id}": "",
-            "/serviceprincipals/{id}/owners/{id}": "",
-            "/users/{id}/sponsors": "",
-            "/users/{id}/sponsors/{id}": ""
+            "/serviceprincipals/{id}/owners/{id}": ""
           }
         },
         {
@@ -15678,6 +15675,7 @@
             "/domains/{id}": "least=DelegatedWork,Application",
             "/domains/{id}/domainnamereferences": "least=DelegatedWork,Application",
             "/domains/{id}/federationconfiguration/{id}": "least=DelegatedWork,Application",
+            "/domains/{id}/rootDomain": "least=DelegatedWork,Application",
             "/domains/{id}/serviceconfigurationrecords": "least=DelegatedWork,Application",
             "/domains/{id}/verificationdnsrecords": "least=DelegatedWork,Application"
           }
@@ -15728,6 +15726,7 @@
           "paths": {
             "/directory/federationconfigurations/graph.samlorwsfedexternaldomainfederation": "",
             "/domains/{id}/domainnamereferences": "",
+            "/domains/{id}/rootDomain": "",
             "/domains/{id}/serviceconfigurationrecords": "",
             "/domains/{id}/verificationdnsrecords": ""
           }
@@ -18623,6 +18622,61 @@
         }
       ],
       "ownerInfo": {}
+    },
+    "FileIngestion.Ingest": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Ingest SharePoint and OneDrive content to make it available in the search index",
+          "adminDescription": "Allows the app to ingest SharePoint and OneDrive content to make it available in the search index, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/rp/onpremises/spoons/api/v1/ingest('{itemId}')": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SPOONSAdmin"
+      }
+    },
+    "FileIngestionHybridOnboarding.Manage": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage onboarding for a Hybrid Cloud tenant",
+          "adminDescription": "Allows the app to manage onboarding for a Hybrid Cloud tenant, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/rp/onpremises/spoons/admin/tenant/{tenant}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SPOONSAdmin"
+      }
     },
     "Files.Read": {
       "schemes": {
@@ -22390,7 +22444,7 @@
             "/directoryobjects/{id}/getmembergroups": "",
             "/directoryobjects/{id}/getmemberobjects": "",
             "/grouplifecyclepolicies/renewgroup": "least=DelegatedWork,Application",
-            "/groups/{id}/assignlicense": "",
+            "/groups/{id}/assignlicense": "least=DelegatedWork,Application",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
             "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "",
@@ -24802,42 +24856,6 @@
         }
       ],
       "ownerInfo": {}
-    },
-    "LicenseAssignment.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Manage all license assignments.",
-          "adminDescription": "Allows an app to manage license assignments for users and groups, on behalf of the signed-in user.",
-          "userDisplayName": "Manage all license assignments.",
-          "userDescription": "Allows the app to manage all license assignments, on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Manage all license assignments.",
-          "adminDescription": "Allows an app to manage license assignments for users and groups, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/groups/{id}/assignlicense": "least=DelegatedWork,Application",
-            "/users/{id}/assignlicense": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "DirectoryPreAuthZReq"
-      }
     },
     "LifeCycleInfo.Read.All": {
       "schemes": {
@@ -45388,7 +45406,7 @@
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
-            "/users/{id}/assignlicense": "",
+            "/users/{id}/assignlicense": "least=DelegatedWork,Application",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
             "/users/{id}/convertExternalToInternalMemberUser": "",
@@ -45707,7 +45725,7 @@
             "POST"
           ],
           "paths": {
-            "/users": "least=DelegatedWork,Application",
+            "/users": "",
             "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/sponsors": "least=DelegatedWork,Application"
           }
@@ -45723,7 +45741,7 @@
             "PATCH"
           ],
           "paths": {
-            "/users/{id}": "least=DelegatedWork,Application",
+            "/users/{id}": "",
             "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork"
           }
         },
