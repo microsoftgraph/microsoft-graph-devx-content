@@ -2275,6 +2275,8 @@
             "/auditlogs/provisioning": "least=DelegatedWork,Application",
             "/auditlogs/signins": "least=DelegatedWork,Application",
             "/auditlogs/signins/{id}": "least=DelegatedWork,Application",
+            "/auditlogs/signups": "least=DelegatedWork,Application",
+            "/auditlogs/signups/{id}": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails/{id}": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessimpactanalyzerdata": "least=DelegatedWork,Application",
@@ -14764,6 +14766,7 @@
             "/directorysettingtemplates/{id}": "least=DelegatedWork,Application",
             "/domains": "",
             "/domains/{id}": "",
+            "/domains/{id}/rootDomain": "",
             "/education/classes/{id}/group": "",
             "/education/me/user": "",
             "/education/schools/{id}/administrativeunit": "",
@@ -15672,6 +15675,7 @@
             "/domains/{id}": "least=DelegatedWork,Application",
             "/domains/{id}/domainnamereferences": "least=DelegatedWork,Application",
             "/domains/{id}/federationconfiguration/{id}": "least=DelegatedWork,Application",
+            "/domains/{id}/rootDomain": "least=DelegatedWork,Application",
             "/domains/{id}/serviceconfigurationrecords": "least=DelegatedWork,Application",
             "/domains/{id}/verificationdnsrecords": "least=DelegatedWork,Application"
           }
@@ -15722,6 +15726,7 @@
           "paths": {
             "/directory/federationconfigurations/graph.samlorwsfedexternaldomainfederation": "",
             "/domains/{id}/domainnamereferences": "",
+            "/domains/{id}/rootDomain": "",
             "/domains/{id}/serviceconfigurationrecords": "",
             "/domains/{id}/verificationdnsrecords": ""
           }
@@ -18617,6 +18622,61 @@
         }
       ],
       "ownerInfo": {}
+    },
+    "FileIngestion.Ingest": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Ingest SharePoint and OneDrive content to make it available in the search index",
+          "adminDescription": "Allows the app to ingest SharePoint and OneDrive content to make it available in the search index, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/rp/onpremises/spoons/api/v1/ingest('{itemId}')": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SPOONSAdmin"
+      }
+    },
+    "FileIngestionHybridOnboarding.Manage": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage onboarding for a Hybrid Cloud tenant",
+          "adminDescription": "Allows the app to manage onboarding for a Hybrid Cloud tenant, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/rp/onpremises/spoons/admin/tenant/{tenant}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SPOONSAdmin"
+      }
     },
     "Files.Read": {
       "schemes": {
