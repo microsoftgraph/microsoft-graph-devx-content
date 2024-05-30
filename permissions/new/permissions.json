@@ -1953,6 +1953,195 @@
         "ownerSecurityGroup": "IdentityReq"
       }
     },
+    "ApprovalSolution.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read user's approval items, approval requests and approval responses.",
+          "adminDescription": "Allows the app to read the signed-in user's approval items, approval requests and approval responses (created by the user or assigned to the user). Doesn't include permission to create, cancel, or update anything.",
+          "userDisplayName": "Read your approval items, approval requests and approval responses ",
+          "userDescription": "Allows the app to read your approval items, approval requests and approval responses (created by you or assigned to you). Doesn't include permission to create, cancel, or update anything.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/approval": "least=DelegatedWork",
+            "/solutions/approval/approvalitems": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}/requests": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}/requests/{id}": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}/responses": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}/responses/{id}": "least=DelegatedWork",
+            "/solutions/approval/operations/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/approval/provision": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EasyApprovalsFC"
+      }
+    },
+    "ApprovalSolution.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read approvals data with a subscription.",
+          "adminDescription": "Allows the app to read approvals event information for all users in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EasyApprovalsFC"
+      }
+    },
+    "ApprovalSolution.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create and cancel user's approval items. Read user's approval items, requests, responses.",
+          "adminDescription": "Allows the app to create approvals on behalf of the signed-in user, cancel approvals created by the user and read any of the user's approvals (created by the user or assigned to the user).",
+          "userDisplayName": "Create and cancel your approval items. Read user's approval items, requests, responses.",
+          "userDescription": "Allows you to create approvals, cancel approvals created by you and read any of your approvals (created by you or assigned to you).",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/approval": "",
+            "/solutions/approval/approvalitems/{id}": "",
+            "/solutions/approval/approvalitems/{id}/requests": "",
+            "/solutions/approval/approvalitems/{id}/requests/{id}": "",
+            "/solutions/approval/approvalitems/{id}/responses/{id}": "",
+            "/solutions/approval/operations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/solutions/approval/approvalitems": "least=DelegatedWork",
+            "/solutions/approval/approvalitems/{id}/responses": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/approval/approvalitems/{id}/cancel": "least=DelegatedWork",
+            "/solutions/approval/provision": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EasyApprovalsFC"
+      }
+    },
+    "ApprovalSolution.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read approvals data and create, update, or remove approval item subscriptions.",
+          "adminDescription": "Allows the app to read approvals event information for all users in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EasyApprovalsFC"
+      }
+    },
+    "ApprovalSolutionResponse.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Respond to a user's approval. Read user's approval items, requests, responses.",
+          "adminDescription": "Allows the app to create approvals on behalf of the signed-in user, cancel approvals created by the user and read any of the user's approvals (created by the user or assigned to the user).",
+          "userDisplayName": "Respond to a user's approval. Read user's approval items, requests, responses.",
+          "userDescription": "Allows you to create approvals, cancel approvals created by you and read any of your approvals (created by you or assigned to you).",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/approval": "",
+            "/solutions/approval/approvalitems": "",
+            "/solutions/approval/approvalitems/{id}": "",
+            "/solutions/approval/approvalitems/{id}/requests": "",
+            "/solutions/approval/approvalitems/{id}/requests/{id}": "",
+            "/solutions/approval/approvalitems/{id}/responses/{id}": "",
+            "/solutions/approval/operations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/approval/provision": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/solutions/approval/approvalitems/{id}/responses": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "EasyApprovalsFC"
+      }
+    },
     "AttackSimulation.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -7587,7 +7776,6 @@
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "least=DelegatedWork",
             "/me/cloudpcs": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
-            "/me/cloudpcs/{id}/getshiftworkcloudpcaccessstate": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcconnections": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcdevices": "least=DelegatedWork",
@@ -7595,8 +7783,7 @@
             "/tenantrelationships/managedtenants/cloudpcsoverview": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcsoverview/{id}": "least=DelegatedWork",
             "/users/{id}/cloudpcs": "least=DelegatedWork",
-            "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
-            "/users/{id}/cloudpcs/{id}/getshiftworkcloudpcaccessstate": "least=DelegatedWork"
+            "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork"
           }
         },
         {
@@ -7856,7 +8043,6 @@
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "",
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
-            "/me/cloudpcs/{id}/getshiftworkcloudpcaccessstate": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "",
             "/tenantrelationships/managedtenants/cloudpcdevices": "",
@@ -7864,8 +8050,7 @@
             "/tenantrelationships/managedtenants/cloudpcsoverview": "",
             "/tenantrelationships/managedtenants/cloudpcsoverview/{id}": "",
             "/users/{id}/cloudpcs": "",
-            "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": "",
-            "/users/{id}/cloudpcs/{id}/getshiftworkcloudpcaccessstate": ""
+            "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": ""
           }
         },
         {
