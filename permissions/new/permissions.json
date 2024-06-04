@@ -9918,7 +9918,7 @@
             "/devices/{id}/organizationalUnitParent": "least=DelegatedWork,Application",
             "/devices/{id}/registeredowners": "least=DelegatedWork,Application",
             "/devices/{id}/registeredusers": "least=DelegatedWork,Application",
-            "/devices/{id}/transitivememberof": "",
+            "/devices/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/devices/{id}/usagerights": "least=DelegatedWork,Application",
             "/devices/delta": "least=DelegatedWork,Application"
           }
@@ -14926,7 +14926,7 @@
             "/devices/{id}/memberof": "",
             "/devices/{id}/registeredowners": "",
             "/devices/{id}/registeredusers": "",
-            "/devices/{id}/transitivememberof": "least=DelegatedWork,Application",
+            "/devices/{id}/transitivememberof": "",
             "/devices/{id}/usagerights": "",
             "/directory/administrativeunits": "",
             "/directory/administrativeunits/{id}": "",
@@ -36691,6 +36691,18 @@
           "paths": {
             "/drives/{id}/items/{id}/extensions": "",
             "/drives/{id}/items/{id}/extensions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/sites": ""
           }
         }
       ],
