@@ -33923,6 +33923,14 @@
           "userDescription": "Allows the app to read the active role-based access control (RBAC) assignments for your company's directory, on your behalf. This includes reading directory role templates, and directory roles.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all active role assignments and role schedules for your company's directory",
+          "adminDescription": "Allows the app to read the active role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes reading directory role templates, and directory roles.",
+          "userDisplayName": "Read all active role assignments and role schedules for your company's directory",
+          "userDescription": "Allows the app to read the active role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes reading directory role templates, and directory roles.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -33937,12 +33945,26 @@
             "/rolemanagement/directory/roleassignmentscheduleinstances": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedulerequests": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedules": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedules/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/directory/roleAssignmentScheduleInstances": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentSchedules": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -34004,9 +34026,30 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/directory/roleAssignmentScheduleInstances": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleAssignmentScheduleRequests": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequestId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentSchedules": "",
+            "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
+            "/roleManagement/directory/roleAssignmentScheduleRequests": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": "least=DelegatedWork,Application"
           }
         }
@@ -34059,6 +34102,14 @@
           "userDescription": "Allows the app to read the eligible role-based access control (RBAC) assignments for your company's directory, on your behalf. This includes reading directory role templates, and directory roles.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all eligible role assignments and role schedules for your company's directory",
+          "adminDescription": "Allows the app to read the eligible role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes reading directory role templates, and directory roles.",
+          "userDisplayName": "Read all eligible role assignments and role schedules for your company's directory",
+          "userDescription": "Allows the app to read the eligible role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes reading directory role templates, and directory roles.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -34074,11 +34125,28 @@
             "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
+            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedules": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedules/{id}": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/directory/roleEligibilityScheduleInstances": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilitySchedules": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -34093,6 +34161,14 @@
           "adminDescription": "Allows the app to read and manage the eligible role-based access control (RBAC) assignments for your company's directory, on behalf of the signed-in user. This includes managing eligible directory role membership, and reading directory role templates, directory roles and eligible memberships.",
           "userDisplayName": "Read, update, and delete  all eligible role assignments for your company's directory",
           "userDescription": "Allows the app to read and manage the eligible role-based access control (RBAC) assignments for your company's directory, on your behalf. This includes managing eligible directory role membership, and reading directory role templates, directory roles and eligible memberships.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read, update, and delete all eligible role assignments and schedules for your company's directory",
+          "adminDescription": "Allows the app to read and manage the eligible role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes managing eligible directory role membership, and reading directory role templates, directory roles and eligible memberships.",
+          "userDisplayName": "Read, update, and delete all eligible role assignments and schedules for your company's directory",
+          "userDescription": "Allows the app to read and manage the eligible role-based access control (RBAC) assignments and schedules for your company's directory, without a signed-in user. This includes managing eligible directory role membership, and reading directory role templates, directory roles and eligible memberships.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -34130,13 +34206,35 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/directory/roleEligibilityScheduleInstances": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleEligibilityScheduleRequests": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on={parameterValue})": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilitySchedules": "",
+            "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
+            "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": "least=DelegatedWork"
+            "/roleManagement/directory/roleEligibilityScheduleRequests": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}/cancel": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -34221,22 +34319,22 @@
             "/rolemanagement/directory/resourcenamespaces/{id}": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions/{id}": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "least=Application",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "least=Application",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedules": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "least=Application",
+            "/roleManagement/directory/roleAssignmentScheduleInstances": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/rolemanagement/directory/roleassignmentschedules": "",
+            "/roleManagement/directory/roleAssignmentSchedules": "",
+            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roledefinitions": "",
             "/rolemanagement/directory/roledefinitions/{id}": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances": "least=Application",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "least=Application",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedules": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=Application",
+            "/roleManagement/directory/roleEligibilityScheduleInstances": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleEligibilitySchedules": "",
+            "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
+            "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": "",
             "/roleManagement/exchange/customAppScopes": "",
@@ -34369,21 +34467,33 @@
             "/rolemanagement/directory/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignmentscheduleinstances": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances": "",
             "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleassignmentschedules": "",
+            "/roleManagement/directory/roleAssignmentSchedules": "",
             "/rolemanagement/directory/roleassignmentschedules/{id}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roledefinitions/{id}/assignedprincipals": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleeligibilityscheduleinstances": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances": "",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedules": "",
+            "/roleManagement/directory/roleEligibilitySchedules": "",
             "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
+            "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
+            "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/transitiveroleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments": "",
@@ -34601,22 +34711,25 @@
             "/rolemanagement/directory/resourcenamespaces/{id}": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions/{id}": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "least=Application",
-            "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
+            "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleAssignmentScheduleRequests": "",
+            "/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequestId}": "",
+            "/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleAssignmentSchedules": "",
+            "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
+            "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roledefinitions/{id}/assignedprincipals": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "least=Application",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedules": "",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
+            "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleEligibilityScheduleRequests": "",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}": "",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on={parameterValue})": "",
+            "/roleManagement/directory/roleEligibilitySchedules": "",
+            "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
+            "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/transitiveroleassignments": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
@@ -34645,8 +34758,10 @@
           ],
           "paths": {
             "/directoryroles/roletemplateid={roletemplateid}/members": "least=DelegatedWork,Application",
+            "/roleManagement/directory/roleAssignmentScheduleRequests": "",
             "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}/cancel": "least=Application"
+            "/roleManagement/directory/roleEligibilityScheduleRequests": "",
+            "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}/cancel": ""
           }
         },
         {
