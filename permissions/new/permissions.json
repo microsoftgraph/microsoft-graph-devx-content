@@ -24190,6 +24190,54 @@
         "ownerSecurityGroup": "IndustryDataAgsAdmin"
       }
     },
+    "IndustryData-ReferenceDefinition.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "userDisplayName": "Manage reference definitions",
+          "userDescription": "Allows the app to read and write reference definitions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Manage reference definitions",
+          "adminDescription": "Allows the app to read and write reference definitions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/external/industrydata/referenceDefinitions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/external/industrydata/referenceDefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IndustryDataAgsAdmin"
+      }
+    },
     "IndustryData-Run.Read.All": {
       "schemes": {
         "DelegatedWork": {
