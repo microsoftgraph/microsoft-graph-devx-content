@@ -22280,6 +22280,7 @@
             "/groups/{id}/endpoints/{id}": "least=DelegatedWork,Application",
             "/groups/{id}/memberof": "",
             "/groups/{id}/members": "",
+            "/groups/{id}/organizationalUnitParent": "least=DelegatedWork,Application",
             "/groups/{id}/owners": "",
             "/groups/{id}/permissiongrants": "",
             "/groups/{id}/photo": "",
@@ -40033,6 +40034,41 @@
           ],
           "paths": {
             "/users/{id}/teamwork/installedapps/{id}/upgrade": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsAppInstallation.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read installed Teams apps for all installation scopes",
+          "adminDescription": "Allows the app to read the Teams apps that are installed in any scope, without a signed-in user. Does not give the ability to read application-specific settings.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/appCatalogs/teamsApps/{id}/installations": "",
+            "/chats/{id}/installedapps": "",
+            "/chats/{id}/installedapps/{id}": "",
+            "/chats/{id}/permissiongrants": "",
+            "/teams/{id}/installedapps": "",
+            "/teams/{id}/installedapps/{id}": "",
+            "/teams/{id}/permissiongrants": "",
+            "/users/{id}/teamwork/installedapps": "",
+            "/users/{id}/teamwork/installedapps/{id}": "",
+            "/users/{id}/teamwork/installedapps/{id}/chat": ""
           }
         }
       ],
