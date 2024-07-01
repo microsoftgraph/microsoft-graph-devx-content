@@ -10794,6 +10794,111 @@
         "ownerSecurityGroup": "GraphIntuneApprovers"
       }
     },
+    "DeviceManagementCloudCA.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Microsoft Cloud PKI objects",
+          "adminDescription": "Allows the app to read certification authority information on behalf of the signed-in user.",
+          "userDisplayName": "Read Microsoft Cloud PKI objects",
+          "userDescription": "Allows the app to read certification authority information on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read Microsoft Cloud PKI objects",
+          "adminDescription": "Allows the app to read certification authority information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/cloudCertificationAuthority": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority/{id}": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority/{id}/cloudCertificationAuthorityLeafCertificate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
+    "DeviceManagementCloudCA.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Microsoft Cloud PKI objects",
+          "adminDescription": "Allows the app to read and write certification authority information on behalf of the signed-in user.",
+          "userDisplayName": "Read and write Microsoft Cloud PKI objects",
+          "userDescription": "Allows the app to read and write certification authority information on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Microsoft Cloud PKI objects",
+          "adminDescription": "Allows the app to read and write certification authority information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/cloudCertificationAuthority": "",
+            "/deviceManagement/cloudCertificationAuthority/{id}": "",
+            "/deviceManagement/cloudCertificationAuthority/{id}/cloudCertificationAuthorityLeafCertificate": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/deviceManagement/cloudCertificationAuthority": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})/changeCloudCertificationAuthorityStatus": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})/cloudCertificationAuthorityLeafCertificate": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})/revokeCloudCertificationAuthorityCertificate": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})/revokeLeafCertificate": "least=DelegatedWork,Application",
+            "/deviceManagement/cloudCertificationAuthority({id})/uploadExternallySignedCertificationAuthorityCertificate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/deviceManagement/cloudCertificationAuthority/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
     "DeviceManagementConfiguration.Read.All": {
       "schemes": {
         "DelegatedWork": {
