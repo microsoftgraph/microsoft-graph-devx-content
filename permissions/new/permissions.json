@@ -1172,7 +1172,7 @@
           ],
           "paths": {
             "/applications": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
@@ -1190,7 +1190,7 @@
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications/{id}/owners": "least=DelegatedWork",
+            "/applications/{id}/owners": "least=DelegatedWork,Application",
             "/applications/delta": "",
             "/policies/appmanagementpolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "",
@@ -1201,6 +1201,8 @@
             "/schemaextensions/{id}": "least=Application",
             "/serviceprincipals": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/createdobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/delegatedpermissionclassifications": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/memberof": "least=DelegatedWork,Application",
@@ -1208,12 +1210,15 @@
             "/serviceprincipals(appid={value})/owners": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/createdobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/memberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/owners": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
@@ -1262,6 +1267,10 @@
             "/me/checkmemberobjects": "least=DelegatedWork,Application",
             "/me/getmembergroups": "least=DelegatedWork,Application",
             "/me/getmemberobjects": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
+            "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
+            "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
+            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/serviceprincipals/{id}/checkmembergroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/checkmemberobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/getmembergroups": "least=DelegatedWork,Application",
@@ -1283,22 +1292,6 @@
           "paths": {
             "/identity/conditionalaccess/policies/{id}": "least=DelegatedWork",
             "/identity/continuousaccessevaluationpolicy": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application"
           }
         },
         {
@@ -1356,7 +1349,6 @@
           ],
           "paths": {
             "/applications": "least=DelegatedWork,DelegatedPersonal",
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1373,8 +1365,8 @@
             "PATCH"
           ],
           "paths": {
-            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1388,9 +1380,8 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addkey": "least=DelegatedWork,Application",
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/removekey": "least=DelegatedWork,Application",
+            "/applications(appid={value})/addkey": "least=DelegatedWork",
+            "/applications(appid={value})/removekey": "least=DelegatedWork",
             "/applications(appid={value})/repair": "least=DelegatedWork",
             "/applications/{id}/addkey": "least=DelegatedWork",
             "/applications/{id}/removekey": "least=DelegatedWork",
@@ -1417,30 +1408,30 @@
             "/me/getmembergroups": "",
             "/me/getmemberobjects": "",
             "/schemaextensions": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=Application",
-            "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=Application",
-            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=Application",
-            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "least=Application",
+            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/addkey": "least=DelegatedWork",
             "/serviceprincipals/{id}/addpassword": "least=DelegatedWork",
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=DelegatedWork",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
-            "/serviceprincipals/{id}/createpasswordsinglesignoncredentials": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/createpasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/getmembergroups": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
-            "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
+            "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
             "/serviceprincipals/{id}/removepassword": "least=DelegatedWork",
-            "/serviceprincipals/{id}/updatepasswordsinglesignoncredentials": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/updatepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
             "/users/{id}/getmembergroups": "",
@@ -1457,9 +1448,8 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addpassword": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/removepassword": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/applications(appid={value})/addpassword": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})/removepassword": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/addpassword": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/removepassword": "least=DelegatedWork,DelegatedPersonal"
           }
@@ -1474,7 +1464,7 @@
             "PUT"
           ],
           "paths": {
-            "/applications(appid={value})/logo": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/applications(appid={value})/logo": "least=DelegatedWork,DelegatedPersonal",
             "/applications/{id}/logo": "least=DelegatedWork,DelegatedPersonal"
           }
         },
@@ -1488,18 +1478,32 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/owners": "least=Application",
-            "/applications(appid={value})/tokenissuancepolicies": "least=Application",
-            "/applications/{id}/owners": "least=DelegatedWork",
-            "/applications/{id}/tokenissuancepolicies": "",
+            "/applications(appid={value})/tokenissuancepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/applications(appid={value})/tokenlifetimepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/applications/{id}/tokenissuancepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/applications/{id}/tokenlifetimepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
             "/serviceprincipals": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies": "least=Application",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "least=Application",
-            "/serviceprincipals(appid={value})/owners": "least=Application",
-            "/serviceprincipals/{id}/claimsmappingpolicies": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "",
-            "/serviceprincipals/{id}/owners": "least=DelegatedWork"
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": "least=DelegatedWork;AlsoRequires=Policy.Read.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/applications(appid={value})/owners": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/applications/{id}/owners": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/owners": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals/{id}/owners": "least=DelegatedWork;AlsoRequires=Directory.Read.All"
           }
         },
         {
@@ -1511,16 +1515,18 @@
             "DELETE"
           ],
           "paths": {
-            "/applications(appid={value})/owners/{id}": "least=DelegatedWork,Application",
+            "/applications(appid={value})/owners/{id}": "least=DelegatedWork",
             "/applications/{id}/owners/{id}": "least=DelegatedWork",
-            "/applications/{id}/tokenissuancepolicies/{id}": "",
-            "/applications/{id}/tokenlifetimepolicies/{id}": "",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "least=Application",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "least=Application",
-            "/serviceprincipals(appid={value})/owners/{id}": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "",
-            "/serviceprincipals/{id}/owners/{id}": "least=DelegatedWork,Application"
+            "/applications/{id}/tokenissuancepolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/owners/{id}": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/owners/{id}": "least=DelegatedWork",
+            "/serviceprincipals/{id}/tokenlifetimepolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All"
           }
         },
         {
@@ -1552,11 +1558,7 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/tokenlifetimepolicies": "least=Application",
-            "/applications/{id}/tokenlifetimepolicies": "",
-            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "least=Application",
-            "/serviceprincipals/{id}/tokenlifetimepolicies": ""
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application"
           }
         },
         {
@@ -1582,19 +1584,24 @@
             "GET"
           ],
           "paths": {
+            "/applications(appid={value})/owners": "",
+            "/applications/{id}/owners": "",
             "/applications/delta": "",
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
             "/serviceprincipals(appid={value})/createdobjects": "",
             "/serviceprincipals(appid={value})/memberof": "",
             "/serviceprincipals(appid={value})/ownedobjects": "",
+            "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals(appid={value})/transitivememberof": "",
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/createdobjects": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/owners": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
           }
@@ -1623,7 +1630,7 @@
             "PATCH"
           ],
           "paths": {
-            "/serviceprincipals(appid={value})": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})": "least=DelegatedWork",
             "/serviceprincipals/{id}": "least=DelegatedWork",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
@@ -1654,21 +1661,21 @@
           ],
           "paths": {
             "/applications": "least=Application",
-            "/applications(appid={value})/federatedidentitycredentials": "",
-            "/applications(appid={value})/owners": "",
-            "/applications(appid={value})/tokenissuancepolicies": "",
+            "/applications(appid={value})/federatedidentitycredentials": "least=Application",
+            "/applications(appid={value})/tokenissuancepolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/applications(appid={value})/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All",
             "/applications/{id}/extensionproperties": "least=Application",
             "/applications/{id}/federatedidentitycredentials": "least=Application",
-            "/applications/{id}/owners": "least=Application",
-            "/applications/{id}/tokenissuancepolicies": "",
+            "/applications/{id}/tokenissuancepolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/applications/{id}/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All",
             "/serviceprincipals": "least=Application",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "",
-            "/serviceprincipals(appid={value})/owners": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "",
-            "/serviceprincipals/{id}/owners": "least=Application",
-            "/serviceprincipals/{id}/synchronization/jobs": "least=Application"
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/synchronization/jobs": "least=Application",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All"
           }
         },
         {
@@ -1681,11 +1688,11 @@
             "PATCH"
           ],
           "paths": {
-            "/applications(appid={value})": "",
-            "/applications(appid={value})/federatedidentitycredentials/{id}": "",
+            "/applications(appid={value})": "least=Application",
+            "/applications(appid={value})/federatedidentitycredentials/{id}": "least=Application",
             "/applications/{id}": "least=Application",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=Application",
-            "/serviceprincipals(appid={value})": "",
+            "/serviceprincipals(appid={value})": "least=Application",
             "/serviceprincipals/{id}": "least=Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
@@ -1698,28 +1705,32 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/addkey": "",
-            "/applications(appid={value})/addpassword": "",
-            "/applications(appid={value})/removekey": "",
-            "/applications(appid={value})/removepassword": "",
+            "/applications(appid={value})/addkey": "least=Application",
+            "/applications(appid={value})/addpassword": "least=Application",
+            "/applications(appid={value})/owners": "least=Application;AlsoRequires=Directory.Read.All",
+            "/applications(appid={value})/removekey": "least=Application",
+            "/applications(appid={value})/removepassword": "least=Application",
             "/applications(appid={value})/repair": "least=Application",
             "/applications/{id}}/repair": "least=Application",
             "/applications/{id}/addkey": "least=Application",
             "/applications/{id}/addpassword": "least=Application",
+            "/applications/{id}/owners": "least=Application;AlsoRequires=Directory.Read.All",
             "/applications/{id}/removekey": "least=Application",
             "/applications/{id}/removepassword": "least=Application",
             "/applications/{id}/synchronization/acquireaccesstoken": "least=Application",
             "/applicationtemplates/{id}/instantiate": "least=Application",
-            "/serviceprincipals(appid={value})/addkey": "",
-            "/serviceprincipals(appid={value})/addpassword": "",
-            "/serviceprincipals(appid={value})/addtokensigningcertificate": "",
-            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "",
-            "/serviceprincipals(appid={value})/removekey": "",
-            "/serviceprincipals(appid={value})/removepassword": "",
+            "/serviceprincipals(appid={value})/addkey": "least=Application",
+            "/serviceprincipals(appid={value})/addpassword": "least=Application",
+            "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=Application",
+            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/owners": "least=Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/removekey": "least=Application",
+            "/serviceprincipals(appid={value})/removepassword": "least=Application",
             "/serviceprincipals/{id}/addkey": "least=Application",
             "/serviceprincipals/{id}/addpassword": "least=Application",
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=Application",
-            "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=Application",
+            "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals/{id}/owners": "least=Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=Application",
@@ -1743,7 +1754,7 @@
             "PUT"
           ],
           "paths": {
-            "/applications(appid={value})/logo": "",
+            "/applications(appid={value})/logo": "least=Application",
             "/applications/{id}/logo": "least=Application",
             "/serviceprincipals/{id}/synchronization/secrets": "least=Application"
           }
@@ -1756,32 +1767,20 @@
             "DELETE"
           ],
           "paths": {
-            "/applications(appid={value})/owners/{id}": "",
+            "/applications(appid={value})/owners/{id}": "least=Application",
+            "/applications(appid={value})/tokenissuancepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/applications(appid={value})/tokenlifetimepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
             "/applications/{id}/owners/{id}": "least=Application",
-            "/applications/{id}/tokenissuancepolicies/{id}": "",
-            "/applications/{id}/tokenlifetimepolicies/{id}": "",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "",
-            "/serviceprincipals(appid={value})/owners/{id}": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "",
-            "/serviceprincipals/{id}/owners/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/applications(appid={value})/tokenlifetimepolicies": "",
-            "/applications/{id}/tokenlifetimepolicies": "",
-            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "",
-            "/serviceprincipals/{id}/tokenlifetimepolicies": ""
+            "/applications/{id}/tokenissuancepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals(appid={value})/owners/{id}": "least=Application",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All",
+            "/serviceprincipals/{id}/owners/{id}": "least=Application",
+            "/serviceprincipals/{id}/tokenlifetimepolicies/{id}": "least=Application;AlsoRequires=Policy.Read.All"
           }
         },
         {
@@ -1805,6 +1804,8 @@
             "GET"
           ],
           "paths": {
+            "/applications(appid={value})/owners": "least=Application",
+            "/applications/{id}/owners": "least=Application",
             "/applications/{id}/synchronization/templates": "least=Application",
             "/applications/{id}/synchronization/templates/{id}/schema/filteroperators": "least=Application",
             "/applications/{id}/synchronization/templates/{id}/schema/functions": "least=Application",
@@ -1813,13 +1814,16 @@
             "/serviceprincipals(appid={value})/approleassignments": "",
             "/serviceprincipals(appid={value})/delegatedpermissionclassifications": "",
             "/serviceprincipals(appid={value})/ownedobjects": "",
+            "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/createdobjects": "",
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/owners": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/filteroperators": "least=Application",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/functions": "least=Application",
             "/serviceprincipals/{id}/synchronization/templates": "least=Application",
@@ -1942,10 +1946,10 @@
             "POST"
           ],
           "paths": {
-            "/serviceprincipals(appid={value})/approleassignedto": "least=Application",
-            "/serviceprincipals(appid={value})/approleassignments": "least=Application",
-            "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application"
+            "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
+            "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
+            "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
+            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All"
           }
         }
       ],
@@ -3422,20 +3426,28 @@
         "ownerSecurityGroup": "EnhancedRestoreAdmin"
       }
     },
-    "BitLockerKey.Read.All": {
+    "BitlockerKey.Read.All": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "userDisplayName": "",
-          "userDescription": "",
-          "requiresAdminConsent": false
+          "adminDisplayName": "Read BitLocker keys",
+          "adminDescription": "Allows the app to read BitLocker keys on behalf of the signed-in user, for their owned devices. Allows read of the recovery key.",
+          "userDisplayName": "Read your BitLocker keys",
+          "userDescription": "Allows the app to read BitLocker keys for your owned devices. Allows read of the recovery key.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all BitLocker keys",
+          "adminDescription": "Allows an app to read BitLocker keys for all devices, without a signed-in user. Allows read of the recovery key.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
@@ -3446,33 +3458,45 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
+      }
     },
-    "BitLockerKey.ReadBasic.All": {
+    "BitlockerKey.ReadBasic.All": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "userDisplayName": "",
-          "userDescription": "",
-          "requiresAdminConsent": false
+          "adminDisplayName": "Read BitLocker keys basic information",
+          "adminDescription": "Allows the app to read BitLocker keys on behalf of the signed-in user, for their owned devices. Does not allow read of the recovery key itself.",
+          "userDisplayName": "Read your BitLocker keys basic information",
+          "userDescription": "Allows the app to read basic BitLocker key properties for your owned devices. Does not allow read of the recovery key itself.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all BitLocker keys basic information",
+          "adminDescription": "Allows an app to read basic BitLocker key properties for all devices, without a signed-in user. Does not allow read of the recovery key.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/informationprotection/bitlocker/recoverykeys": "least=DelegatedWork",
-            "/informationprotection/bitlocker/recoverykeys/{id}": "least=DelegatedWork"
+            "/informationprotection/bitlocker/recoverykeys": "least=DelegatedWork,Application",
+            "/informationprotection/bitlocker/recoverykeys/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
+      }
     },
     "Bookings.Manage.All": {
       "schemes": {
@@ -10087,129 +10111,6 @@
         "ownerSecurityGroup": "cdrsmon"
       }
     },
-    "DeviceManagement.Scripts.Read.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read Microsoft Intune Scripts",
-          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
-          "userDisplayName": "Read Microsoft Intune Scripts",
-          "userDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read Microsoft Intune Scripts",
-          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/deviceManagement/deviceComplianceScripts": "",
-            "/deviceManagement/deviceComplianceScripts/{id}": "",
-            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
-            "/devicemanagement/devicehealthscripts": "",
-            "/devicemanagement/devicehealthscripts/{id}": "",
-            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
-            "/devicemanagement/devicehealthscripts/{id}/deviceRunStates": "",
-            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
-            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
-            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
-            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "GraphIntuneApprovers"
-      }
-    },
-    "DeviceManagement.Scripts.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write Microsoft Intune Scripts",
-          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
-          "userDisplayName": "Read and write Microsoft Intune Scripts",
-          "userDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        },
-        "Application": {
-          "adminDisplayName": "Read and write Microsoft Intune Scripts",
-          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/deviceManagement/deviceComplianceScripts": "",
-            "/deviceManagement/deviceComplianceScripts/{id}": "",
-            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
-            "/devicemanagement/devicehealthscripts": "",
-            "/devicemanagement/devicehealthscripts/{id}": "",
-            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
-            "/devicemanagement/devicehealthscripts/{id}/devicerunstates": "",
-            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
-            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
-            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
-            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/deviceManagement/deviceComplianceScripts": "",
-            "/deviceManagement/deviceComplianceScripts/{id}/assign": "",
-            "/devicemanagement/devicehealthscripts": "",
-            "/devicemanagement/devicehealthscripts/{id}/assign": "",
-            "/devicemanagement/devicehealthscripts/{id}/getGlobalScriptHighestAvailableVersion": "",
-            "/devicemanagement/devicehealthscripts/{id}/updateGlobalScript": "",
-            "/devicemanagement/devicehealthscripts/enableGlobalScripts": "",
-            "/devicemanagement/devicehealthscripts/extractParametersFromScript": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "PATCH"
-          ],
-          "paths": {
-            "/deviceManagement/deviceComplianceScripts/{id}": "",
-            "/deviceManagement/deviceHealthScripts/{id}": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "GraphIntuneApprovers"
-      }
-    },
     "DeviceManagementApps.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -10588,7 +10489,7 @@
             "/devicemanagement/reports/reportschedules": "",
             "/devicemanagement/windowsinformationprotectionapplearningsummaries": "least=DelegatedWork,Application",
             "/devicemanagement/windowsinformationprotectionnetworklearningsummaries": "least=DelegatedWork,Application",
-            "/users": "least=DelegatedWork,Application"
+            "/users": ""
           }
         },
         {
@@ -10678,7 +10579,7 @@
             "/devicemanagement/reports/reportschedules/{id}": "",
             "/devicemanagement/windowsinformationprotectionapplearningsummaries/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/windowsinformationprotectionnetworklearningsummaries/{id}": "least=DelegatedWork,Application",
-            "/users/{id}": "least=DelegatedWork,Application"
+            "/users/{id}": ""
           }
         },
         {
@@ -14471,6 +14372,129 @@
         "ownerSecurityGroup": "GraphIntuneApprovers"
       }
     },
+    "DeviceManagementScripts.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
+          "userDisplayName": "Read Microsoft Intune Scripts",
+          "userDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}": "",
+            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
+            "/devicemanagement/devicehealthscripts/{id}/deviceRunStates": "",
+            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
+            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
+            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
+            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
+    "DeviceManagementScripts.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts on behalf of the signed in user.",
+          "userDisplayName": "Read and write Microsoft Intune Scripts",
+          "userDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attripute shell scripts and device health scripts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Microsoft Intune Scripts",
+          "adminDescription": "Allows the app to read and write Microsoft Intune device compliance scripts, device management scripts, device shell scripts, device custom attribute shell scripts and device health scripts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/Assignments": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}": "",
+            "/devicemanagement/devicehealthscripts/{id}/assignments": "",
+            "/devicemanagement/devicehealthscripts/{id}/devicerunstates": "",
+            "/devicemanagement/devicehealthscripts/{id}/getRemediationHistory": "",
+            "/devicemanagement/devicehealthscripts/{id}/runSummary": "",
+            "/devicemanagement/devicehealthscripts/areGlobalScriptsAvailable": "",
+            "/devicemanagement/devicehealthscripts/getRemediationSummary": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts": "",
+            "/deviceManagement/deviceComplianceScripts/{id}/assign": "",
+            "/devicemanagement/devicehealthscripts": "",
+            "/devicemanagement/devicehealthscripts/{id}/assign": "",
+            "/devicemanagement/devicehealthscripts/{id}/getGlobalScriptHighestAvailableVersion": "",
+            "/devicemanagement/devicehealthscripts/{id}/updateGlobalScript": "",
+            "/devicemanagement/devicehealthscripts/enableGlobalScripts": "",
+            "/devicemanagement/devicehealthscripts/extractParametersFromScript": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/deviceManagement/deviceComplianceScripts/{id}": "",
+            "/deviceManagement/deviceHealthScripts/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphIntuneApprovers"
+      }
+    },
     "DeviceManagementServiceConfig.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -14956,6 +14980,17 @@
           "paths": {
             "/privilegedroleassignments/{id}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/domains/{id}": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -15121,6 +15156,7 @@
             "/serviceprincipals/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "least=DelegatedWork",
@@ -15194,11 +15230,11 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/owners": "least=DelegatedWork",
+            "/applications(appid={value})/owners": "",
             "/applications/{id}/owners": "",
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
-            "/serviceprincipals(appid={value})/owners": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/owners": ""
@@ -15234,10 +15270,10 @@
             "/groups/{id}/checkmemberobjects": "",
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
-            "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "",
+            "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "",
+            "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "",
+            "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/createpasswordsinglesignoncredentials": "",
@@ -15380,6 +15416,7 @@
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "",
             "/subscribedskus": "",
@@ -15598,7 +15635,8 @@
             "/users/{id}/getmembergroups": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "",
-            "/users/{id}/revokesigninsessions": ""
+            "/users/{id}/revokesigninsessions": "",
+            "/users/{id}/sponsors": ""
           }
         },
         {
@@ -15615,7 +15653,8 @@
             "/applications/{id}/owners/{id}": "",
             "/groups/{id}/members/{id}": "",
             "/groups/{id}/owners/{id}": "",
-            "/serviceprincipals/{id}/owners/{id}": ""
+            "/serviceprincipals/{id}/owners/{id}": "",
+            "/users/{id}/sponsors/{id}": ""
           }
         },
         {
@@ -22733,7 +22772,7 @@
             "/directoryobjects/{id}/getmembergroups": "",
             "/directoryobjects/{id}/getmemberobjects": "",
             "/grouplifecyclepolicies/renewgroup": "least=DelegatedWork,Application",
-            "/groups/{id}/assignlicense": "least=DelegatedWork,Application",
+            "/groups/{id}/assignlicense": "",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
             "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "",
@@ -25193,6 +25232,42 @@
         }
       ],
       "ownerInfo": {}
+    },
+    "LicenseAssignment.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage all license assignments.",
+          "adminDescription": "Allows an app to manage license assignments for users and groups, on behalf of the signed-in user.",
+          "userDisplayName": "Manage all license assignments.",
+          "userDescription": "Allows the app to manage all license assignments, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Manage all license assignments.",
+          "adminDescription": "Allows an app to manage license assignments for users and groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/assignlicense": "least=DelegatedWork,Application",
+            "/users/{id}/assignlicense": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadcslms"
+      }
     },
     "LifeCycleInfo.Read.All": {
       "schemes": {
@@ -29511,31 +29586,35 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/tokenissuancepolicies": "least=DelegatedWork",
-            "/applications/{id}/tokenissuancepolicies": "least=DelegatedWork,Application",
+            "/applications(appid={value})/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/identity/conditionalaccess/namedlocations": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "least=DelegatedWork",
-            "/serviceprincipals/{id}/claimsmappingpolicies": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "least=DelegatedWork,Application"
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
             "Application"
           ],
           "methods": [
-            "DELETE",
             "GET",
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/tokenlifetimepolicies": "least=DelegatedWork",
-            "/applications/{id}/tokenlifetimepolicies": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "least=DelegatedWork",
-            "/serviceprincipals/{id}/tokenlifetimepolicies": "least=DelegatedWork,Application"
+            "/applications(appid={value})/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.OwnedBy"
           }
         },
         {
@@ -29547,12 +29626,27 @@
             "DELETE"
           ],
           "paths": {
-            "/applications/{id}/tokenissuancepolicies/{id}": "least=DelegatedWork,Application",
-            "/applications/{id}/tokenlifetimepolicies/{id}": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "least=DelegatedWork",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "least=DelegatedWork",
-            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application"
+            "/applications/{id}/tokenissuancepolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/applications/{id}/tokenissuancepolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy"
           }
         },
         {
@@ -29714,36 +29808,13 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/tokenissuancepolicies": "",
-            "/applications/{id}/tokenissuancepolicies": "",
             "/identity/events/onsignupstart": "least=DelegatedWork,Application",
             "/policies/activitybasedtimeoutpolicies": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
-            "/policies/tokenlifetimepolicies": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/applications(appid={value})/tokenlifetimepolicies": "",
-            "/applications/{id}/tokenlifetimepolicies": "",
-            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "",
-            "/serviceprincipals/{id}/tokenlifetimepolicies": ""
+            "/policies/tokenlifetimepolicies": "least=DelegatedWork,Application"
           }
         },
         {
@@ -29757,23 +29828,6 @@
           ],
           "paths": {
             "/applications/{id}/appmanagementpolicies": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/applications/{id}/tokenissuancepolicies/{id}": "",
-            "/applications/{id}/tokenlifetimepolicies/{id}": "",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": ""
           }
         },
         {
@@ -30118,8 +30172,10 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/tokenissuancepolicies": "",
-            "/applications/{id}/tokenissuancepolicies": "",
+            "/applications(appid={value})/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/identity/events/onsignupstart": "least=DelegatedWork,Application",
             "/policies/activitybasedtimeoutpolicies": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies": "least=DelegatedWork,Application",
@@ -30127,27 +30183,33 @@
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
             "/policies/tokenlifetimepolicies": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies": ""
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
             "Application"
           ],
           "methods": [
-            "DELETE",
             "GET",
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/tokenlifetimepolicies": "",
-            "/applications/{id}/tokenlifetimepolicies": "",
-            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "",
-            "/serviceprincipals/{id}/tokenlifetimepolicies": ""
+            "/applications(appid={value})/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.OwnedBy"
           }
         },
         {
@@ -30172,12 +30234,30 @@
             "DELETE"
           ],
           "paths": {
-            "/applications/{id}/tokenissuancepolicies/{id}": "",
-            "/applications/{id}/tokenlifetimepolicies/{id}": "",
-            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "",
-            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "",
-            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": ""
+            "/applications/{id}/tokenissuancepolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.All",
+            "/serviceprincipals/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/applications/{id}/tokenissuancepolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/applications/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals(appid={value})/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/claimsmappingpolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/homerealmdiscoverypolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy",
+            "/serviceprincipals/{id}/tokenlifetimepolicies/{id}": "AlsoRequires=Application.ReadWrite.OwnedBy"
           }
         },
         {
@@ -38841,6 +38921,7 @@
             "/me/planner/recentplans": "",
             "/me/planner/tasks": "",
             "/planner/buckets/{id}/tasks": "",
+            "/planner/copyPlanOperations/{id}": "least=DelegatedWork",
             "/planner/plans/{id}/buckets": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
@@ -39095,6 +39176,7 @@
             "POST"
           ],
           "paths": {
+            "/planner/copyPlanOperations": "least=DelegatedWork",
             "/planner/plans/{id}/archive": "least=DelegatedWork",
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork",
@@ -45925,7 +46007,7 @@
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
-            "/users/{id}/assignlicense": "least=DelegatedWork,Application",
+            "/users/{id}/assignlicense": "",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
             "/users/{id}/convertExternalToInternalMemberUser": "",
@@ -46244,7 +46326,7 @@
             "POST"
           ],
           "paths": {
-            "/users": "",
+            "/users": "least=DelegatedWork,Application",
             "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/sponsors": "least=DelegatedWork,Application"
           }
@@ -46260,7 +46342,7 @@
             "PATCH"
           ],
           "paths": {
-            "/users/{id}": "",
+            "/users/{id}": "least=DelegatedWork,Application",
             "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork"
           }
         },
@@ -46793,10 +46875,12 @@
           "paths": {
             "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
+            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application",
             "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
@@ -46821,15 +46905,15 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
-            "DELETE",
             "PATCH"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/{id}": ""
+            "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -46877,12 +46961,14 @@
             "GET"
           ],
           "paths": {
+            "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
