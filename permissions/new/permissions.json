@@ -29820,6 +29820,29 @@
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages/{id}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/requirements": "least=DelegatedWork",
+            "/users/{id}/authentication/requirements": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/requirements": "least=Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -30553,6 +30576,52 @@
           ],
           "paths": {
             "/policies/b2cauthenticationmethodspolicy": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/requirements": "least=DelegatedWork",
+            "/users/{id}/authentication/requirements": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/authentication/requirements": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/requirements": "",
+            "/users/{id}/authentication/requirements": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/requirements": ""
           }
         }
       ],
