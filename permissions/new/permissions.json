@@ -6631,6 +6631,54 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "Chat.ManageDeletion.Chat": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Delete and recover deleted chat",
+          "adminDescription": "Allows the app to delete and recover deleted chat, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/chats/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teamwork/deletedchats/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teamwork/deletedchats/{id}/undodelete": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "Chat.Read": {
       "schemes": {
         "DelegatedWork": {
