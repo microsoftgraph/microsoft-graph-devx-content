@@ -31335,6 +31335,42 @@
         "ownerSecurityGroup": "CnsntPreauthzApprvrs"
       }
     },
+    "Policy.ReadWrite.SecurityDefaults": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's security defaults policy",
+          "adminDescription": "Allows the app to read and write your organization's security defaults policy without a signed-in user.",
+          "userDisplayName": "Read and write your organization's security defaults policy",
+          "userDescription": "Allows the app to read and write your organization's security defaults policy on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's security defaults policy",
+          "adminDescription": "Allows the app to read and write your organization's security defaults policy without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/identitysecuritydefaultsenforcementpolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "sd-preauth"
+      }
+    },
     "Policy.ReadWrite.TrustFramework": {
       "schemes": {
         "DelegatedWork": {
