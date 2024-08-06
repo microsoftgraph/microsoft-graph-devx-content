@@ -2850,6 +2850,104 @@
         "ownerSecurityGroup": "ipauditengsg"
       }
     },
+    "AuthenticationContext.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all authentication context information",
+          "adminDescription": "Allows the app to read all authentication context information in your organization on behalf of the signed-in user.",
+          "userDisplayName": "Read all authentication context information",
+          "userDescription": "Allows the app to read all authentication context information in your organization on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all authentication context information",
+          "adminDescription": "Allows the app to read the authentication context information in your organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cagraphscopeapproval"
+      }
+    },
+    "AuthenticationContext.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all authentication context information",
+          "adminDescription": "Allows the app to read and update all authentication context information in your organization on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all authentication context information",
+          "userDescription": "Allows the app to read and update all authentication context information in your organization on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all authentication context information",
+          "adminDescription": "Allows the app to read and update the authentication context information in your organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "",
+            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cagraphscopeapproval"
+      }
+    },
     "BackupRestore-Configuration.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -30099,7 +30197,7 @@
             "GET"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences": "least=DelegatedWork,Application"
+            "/identity/conditionalaccess/authenticationcontextclassreferences": ""
           }
         },
         {
@@ -30112,8 +30210,7 @@
             "GET"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/authenticationcontextclassreferences/c1": "least=DelegatedWork,Application"
+            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": ""
           }
         }
       ],
@@ -30823,7 +30920,7 @@
             "POST"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "",
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies": "least=DelegatedWork,Application"
           }
@@ -30837,7 +30934,7 @@
             "PATCH"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "",
             "/identity/continuousaccessevaluationpolicy": "",
             "/policies/identitysecuritydefaultsenforcementpolicy": ""
           }
