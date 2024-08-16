@@ -1606,7 +1606,6 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/owners": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
@@ -2369,8 +2368,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
-            "PATCH",
             "POST"
           ],
           "paths": {
@@ -2404,7 +2401,6 @@
           ],
           "paths": {
             "/security/attackSurfaceManagement/workspace/discoveryGroups/{id}": "least=DelegatedWork,Application",
-            "/security/attackSurfaceManagement/workspace/tags/{id}": "least=DelegatedWork,Application",
             "/security/attackSurfaceManagement/workspace/tasks/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -4055,13 +4051,9 @@
           ],
           "paths": {
             "/bookingbusinesses": "",
-            "/bookingbusinesses/{id}/calendarview": "",
-            "/bookingbusinesses/{id}/customers": "",
             "/bookingcurrencies": "",
             "/bookingcurrencies/{id}": "",
             "/solutions/bookingbusinesses": "",
-            "/solutions/bookingbusinesses/{id}/calendarview": "",
-            "/solutions/bookingbusinesses/{id}/customers": "",
             "/solutions/bookingcurrencies": "",
             "/solutions/bookingcurrencies/{id}": ""
           }
@@ -15599,7 +15591,6 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "",
@@ -26562,7 +26553,6 @@
             "/tenantrelationships/managedtenants/procedurestepdefinitions": "",
             "/tenantrelationships/managedtenants/procedurestepdefinitions/{id}": "",
             "/tenantrelationships/managedtenants/recordroot/offboardeduserrecords": "",
-            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/reportroot/offboardeduserreports": "",
             "/tenantrelationships/managedtenants/reportroot/offboardeduserreports/{id}": "",
             "/tenantrelationships/managedtenants/roleDefinitions": "",
@@ -26588,7 +26578,7 @@
             "/tenantrelationships/managedtenants/managementactiontenantdeploymentstatuses/changedeploymentstatus": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/procedures/{id}/run": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/recordroot/offboardeduserrecords/{id}/completeoffboarding": "least=DelegatedWork",
-            "/tenantrelationships/managedtenants/roleAssignments": "least=DelegatedWork",
+            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/tenantgroups/tenantsearch": "",
             "/tenantrelationships/managedtenants/tenants/{id}/offboardtenant": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/tenants/{id}/resettenantonboardingstatus": "least=DelegatedWork",
@@ -26605,7 +26595,6 @@
             "PATCH"
           ],
           "paths": {
-            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/tenantscustomizedinformation/{id}": "least=DelegatedWork"
           }
         },
@@ -26619,7 +26608,6 @@
           ],
           "paths": {
             "/tenantrelationships/managedtenants/procedures": "least=DelegatedWork",
-            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/roleAssignments": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/tenanttags": "least=DelegatedWork"
           }
@@ -26634,7 +26622,6 @@
             "PATCH"
           ],
           "paths": {
-            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/tenanttags/{id}": "least=DelegatedWork"
           }
         },
@@ -26648,7 +26635,6 @@
           ],
           "paths": {
             "/tenantrelationships/managedtenants/recordroot/offboardeduserrecords/{id}": "least=DelegatedWork",
-            "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/recordRoot/supportOrganizationRecords/{id}": "least=DelegatedWork"
           }
         },
@@ -34521,22 +34507,6 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedules": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -34575,36 +34545,6 @@
         }
       },
       "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleassignmentschedules": "",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
-            "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentschedulerequests": "least=DelegatedWork"
-          }
-        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -34706,14 +34646,9 @@
             "GET"
           ],
           "paths": {
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedulerequests": "least=DelegatedWork",
             "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedules": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "least=DelegatedWork"
+            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": ""
           }
         },
         {
@@ -34758,35 +34693,6 @@
         }
       },
       "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedules": "",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleeligibilityschedulerequests": "least=DelegatedWork"
-          }
-        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -34905,9 +34811,7 @@
             "/roleManagement/directory/roleAssignmentScheduleInstances": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleassignmentschedules": "",
             "/roleManagement/directory/roleAssignmentSchedules": "",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
             "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
             "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/roledefinitions": "",
@@ -35049,35 +34953,23 @@
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments/{id}": "least=DelegatedWork,Application",
-            "/rolemanagement/directory/roleassignmentscheduleinstances": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/{id}": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleassignmentscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleassignmentschedules": "",
             "/roleManagement/directory/roleAssignmentSchedules": "",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
             "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
             "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roledefinitions": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roledefinitions/{id}/assignedprincipals": "least=DelegatedWork,Application",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/{id}": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleeligibilityscheduleinstances/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
-            "/rolemanagement/directory/roleeligibilityschedules": "",
             "/roleManagement/directory/roleEligibilitySchedules": "",
-            "/rolemanagement/directory/roleeligibilityschedules/{id}": "",
             "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
             "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleeligibilityschedules/filterbycurrentuser(on={value})": "",
             "/rolemanagement/directory/transitiveroleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments": "",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "",
@@ -35297,7 +35189,6 @@
             "/roleManagement/directory/roleAssignmentScheduleInstances": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/roleManagement/directory/roleAssignmentScheduleRequests": "",
             "/roleManagement/directory/roleAssignmentScheduleRequests/{unifiedRoleAssignmentScheduleRequestId}": "",
             "/roleManagement/directory/roleAssignmentScheduleRequests/filterByCurrentUser(on={parameterValue})": "",
             "/roleManagement/directory/roleAssignmentSchedules": "",
@@ -35307,7 +35198,6 @@
             "/roleManagement/directory/roleEligibilityScheduleInstances": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/roleManagement/directory/roleEligibilityScheduleRequests": "",
             "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}": "",
             "/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on={parameterValue})": "",
             "/roleManagement/directory/roleEligibilitySchedules": "",
@@ -35341,9 +35231,7 @@
           ],
           "paths": {
             "/directoryroles/roletemplateid={roletemplateid}/members": "least=DelegatedWork,Application",
-            "/roleManagement/directory/roleAssignmentScheduleRequests": "",
             "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": "",
-            "/roleManagement/directory/roleEligibilityScheduleRequests": "",
             "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}/cancel": ""
           }
         },
@@ -35372,31 +35260,6 @@
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/directory/roledefinitions/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentschedulerequests": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentschedules": "",
-            "/rolemanagement/directory/roleassignmentschedules/{id}": "",
-            "/rolemanagement/directory/roleassignmentschedules/filterbycurrentuser(on={value})": ""
           }
         }
       ],
@@ -39510,19 +39373,6 @@
             "/users/{id}/tasks/lists/delta": "",
             "/users/{id}/todo/lists/{id}/tasks/delta": "",
             "/users/{id}/todo/lists/delta": "least=DelegatedWork,DelegatedPersonal"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/me/tasks/lists/{id}/tasks/{id}": "least=DelegatedWork,DelegatedPersonal",
-            "/users/{id}/tasks/lists/{id}/tasks/{id}": "least=DelegatedWork,DelegatedPersonal"
           }
         },
         {
@@ -46315,17 +46165,6 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/settings/regionalandlanguagesettings": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal"
           ],
@@ -46465,7 +46304,6 @@
           "paths": {
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/joinedteams": "",
             "/users/{id}/licensedetails": "",
             "/users/{id}/owneddevices": "",
@@ -46485,7 +46323,6 @@
             "GET"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/profile": "least=Application"
           }
         },
@@ -46511,7 +46348,6 @@
             "POST"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/profile/account": "least=Application",
             "/users/{id}/profile/addresses": "least=Application",
             "/users/{id}/profile/anniversaries": "least=Application",
@@ -46576,7 +46412,6 @@
             "PATCH"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/profile/account/{id}": "least=Application",
             "/users/{id}/profile/addresses/{id}": "least=Application",
             "/users/{id}/profile/anniversaries/{id}": "least=Application",
@@ -46641,7 +46476,6 @@
             "PATCH"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/settings": "least=Application"
           }
         },
@@ -46715,7 +46549,8 @@
             "PUT"
           ],
           "paths": {
-            "/settings/regionalandlanguagesettings": "least=Application"
+            "/settings/regionalandlanguagesettings": "least=Application",
+            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork"
           }
         },
         {
@@ -46729,7 +46564,6 @@
           ],
           "paths": {
             "/users": "least=DelegatedWork,Application",
-            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/sponsors": "least=DelegatedWork,Application"
           }
         },
@@ -46759,7 +46593,6 @@
             "PUT"
           ],
           "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork",
             "/users/{id}/manager": "least=DelegatedWork,Application"
           }
         },
@@ -46774,17 +46607,6 @@
           ],
           "paths": {
             "/users/{id}/photo": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/getTeamsLicensingDetails": "least=Application"
           }
         },
         {
@@ -46818,22 +46640,11 @@
             "Application"
           ],
           "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/users/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
             "POST"
           ],
           "paths": {
-            "/directory/deletedItems/{id}/restore": ""
+            "/directory/deletedItems/{id}/restore": "",
+            "/users/{id}/getTeamsLicensingDetails": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -47334,9 +47145,6 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "",
             "/me/authentication/methods": "",
             "/me/authentication/methods/{id}": "",
             "/me/authentication/microsoftauthenticatormethods": "",
@@ -47347,16 +47155,12 @@
             "/me/authentication/temporaryaccesspassmethods": "",
             "/me/authentication/windowshelloforbusinessmethods": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "",
-            "/users/{id}/authentication/fido2methods": "",
-            "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/creationOptions": "",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/microsoftauthenticatormethods": "",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
-            "/users/{id}/authentication/qrcodepinmethod": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/windowshelloforbusinessmethods": ""
           }
@@ -47397,10 +47201,8 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=Application",
-            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork,Application"
           }
