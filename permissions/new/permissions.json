@@ -3031,6 +3031,34 @@
           "paths": {
             "/backupRestore/protectionUnits/{protectionUnitId}": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -3150,6 +3178,48 @@
           ],
           "paths": {
             "/backupRestore/protectionUnits/{protectionUnitId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnitsBulkAdditionJobs": "",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnitsBulkAdditionJobs": "",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnitsBulkAdditionJobs": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnitsBulkAdditionJobs/{bulkAdditionJobId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/backupRestore/sharePointProtectionPolicies/{policyId}/siteProtectionUnitsBulkAdditionJobs": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -39828,7 +39898,8 @@
             "POST"
           ],
           "paths": {
-            "/teams/{id}/members/add": "least=DelegatedWork,Application"
+            "/teams/{id}/members/add": "least=DelegatedWork,Application",
+            "/teams/{id}/members/remove": "least=DelegatedWork,Application"
           }
         }
       ],
