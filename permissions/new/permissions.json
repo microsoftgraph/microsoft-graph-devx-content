@@ -34938,6 +34938,10 @@
             "/policies/rolemanagementpolicyassignments/{id}": "least=Application",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
+            "/rolemanagement/defender/roleassignments": "",
+            "/rolemanagement/defender/roleassignments/{id}": "",
+            "/rolemanagement/defender/roledefinitions": "",
+            "/rolemanagement/defender/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
             "/rolemanagement/directory/resourcenamespaces": "",
@@ -35029,6 +35033,44 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cpcgraph"
+      }
+    },
+    "RoleManagement.Read.Defender": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "userDisplayName": "Read M365 Defender RBAC configuration",
+          "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/rolemanagement/defender/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdatpUrbac"
       }
     },
     "RoleManagement.Read.Directory": {
@@ -35235,6 +35277,71 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cpcgraph"
+      }
+    },
+    "RoleManagement.ReadWrite.Defender": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "userDisplayName": "Read M365 Defender RBAC configuration",
+          "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments": "",
+            "/roleManagement/defender/roleassignments/{id}": "",
+            "/rolemanagement/defender/roledefinitions": "",
+            "/rolemanagement/defender/roledefinitions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdatpUrbac"
       }
     },
     "RoleManagement.ReadWrite.Directory": {
