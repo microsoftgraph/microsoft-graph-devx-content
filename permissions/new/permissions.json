@@ -1190,6 +1190,9 @@
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,Application",
+            "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=DelegatedWork,Application",
             "/applications/{id}/owners": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}": "least=DelegatedWork,Application",
@@ -1388,6 +1391,7 @@
             "/applications(appid={value})/removekey": "least=DelegatedWork",
             "/applications(appid={value})/repair": "least=DelegatedWork",
             "/applications/{id}/addkey": "least=DelegatedWork",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes": "least=DelegatedWork,Application",
             "/applications/{id}/removekey": "least=DelegatedWork",
@@ -1591,6 +1595,7 @@
           ],
           "paths": {
             "/applications(appid={value})/owners": "",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
             "/applications/{id}/owners": "",
             "/applications/delta": "",
             "/serviceprincipals(appid={value})/approleassignedto": "",
@@ -1635,6 +1640,8 @@
             "PATCH"
           ],
           "paths": {
+            "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes/{resourceAppId}": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})": "least=DelegatedWork",
@@ -1673,6 +1680,7 @@
             "/applications(appid={value})/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All",
             "/applications/{id}/extensionproperties": "least=Application",
             "/applications/{id}/federatedidentitycredentials": "least=Application",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=Application",
             "/applications/{id}/tokenissuancepolicies": "least=Application;AlsoRequires=Policy.Read.All",
             "/applications/{id}/tokenlifetimepolicies": "least=Application;AlsoRequires=Policy.Read.All",
             "/serviceprincipals": "least=Application",
@@ -1699,6 +1707,8 @@
             "/applications(appid={value})/federatedidentitycredentials/{id}": "least=Application",
             "/applications/{id}": "least=Application",
             "/applications/{id}/federatedidentitycredentials/{id}": "least=Application",
+            "/applications/{id}/onPremisesPublishing": "least=Application",
+            "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=Application",
             "/serviceprincipals(appid={value})": "least=Application",
             "/serviceprincipals/{id}": "least=Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
@@ -3444,8 +3454,11 @@
           ],
           "paths": {
             "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifacts": "least=DelegatedWork,Application",
+            "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifactsBulkAdditionRequests": "least=DelegatedWork,Application",
             "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifacts": "least=DelegatedWork,Application",
-            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": "least=DelegatedWork,Application"
+            "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifactsBulkAdditionRequests": "least=DelegatedWork,Application",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": "least=DelegatedWork,Application",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifactsBulkAdditionRequests": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -3521,8 +3534,11 @@
           ],
           "paths": {
             "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifacts": "",
+            "/backupRestore/exchangeRestoreSessions/{restoreSessionId}/mailboxRestoreArtifactsBulkAdditionRequests": "",
             "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifacts": "",
-            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": ""
+            "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifactsBulkAdditionRequests": "",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": "",
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifactsBulkAdditionRequests": ""
           }
         },
         {
