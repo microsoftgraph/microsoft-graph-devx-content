@@ -1189,6 +1189,7 @@
           "paths": {
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
+            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
@@ -1198,6 +1199,7 @@
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes/{resourceAppId}": "least=DelegatedWork,Application",
+            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/delta": "",
             "/policies/appmanagementpolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "",
@@ -1215,6 +1217,7 @@
             "/serviceprincipals(appid={value})/memberof": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/owners": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
@@ -1227,6 +1230,7 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
           }
@@ -1568,7 +1572,11 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application"
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
+            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
+            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application"
           }
         },
         {
