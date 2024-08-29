@@ -26432,6 +26432,256 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxFolder.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read a user's mailbox folders",
+          "adminDescription": "Allows the app to read the user's mailbox folders, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your mailbox folders",
+          "userDescription": "Allows the app to read your mailbox folders, on your behalf",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders": "least=DelegatedWork",
+            "/admin/exchange/mailboxes/{id}/folders/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxFolder.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all the users' mailbox folders",
+          "adminDescription": "Allows the app to read all the users' mailbox folders, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders": "least=Application",
+            "/admin/exchange/mailboxes/{id}/folders/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxFolder.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write a user's mailbox folders",
+          "adminDescription": "Allows the app to read and write the user's mailbox folders, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write your mailbox folders",
+          "userDescription": "Allows the app to read and write your mailbox folders, on your behalf",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxFolder.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write all the users' mailbox folders",
+          "adminDescription": "Allows the app to read and write all the users' mailbox folders, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.ImportExport": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Export and import a user's mailbox items",
+          "adminDescription": "Allows the app to export and import the user's mailbox items, on behalf of the the signed-in user.",
+          "userDisplayName": "Export and import your mailbox items",
+          "userDescription": "Allows the app to export and import your mailbox items, on your behalf",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/createImportSession": "least=DelegatedWork",
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.ImportExport.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Export and import all the users' mailbox items",
+          "adminDescription": "Allows the app to export and import all the users' mailbox items, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/createImportSession": "least=Application",
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read a user's mailbox items",
+          "adminDescription": "Allows the app to read the user's mailbox items, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your mailbox items",
+          "userDescription": "Allows the app to read your mailbox items, on your behalf",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items": "least=DelegatedWork",
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.Read.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all the users' mailbox items",
+          "adminDescription": "Allows the app to read all the users' mailbox items, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items": "least=Application",
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "MailboxSettings.Read": {
       "schemes": {
         "DelegatedWork": {
