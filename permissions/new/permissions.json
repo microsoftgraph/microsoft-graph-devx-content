@@ -45419,6 +45419,111 @@
         "ownerSecurityGroup": "azureaduserentity"
       }
     },
+    "User-Mail.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update other mails property for all users",
+          "adminDescription": "Allows the app to update other mails property for all users for all users, on behalf of the signed-in user.",
+          "userDisplayName": "Update other mails property for all users",
+          "userDescription": "Allows the app to Update other mails property for all users, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Update other mails property for all users",
+          "adminDescription": "Allows the app to update other mails property for all users, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IdentityReq"
+      }
+    },
+    "User-PasswordProfile.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update password profile property and reset password for all users",
+          "adminDescription": "Allows the app to update password profile property and reset password for all users for all users, on behalf of the signed-in user.",
+          "userDisplayName": "Update password profile property and reset password for all users",
+          "userDescription": "Allows the app to update password profile property and reset password for all users, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Update password profile property and reset password for all users",
+          "adminDescription": "Allows the app to update password profile property and reset password for all users, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IdentityReq"
+      }
+    },
+    "User-Phone.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update business phones and mobile phone properties for all users",
+          "adminDescription": "Allows the app to update business phones and mobile phone properties for all users, on behalf of the signed-in user.",
+          "userDisplayName": "Update business phones and mobile phone properties for all users",
+          "userDescription": "Allows the app to update business phones and mobile phone properties for all users, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Update business phones and mobile phone properties for all users",
+          "adminDescription": "Allows the app to update business phones and mobile phone properties for all users, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IdentityReq"
+      }
+    },
     "User-PrivacyData.Export": {
       "schemes": {
         "DelegatedWork": {
@@ -45550,6 +45655,53 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "User.DeleteRestore.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete and restore user accounts",
+          "adminDescription": "Allows the app to delete and restore users' accounts, on behalf of the signed-in user.",
+          "userDisplayName": "Delete and restore user accounts",
+          "userDescription": "Allows the app to delete and restore users' accounts, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete and restore user accounts",
+          "adminDescription": "Allows the app to delete and restore users' accounts, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IdentityReq"
       }
     },
     "User.EnableDisableAccount.All": {
@@ -46290,15 +46442,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all users' basic profiles",
-          "adminDescription": "Allows the app to read a basic set of profile properties of other users in your organization on behalf of the signed-in user. This includes display name, first and last name, email address and photo.",
+          "adminDescription": "Allows the app to read a basic set of profile properties of other users in your organization on behalf of the signed-in user. This includes display name, first and last name, email address, photo, id and security identifier. Also allows the app to read the full profile of the signed-in user.",
           "userDisplayName": "Read all users' basic profiles",
-          "userDescription": "Allows the app to read a basic set of profile properties of other users in your organization on your behalf. Includes display name, first and last name, email address and photo.",
+          "userDescription": "Allows the app to read a basic set of profile properties of other users in your organization on your behalf. Includes display name, first and last name, email address, photo, id and security identifier. Also allows the app to read the full profile of the signed-in user.",
           "requiresAdminConsent": false,
           "privilegeLevel": 2
         },
         "Application": {
           "adminDisplayName": "Read all users' basic profiles",
-          "adminDescription": "Allows the app to read a basic set of profile properties of users in your organization, without a signed-in user. This includes display name, first and last name, email address and photo.",
+          "adminDescription": "Allows the app to read a basic set of profile properties of users in your organization, without a signed-in user. This includes display name, first and last name, email address, photo, id and security identifier.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
