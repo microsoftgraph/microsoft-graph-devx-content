@@ -32,7 +32,6 @@
             "/accessreviews/{id}": "least=DelegatedWork,Application",
             "/accessreviews/{id}/decisions": "least=DelegatedWork,Application",
             "/accessreviews/{id}/reviewers": "least=DelegatedWork,Application",
-            "/businessflowtemplates": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances": "least=DelegatedWork,Application",
@@ -154,7 +153,6 @@
           "paths": {
             "/accessreviews/{id}/decisions": "",
             "/accessreviews/{id}/mydecisions": "",
-            "/businessflowtemplates": "",
             "/me/pendingaccessreviewinstances": "",
             "/me/pendingaccessreviewinstances/{id}/decisions": "",
             "/users/{id}/pendingaccessreviewinstances": "",
@@ -359,8 +357,7 @@
             "GET"
           ],
           "paths": {
-            "/accessreviews/{id}/decisions": "",
-            "/businessflowtemplates": ""
+            "/accessreviews/{id}/decisions": ""
           }
         },
         {
@@ -387,7 +384,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "igagraph"
+      }
     },
     "Acronym.Read.All": {
       "schemes": {
@@ -30314,6 +30313,7 @@
             "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies/{id}/appliesto": "",
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
@@ -31107,6 +31107,7 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
