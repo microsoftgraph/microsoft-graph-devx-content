@@ -32,7 +32,6 @@
             "/accessreviews/{id}": "least=DelegatedWork,Application",
             "/accessreviews/{id}/decisions": "least=DelegatedWork,Application",
             "/accessreviews/{id}/reviewers": "least=DelegatedWork,Application",
-            "/businessflowtemplates": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances": "least=DelegatedWork,Application",
@@ -154,7 +153,6 @@
           "paths": {
             "/accessreviews/{id}/decisions": "",
             "/accessreviews/{id}/mydecisions": "",
-            "/businessflowtemplates": "",
             "/me/pendingaccessreviewinstances": "",
             "/me/pendingaccessreviewinstances/{id}/decisions": "",
             "/users/{id}/pendingaccessreviewinstances": "",
@@ -359,8 +357,7 @@
             "GET"
           ],
           "paths": {
-            "/accessreviews/{id}/decisions": "",
-            "/businessflowtemplates": ""
+            "/accessreviews/{id}/decisions": ""
           }
         },
         {
@@ -387,7 +384,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "igagraph"
+      }
     },
     "Acronym.Read.All": {
       "schemes": {
@@ -30313,6 +30312,7 @@
             "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies/{id}/appliesto": "",
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
@@ -31106,6 +31106,7 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
@@ -39447,6 +39448,7 @@
             "/planner/tasks/{id}/details": "least=DelegatedWork",
             "/planner/tasks/{id}/progresstaskboardformat": "least=DelegatedWork",
             "/planner/tasks/delta": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/planner/plans": "least=DelegatedWork",
             "/users/{id}/planner": "least=DelegatedWork",
             "/users/{id}/planner/all/delta": "least=DelegatedWork",
             "/users/{id}/planner/favoriteplans": "least=DelegatedWork",
@@ -39623,6 +39625,7 @@
             "/planner/tasks/{id}/details": "least=Application",
             "/planner/tasks/{id}/progresstaskboardformat": "least=Application",
             "/planner/tasks/delta": "least=Application",
+            "/teams/{id}/channels/{id}/planner/plans": "least=Application",
             "/users/{id}/planner": "least=Application",
             "/users/{id}/planner/myDayTasks": "least=Application",
             "/users/{id}/planner/rosterplans": "least=Application",
@@ -39711,6 +39714,7 @@
             "/planner/plans/{id}/buckets": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
+            "/teams/{id}/channels/{id}/planner/plans": "",
             "/users/{id}/planner/all/delta": "",
             "/users/{id}/planner/favoriteplans": "",
             "/users/{id}/planner/myDayTasks": "",
@@ -39961,7 +39965,8 @@
             "/planner/plans/{id}/archive": "least=DelegatedWork",
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork",
-            "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork"
+            "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork",
+            "/planner/undo": "least=DelegatedWork"
           }
         },
         {
@@ -40025,6 +40030,7 @@
             "/planner/plans/{id}/buckets": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
+            "/teams/{id}/channels/{id}/planner/plans": "",
             "/users/{id}/planner": "",
             "/users/{id}/planner/myDayTasks": "",
             "/users/{id}/planner/rosterplans": "",
@@ -40098,6 +40104,7 @@
             "/planner/plans/{id}/unarchive": "least=Application",
             "/planner/rosters": "least=Application",
             "/planner/rosters/{id}/assignSensitivityLabel": "least=Application",
+            "/planner/undo": "least=Application",
             "/users/{id}/todo/lists/{id}/tasks/{id}/attachments/createuploadsession": "least=Application"
           }
         },
