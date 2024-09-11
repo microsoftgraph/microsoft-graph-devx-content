@@ -36893,6 +36893,186 @@
         "ownerSecurityGroup": "secgraphschema"
       }
     },
+    "SecurityIdentitiesHealth.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security health issues",
+          "adminDescription": "Allows the app to read all the identity security health issues of signed user",
+          "userDisplayName": "Read identity security health issues",
+          "userDescription": "Allows the app to read all the identity security health issues on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security health issues",
+          "adminDescription": "Allows the app to read all the identity security health issues without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/healthIssues": "least=DelegatedWork,Application",
+            "/security/identities/healthIssues/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesHealth.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity security health issues",
+          "adminDescription": "Allows the app to read and write identity security health issues on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity security health issues",
+          "userDescription": "Allows the app to read and write identity security health issues on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity security health issues",
+          "adminDescription": "Allows the app to read and write identity security health issues without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/security/identities/healthIssues/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/healthIssues": "",
+            "/security/identities/healthIssues/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesSensors.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security sensors",
+          "adminDescription": "Allows the app to read all the identity security sensors of signed user",
+          "userDisplayName": "Read identity security sensors",
+          "userDescription": "Allows the app to read all the identity security sensors on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security sensors",
+          "adminDescription": "Allows the app to read all the identity security sensors without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/sensors": "least=DelegatedWork,Application",
+            "/security/identities/sensors/{id}": "least=DelegatedWork,Application",
+            "/security/identities/sensors/getDeploymentPackageUri": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesSensors.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity security sensors",
+          "adminDescription": "Allows the app to read and write identity security sensors on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity security sensors",
+          "userDescription": "Allows the app to read and write identity security sensors on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity security sensors",
+          "adminDescription": "Allows the app to read and write identity security sensors without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/security/identities/sensors/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/identities/sensors/regenerateDeploymentAccessKey": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/sensors/getDeploymentAccessKey": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIncident.Read.All": {
       "schemes": {
         "DelegatedWork": {
