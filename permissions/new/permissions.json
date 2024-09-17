@@ -18259,6 +18259,168 @@
       ],
       "ownerInfo": {}
     },
+    "EngagementConversation.Migration.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write all Viva Engage conversations",
+          "adminDescription": "Allows the app to create Viva Engage conversations without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/employeeexperience/communities/{id}/microsoft.graph.completeUploadSession": "",
+            "/employeeexperience/communities/{id}/microsoft.graph.createUploadSession": "",
+            "/employeeexperience/conversations": "",
+            "/employeeexperience/conversations/{id}/messages": "",
+            "/employeeexperience/conversations/{id}/messages/{id}/microsoft.graph.addReaction": "",
+            "/employeeexperience/conversations/{id}/messages/{id}/microsoft.graph.engagementConversationPollMessage/microsoft.graph.vote": "",
+            "/employeeexperience/conversations/{id}/messages/{id}/replies": "",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.completeUploadSession": "",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.createUploadSessions": "",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.follow": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "EngagementConversation.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Viva Engage conversations",
+          "adminDescription": "Allows the app to read Viva Engage conversations, and to read their properties on behalf of the signed-in user.",
+          "userDisplayName": "Read all Viva Engage conversations",
+          "userDescription": "Allows the app to list Viva Engage conversations, and to read their properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Viva Engage conversations",
+          "adminDescription": "Allows the app to list Viva Engage conversations, and to read their properties without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeexperience/conversations": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/reactions": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/replies": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "EngagementConversation.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all Viva Engage conversations",
+          "adminDescription": "Allows the app to create Viva Engage conversations and read all conversation properties on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all Viva Engage communities",
+          "userDescription": "Allows the app to create Viva Engage conversations and read all conversation properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all Viva Engage conversations",
+          "adminDescription": "Allows the app to create Viva Engage conversations, read all conversation properties, update conversation properties, and delete conversations without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/employeeexperience/communities/{id}/microsoft.graph.completeUploadSession": "least=DelegatedWork,Application",
+            "/employeeexperience/communities/{id}/microsoft.graph.createUploadSession": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/microsoft.graph.addReaction": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/microsoft.graph.engagementConversationPollMessage/microsoft.graph.vote": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/microsoft.graph.removeReaction": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}/replies": "least=DelegatedWork,Application",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.completeUploadSession": "least=DelegatedWork,Application",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.createUploadSessions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeexperience/conversations": "",
+            "/employeeexperience/conversations/{id}": "",
+            "/employeeexperience/conversations/{id}/messages": "",
+            "/employeeexperience/conversations/{id}/messages/{id}": "",
+            "/employeeexperience/conversations/{id}/messages/{id}/reactions": "",
+            "/employeeexperience/conversations/{id}/messages/{id}/replies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/employeeexperience/conversations/{id}": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/employeeexperience/conversations/{id}": "least=DelegatedWork,Application",
+            "/employeeexperience/conversations/{id}/messages/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
     "EntitlementManagement.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -22131,6 +22293,7 @@
             "GET"
           ],
           "paths": {
+            "/storage/fileStorage/containerTypes/": "least=Application",
             "/storage/fileStorage/containerTypes/{id}": "least=Application",
             "/storage/fileStorage/containerTypes/{id}/applicationPermissionGrants": "least=Application",
             "/storage/fileStorage/containerTypes/{id}/applicationPermissionGrants/{id}": "least=Application"
@@ -39256,6 +39419,91 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "exospm_sg"
+      }
+    },
+    "Storyline.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Viva Engage storylines",
+          "adminDescription": "Allows the app to read Viva Engage storylines, and to read their properties on behalf of the signed-in user.",
+          "userDisplayName": "Read all Viva Engage storylines",
+          "userDescription": "Allows the app to access the Viva Engage storyline, and to read their properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Viva Engage storylines",
+          "adminDescription": "Allows the app to read the Viva Engage storylines, and to read their properties without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/employeeExperience/storyline": "least=DelegatedWork,Application",
+            "/users/{id}/employeeExperience/storyline/followers": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "Storyline.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all Viva Engage storylines",
+          "adminDescription": "Allows the app to modify the Viva Engage storyline and read all storyline properties on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all Viva Engage storylines",
+          "userDescription": "Allows the app to create Viva Engage storyline items and read all storyline properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all Viva Engage storylines",
+          "adminDescription": "Allows the app to modify Viva Engage storylines, read all storylines properties, update storyline properties, and delete storyline properties without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.follow": "least=DelegatedWork,Application",
+            "/users/{id}/employeeExperience/storyline/microsoft.graph.unfollow": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/employeeExperience/storyline": "",
+            "/users/{id}/employeeExperience/storyline/followers": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
       }
     },
     "SubjectRightsRequest.Read.All": {
