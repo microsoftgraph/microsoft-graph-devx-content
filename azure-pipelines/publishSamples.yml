@@ -33,9 +33,7 @@ extends:
             outputs:
             - output: pipelineArtifact
               displayName: 'Publish Artifact drop'
-              targetPath: |
-                **\permissions\** 
-                **\sample-queries\**
+              targetPath: '$(Build.ArtifactStagingDirectory)'
               artifactName: drop
         steps:
         - task: CopyFiles@2
