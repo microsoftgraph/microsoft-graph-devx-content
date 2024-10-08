@@ -96,7 +96,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Sample Query files'
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/sample-queries'
+                  SourcePath: '$(build.artifactstagingdirectory)/sample-queries/*'
                   azureSubscription: 'Federated DevX API Managed Identity'
                   Destination: AzureBlob
                   storage: devxapistorage
@@ -105,7 +105,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/permissions'
+                  SourcePath: '$(build.artifactstagingdirectory)/permissions/*'
                   azureSubscription: 'Federated DevX API Managed Identity'
                   Destination: AzureBlob
                   storage: devxapistorage
