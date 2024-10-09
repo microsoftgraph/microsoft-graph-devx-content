@@ -5931,6 +5931,42 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "ChangeManagement.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Change Management items",
+          "adminDescription": "Allows to read all Change Management items.",
+          "userDisplayName": "Read Change Management items",
+          "userDescription": "Allows to read all Change Management items.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 1
+        },
+        "Application": {
+          "adminDisplayName": "Read Change Management items",
+          "adminDescription": "Allows to read all Change Management items.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/productchanges": "least=DelegatedWork,Application",
+            "/identity/productchanges/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cmh-msgraph"
+      }
+    },
     "Channel.Create": {
       "schemes": {
         "DelegatedWork": {
