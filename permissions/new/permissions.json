@@ -6821,7 +6821,7 @@
             "DELETE"
           ],
           "paths": {
-            "/chats/{id}": "least=DelegatedWork,Application"
+            "/chats/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -6833,7 +6833,7 @@
             "GET"
           ],
           "paths": {
-            "/teamwork/deletedchats/{id}": "least=DelegatedWork,Application"
+            "/teamwork/deletedchats/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -6845,7 +6845,7 @@
             "POST"
           ],
           "paths": {
-            "/teamwork/deletedchats/{id}/undodelete": "least=DelegatedWork,Application"
+            "/teamwork/deletedchats/{id}/undodelete": "least=DelegatedWork"
           }
         }
       ],
@@ -6871,7 +6871,7 @@
             "DELETE"
           ],
           "paths": {
-            "/chats/{id}": ""
+            "/chats/{id}": "least=Application"
           }
         },
         {
@@ -6882,7 +6882,7 @@
             "GET"
           ],
           "paths": {
-            "/teamwork/deletedchats/{id}": ""
+            "/teamwork/deletedchats/{id}": "least=Application"
           }
         },
         {
@@ -6893,7 +6893,7 @@
             "POST"
           ],
           "paths": {
-            "/teamwork/deletedchats/{id}/undodelete": ""
+            "/teamwork/deletedchats/{id}/undodelete": "least=Application"
           }
         }
       ],
@@ -7644,6 +7644,56 @@
             "/users/{id}/chats/{id}/messages/{id}": "least=Application",
             "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "least=Application",
             "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "ChatMessage.ReadWriteSelected.Chat": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read write selected chat messages",
+          "adminDescription": "Allows the app to read and write the selected chat messages in a given chat, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/chats/{id}/messages": "",
+            "/chats/{id}/pinnedmessages": "",
+            "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=Application",
+            "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/chats/{id}/messages": "",
+            "/chats/{id}/messages/{id}": "",
+            "/chats/{id}/messages/{id}/hostedcontents": "",
+            "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/hostedcontents/{id}/$value": "",
+            "/me/chats/{id}/messages": "",
+            "/me/chats/{id}/messages/{id}": "",
+            "/users/{id}/chats/{id}/messages": "",
+            "/users/{id}/chats/{id}/messages/{id}": "",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents": "",
+            "/users/{id}/chats/{id}/messages/{id}/hostedcontents/{id}": ""
           }
         }
       ],
@@ -35244,10 +35294,10 @@
     "ResourceSpecificPermissionGrant.ReadForChat": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "userDisplayName": "",
-          "userDescription": "",
+          "adminDisplayName": "Read resource specific permissions granted on a chat",
+          "adminDescription": "Allows the app to read the resource specific permissions granted on the chat, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource specific permissions granted on a chat account",
+          "userDescription": "Allows the app to read the resource specific permission granted on the chat, on your behalf.",
           "requiresAdminConsent": false
         }
       },
@@ -35260,17 +35310,19 @@
             "GET"
           ],
           "paths": {
-            "/chats/{id}/permissiongrants": ""
+            "/chats/{id}/permissiongrants": "least=DelegatedWork"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
     },
     "ResourceSpecificPermissionGrant.ReadForChat.All": {
       "schemes": {
         "Application": {
-          "adminDisplayName": "",
-          "adminDescription": "",
+          "adminDisplayName": "Read resource specific permissions granted on a chat",
+          "adminDescription": "Allows the app to read the resource specific permissions granted on the chat without a signed-in user.",
           "requiresAdminConsent": true
         }
       },
@@ -35287,7 +35339,61 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "ResourceSpecificPermissionGrant.ReadForTeam": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read resource specific permissions granted on a team",
+          "adminDescription": "Allows the app to read the resource specific permissions granted on the team, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource specific permissions granted on a team",
+          "userDescription": "Allows the app to read the resource specific permission granted on the team, on your behalf.",
+          "requiresAdminConsent": false
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/permissiongrants": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "ResourceSpecificPermissionGrant.ReadForTeam.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read resource specific permissions granted on a team",
+          "adminDescription": "Allows the app to read the resource specific permissions granted on the team without a signed-in user.",
+          "requiresAdminConsent": true
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/permissiongrants": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
     },
     "ResourceSpecificPermissionGrant.ReadForUser": {
       "schemes": {
@@ -41872,7 +41978,7 @@
           "paths": {
             "/chats/{id}/installedapps": "least=DelegatedWork",
             "/chats/{id}/installedapps/{id}": "least=DelegatedWork",
-            "/chats/{id}/permissiongrants": "least=DelegatedWork"
+            "/chats/{id}/permissiongrants": ""
           }
         }
       ],
@@ -41931,7 +42037,7 @@
           "paths": {
             "/teams/{id}/installedapps": "least=DelegatedWork",
             "/teams/{id}/installedapps/{id}": "",
-            "/teams/{id}/permissiongrants": "least=DelegatedWork"
+            "/teams/{id}/permissiongrants": ""
           }
         }
       ],
