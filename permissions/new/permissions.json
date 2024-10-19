@@ -2194,7 +2194,7 @@
           "paths": {
             "/auditlogs/directoryaudits": "least=DelegatedWork,Application",
             "/auditlogs/directoryaudits/{id}": "least=DelegatedWork,Application",
-            "/auditlogs/provisioning": "least=DelegatedWork,Application",
+            "/auditlogs/provisioning": "",
             "/auditlogs/signins": "least=DelegatedWork,Application",
             "/auditlogs/signins/{id}": "least=DelegatedWork,Application",
             "/auditlogs/signups": "least=DelegatedWork,Application",
@@ -7797,11 +7797,6 @@
           ],
           "paths": {
             "/devicemanagement/manageddevices/{id}/getcloudpcreviewstatus": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrecords": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrecords/{id}": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrecords/getportalnotifications": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrules": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrules/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/auditevents": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/auditevents/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/auditevents/getauditactivitytypes": "least=DelegatedWork,Application",
@@ -7855,6 +7850,11 @@
             "GET"
           ],
           "paths": {
+            "/devicemanagement/monitoring/alertrecords": "least=DelegatedWork",
+            "/devicemanagement/monitoring/alertrecords/{id}": "least=DelegatedWork",
+            "/devicemanagement/monitoring/alertrecords/getportalnotifications": "least=DelegatedWork",
+            "/devicemanagement/monitoring/alertrules": "least=DelegatedWork",
+            "/devicemanagement/monitoring/alertrules/{id}": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/crosscloudgovernmentorganizationmapping": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "least=DelegatedWork",
@@ -7932,9 +7932,6 @@
           "paths": {
             "/devicemanagement/manageddevices/{id}/getcloudpcremoteactionresults": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/{id}/getcloudpcreviewstatus": "",
-            "/devicemanagement/monitoring/alertrecords": "",
-            "/devicemanagement/monitoring/alertrecords/{id}": "",
-            "/devicemanagement/monitoring/alertrecords/getportalnotifications": "",
             "/devicemanagement/virtualendpoint/auditevents": "",
             "/devicemanagement/virtualendpoint/auditevents/{id}": "",
             "/devicemanagement/virtualendpoint/auditevents/getauditactivitytypes": "",
@@ -7978,7 +7975,6 @@
             "/devicemanagement/manageddevices/bulkreprovisioncloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulkrestorecloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulksetcloudpcreviewstatus": "least=DelegatedWork,Application",
-            "/devicemanagement/monitoring/alertrecords/{id}/setportalnotificationassent": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/changeuseraccounttype": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
@@ -8021,7 +8017,6 @@
             "POST"
           ],
           "paths": {
-            "/devicemanagement/monitoring/alertrules": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
@@ -8040,7 +8035,6 @@
             "PATCH"
           ],
           "paths": {
-            "/devicemanagement/monitoring/alertrules/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/organizationsettings": "least=DelegatedWork,Application"
           }
@@ -8066,7 +8060,20 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/monitoring/alertrules": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/crosscloudgovernmentorganizationmapping": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/devicemanagement/monitoring/alertrules/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -8093,6 +8100,9 @@
             "GET"
           ],
           "paths": {
+            "/devicemanagement/monitoring/alertrecords": "",
+            "/devicemanagement/monitoring/alertrecords/{id}": "",
+            "/devicemanagement/monitoring/alertrecords/getportalnotifications": "",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "",
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
@@ -8114,6 +8124,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/monitoring/alertrecords/{id}/setportalnotificationassent": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/runhealthchecks": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork",
