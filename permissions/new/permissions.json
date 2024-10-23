@@ -7877,6 +7877,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "least=DelegatedWork,Application",
@@ -8012,6 +8013,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
             "/devicemanagement/virtualendpoint/galleryimages": "",
             "/devicemanagement/virtualendpoint/galleryimages/{id}": "",
@@ -8051,7 +8053,6 @@
             "/devicemanagement/manageddevices/bulksetcloudpcreviewstatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/changeuseraccounttype": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweron": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
@@ -8201,10 +8202,8 @@
             "/devicemanagement/monitoring/alertrecords/{id}/setportalnotificationassent": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/runhealthchecks": "least=DelegatedWork",
-            "/me/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/start": "least=DelegatedWork",
             "/me/cloudpcs/{id}/stop": "least=DelegatedWork",
-            "/users/{id}/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/start": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/stop": "least=DelegatedWork"
           }
@@ -39837,12 +39836,12 @@
             "POST"
           ],
           "paths": {
-            "/serviceprincipals/{id}/synchronization/jobs/{id}/bulkupload": "least=DelegatedWork,Application"
+            "/serviceprincipals/{id}/synchronization/jobs/{id}/bulkupload": "least=DelegatedWork"
           }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "ProvisioningFeedback"
+        "ownerSecurityGroup": "syncfabricadmins"
       }
     },
     "Tasks.Read": {
