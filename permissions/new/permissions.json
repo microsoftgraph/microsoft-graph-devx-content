@@ -25582,6 +25582,54 @@
       ],
       "ownerInfo": {}
     },
+    "LicenseAssignment.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all license assignments.",
+          "adminDescription": "Allows an app to read license assignments for users and groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read all license assignments.",
+          "userDescription": "Allows the app to read all license assignments, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all license assignments.",
+          "adminDescription": "Allows an app to read license assignments for users and groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/subscribedSkus": "least=DelegatedWork,Application",
+            "/subscribedSkus/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/licensedetails": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/licensedetails": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadcslms"
+      }
+    },
     "LicenseAssignment.ReadWrite.All": {
       "schemes": {
         "DelegatedWork": {
@@ -29131,8 +29179,8 @@
             "/organization/{id}/branding/localizations/{id}/{streamObjectType}": "",
             "/organization/{id}/certificatebasedauthconfiguration": "least=DelegatedWork,Application",
             "/organization/{id}/certificatebasedauthconfiguration/{id}": "least=DelegatedWork,Application",
-            "/subscribedskus": "least=DelegatedWork,Application",
-            "/subscribedskus/{id}": "least=DelegatedWork,Application"
+            "/subscribedskus": "",
+            "/subscribedskus/{id}": ""
           }
         },
         {
@@ -30628,6 +30676,7 @@
             "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies/{id}/appliesto": "",
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy": "least=DelegatedWork,Application",
             "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
@@ -31013,7 +31062,7 @@
     "Policy.Read.HybridAuthentication": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "adminDisplayName": "Read your organization's hybrid authentication policies",
           "adminDescription": "Allows the app to read your organization's hybrid authentication policies on behalf of the signed-in user.",
           "userDisplayName": "Read your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
           "userDescription": "Allows the app to read your organization's hybrid authentication policies on your behalf.",
@@ -32010,7 +32059,7 @@
     "Policy.ReadWrite.HybridAuthentication": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read and write your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
+          "adminDisplayName": "Read and write your organization's hybrid authentication policies",
           "adminDescription": "Allows the app to read and write your organization's hybrid authentication policies on behalf of the signed-in user.",
           "userDisplayName": "Read and write your organization's hybrid authentication policies like pass-through authentication and seamless single sign-on",
           "userDescription": "Allows the app to read and write your organization's hybrid authentication policies on your behalf.",
@@ -46389,7 +46438,7 @@
           "paths": {
             "/me": "least=DelegatedWork,DelegatedPersonal",
             "/me/createdobjects": "least=DelegatedWork,DelegatedPersonal",
-            "/me/licensedetails": "least=DelegatedWork,DelegatedPersonal",
+            "/me/licensedetails": "least=DelegatedPersonal",
             "/me/outlook/supportedlanguages": "least=DelegatedWork,DelegatedPersonal",
             "/me/outlook/supportedtimezones": "least=DelegatedWork,DelegatedPersonal",
             "/me/outlook/supportedtimezones(timezonestandard={value})": "least=DelegatedWork,DelegatedPersonal",
@@ -46433,7 +46482,7 @@
             "/me/responsibilities": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}": "least=DelegatedPersonal",
             "/users/{id}/createdobjects": "least=DelegatedWork,DelegatedPersonal",
-            "/users/{id}/licensedetails": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/licensedetails": "least=DelegatedPersonal",
             "/users/{id}/outlook/supportedlanguages": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/outlook/supportedtimezones": "least=DelegatedWork,DelegatedPersonal",
             "/users/{id}/outlook/supportedtimezones(timezonestandard={value})": "least=DelegatedWork,DelegatedPersonal",
@@ -46627,7 +46676,7 @@
             "/users/{id}/findrooms(roomlist={value})": "least=Application",
             "/users/{id}/invitedBy": "least=DelegatedWork,Application",
             "/users/{id}/joinedteams": "",
-            "/users/{id}/licensedetails": "least=Application",
+            "/users/{id}/licensedetails": "",
             "/users/{id}/manager": "least=DelegatedWork,Application",
             "/users/{id}/organizationalUnitParent": "least=DelegatedWork,Application",
             "/users/{id}/owneddevices": "least=Application",
