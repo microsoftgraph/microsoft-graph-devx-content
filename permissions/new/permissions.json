@@ -5958,6 +5958,18 @@
             "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/getAllMembers": "least=DelegatedWork,Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -5985,6 +5997,18 @@
           "paths": {
             "/chats/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/members/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/getAllMembers": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -22765,6 +22789,17 @@
             "/me/checkmemberobjects": "",
             "/me/getmembergroups": "",
             "/me/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/getAllMembers": "least=DelegatedWork"
           }
         },
         {
