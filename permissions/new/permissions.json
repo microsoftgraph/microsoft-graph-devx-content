@@ -16271,48 +16271,56 @@
           "userDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all eDiscovery objects",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects without the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
             "POST"
           ],
           "paths": {
-            "/compliance/ediscovery/cases": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/legalholds": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/tags": "least=DelegatedWork",
-            "/security/cases/ediscoverycases": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/legalholds": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/tags": "least=DelegatedWork"
+            "/compliance/ediscovery/cases": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -16320,132 +16328,137 @@
             "PATCH"
           ],
           "paths": {
-            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork"
+            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/compliance/ediscovery/cases/{id}/close": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reopen": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/close": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/removehold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/exportDownload": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "least=DelegatedWork",
+            "/compliance/ediscovery/cases/{id}/close": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reopen": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/close": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/exportDownload": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "",
-            "/security/cases/ediscoverycases/{id}/reopen": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/reopen": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
             "PATCH"
           ],
           "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork"
+            "/compliance/ediscovery/cases/{id}/custodians/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
             "GET"
           ],
           "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "least=DelegatedWork"
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/datasource": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/operations": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/operations/{id}/microsoft.graph.ediscovery.caseexportoperation/getdownloadurl": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/addtoreviewsetoperation": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "least=DelegatedWork",
-            "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/operations": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/childtags/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/parent": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/run": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/lastestimatestatisticsoperation": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/tags/ashierarchy": "least=DelegatedWork"
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/datasource": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/operations": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/operations/{id}/microsoft.graph.ediscovery.caseexportoperation/getdownloadurl": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/addtoreviewsetoperation": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/operations": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/childtags/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/parent": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/run": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/lastestimatestatisticsoperation": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags/ashierarchy": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -16453,7 +16466,7 @@
             "POST"
           ],
           "paths": {
-            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -16470,12 +16483,19 @@
           "userDescription": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all eDiscovery objects",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects without the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
@@ -16495,7 +16515,7 @@
             "/compliance/ediscovery/cases/{id}/sourcecollections": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags": "",
             "/security/cases/ediscoverycases": "",
             "/security/cases/ediscoverycases/{id}/custodians": "",
@@ -16507,15 +16527,16 @@
             "/security/cases/ediscoverycases/{id}/reviewsets": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "",
             "/security/cases/ediscoverycases/{id}/searches": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/additionalsources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources": "least=DelegatedWork",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/additionalsources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/tags": ""
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -16530,14 +16551,15 @@
             "/compliance/ediscovery/cases/{id}/tags/{id}": "",
             "/security/cases/ediscoverycases/{id}": "",
             "/security/cases/ediscoverycases/{id}/legalholds/{id}": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}": "",
             "/security/cases/ediscoverycases/{id}/tags/{id}": ""
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
@@ -16551,9 +16573,9 @@
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "",
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "",
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "",
-            "/compliance/ediscovery/cases/{id}/settings/resettodefault": "least=DelegatedWork",
+            "/compliance/ediscovery/cases/{id}/settings/resettodefault": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/purgedata": "least=DelegatedWork",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/purgedata": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/close": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "",
@@ -16572,7 +16594,7 @@
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "least=DelegatedWork",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reopen": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "",
@@ -16581,13 +16603,14 @@
             "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "",
             "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "",
             "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/purgedata": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/settings/resettodefault": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/searches/{id}/purgedata": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/settings/resettodefault": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
@@ -16595,14 +16618,15 @@
           ],
           "paths": {
             "/compliance/ediscovery/cases/{id}/custodians/{id}": "",
-            "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork",
+            "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "",
-            "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -16615,7 +16639,8 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
@@ -16637,7 +16662,7 @@
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "",
             "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "",
             "/security/cases/ediscoverycases/{id}/operations": "",
-            "/security/cases/ediscoverycases/{id}/operations/{id}": "least=DelegatedWork",
+            "/security/cases/ediscoverycases/{id}/operations/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "",
@@ -16652,19 +16677,21 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE"
           ],
           "paths": {
-            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources/{id}": "least=DelegatedWork",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources/{id}": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -16672,7 +16699,7 @@
             "POST"
           ],
           "paths": {
-            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork"
+            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -25737,6 +25764,92 @@
       "pathSets": [],
       "ownerInfo": {}
     },
+    "LifecycleWorkflows.Activate": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "adminDescription": "Allows the app to run workflows on-demand on behalf of a signed-in user.",
+          "userDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "userDescription": "Allows the app to run workflows on-demand on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "adminDescription": "Allows the app run workflows on-demand without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.CreateWorkflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create workflows in Lifecycle workflows ",
+          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Create workflows in Lifecycle workflows ",
+          "userDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Create workflows in Lifecycle workflows ",
+          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions without a signed-in user. ",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
     "LifecycleWorkflows.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -25764,20 +25877,196 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions": "",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates": "",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.Read.CustomTaskExtensions": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Read all Lifecycle workflows custom task extensions",
+          "userDescription": "Allows the app to read all Lifecycle workflows custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Lifecycle workflows custom task extensionss",
+          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
             "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.Read.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list and read all workflows and tasks on behalf of a signed-in user.",
+          "userDisplayName": "Read all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to list and read all workflows and tasks on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list and read all workflows and tasks without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadBasic.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "List all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list all workflows on behalf of a signed-in user.",
+          "userDisplayName": "List all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to list all workflows on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "List all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list all workflows without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadReports.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Lifecycle workflows reports",
+          "adminDescription": "Allows the app to read all Lifecycle workflows reports on behalf of a signed-in user.",
+          "userDisplayName": "Read all Lifecycle workflows reports",
+          "userDescription": "Allows the app to read all Lifecycle workflows reports on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Lifecycle workflows reports",
+          "adminDescription": "Allows the app to read all Lifecycle workflows reports without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
             "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/taskdefinitions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
@@ -25788,18 +26077,10 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -25834,7 +26115,7 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": ""
           }
         },
         {
@@ -25846,7 +26127,7 @@
             "PATCH"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": ""
           }
         },
         {
@@ -25858,9 +26139,9 @@
             "DELETE"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": ""
           }
         },
         {
@@ -25918,10 +26199,10 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": "least=DelegatedWork,Application"
           }
         },
@@ -25935,8 +26216,155 @@
           ],
           "paths": {
             "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadWrite.CustomTaskExtensions": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "userDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadWrite.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on behalf of a signed-in user.",
+          "userDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -46625,16 +47053,16 @@
     "User.Read.All": {
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read all users' full profiles",
-          "adminDescription": "Allows the app to read the full set of profile properties, reports, and managers of other users in your organization, on behalf of the signed-in user.",
-          "userDisplayName": "Read all users' full profiles",
-          "userDescription": "Allows the app to read the full set of profile properties, reports, and managers of other users in your organization, on your behalf.",
+          "adminDisplayName": "Read all users' full profiles and company properties",
+          "adminDescription": "Allows the app to read the full set of user properties of all users in the organization and read company properties, on behalf of the signed-in user.",
+          "userDisplayName": "Read all users' full profiles and company properties",
+          "userDescription": "Allows the app to read the full set of user properties of all users in the organization and read company properties, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Read all users' full profiles",
-          "adminDescription": "Allows the app to read user profiles without a signed in user.",
+          "adminDisplayName": "Read all users' full profiles and company properties",
+          "adminDescription": "Allows the app to read the full set of user properties of all users in the organization and read company properties without a signed in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -46701,6 +47129,8 @@
           ],
           "paths": {
             "/datapolicyoperations/{id}": "",
+            "/organization": "",
+            "/organization/{id}": "",
             "/settings/regionalandlanguagesettings": "least=Application",
             "/users": "",
             "/users/{id}": "",
@@ -47973,7 +48403,6 @@
             "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
             "/me/authentication/fido2methods": "least=DelegatedWork",
             "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork",
             "/me/authentication/methods": "least=DelegatedWork",
             "/me/authentication/methods/{id}": "least=DelegatedWork",
             "/me/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
@@ -48000,7 +48429,6 @@
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods/creationOptions": "least=DelegatedWork",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
@@ -48058,9 +48486,8 @@
           "paths": {
             "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/emailmethods/{id}": "least=Application",
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "",
+            "/me/authentication/fido2methods": "least=Application",
+            "/me/authentication/fido2methods/{id}": "least=Application",
             "/me/authentication/methods": "least=Application",
             "/me/authentication/methods/{id}": "least=Application",
             "/me/authentication/microsoftauthenticatormethods": "least=Application",
@@ -48085,9 +48512,8 @@
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods": "",
-            "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/creationOptions": "",
+            "/users/{id}/authentication/fido2methods": "least=Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
             "/users/{id}/authentication/methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/methods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/microsoftauthenticatormethods": "least=Application",
