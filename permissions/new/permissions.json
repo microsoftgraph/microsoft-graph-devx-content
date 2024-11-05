@@ -682,6 +682,22 @@
         "ownerSecurityGroup": "igagraph"
       }
     },
+    "AiEnterpriseInteraction.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read user AI enterprise interactions.",
+          "adminDescription": "Allows the app to read user AI enterprise interactions, on behalf of the signed-in user.",
+          "userDisplayName": "Read your AI enterprise interactions.",
+          "userDescription": "Allows an app to read your AI enterprise interactions, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "AiEnterpriseInteraction.Read.All": {
       "schemes": {
         "Application": {
@@ -704,6 +720,20 @@
           }
         }
       ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "AiEnterpriseInteraction.Read.User": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read user AI enterprise interactions.",
+          "adminDescription": "Allows the app to read user AI enterprise interactions, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
       }
