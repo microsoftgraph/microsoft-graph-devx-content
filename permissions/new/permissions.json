@@ -682,22 +682,6 @@
         "ownerSecurityGroup": "igagraph"
       }
     },
-    "AiEnterpriseInteraction.Read": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read user AI enterprise interactions.",
-          "adminDescription": "Allows the app to read user AI enterprise interactions, on behalf of the signed-in user.",
-          "userDisplayName": "Read your AI enterprise interactions.",
-          "userDescription": "Allows an app to read your AI enterprise interactions, on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
     "AiEnterpriseInteraction.Read.All": {
       "schemes": {
         "Application": {
@@ -720,20 +704,6 @@
           }
         }
       ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "AiEnterpriseInteraction.Read.User": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read user AI enterprise interactions.",
-          "adminDescription": "Allows the app to read user AI enterprise interactions, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
       }
@@ -27802,6 +27772,7 @@
           "paths": {
             "/networkaccess/alerts/getAlertFrequencies": "least=DelegatedWork,Application",
             "/networkaccess/alerts/getAlertSeveritySummaries": "least=DelegatedWork,Application",
+            "/networkaccess/alerts/getAlertSummaries": "least=DelegatedWork,Application",
             "/networkaccess/discovery/discoveredApplicationSegments": "least=DelegatedWork,Application",
             "/networkaccess/logs/remoteNetworks": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic": "least=DelegatedWork,Application",
@@ -44820,7 +44791,8 @@
           ],
           "paths": {
             "/admin/teams/userConfigurations": "least=DelegatedWork,Application",
-            "/admin/teams/userConfigurations/{id}": "least=DelegatedWork,Application"
+            "/admin/teams/userConfigurations/{id}": "least=DelegatedWork,Application",
+            "/admin/teams/userConfigurations/{id}/user": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -48437,6 +48409,8 @@
             "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
             "/me/authentication/fido2methods": "least=DelegatedWork",
             "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
             "/me/authentication/methods": "least=DelegatedWork",
             "/me/authentication/methods/{id}": "least=DelegatedWork",
             "/me/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
@@ -48463,6 +48437,8 @@
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
@@ -48522,6 +48498,8 @@
             "/me/authentication/emailmethods/{id}": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/fido2methods/{id}": "least=Application",
+            "/me/authentication/hardwareOathMethods": "least=Application",
+            "/me/authentication/hardwareOathMethods/{id}": "least=Application",
             "/me/authentication/methods": "least=Application",
             "/me/authentication/methods/{id}": "least=Application",
             "/me/authentication/microsoftauthenticatormethods": "least=Application",
@@ -48548,6 +48526,8 @@
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/fido2methods": "least=Application",
             "/users/{id}/authentication/fido2methods/{id}": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application",
             "/users/{id}/authentication/methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/methods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/microsoftauthenticatormethods": "least=Application",
@@ -48609,6 +48589,7 @@
             "/me/authentication/phonemethods": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods": "",
             "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/hardwareOathMethods": "",
             "/users/{id}/authentication/phonemethods": ""
           }
         },
@@ -48652,6 +48633,7 @@
             "/me/authentication/fido2methods": "",
             "/me/authentication/fido2methods/{id}": "",
             "/me/authentication/fido2methods/creationOptions": "",
+            "/me/authentication/hardwareoathmethods": "",
             "/me/authentication/methods": "",
             "/me/authentication/methods/{id}": "",
             "/me/authentication/methods/{id}/isUpdateSupported": "",
@@ -48691,6 +48673,7 @@
             "GET"
           ],
           "paths": {
+            "/me/authentication/hardwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
@@ -48698,6 +48681,7 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
@@ -48715,9 +48699,18 @@
           ],
           "paths": {
             "/me/authentication/fido2methods": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork",
             "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
+            "/users/{id}/authentication/hardwareOathMethods/deactivate": "",
             "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "",
             "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": ""
           }
@@ -48758,12 +48751,14 @@
             "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application",
+            "/me/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
@@ -48839,6 +48834,7 @@
           ],
           "paths": {
             "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
+            "/me/authentication/hardwareoathmethods/{id}": "least=DelegatedWork,Application",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
@@ -48847,6 +48843,7 @@
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
@@ -48864,8 +48861,16 @@
             "POST"
           ],
           "paths": {
+            "/me/authentication/hardwareOathMethods/{id}/activate": "least=Application",
+            "/me/authentication/hardwareOathMethods/assignAndActivate": "least=Application",
+            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=Application",
+            "/me/authentication/hardwareOathMethods/deactivate": "least=Application",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork,Application"
           }
