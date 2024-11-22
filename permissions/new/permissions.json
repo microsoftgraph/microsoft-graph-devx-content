@@ -7543,8 +7543,12 @@
             "POST"
           ],
           "paths": {
+            "/chats/{id}}/messages/forwardToChat": "least=DelegatedWork",
+            "/chats/{id}}/messages/replyWithQuote": "least=DelegatedWork",
             "/chats/{id}/messages": "least=DelegatedWork",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/messages/{id}/forwardToChat": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/messages/forwardToChat": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
           }
@@ -19808,6 +19812,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/grounding": "least=DelegatedWork",
             "/search/grounding": "least=DelegatedWork"
           }
         },
@@ -25772,92 +25777,6 @@
       "pathSets": [],
       "ownerInfo": {}
     },
-    "LifecycleWorkflows.Activate": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
-          "adminDescription": "Allows the app to run workflows on-demand on behalf of a signed-in user.",
-          "userDisplayName": "Run workflows on-demand in Lifecycle workflows",
-          "userDescription": "Allows the app to run workflows on-demand on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
-          "adminDescription": "Allows the app run workflows on-demand without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.CreateWorkflows": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Create workflows in Lifecycle workflows ",
-          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on behalf of a signed-in user.",
-          "userDisplayName": "Create workflows in Lifecycle workflows ",
-          "userDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Create workflows in Lifecycle workflows ",
-          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions without a signed-in user. ",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
-            "/identitygovernance/lifecycleworkflows/taskdefinitions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
     "LifecycleWorkflows.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -25921,174 +25840,6 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflowtemplates": "",
             "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.Read.CustomTaskExtensions": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read all Lifecycle workflows custom task extensions",
-          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
-          "userDisplayName": "Read all Lifecycle workflows custom task extensions",
-          "userDescription": "Allows the app to read all Lifecycle workflows custom task extensions on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        },
-        "Application": {
-          "adminDisplayName": "Read all Lifecycle workflows custom task extensionss",
-          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.Read.Workflows": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to list and read all workflows and tasks on behalf of a signed-in user.",
-          "userDisplayName": "Read all workflows in Lifecycle workflows",
-          "userDescription": "Allows the app to list and read all workflows and tasks on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        },
-        "Application": {
-          "adminDisplayName": "Read all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to list and read all workflows and tasks without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.ReadBasic.Workflows": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "List all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to list all workflows on behalf of a signed-in user.",
-          "userDisplayName": "List all workflows in Lifecycle workflows",
-          "userDescription": "Allows the app to list all workflows on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        },
-        "Application": {
-          "adminDisplayName": "List all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to list all workflows without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.ReadReports.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read all Lifecycle workflows reports",
-          "adminDescription": "Allows the app to read all Lifecycle workflows reports on behalf of a signed-in user.",
-          "userDisplayName": "Read all Lifecycle workflows reports",
-          "userDescription": "Allows the app to read all Lifecycle workflows reports on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        },
-        "Application": {
-          "adminDisplayName": "Read all Lifecycle workflows reports",
-          "adminDescription": "Allows the app to read all Lifecycle workflows reports without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -26226,153 +25977,6 @@
             "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.ReadWrite.CustomTaskExtensions": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
-          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
-          "userDisplayName": "Read and write all Lifecycle workflows custom task extensions",
-          "userDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
-          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "PATCH"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "AADLCMAGSApprovers"
-      }
-    },
-    "LifecycleWorkflows.ReadWrite.Workflows": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on behalf of a signed-in user.",
-          "userDisplayName": "Read and write all workflows in Lifecycle workflows",
-          "userDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
-          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
-            "/identitygovernance/lifecycleworkflows/workflows": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -27832,6 +27436,7 @@
             "/networkAccess/connectivity/webCategories": "least=DelegatedWork,Application",
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -27898,6 +27503,7 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "",
             "/networkAccess/connectivity/webCategories": "",
+            "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "",
@@ -27936,6 +27542,7 @@
           "paths": {
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
+            "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles": "least=DelegatedWork,Application",
@@ -27959,6 +27566,7 @@
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
+            "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -27983,6 +27591,7 @@
           "paths": {
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -36851,17 +36460,6 @@
             "/users/{id}/joinedTeams/getShifts": "least=DelegatedWork,Application",
             "/users/{id}/joinedTeams/getTimesOff": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/teams/{id}/schedule/shifts/{id}": "least=Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -39198,6 +38796,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/grounding": "",
             "/search/grounding": ""
           }
         },
