@@ -16274,15 +16274,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all eDiscovery objects",
-          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects on behalf of the signed-in user.",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects on behalf of the signed-in user.",
           "userDisplayName": "Read all eDiscovery objects",
-          "userDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects on your behalf.",
+          "userDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read all eDiscovery objects",
-          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects without the signed-in user.",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects without the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -16294,172 +16294,76 @@
             "Application"
           ],
           "methods": [
-            "GET",
-            "POST"
+            "GET"
           ],
           "paths": {
             "/compliance/ediscovery/cases": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/custodians": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/tags": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/legalholds": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/tags": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/close": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reopen": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/close": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/removehold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/exportDownload": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "",
-            "/security/cases/ediscoverycases/{id}/reopen": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/datasource": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/operations": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/operations/{id}/microsoft.graph.ediscovery.caseexportoperation/getdownloadurl": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/addtoreviewsetoperation": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/operations": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/childtags/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/parent": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/run": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}/lastestimatestatisticsoperation": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/tags/ashierarchy": "least=DelegatedWork,Application"
           }
         },
@@ -16469,75 +16373,70 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
-      }
-    },
-    "eDiscovery.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all eDiscovery objects",
-          "adminDescription": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects on behalf of the signed-in user.",
-          "userDisplayName": "Read and write all eDiscovery objects",
-          "userDescription": "Allows the app to read and write eDiscovery objects such as cases, custodians, review sets and other related objects on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read all eDiscovery objects",
-          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets and other related objects without the signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
             "/compliance/ediscovery/cases": "",
+            "/compliance/ediscovery/cases/{id}/close": "",
             "/compliance/ediscovery/cases/{id}/custodians": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "",
             "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "",
             "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "",
             "/compliance/ediscovery/cases/{id}/legalholds": "",
             "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "",
             "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "",
             "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "",
+            "/compliance/ediscovery/cases/{id}/reopen": "",
             "/compliance/ediscovery/cases/{id}/reviewsets": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "",
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "",
             "/compliance/ediscovery/cases/{id}/tags": "",
             "/security/cases/ediscoverycases": "",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "",
+            "/security/cases/ediscoverycases/{id}/close": "",
             "/security/cases/ediscoverycases/{id}/custodians": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/unifiedgroupsources": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "",
+            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "",
+            "/security/cases/ediscoverycases/{id}/custodians/removehold": "",
+            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "",
+            "/security/cases/ediscoverycases/{id}/exportDownload": "",
             "/security/cases/ediscoverycases/{id}/legalholds": "",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "",
             "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "",
+            "/security/cases/ediscoverycases/{id}/reopen": "",
             "/security/cases/ediscoverycases/{id}/reviewsets": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "",
             "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "",
             "/security/cases/ediscoverycases/{id}/searches": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/additionalsources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "",
             "/security/cases/ediscoverycases/{id}/tags": ""
           }
         },
@@ -16547,140 +16446,21 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
             "/compliance/ediscovery/cases/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}": "",
             "/compliance/ediscovery/cases/{id}/legalholds/{id}": "",
             "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "",
             "/compliance/ediscovery/cases/{id}/tags/{id}": "",
             "/security/cases/ediscoverycases/{id}": "",
             "/security/cases/ediscoverycases/{id}/legalholds/{id}": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "",
             "/security/cases/ediscoverycases/{id}/searches/{id}": "",
             "/security/cases/ediscoverycases/{id}/tags/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/close": "",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "",
-            "/compliance/ediscovery/cases/{id}/reopen": "",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "",
-            "/compliance/ediscovery/cases/{id}/settings/resettodefault": "least=DelegatedWork,Application",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/purgedata": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/close": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "",
-            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "",
-            "/security/cases/ediscoverycases/{id}/custodians/removehold": "",
-            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "",
-            "/security/cases/ediscoverycases/{id}/exportDownload": "",
-            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reopen": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/purgedata": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/settings/resettodefault": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}": "",
-            "/compliance/ediscovery/cases/{id}/settings": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "",
-            "/security/cases/ediscoverycases/{id}/settings": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "",
-            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}": "",
-            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/datasource": "",
-            "/compliance/ediscovery/cases/{id}/operations": "",
-            "/compliance/ediscovery/cases/{id}/operations/{id}/microsoft.graph.ediscovery.caseexportoperation/getdownloadurl": "",
-            "/compliance/ediscovery/cases/{id}/reviewsets/{id}": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/addtoreviewsetoperation": "",
-            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "",
-            "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "",
-            "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}": "",
-            "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "",
-            "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "",
-            "/security/cases/ediscoverycases/{id}/operations": "",
-            "/security/cases/ediscoverycases/{id}/operations/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/childtags/{id}": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/parent": "",
-            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/run": "",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/lastestimatestatisticsoperation": "",
-            "/security/cases/ediscoverycases/{id}/tags/ashierarchy": ""
           }
         },
         {
@@ -16692,8 +16472,120 @@
             "DELETE"
           ],
           "paths": {
-            "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources/{id}": "least=DelegatedWork,Application",
-            "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources/{id}": "least=DelegatedWork,Application"
+            "/compliance/ediscovery/cases/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "",
+            "/security/cases/ediscoverycases/{id}": "",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "DNRMsGraphSchemaAdmi"
+      }
+    },
+    "eDiscovery.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all eDiscovery objects",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects on behalf of the signed-in user.",
+          "userDisplayName": "Read all eDiscovery objects",
+          "userDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all eDiscovery objects",
+          "adminDescription": "Allows the app to read eDiscovery objects such as cases, custodians, review sets, and other related objects without the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/compliance/ediscovery/cases": "",
+            "/compliance/ediscovery/cases/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/unifiedgroupsources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/legalholds": "",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}": "",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/datasource": "",
+            "/compliance/ediscovery/cases/{id}/operations": "",
+            "/compliance/ediscovery/cases/{id}/operations/{id}/microsoft.graph.ediscovery.caseexportoperation/getdownloadurl": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "",
+            "/compliance/ediscovery/cases/{id}/settings": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/addtoreviewsetoperation": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "",
+            "/compliance/ediscovery/cases/{id}/tags": "",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "",
+            "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "",
+            "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "",
+            "/security/cases/ediscoverycases": "",
+            "/security/cases/ediscoverycases/{id}": "",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "",
+            "/security/cases/ediscoverycases/{id}/custodians": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "",
+            "/security/cases/ediscoverycases/{id}/legalholds": "",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "",
+            "/security/cases/ediscoverycases/{id}/noncustodialsources/{id}/lastindexoperation": "",
+            "/security/cases/ediscoverycases/{id}/operations": "",
+            "/security/cases/ediscoverycases/{id}/operations/{id}/microsoft.graph.security.ediscoveryexportoperation/getdownloadurl": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/custodian": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/childtags/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/files/{id}/tags/{id}/parent": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/run": "",
+            "/security/cases/ediscoverycases/{id}/searches": "",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/lastestimatestatisticsoperation": "",
+            "/security/cases/ediscoverycases/{id}/settings": "",
+            "/security/cases/ediscoverycases/{id}/tags": "",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": "",
+            "/security/cases/ediscoverycases/{id}/tags/ashierarchy": ""
           }
         },
         {
@@ -16702,17 +16594,122 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET",
             "POST"
           ],
           "paths": {
-            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application"
+            "/compliance/ediscovery/cases": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/close": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reopen": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/additionalsources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/custodiansources": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/close": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/release": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/sitesources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/unifiedgroupsources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/{id}/usersources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/custodians/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/exportDownload": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/usersources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/release": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/applyhold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/removehold": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/noncustodialdatasources/updateindex": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reopen": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/addtoreviewset": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/export": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/applytags": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}/export": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/estimatestatistics": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportReport": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}/exportResult": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/compliance/ediscovery/cases/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/sitesources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/custodians/{id}/usersources/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/reviewsets/{id}/queries/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/sourcecollections/{id}": "least=DelegatedWork,Application",
+            "/compliance/ediscovery/cases/{id}/tags/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseMembers": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/searches/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/tags/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "DNRMsGraphSchemaAdmi"
       }
     },
     "EduAdministration.Read": {
