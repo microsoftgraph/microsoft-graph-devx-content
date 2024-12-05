@@ -3398,30 +3398,6 @@
           "paths": {
             "/backupRestore/restorePoints/search": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/solutions/backupRestore/restorePoints": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/solutions/backupRestore/restorePoints/search": "least=DelegatedWork,Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -7567,12 +7543,8 @@
             "POST"
           ],
           "paths": {
-            "/chats/{id}}/messages/forwardToChat": "least=DelegatedWork",
-            "/chats/{id}}/messages/replyWithQuote": "least=DelegatedWork",
             "/chats/{id}/messages": "least=DelegatedWork",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages/{id}/forwardToChat": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/messages/forwardToChat": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
           }
@@ -8422,118 +8394,6 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ve-msgraph-owners"
-      }
-    },
-    "ConfigurationMonitoring.Read.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read all Configuration Monitoring entities",
-          "adminDescription": "Allows the app to read all Configuration Monitoring entities on behalf of the signed-in user.",
-          "userDisplayName": "Read all Configuration Monitoring entities",
-          "userDescription": "Allows the app to read all Configuration Monitoring entities on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/configurationManagement/configurationDrifts": "",
-            "/configurationManagement/configurationDrifts({id})": "",
-            "/configurationManagement/configurationMonitoringResults": "",
-            "/configurationManagement/configurationMonitoringResults({id})": "",
-            "/configurationManagement/configurationMonitors": "",
-            "/configurationManagement/configurationMonitors({id})": "",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "mtafc"
-      }
-    },
-    "ConfigurationMonitoring.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all Configuration Monitoring entities",
-          "adminDescription": "Allows the app to read and write all Configuration Monitoring entities on behalf of the signed-in user.",
-          "userDisplayName": "Read and write all Configuration Monitoring entities",
-          "userDescription": "Allows the app to read and write all Configuration Monitoring entities on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/configurationManagement/configurationDrifts": "least=DelegatedWork",
-            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PUT"
-          ],
-          "paths": {
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "mtafc"
       }
     },
     "ConsentRequest.Read.All": {
@@ -10251,6 +10111,94 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "devicesapprovers"
+      }
+    },
+    "Device.ReadWrite.All": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write devices",
+          "adminDescription": "Allows the app to read and write all device properties without a signed in user.  Does not allow device creation, device deletion or update of device alternative security identifiers.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/contacts/{id}/checkmembergroups": "",
+            "/contacts/{id}/checkmemberobjects": "",
+            "/contacts/{id}/getmembergroups": "",
+            "/contacts/{id}/getmemberobjects": "",
+            "/devices/{id}/checkmembergroups": "",
+            "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/getmembergroups": "",
+            "/devices/{id}/getmemberobjects": "",
+            "/directoryobjects/{id}/checkmembergroups": "",
+            "/directoryobjects/{id}/checkmemberobjects": "",
+            "/directoryobjects/{id}/getmembergroups": "",
+            "/directoryobjects/{id}/getmemberobjects": "",
+            "/groups/{id}/checkmembergroups": "",
+            "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/getmembergroups": "",
+            "/groups/{id}/getmemberobjects": "",
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": "",
+            "/serviceprincipals/{id}/checkmembergroups": "",
+            "/serviceprincipals/{id}/checkmemberobjects": "",
+            "/serviceprincipals/{id}/getmembergroups": "",
+            "/serviceprincipals/{id}/getmemberobjects": "",
+            "/users/{id}/checkmembergroups": "",
+            "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/getmembergroups": "",
+            "/users/{id}/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices": "",
+            "/devices(deviceid={value})/memberof": "",
+            "/devices(deviceid={value})/registeredowners": "",
+            "/devices(deviceid={value})/registeredusers": "",
+            "/devices(deviceid={value})/transitivememberof": "",
+            "/devices(deviceid={value})/usagerights": "",
+            "/devices/{id}/memberof": "",
+            "/devices/{id}/registeredowners": "",
+            "/devices/{id}/registeredusers": "",
+            "/devices/{id}/transitivememberof": "",
+            "/devices/{id}/usagerights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/devices(deviceid={value})": "least=Application",
+            "/devices/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IdentityReq"
       }
     },
     "DeviceLocalCredential.Read.All": {
@@ -15088,110 +15036,6 @@
         "ownerSecurityGroup": "GraphIntuneApprovers"
       }
     },
-    "DeviceTemplate.Read": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read device templates of a user, their owners, and devices created from those device templates.",
-          "adminDescription": "Allows the app to read device templates of a user, their owners, and devices created from those device templates.",
-          "userDisplayName": "Read your device templates, their owners, and devices created from those device templates.",
-          "userDescription": "Allows the app to read device templates, their owners, and devices created from those device templates, on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 1
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/directory/templates/deviceTemplates/{id}": "least=DelegatedWork",
-            "/directory/templates/deviceTemplates/{id}/deviceinstances": "least=DelegatedWork",
-            "/directory/templates/deviceTemplates/{id}/owners": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "adrsmsgraph"
-      }
-    },
-    "DeviceTemplate.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all device templates, their owners, and devices created from those device templates.",
-          "adminDescription": "Allows the app to read and write all device templates, their owners, and devices created from those device templates on behalf of the signed-in user.",
-          "userDisplayName": "Read and write all device templates, their owners, and devices created from those device templates.",
-          "userDescription": "Allows the app to read and write all your device templates, their owners, and devices created from those device templates, on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all device templates, their owners, and devices created from those device templates.",
-          "adminDescription": "Allows the app to read and write all device templates, their owners, and devices created from those device templates without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/directory/templates/deviceTemplates": "",
-            "/directory/templates/deviceTemplates/{id}": "",
-            "/directory/templates/deviceTemplates/{id}/deviceinstances": "",
-            "/directory/templates/deviceTemplates/{id}/owners": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/directory/templates/deviceTemplates/": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/directory/templates/deviceTemplates/{id}": "least=Application,DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/directory/templates/deviceTemplates/{id}/owners/$ref": "least=Application,DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "adrsmsgraph"
-      }
-    },
     "Directory.AccessAsUser.All": {
       "schemes": {
         "DelegatedWork": {
@@ -15402,8 +15246,8 @@
             "/directoryroles/delta": "",
             "/directoryroletemplates": "",
             "/directoryroletemplates/{id}": "",
-            "/directorysettingtemplates": "",
-            "/directorysettingtemplates/{id}": "",
+            "/directorysettingtemplates": "least=DelegatedWork,Application",
+            "/directorysettingtemplates/{id}": "least=DelegatedWork,Application",
             "/domains": "",
             "/domains/{id}": "",
             "/domains/{id}/rootDomain": "",
@@ -15420,15 +15264,15 @@
             "/groups/{id}/memberof": "",
             "/groups/{id}/members": "",
             "/groups/{id}/owners": "",
-            "/groups/{id}/settings": "",
-            "/groups/{id}/settings/{id}": "",
+            "/groups/{id}/settings": "least=DelegatedWork,Application",
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
             "/groups/{id}/transitivememberof": "least=Application",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
-            "/groupsettings": "",
-            "/groupsettings/{id}": "",
-            "/groupsettingtemplates": "",
-            "/groupsettingtemplates/{id}": "",
+            "/groupsettings": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
+            "/groupsettingtemplates": "least=DelegatedWork,Application",
+            "/groupsettingtemplates/{id}": "least=DelegatedWork,Application",
             "/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/oauth2permissiongrants/{id}": "least=DelegatedWork,Application",
             "/oauth2permissiongrants/delta": "least=DelegatedWork,Application",
@@ -15477,8 +15321,8 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "least=DelegatedWork",
-            "/settings": "",
-            "/settings/{id}": "",
+            "/settings": "least=DelegatedWork,Application",
+            "/settings/{id}": "least=DelegatedWork,Application",
             "/subscribedskus": "",
             "/subscribedskus/{id}": "",
             "/teams/{id}": "",
@@ -15769,15 +15613,15 @@
             "/directory/administrativeunits/{id}/members": "",
             "/grouplifecyclepolicies": "least=DelegatedWork,Application",
             "/groups": "",
-            "/groups/{id}/settings": "",
-            "/groupsettings": "",
+            "/groups/{id}/settings": "least=DelegatedWork,Application",
+            "/groupsettings": "least=DelegatedWork,Application",
             "/oauth2permissiongrants": "",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/directory/roledefinitions": "",
             "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals/{id}/owners": "",
-            "/settings": "",
+            "/settings": "least=DelegatedWork,Application",
             "/teams/{id}/channels": "",
             "/teams/{id}/channels/{id}/tabs": "",
             "/teams/{id}/installedapps": "",
@@ -16004,7 +15848,7 @@
             "GET"
           ],
           "paths": {
-            "/group/{id}/settings": ""
+            "/group/{id}/settings": "least=Application"
           }
         },
         {
@@ -16019,8 +15863,8 @@
           ],
           "paths": {
             "/grouplifecyclepolicies/{id}": "least=DelegatedWork,Application",
-            "/groups/{id}/settings/{id}": "",
-            "/groupsettings/{id}": "",
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
             "/oauth2permissiongrants/{id}": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
@@ -16029,7 +15873,7 @@
             "/serviceprincipals/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
-            "/settings/{id}": "",
+            "/settings/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}": "",
             "/teams/{id}/channels/{id}/tabs/{id}": ""
           }
@@ -16631,7 +16475,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "DNRMsGraphSchemaAdmi"
+        "ownerSecurityGroup": "IdentityReq"
       }
     },
     "eDiscovery.ReadWrite.All": {
@@ -16864,7 +16708,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "DNRMsGraphSchemaAdmi"
+        "ownerSecurityGroup": "IdentityReq"
       }
     },
     "EduAdministration.Read": {
@@ -19964,7 +19808,6 @@
             "POST"
           ],
           "paths": {
-            "/copilot/grounding": "least=DelegatedWork",
             "/search/grounding": "least=DelegatedWork"
           }
         },
@@ -25929,6 +25772,92 @@
       "pathSets": [],
       "ownerInfo": {}
     },
+    "LifecycleWorkflows.Activate": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "adminDescription": "Allows the app to run workflows on-demand on behalf of a signed-in user.",
+          "userDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "userDescription": "Allows the app to run workflows on-demand on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Run workflows on-demand in Lifecycle workflows",
+          "adminDescription": "Allows the app run workflows on-demand without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.CreateWorkflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create workflows in Lifecycle workflows ",
+          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Create workflows in Lifecycle workflows ",
+          "userDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Create workflows in Lifecycle workflows ",
+          "adminDescription": "Allows the app to create workflows including read and list workflow templates, task definitions, and custom task extensions without a signed-in user. ",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
     "LifecycleWorkflows.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -25992,6 +25921,174 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflowtemplates": "",
             "/identitygovernance/lifecycleworkflows/workflowtemplates/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.Read.CustomTaskExtensions": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Read all Lifecycle workflows custom task extensions",
+          "userDescription": "Allows the app to read all Lifecycle workflows custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Lifecycle workflows custom task extensionss",
+          "adminDescription": "Allows the app to read all Lifecycle workflows custom task extensions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.Read.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list and read all workflows and tasks on behalf of a signed-in user.",
+          "userDisplayName": "Read all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to list and read all workflows and tasks on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list and read all workflows and tasks without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadBasic.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "List all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list all workflows on behalf of a signed-in user.",
+          "userDisplayName": "List all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to list all workflows on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "List all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to list all workflows without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadReports.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Lifecycle workflows reports",
+          "adminDescription": "Allows the app to read all Lifecycle workflows reports on behalf of a signed-in user.",
+          "userDisplayName": "Read all Lifecycle workflows reports",
+          "userDescription": "Allows the app to read all Lifecycle workflows reports on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Lifecycle workflows reports",
+          "adminDescription": "Allows the app to read all Lifecycle workflows reports without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/insights/topTasksProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/insights/topWorkflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedByCategory(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/userprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -26129,6 +26226,153 @@
             "/identitygovernance/lifecycleworkflows/settings": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadWrite.CustomTaskExtensions": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on behalf of a signed-in user.",
+          "userDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "userDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all Lifecycle workflows custom task extensions",
+          "adminDescription": "Allows the app to create, update, list, read and delete all Lifecycle workflows custom task extensions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "",
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/customtaskextensions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADLCMAGSApprovers"
+      }
+    },
+    "LifecycleWorkflows.ReadWrite.Workflows": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on behalf of a signed-in user.",
+          "userDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "userDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all workflows in Lifecycle workflows",
+          "adminDescription": "Allows the app to create, update, list, read and delete all workflows and tasks in lifecycle workflows without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/versions/{id}/tasks/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -27503,102 +27747,6 @@
       ],
       "ownerInfo": {}
     },
-    "MutualTlsOauthConfiguration.Read.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read all device authentication certificate configurations.",
-          "adminDescription": "Allows the app to read all device authentication certificate configurations on behalf of the signed-in user.",
-          "userDisplayName": "Read all device authentication certificate configurations.",
-          "userDescription": "Allows the app to read all device authentication certificate configurations on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        },
-        "Application": {
-          "adminDisplayName": "Read all device authentication certificate configurations.",
-          "adminDescription": "Allows the app to read all device authentication certificate configurations without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 5
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/directory/certificateAuthorities/mutualTlsOauthConfigurations": "least=Application,DelegatedWork",
-            "/directory/certificateAuthorities/mutualTlsOauthConfigurations/{id}": "least=Application,DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "adrsmsgraph"
-      }
-    },
-    "MutualTlsOauthConfiguration.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write all device authentication certificate configurations.",
-          "adminDescription": "Allows the app to the and write all device authentication certificate configurations on behalf of the signed-in user.",
-          "userDisplayName": "Read and write all device authentication certificate configurations.",
-          "userDescription": "Allows the app to read and write all device authentication certificate configurations on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all device authentication certificate configurations.",
-          "adminDescription": "Allows the app the read and write all device authentication certificate configurations without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 5
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/directory/certificateAuthorities/mutualTlsOauthConfigurations": "least=Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/directory/certificateAuthorities/mutualTlsOauthConfigurations": "least=Application,DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "PATCH"
-          ],
-          "paths": {
-            "/directory/certificateAuthorities/mutualTlsOauthConfigurations/{id}": "least=Application,DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "adrsmsgraph"
-      }
-    },
     "NetworkAccess-Reports.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -27684,7 +27832,6 @@
             "/networkAccess/connectivity/webCategories": "least=DelegatedWork,Application",
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -27751,7 +27898,6 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "",
             "/networkAccess/connectivity/webCategories": "",
-            "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "",
@@ -27790,7 +27936,6 @@
           "paths": {
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
-            "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles": "least=DelegatedWork,Application",
@@ -27814,7 +27959,6 @@
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
-            "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -27839,7 +27983,6 @@
           "paths": {
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -36708,6 +36851,17 @@
             "/users/{id}/joinedTeams/getShifts": "least=DelegatedWork,Application",
             "/users/{id}/joinedTeams/getTimesOff": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/teams/{id}/schedule/shifts/{id}": "least=Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -39044,7 +39198,6 @@
             "POST"
           ],
           "paths": {
-            "/copilot/grounding": "",
             "/search/grounding": ""
           }
         },
