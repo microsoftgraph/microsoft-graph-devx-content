@@ -7840,6 +7840,7 @@
             "/admin/cloudLicensing/assignmentErrors": "least=DelegatedWork",
             "/admin/cloudLicensing/assignmentErrors/{id}": "least=DelegatedWork",
             "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "least=DelegatedWork",
+            "/admin/cloudLicensing/assignmentErrors/{id}/usageRight": "least=DelegatedWork",
             "/admin/cloudLicensing/assignments": "least=DelegatedWork",
             "/admin/cloudLicensing/assignments/{id}": "least=DelegatedWork",
             "/admin/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
@@ -7888,6 +7889,7 @@
             "/admin/cloudLicensing/assignmentErrors": "least=Application",
             "/admin/cloudLicensing/assignmentErrors/{id}": "least=Application",
             "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "least=Application",
+            "/admin/cloudLicensing/assignmentErrors/{id}/usageRight": "least=Application",
             "/admin/cloudLicensing/assignments": "least=Application",
             "/admin/cloudLicensing/assignments/{id}": "least=Application",
             "/admin/cloudLicensing/assignments/{id}/allotment": "least=Application",
@@ -10228,6 +10230,15 @@
             "/devices(deviceid={value})/transitivememberof": "least=DelegatedWork,Application",
             "/devices(deviceid={value})/usagerights": "least=DelegatedWork,Application",
             "/devices/{id}": "least=DelegatedWork,Application",
+            "/devices/{id}/cloudLicensing/assignments": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/devices/{id}/cloudLicensing/waitingMembers": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/devices/{id}/memberof": "least=DelegatedWork,Application",
             "/devices/{id}/organizationalUnitParent": "least=DelegatedWork,Application",
             "/devices/{id}/registeredowners": "least=DelegatedWork,Application",
@@ -15330,6 +15341,21 @@
             "GET"
           ],
           "paths": {
+            "/admin/cloudLicensing/allotments": "",
+            "/admin/cloudLicensing/allotments/{id}": "",
+            "/admin/cloudLicensing/allotments/{id}/assignments": "",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "",
+            "/admin/cloudLicensing/allotments/{id}/owner": "",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers": "",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "",
+            "/admin/cloudLicensing/assignmentErrors": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}/usageRight": "",
+            "/admin/cloudLicensing/assignments": "",
+            "/admin/cloudLicensing/assignments/{id}": "",
+            "/admin/cloudLicensing/assignments/{id}/allotment": "",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo": "",
             "/administrativeunits": "",
             "/administrativeunits/{id}": "",
             "/administrativeunits/{id}/members": "",
@@ -15369,6 +15395,15 @@
             "/devices(deviceid={value})/transitivememberof": "",
             "/devices(deviceid={value})/usagerights": "",
             "/devices/{id}": "",
+            "/devices/{id}/cloudLicensing/assignments": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/devices/{id}/cloudLicensing/waitingMembers": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/devices/{id}/memberof": "",
             "/devices/{id}/registeredowners": "",
             "/devices/{id}/registeredusers": "",
@@ -15405,6 +15440,12 @@
             "/groups": "",
             "/groups/{id}": "",
             "/groups/{id}/approleassignments": "least=DelegatedWork,Application",
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
             "/groups/{id}/grouplifecyclepolicies": "least=DelegatedWork,Application",
             "/groups/{id}/memberof": "",
             "/groups/{id}/members": "",
@@ -15481,6 +15522,17 @@
             "/users/{id}": "",
             "/users/{id}/approleassignedresources": "least=DelegatedWork,Application",
             "/users/{id}/approleassignments": "least=Application",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
             "/users/{id}/joinedteams": "",
@@ -15511,6 +15563,17 @@
             "/applications/{id}/extensionproperties/{id}": "",
             "/me": "",
             "/me/approleassignedresources": "least=DelegatedWork",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments": "",
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/createdobjects": "",
             "/me/directreports": "",
             "/me/joinedteams": "",
@@ -15641,6 +15704,17 @@
             "GET"
           ],
           "paths": {
+            "/admin/cloudLicensing/allotments": "",
+            "/admin/cloudLicensing/allotments/{id}": "",
+            "/admin/cloudLicensing/allotments/{id}/owner": "",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers": "",
+            "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "",
+            "/admin/cloudLicensing/assignmentErrors": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "",
+            "/admin/cloudLicensing/assignmentErrors/{id}/usageRight": "",
+            "/admin/cloudLicensing/assignments/{id}/allotment": "",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo": "",
             "/administrativeunits": "",
             "/administrativeunits/{id}": "",
             "/administrativeunits/{id}/members/{id}": "",
@@ -15666,6 +15740,13 @@
             "/devices(deviceid={value})/transitivememberof": "",
             "/devices(deviceid={value})/usagerights": "",
             "/devices/{id}": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/devices/{id}/cloudLicensing/waitingMembers": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/devices/{id}/memberof": "",
             "/devices/{id}/registeredowners": "",
             "/devices/{id}/registeredusers": "",
@@ -15689,6 +15770,10 @@
             "/directorysettingtemplates": "",
             "/directorysettingtemplates/{id}": "",
             "/groups/{id}/approleassignments": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
             "/groups/{id}/grouplifecyclepolicies": "",
             "/groups/{id}/memberof": "",
             "/groups/{id}/transitivememberof": "",
@@ -15726,6 +15811,15 @@
             "/serviceprincipals/delta": "",
             "/subscribedskus": "",
             "/subscribedskus/{id}": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
             "/users/{id}/joinedteams": "",
@@ -15751,13 +15845,17 @@
             "POST"
           ],
           "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments": "",
+            "/admin/cloudLicensing/assignments": "",
             "/administrativeunits/{id}/members": "",
             "/applications(appid={value})/owners": "",
             "/applications/{id}/extensionproperties": "",
             "/applications/{id}/owners": "",
+            "/devices/{id}/cloudLicensing/assignments": "",
             "/directory/administrativeunits/{id}/members": "",
             "/grouplifecyclepolicies": "least=DelegatedWork,Application",
             "/groups": "",
+            "/groups/{id}/cloudLicensing/assignments": "",
             "/groups/{id}/settings": "",
             "/groupsettings": "",
             "/oauth2permissiongrants": "",
@@ -15770,7 +15868,8 @@
             "/teams/{id}/channels": "",
             "/teams/{id}/channels/{id}/tabs": "",
             "/teams/{id}/installedapps": "",
-            "/users": ""
+            "/users": "",
+            "/users/{id}/cloudLicensing/assignments": ""
           }
         },
         {
@@ -15783,6 +15882,7 @@
           ],
           "paths": {
             "/appcatalogs/teamsapps": "",
+            "/me/cloudLicensing/assignments": "",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}/members": "least=DelegatedWork",
             "/onpremisespublishingprofiles/applicationproxy/connectors/{id}/memberof": "least=DelegatedWork",
             "/policies/featurerolloutpolicies": "least=DelegatedWork"
@@ -15838,6 +15938,15 @@
           "paths": {
             "/applications": "",
             "/me": "",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/createdobjects": "",
             "/me/directreports": "",
             "/me/joinedteams": "",
@@ -15970,7 +16079,9 @@
             "PUT"
           ],
           "paths": {
-            "/applications/{id}/connectorgroup": "least=DelegatedWork"
+            "/applications/{id}/connectorgroup": "least=DelegatedWork",
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
           }
         },
         {
@@ -16007,7 +16118,11 @@
             "PATCH"
           ],
           "paths": {
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "",
+            "/admin/cloudLicensing/assignments/{id}": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "",
             "/grouplifecyclepolicies/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
             "/groups/{id}/settings/{id}": "",
             "/groupsettings/{id}": "",
             "/oauth2permissiongrants/{id}": "",
@@ -16020,7 +16135,8 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/settings/{id}": "",
             "/teams/{id}/channels/{id}": "",
-            "/teams/{id}/channels/{id}/tabs/{id}": ""
+            "/teams/{id}/channels/{id}/tabs/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": ""
           }
         },
         {
@@ -16047,7 +16163,17 @@
             "PUT"
           ],
           "paths": {
-            "/groups/{id}/team": ""
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/allotment/$ref": "",
+            "/admin/cloudLicensing/allotments/{id}/assignments/{id}/assignedTo/$ref": "",
+            "/admin/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/admin/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/devices/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/groups/{id}/team": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
           }
         },
         {
@@ -16095,6 +16221,7 @@
             "PATCH"
           ],
           "paths": {
+            "/me/cloudLicensing/assignments/{id}": "",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}": "least=DelegatedWork",
             "/policies/featurerolloutpolicies/{id}": "least=DelegatedWork"
           }
@@ -18725,6 +18852,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
@@ -18804,6 +18932,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
@@ -18824,8 +18953,9 @@
           "paths": {
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider/$ref": "least=DelegatedWork,Application",
-            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onTokenIssuanceStartListener/handler/microsoft.graph.onTokenIssuanceStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
@@ -22855,6 +22985,12 @@
             "/drives/{id}/root:/{id}": "",
             "/groups": "",
             "/groups/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
             "/groups/{id}/conversations": "",
             "/groups/{id}/conversations/{id}": "",
             "/groups/{id}/conversations/{id}/threads": "",
@@ -23161,6 +23297,10 @@
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
             "/drives/{id}/items/{id}": "",
             "/drives/{id}/root:/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
             "/groups/{id}/conversations": "",
             "/groups/{id}/conversations/{id}/threads": "",
             "/groups/{id}/conversations/{id}/threads/{id}/posts": "",
@@ -23326,6 +23466,7 @@
           ],
           "paths": {
             "/groups/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
             "/groups/{id}/conversations/{id}/threads/{id}": "",
             "/groups/{id}/threads/{id}": "",
             "/teams/{id}/channels/{id}": "",
@@ -23356,6 +23497,7 @@
           ],
           "paths": {
             "/groups/{id}/calendar/events": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/assignments": "",
             "/groups/{id}/events": "least=DelegatedWork",
             "/planner/buckets": "",
             "/planner/plans": "",
@@ -23437,6 +23579,8 @@
             "PUT"
           ],
           "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
             "/groups/{id}/team": "least=DelegatedWork,Application"
           }
         },
@@ -46685,6 +46829,17 @@
             "/education/me/user": "",
             "/education/users/{id}/user": "",
             "/me/analytics/settings": "least=DelegatedWork",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments": "",
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/directreports": "least=DelegatedWork",
             "/me/drive": "",
             "/me/drives": "",
@@ -46718,6 +46873,17 @@
             "/schemaextensions": "least=DelegatedWork",
             "/schemaextensions/{id}": "least=DelegatedWork",
             "/users/{id}/analytics/settings": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/deleteddatetime": "least=DelegatedWork",
             "/users/{id}/directreports": "least=DelegatedWork",
             "/users/{id}/licenseDetails/getTeamsLicensingDetails": "least=DelegatedWork",
@@ -46975,11 +47141,28 @@
           ],
           "paths": {
             "/datapolicyoperations/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
             "/organization": "",
             "/organization/{id}": "",
             "/settings/regionalandlanguagesettings": "least=Application",
             "/users": "",
             "/users/{id}": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/createdobjects": "least=Application",
             "/users/{id}/directreports": "least=Application",
             "/users/{id}/findroomlists": "least=Application",
@@ -47010,6 +47193,17 @@
           ],
           "paths": {
             "/me": "",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments": "",
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/createdobjects": "",
             "/me/directreports": "",
             "/me/findroomlists": "",
@@ -47539,6 +47733,19 @@
         },
         {
           "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments": ""
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal"
           ],
@@ -47639,7 +47846,9 @@
             "PATCH"
           ],
           "paths": {
-            "/organization/{id}/settings/profilecardproperties/{id}": "least=DelegatedWork"
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/organization/{id}/settings/profilecardproperties/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/{id}": ""
           }
         },
         {
@@ -47676,7 +47885,39 @@
             "GET"
           ],
           "paths": {
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/usagerights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
           }
         }
       ],
@@ -47761,6 +48002,15 @@
           ],
           "paths": {
             "/me": "",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/createdobjects": "",
             "/me/directreports": "",
             "/me/joinedteams": "",
@@ -47781,6 +48031,19 @@
             "GET"
           ],
           "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/users/{id}/createdobjects": "",
             "/users/{id}/directreports": "",
             "/users/{id}/joinedteams": "",
@@ -47827,6 +48090,8 @@
             "POST"
           ],
           "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments": "",
             "/users/{id}/profile/account": "least=Application",
             "/users/{id}/profile/addresses": "least=Application",
             "/users/{id}/profile/anniversaries": "least=Application",
@@ -47858,6 +48123,7 @@
             "POST"
           ],
           "paths": {
+            "/me/cloudLicensing/assignments": "",
             "/me/profile/account": "",
             "/me/profile/addresses": "",
             "/me/profile/anniversaries": "",
@@ -47891,6 +48157,8 @@
             "PATCH"
           ],
           "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
             "/users/{id}/profile/account/{id}": "least=Application",
             "/users/{id}/profile/addresses/{id}": "least=Application",
             "/users/{id}/profile/anniversaries/{id}": "least=Application",
@@ -47923,6 +48191,7 @@
             "PATCH"
           ],
           "paths": {
+            "/me/cloudLicensing/assignments/{id}": "",
             "/me/profile/account/{id}": "",
             "/me/profile/addresses/{id}": "",
             "/me/profile/anniversaries/{id}": "",
@@ -47967,6 +48236,18 @@
           ],
           "paths": {
             "/organization/{id}/settings/contactinsights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
           }
         },
         {
@@ -48028,7 +48309,11 @@
             "PUT"
           ],
           "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
             "/settings/regionalandlanguagesettings": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
             "/users/{id}/getTeamsLicensingDetails": "least=Application,DelegatedWork"
           }
         },
