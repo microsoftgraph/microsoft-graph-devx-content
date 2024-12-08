@@ -8872,6 +8872,63 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "CopilotSettings-LimitedMode.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read organization-wide copilot limited mode setting",
+          "adminDescription": "Allows the app to read organization-wide copilot limited mode setting on behalf of the signed-in user.",
+          "userDisplayName": "Read organization-wide copilot limited mode setting",
+          "userDescription": "Allows the app to read organization-wide copilot limited mode setting on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/admin/settings/limitedMode": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
+    "CopilotSettings-LimitedMode.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write organization-wide copilot limited mode setting",
+          "adminDescription": "Allows the app to read and write organization-wide copilot limited mode setting on behalf of the signed-in user.",
+          "userDisplayName": "Read and write organization-wide copilot limited mode setting",
+          "userDescription": "Allows the app to read and write organization-wide copilot limited mode setting on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/admin/settings/limitedMode": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
     "CrossTenantInformation.ReadBasic.All": {
       "schemes": {
         "DelegatedWork": {
