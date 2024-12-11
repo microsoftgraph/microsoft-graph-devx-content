@@ -5562,7 +5562,9 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "least=Application",
             "/app/calls/{id}/startRecording": "least=Application",
+            "/app/calls/{id}/startTranscription": "least=Application",
             "/app/calls/{id}/stopRecording": "least=Application",
+            "/app/calls/{id}/stopTranscription": "least=Application",
             "/app/calls/{id}/updaterecordingstatus": "",
             "/communications/calls": "",
             "/communications/calls/{id}/addlargegalleryview": "",
@@ -5573,7 +5575,9 @@
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": "least=Application",
             "/communications/calls/{id}/startRecording": "least=Application",
+            "/communications/calls/{id}/startTranscription": "least=Application",
             "/communications/calls/{id}/stopRecording": "least=Application",
+            "/communications/calls/{id}/stopTranscription": "least=Application",
             "/communications/calls/{id}/updaterecordingstatus": "",
             "/communications/calls/57dab8b1894c409ab240bd8beae78896/answer": "least=Application"
           }
@@ -25830,21 +25834,17 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LearningAssignedCourse.Read.All": {
       "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "userDisplayName": "",
-          "userDescription": "",
-          "requiresAdminConsent": false
-        },
         "Application": {
           "adminDisplayName": "Read all assignments",
           "adminDescription": "Allows the app to read data for all assignments in the organization's directory, without a signed-in user.",
-          "requiresAdminConsent": true
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -25857,32 +25857,23 @@
           ],
           "paths": {
             "/employeeexperience/learningcourseactivities/{id}": "least=Application",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities": "least=Application",
             "/employeeexperience/learningproviders/{id}/learningcourseactivities(externalcourseactivityid={value})": "least=Application",
-            "/me/employeeexperience/learningcourseactivities/{id}": "least=Application",
             "/users/{id}/employeeexperience/learningcourseactivities/{id}": "least=Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/me/employeeexperience/learningcourseactivities": "least=DelegatedWork",
-            "/users/{id}/employeeexperience/learningcourseactivities": "least=DelegatedWork"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LearningAssignedCourse.ReadWrite.All": {
       "schemes": {
         "Application": {
           "adminDisplayName": "Read and write all assignments",
           "adminDescription": "Allows the app to create, update, read and delete all assignments in the organization's directory, without a signed-in user.",
-          "requiresAdminConsent": true
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -25894,7 +25885,8 @@
             "PATCH"
           ],
           "paths": {
-            "/employeeexperience/learningcourseactivities/{id}": "least=Application"
+            "/employeeexperience/learningcourseactivities/{id}": "least=Application",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities/{id}": "least=Application"
           }
         },
         {
@@ -25913,6 +25905,18 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeExperience/learningCourseActivities/{Id}": "least=Application",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
             "DELETE"
           ],
           "paths": {
@@ -25920,7 +25924,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LearningContent.Read.All": {
       "schemes": {
@@ -26104,17 +26110,12 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LearningSelfInitiatedCourse.Read.All": {
       "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "",
-          "adminDescription": "",
-          "userDisplayName": "",
-          "userDescription": "",
-          "requiresAdminConsent": false
-        },
         "Application": {
           "adminDisplayName": "Read all self-initiated courses",
           "adminDescription": "Allows the app to read data for all self-initiated courses in the organization's directory, without a signed-in user.",
@@ -26131,32 +26132,23 @@
           ],
           "paths": {
             "/employeeexperience/learningcourseactivities/{id}": "",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities": "",
             "/employeeexperience/learningproviders/{id}/learningcourseactivities(externalcourseactivityid={value})": "",
-            "/me/employeeexperience/learningcourseactivities/{id}": "",
             "/users/{id}/employeeexperience/learningcourseactivities/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/me/employeeexperience/learningcourseactivities": "",
-            "/users/{id}/employeeexperience/learningcourseactivities": ""
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LearningSelfInitiatedCourse.ReadWrite.All": {
       "schemes": {
         "Application": {
           "adminDisplayName": "Read and write all self-initiated courses",
           "adminDescription": "Allows the app to create, update, read and delete all self-initiated courses in the organization's directory, without a signed-in user.",
-          "requiresAdminConsent": true
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -26168,7 +26160,8 @@
             "PATCH"
           ],
           "paths": {
-            "/employeeexperience/learningcourseactivities/{id}": ""
+            "/employeeexperience/learningcourseactivities/{id}": "",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities/{id}": ""
           }
         },
         {
@@ -26187,6 +26180,19 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeExperience/learningCourseActivities/{Id}": "",
+            "/employeeexperience/learningproviders/{id}/learningcourseactivities": "",
+            "/users/{user-id}/employeeExperience/learningCourseActivities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
             "DELETE"
           ],
           "paths": {
@@ -26194,7 +26200,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "learnidcengineers"
+      }
     },
     "LicenseAssignment.Read.All": {
       "schemes": {
