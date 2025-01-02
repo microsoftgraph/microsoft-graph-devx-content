@@ -36389,6 +36389,44 @@
         "ownerSecurityGroup": "cpcgraph"
       }
     },
+    "RoleManagement.Read.Defender": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "userDisplayName": "Read M365 Defender RBAC configuration",
+          "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/rolemanagement/defender/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdatpUrbac"
+      }
+    },
     "RoleManagement.Read.Directory": {
       "schemes": {
         "DelegatedWork": {
@@ -36593,6 +36631,71 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cpcgraph"
+      }
+    },
+    "RoleManagement.ReadWrite.Defender": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "userDisplayName": "Read M365 Defender RBAC configuration",
+          "userDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, on behalf of the signed-in user. This includes reading M365 Defender role definitions and role assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read M365 Defender RBAC configuration",
+          "adminDescription": "Allows the app to read the role-based access control (RBAC) settings for your company's directory, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments": "",
+            "/roleManagement/defender/roleassignments/{id}": "",
+            "/rolemanagement/defender/roledefinitions": "",
+            "/rolemanagement/defender/roledefinitions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/roleManagement/defender/roleassignments/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/defender/roledefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdatpUrbac"
       }
     },
     "RoleManagement.ReadWrite.Directory": {
@@ -47977,9 +48080,9 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write access to user profile",
-          "adminDescription": "Allows the app to read your profile. It also allows the app to update your profile information on your behalf.",
+          "adminDescription": "Allows the app to read your profile and basic company information. It also allows the app to update your profile information on your behalf.",
           "userDisplayName": "Read and update your profile",
-          "userDescription": "Allows the app to read your profile, and discover your group membership, reports and manager. It also allows the app to update your profile information on your behalf.",
+          "userDescription": "Allows the app to read your profile and basic company information, and discover your group membership, reports and manager. It also allows the app to update your profile information on your behalf.",
           "requiresAdminConsent": false,
           "privilegeLevel": 3
         },
@@ -48311,15 +48414,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all users' full profiles",
-          "adminDescription": "Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, on behalf of the signed-in user.",
+          "adminDescription": "Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, and read basic company properties, on behalf of the signed-in user.",
           "userDisplayName": "Read and write all users' full profiles",
-          "userDescription": "Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, on your behalf.",
+          "userDescription": "Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, and read basic company properties, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all users' full profiles",
-          "adminDescription": "Allows the app to read and update user profiles without a signed in user.",
+          "adminDescription": "Allows the app to read and update user profiles and read basic company properties without a signed in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
