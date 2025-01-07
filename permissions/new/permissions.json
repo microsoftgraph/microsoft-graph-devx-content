@@ -5987,8 +5987,8 @@
           "paths": {
             "/chats/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/doesuserhaveaccess": "least=DelegatedWork,Application",
-            "/teams/{id}/channels/{id}/members": "least=Application",
-            "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork,Application",
+            "/teams/{id}/channels/{id}/members": "",
+            "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/sharedwithteams": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=DelegatedWork,Application"
@@ -6104,7 +6104,7 @@
             "POST"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/members": "least=DelegatedWork,Application"
+            "/teams/{id}/channels/{id}/members": "least=DelegatedWork"
           }
         },
         {
@@ -6118,7 +6118,7 @@
             "PATCH"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork,Application"
+            "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -31432,9 +31432,14 @@
             "/policies/claimsmappingpolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailboxMigration": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
@@ -49531,6 +49536,100 @@
           ],
           "paths": {
             "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Passkey.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' passkey authentication methods",
+          "adminDescription": "Allows the app to read passkey authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' passkey authentication methods",
+          "userDescription": "Allows the app to read passkey authentication methods of all users you have access to in your organization.This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": " Read all users' passkey authentication methods",
+          "adminDescription": " Allows the app to read passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2methods/creationOptions": "",
+            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/fido2methods/creationOptions": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Passkey.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' passkey methods.",
+          "adminDescription": "Allows the app to read and write passkey authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' passkey authentication methods",
+          "userDescription": "Allows the app to read and write passkey authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' passkey authentication methods",
+          "adminDescription": "Allows the application to read and write passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2methods/creationOptions": "",
+            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/fido2methods/creationOptions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods/{id}": "least=Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=Application"
           }
         }
       ],
