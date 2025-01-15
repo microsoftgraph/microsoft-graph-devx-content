@@ -7717,7 +7717,10 @@
           ],
           "paths": {
             "/admin/cloudLicensing/allotments/{id}/assignments": "least=DelegatedWork",
-            "/admin/cloudLicensing/assignments": "least=DelegatedWork"
+            "/admin/cloudLicensing/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": "",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -7780,7 +7783,10 @@
           ],
           "paths": {
             "/admin/cloudLicensing/allotments/{id}/assignments": "least=Application",
-            "/admin/cloudLicensing/assignments": "least=Application"
+            "/admin/cloudLicensing/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": "",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "least=Application"
           }
         },
         {
@@ -9923,7 +9929,8 @@
             "POST"
           ],
           "paths": {
-            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": "least=DelegatedWork"
           }
         },
         {
@@ -9982,7 +9989,8 @@
             "POST"
           ],
           "paths": {
-            "/devices/{id}/cloudLicensing/assignments": "least=Application"
+            "/devices/{id}/cloudLicensing/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": "least=Application"
           }
         },
         {
@@ -10453,6 +10461,17 @@
           ],
           "paths": {
             "/devices/{id}/cloudLicensing/assignments": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -16208,6 +16227,7 @@
             "/groups/{id}/getpasswordsinglesignoncredentials": "",
             "/me/checkmembergroups": "",
             "/me/checkmemberobjects": "",
+            "/me/cloudLicensing/assignments/reprocessAssignments": "",
             "/me/getmembergroups": "",
             "/me/getmemberobjects": "",
             "/me/invalidateallrefreshtokens": "",
@@ -16284,6 +16304,7 @@
             "/contacts/{id}/getmemberobjects": "",
             "/devices/{id}/checkmembergroups": "",
             "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/devices/{id}/getmembergroups": "",
             "/devices/{id}/getmemberobjects": "",
             "/directoryobjects/{id}/checkmembergroups": "",
@@ -16297,6 +16318,7 @@
             "/groups/{id}/assignlicense": "",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/groups/{id}/getmembergroups": "",
             "/groups/{id}/getmemberobjects": "",
             "/groups/{id}/owners": "",
@@ -16338,6 +16360,7 @@
             "/users/{id}/assignlicense": "",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/users/{id}/getmembergroups": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "",
@@ -22867,7 +22890,8 @@
             "POST"
           ],
           "paths": {
-            "/groups/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+            "/groups/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -22926,7 +22950,8 @@
             "POST"
           ],
           "paths": {
-            "/groups/{id}/cloudLicensing/assignments": "least=Application"
+            "/groups/{id}/cloudLicensing/assignments": "least=Application",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -23685,6 +23710,7 @@
             "/groups/{id}/assignlicense": "",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/forward": "",
             "/groups/{id}/conversations/{id}/threads/{id}/posts/{id}/reply": "",
             "/groups/{id}/getmembergroups": "",
@@ -46638,7 +46664,9 @@
           ],
           "paths": {
             "/me/cloudLicensing/assignments": "least=DelegatedWork",
-            "/users/{id}/cloudLicensing/assignments": "least=DelegatedWork"
+            "/me/cloudLicensing/assignments/reprocessAssignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -46700,7 +46728,8 @@
             "POST"
           ],
           "paths": {
-            "/users/{id}/cloudLicensing/assignments": "least=Application"
+            "/users/{id}/cloudLicensing/assignments": "least=Application",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "least=DelegatedWork"
           }
         },
         {
@@ -46737,7 +46766,8 @@
             "POST"
           ],
           "paths": {
-            "/me/cloudLicensing/assignments": ""
+            "/me/cloudLicensing/assignments": "",
+            "/me/cloudLicensing/assignments/reprocessAssignments": ""
           }
         },
         {
@@ -48171,8 +48201,10 @@
             "POST"
           ],
           "paths": {
+            "/me/cloudLicensing/assignments/reprocessAssignments": "",
             "/me/invalidateallrefreshtokens": "",
             "/organization/{id}/settings/profilecardproperties": "least=DelegatedWork",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/users/{id}/invalidateallrefreshtokens": "",
             "/users/validatepassword": "least=DelegatedWork"
           }
@@ -48509,6 +48541,7 @@
             "/users/{id}/assignlicense": "",
             "/users/{id}/checkmembergroups": "",
             "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "",
             "/users/{id}/convertExternalToInternalMemberUser": "",
             "/users/{id}/getmemberobjects": "",
             "/users/{id}/reprocesslicenseassignment": "least=DelegatedWork,Application",
@@ -48526,6 +48559,7 @@
           "paths": {
             "/me/checkmembergroups": "",
             "/me/checkmemberobjects": "",
+            "/me/cloudLicensing/assignments/reprocessAssignments": "",
             "/me/getmemberobjects": "",
             "/me/revokesigninsessions": "",
             "/me/translateexchangeids": ""
