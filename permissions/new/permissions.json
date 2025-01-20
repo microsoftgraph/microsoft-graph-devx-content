@@ -16756,7 +16756,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "DirectoryPreAuthZReq"
+        "ownerSecurityGroup": "iamut-dev"
       }
     },
     "Domain.ReadWrite.All": {
@@ -36054,6 +36054,92 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "RiskPreventionProviders.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all identity risk prevention providers",
+          "adminDescription": "Allows the app to read your organization's risk prevention providers, on behalf of the signed-in user.",
+          "userDisplayName": "Read all identity risk prevention providers",
+          "userDescription": "Allows the app to read your organization's risk prevention providers, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity risk prevention providers",
+          "adminDescription": "Allows the app to read your organization's risk prevention providers, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/riskPreventionProviders": "least=DelegatedWork,Application",
+            "/identity/riskPreventionProviders/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cpimmsgraphadmins"
+      }
+    },
+    "RiskPreventionProviders.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all identity risk prevention providers",
+          "adminDescription": "Allows the app to read and write your organization's risk prevention providers, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all identity risk prevention providers",
+          "userDescription": "Allows the app to read and write your organization's risk prevention providers, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity risk prevention providers",
+          "adminDescription": "Allows the app to read and write your organization's risk prevention providers, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/identity/riskPreventionProviders": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/riskPreventionProviders/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cpimmsgraphadmins"
+      }
+    },
     "RoleAssignmentSchedule.Read.Directory": {
       "schemes": {
         "DelegatedWork": {
@@ -44606,6 +44692,42 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsResourceAccount.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Teams resource accounts",
+          "adminDescription": "Allows the app to read your tenant's resource accounts on behalf of the signed-in admin user.",
+          "userDisplayName": "Read Teams resource accounts",
+          "userDescription": "Allows the app to read your tenant's resource accounts on behalf of the signed-in admin user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Teams resource accounts",
+          "adminDescription": "Allows the app to read your tenant's resource accounts without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/teams/resourceAccounts": "least=DelegatedWork,Application",
+            "/admin/teams/resourceAccounts/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "IC3_Agent_Provisioning_Approvers"
       }
     },
     "TeamsTab.Create": {
