@@ -1301,6 +1301,7 @@
             "/serviceprincipals(appid={value})/createpasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals(appid={value})/deletepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/permanentDelete": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/updatepasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
@@ -1314,6 +1315,7 @@
             "/serviceprincipals/{id}/getmembergroups": "",
             "/serviceprincipals/{id}/getmemberobjects": "",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals/{id}/permanentDelete": "least=DelegatedWork",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
@@ -1622,6 +1624,7 @@
             "/serviceprincipals(appid={value})/addtokensigningcertificate": "least=Application",
             "/serviceprincipals(appid={value})/getpasswordsinglesignoncredentials": "least=Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals(appid={value})/owners": "least=Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals(appid={value})/permanentDelete": "least=Application",
             "/serviceprincipals(appid={value})/removekey": "least=Application",
             "/serviceprincipals(appid={value})/removepassword": "least=Application",
             "/serviceprincipals/{id}/addkey": "least=Application",
@@ -1629,6 +1632,7 @@
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=Application",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/owners": "least=Application;AlsoRequires=Directory.Read.All",
+            "/serviceprincipals/{id}/permanentDelete": "least=Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=Application",
@@ -36083,8 +36087,20 @@
             "GET"
           ],
           "paths": {
-            "/identity/riskPreventionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPreventionProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/riskPrevention/webApplicationFirewalls/verify": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -36120,7 +36136,7 @@
             "POST"
           ],
           "paths": {
-            "/identity/riskPreventionProviders": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application"
           }
         },
         {
@@ -36134,7 +36150,7 @@
             "PATCH"
           ],
           "paths": {
-            "/identity/riskPreventionProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
