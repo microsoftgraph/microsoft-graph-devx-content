@@ -8241,9 +8241,36 @@
           "userDescription": "Allows the app to read all Configuration Monitoring entities on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Configuration Monitoring entities",
+          "adminDescription": "Allows the app to read all Configuration Monitoring entities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationSnapshotJobs({id})": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationSnapshots({id})": "least=DelegatedWork,Application"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork"
@@ -8252,16 +8279,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "",
-            "/configurationManagement/configurationDrifts({id})": "",
-            "/configurationManagement/configurationMonitoringResults": "",
-            "/configurationManagement/configurationMonitoringResults({id})": "",
-            "/configurationManagement/configurationMonitors": "",
-            "/configurationManagement/configurationMonitors({id})": "",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "",
-            "/configurationManagement/configurationSnapshotJobs": "",
-            "/configurationManagement/configurationSnapshotJobs({id})": "",
-            "/configurationManagement/configurationSnapshots({id})": ""
+            "/configurationManagement/configurationApplications": "least=DelegatedWork",
+            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
           }
         }
       ],
@@ -8278,9 +8297,36 @@
           "userDescription": "Allows the app to read and write all Configuration Monitoring entities on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all Configuration Monitoring entities",
+          "adminDescription": "Allows the app to read and write all Configuration Monitoring entities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/configurationManagement/configurationDrifts": "",
+            "/configurationManagement/configurationDrifts({id})": "",
+            "/configurationManagement/configurationMonitoringResults": "",
+            "/configurationManagement/configurationMonitoringResults({id})": "",
+            "/configurationManagement/configurationMonitors": "",
+            "/configurationManagement/configurationMonitors({id})": "",
+            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "",
+            "/configurationManagement/configurationSnapshotJobs": "",
+            "/configurationManagement/configurationSnapshotJobs({id})": "",
+            "/configurationManagement/configurationSnapshots({id})": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork"
@@ -8289,16 +8335,21 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "least=DelegatedWork",
-            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork",
-            "/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork",
-            "/configurationManagement/configurationSnapshotJobs({id})": "least=DelegatedWork",
-            "/configurationManagement/configurationSnapshots({id})": "least=DelegatedWork"
+            "/configurationManagement/configurationApplications": "",
+            "/configurationManagement/configurationApplications({id})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
         {
@@ -8309,8 +8360,19 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork",
-            "/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork"
+            "/configurationManagement/configurationApplications": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
           }
         },
         {
@@ -8321,7 +8383,19 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork"
+            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
           }
         },
         {
@@ -8332,7 +8406,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork"
+            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
           }
         }
       ],
