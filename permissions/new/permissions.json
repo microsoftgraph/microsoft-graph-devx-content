@@ -16256,6 +16256,7 @@
             "GET"
           ],
           "paths": {
+            "/directory/recommendationConfiguration": "least=DelegatedWork,Application",
             "/directory/recommendations": "least=DelegatedWork,Application",
             "/directory/recommendations/{id}": "least=DelegatedWork,Application",
             "/directory/recommendations/{id}/impactedresources": "least=DelegatedWork,Application",
@@ -16317,6 +16318,18 @@
             "/directory/recommendations/{id}/impactedresources/{id}/reactivate": "least=DelegatedWork,Application",
             "/directory/recommendations/{id}/postpone": "least=DelegatedWork,Application",
             "/directory/recommendations/{id}/reactivate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/recommendationConfiguration": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -36921,6 +36934,7 @@
             "/teams/{id}/schedule/swapshiftschangerequests": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timeoffreasons": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timeoffrequests": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timesoff": "least=DelegatedWork,Application"
           }
         },
@@ -36937,7 +36951,6 @@
             "/teams/{id}/schedule/openshiftchangerequests/{id}": "",
             "/teams/{id}/schedule/shiftsRoleDefinitions": "",
             "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "",
-            "/teams/{id}/schedule/timeoffrequests": "",
             "/users/{id}/joinedTeams/getOpenShifts": "",
             "/users/{id}/joinedTeams/getShifts": "",
             "/users/{id}/joinedTeams/getTimesOff": ""
@@ -37010,8 +37023,15 @@
             "PATCH"
           ],
           "paths": {
+            "/teams/{id}/schedule/daynotes": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/openshifts": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/schedulinggroups": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shifts": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/shiftsRoleDefinitions": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application"
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timecards": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timeoffreasons": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timesoff": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -49640,33 +49660,6 @@
         "ownerSecurityGroup": "csiaadaccess"
       }
     },
-    "WorkforceIntegration.Read.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read workforce integrations",
-          "adminDescription": "Allows the app to read workforce integrations, to synchronize data from Microsoft Teams Shifts, on behalf of the signed-in user.",
-          "userDisplayName": "Read workforce integrations",
-          "userDescription": "Allows the app to read workforce integrations, to synchronize data from Microsoft Teams Shifts, on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/teamwork/workforceintegrations": "least=DelegatedWork",
-            "/teamwork/workforceintegrations/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {}
-    },
     "WorkforceIntegration.ReadWrite.All": {
       "schemes": {
         "DelegatedWork": {
@@ -49676,24 +49669,32 @@
           "userDescription": "Allows the app to manage workforce integrations, to synchronize data from Microsoft Teams Shifts, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all workforce integrations",
+          "adminDescription": "Allows the app to manage workforce integrations without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET",
             "POST"
           ],
           "paths": {
-            "/teamwork/workforceintegrations": "least=DelegatedWork"
+            "/teamwork/workforceintegrations": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE",
@@ -49701,11 +49702,13 @@
             "PATCH"
           ],
           "paths": {
-            "/teamwork/workforceintegrations/{id}": "least=DelegatedWork"
+            "/teamwork/workforceintegrations/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "shifts-service-sg"
+      }
     }
   }
 }
