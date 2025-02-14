@@ -5270,6 +5270,112 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "CallDelegation.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read delegation settings",
+          "adminDescription": "Allows the app to read delegation settings of you",
+          "userDisplayName": "Read your delegation settings",
+          "userDescription": "Allows you to read your delegation settings",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/communications/callSettings/delegates": "least=DelegatedWork",
+            "/me/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork",
+            "/me/communications/callSettings/delegators": "least=DelegatedWork",
+            "/me/communications/callSettings/delegators/{delegatorId}": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegates": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegators": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegators/{delegatorId}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
+    "CallDelegation.ReadWrite": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write delegation settings",
+          "adminDescription": "Allows the app to read and write delegation settings of you",
+          "userDisplayName": "Read and write your delegation settings",
+          "userDescription": "Allows the app to read and write delegation settings for you",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/communications/callSettings/delegates": "",
+            "/me/communications/callSettings/delegates/{delegateId}": "",
+            "/me/communications/callSettings/delegators": "",
+            "/me/communications/callSettings/delegators/{delegatorId}": "",
+            "/users/{userId}/communications/callSettings/delegates": "",
+            "/users/{userId}/communications/callSettings/delegates/{delegateId}": "",
+            "/users/{userId}/communications/callSettings/delegators": "",
+            "/users/{userId}/communications/callSettings/delegators/{delegatorId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/communications/callSettings/delegates": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegates": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork",
+            "/users/{userId}/communications/callSettings/delegates/{delegateId}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
     "CallEvents-Emergency.Read.All": {
       "schemes": {
         "Application": {
