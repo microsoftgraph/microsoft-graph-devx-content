@@ -1029,6 +1029,8 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application"
           }
@@ -1131,6 +1133,8 @@
             "/serviceprincipals/{id}/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/owners": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application",
@@ -1346,7 +1350,7 @@
             "/serviceprincipals/{id}/getmemberobjects": "",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/permanentDelete": "least=DelegatedWork",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
             "/serviceprincipals/{id}/removepassword": "least=DelegatedWork",
@@ -1524,6 +1528,7 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/owners": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
@@ -1560,6 +1565,7 @@
             "/serviceprincipals(appid={value})": "least=DelegatedWork",
             "/serviceprincipals/{id}": "least=DelegatedWork",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
         }
@@ -1624,6 +1630,7 @@
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=Application",
             "/serviceprincipals(appid={value})": "least=Application",
             "/serviceprincipals/{id}": "least=Application",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
         },
@@ -1663,7 +1670,7 @@
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "least=Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/owners": "least=Application;AlsoRequires=Directory.Read.All",
             "/serviceprincipals/{id}/permanentDelete": "least=Application",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "least=Application",
             "/serviceprincipals/{id}/removepassword": "least=Application",
@@ -1757,6 +1764,7 @@
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/owners": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/filteroperators": "least=Application",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/functions": "least=Application",
@@ -8053,6 +8061,7 @@
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "",
             "/devicemanagement/virtualendpoint/reports/gettotalaggregatedremoteconnectionreports": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/usersettings/{id}/assign": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/rename": "least=DelegatedWork,Application",
@@ -15531,7 +15540,8 @@
             "/serviceprincipals/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
-            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "least=DelegatedWork",
@@ -15830,6 +15840,7 @@
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": "",
@@ -16059,6 +16070,7 @@
             "/serviceprincipals/{id}/getmemberobjects": "",
             "/serviceprincipals/{id}/getpasswordsinglesignoncredentials": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "",
             "/serviceprincipals/{id}/removekey": "",
             "/serviceprincipals/{id}/removepassword": "",
@@ -16160,6 +16172,7 @@
             "/serviceprincipals(appid={value})": "",
             "/serviceprincipals/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration": "",
+            "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "",
             "/settings/{id}": "",
             "/teams/{id}/channels/{id}": "",
