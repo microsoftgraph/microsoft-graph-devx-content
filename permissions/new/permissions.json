@@ -37450,20 +37450,34 @@
             "POST"
           ],
           "paths": {
+            "/teams/{id}/schedule/daynotes/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/daynotes/bulkUpsert": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/offershiftrequests/{id}/approve": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/offershiftrequests/{id}/decline": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/openshiftchangerequests/{id}/approve": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/openshiftchangerequests/{id}/decline": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/openshifts/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/openshifts/bulkUpsert": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/schedulinggroups/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/schedulinggroups/bulkUpsert": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/share": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shifts/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/shifts/bulkUpsert": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/swapshiftschangerequests/{id}/approve": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/swapshiftschangerequests/{id}/decline": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/{id}/clockout": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/{id}/confirm": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/{id}/endbreak": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/{id}/startbreak": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timecards/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timecards/bulkUpsert": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timecards/clockin": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timeoffreasons/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timeoffreasons/bulkUpsert": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/timeoffrequests/{id}/approve": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/timeoffrequests/{id}/decline": "least=DelegatedWork,Application"
+            "/teams/{id}/schedule/timeoffrequests/{id}/decline": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timesoff/bulkDelete": "least=DelegatedWork,Application",
+            "/teams/{id}/schedule/timesoff/bulkUpsert": "least=DelegatedWork,Application"
           }
         },
         {
@@ -37508,15 +37522,27 @@
             "PATCH"
           ],
           "paths": {
-            "/teams/{id}/schedule/daynotes": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/openshifts": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/schedulinggroups": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/shifts": "least=DelegatedWork,Application",
             "/teams/{id}/schedule/shiftsRoleDefinitions": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/timecards": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/timeoffreasons": "least=DelegatedWork,Application",
-            "/teams/{id}/schedule/timesoff": "least=DelegatedWork,Application"
+            "/teams/{id}/schedule/shiftsRoleDefinitions/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/schedule/offershiftrequests/{id}/approveForUser": "least=Application",
+            "/teams/{id}/schedule/offershiftrequests/{id}/declineForUser": "least=Application",
+            "/teams/{id}/schedule/openshiftchangerequests/{id}/approveForUser": "least=Application",
+            "/teams/{id}/schedule/openshiftchangerequests/{id}/declineForUser": "least=Application",
+            "/teams/{id}/schedule/swapshiftschangerequests/{id}/approveForUser": "least=Application",
+            "/teams/{id}/schedule/swapshiftschangerequests/{id}/declineForUser": "least=Application",
+            "/teams/{id}/schedule/timecards/{id}/confirmForUser": "least=Application",
+            "/teams/{id}/schedule/timeoffrequests/{id}/approveForUser": "least=Application",
+            "/teams/{id}/schedule/timeoffrequests/{id}/declineForUser": "least=Application"
           }
         }
       ],
