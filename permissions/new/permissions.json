@@ -28166,6 +28166,8 @@
             "/networkAccess/settings/conditionalAccess": "least=DelegatedWork,Application",
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
+            "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
         }
@@ -28236,6 +28238,8 @@
             "/networkAccess/settings/conditionalAccess": "",
             "/networkAccess/settings/crossTenantAccess": "",
             "/networkaccess/settings/enrichedAuditLogs": "",
+            "/networkAccess/threatInspectionPolicies": "",
+            "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsPolicies": ""
           }
         },
@@ -28261,6 +28265,8 @@
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviders/{id}/registration": "least=DelegatedWork,Application",
+            "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
         },
@@ -28288,6 +28294,8 @@
             "/networkAccess/settings/conditionalAccess": "least=DelegatedWork,Application",
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
+            "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -28310,6 +28318,8 @@
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
           }
         }
@@ -36460,6 +36470,7 @@
             "/policies/rolemanagementpolicyassignments/{id}": "least=Application",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
+            "/rolemanagement/defender/customAppScopes": "",
             "/rolemanagement/defender/roleassignments": "",
             "/rolemanagement/defender/roleassignments/{id}": "",
             "/rolemanagement/defender/roledefinitions": "",
@@ -36580,6 +36591,7 @@
             "GET"
           ],
           "paths": {
+            "/rolemanagement/defender/customAppScopes": "least=DelegatedWork,Application",
             "/rolemanagement/defender/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/defender/roleassignments/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/defender/roledefinitions": "least=DelegatedWork,Application",
@@ -36809,6 +36821,7 @@
             "GET"
           ],
           "paths": {
+            "/roleManagement/defender/customAppScopes": "",
             "/roleManagement/defender/roleassignments": "",
             "/roleManagement/defender/roleassignments/{id}": "",
             "/rolemanagement/defender/roledefinitions": "",
@@ -45520,6 +45533,94 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsTelephoneNumber.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "userDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "userDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/operations/{operationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TNM Devs"
+      }
+    },
+    "TeamsTelephoneNumber.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "userDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "userDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments": "",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "",
+            "/admin/teams/telephoneNumberManagement/operations/{operationId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments/assignNumber": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/unassignNumber": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/updateNumber": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TNM Devs"
       }
     },
     "TeamsUserConfiguration.Read.All": {
