@@ -15933,8 +15933,8 @@
           "paths": {
             "/appcatalogs/teamsapps/{id}": "",
             "/appcatalogs/teamsapps/{id}/appdefinitions/{id}": "",
-            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups/{id}": "least=DelegatedWork",
-            "/policies/featurerolloutpolicies/{id}/appliesto/{id}": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups/{id}": "",
+            "/policies/featurerolloutpolicies/{id}/appliesto/{id}": "",
             "/serviceprincipals(appid={value})/owners/{id}": ""
           }
         },
@@ -15956,9 +15956,9 @@
             "/me/getmemberobjects": "",
             "/me/invalidateallrefreshtokens": "",
             "/me/revokesigninsessions": "",
-            "/onpremisespublishingprofiles/{id}/agentgroups/{id}/agents": "least=DelegatedWork",
-            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups": "least=DelegatedWork",
-            "/policies/featurerolloutpolicies/{id}/appliesto": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agentgroups/{id}/agents": "",
+            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups": "",
+            "/policies/featurerolloutpolicies/{id}/appliesto": "",
             "/users/{id}/deletepasswordsinglesignoncredentials": "",
             "/users/{id}/getpasswordsinglesignoncredentials": "",
             "/users/{id}/invalidateallrefreshtokens": ""
@@ -15994,9 +15994,9 @@
             "/me/registereddevices": "",
             "/me/scopedrolememberof": "",
             "/me/transitivememberof": "",
-            "/onpremisespublishingprofiles/{id}": "least=DelegatedWork",
-            "/onpremisespublishingprofiles/{id}/agents": "least=DelegatedWork",
-            "/onpremisespublishingprofiles/{id}/agents/{id}": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}": "",
+            "/onpremisespublishingprofiles/{id}/agents": "",
+            "/onpremisespublishingprofiles/{id}/agents/{id}": "",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups": "least=DelegatedWork",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}/applications": "least=DelegatedWork",
             "/onpremisespublishingprofiles/applicationproxy/connectors": "least=DelegatedWork",
@@ -16226,7 +16226,7 @@
             "PATCH"
           ],
           "paths": {
-            "/onpremisespublishingprofiles/{id}/agentgroups": "least=DelegatedWork"
+            "/onpremisespublishingprofiles/{id}/agentgroups": ""
           }
         },
         {
@@ -16238,7 +16238,7 @@
             "GET"
           ],
           "paths": {
-            "/onpremisespublishingprofiles/{id}/agentgroups/{id}": "least=DelegatedWork"
+            "/onpremisespublishingprofiles/{id}/agentgroups/{id}": ""
           }
         },
         {
@@ -16264,7 +16264,7 @@
           "paths": {
             "/me/cloudLicensing/assignments/{id}": "",
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}": "least=DelegatedWork",
-            "/policies/featurerolloutpolicies/{id}": "least=DelegatedWork"
+            "/policies/featurerolloutpolicies/{id}": ""
           }
         },
         {
@@ -31902,6 +31902,22 @@
           "paths": {
             "/policies/hybridAuthenticationPolicy": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agentgroups": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agentgroups/{id}": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agents": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agents/{id}": "least=DelegatedWork",
+            "/policies/featurerolloutpolicies": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -32899,6 +32915,93 @@
           ],
           "paths": {
             "/policies/hybridAuthenticationPolicy": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/policies/featurerolloutpolicies": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups/{id}": "least=DelegatedWork",
+            "/policies/featurerolloutpolicies/{id}/appliesto/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/agentgroups/{id}/agents": "least=DelegatedWork",
+            "/onpremisespublishingprofiles/{id}/agents/{id}/agentgroups": "least=DelegatedWork",
+            "/policies/featurerolloutpolicies/{id}/appliesto": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}": "",
+            "/onpremisespublishingprofiles/{id}/agents": "",
+            "/onpremisespublishingprofiles/{id}/agents/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/agentgroups": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/agentgroups/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/featurerolloutpolicies/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -49082,6 +49185,8 @@
             "/me/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
             "/me/authentication/phonemethods": "least=DelegatedWork",
             "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
+            "/me/authentication/platformCredentialMethods": "least=DelegatedWork",
+            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
@@ -49111,6 +49216,8 @@
             "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
             "/users/{id}/authentication/phonemethods": "",
             "/users/{id}/authentication/phonemethods/{id}": "",
+            "/users/{id}/authentication/platformCredentialMethods": "least=DelegatedWork",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods": "least=DelegatedWork",
@@ -49169,6 +49276,8 @@
             "/me/authentication/passwordmethods/{id}": "least=Application",
             "/me/authentication/phonemethods": "least=Application",
             "/me/authentication/phonemethods/{id}": "least=Application",
+            "/me/authentication/platformCredentialMethods": "least=Application",
+            "/me/authentication/platformCredentialMethods/{id}": "least=Application",
             "/me/authentication/softwareoathmethods": "least=Application",
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods": "least=Application",
@@ -49197,6 +49306,8 @@
             "/users/{id}/authentication/passwordmethods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/platformCredentialMethods": "least=Application",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
             "/users/{id}/authentication/softwareoathmethods": "least=Application",
@@ -49301,6 +49412,7 @@
             "/me/authentication/passwordmethods": "",
             "/me/authentication/passwordmethods/{id}": "",
             "/me/authentication/passwordmethods/{id}/isUpdateSupported": "",
+            "/me/authentication/platformCredentialMethods": "",
             "/me/authentication/softwareoathmethods": "",
             "/me/authentication/temporaryaccesspassmethods": "",
             "/me/authentication/windowshelloforbusinessmethods": "",
@@ -49317,6 +49429,7 @@
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
             "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "",
+            "/users/{id}/authentication/platformCredentialMethods": "",
             "/users/{id}/authentication/qrcodepinmethod": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/temporaryaccesspassmethods": "",
@@ -49335,6 +49448,7 @@
             "/me/authentication/hardwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
@@ -49343,6 +49457,7 @@
             "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
@@ -49468,6 +49583,7 @@
             "/me/authentication/passwordlessmicrosoftauthenticatormethods": "",
             "/me/authentication/passwordmethods": "",
             "/me/authentication/passwordmethods/{id}": "",
+            "/me/authentication/platformCredentialMethods": "",
             "/me/authentication/softwareoathmethods": "",
             "/me/authentication/temporaryaccesspassmethods": "",
             "/me/authentication/windowshelloforbusinessmethods": "",
@@ -49478,6 +49594,7 @@
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
+            "/users/{id}/authentication/platformCredentialMethods": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/windowshelloforbusinessmethods": ""
           }
@@ -49496,6 +49613,7 @@
             "/me/authentication/hardwareoathmethods/{id}": "least=DelegatedWork,Application",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
+            "/me/authentication/platformCredentialMethods/{id}": "least=Application",
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
@@ -49505,6 +49623,7 @@
             "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application",
