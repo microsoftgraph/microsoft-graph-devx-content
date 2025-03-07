@@ -682,6 +682,157 @@
         "ownerSecurityGroup": "igagraph"
       }
     },
+    "AgreementsSoln-Docs.Create": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create AgreementSolution document packages.",
+          "adminDescription": "Allows the application to create the document packages on behalf of the signed-in user.",
+          "userDisplayName": "Read AgreementSolution document packages.",
+          "userDescription": "Allows application to create the document packages on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/AgreementSolution": "",
+            "/solutions/AgreementSolution/workspaces": "",
+            "/solutions/AgreementSolution/workspaces/{id}": "",
+            "/solutions/AgreementSolution/workspaces/{id}/templates": "",
+            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/AgreementSolution/documentPackages/{id}/markAsDraft": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/publish": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/approve": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/cancel": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/reject": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/start": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/cancel": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/reject": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/start": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/markAsDraft": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/publish": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/approve": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/cancel": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/reject": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/start": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/cancel": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/reject": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/start": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}/createDocumentPackage": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}/fieldValues": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/approverGroups": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/eSigners": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agreementsreviewers"
+      }
+    },
+    "AgreementsSoln-Docs.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read AgreementSolution document packages.",
+          "adminDescription": "Allows the application to read the document packages on behalf of the signed-in user.",
+          "userDisplayName": "Read AgreementSolution document packages.",
+          "userDescription": "Allows application to read the document packages on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/AgreementSolution": "",
+            "/solutions/AgreementSolution/documentPackages": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/documents": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask": "least=DelegatedWork",
+            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces": "",
+            "/solutions/AgreementSolution/workspaces/{id}": "",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agreementsreviewers"
+      }
+    },
+    "AgreementsSoln-Templates.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read AgreementSolution templates.",
+          "adminDescription": "Allows the application to read the templates on behalf of the signed-in user.",
+          "userDisplayName": "Read AgreementSolution templates.",
+          "userDescription": "Allows application to read the templates on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/AgreementSolution": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/templates": "least=DelegatedWork",
+            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agreementsreviewers"
+      }
+    },
     "AiEnterpriseInteraction.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -29266,6 +29417,78 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "OnlineMeetingArtifactInvite.Send.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Share artifacts of all online meetings.",
+          "adminDescription": "Allows the app to share artifacts of all online meetings, on behalf of the signed-in user.",
+          "userDisplayName": "Share artifacts of all online meetings.",
+          "userDescription": "Allows the app to share artifacts of all online meetings, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Share artifacts of all online meetings.",
+          "adminDescription": "Allows the app to share artifacts of all online meetings, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/onlinemeetings/{id}/artifactInvite": "least=DelegatedWork",
+            "/users/{id}/onlinemeetings/{id}/artifactInvite": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/onlinemeetings/{id}/artifactInvite": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "OnlineMeetingArtifactInvite.Send.Chat": {
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Share artifacts of online meetings where the Teams application is installed.",
+          "adminDescription": "Allows the Teams app to share artifacts of online meetings where the Teams app is installed, without a signed-in user.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/onlinemeetings/{id}/artifactInvite": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "OnlineMeetingRecording.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -36411,19 +36634,6 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleeligibilityschedulerequests": "least=DelegatedWork",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": ""
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -36617,11 +36827,7 @@
           ],
           "paths": {
             "/rolemanagement/directory/roleassignments": "",
-            "/rolemanagement/directory/roleassignments/{id}": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": ""
+            "/rolemanagement/directory/roleassignments/{id}": ""
           }
         }
       ],
@@ -36767,7 +36973,6 @@
             "/roleManagement/directory/roleAssignmentScheduleInstances": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstanceId}": "",
             "/roleManagement/directory/roleAssignmentScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/filterbycurrentuser(on={value})": "",
             "/roleManagement/directory/roleAssignmentSchedules": "",
             "/roleManagement/directory/roleAssignmentSchedules/{unifiedRoleAssignmentScheduleId}": "",
             "/roleManagement/directory/roleAssignmentSchedules/filterByCurrentUser(on={parameterValue})": "",
@@ -36777,27 +36982,12 @@
             "/roleManagement/directory/roleEligibilityScheduleInstances": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/{unifiedRoleEligibilityScheduleInstanceId}": "",
             "/roleManagement/directory/roleEligibilityScheduleInstances/filterByCurrentUser(on={parameterValue})": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/filterbycurrentuser(on={value})": "",
             "/roleManagement/directory/roleEligibilitySchedules": "",
             "/roleManagement/directory/roleEligibilitySchedules/{unifiedRoleEligibilityScheduleId}": "",
             "/roleManagement/directory/roleEligibilitySchedules/filterByCurrentUser(on={parameterValue})": "",
             "/rolemanagement/directory/transitiveroleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments": "",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/rolemanagement/directory/roleassignmentschedulerequests": "",
-            "/rolemanagement/directory/roleassignmentschedulerequests/{id}": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests": "",
-            "/rolemanagement/directory/roleeligibilityschedulerequests/{id}": ""
           }
         }
       ],
@@ -45636,94 +45826,6 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamsTelephoneNumber.Read.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
-          "adminDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "userDisplayName": "Read Tenant-Acquired Telephone Number Details",
-          "userDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
-          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/admin/teams/telephoneNumberManagement/numberAssignments": "least=DelegatedWork,Application",
-            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "least=DelegatedWork,Application",
-            "/admin/teams/telephoneNumberManagement/operations/{operationId}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TNM Devs"
-      }
-    },
-    "TeamsTelephoneNumber.ReadWrite.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
-          "adminDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "userDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
-          "userDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
-          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/admin/teams/telephoneNumberManagement/numberAssignments": "",
-            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "",
-            "/admin/teams/telephoneNumberManagement/operations/{operationId}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/admin/teams/telephoneNumberManagement/numberAssignments/assignNumber": "least=DelegatedWork,Application",
-            "/admin/teams/telephoneNumberManagement/numberAssignments/unassignNumber": "least=DelegatedWork,Application",
-            "/admin/teams/telephoneNumberManagement/numberAssignments/updateNumber": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TNM Devs"
       }
     },
     "TeamsUserConfiguration.Read.All": {
