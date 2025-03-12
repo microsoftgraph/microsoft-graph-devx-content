@@ -18506,6 +18506,132 @@
       ],
       "ownerInfo": {}
     },
+    "EngagementRole.Read": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read a user's Viva Engage roles ",
+          "adminDescription": "Allows the app to list a user's Viva Engage roles, on behalf of the signed-in user.",
+          "userDisplayName": "Read your Viva Engage roles",
+          "userDescription": "Allows the app to list your Viva Engage roles, on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/employeeExperience/assignedRoles": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "EngagementRole.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Viva Engage roles and role memberships",
+          "adminDescription": "Allows the app to list all Viva Engage roles and role memberships on behalf of the signed-in user.",
+          "userDisplayName": "Read all Viva Engage roles and memberships",
+          "userDescription": "Allows the app to list all Viva Engage roles and role memberships on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Viva Engage roles and role memberships",
+          "adminDescription": "Allows the app to list all Viva Engage roles and role memberships without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeExperience/roles": "least=DelegatedWork,Application",
+            "/employeeExperience/roles/{id}/members": "least=DelegatedWork,Application",
+            "/user/{id}/employeeExperience/assignedRoles": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "EngagementRole.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Modify Viva Engage role membership",
+          "adminDescription": "Allows the app to assign Viva Engage role to a user, and remove a Viva Engage role from a user behalf of the signed-in user.",
+          "userDisplayName": "Modify Viva Engage role membership",
+          "userDescription": "Allows the app to assign Viva Engage role to a user, and remove a Viva Engage role from a user on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Modify Viva Engage role membership",
+          "adminDescription": "Allows the app to assign Viva Engage role to a user, and remove a Viva Engage role from a user without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/employeeExperience/roles/{id}/members": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/employeeExperience/roles": "",
+            "/employeeExperience/roles/{id}/members": "",
+            "/user/{id}/employeeExperience/assignedRoles": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/employeeExperience/roles/{roleId}/members/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
     "EntitlementManagement.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -29417,78 +29543,6 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
-    "OnlineMeetingArtifactInvite.Send.All": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Share artifacts of all online meetings.",
-          "adminDescription": "Allows the app to share artifacts of all online meetings, on behalf of the signed-in user.",
-          "userDisplayName": "Share artifacts of all online meetings.",
-          "userDescription": "Allows the app to share artifacts of all online meetings, on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Share artifacts of all online meetings.",
-          "adminDescription": "Allows the app to share artifacts of all online meetings, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/me/onlinemeetings/{id}/artifactInvite": "least=DelegatedWork",
-            "/users/{id}/onlinemeetings/{id}/artifactInvite": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/users/{id}/onlinemeetings/{id}/artifactInvite": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "OnlineMeetingArtifactInvite.Send.Chat": {
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Share artifacts of online meetings where the Teams application is installed.",
-          "adminDescription": "Allows the Teams app to share artifacts of online meetings where the Teams app is installed, without a signed-in user.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/users/{id}/onlinemeetings/{id}/artifactInvite": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
     "OnlineMeetingRecording.Read.All": {
       "schemes": {
         "DelegatedWork": {
@@ -31296,7 +31350,8 @@
             "/admin/people/profilePropertySettings": "least=DelegatedWork,Application",
             "/admin/people/profilePropertySettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/profileSources": "least=DelegatedWork,Application",
-            "/admin/people/pronouns": "least=DelegatedWork,Application"
+            "/admin/people/pronouns": "least=DelegatedWork,Application",
+            "/copilot/settings/people/enhancedPersonalization": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -31352,7 +31407,8 @@
             "/admin/people/profilePropertySettings": "least=DelegatedWork,Application",
             "/admin/people/profilePropertySettings/{id}": "least=DelegatedWork,Application",
             "/admin/people/profileSources": "least=DelegatedWork,Application",
-            "/admin/people/pronouns": "least=DelegatedWork,Application"
+            "/admin/people/pronouns": "least=DelegatedWork,Application",
+            "/copilot/settings/people/enhancedPersonalization": "least=DelegatedWork,Application"
           }
         },
         {
@@ -45826,6 +45882,94 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamsTelephoneNumber.Read.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "userDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "userDescription": "Allows the app to read your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/operations/{operationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TNM Devs"
+      }
+    },
+    "TeamsTelephoneNumber.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "userDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "userDescription": "Allows the app to read and modify your tenant's acquired telephone number details on behalf of the signed-in admin user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and Modify Tenant-Acquired Telephone Number Details",
+          "adminDescription": "Allows the app to read your tenant's acquired telephone number details, without a signed-in user. Acquired telephone numbers may include attributes related to assigned object, emergency location, network site, etc.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments": "",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/{id}": "",
+            "/admin/teams/telephoneNumberManagement/operations/{operationId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/teams/telephoneNumberManagement/numberAssignments/assignNumber": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/unassignNumber": "least=DelegatedWork,Application",
+            "/admin/teams/telephoneNumberManagement/numberAssignments/updateNumber": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TNM Devs"
       }
     },
     "TeamsUserConfiguration.Read.All": {
