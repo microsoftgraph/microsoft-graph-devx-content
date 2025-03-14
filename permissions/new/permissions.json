@@ -682,157 +682,6 @@
         "ownerSecurityGroup": "igagraph"
       }
     },
-    "AgreementsSoln-Docs.Create": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Create AgreementSolution document packages.",
-          "adminDescription": "Allows the application to create the document packages on behalf of the signed-in user.",
-          "userDisplayName": "Read AgreementSolution document packages.",
-          "userDescription": "Allows application to create the document packages on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/solutions/AgreementSolution": "",
-            "/solutions/AgreementSolution/workspaces": "",
-            "/solutions/AgreementSolution/workspaces/{id}": "",
-            "/solutions/AgreementSolution/workspaces/{id}/templates": "",
-            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/solutions/AgreementSolution/documentPackages/{id}/markAsDraft": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/publish": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/approve": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/cancel": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/reject": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask/start": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/cancel": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/reject": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask/start": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/markAsDraft": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/publish": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/approve": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/cancel": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/reject": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/start": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/cancel": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/reject": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask/start": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}/createDocumentPackage": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}/fieldValues": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/approverGroups": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask/eSigners": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "agreementsreviewers"
-      }
-    },
-    "AgreementsSoln-Docs.Read": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read AgreementSolution document packages.",
-          "adminDescription": "Allows the application to read the document packages on behalf of the signed-in user.",
-          "userDisplayName": "Read AgreementSolution document packages.",
-          "userDescription": "Allows application to read the document packages on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/solutions/AgreementSolution": "",
-            "/solutions/AgreementSolution/documentPackages": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/documents": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/approvalTask": "least=DelegatedWork",
-            "/solutions/AgreementSolution/documentPackages/{id}/workflow/eSignTask": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces": "",
-            "/solutions/AgreementSolution/workspaces/{id}": "",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/documents/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/approvalTask": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/documentPackages/{id}/workflow/eSignTask": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "agreementsreviewers"
-      }
-    },
-    "AgreementsSoln-Templates.Read": {
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read AgreementSolution templates.",
-          "adminDescription": "Allows the application to read the templates on behalf of the signed-in user.",
-          "userDisplayName": "Read AgreementSolution templates.",
-          "userDescription": "Allows application to read the templates on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/solutions/AgreementSolution": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/templates": "least=DelegatedWork",
-            "/solutions/AgreementSolution/workspaces/{id}/templates/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "agreementsreviewers"
-      }
-    },
     "AiEnterpriseInteraction.Read": {
       "schemes": {
         "DelegatedWork": {
@@ -23539,6 +23388,8 @@
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
             "/drives/{id}/items/{id}": "",
             "/drives/{id}/root:/{id}": "",
+            "/groups": "",
+            "/groups/{id}": "",
             "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
             "/groups/{id}/cloudLicensing/usageRights": "",
             "/groups/{id}/cloudLicensing/usageRights/{id}": "",
@@ -23608,6 +23459,7 @@
             "/directoryobjects/{id}/getmembergroups": "",
             "/directoryobjects/{id}/getmemberobjects": "",
             "/grouplifecyclepolicies/renewgroup": "least=DelegatedWork,Application",
+            "/groups": "least=DelegatedWork",
             "/groups/{id}/assignlicense": "",
             "/groups/{id}/checkmembergroups": "",
             "/groups/{id}/checkmemberobjects": "",
@@ -23690,7 +23542,6 @@
             "POST"
           ],
           "paths": {
-            "/groups": "least=DelegatedWork",
             "/groups/{id}/owners": "least=DelegatedWork,Application",
             "/teams/{id}/channels": "",
             "/teams/{id}/channels/{id}/tabs": "",
@@ -23708,7 +23559,6 @@
             "PATCH"
           ],
           "paths": {
-            "/groups/{id}": "least=DelegatedWork,Application",
             "/groups/{id}/cloudLicensing/assignments/{id}": "",
             "/groups/{id}/conversations/{id}/threads/{id}": "",
             "/groups/{id}/threads/{id}": "",
@@ -23795,6 +23645,7 @@
             "DELETE"
           ],
           "paths": {
+            "/groups/{id}": "least=DelegatedWork,Application",
             "/groups/{id}/members/{id}": "",
             "/groups/{id}/owners/{id}": "least=DelegatedWork,Application"
           }
@@ -23864,6 +23715,7 @@
             "PATCH"
           ],
           "paths": {
+            "/groups/{id}": "",
             "/teams/(team-id)/channels/{id}/messages/{id}": "",
             "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "",
             "/teams/{id}/channels/{id}/members/{id}": "",
@@ -23992,14 +23844,14 @@
             "GET"
           ],
           "paths": {
-            "/groups": "least=DelegatedWork,Application",
-            "/groups/{id}": "least=DelegatedWork,Application",
+            "/groups": "",
+            "/groups/{id}": "",
             "/groups/{id}/memberof": "",
             "/groups/{id}/members": "",
             "/groups/{id}/owners": "least=DelegatedWork,Application",
             "/groups/{id}/permissiongrants": "least=DelegatedWork,Application",
             "/groups/{id}/transitivemembers": "",
-            "/groups/delta": "least=DelegatedWork,Application",
+            "/groups/delta": "",
             "/users/{id}/transitivememberof": ""
           }
         },
