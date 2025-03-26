@@ -65,18 +65,18 @@ extends:
                 displayName: 'Upload Sample Query files'
                 inputs:
                   SourcePath: '$(build.artifactstagingdirectory)/sample-queries/*'
-                  azureSubscription: 'Federated DevX API Managed Identity'
+                  azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
-                  storage: devxapistorage
+                  storage: devxapistppeeastus
                   ContainerName: 'staging-sample-queries'
 
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
                   SourcePath: '$(build.artifactstagingdirectory)/permissions/*'
-                  azureSubscription: 'Federated DevX API Managed Identity'
+                  azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
-                  storage: devxapistorage
+                  storage: devxapistppeeastus
                   ContainerName: 'staging-permissions'
 
 
