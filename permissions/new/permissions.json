@@ -3260,6 +3260,29 @@
           "paths": {
             "/backupRestore/enable": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/backupRestore/emailNotificationsSetting": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/backupRestore/emailNotificationsSetting": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -28605,6 +28628,8 @@
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
@@ -28678,6 +28703,7 @@
             "/networkAccess/settings/crossTenantAccess": "",
             "/networkaccess/settings/enrichedAuditLogs": "",
             "/networkAccess/threatInspectionPolicies": "",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsPolicies": ""
           }
@@ -28705,6 +28731,7 @@
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviders/{id}/registration": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
@@ -28734,6 +28761,7 @@
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
           }
@@ -28758,6 +28786,7 @@
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
           }
