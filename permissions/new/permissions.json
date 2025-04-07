@@ -32127,6 +32127,18 @@
           "paths": {
             "/users/{id}/authentication/requirements": "least=Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/evaluate": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -32345,6 +32357,18 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/evaluate": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -33139,6 +33163,7 @@
             "POST"
           ],
           "paths": {
+            "/identity/conditionalaccess/evaluate": "",
             "/identity/conditionalaccess/namedlocations": "",
             "/identity/conditionalaccess/policies": "",
             "/policies/authenticationstrengthpolicies/{id}/updateallowedcombinations": "least=DelegatedWork,Application"
