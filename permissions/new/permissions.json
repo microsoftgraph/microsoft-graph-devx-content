@@ -31981,11 +31981,11 @@
             "GET"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/authenticationstrength/combinations": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes": "",
+            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "",
+            "/identity/conditionalaccess/authenticationstrength/combinations": "",
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "",
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "",
             "/identity/conditionalaccess/templates": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/templates/{id}": "least=DelegatedWork,Application",
             "/identity/events/onsignupstart": "least=DelegatedWork,Application",
@@ -31999,22 +31999,12 @@
             "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/appmanagementpolicies/{id}/appliesto": "",
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy": "least=DelegatedWork,Application",
-            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/microsoftauthenticator": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/qrcodepin": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/voice": "least=DelegatedWork,Application",
-            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/x509certificate": "least=DelegatedWork,Application",
-            "/policies/authenticationstrengthpolicies": "least=DelegatedWork,Application",
-            "/policies/authenticationstrengthpolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/authenticationstrengthpolicies/{id}/usage": "least=DelegatedWork,Application",
-            "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy": "",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "",
+            "/policies/authenticationstrengthpolicies": "",
+            "/policies/authenticationstrengthpolicies/{id}": "",
+            "/policies/authenticationstrengthpolicies/{id}/usage": "",
+            "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": "",
             "/policies/authorizationpolicy": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
@@ -32840,8 +32830,32 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/hardwareoath": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/microsoftauthenticator": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/qrcodepin": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/voice": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/x509certificate": "",
+            "/policies/authenticationstrengthpolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -33101,7 +33115,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
@@ -33133,9 +33146,12 @@
             "GET"
           ],
           "paths": {
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "",
             "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes": "",
             "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "",
             "/identity/conditionalaccess/authenticationstrength/combinations": "",
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "",
+            "/policies/authenticationstrengthpolicies": "",
             "/policies/authenticationstrengthpolicies/{id}/usage": "",
             "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": ""
           }
@@ -33147,12 +33163,24 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "",
+            "/policies/authenticationstrengthpolicies/{id}": ""
           }
         },
         {
