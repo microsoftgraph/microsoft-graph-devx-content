@@ -15543,7 +15543,9 @@
             "PATCH"
           ],
           "paths": {
-            "/domains/{id}": ""
+            "/domains/{id}": "",
+            "/me/authentication/qrcodepinmethod/pin/updatepin": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/pin/updatepin": "least=DelegatedWork"
           }
         }
       ],
@@ -30438,6 +30440,28 @@
           ],
           "paths": {
             "/onpremisespublishingprofiles/{id}/applicationSegments/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/sensors": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/onpremisespublishingprofiles/{id}/sensors/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -50021,6 +50045,10 @@
             "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
             "/me/authentication/platformCredentialMethods": "least=DelegatedWork",
             "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods": "least=DelegatedWork",
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
@@ -50053,7 +50081,9 @@
             "/users/{id}/authentication/platformCredentialMethods": "least=DelegatedWork",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
@@ -50113,6 +50143,10 @@
             "/me/authentication/phonemethods/{id}": "least=Application",
             "/me/authentication/platformCredentialMethods": "least=Application",
             "/me/authentication/platformCredentialMethods/{id}": "least=Application",
+            "/me/authentication/qrcodepinmethod": "least=Application",
+            "/me/authentication/qrcodepinmethod/pin": "least=Application",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=Application",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=Application",
             "/me/authentication/softwareoathmethods": "least=Application",
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods": "least=Application",
@@ -50144,7 +50178,9 @@
             "/users/{id}/authentication/platformCredentialMethods": "least=Application",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/qrcodepinmethod": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=Application",
             "/users/{id}/authentication/softwareoathmethods": "least=Application",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=Application",
@@ -50211,8 +50247,16 @@
           "paths": {
             "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
             "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods/{id}": "",
-            "/users/{id}/authentication/phonemethods/{id}": ""
+            "/users/{id}/authentication/phonemethods/{id}": "",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork"
           }
         },
         {
@@ -50266,7 +50310,6 @@
             "/users/{id}/authentication/passwordmethods/{id}": "",
             "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "",
             "/users/{id}/authentication/platformCredentialMethods": "",
-            "/users/{id}/authentication/qrcodepinmethod": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/temporaryaccesspassmethods": "",
             "/users/{id}/authentication/windowshelloforbusinessmethods": ""
@@ -50294,7 +50337,6 @@
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
@@ -50323,6 +50365,18 @@
             "/users/{id}/authentication/hardwareOathMethods/deactivate": "",
             "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "",
             "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork"
           }
         }
       ],
@@ -50371,7 +50425,6 @@
             "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application",
             "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
           }
         },
@@ -50388,8 +50441,16 @@
           "paths": {
             "/me/authentication/emailmethods/{id}": "least=Application",
             "/me/authentication/phonemethods/{id}": "least=Application",
+            "/me/authentication/qrcodepinmethod": "least=Application",
+            "/me/authentication/qrcodepinmethod/pin": "least=Application",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=Application",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=Application",
             "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork,Application"
           }
         },
         {
@@ -50461,7 +50522,6 @@
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod/{id}": "least=Application",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=Application"
@@ -50500,6 +50560,19 @@
           ],
           "paths": {
             "/users/{id}/authentication/methods/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application"
           }
         },
         {
