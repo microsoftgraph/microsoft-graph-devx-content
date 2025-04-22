@@ -39152,6 +39152,42 @@
         "ownerSecurityGroup": "tri-msgraph"
       }
     },
+    "SecurityIdentitiesUsers.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security available users",
+          "adminDescription": "Allows the app to read all the identity security available users ",
+          "userDisplayName": "Read identity security available users",
+          "userDescription": "Allows the app to read all the identity security available users on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security available users",
+          "adminDescription": "Allows the app to read all the identity security available users without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/users": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIncident.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
