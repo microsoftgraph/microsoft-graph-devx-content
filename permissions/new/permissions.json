@@ -28543,21 +28543,23 @@
             "GET"
           ],
           "paths": {
+            "/networkAccess/alerts": "least=DelegatedWork,Application",
             "/networkaccess/alerts/getAlertFrequencies": "least=DelegatedWork,Application",
             "/networkaccess/alerts/getAlertSeveritySummaries": "least=DelegatedWork,Application",
             "/networkaccess/alerts/getAlertSummaries": "least=DelegatedWork,Application",
             "/networkaccess/discovery/discoveredApplicationSegments": "least=DelegatedWork,Application",
             "/networkaccess/logs/remoteNetworks": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic": "least=DelegatedWork,Application",
+            "/networkaccess/logs/traffic/{id}": "least=DelegatedWork,Application",
             "/networkaccess/reports/entitiesSummaries": "least=DelegatedWork,Application",
             "/networkaccess/reports/getCrossTenantSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDestinationSummaries": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDeviceUsageSummary": "least=DelegatedWork,Application",
-            "/networkaccess/reports/getDiscoveredApplicationSegmentReport": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatSummaryReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/transactionSummaries": "least=DelegatedWork,Application",
-            "/networkaccess/reports/usageProfiling": "least=DelegatedWork,Application"
+            "/networkaccess/reports/usageProfiling(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -28593,7 +28595,6 @@
             "GET"
           ],
           "paths": {
-            "/networkAccess/alerts": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/connectivityConfiguration": "least=DelegatedWork,Application",
@@ -28671,6 +28672,9 @@
           ],
           "paths": {
             "/networkAccess/alerts": "",
+            "/networkaccess/alerts/getAlertFrequencies": "",
+            "/networkaccess/alerts/getAlertSeveritySummaries": "",
+            "/networkaccess/alerts/getAlertSummaries": "",
             "/networkAccess/connectivity/branches": "",
             "/networkAccess/connectivity/branches/{id}": "",
             "/networkAccess/connectivity/branches/{id}/connectivityConfiguration": "",
@@ -28680,6 +28684,7 @@
             "/networkAccess/contentPolicies": "",
             "/networkAccess/contentPolicies/{id}/policyRules": "",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "",
+            "/networkaccess/discovery/discoveredApplicationSegments": "",
             "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
@@ -28694,7 +28699,19 @@
             "/networkAccess/forwardingProfiles": "",
             "/networkAccess/forwardingProfiles/{id}": "",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "",
+            "/networkaccess/logs/remoteNetworks": "",
+            "/networkaccess/logs/traffic": "",
+            "/networkaccess/logs/traffic/{id}": "",
             "/networkaccess/privateAccessConfigs/{id}": "",
+            "/networkaccess/reports/entitiesSummaries": "",
+            "/networkaccess/reports/getCrossTenantSummary": "",
+            "/networkaccess/reports/getDestinationSummaries": "",
+            "/networkaccess/reports/getDeviceUsageSummary": "",
+            "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getUserThreatReport": "",
+            "/networkaccess/reports/getUserThreatSummaryReport": "",
+            "/networkaccess/reports/transactionSummaries": "",
+            "/networkaccess/reports/usageProfiling(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "",
             "/networkAccess/securityProviderPolicies": "",
             "/networkAccess/securityProviderPolicies/{id}": "",
             "/networkAccess/securityProviderPolicySchemas": "",
