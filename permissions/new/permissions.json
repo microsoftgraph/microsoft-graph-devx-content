@@ -24745,8 +24745,10 @@
           ],
           "paths": {
             "/identityprotection/riskyusers/confirmcompromised": "least=DelegatedWork,Application",
+            "/identityprotection/riskyusers/confirmSafe": "least=DelegatedWork,Application",
             "/identityprotection/riskyusers/dismiss": "least=DelegatedWork,Application",
             "/riskyusers/confirmcompromised": "least=DelegatedWork,Application",
+            "/riskyusers/confirmSafe": "least=DelegatedWork,Application",
             "/riskyusers/dismiss": "least=DelegatedWork,Application"
           }
         }
@@ -33412,6 +33414,76 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "umtelivesite"
+      }
+    },
+    "Policy.ReadWrite.CrossTenantCapability": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's M365 cross tenant access capabilities",
+          "adminDescription": "Allows the app to read and write your organization's M365 cross tenant access capabilities on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's M365 cross tenant access capabilities",
+          "userDescription": "Allows the app to read and write your organization's M365 cross tenant access capabilities on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's M365 cross tenant access capabilities",
+          "adminDescription": "Allows the app to read and write your organization's M365 cross tenant access capabilities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365xtapnyx"
       }
     },
     "Policy.ReadWrite.DeviceConfiguration": {
@@ -51226,6 +51298,7 @@
       }
     },
     "VirtualEventRegistration-Anon.ReadWrite.All": {
+      "authorizationType": "oAuth2",
       "schemes": {
         "Application": {
           "adminDisplayName": "Read and write anonymous users' virtual event registrations",
