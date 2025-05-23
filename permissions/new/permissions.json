@@ -6292,6 +6292,7 @@
           "paths": {
             "/chats/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/allMembers": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/allMembers/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/doesuserhaveaccess": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}/members": "",
             "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork",
@@ -6325,6 +6326,7 @@
           ],
           "paths": {
             "/teams/{id}/channels/{id}/allMembers": "least=Application",
+            "/teams/{id}/channels/{id}/allMembers/{id}": "least=Application",
             "/teams/{id}/channels/{id}/members": "least=Application",
             "/teams/{id}/channels/{id}/members/{id}": "least=Application"
           }
@@ -6429,7 +6431,8 @@
             "GET"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/allMembers": ""
+            "/teams/{id}/channels/{id}/allMembers": "",
+            "/teams/{id}/channels/{id}/allMembers/{id}": ""
           }
         },
         {
@@ -27409,6 +27412,7 @@
             "/me/mailfolders/{id}/messages/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/mailfolders/{id}/move": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/mailfolders/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/mailfolders/{id}/reportMessage": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/mailfolders/{id}/updateAllMessagesReadState": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/messages/{id}/attachments": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/messages/{id}/attachments/createuploadsession": "",
@@ -27432,6 +27436,7 @@
             "/users/{id}/mailfolders/{id}/messages/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/{id}/move": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailfolders/{id}/reportMessage": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/{id}/updateAllMessagesReadState": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/messages/{id}/attachments": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/messages/{id}/attachments/createuploadsession": "",
@@ -31814,10 +31819,15 @@
           ],
           "paths": {
             "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/descendants()": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/rooms": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/workspaces": "least=DelegatedWork,Application",
+            "/places/microsoft.graph.building": "least=DelegatedWork,Application",
+            "/places/microsoft.graph.desk": "least=DelegatedWork,Application",
+            "/places/microsoft.graph.floor": "least=DelegatedWork,Application",
             "/places/microsoft.graph.room": "least=DelegatedWork,Application",
             "/places/microsoft.graph.roomlist": "least=DelegatedWork,Application",
+            "/places/microsoft.graph.section": "least=DelegatedWork,Application",
             "/places/microsoft.graph.workspace": "least=DelegatedWork,Application"
           }
         }
@@ -31836,18 +31846,38 @@
           "userDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization places",
+          "adminDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
+            "DELETE",
             "PATCH"
           ],
           "paths": {
-            "/places/{id}": "least=DelegatedWork"
+            "/places/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/places": "least=DelegatedWork,Application"
           }
         }
       ],
