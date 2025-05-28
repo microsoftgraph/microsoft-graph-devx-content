@@ -51061,6 +51061,68 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "UserWindowsSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read windows settings for all devices",
+          "adminDescription": "Allows the app to read a user's windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read your windows settings for all devices",
+          "userDescription": "Allows the app to read your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/settings/windows": "",
+            "/users/{id}/settings/windows/{id}": "",
+            "/users/{id}/settings/windows/{id}/instances": "",
+            "/users/{id}/settings/windows/{id}/instances/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
+      }
+    },
+    "UserWindowsSettings.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write windows settings for all devices",
+          "adminDescription": "Allows the app to read and write a user's windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your windows settings for all devices",
+          "userDescription": "Allows the app to read and write your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/settings/windows": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
+      }
+    },
     "VirtualAppointment.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
