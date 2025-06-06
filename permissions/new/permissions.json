@@ -5371,6 +5371,7 @@
             "/me/calendars/delta": "",
             "/me/calendarview/delta": "",
             "/me/events/delta": "",
+            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork,Application,DelegatedPersonal",
             "/users/{id}/calendar/calendarview": "",
             "/users/{id}/calendar/events/delta": "",
             "/users/{id}/calendargroups/{id}/calendars/{id}/calendarview": "",
@@ -5422,6 +5423,7 @@
           "paths": {
             "/me/calendar/getschedule": "",
             "/me/calendar/permanentDelete": "least=DelegatedWork,Application",
+            "/places/{id}/checkIns": "least=DelegatedWork,Application",
             "/users/{id}/calendar/getschedule": "",
             "/users/{id}/calendar/permanentDelete": "least=DelegatedWork,Application"
           }
@@ -8312,6 +8314,9 @@
             "GET"
           ],
           "paths": {
+            "/devicemanagement/monitoring/adminhighlights": "least=DelegatedWork",
+            "/devicemanagement/monitoring/adminhighlights/{id}": "least=DelegatedWork",
+            "/devicemanagement/monitoring/adminhighlights/retrieveAdminHighlightActions": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrecords": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrecords/{id}": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrecords/getportalnotifications": "least=DelegatedWork",
@@ -8587,6 +8592,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/monitoring/adminhighlights/{id}/dismiss": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrecords/{id}/setportalnotificationassent": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/runhealthchecks": "least=DelegatedWork",
