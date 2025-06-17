@@ -40096,6 +40096,192 @@
         "ownerSecurityGroup": "IdentityReq"
       }
     },
+    "SensitivityLabel.Evaluate": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Evaluate labels user scope.",
+          "adminDescription": "Allows the app to evaluate all sensitivity label.",
+          "userDisplayName": "Evaluate labels user scope",
+          "userDescription": "Evaluate labels tenant scope, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Evaluate labels user scope.",
+          "adminDescription": "Allows the app to evaluate all sensitivity label.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
+    "SensitivityLabel.Evaluate.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Evaluate labels tenant scope.",
+          "adminDescription": "Allows the app to evaluate all sensitivity label.",
+          "userDisplayName": "Evaluate labels tenant scope",
+          "userDescription": "Evaluate labels tenant scope, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Evaluate labels tenant scope.",
+          "adminDescription": "Allows the app to evaluate all sensitivity label.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/informationProtection/sensitivityLabels/evaluate": "least=Application,DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "least=DelegatedWork,Application",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
+    "SensitivityLabel.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Get labels user scope.",
+          "adminDescription": "Allows the app to get sensitivity labels.",
+          "userDisplayName": "Get labels user scope",
+          "userDescription": "Get labels on behalf of user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 1
+        },
+        "Application": {
+          "adminDisplayName": "Get labels application scope.",
+          "adminDescription": "Allows the app to get sensitivity labels.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels": "least=DelegatedWork,Application",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}": "least=DelegatedWork,Application",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}/rights": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
+    "SensitivityLabels.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Get labels app scope.",
+          "adminDescription": "Allows the app to get sensitivity labels.",
+          "userDisplayName": "Get labels on behalf of user",
+          "userDescription": "Get labels on behalf of user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 1
+        },
+        "Application": {
+          "adminDisplayName": "Get labels app scope.",
+          "adminDescription": "Allows the app to get sensitivity labels.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/dataSecurityAndGovernance/sensitivityLabels": "",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}": "",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}/rights": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
     "ServiceActivity-Exchange.Read.All": {
       "schemes": {
         "DelegatedWork": {
