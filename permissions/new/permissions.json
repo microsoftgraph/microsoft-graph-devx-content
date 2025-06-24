@@ -20545,6 +20545,8 @@
             "/sites/{id}/analytics": "least=DelegatedWork",
             "/sites/{id}/analytics/alltime": "least=DelegatedWork",
             "/sites/{id}/analytics/lastsevendays": "least=DelegatedWork",
+            "/sites/{id}/extensions": "least=DelegatedWork",
+            "/sites/{id}/extensions/{id}": "least=DelegatedWork",
             "/sites/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "least=DelegatedWork",
             "/sites/{id}/lists/{id}/activities": "least=DelegatedWork",
             "/sites/{id}/lists/{id}/items/{id}/activities": "least=DelegatedWork",
@@ -20863,6 +20865,8 @@
             "/sites/{id}/analytics": "least=Application",
             "/sites/{id}/analytics/alltime": "least=Application",
             "/sites/{id}/analytics/lastsevendays": "least=Application",
+            "/sites/{id}/extensions": "least=Application",
+            "/sites/{id}/extensions/{id}": "least=Application",
             "/sites/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "least=Application",
             "/sites/{id}/lists/{id}/activities": "least=Application",
             "/sites/{id}/lists/{id}/items/{id}/activities": "least=Application",
@@ -21546,6 +21550,8 @@
             "/sites/{id}/analytics": "",
             "/sites/{id}/analytics/alltime": "",
             "/sites/{id}/analytics/lastsevendays": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": "",
             "/sites/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/sites/{id}/lists/{id}/activities": "",
             "/sites/{id}/lists/{id}/items/{id}/activities": "",
@@ -22446,7 +22452,9 @@
             "/drives/{id}/items/{id}/extensions": "least=DelegatedWork",
             "/drives/{id}/items/{id}/extensions/{id}": "least=DelegatedWork",
             "/me/drive/items/{id}/extensions": "least=DelegatedWork",
-            "/me/drive/items/{id}/extensions/{id}": "least=DelegatedWork"
+            "/me/drive/items/{id}/extensions/{id}": "least=DelegatedWork",
+            "/sites/{id}/extensions": "least=DelegatedWork",
+            "/sites/{id}/extensions/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -23129,7 +23137,9 @@
             "/drives/{id}/items/{id}/extensions": "least=Application",
             "/drives/{id}/items/{id}/extensions/{id}": "least=Application",
             "/me/drive/items/{id}/extensions": "least=Application",
-            "/me/drive/items/{id}/extensions/{id}": "least=Application"
+            "/me/drive/items/{id}/extensions/{id}": "least=Application",
+            "/sites/{id}/extensions": "least=Application",
+            "/sites/{id}/extensions/{id}": "least=Application"
           }
         },
         {
@@ -23399,6 +23409,148 @@
           ],
           "paths": {
             "/storage/fileStorage/deletedContainers/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphSPOApprovers"
+      }
+    },
+    "FileStorageContainerType.Manage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage file storage container types on behalf of the signed in user",
+          "adminDescription": "Allows the application to manage file storage container types on behalf of the signed in user. The user must be a SharePoint Embedded Admin or Global Admin.",
+          "userDisplayName": "Manage file storage container types on your behalf",
+          "userDescription": "Allows the app to access a subset of storage container types on your behalf. You must be a SharePoint Embedded Admin or Global Admin.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypes": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypes": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphSPOApprovers"
+      }
+    },
+    "FileStorageContainerTypeReg.Manage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage file storage container type registrations on behalf of the signed in user",
+          "adminDescription": "Allows the application to manage file storage container type registrations on behalf of the signed in user. The user must be a SharePoint Embedded Admin or Global Admin.",
+          "userDisplayName": "Manage file storage container type registrations on your behalf",
+          "userDescription": "Allows the app to access a subset of storage container type registrations on your behalf. You must be a SharePoint Embedded Admin or Global Admin.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypeRegistrations": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypeRegistrations": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
+            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -25018,7 +25170,8 @@
           ],
           "paths": {
             "/auditlogs/signins/confirmcompromised": "least=Application",
-            "/auditlogs/signins/confirmsafe": "least=Application"
+            "/auditlogs/signins/confirmsafe": "least=Application",
+            "/auditlogs/signins/dismiss": "least=Application"
           }
         }
       ],
@@ -25187,7 +25340,8 @@
           ],
           "paths": {
             "/auditlogs/signins/confirmcompromised": "least=DelegatedWork",
-            "/auditlogs/signins/confirmsafe": "least=DelegatedWork"
+            "/auditlogs/signins/confirmsafe": "least=DelegatedWork",
+            "/auditlogs/signins/dismiss": "least=DelegatedWork"
           }
         },
         {
@@ -29182,6 +29336,10 @@
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
@@ -29276,6 +29434,10 @@
             "/networkAccess/settings/crossTenantAccess": "",
             "/networkaccess/settings/enrichedAuditLogs": "",
             "/networkAccess/threatInspectionPolicies": "",
+            "/networkAccess/threatIntelligencePolicies": "",
+            "/networkAccess/threatIntelligencePolicies/{id}": "",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules": "",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsPolicies": ""
@@ -29304,6 +29466,8 @@
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviders/{id}/registration": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
@@ -29334,6 +29498,8 @@
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
             "/networkaccess/settings/enrichedAuditLogs": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
@@ -29359,6 +29525,8 @@
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
@@ -40728,6 +40896,94 @@
         "ownerSecurityGroup": "stickynotes"
       }
     },
+    "SignInIdentifier.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read SignInIdentifiers",
+          "adminDescription": "Allows the app to read your organization's sign-in identifiers, on behalf of the signed-in user.",
+          "userDisplayName": "Read all sign-in identifiers",
+          "userDescription": "Allows the app to read your organization's sign-in identifiers, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all sign-in identifiers",
+          "adminDescription": "Allows the app to read your organization's sign-in identifiers, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/signInIdentifiers": "least=DelegatedWork,Application",
+            "/identity/signInIdentifiers/{name}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cpimmsgraphadmins"
+      }
+    },
+    "SignInIdentifier.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all sign-in identifiers",
+          "adminDescription": "Allows the app to read and write your organization's sign-in identifiers, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all sign-in identifiers",
+          "userDescription": "Allows the app to read and write your organization's sign-in identifiers, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all sign-in identifiers",
+          "adminDescription": "Allows the app to read and write your organization's sign-in identifiers, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/identity/signInIdentifiers": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/signInIdentifiers/{name}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cpimmsgraphadmins"
+      }
+    },
     "Sites.FullControl.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -40956,7 +41212,9 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/extensions": "",
-            "/drives/{id}/items/{id}/extensions/{id}": ""
+            "/drives/{id}/items/{id}/extensions/{id}": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": ""
           }
         },
         {
@@ -41181,7 +41439,9 @@
           ],
           "paths": {
             "/drives/{id}/items/{id}/extensions": "",
-            "/drives/{id}/items/{id}/extensions/{id}": ""
+            "/drives/{id}/items/{id}/extensions/{id}": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": ""
           }
         },
         {
@@ -41351,6 +41611,8 @@
             "/sites/{id}/drive/root/delta": "",
             "/sites/{id}/drive/root/search(q={value})": "",
             "/sites/{id}/drives": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": "",
             "/sites/{id}/getactivitiesbyinterval(startdatetime={value},enddatetime={value},interval={value})": "",
             "/sites/{id}/getapplicablecontenttypesforlist": "least=DelegatedWork,Application",
             "/sites/{id}/items/{id}/versions": "least=DelegatedWork,Application",
@@ -42018,6 +42280,8 @@
             "/sites/{id}/drive/items/{id}/versions/{id}/streams/{id}/appendContent": "",
             "/sites/{id}/drive/root:/{id}/assignsensitivitylabel": "",
             "/sites/{id}/drive/root:/{id}/extractsensitivitylabels": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": "",
             "/sites/{id}/items/{id}/versions/{id}/restoreversion": "least=DelegatedWork,Application",
             "/sites/{id}/lists/{id}/items/{id}/createlink": "",
             "/sites/{id}/lists/{id}/items/{id}/documentsetversions/{id}/restore": "least=DelegatedWork,Application",
@@ -42076,6 +42340,8 @@
             "/groups/{id}/drive/items/{id}/permissions/{id}": "",
             "/sites/{id}/drive/items/{id}": "",
             "/sites/{id}/drive/items/{id}/permissions/{id}": "",
+            "/sites/{id}/extensions": "",
+            "/sites/{id}/extensions/{id}": "",
             "/sites/{id}/lists/{id}/items/{id}": "least=DelegatedWork,Application",
             "/sites/{id}/pages/{id}": "least=DelegatedWork,Application",
             "/sites/{id}/pageTemplates/{id}": "least=DelegatedWork,Application",
