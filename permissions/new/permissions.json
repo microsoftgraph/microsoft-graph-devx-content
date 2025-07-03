@@ -8269,6 +8269,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "least=DelegatedWork,Application",
@@ -8412,6 +8413,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
             "/devicemanagement/virtualendpoint/galleryimages": "",
             "/devicemanagement/virtualendpoint/galleryimages/{id}": "",
@@ -18549,36 +18551,8 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "Application": {
-          "adminDisplayName": "Read all tenant reading assignments submissions data",
-          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/education/reports/readingAssignmentSubmissions": "least=Application",
-            "/education/reports/speakerAssignmentSubmissions": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "eduanalyticsshield"
-      }
-    },
-    "EduReports-Reading.ReadAnonymous.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read all tenant reading assignments submissions data",
-          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data (excludes student-identifying information) without a signed-in user.",
+          "adminDisplayName": "Read all tenant reading assignments, speaker assignments, and Reading Coach passages data.",
+          "adminDescription": "Allows the app to read all tenant users reading assignments, speaker assignments, and Reading Coach passages data without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -18593,7 +18567,37 @@
           ],
           "paths": {
             "/education/reports/readingAssignmentSubmissions": "",
+            "/education/reports/readingCoachPassages": "",
             "/education/reports/speakerAssignmentSubmissions": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
+    "EduReports-Reading.ReadAnonymous.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reading assignments, speaker assignments, and Reading Coach passages data.",
+          "adminDescription": "Allows the app to read all tenant users reading assignments, speaker assignments, and Reading Coach passages data (excludes student-identifying information) without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/readingAssignmentSubmissions": "least=Application",
+            "/education/reports/readingCoachPassages": "least=Application",
+            "/education/reports/speakerAssignmentSubmissions": "least=Application"
           }
         }
       ],
@@ -18620,7 +18624,7 @@
             "GET"
           ],
           "paths": {
-            "/education/reports/reflectCheckInResponses": "least=Application"
+            "/education/reports/reflectCheckInResponses": ""
           }
         }
       ],
@@ -18635,7 +18639,7 @@
           "adminDisplayName": "Read all tenant reflect check-ins submissions data",
           "adminDescription": "Allows the app to read all tenant users reflect check-ins submissions data (excludes responder-identifying information) without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 3
         }
       },
       "pathSets": [
@@ -18647,7 +18651,7 @@
             "GET"
           ],
           "paths": {
-            "/education/reports/reflectCheckInResponses": ""
+            "/education/reports/reflectCheckInResponses": "least=Application"
           }
         }
       ],
