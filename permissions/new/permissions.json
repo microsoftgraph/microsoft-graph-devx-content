@@ -24005,6 +24005,44 @@
         "ownerSecurityGroup": "GroupsIDCSG"
       }
     },
+    "Group-OnPremisesSyncBehavior.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of groups",
+          "adminDescription": "Allows the app to read and update the on-premises sync behavior of groups on behalf of the signed-in user.",
+          "userDisplayName": "Read and update the on-premises sync behavior of groups",
+          "userDescription": "Allows the app to update the on-premises sync behavior of groups on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of groups",
+          "adminDescription": "Allows the app to update the on-premises sync behavior of all groups without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/onPremisesSyncBehavior": "least=DelegatedWork,Application",
+            "/groups/onPremisesSyncBehavior": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ddsappperm"
+      }
+    },
     "Group.Create": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -24913,6 +24951,51 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "IdentityReq"
+      }
+    },
+    "GroupSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all group settings that user can access",
+          "adminDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, on behalf of the signed-in user.",
+          "userDisplayName": "Read all group settings that user can access",
+          "userDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all group settings",
+          "adminDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directorysettingtemplates": "least=DelegatedWork,Application",
+            "/directorysettingtemplates/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/settings": "least=DelegatedWork,Application",
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
+            "/groupsettings": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
+            "/groupsettingtemplates": "least=DelegatedWork,Application",
+            "/groupsettingtemplates/{id}": "least=DelegatedWork,Application",
+            "/settings": "least=DelegatedWork,Application",
+            "/settings/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
     "HealthMonitoringAlert.Read.All": {
@@ -41232,7 +41315,8 @@
             "/sites/{id}/lists/{id}/permissions": "",
             "/sites/{id}/operations": "",
             "/sites/{id}/operations/{id}": "",
-            "/sites/{id}/permissions": "least=DelegatedWork,Application"
+            "/sites/{id}/permissions": "least=DelegatedWork,Application",
+            "/sites/{id}/searchCustomIndex(q={value})": ""
           }
         },
         {
@@ -41779,6 +41863,7 @@
             "/sites/{id}/pages/{id}/webparts/{id}/getpositionofwebpart": "least=DelegatedWork,Application",
             "/sites/{id}/pageTemplates": "least=DelegatedWork,Application",
             "/sites/{id}/pageTemplates/{id}": "least=DelegatedWork,Application",
+            "/sites/{id}/searchCustomIndex(q={value})": "least=DelegatedWork,Application",
             "/sites/{id}/settings": "least=DelegatedWork,Application",
             "/sites/{id}/sites": "least=DelegatedWork,Application",
             "/sites/root": "least=DelegatedWork,Application",
@@ -42199,6 +42284,7 @@
             "/sites/{id}/pages/{id}/webparts": "",
             "/sites/{id}/pages/{id}/webparts/{id}": "",
             "/sites/{id}/pages/{id}/webparts/{id}/getpositionofwebpart": "",
+            "/sites/{id}/searchCustomIndex(q={value})": "",
             "/sites/{id}/settings": "",
             "/sites/{id}/sites": "",
             "/sites/root": "",
