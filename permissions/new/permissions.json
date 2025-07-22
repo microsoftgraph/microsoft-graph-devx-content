@@ -545,6 +545,66 @@
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
+    "AgentApplication.Create": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Create agent applications.",
+          "adminDescription": "Allows creating new agent applications and their associated service principals.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/applications": "",
+            "/applications/graph.agentApplication": "least=Application",
+            "/servicePrincipals": "",
+            "/servicePrincipals/graph.agentServicePrincipal": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.Create": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Create agent identities linked to itself.",
+          "adminDescription": "Allows the app to create linked agent identities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals": "",
+            "/servicePrincipals(appid={value})/graph.agentServicePrincipal/identities": "least=Application",
+            "/servicePrincipals/{id}/graph.agentServicePrincipal/identities": "least=Application",
+            "/servicePrincipals/graph.agentIdentity": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
     "Agreement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -8269,6 +8329,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "least=DelegatedWork,Application",
@@ -8283,6 +8344,11 @@
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/serviceplans": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/retrievesettingcategories": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/retrievesettingdefinitions": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/retrievesettingtemplates": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/shareduseserviceplans": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/shareduseserviceplans/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/snapshots": "least=DelegatedWork,Application",
@@ -8407,6 +8473,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
             "/devicemanagement/virtualendpoint/galleryimages": "",
             "/devicemanagement/virtualendpoint/galleryimages/{id}": "",
@@ -8464,6 +8531,9 @@
             "/devicemanagement/virtualendpoint/reports/gettotalaggregatedremoteconnectionreports": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/{id}/assign": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/{id}/promoteToHighestPriority": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/uploadimage": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/usersettings/{id}/assign": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/rename": "least=DelegatedWork,Application",
@@ -8488,6 +8558,7 @@
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/usersettings": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions": ""
@@ -8626,6 +8697,7 @@
           ],
           "paths": {
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": ""
           }
@@ -18539,36 +18611,8 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "Application": {
-          "adminDisplayName": "Read all tenant reading assignments submissions data",
-          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/education/reports/readingAssignmentSubmissions": "least=Application",
-            "/education/reports/speakerAssignmentSubmissions": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "eduanalyticsshield"
-      }
-    },
-    "EduReports-Reading.ReadAnonymous.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read all tenant reading assignments submissions data",
-          "adminDescription": "Allows the app to read all tenant users reading assignments submissions data (excludes student-identifying information) without a signed-in user.",
+          "adminDisplayName": "Read all tenant reading assignments, speaker assignments, and Reading Coach passages data.",
+          "adminDescription": "Allows the app to read all tenant users reading assignments, speaker assignments, and Reading Coach passages data without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -18583,7 +18627,37 @@
           ],
           "paths": {
             "/education/reports/readingAssignmentSubmissions": "",
+            "/education/reports/readingCoachPassages": "",
             "/education/reports/speakerAssignmentSubmissions": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "eduanalyticsshield"
+      }
+    },
+    "EduReports-Reading.ReadAnonymous.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all tenant reading assignments, speaker assignments, and Reading Coach passages data.",
+          "adminDescription": "Allows the app to read all tenant users reading assignments, speaker assignments, and Reading Coach passages data (excludes student-identifying information) without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/education/reports/readingAssignmentSubmissions": "least=Application",
+            "/education/reports/readingCoachPassages": "least=Application",
+            "/education/reports/speakerAssignmentSubmissions": "least=Application"
           }
         }
       ],
@@ -18610,7 +18684,7 @@
             "GET"
           ],
           "paths": {
-            "/education/reports/reflectCheckInResponses": "least=Application"
+            "/education/reports/reflectCheckInResponses": ""
           }
         }
       ],
@@ -18625,7 +18699,7 @@
           "adminDisplayName": "Read all tenant reflect check-ins submissions data",
           "adminDescription": "Allows the app to read all tenant users reflect check-ins submissions data (excludes responder-identifying information) without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 3
         }
       },
       "pathSets": [
@@ -18637,7 +18711,7 @@
             "GET"
           ],
           "paths": {
-            "/education/reports/reflectCheckInResponses": ""
+            "/education/reports/reflectCheckInResponses": "least=Application"
           }
         }
       ],
@@ -19044,6 +19118,43 @@
           ],
           "paths": {
             "/employeeexperience/engagementasyncoperations/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ve-msgraph-owners"
+      }
+    },
+    "EngagementMeetingConversation.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Teams Q\u0026A conversations",
+          "adminDescription": "Allows an app to read all Teams Q\u0026A conversations and their properties on behalf of the signed-in user",
+          "userDisplayName": "Read all Teams Q\u0026A conversations",
+          "userDescription": "Allows the app to list Teams Q\u0026A conversations, and to read their properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Teams Q\u0026A conversations",
+          "adminDescription": "Allows the app to list Teams Q\u0026A conversations, and to read their properties without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/communications/getAllOnlineMeetingMessages": "least=DelegatedWork,Application",
+            "/communications/onlineMeetingConversations/conversations/{id}/messages/{id}/reactions": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -19554,7 +19665,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
-            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows": "least=DelegatedWork,Application",
@@ -19635,7 +19746,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAuthenticationMethodLoadStartListener/handler/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension": "",
-            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider": "",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
@@ -19656,7 +19767,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
-            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/fraudProtectionProvider/$ref": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onTokenIssuanceStartListener/handler/microsoft.graph.onTokenIssuanceStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
@@ -20602,6 +20713,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "least=DelegatedWork",
             "/drives/{id}/items/{id}/checkAccess": "least=DelegatedWork"
           }
         }
@@ -20957,6 +21069,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
         }
@@ -22465,6 +22578,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
         }
@@ -23150,6 +23264,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
         }
@@ -23409,148 +23524,6 @@
           ],
           "paths": {
             "/storage/fileStorage/deletedContainers/{id}": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "GraphSPOApprovers"
-      }
-    },
-    "FileStorageContainerType.Manage.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Manage file storage container types on behalf of the signed in user",
-          "adminDescription": "Allows the application to manage file storage container types on behalf of the signed in user. The user must be a SharePoint Embedded Admin or Global Admin.",
-          "userDisplayName": "Manage file storage container types on your behalf",
-          "userDescription": "Allows the app to access a subset of storage container types on your behalf. You must be a SharePoint Embedded Admin or Global Admin.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypes": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypes": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypes/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "GraphSPOApprovers"
-      }
-    },
-    "FileStorageContainerTypeReg.Manage.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Manage file storage container type registrations on behalf of the signed in user",
-          "adminDescription": "Allows the application to manage file storage container type registrations on behalf of the signed in user. The user must be a SharePoint Embedded Admin or Global Admin.",
-          "userDisplayName": "Manage file storage container type registrations on your behalf",
-          "userDescription": "Allows the app to access a subset of storage container type registrations on your behalf. You must be a SharePoint Embedded Admin or Global Admin.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PUT"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypeRegistrations": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypeRegistrations": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/storage/fileStorage/containerTypeRegistrations/{id}": "least=DelegatedWork",
-            "/storage/fileStorage/containerTypeRegistrations/{id}/applicationPermissionGrants/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -24816,6 +24789,137 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "IdentityReq"
+      }
+    },
+    "GroupSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all group settings that user can access",
+          "adminDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, on behalf of the signed-in user.",
+          "userDisplayName": "Read all group settings that user can access",
+          "userDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all group settings",
+          "adminDescription": "Allows the app to read a list of tenant-level or group-specific group settings objects, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directorysettingtemplates": "least=DelegatedWork,Application",
+            "/directorysettingtemplates/{id}": "least=DelegatedWork,Application",
+            "/groups/{id}/settings": "least=DelegatedWork,Application",
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
+            "/groupsettings": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
+            "/groupsettingtemplates": "least=DelegatedWork,Application",
+            "/groupsettingtemplates/{id}": "least=DelegatedWork,Application",
+            "/settings": "least=DelegatedWork,Application",
+            "/settings/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
+    "GroupSettings.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all group settings that user can access",
+          "adminDescription": "Allows the app to create, read, update, and delete on the list of tenant-level or group-specific group settings objects that you have access to in the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all group settings that user can access",
+          "userDescription": "Allows the app to create, read, update, and delete on the list of tenant-level or group-specific group settings objects that you have access to in the organization, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all group settings",
+          "adminDescription": "Allows the app to create, read, update, and delete on the list of tenant-level or group-specific group settings objects, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directorysettingtemplates": "",
+            "/directorysettingtemplates/{id}": "",
+            "/groups/{id}/settings": "",
+            "/groups/{id}/settings/{id}": "",
+            "/groupsettings": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
+            "/groupsettingtemplates": "",
+            "/groupsettingtemplates/{id}": "",
+            "/settings": "least=DelegatedWork,Application",
+            "/settings/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/settings": "least=DelegatedWork,Application",
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
+            "/groupsettings": "least=DelegatedWork,Application",
+            "/settings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/settings/{id}": "least=DelegatedWork,Application",
+            "/groupsettings/{id}": "least=DelegatedWork,Application",
+            "/settings/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/group/{id}/settings": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
     "HealthMonitoringAlert.Read.All": {
@@ -30486,6 +30590,41 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "OnlineMeetingArtifact.Read.Chat": {
+      "authorizationType": "RSC",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read virtual event artifacts",
+          "adminDescription": "Read attendance reports \u0026 attendance records for this webinar or town hall.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/onlineMeetings/{meetingId}/attendanceReports": "",
+            "/me/onlineMeetings/{meetingId}/attendanceReports/{reportId}": "",
+            "/me/onlineMeetings/{meetingId}/attendanceReports/{reportId}/attendanceRecords": "",
+            "/solutions/virtualEvents/webinars/{webinarId}/sessions/{sessionId}/attendanceReports": "least=Application",
+            "/solutions/virtualEvents/webinars/{webinarId}/sessions/{sessionId}/attendanceReports/{reportId}": "least=Application",
+            "/solutions/virtualEvents/webinars/{webinarId}/sessions/{sessionId}/attendanceReports/{reportId}/attendanceRecords": "least=Application",
+            "/users/{userId}/onlineMeetings/{meetingId}/attendanceReports": "",
+            "/users/{userId}/onlineMeetings/{meetingId}/attendanceReports/{reportId}": "",
+            "/users/{userId}/onlineMeetings/{meetingId}/attendanceReports/{reportId}/attendanceRecords": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
     "OnlineMeetingRecording.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -33095,6 +33234,63 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "Policy.Read.AuthenticationMethod": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read authentication method policies",
+          "adminDescription": "Allows the app to read the authentication method policies, on behalf of the signed-in user. ",
+          "userDisplayName": "Read your authentication method policies ",
+          "userDescription": "Allows the app to read the authentication method policies for your tenant, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read authentication method policies",
+          "adminDescription": "Allows the app to read all authentication method policies for the tenant, without a signed-in user. ",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationstrength/combinations": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy": "least=DelegatedWork,Application",
+            "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/email": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/federatedIdentityCredential": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/fido2": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/hardwareoath": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/microsoftauthenticator": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/qrcodepin": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/sms": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/softwareoath": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/temporaryaccesspass": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/voice": "least=DelegatedWork,Application",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/x509certificate": "least=DelegatedWork,Application",
+            "/policies/authenticationstrengthpolicies": "least=DelegatedWork,Application",
+            "/policies/authenticationstrengthpolicies/{id}": "least=DelegatedWork,Application",
+            "/policies/authenticationstrengthpolicies/{id}/usage": "least=DelegatedWork,Application",
+            "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AuthMethodProvTeam"
       }
     },
     "Policy.Read.B2BManagementPolicy": {
@@ -39881,6 +40077,78 @@
         "ownerSecurityGroup": "secgraphschema"
       }
     },
+    "SecurityIdentitiesAccount.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security available identity accounts",
+          "adminDescription": "Allows the app to read all the identity security available identity accounts",
+          "userDisplayName": "Read identity security available identity accounts",
+          "userDescription": "Allows the app to read all the identity security available identity accounts on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security available identity accounts",
+          "adminDescription": "Allows the app to read all the identity security available identity accounts without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/identityAccounts": "least=DelegatedWork,Application",
+            "/security/identities/identityAccounts/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesActions.ReadWrite.All": {
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and perform identity security available actions",
+          "adminDescription": "Allows the app to read and write identity security available actions on behalf of the signed-in identity.",
+          "userDisplayName": "Read and perform identity security available actions",
+          "userDescription": "Allows the app to read and write identity security available actions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and perform all identity security available actions",
+          "adminDescription": "Allows the app to read and write identity security available actions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/identities/identityAccounts/{id}/invokeActions": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIdentitiesHealth.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -41135,7 +41403,8 @@
             "/sites/{id}/lists/{id}/permissions": "",
             "/sites/{id}/operations": "",
             "/sites/{id}/operations/{id}": "",
-            "/sites/{id}/permissions": "least=DelegatedWork,Application"
+            "/sites/{id}/permissions": "least=DelegatedWork,Application",
+            "/sites/{id}/searchCustomIndex(q={value})": ""
           }
         },
         {
@@ -41250,6 +41519,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{id}/items/{id}/checkAccess": ""
           }
         }
@@ -41465,6 +41735,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{id}/items/{id}/checkAccess": ""
           }
         }
@@ -41680,6 +41951,7 @@
             "/sites/{id}/pages/{id}/webparts/{id}/getpositionofwebpart": "least=DelegatedWork,Application",
             "/sites/{id}/pageTemplates": "least=DelegatedWork,Application",
             "/sites/{id}/pageTemplates/{id}": "least=DelegatedWork,Application",
+            "/sites/{id}/searchCustomIndex(q={value})": "least=DelegatedWork,Application",
             "/sites/{id}/settings": "least=DelegatedWork,Application",
             "/sites/{id}/sites": "least=DelegatedWork,Application",
             "/sites/root": "least=DelegatedWork,Application",
@@ -41912,6 +42184,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
         }
@@ -42099,6 +42372,7 @@
             "/sites/{id}/pages/{id}/webparts": "",
             "/sites/{id}/pages/{id}/webparts/{id}": "",
             "/sites/{id}/pages/{id}/webparts/{id}/getpositionofwebpart": "",
+            "/sites/{id}/searchCustomIndex(q={value})": "",
             "/sites/{id}/settings": "",
             "/sites/{id}/sites": "",
             "/sites/root": "",
@@ -42562,6 +42836,7 @@
             "POST"
           ],
           "paths": {
+            "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
         }
@@ -52145,6 +52420,45 @@
         "ownerSecurityGroup": "mfateam"
       }
     },
+    "UserCloudClipboard.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read cloud clipboard items",
+          "adminDescription": "Allows the app to read cloud clipboard data on behalf of the signed-in user.",
+          "userDisplayName": "Read cloud clipboard items",
+          "userDescription": "Allows the app to read your cloud clipboard items.",
+          "requiresAdminConsent": false
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read cloud clipboard items",
+          "adminDescription": "Allows the app to read cloud clipboard data on behalf of the signed-in user.",
+          "userDisplayName": "Read cloud clipboard items",
+          "userDescription": "Allows the app to read your cloud clipboard items.",
+          "requiresAdminConsent": false
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/cloudClipboard/items": "least=DelegatedWork,DelegatedPersonal",
+            "/me/cloudClipboard/items/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/cloudClipboard/items": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/cloudClipboard/items/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
+      }
+    },
     "UserShiftPreferences.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -52559,6 +52873,37 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "VirtualEvent.Read.Chat": {
+      "authorizationType": "RSC",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read virtual event details",
+          "adminDescription": "Read information for this webinars or town halls, including schedules, speakers, and event settings and webinar registrations.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/virtualEvents/townhalls/{id}": "least=Application",
+            "/solutions/virtualEvents/webinars/{id}": "least=Application",
+            "/solutions/virtualEvents/webinars/{id}/registrations": "least=Application",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": "least=Application",
+            "/solutions/virtualEvents/webinars/{webinarId}/registrations/{registrationId}/sessions": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
     "VirtualEvent.ReadWrite": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -52676,6 +53021,34 @@
           ],
           "paths": {
             "/solutions/virtualEvent/webinars/{id}/registrations/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
+    "VirtualEventRegistration-Anon.ReadWrite.Chat": {
+      "authorizationType": "RSC",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Manage virtual event registrations",
+          "adminDescription": "Register attendees and cancel registrations for this webinar.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/virtualEvents/webinars/{webinarId}/registrations": "least=Application",
+            "/solutions/virtualEvents/webinars/{webinarId}/registrations/{registrationId}/cancel": "least=Application"
           }
         }
       ],
