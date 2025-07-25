@@ -1076,6 +1076,160 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "AppCertTrustConfiguration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to read the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on behalf of the signed-in user.",
+          "userDisplayName": "Read the trusted certificate authority configuration for applications",
+          "userDescription": "Allows the app to read the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "",
+          "adminDescription": "",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AppCertTrustConfiguration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "",
+          "adminDescription": "Allows the app to create, read, update and delete the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write the trusted certificate authority configuration for applications",
+          "userDescription": "Allows the app to to create, read, update and delete the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "",
+          "adminDescription": "",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
     "Application-RemoteDesktopConfig.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -21054,10 +21208,22 @@
             "DelegatedWork"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/searchNextPage": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
             "/copilot/retrieval": "least=DelegatedWork",
+            "/copilot/search": "least=DelegatedWork",
             "/search/grounding": "least=DelegatedWork"
           }
         },
@@ -23524,6 +23690,230 @@
           ],
           "paths": {
             "/storage/fileStorage/deletedContainers/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphSPOApprovers"
+      }
+    },
+    "FileStorageContainer.Selected": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Access selected file storage containers",
+          "adminDescription": "Allows the application to utilize the file storage container platform to manage containers on behalf of the signed in user. The specific file storage containers and the permissions granted to them will be configured in Microsoft 365 by the developer of each container type.",
+          "userDisplayName": "Access selected file storage containers",
+          "userDescription": "Allows the app to access a subset of Storage Containers on your behalf. The specific file storage containers and the permissions granted will be configured in Microsoft 365 by the developer of each container type.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Access selected file storage containers",
+          "adminDescription": "Allows the application to utilize the file storage container platform to manage containers on behalf of the signed in user. The specific file storage containers and the permissions granted to them will be configured in Microsoft 365 by the developer of each container type.",
+          "userDisplayName": "Access selected file storage containers",
+          "userDescription": "Allows the app to access a subset of Storage Containers on your behalf. The specific file storage containers and the permissions granted will be configured in Microsoft 365 by the developer of each container type.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Access selected file storage containers",
+          "adminDescription": "Allows the application to utilize the file storage container platform to manage containers, without a signed-in user. The specific file storage containers and the permissions granted to them will be configured in Microsoft 365 by the developer of each container type.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/columns": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/columns/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/drive": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions(email={email})": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions(userPrincipalName={userPrincipalName})": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin/items": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/deletedContainers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/deletedContainers/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/activate": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/columns": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin/items/delete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin/items/restore": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/deletedContainers/{id}/restore": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/columns/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions(email={email})": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions(userPrincipalName={userPrincipalName})": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/permissions/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/customProperties": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin/items": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/recycleBin": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/storage/fileStorage/deletedContainers/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/archive": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/lock": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/migrationJobs": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/provisionMigrationContainers": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/unarchive": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/unlock": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/migrationJobs/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/migrationJobs/{id}/progressEvents": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/sharePointGroups": "least=Application",
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}": "least=Application",
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}/members": "least=Application",
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}/members/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/sharePointGroups": "least=Application",
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}/members": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}": "least=Application",
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}/members/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/sharePointGroups/{id}": "least=Application"
           }
         }
       ],
@@ -35122,6 +35512,39 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "PrintAlertSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read tenant-wide alert settings",
+          "adminDescription": "Allows the application to read tenant-wide alert settings on behalf of the signed-in user.",
+          "userDisplayName": "Read tenant-wide alert settings",
+          "userDescription": "Allows the application to read tenant-wide alert settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/print/alertSettings": "least=DelegatedWork",
+            "/print/services": "",
+            "/print/services/{id}": "",
+            "/print/services/{id}/endpoints": "",
+            "/print/services/{id}/endpoints/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "updev"
+      }
+    },
     "PrintConnector.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -39971,6 +40394,91 @@
         "ownerSecurityGroup": "mdographapiteam"
       }
     },
+    "SecurityCopilotWorkspaces.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Security Copilot resources for the signed-in user",
+          "adminDescription": "Allows the app to read all Security Copilot signed-in user's resources on behalf of the signed-in user",
+          "userDisplayName": "Read user's Security Copilot resources",
+          "userDescription": "Allows the app to read Security Copilot resources owned by user on user's behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Security Copilot resources.",
+          "adminDescription": "Allows the app to read all Security Copilot resources without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/securityCopilot/workspaces": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/plugins": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts/{id}": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts/{id}/evaluations/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SecCopDEA"
+      }
+    },
+    "SecurityCopilotWorkspaces.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write individually owned Security Copilot resources of the signed-in user",
+          "adminDescription": "Allows the app to read and write Security Copilot resources owned by the signed-in user on their behalf.",
+          "userDisplayName": "Write user's Security Copilot resources",
+          "userDescription": "Allows the app to write Security Copilot resources owned by user on user's behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Write all Security Copilot resources.",
+          "adminDescription": "Allows the app to write all Security Copilot resources without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts/{id}": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts/{id}/evaluations": "least=DelegatedWork,Application",
+            "/security/securityCopilot/workspaces/{workspaceId}/sessions/{id}/prompts/{id}/evaluations/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "SecCopDEA"
+      }
+    },
     "SecurityEvents.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -41265,6 +41773,43 @@
         "ownerSecurityGroup": "cpimmsgraphadmins"
       }
     },
+    "Sites.Archive.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Archive/Unarchive Site Collections, on behalf of the signed-in user",
+          "adminDescription": "Allow the application to archive/unarchive site collections on behalf of the signed in user.",
+          "userDisplayName": "Archive/Unarchive Site Collections, on behalf of the signed-in user",
+          "userDescription": "Allow the application to archive/unarchive site collections on behalf of the signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Archive/unarchive Site Collections without a signed in user.",
+          "adminDescription": "Allow the application to archive/unarchive site collections without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/sites/{id}/archive": "least=DelegatedWork,Application",
+            "/sites/{id}/unarchive": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "spauthsg"
+      }
+    },
     "Sites.FullControl.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -42159,6 +42704,7 @@
             "GET"
           ],
           "paths": {
+            "/copilot/searchNextPage": "",
             "/me/followedsites": "least=DelegatedWork",
             "/me/homesite": "least=DelegatedWork",
             "/users/{id}/followedsites": "least=DelegatedWork"
@@ -42173,6 +42719,7 @@
           ],
           "paths": {
             "/copilot/retrieval": "",
+            "/copilot/search": "",
             "/search/grounding": ""
           }
         },
@@ -52564,6 +53111,49 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "UserWindowsSettings.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "adminDescription": "Allows the app to read windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "userDescription": "Allows the app to read your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": false
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "adminDescription": "Allows the app to read windows settings which are stored in cloud and their values on behalf of the signed-in user.",
+          "userDisplayName": "Read windows settings and their values stored for all devices in cloud",
+          "userDescription": "Allows the app to read your windows settings which are stored in cloud and their values.",
+          "requiresAdminConsent": false
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/windows": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}/instances": "least=DelegatedWork,DelegatedPersonal",
+            "/me/settings/windows/{id}/instances/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}/instances": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/settings/windows/{id}/instances/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "afsdev"
       }
     },
     "UserWindowsSettings.Read.All": {
