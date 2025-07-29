@@ -1,15 +1,23 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# Microsoft Graph Explorer API - Sample Queries and Permissions
+# This pipeline publishes sample queries and permissions files to Azure Blob Storage.
 
 name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
   branches:
     include:
     - master
     - dev
+  paths:
+    include:
+    - 'samples-queries/**'
+    - 'permissions/**'
+
 pr: none
+
 resources:
   repositories:
   - repository: 1ESPipelineTemplates
@@ -25,6 +33,7 @@ extends:
       os: windows
     customBuildTags:
     - ES365AIMigrationTooling
+
     stages:
     - stage: CopyArtifactFiles
       jobs:
@@ -42,7 +51,7 @@ extends:
             Contents: |
               **\permissions\** 
               **\sample-queries\**
-            TargetFolder: '$(build.artifactstagingdirectory)'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
     - stage: DeployStaging
       condition: and(contains(variables['build.sourceBranch'], 'refs/heads/dev'), succeeded())
@@ -64,7 +73,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Sample Query files'
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/drop/sample-queries/*'
+                  SourcePath: '$(Build.ArtifactStagingDirectory)/sample-queries/*'
                   azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistppeeastus
@@ -73,7 +82,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/drop/permissions/*'
+                  SourcePath: '$(Build.ArtifactStagingDirectory)/permissions/*'
                   azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistppeeastus
@@ -88,6 +97,10 @@ extends:
         templateContext:
           type: releaseJob
           isProduction: true
+          inputs:
+          - input: pipelineArtifact
+            artifactName: drop
+            targetPath: $(Build.ArtifactStagingDirectory)
         environment: graphexplorerapi-production
         strategy:
           runOnce:
@@ -96,7 +109,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Sample Query files'
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/drop/sample-queries/*'
+                  SourcePath: '$(Build.ArtifactStagingDirectory)/sample-queries/*'
                   azureSubscription: 'DevX Prod Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistprodeastus
@@ -105,7 +118,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/drop/permissions/*'
+                  SourcePath: '$(Build.ArtifactStagingDirectory)/permissions/*'
                   azureSubscription: 'DevX Prod Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistprodeastus
