@@ -54,10 +54,12 @@ extends:
             TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
     - stage: DeployStaging
-      condition: and(contains(variables['build.sourceBranch'], 'refs/heads/dev'), succeeded())
+      condition: and(contains(variables['Build.SourceBranchName'], 'dev'), succeeded())
       dependsOn: CopyArtifactFiles
       jobs:
-      - deployment: staging  
+      - deployment: staging
+        displayName: 'Deploy to Staging'
+        environment: graphexplorerapi-staging
         templateContext:
           type: releaseJob
           isProduction: false
@@ -65,7 +67,6 @@ extends:
           - input: pipelineArtifact
             artifactName: drop
             targetPath: $(Build.ArtifactStagingDirectory)
-        environment: graphexplorerapi-staging
         strategy:
           runOnce:
             deploy:
@@ -90,10 +91,12 @@ extends:
 
 
     - stage: DeployProduction
-      condition: and(contains(variables['build.sourceBranch'], 'refs/heads/master'), succeeded())
+      condition: and(contains(variables['Build.SourceBranchName'], 'master'), succeeded())
       dependsOn: CopyArtifactFiles
       jobs:
       - deployment: production
+        displayName: 'Deploy to Production'
+        environment: graphexplorerapi-production
         templateContext:
           type: releaseJob
           isProduction: true
@@ -101,7 +104,6 @@ extends:
           - input: pipelineArtifact
             artifactName: drop
             targetPath: $(Build.ArtifactStagingDirectory)
-        environment: graphexplorerapi-production
         strategy:
           runOnce:
             deploy:
