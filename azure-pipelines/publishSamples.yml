@@ -64,7 +64,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Sample Query files'
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/sample-queries/*'
+                  SourcePath: '$(build.artifactstagingdirectory)/drop/sample-queries/*'
                   azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistppeeastus
@@ -73,7 +73,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/permissions/*'
+                  SourcePath: '$(build.artifactstagingdirectory)/drop/permissions/*'
                   azureSubscription: 'DevX PPE Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistppeeastus
@@ -96,7 +96,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Sample Query files'
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/sample-queries/*'
+                  SourcePath: '$(build.artifactstagingdirectory)/drop/sample-queries/*'
                   azureSubscription: 'DevX Prod Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistprodeastus
@@ -105,7 +105,7 @@ extends:
               - task: AzureFileCopy@6
                 displayName: 'Upload Permission Description Files '
                 inputs:
-                  SourcePath: '$(build.artifactstagingdirectory)/permissions/*'
+                  SourcePath: '$(build.artifactstagingdirectory)/drop/permissions/*'
                   azureSubscription: 'DevX Prod Content Managed Identity Connection'
                   Destination: AzureBlob
                   storage: devxapistprodeastus
