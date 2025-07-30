@@ -8479,6 +8479,9 @@
             "/devicemanagement/virtualendpoint/auditevents": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/auditevents/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/auditevents/getauditactivitytypes": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/cloudApps": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/cloudApps/{id}": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/cloudApps/retrieveDiscoveredApps(sourceId={value},provisioningPolicyId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
@@ -8495,6 +8498,9 @@
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/serviceplans": "least=DelegatedWork,Application",
@@ -8633,6 +8639,9 @@
             "/devicemanagement/virtualendpoint/galleryimages/{id}": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
@@ -8663,6 +8672,9 @@
             "/devicemanagement/manageddevices/bulkreprovisioncloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulkrestorecloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulksetcloudpcreviewstatus": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudApps/publish": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudApps/reset": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudApps/unpublish": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/changeuseraccounttype": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
@@ -8678,6 +8690,7 @@
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
@@ -8728,6 +8741,7 @@
             "PATCH"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/cloudApps/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/organizationsettings": "least=DelegatedWork,Application"
           }
@@ -9254,6 +9268,46 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "aadaccessreviews"
+      }
+    },
+    "Contacts-OnPremisesSyncBehavior.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of contacts",
+          "adminDescription": "Allows the app to read and update the on-premises sync behavior of contacts a user has permissions to, including their own and shared contacts.",
+          "userDisplayName": "Read and update the on-premises sync behavior of your own and shared contacts",
+          "userDescription": "Allows the app to update the on-premises sync behavior of contacts you have permissions to access, including your own and shared contacts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of contacts",
+          "adminDescription": "Allows the app to update the on-premises sync behavior of all contacts in all mailboxes without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/contacts/{id}/onPremisesSyncBehavior": "least=DelegatedWork,Application",
+            "/me/contacts/onPremisesSyncBehavior": "least=DelegatedWork,Application",
+            "/users/{id}/contacts/{id}/onPremisesSyncBehavior": "least=DelegatedWork,Application",
+            "/users/{id}/contacts/onPremisesSyncBehavior": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ddsappperm"
       }
     },
     "Contacts.Read": {
@@ -16258,8 +16312,8 @@
             "/contacts/{id}/transitivememberof": "",
             "/contacts/{id}/transitivereports/$count": "",
             "/contacts/delta": "",
-            "/contracts": "least=DelegatedWork,Application",
-            "/contracts/{id}": "least=DelegatedWork,Application",
+            "/contracts": "",
+            "/contracts/{id}": "",
             "/dataclassification/jobs": "least=DelegatedWork,Application",
             "/dataclassification/jobs/{id}": "least=DelegatedWork,Application",
             "/dataclassification/sensitivetypes": "least=DelegatedWork,Application",
