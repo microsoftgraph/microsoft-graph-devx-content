@@ -545,66 +545,6 @@
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
-    "AgentApplication.Create": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Create agent applications.",
-          "adminDescription": "Allows creating new agent applications and their associated service principals.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/applications": "",
-            "/applications/graph.agentApplication": "least=Application",
-            "/servicePrincipals": "",
-            "/servicePrincipals/graph.agentServicePrincipal": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "idappcore"
-      }
-    },
-    "AgentIdentity.Create": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Create agent identities linked to itself.",
-          "adminDescription": "Allows the app to create linked agent identities without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/serviceprincipals": "",
-            "/servicePrincipals(appid={value})/graph.agentServicePrincipal/identities": "least=Application",
-            "/servicePrincipals/{id}/graph.agentServicePrincipal/identities": "least=Application",
-            "/servicePrincipals/graph.agentIdentity": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "idappcore"
-      }
-    },
     "Agreement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -3753,7 +3693,9 @@
             "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifacts": "",
             "/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/driveRestoreArtifactsBulkAdditionRequests": "",
             "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifacts": "",
-            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifactsBulkAdditionRequests": ""
+            "/backupRestore/sharepointRestoreSessions/{restoreSessionId}/siteRestoreArtifactsBulkAdditionRequests": "",
+            "/solutions/backupRestore/oneDriveForBusinessRestoreSessions/{restoreSessionId}/granularDriveRestoreArtifacts": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharepointRestoreSessions/{restoreSessionId}/granularSiteRestoreArtifacts": "least=DelegatedWork,Application"
           }
         },
         {
@@ -3766,7 +3708,11 @@
           ],
           "paths": {
             "/backupRestore/restoreSessions/{restoreSessionId}/activate": "least=DelegatedWork,Application",
-            "/backupRestore/restoreSessions/{restoreSessionId}/deactivate": "least=DelegatedWork,Application"
+            "/backupRestore/restoreSessions/{restoreSessionId}/deactivate": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessBrowseSessions": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessBrowseSessions/{browseSessionId}/browse": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointBrowseSessions": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointBrowseSessions/{browseSessionId}/browse": "least=DelegatedWork,Application"
           }
         },
         {
@@ -3778,7 +3724,12 @@
             "GET"
           ],
           "paths": {
-            "/solutions/backupRestore/restoreSessions": ""
+            "/solutions/backupRestore/browseSessions": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessBrowseSessions": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessBrowseSessions/{browseSessionId}": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/restoreSessions": "",
+            "/solutions/backupRestore/sharePointBrowseSessions": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointBrowseSessions/{browseSessionId}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -5956,6 +5907,60 @@
         "ownerSecurityGroup": "gabbateamsg"
       }
     },
+    "CallRecordings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all recordings of calls. ",
+          "adminDescription": "Allows the app to read all recordings of calls, on behalf of the signed-in user.",
+          "userDisplayName": "Read all recordings of calls.",
+          "userDescription": "Allows the app to read all recordings of calls, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all recordings of calls.",
+          "adminDescription": "Allows the app to read all recordings of all calls, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/adhocCalls/{id}/recordings": "least=DelegatedWork",
+            "/me/adhocCalls/{id}/recordings/{id}": "least=DelegatedWork",
+            "/me/adhocCalls/{id}/recordings/{id}/content": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/recordings": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/recordings/{id}": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/recordings/{id}/content": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/adhocCalls/{id}/recordings": "least=Application",
+            "/users/{id}/adhocCalls/{id}/recordings/{id}": "least=Application",
+            "/users/{id}/adhocCalls/{id}/recordings/{id}/content": "least=Application",
+            "/users/{id}/adhocCalls/getAllRecordings": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "CallRecords.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -6437,6 +6442,63 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "CallTranscripts.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all transcripts of calls. ",
+          "adminDescription": "Allows the app to read all transcripts of calls, on behalf of the signed-in user.",
+          "userDisplayName": "Read all transcripts of calls.",
+          "userDescription": "Allows the app to read all transcripts of calls, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all transcripts of calls.",
+          "adminDescription": "Allows the app to read all transcripts of all calls, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/adhocCalls/{id}/transcripts": "least=DelegatedWork",
+            "/me/adhocCalls/{id}/transcripts/{id}": "least=DelegatedWork",
+            "/me/adhocCalls/{id}/transcripts/{id}/content": "least=DelegatedWork",
+            "/me/adhocCalls/{id}/transcripts/{id}/metadataContent": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/transcripts": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}/content": "least=DelegatedWork",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}/metadataContent": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/adhocCalls/{id}/transcripts": "least=Application",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}": "least=Application",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}/content": "least=Application",
+            "/users/{id}/adhocCalls/{id}/transcripts/{id}/metadataContent": "least=Application",
+            "/users/{id}/adhocCalls/getAllTranscripts": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
     "ChangeManagement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -6843,18 +6905,6 @@
           ],
           "paths": {
             "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/teams/{id}/members/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -8692,6 +8742,7 @@
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
@@ -8700,7 +8751,6 @@
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/{id}/assign": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/settingprofiles/{id}/promoteToHighestPriority": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/uploadimage": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/usersettings/{id}/assign": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
@@ -16611,15 +16661,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write directory data",
-          "adminDescription": "Allows the app to read and write data in your organization's directory, such as users, and groups.  It does not allow the app to delete users or groups, or reset user passwords.",
+          "adminDescription": "Allows the app to read and write data in your organization's directory, such as users, and groups.  It does not allow the app to delete users or groups, or reset user passwords but it does allow modification of recovery properties that may lead to account takeover.",
           "userDisplayName": "Read and write directory data",
-          "userDescription": "Allows the app to read and write data in your organization's directory, such as other users, groups.  It does not allow the app to delete users or groups, or reset user passwords.",
+          "userDescription": "Allows the app to read and write data in your organization's directory, such as other users, groups.  It does not allow the app to delete users or groups, or reset user passwords but it does allow modification of recovery properties that may lead to account takeover.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write directory data",
-          "adminDescription": "Allows the app to read and write data in your organization's directory, such as users, and groups, without a signed-in user.  Does not allow user or group deletion.",
+          "adminDescription": "Allows the app to read and write data in your organization's directory, such as users, and groups, without a signed-in user.  It does not allow user or group deletion.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -17204,8 +17254,7 @@
             "PATCH"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/members/{id}": "",
-            "/teams/{id}/members/{id}": ""
+            "/teams/{id}/channels/{id}/members/{id}": ""
           }
         },
         {
@@ -17814,6 +17863,7 @@
             "/security/cases/ediscoverycases/{id}/custodians/removehold": "",
             "/security/cases/ediscoverycases/{id}/custodians/updateindex": "",
             "/security/cases/ediscoverycases/{id}/exportDownload": "",
+            "/security/cases/ediscoverycases/{id}/legalholds/{id}/retryPolicy": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/legalholds/{id}/sitesources": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}/applyhold": "",
@@ -19585,6 +19635,8 @@
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/externalsponsors": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/internalsponsors": "least=DelegatedWork,Application",
+            "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "least=DelegatedWork,Application",
+            "/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/settings": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "least=DelegatedWork,Application",
@@ -19760,7 +19812,8 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackageresourcerolescopes": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/movetocatalog": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/reprocess": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/assignments/{id}/reprocess": "least=DelegatedWork,Application"
+            "/identitygovernance/entitlementmanagement/assignments/{id}/reprocess": "least=DelegatedWork,Application",
+            "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "least=DelegatedWork,Application"
           }
         },
         {
@@ -19784,6 +19837,7 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackagesincompatiblewith": "",
             "/identitygovernance/entitlementmanagement/assignments": "",
             "/identitygovernance/entitlementmanagement/assignments/{id}": "",
+            "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
           }
@@ -19802,7 +19856,8 @@
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/catalogs/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/connectedorganizations/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/entitlementmanagement/connectedorganizations/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -25066,8 +25121,7 @@
             "/groups/{id}": "",
             "/teams/(team-id)/channels/{id}/messages/{id}": "",
             "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "",
-            "/teams/{id}/channels/{id}/members/{id}": "",
-            "/teams/{id}/members/{id}": ""
+            "/teams/{id}/channels/{id}/members/{id}": ""
           }
         },
         {
@@ -28644,6 +28698,7 @@
             "/me/messages/{id}/createreplyall": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/messages/{id}/move": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/messages/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/messages/{id}/reportMessage": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/events/{id}/attachments/createuploadsession": "",
             "/users/{id}/inferenceclassification/overrides": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/{id}/childfolders/{id}/.../messages/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
@@ -28667,7 +28722,8 @@
             "/users/{id}/messages/{id}/createreply": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/messages/{id}/createreplyall": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/messages/{id}/move": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/messages/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/messages/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/messages/{id}/reportMessage": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -29842,11 +29898,14 @@
             "/networkaccess/logs/traffic": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic/{id}": "least=DelegatedWork,Application",
             "/networkaccess/reports/entitiesSummaries": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getApplicationUsageAnalytics(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getCloudApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getConnectionSummaries(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getCrossTenantSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDestinationSummaries": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDeviceUsageSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatSummaryReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/transactionSummaries": "least=DelegatedWork,Application",
@@ -30006,11 +30065,14 @@
             "/networkaccess/logs/traffic/{id}": "",
             "/networkaccess/privateAccessConfigs/{id}": "",
             "/networkaccess/reports/entitiesSummaries": "",
+            "/networkaccess/reports/getApplicationUsageAnalytics(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "",
+            "/networkaccess/reports/getCloudApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getConnectionSummaries(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getCrossTenantSummary": "",
             "/networkaccess/reports/getDestinationSummaries": "",
             "/networkaccess/reports/getDeviceUsageSummary": "",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getUserThreatReport": "",
             "/networkaccess/reports/getUserThreatSummaryReport": "",
             "/networkaccess/reports/transactionSummaries": "",
@@ -41174,8 +41236,8 @@
             "GET"
           ],
           "paths": {
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "",
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": ""
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "least=DelegatedWork,Application",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": "least=DelegatedWork,Application"
           }
         },
         {
@@ -41187,7 +41249,7 @@
             "POST"
           ],
           "paths": {
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": ""
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -41235,7 +41297,7 @@
             "POST"
           ],
           "paths": {
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": "least=DelegatedWork,Application"
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeRightsAndInheritance": ""
           }
         },
         {
@@ -41247,8 +41309,10 @@
             "GET"
           ],
           "paths": {
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "least=DelegatedWork,Application",
-            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": "least=DelegatedWork,Application"
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "",
+            "/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": "",
+            "/users/{userId}/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance": "least=DelegatedWork,Application",
+            "/users/{userId}/security/dataSecurityAndGovernance/sensitivityLabels/computeInheritance(labelIds={labelIds},locale={locale},contentFormats={contentFormats})": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -41264,7 +41328,7 @@
           "adminDescription": "Allows the app to get sensitivity labels.",
           "userDisplayName": "Get labels user scope",
           "userDescription": "Get labels on behalf of user.",
-          "requiresAdminConsent": true,
+          "requiresAdminConsent": false,
           "privilegeLevel": 1
         },
         "Application": {
@@ -41324,7 +41388,9 @@
           "paths": {
             "/security/dataSecurityAndGovernance/sensitivityLabels": "",
             "/security/dataSecurityAndGovernance/sensitivityLabels/{id}": "",
-            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}/rights": ""
+            "/security/dataSecurityAndGovernance/sensitivityLabels/{id}/rights": "",
+            "/users/{userId}/security/dataSecurityAndGovernance/sensitivityLabels": "least=DelegatedWork,Application",
+            "/users/{userId}/security/dataSecurityAndGovernance/sensitivityLabels/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -42098,6 +42164,17 @@
         },
         {
           "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/sites/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal"
           ],
@@ -42309,7 +42386,8 @@
             "GET"
           ],
           "paths": {
-            "/sites/{id}/lists/{id}/items/{id}": ""
+            "/sites/{id}/lists/{id}/items/{id}": "",
+            "/sites/delta": ""
           }
         },
         {
@@ -42648,6 +42726,7 @@
             "GET"
           ],
           "paths": {
+            "/sites/delta": "least=Application",
             "/sites/getAllSites": "least=Application"
           }
         },
@@ -43060,6 +43139,7 @@
             "GET"
           ],
           "paths": {
+            "/sites/delta": "",
             "/sites/getAllSites": ""
           }
         },
@@ -43794,7 +43874,8 @@
           ],
           "paths": {
             "/users/{id}/employeeExperience/storyline": "",
-            "/users/{id}/employeeExperience/storyline/followers": ""
+            "/users/{id}/employeeExperience/storyline/followers": "",
+            "/users/{id}/employeeExperience/storyline/followings": ""
           }
         }
       ],
@@ -45124,8 +45205,7 @@
             "Application"
           ],
           "methods": [
-            "GET",
-            "POST"
+            "GET"
           ],
           "paths": {
             "/teams/{id}/members": "least=DelegatedWork,Application"
@@ -45137,9 +45217,19 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
           ],
           "paths": {
             "/teams/{id}/members/{id}": "least=DelegatedWork,Application"
@@ -45151,10 +45241,23 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/teams/{id}/members/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
-            "/teams/{id}/members/add": "least=DelegatedWork,Application",
+            "/teams/{id}/members/add": "",
             "/teams/{id}/members/remove": "least=DelegatedWork,Application"
           }
         }
@@ -52377,71 +52480,71 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/emailmethods": "least=DelegatedWork",
-            "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
-            "/me/authentication/fido2methods": "least=DelegatedWork",
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
+            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods/{id}": "",
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}": "",
             "/me/authentication/methods": "least=DelegatedWork",
             "/me/authentication/methods/{id}": "least=DelegatedWork",
             "/me/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
-            "/me/authentication/microsoftauthenticatormethods": "least=DelegatedWork",
-            "/me/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
-            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "least=DelegatedWork",
-            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
-            "/me/authentication/passwordmethods": "least=DelegatedWork",
-            "/me/authentication/passwordmethods/{id}": "least=DelegatedWork",
-            "/me/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
-            "/me/authentication/phonemethods": "least=DelegatedWork",
-            "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
-            "/me/authentication/platformCredentialMethods": "least=DelegatedWork",
-            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
-            "/me/authentication/softwareoathmethods": "least=DelegatedWork",
-            "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
-            "/me/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
-            "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
-            "/me/authentication/windowshelloforbusinessmethods": "least=DelegatedWork",
-            "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/emailmethods": "least=DelegatedWork",
-            "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork",
-            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork",
+            "/me/authentication/microsoftauthenticatormethods": "",
+            "/me/authentication/microsoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordmethods": "",
+            "/me/authentication/passwordmethods/{id}": "",
+            "/me/authentication/passwordmethods/{id}/isUpdateSupported": "",
+            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods/{id}": "",
+            "/me/authentication/platformCredentialMethods": "",
+            "/me/authentication/platformCredentialMethods/{id}": "",
+            "/me/authentication/qrcodepinmethod": "",
+            "/me/authentication/qrcodepinmethod/pin": "",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "",
+            "/me/authentication/softwareoathmethods": "",
+            "/me/authentication/softwareoathmethods/{id}": "",
+            "/me/authentication/temporaryaccesspassmethods": "",
+            "/me/authentication/temporaryaccesspassmethods/{id}": "",
+            "/me/authentication/windowshelloforbusinessmethods": "",
+            "/me/authentication/windowshelloforbusinessmethods/{id}": "",
+            "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/emailmethods/{id}": "",
+            "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=DelegatedWork",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork",
-            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/hardwareOathMethods": "",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/methods/{id}/isUpdateSupported": "least=DelegatedWork",
-            "/users/{id}/authentication/microsoftauthenticatormethods": "least=DelegatedWork",
-            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/microsoftauthenticatormethods": "",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "",
             "/users/{id}/authentication/operations/{id}": "",
-            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "least=DelegatedWork",
-            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "",
             "/users/{id}/authentication/passwordmethods": "",
             "/users/{id}/authentication/passwordmethods/{id}": "",
-            "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "",
             "/users/{id}/authentication/phonemethods": "",
             "/users/{id}/authentication/phonemethods/{id}": "",
-            "/users/{id}/authentication/platformCredentialMethods": "least=DelegatedWork",
-            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
-            "/users/{id}/authentication/softwareoathmethods": "least=DelegatedWork",
-            "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
-            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/windowshelloforbusinessmethods": "least=DelegatedWork",
-            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
+            "/users/{id}/authentication/platformCredentialMethods": "",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "",
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "",
+            "/users/{id}/authentication/softwareoathmethods": "",
+            "/users/{id}/authentication/softwareoathmethods/{id}": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": ""
           }
         }
       ],
@@ -52481,8 +52584,8 @@
             "/me/authentication/emailmethods/{id}": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/fido2methods/{id}": "least=Application",
-            "/me/authentication/hardwareOathMethods": "least=Application",
-            "/me/authentication/hardwareOathMethods/{id}": "least=Application",
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}": "",
             "/me/authentication/methods": "least=Application",
             "/me/authentication/methods/{id}": "least=Application",
             "/me/authentication/microsoftauthenticatormethods": "least=Application",
@@ -52505,38 +52608,38 @@
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
-            "/users/{id}/authentication/emailmethods": "least=Application",
-            "/users/{id}/authentication/emailmethods/{id}": "least=Application",
-            "/users/{id}/authentication/externalauthenticationmethods": "least=Application",
-            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
+            "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/emailmethods/{id}": "",
+            "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
-            "/users/{id}/authentication/hardwareOathMethods": "least=Application",
-            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application",
+            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/hardwareOathMethods": "",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/methods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/microsoftauthenticatormethods": "least=Application",
-            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
-            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "least=Application",
-            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
-            "/users/{id}/authentication/passwordmethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/passwordmethods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/platformCredentialMethods": "least=Application",
-            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod/pin": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=Application",
-            "/users/{id}/authentication/softwareoathmethods": "least=Application",
-            "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
-            "/users/{id}/authentication/temporaryaccesspassmethods": "least=Application",
-            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application",
-            "/users/{id}/authentication/windowshelloforbusinessmethods": "least=Application",
-            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=Application"
+            "/users/{id}/authentication/microsoftauthenticatormethods": "",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "",
+            "/users/{id}/authentication/passwordmethods": "",
+            "/users/{id}/authentication/passwordmethods/{id}": "",
+            "/users/{id}/authentication/phonemethods": "",
+            "/users/{id}/authentication/phonemethods/{id}": "",
+            "/users/{id}/authentication/platformCredentialMethods": "",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "",
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "",
+            "/users/{id}/authentication/softwareoathmethods": "",
+            "/users/{id}/authentication/softwareoathmethods/{id}": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": ""
           }
         },
         {
@@ -52603,10 +52706,10 @@
             "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
             "/users/{id}/authentication/emailmethods/{id}": "",
             "/users/{id}/authentication/phonemethods/{id}": "",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork"
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": ""
           }
         },
         {
@@ -52618,8 +52721,8 @@
             "PATCH"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork"
+            "/me/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/fido2methods/{id}": ""
           }
         },
         {
@@ -52681,7 +52784,7 @@
             "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
@@ -52700,15 +52803,15 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork",
-            "/me/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork",
-            "/me/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork",
-            "/me/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}/activate": "",
+            "/me/authentication/hardwareOathMethods/assignAndActivate": "",
+            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
+            "/me/authentication/hardwareOathMethods/deactivate": "",
+            "/me/authentication/phonemethods/{id}/disablesmssignin": "",
+            "/me/authentication/phonemethods/{id}/enablesmssignin": "",
+            "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
@@ -52768,13 +52871,13 @@
             "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application",
             "/me/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/me/authentication/phonemethods": "least=Application",
-            "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/emailmethods": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application",
             "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
           }
         },
@@ -52813,7 +52916,7 @@
           ],
           "paths": {
             "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/fido2methods/{id}": ""
           }
         },
         {
@@ -52865,10 +52968,10 @@
             "/me/authentication/softwareoathmethods/{id}": "least=Application",
             "/me/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
-            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
@@ -52892,12 +52995,12 @@
             "/me/authentication/hardwareOathMethods/deactivate": "least=Application",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=Application",
-            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
+            "/users/{id}/authentication/hardwareOathMethods/deactivate": "",
+            "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "",
+            "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": ""
           }
         },
         {
@@ -52936,7 +53039,7 @@
             "/users/{id}/authentication/methods/{id}/disablesmssignin": "least=DelegatedWork",
             "/users/{id}/authentication/methods/{id}/enablesmssignin": "least=DelegatedWork",
             "/users/{id}/authentication/methods/{id}/resetpassword": "least=DelegatedWork",
-            "/users/{id}/authentication/passwordmethods/{id}/resetpassword": "least=DelegatedWork"
+            "/users/{id}/authentication/passwordmethods/{id}/resetpassword": ""
           }
         },
         {
@@ -52967,23 +53070,37 @@
       }
     },
     "UserAuthMethod-Passkey.Read.All": {
+      "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all users' passkey authentication methods",
           "adminDescription": "Allows the app to read passkey authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
           "userDisplayName": "Read all users' passkey authentication methods",
-          "userDescription": "Allows the app to read passkey authentication methods of all users you have access to in your organization.This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDescription": "Allows the app to read passkey authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": " Read all users' passkey authentication methods",
-          "adminDescription": " Allows the app to read passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "adminDisplayName": "Read all users' passkey authentication methods",
+          "adminDescription": "Allows the app to read passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -52993,12 +53110,9 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "",
-            "/users/{id}/authentication/fido2methods": "",
-            "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/creationOptions": ""
+            "/users/{id}/authentication/fido2methods": "least=Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
+            "/users/{id}/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -53007,6 +53121,7 @@
       }
     },
     "UserAuthMethod-Passkey.ReadWrite.All": {
+      "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all users' passkey methods.",
@@ -53018,12 +53133,49 @@
         },
         "Application": {
           "adminDisplayName": "Read and write all users' passkey authentication methods",
-          "adminDescription": "Allows the application to read and write passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
+          "adminDescription": "Allows the application to read and write passkey authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2methods/creationOptions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "least=DelegatedWork",
+            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods/{id}": "least=DelegatedWork"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -53033,12 +53185,22 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "",
-            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2Methods": "",
             "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/creationOptions": ""
+            "/users/{id}/authentication/fido2Methods/creationOptions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application"
           }
         },
         {
@@ -53051,8 +53213,7 @@
             "PATCH"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=Application"
+            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -53496,18 +53657,18 @@
             "GET"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}/sessions": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/sessions": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}/presenters": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/getByUserRole(role={userRole})": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/sessions": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/sessions/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/getByUserRole(role={userRole})": "least=DelegatedWork"
+            "/solutions/virtualEvents/townhalls/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}/sessions": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/sessions": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}/presenters": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/getByUserRole(role={userRole})": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/sessions": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/sessions/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/getByUserRole(role={userRole})": "least=DelegatedWork"
           }
         }
       ],
@@ -53536,19 +53697,19 @@
             "GET"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}/sessions": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}/sessions": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}": "least=Application",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}/presenters": "least=Application",
-            "/solutions/virtualEvent/townhalls/getByUserIdAndRole(userId={userId}, role={userRole})": "least=Application",
-            "/solutions/virtualEvent/webinars/{id}": "least=Application",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": "least=Application",
-            "/solutions/virtualEvent/webinars/{id}/sessions": "least=Application",
-            "/solutions/virtualEvent/webinars/{id}/sessions/{id}": "least=Application",
-            "/solutions/virtualEvent/webinars/getByUserIdAndRole(userId={userId}, role={userRole})": "least=Application"
+            "/solutions/virtualEvents/townhalls": "least=Application",
+            "/solutions/virtualEvents/townhalls/{id}": "",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}": "least=Application",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}/sessions": "least=Application",
+            "/solutions/virtualEvents/townhalls/{id}/sessions": "least=Application",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}": "least=Application",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}/presenters": "least=Application",
+            "/solutions/virtualEvents/townhalls/getByUserIdAndRole(userId={userId}, role={userRole})": "least=Application",
+            "/solutions/virtualEvents/webinars/{id}": "",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": "",
+            "/solutions/virtualEvents/webinars/{id}/sessions": "least=Application",
+            "/solutions/virtualEvents/webinars/{id}/sessions/{id}": "least=Application",
+            "/solutions/virtualEvents/webinars/getByUserIdAndRole(userId={userId}, role={userRole})": "least=Application"
           }
         }
       ],
@@ -53608,18 +53769,18 @@
             "GET"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls/{id}": "",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}/sessions": "",
-            "/solutions/virtualEvent/townhalls/{id}/sessions": "",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}": "",
-            "/solutions/virtualEvent/townhalls/{id}/sessions/{id}/presenters": "",
-            "/solutions/virtualEvent/townhalls/getByUserRole(role={userRole})": "",
-            "/solutions/virtualEvent/webinars/{id}": "",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": "",
-            "/solutions/virtualEvent/webinars/{id}/sessions": "",
-            "/solutions/virtualEvent/webinars/{id}/sessions/{id}": "",
-            "/solutions/virtualEvent/webinars/getByUserRole(role={userRole})": ""
+            "/solutions/virtualEvents/townhalls/{id}": "",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}": "",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}/sessions": "",
+            "/solutions/virtualEvents/townhalls/{id}/sessions": "",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}": "",
+            "/solutions/virtualEvents/townhalls/{id}/sessions/{id}/presenters": "",
+            "/solutions/virtualEvents/townhalls/getByUserRole(role={userRole})": "",
+            "/solutions/virtualEvents/webinars/{id}": "",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": "",
+            "/solutions/virtualEvents/webinars/{id}/sessions": "",
+            "/solutions/virtualEvents/webinars/{id}/sessions/{id}": "",
+            "/solutions/virtualEvents/webinars/getByUserRole(role={userRole})": ""
           }
         },
         {
@@ -53630,18 +53791,18 @@
             "POST"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/cancel": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/presenters": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/publish": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/setExternalEventInformation": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/cancel": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/publish": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/approve": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/cancel": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}/reject": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/setExternalEventInformation": "least=DelegatedWork"
+            "/solutions/virtualEvents/townhalls": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/cancel": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/presenters": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/publish": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/setExternalEventInformation": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/cancel": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/publish": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}/approve": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}/cancel": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}/reject": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/setExternalEventInformation": "least=DelegatedWork"
           }
         },
         {
@@ -53652,9 +53813,9 @@
             "PATCH"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork",
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": "least=DelegatedWork"
+            "/solutions/virtualEvents/townhalls/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}": "least=DelegatedWork",
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -53665,7 +53826,7 @@
             "DELETE"
           ],
           "paths": {
-            "/solutions/virtualEvent/townhalls/{id}/presenters/{id}": "least=DelegatedWork"
+            "/solutions/virtualEvents/townhalls/{id}/presenters/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -53692,7 +53853,7 @@
             "POST"
           ],
           "paths": {
-            "/solutions/virtualEvent/webinars/{id}/registrations": "least=Application"
+            "/solutions/virtualEvents/webinars/{id}/registrations": ""
           }
         },
         {
@@ -53703,7 +53864,7 @@
             "GET"
           ],
           "paths": {
-            "/solutions/virtualEvent/webinars/{id}/registrations/{id}": ""
+            "/solutions/virtualEvents/webinars/{id}/registrations/{id}": ""
           }
         }
       ],
