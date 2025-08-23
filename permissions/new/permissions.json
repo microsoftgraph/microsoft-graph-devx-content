@@ -23874,6 +23874,7 @@
             "/storage/fileStorage/containers/{id}/columns": "least=DelegatedWork,DelegatedPersonal,Application",
             "/storage/fileStorage/containers/{id}/permanentDelete": "least=DelegatedWork,DelegatedPersonal,Application",
             "/storage/fileStorage/containers/{id}/permissions": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/storage/fileStorage/containers/{id}/recycleBin/items(driveItemId={driveItemId})/restore": "least=DelegatedWork,DelegatedPersonal,Application",
             "/storage/fileStorage/containers/{id}/recycleBin/items/delete": "least=DelegatedWork,DelegatedPersonal,Application",
             "/storage/fileStorage/containers/{id}/recycleBin/items/restore": "least=DelegatedWork,DelegatedPersonal,Application",
             "/storage/fileStorage/deletedContainers/{id}/restore": "least=DelegatedWork,DelegatedPersonal,Application"
@@ -45259,6 +45260,56 @@
           "paths": {
             "/teams/{id}/members/add": "",
             "/teams/{id}/members/remove": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamMember.ReadWriteNonOwnerRole.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Add and remove non-owner members from teams",
+          "adminDescription": "Add and remove non-owner members from teams, on behalf of the signed-in user. Does not allow changing a member's role to or from owner.",
+          "userDisplayName": "Add and remove non-owner members from teams",
+          "userDescription": "Add and remove non-owner members from teams, on your behalf. Does not allow changing a member's role to or from owner.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Add and remove non-owner members from all teams",
+          "adminDescription": "Add and remove non-owner members from all teams, without a signed-in user. Does not allow changing a member's role to or from owner.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/members": "least=DelegatedWork,Application",
+            "/teams/{id}/members/add": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/teams/{id}/members/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
