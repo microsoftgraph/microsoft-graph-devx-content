@@ -25817,6 +25817,8 @@
             "GET"
           ],
           "paths": {
+            "/identityProtection/agentRiskDetections": "least=DelegatedWork,Application",
+            "/identityProtection/agentRiskDetections/{id}": "least=DelegatedWork,Application",
             "/identityprotection/riskdetections": "least=DelegatedWork,Application",
             "/identityprotection/riskdetections/{id}": "least=DelegatedWork,Application",
             "/identityprotection/serviceprincipalriskdetections": "least=DelegatedWork,Application",
@@ -31700,10 +31702,45 @@
             "GET"
           ],
           "paths": {
+            "/copilot/communications/realTimeActivityFeed/meetings/{meetingId}/transcripts": "",
+            "/copilot/communications/realTimeActivityFeed/subscriptions/{id}": "",
             "/users/{id}/onlinemeetings/{id}/transcripts": "",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}": "",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}/content": "",
             "/users/{id}/onlinemeetings/{id}/transcripts/{id}/metadataContent": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/communications/realTimeActivityFeed/subscriptions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/communications/realTimeActivityFeed/subscriptions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/communications/realTimeActivityFeed/subscriptions/{id}": ""
           }
         }
       ],
