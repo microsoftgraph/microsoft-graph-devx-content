@@ -1,5 +1,19 @@
 name: Validate sample queries
-on: [pull_request,push]
+on:
+  push:
+    paths:
+      - /sample-queries/sample-queries.json
+      - /scripts/**
+      - /tests/**
+      - /package.json
+      - /package-lock.json
+  pull_request:
+    paths:
+      - /sample-queries/sample-queries.json
+      - /scripts/**
+      - /tests/**
+      - /package.json
+      - /package-lock.json
 
 jobs:
   validate-json-schema:
@@ -18,8 +32,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install 
-        run: npm install   
+      - name: Install
+        run: npm install
 
       - name: Run test
         run: npm run test
