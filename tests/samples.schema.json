@@ -3,79 +3,77 @@
   "properties": {
     "SampleQueries": {
       "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "category": {
-              "type": "string"
-            },
-            "method": {
-              "type": "string",
-              "enum": [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "DELETE"
-              ]
-            },
-            "humanName": {
-              "type": "string"
-            },
-            "requestUrl": {
-              "type": "string"
-            },
-            "docLink": {
-              "type": "string",
-              "format": "uri"
-            },
-            "tip": {
-              "type": "string"
-            },
-            "postBody": {
-              "type": "string"
-            },
-            "headers": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "additionalProperties": false,
-                  "required": [
-                    "name",
-                    "value"
-                  ]
-                }
-              ]
-            },
-            "skipTest": {
-              "type": "boolean"
-            }
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
-          "additionalProperties": false,
-          "required": [
-            "id",
-            "category",
-            "method",
-            "humanName",
-            "requestUrl",
-            "docLink"
-          ]
-        }
-      ]
+          "category": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ]
+          },
+          "humanName": {
+            "type": "string"
+          },
+          "requestUrl": {
+            "type": "string"
+          },
+          "docLink": {
+            "type": "string",
+            "format": "uri"
+          },
+          "tip": {
+            "type": "string"
+          },
+          "postBody": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "name",
+                  "value"
+                ]
+              }
+            ]
+          },
+          "skipTest": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "category",
+          "method",
+          "humanName",
+          "requestUrl",
+          "docLink"
+        ]
+      }
     }
   },
   "additionalProperties": false,
