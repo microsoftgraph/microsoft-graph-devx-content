@@ -23,7 +23,7 @@ async function validateLink (linkUrl) {
     const response = await fetch(linkUrl, { method: 'HEAD' });
     return response.ok;
   } catch (error) {
-    console.log(JSON.stringify(error, null, 2));
+    console.error(JSON.stringify(error, null, 2));
     return false;
   }
 }
