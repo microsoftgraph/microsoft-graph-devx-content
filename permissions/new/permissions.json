@@ -6775,15 +6775,14 @@
             "GET"
           ],
           "paths": {
-            "/chats/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/allMembers": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/allMembers/{id}": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/doesuserhaveaccess": "least=DelegatedWork,Application",
-            "/teams/{id}/channels/{id}/members": "",
+            "/teams/{id}/channels/{id}/doesuserhaveaccess": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/members": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/members/{id}": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/sharedwithteams": "least=DelegatedWork,Application",
-            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork,Application",
-            "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=DelegatedWork,Application"
+            "/teams/{id}/channels/{id}/sharedwithteams": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=DelegatedWork"
           }
         }
       ],
@@ -6812,8 +6811,12 @@
           "paths": {
             "/teams/{id}/channels/{id}/allMembers": "least=Application",
             "/teams/{id}/channels/{id}/allMembers/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/doesuserhaveaccess": "least=Application",
             "/teams/{id}/channels/{id}/members": "least=Application",
-            "/teams/{id}/channels/{id}/members/{id}": "least=Application"
+            "/teams/{id}/channels/{id}/members/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/sharedwithteams": "least=Application",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=Application"
           }
         }
       ],
@@ -6840,10 +6843,7 @@
           "methods": [
             "GET"
           ],
-          "paths": {
-            "/chats/{id}/members/{id}": "",
-            "/teams/{id}/channels/{id}/members/{id}": ""
-          }
+          "paths": {}
         }
       ],
       "ownerInfo": {
@@ -6871,17 +6871,6 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/chats/{id}/members/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -6889,8 +6878,13 @@
             "GET"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/allMembers": "",
+            "/teams/{id}/channels/{id}/allMembers/{id}": "",
             "/teams/{id}/channels/{id}/doesuserhaveaccess": "",
+            "/teams/{id}/channels/{id}/members": "",
+            "/teams/{id}/channels/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/sharedwithteams": "",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "",
             "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": ""
           }
         },
@@ -6900,7 +6894,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
@@ -6913,21 +6906,7 @@
             "Application"
           ],
           "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/allMembers": "",
-            "/teams/{id}/channels/{id}/allMembers/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -6940,11 +6919,10 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET"
+            "DELETE"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork,Application"
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -6968,7 +6946,24 @@
             "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/allMembers": "",
+            "/teams/{id}/channels/{id}/allMembers/{id}": "",
+            "/teams/{id}/channels/{id}/doesuserhaveaccess": "",
+            "/teams/{id}/channels/{id}/members": "",
+            "/teams/{id}/channels/{id}/members/{id}": "",
+            "/teams/{id}/channels/{id}/sharedwithteams": "",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "",
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
@@ -6980,11 +6975,11 @@
             "Application"
           ],
           "methods": [
-            "GET"
+            "DELETE",
+            "PATCH"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/allMembers": "",
-            "/teams/{id}/channels/{id}/allMembers/{id}": ""
+            "/teams/{id}/channels/{id}/members/{id}": "least=Application"
           }
         },
         {
@@ -6992,12 +6987,10 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
+            "DELETE"
           ],
           "paths": {
-            "/teams/{id}/channels/{id}/members/{id}": "least=Application"
+            "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=Application"
           }
         }
       ],
@@ -24698,7 +24691,7 @@
             "/planner/tasks/{id}/details": "",
             "/planner/tasks/{id}/progresstaskboardformat": "",
             "/policies/ownerlessGroupPolicy": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/members": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/members": "",
             "/teams/{id}/schedule": "",
             "/teams/{id}/schedule/offershiftrequests/{id}": "",
             "/teams/{id}/schedule/openshiftchangerequests": "",
@@ -45239,7 +45232,6 @@
           ],
           "paths": {
             "/chats/{id}/members/{id}": "",
-            "/teams/{id}/channels/{id}/members/{id}": "",
             "/teams/{id}/members": "least=Application",
             "/teams/{id}/members/{id}": "least=Application"
           }
@@ -45268,18 +45260,6 @@
         }
       },
       "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/members/{id}": ""
-          }
-        },
         {
           "schemeKeys": [
             "DelegatedWork",
