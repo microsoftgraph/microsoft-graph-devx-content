@@ -67,6 +67,7 @@ POST Example includes headers, post body and a tip <br>
 When done making the changes on the document,
 1. Save the document on your machine
 1. Create a Git branch on this repo and name it using your initials + describe the changes ie. bn/add-xyz-samples
+1. Run `npm run test` to test your changes locally
 1. Commit the changes to your branch
 1. Create a PR (the PR is automatically updated with the relevant reviewers).
 
@@ -114,15 +115,18 @@ Then in the new Git command line window, paste in this command to create and che
 ### 4. Update your sample query
 Now you can add, update or delete your sample query in the `sample-queries.json` file that opened up in VS Code earlier.
 
-### 5. Add, commit and push your changes back to the remote repo with the following commands
+### 5. Test your changes locally
+Run `npm run test` to test your changes locally before committing.
+
+### 6. Add, commit and push your changes back to the remote repo with the following commands
 - Add the changes to you local repo: `git add sample-queries.json`
 - Commit your changes: `git commit -m "{add-reason-for-update}"`
 - Push your changes to the remote repo: `git push origin {your-branch-name}`
 
-### 6. Login to GitHub
+### 7. Login to GitHub
 Follow the instructions to login to GitHub using your credentials.
 
-### 7. If you get error 403
+### 8. If you get error 403
 Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
