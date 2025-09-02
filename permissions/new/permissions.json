@@ -1763,6 +1763,17 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/approvedclientapps/{id}": "",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/serviceTreeAttributionServices": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -2012,6 +2023,17 @@
           "paths": {
             "/applications/{id}/synchronization/templates/{id}/schema": "least=Application",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/serviceTreeAttributionServices": "least=Application"
           }
         }
       ],
