@@ -1,0 +1,29 @@
+# This file mirrors validate.yml and is designed to be a
+# "stand-in" that always passes so that pull requests are not
+# blocked waiting on the "Validate sample queries" workflow.
+# For context, validate.yml will only run if specific files are
+# updated in the PR. If a PR doesn't touch any of those files,
+# validate.yml will never run, but since it's a required status
+# check for PRs, the PR will be stuck waiting for the workflow to run.
+# This file solves that problem. For more info, see
+# https://github.com/orgs/community/discussions/44490
+name: Validate sample queries
+on:
+  pull_request:
+    paths-ignore:
+      - sample-queries/sample-queries.json
+      - scripts/**
+      - tests/**
+      - package.json
+      - package-lock.json
+
+jobs:
+  validate-json-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "No validation required"'
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "No tests required"'
