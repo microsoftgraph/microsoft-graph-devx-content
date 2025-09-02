@@ -30,12 +30,9 @@ describe('Permissions descriptions consistency', function() {
         const adminDisplayName = permission.adminConsentDisplayName || '';
         const consentDisplayName = permission.consentDisplayName || '';
         
-        if (adminDisplayName) {
-          expect(adminDisplayName.endsWith('.')).toBe(false);
-        }
-        if (consentDisplayName) {
-          expect(consentDisplayName.endsWith('.')).toBe(false);
-        }
+        [adminDisplayName, consentDisplayName].forEach(displayName => {
+          expect(displayName.endsWith('.')).toBe(false);
+        });
       });
     });
   }
