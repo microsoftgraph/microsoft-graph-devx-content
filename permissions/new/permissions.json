@@ -20243,6 +20243,19 @@
           "paths": {
             "/external/connections/{id}/schema": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/external/connections/{id}/fullRefresh/end": "",
+            "/external/connections/{id}/fullRefresh/start": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -20330,6 +20343,19 @@
           ],
           "paths": {
             "/external/connections/{id}/schema": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/external/connections/{id}/fullRefresh/end": "least=DelegatedWork,Application",
+            "/external/connections/{id}/fullRefresh/start": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -20426,6 +20452,8 @@
             "POST"
           ],
           "paths": {
+            "/external/connections/{id}/fullRefresh/groups": "",
+            "/external/connections/{id}/fullRefresh/groups/{id}/members": "",
             "/external/connections/{id}/groups": "",
             "/external/connections/{id}/groups/{id}/members": ""
           }
@@ -20469,6 +20497,18 @@
           ],
           "paths": {
             "/external/connections/{id}/items/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/external/connections/{id}/fullRefresh/items": ""
           }
         }
       ],
@@ -20515,6 +20555,8 @@
             "POST"
           ],
           "paths": {
+            "/external/connections/{id}/fullRefresh/groups": "least=DelegatedWork,Application",
+            "/external/connections/{id}/fullRefresh/groups/{id}/members": "least=DelegatedWork,Application",
             "/external/connections/{id}/groups": "least=DelegatedWork,Application",
             "/external/connections/{id}/groups/{id}/members": "least=DelegatedWork,Application"
           }
@@ -20558,6 +20600,18 @@
           ],
           "paths": {
             "/external/connections/{id}/items/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/external/connections/{id}/fullRefresh/items": "least=DelegatedWork,Application"
           }
         }
       ],
