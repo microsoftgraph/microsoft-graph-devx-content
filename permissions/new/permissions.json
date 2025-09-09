@@ -50685,6 +50685,44 @@
         "ownerSecurityGroup": "IdentityReq"
       }
     },
+    "User-OnPremisesSyncBehavior.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of users",
+          "adminDescription": "Allows the app to read and update the on-premises sync behavior of users on behalf of the signed-in user.",
+          "userDisplayName": "Read and update the on-premises sync behavior of users",
+          "userDescription": "Allows the app to update the on-premises sync behavior of users on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and update the on-premises sync behavior of users",
+          "adminDescription": "Allows the app to update the on-premises sync behavior of all users without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/onPremisesSyncBehavior": "least=DelegatedWork,Application",
+            "/users/onPremisesSyncBehavior": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ddsappperm"
+      }
+    },
     "User-PasswordProfile.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
