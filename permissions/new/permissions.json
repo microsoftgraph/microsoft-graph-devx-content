@@ -41920,6 +41920,75 @@
         "ownerSecurityGroup": "ospred"
       }
     },
+    "SharePointCrossTenantMigration.Manage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read, write and manage SharePoint Cross-Tenant migration settings and tasks",
+          "adminDescription": "Allows the app to read, write and manage your tenant's SharePoint Cross-Tenant migration settings and tasks, on behalf of the signed-in user.",
+          "userDisplayName": "Read, write and manage SharePoint Cross-Tenant migration settings and tasks",
+          "userDescription": "Allows the app to read, write and manage your tenant's SharePoint Cross-Tenant migration settings and tasks, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read, write and manage SharePoint Cross-Tenant migration settings and tasks",
+          "adminDescription": "Allows the app to read, write and manage your tenant's SharePoint Cross-Tenant migration settings and tasks, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH",
+            "POST"
+          ],
+          "paths": {}
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphSPOApprovers"
+      }
+    },
+    "SharePointCrossTenantMigration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read SharePoint Cross-Tenant migration settings and tasks",
+          "adminDescription": "Allows the app to read your tenant's SharePoint Cross-Tenant migration settings and tasks, on behalf of the signed-in user.",
+          "userDisplayName": "Read SharePoint Cross-Tenant migration settings and tasks",
+          "userDescription": "Allows the app to read your tenant's SharePoint Cross-Tenant migration settings and tasks, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read SharePoint Cross-Tenant migration settings and tasks",
+          "adminDescription": "Allows the app to read your tenant's SharePoint Cross-Tenant migration settings and tasks, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {}
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphSPOApprovers"
+      }
+    },
     "SharePointTenantSettings.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
