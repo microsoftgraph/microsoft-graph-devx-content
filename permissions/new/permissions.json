@@ -1270,6 +1270,22 @@
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications(appid={value})/sponsors": "least=DelegatedWork,Application",
             "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/environmentAttributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/environmentAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/principalAttributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/principalAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/actions": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/actions/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/attributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/attributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/parents": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}/inheritsPermissionsFrom": "least=DelegatedWork,Application",
             "/applications/{id}/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
@@ -1482,6 +1498,16 @@
             "/applications(appid={value})/removekey": "least=DelegatedWork",
             "/applications(appid={value})/repair": "least=DelegatedWork",
             "/applications/{id}/addkey": "least=DelegatedWork",
+            "/applications/{id}/authorization/resourceSchema": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/environmentAttributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/ingest": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/principalAttributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/actions": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/attributes": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/parents": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}/inheritsPermissionsFrom": "least=DelegatedWork,Application",
             "/applications/{id}/extendlifecycle": "",
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig": "least=DelegatedWork,Application",
@@ -1524,6 +1550,8 @@
             "/serviceprincipals/{id}/addkey": "least=DelegatedWork",
             "/serviceprincipals/{id}/addpassword": "least=DelegatedWork",
             "/serviceprincipals/{id}/addtokensigningcertificate": "least=DelegatedWork",
+            "/serviceprincipals/{id}/authorization": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/authorization/elevateToUserAccessAdministrator": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/checkmembergroups": "",
             "/serviceprincipals/{id}/checkmemberobjects": "",
             "/serviceprincipals/{id}/createpasswordsinglesignoncredentials": "least=DelegatedWork,Application;AlsoRequires=Directory.Read.All",
@@ -1627,6 +1655,17 @@
           "paths": {
             "/applications(appid={value})/owners/{id}": "least=DelegatedWork",
             "/applications(appid={value})/sponsors/{id}": "",
+            "/applications/{id}/authorization": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/environmentAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/principalAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/actions/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/attributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/parents/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}/inheritsPermissionsFrom": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}/inheritsPermissionsFrom/{id}": "least=DelegatedWork,Application",
             "/applications/{id}/owners/{id}": "least=DelegatedWork",
             "/applications/{id}/sponsors/{id}": "",
             "/applications/{id}/tokenissuancepolicies/{id}": "least=DelegatedWork;AlsoRequires=Policy.Read.All",
@@ -1727,6 +1766,24 @@
             "/serviceprincipals/{id}/sponsors": "",
             "/serviceprincipals/{id}/transitivememberof": "",
             "/serviceprincipals/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}/authorization/resourceSchema": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/environmentAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/principalAttributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/actions/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/resourceSchema/resources/{name}/attributes/{name}": "least=DelegatedWork,Application",
+            "/applications/{id}/authorization/roleDefinitions/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -19462,15 +19519,14 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
             "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/communications/getAllOnlineMeetingMessages": "least=DelegatedWork,Application",
-            "/communications/onlineMeetingConversations/conversations/{id}/messages/{id}/reactions": "least=DelegatedWork,Application"
+            "/communications/getAllOnlineMeetingMessages": "least=Application",
+            "/communications/onlineMeetingConversations/conversations/{id}/messages/{id}/reactions": "least=Application"
           }
         }
       ],
