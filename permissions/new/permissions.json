@@ -8648,6 +8648,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
@@ -8796,6 +8797,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
             "/devicemanagement/virtualendpoint/galleryimages": "",
@@ -33414,45 +33416,37 @@
           "userDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write organization places",
-          "adminDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on behalf of the signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "DELETE",
             "PATCH"
           ],
           "paths": {
-            "/places/{id}": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application"
+            "/places/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/places": "least=DelegatedWork,Application",
-            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork,Application"
+            "/places": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork"
           }
         }
       ],
