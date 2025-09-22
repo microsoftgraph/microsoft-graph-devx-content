@@ -8648,6 +8648,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}": "least=DelegatedWork,Application",
@@ -8796,6 +8797,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
             "/devicemanagement/virtualendpoint/galleryimages": "",
@@ -8865,6 +8867,7 @@
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/{id}/assign": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/settingprofiles/reorder": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/uploadimage": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/usersettings/{id}/assign": "least=DelegatedWork,Application",
             "/me/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
@@ -28188,6 +28191,8 @@
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewscope": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewtaskfailures": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
@@ -28270,6 +28275,8 @@
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows": "",
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewtaskfailures": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "",
@@ -28291,6 +28298,7 @@
           "paths": {
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
           }
@@ -28366,6 +28374,8 @@
             "/identitygovernance/lifecycleworkflows/taskdefinitions": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewtaskfailures": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
@@ -28475,6 +28485,8 @@
             "/identitygovernance/lifecycleworkflows/taskdefinitions": "",
             "/identitygovernance/lifecycleworkflows/taskdefinitions/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewscope": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewtaskfailures": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
@@ -28511,6 +28523,7 @@
           "paths": {
             "/identitygovernance/lifecycleworkflows/deleteditems/workflows/{id}/restore": "",
             "/identitygovernance/lifecycleworkflows/workflows": "",
+            "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": "least=DelegatedWork,Application"
@@ -33845,6 +33858,43 @@
           "paths": {
             "/identity/conditionalaccess/evaluate": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/vpnconnectivitycertificates": "least=DelegatedWork",
+            "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork",
+            "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}/downloadbase64certificate": "least=DelegatedWork",
+            "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}/downloadcertificate": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/vpnconnectivitycertificates": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -34998,6 +35048,29 @@
           "paths": {
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages": "",
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/vpnconnectivitycertificates": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": ""
           }
         }
       ],
