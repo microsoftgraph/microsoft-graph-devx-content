@@ -39087,7 +39087,11 @@
           ],
           "paths": {
             "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallVerifications": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -39136,7 +39140,8 @@
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application"
           }
         },
         {
@@ -39150,7 +39155,33 @@
             "PATCH"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}/verify": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
