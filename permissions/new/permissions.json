@@ -54244,6 +54244,76 @@
         "ownerSecurityGroup": "afsdev"
       }
     },
+    "VerifiedId-Profile.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Verified Id profiles",
+          "adminDescription": "This role can read Verified Id profiles in a tenant.",
+          "userDisplayName": "Read Verified Id profiles",
+          "userDescription": "This role can read Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Verified Id profiles",
+          "adminDescription": "This role can read Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/verifiedId/profiles": "least=DelegatedWork,Application",
+            "/identity/verifiedId/profiles/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cred_recovery"
+      }
+    },
+    "VerifiedId-Profile.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Verified Id profiles",
+          "adminDescription": "This role can read and write Verified Id profiles in a tenant.",
+          "userDisplayName": "Read and write Verified Id profiles",
+          "userDescription": "This role can read and write Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/identity/verifiedId/profiles": "least=DelegatedWork",
+            "/identity/verifiedId/profiles/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cred_recovery"
+      }
+    },
     "VirtualAppointment.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
