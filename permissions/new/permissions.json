@@ -16681,7 +16681,6 @@
             "/users/{id}/directreports": "",
             "/users/{id}/joinedteams": "",
             "/users/{id}/licensedetails": "",
-            "/users/{id}/licenseDetails/getTeamsLicensingDetails": "",
             "/users/{id}/manager": "",
             "/users/{id}/memberof": "least=Application",
             "/users/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
@@ -16730,7 +16729,8 @@
             "/me/registereddevices": "",
             "/me/scopedrolememberof": "least=DelegatedWork",
             "/me/transitivememberof": "",
-            "/privilegedroleassignmentrequests": "least=DelegatedWork"
+            "/privilegedroleassignmentrequests": "least=DelegatedWork",
+            "/users/{id}/licenseDetails/getTeamsLicensingDetails": ""
           }
         },
         {
@@ -16966,7 +16966,6 @@
             "/users/{id}/directreports": "",
             "/users/{id}/joinedteams": "",
             "/users/{id}/licensedetails": "",
-            "/users/{id}/licenseDetails/getTeamsLicensingDetails": "",
             "/users/{id}/memberof": "",
             "/users/{id}/owneddevices": "",
             "/users/{id}/ownedobjects": "",
@@ -17108,7 +17107,8 @@
             "/onpremisespublishingprofiles/applicationproxy/connectorgroups/{id}/applications": "least=DelegatedWork",
             "/onpremisespublishingprofiles/applicationproxy/connectors": "least=DelegatedWork",
             "/onpremisespublishingprofiles/applicationproxy/connectors/{id}": "least=DelegatedWork",
-            "/serviceprincipals": ""
+            "/serviceprincipals": "",
+            "/users/{id}/licenseDetails/getTeamsLicensingDetails": ""
           }
         },
         {
@@ -37378,6 +37378,14 @@
     "PrivilegedAccess.Read.AzureADGroup": {
       "authorizationType": "oAuth2",
       "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read privileged access to Azure AD groups",
+          "adminDescription": "Allows the app to read time-based assignment and just-in-time elevation (including scheduled elevation) of Azure AD groups in your organization, without a signed-in user.",
+          "userDisplayName": "Read privileged access to Azure AD groups",
+          "userDescription": "Allows the app to read time-based assignment and just in time elevation (including scheduled elevation) of Azure AD groups in your organization, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
         "Application": {
           "adminDisplayName": "Read privileged access to Azure AD groups",
           "adminDescription": "Allows the app to read time-based assignment and just-in-time elevation (including scheduled elevation) of Azure AD groups in your organization, without a signed-in user.",
@@ -37396,6 +37404,19 @@
           "paths": {
             "/privilegedaccess/azureresources/resources/{id}/roleassignmentrequests": "",
             "/privilegedaccess/azureresources/roleassignmentrequests": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/resources": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/resources/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -37520,6 +37541,12 @@
           "userDescription": "Allows the app to request and manage time-based assignment and just-in-time elevation (including scheduled elevation) of Azure AD groups, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write privileged access to Azure AD groups",
+          "adminDescription": "Allows the app to request and manage time-based assignment and just-in-time elevation (including scheduled elevation) of Azure AD groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -37544,6 +37571,19 @@
           ],
           "paths": {
             "/privilegedaccess/azureresources/roleassignmentrequests/{id}/cancel": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityGovernance/privilegedAccess/group/resources": "",
+            "/identityGovernance/privilegedAccess/group/resources/{id}": ""
           }
         }
       ],
@@ -51886,7 +51926,6 @@
           ],
           "paths": {
             "/users/{id}/deleteddatetime": "least=Application",
-            "/users/{id}/licenseDetails/getTeamsLicensingDetails": "least=Application",
             "/users/{id}/memberof/{id}": "least=Application",
             "/users/{id}/outlook/supportedlanguages": "least=Application",
             "/users/{id}/outlook/supportedtimezones": "least=Application",
@@ -54203,6 +54242,76 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "afsdev"
+      }
+    },
+    "VerifiedId-Profile.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Verified Id profiles",
+          "adminDescription": "This role can read Verified Id profiles in a tenant.",
+          "userDisplayName": "Read Verified Id profiles",
+          "userDescription": "This role can read Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Verified Id profiles",
+          "adminDescription": "This role can read Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/verifiedId/profiles": "least=DelegatedWork,Application",
+            "/identity/verifiedId/profiles/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cred_recovery"
+      }
+    },
+    "VerifiedId-Profile.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Verified Id profiles",
+          "adminDescription": "This role can read and write Verified Id profiles in a tenant.",
+          "userDisplayName": "Read and write Verified Id profiles",
+          "userDescription": "This role can read and write Verified Id profiles in a tenant.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/identity/verifiedId/profiles": "least=DelegatedWork",
+            "/identity/verifiedId/profiles/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cred_recovery"
       }
     },
     "VirtualAppointment.Read": {
