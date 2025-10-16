@@ -33866,15 +33866,23 @@
             "/policies/crosstenantaccesspolicy": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
@@ -35380,8 +35388,12 @@
             "PATCH"
           ],
           "paths": {
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
           }
         },
@@ -35396,8 +35408,12 @@
             "PATCH"
           ],
           "paths": {
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityBasic": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/calendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
           }
@@ -41363,6 +41379,78 @@
         "ownerSecurityGroup": "tri-msgraph"
       }
     },
+    "SecurityIdentitiesAutoConfig.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read sensors window auditing configuration",
+          "adminDescription": "Allows the app to read the sensors window auditing configuration of the signed in user",
+          "userDisplayName": "Read sensors window auditing configuration",
+          "userDescription": "Allows the app to read the sensors window auditing configuration on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read sensors window auditing configuration",
+          "adminDescription": "Allows the app to read sensors window auditing configuration without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/settings/autoAuditingConfiguration": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesAutoConfig.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write sensors window auditing configuration",
+          "adminDescription": "Allows the app to read and write the sensors window auditing configuration of the signed in user",
+          "userDisplayName": "Read and write window auditing configuration",
+          "userDescription": "Allows the app to read and write the sensors window auditing configuration on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write sensors window auditing configuration",
+          "adminDescription": "Allows the app to read and write sensors window auditing configuration without a signed-in user",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/identities/settings/autoAuditingConfiguration": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIdentitiesHealth.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -42323,9 +42411,9 @@
             "/solutions/sharepoint/migrations/crossOrganizationGroupMappings(sourceGroupObjectId={sourceGroupObjectId})": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/{id}": "least=DelegatedWork,Application",
-            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getMigrationTaskBySourceMailNickname(sourcemailnickname={sourcemailnickname},targethosturl={targethosturl})": "least=DelegatedWork,Application",
-            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getMigrationTaskBySourceSiteUrl(sourcesiteurl={sourcesiteurl},targethosturl={targethosturl})": "least=DelegatedWork,Application",
-            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getMigrationTaskBySourceUserPrincipalName(sourceprincipalname={sourceprincipalname},targethosturl={targethosturl})": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getbysourcegroupmailnickname(sourcemailnickname={sourcemailnickname})": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getbysourcesiteurl(sourcesiteurl={sourcesiteurl})": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getbysourceuserprincipalname(sourceprincipalname={sourceprincipalname})": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationUserMappings(sourceUserPrincipalName={sourceUserPrincipalName})": "least=DelegatedWork,Application"
           }
         }
@@ -42879,6 +42967,18 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{id}/items/{id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/sites/getOperationStatus(operationId='{id}')": ""
           }
         }
       ],
