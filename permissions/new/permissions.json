@@ -45021,6 +45021,7 @@
             "/planner/plans/{id}/buckets/delta": "least=DelegatedWork",
             "/planner/plans/{id}/dependencies": "least=DelegatedWork",
             "/planner/plans/{id}/details": "least=DelegatedWork",
+            "/planner/plans/{id}/getUsageRights": "least=DelegatedWork",
             "/planner/plans/{id}/goals": "least=DelegatedWork",
             "/planner/plans/{id}/tasks": "least=DelegatedWork",
             "/planner/rosters/{id}": "least=DelegatedWork",
@@ -53952,6 +53953,809 @@
         "ownerSecurityGroup": "mfateam"
       }
     },
+    "UserAuthMethod-Email.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's email authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your email authentication methods",
+          "userDescription": "Allows the app to read your email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "least=DelegatedWork",
+            "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Email.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' email methods",
+          "adminDescription": "Allows the app to read email methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' email methods",
+          "userDescription": "Allows the app to read email methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' email methods",
+          "adminDescription": "Allows the app to read email methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/emailmethods": "least=Application",
+            "/users/{id}/authentication/emailmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Email.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' email methods.",
+          "adminDescription": "Allows the app to read and write email methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' email methods",
+          "userDescription": "Allows the app to read and write email methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' email methods",
+          "adminDescription": "Allows the application to read and write email methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/emailmethods": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-External.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's external authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your external authentication methods",
+          "userDescription": "Allows the app to read your external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-External.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' external authentication methods",
+          "adminDescription": "Allows the app to read external authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' external authentication methods",
+          "userDescription": "Allows the app to read external authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' external authentication methods",
+          "adminDescription": "Allows the app to read external authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "least=Application",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-External.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' external methods.",
+          "adminDescription": "Allows the app to read and write external authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' external authentication methods",
+          "userDescription": "Allows the app to read and write external authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' external authentication methods",
+          "adminDescription": "Allows the application to read and write external authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-HardwareOATH.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's HardwareOATH authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's HardwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your HardwareOATH authentication methods",
+          "userDescription": "Allows the app to read your HardwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-HardwareOATH.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' HardwareOATH authentication methods",
+          "adminDescription": "Allows the app to read HardwareOATH authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' HardwareOATH authentication methods",
+          "userDescription": "Allows the app to read HardwareOATH authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' HardwareOATH authentication methods",
+          "adminDescription": "Allows the app to read HardwareOATH authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/hardwareOathMethods": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-HardwareOATH.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's HardwareOATH authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's HardwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your HardwareOATH authentication methods",
+          "userDescription": "Allows the app to read and write your HardwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}": "",
+            "/users/{id}/authentication/hardwareOathMethods": "",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork",
+            "/me/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/deactivate": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-HardwareOATH.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' HardwareOATH methods.",
+          "adminDescription": "Allows the app to read and write HardwareOATH authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' HardwareOATH authentication methods",
+          "userDescription": "Allows the app to read and write HardwareOATH authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' HardwareOATH authentication methods",
+          "adminDescription": "Allows the application to read and write HardwareOATH authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods": "",
+            "/me/authentication/hardwareOathMethods/{id}/activate": "",
+            "/me/authentication/hardwareOathMethods/assignAndActivate": "",
+            "/me/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
+            "/me/authentication/hardwareOathMethods/deactivate": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/hardwareOathMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/hardwareOathMethods": "",
+            "/users/{id}/authentication/hardwareOathMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "least=Application",
+            "/users/{id}/authentication/hardwareOathMethods/deactivate": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/hardwareOathMethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-MicrosoftAuthApp.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's Microsoft Authenticator authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's Microsoft Authenticator authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your Microsoft Authenticator authentication methods",
+          "userDescription": "Allows the app to read your Microsoft Authenticator authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods": "least=DelegatedWork",
+            "/me/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "least=DelegatedWork",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/microsoftauthenticatormethods": "least=DelegatedWork",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-MicrosoftAuthApp.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' Microsoft authentication methods",
+          "adminDescription": "Allows the app to read Microsoft authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' Microsoft authentication methods",
+          "userDescription": "Allows the app to read Microsoft authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' Microsoft authentication methods",
+          "adminDescription": "Allows the app to read Microsoft authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods": "",
+            "/me/authentication/microsoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/microsoftauthenticatormethods": "least=Application",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "least=Application",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-MicrosoftAuthApp.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's Microsoft Authenticator authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's Microsoft Authenticator authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your Microsoft Authenticator authentication methods",
+          "userDescription": "Allows the app to read and write your Microsoft Authenticator authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods": "",
+            "/me/authentication/microsoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "",
+            "/users/{id}/authentication/microsoftauthenticatormethods": "",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-MicrosoftAuthApp.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' Microsoft Authentication methods.",
+          "adminDescription": "Allows the app to read and write Microsoft Authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' Microsoft Authentication methods",
+          "userDescription": "Allows the app to read and write Microsoft Authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' Microsoft Authentication methods",
+          "adminDescription": "Allows the application to read and write Microsoft Authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods": "",
+            "/me/authentication/microsoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/microsoftauthenticatormethods/{id}": "",
+            "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/microsoftauthenticatormethods": "",
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods": "",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Passkey.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's passkey authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's passkey authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your passkey authentication methods",
+          "userDescription": "Allows the app to read your passkey authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2methods": "least=DelegatedWork",
+            "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
     "UserAuthMethod-Passkey.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -53996,6 +54800,65 @@
             "/users/{id}/authentication/fido2methods": "least=Application",
             "/users/{id}/authentication/fido2methods/{id}": "least=Application",
             "/users/{id}/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Passkey.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's passkey authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's passkey authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your passkey authentication methods",
+          "userDescription": "Allows the app to read and write your passkey authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/fido2Methods": "",
+            "/me/authentication/fido2Methods/{id}": "",
+            "/me/authentication/fido2Methods/creationOptions": "",
+            "/users/{id}/authentication/fido2Methods": "",
+            "/users/{id}/authentication/fido2Methods/{id}": "",
+            "/users/{id}/authentication/fido2Methods/creationOptions": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/fido2Methods": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/fido2Methods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2Methods/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -54097,6 +54960,1510 @@
           ],
           "paths": {
             "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Password.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's password authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's password authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your password authentication methods",
+          "userDescription": "Allows the app to read your password authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/passwordmethods": "least=DelegatedWork",
+            "/me/authentication/passwordmethods/{id}": "least=DelegatedWork",
+            "/me/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Password.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' password authentication methods",
+          "adminDescription": "Allows the app to read password authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' password authentication methods",
+          "userDescription": "Allows the app to read password authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' password authentication methods",
+          "adminDescription": "Allows the app to read password authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/passwordmethods": "",
+            "/me/authentication/passwordmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/passwordmethods": "least=Application",
+            "/users/{id}/authentication/passwordmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Password.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's password authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's password authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your password authentication methods",
+          "userDescription": "Allows the app to read and write your password authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/passwordmethods": "",
+            "/me/authentication/passwordmethods/{id}": "",
+            "/me/authentication/passwordmethods/{id}/isUpdateSupported": "",
+            "/users/{id}/authentication/passwordmethods": "",
+            "/users/{id}/authentication/passwordmethods/{id}": "",
+            "/users/{id}/authentication/passwordmethods/{id}/isUpdateSupported": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Password.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' password methods.",
+          "adminDescription": "Allows the app to read and write password authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' password authentication methods",
+          "userDescription": "Allows the app to read and write password authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' password authentication methods",
+          "adminDescription": "Allows the application to read and write password authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/passwordmethods": "",
+            "/me/authentication/passwordmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/passwordmethods": "",
+            "/users/{id}/authentication/passwordmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/passwordmethods/{id}/changepassword": "least=DelegatedWork",
+            "/users/{id}/authentication/passwordmethods/{id}/resetpassword": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Phone.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's phone authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's phone authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your phone authentication methods",
+          "userDescription": "Allows the app to read your phone authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "least=DelegatedWork",
+            "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Phone.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' phone authentication methods",
+          "adminDescription": "Allows the app to read phone authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' phone authentication methods",
+          "userDescription": "Allows the app to read phone authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' phone authentication methods",
+          "adminDescription": "Allows the app to read phone authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/phonemethods": "least=Application",
+            "/users/{id}/authentication/phonemethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Phone.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's phone authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's phone authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your phone authentication methods",
+          "userDescription": "Allows the app to read and write your phone authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods/{id}": "",
+            "/users/{id}/authentication/phonemethods": "",
+            "/users/{id}/authentication/phonemethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "least=DelegatedWork",
+            "/me/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork",
+            "/me/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-Phone.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' phone methods.",
+          "adminDescription": "Allows the app to read and write Phone methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' phone methods",
+          "userDescription": "Allows the app to read and write phone methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' phone methods",
+          "adminDescription": "Allows the application to read and write phone methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods": "",
+            "/me/authentication/phonemethods/{id}/disablesmssignin": "",
+            "/me/authentication/phonemethods/{id}/enablesmssignin": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/phonemethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/phonemethods": "",
+            "/users/{id}/authentication/phonemethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/phonemethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
+            "/users/{id}/authentication/phonemethods/{id}/enablesmssignin": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-PlatformCred.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's platform credential authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's platform credential authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your platform credential authentication methods",
+          "userDescription": "Allows the app to read your platform credential authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods": "least=DelegatedWork",
+            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/platformCredentialMethods": "least=DelegatedWork",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-PlatformCred.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' platform credentials methods",
+          "adminDescription": "Allows the app to read platform credentials methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' platform credentials methods",
+          "userDescription": "Allows the app to read platform credentials methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' platform credentials methods",
+          "adminDescription": "Allows the app to read platform credentials methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods": "",
+            "/me/authentication/platformCredentialMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/platformCredentialMethods": "least=Application",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-PlatformCred.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's platform credential authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's platform credential authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your platform credential authentication methods",
+          "userDescription": "Allows the app to read and write your platform credential authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods": "",
+            "/me/authentication/platformCredentialMethods/{id}": "",
+            "/users/{id}/authentication/platformCredentialMethods": "",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-PlatformCred.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' platform credentials methods.",
+          "adminDescription": "Allows the app to read and write platform credentials methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' platform credentials methods",
+          "userDescription": "Allows the app to read and write platform credentials methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' platform credentials methods",
+          "adminDescription": "Allows the application to read and write platform credentials methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods": "",
+            "/me/authentication/platformCredentialMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/platformCredentialMethods/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/platformCredentialMethods": "",
+            "/users/{id}/authentication/platformCredentialMethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/platformCredentialMethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-QR.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's QR authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's QR authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your QR authentication methods",
+          "userDescription": "Allows the app to read your QR authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-QR.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' QR methods",
+          "adminDescription": "Allows the app to read QR authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' QR methods",
+          "userDescription": "Allows the app to read QR authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' QR methods",
+          "adminDescription": "Allows the app to read QR authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "",
+            "/me/authentication/qrcodepinmethod/pin": "",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/qrcodepinmethod": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=Application",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-QR.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's QR authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's QR authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your QR authentication methods",
+          "userDescription": "Allows the app to read and write your QR authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "",
+            "/me/authentication/qrcodepinmethod/pin": "",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-QR.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' QR methods.",
+          "adminDescription": "Allows the app to read and write QR authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' QR methods",
+          "userDescription": "Allows the app to read and write QR authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' QR methods",
+          "adminDescription": "Allows the application to read and write QR authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/qrcodepinmethod": "",
+            "/me/authentication/qrcodepinmethod/pin": "",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/authentication/qrcodepinmethod": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-SoftwareOATH.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's SoftwareOATH authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's SoftwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your SoftwareOATH authentication methods",
+          "userDescription": "Allows the app to read your SoftwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods": "least=DelegatedWork",
+            "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/softwareoathmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-SoftwareOATH.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' SoftwareOATH methods",
+          "adminDescription": "Allows the app to read SoftwareOATH authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' SoftwareOATH methods",
+          "userDescription": "Allows the app to read SoftwareOATH authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' SoftwareOATH methods",
+          "adminDescription": "Allows the app to read SoftwareOATH authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods": "",
+            "/me/authentication/softwareoathmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/softwareoathmethods": "least=Application",
+            "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-SoftwareOATH.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's SoftwareOATH authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's SoftwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your SoftwareOATH authentication methods",
+          "userDescription": "Allows the app to read and write your SoftwareOATH authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods": "",
+            "/me/authentication/softwareoathmethods/{id}": "",
+            "/users/{id}/authentication/softwareoathmethods": "",
+            "/users/{id}/authentication/softwareoathmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/softwareoathmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-SoftwareOATH.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' SoftwareOATH methods.",
+          "adminDescription": "Allows the app to read and write SoftwareOATH authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' SoftwareOATH methods",
+          "userDescription": "Allows the app to read and write SoftwareOATH authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' SoftwareOATH methods",
+          "adminDescription": "Allows the application to read and write SoftwareOATH authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods": "",
+            "/me/authentication/softwareoathmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/softwareoathmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/softwareoathmethods": "",
+            "/users/{id}/authentication/softwareoathmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-TAP.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's Temporary Access Pass authentication methods",
+          "adminDescription": "Allows the app to read the signed-in user's Temporary Access Pass authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your Temporary Access Pass authentication methods",
+          "userDescription": "Allows the app to read your Temporary Access Pass authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
+            "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-TAP.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' Temporary Access Pass methods",
+          "adminDescription": "Allows the app to read Temporary Access Pass authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' Temporary Access Pass methods",
+          "userDescription": "Allows the app to read Temporary Access Pass authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' Temporary Access Pass methods",
+          "adminDescription": "Allows the app to read Temporary Access Pass authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": "",
+            "/me/authentication/temporaryaccesspassmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/temporaryaccesspassmethods": "least=Application",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-TAP.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's Temporary Access Pass authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's Temporary Access Pass authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your Temporary Access Pass authentication methods",
+          "userDescription": "Allows the app to read and write your Temporary Access Pass authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": "",
+            "/me/authentication/temporaryaccesspassmethods/{id}": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-TAP.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' Temporary Access Pass methods.",
+          "adminDescription": "Allows the app to read and write Temporary Access Pass authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' Temporary Access Pass methods",
+          "userDescription": "Allows the app to read and write Temporary Access Pass authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' Temporary Access Pass methods",
+          "adminDescription": "Allows the application to read and write Temporary Access Pass authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": "",
+            "/me/authentication/temporaryaccesspassmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/temporaryaccesspassmethods": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/temporaryaccesspassmethods": "",
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-WindowsHello.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the signed-in user's Windows Hello methods",
+          "adminDescription": "Allows the app to read the signed-in user's Windows Hello authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read your Windows Hello authentication methods",
+          "userDescription": "Allows the app to read your Windows Hello authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods": "least=DelegatedWork",
+            "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-WindowsHello.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all users' Windows Hello methods",
+          "adminDescription": "Allows the app to read Windows Hello authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read all users' Windows Hello methods",
+          "userDescription": "Allows the app to read Windows Hello authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' Windows Hello methods",
+          "adminDescription": "Allows the app to read Windows Hello authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods": "",
+            "/me/authentication/windowshelloforbusinessmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "least=Application",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-WindowsHello.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's Windows Hello authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's Windows Hello authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your Windows Hello authentication methods",
+          "userDescription": "Allows the app to read and write your Windows Hello authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods": "",
+            "/me/authentication/windowshelloforbusinessmethods/{id}": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-WindowsHello.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all users' Windows Hello methods.",
+          "adminDescription": "Allows the app to read and write Windows Hello authentication methods of all users in your organization that the signed-in user has access to. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write all users' Windows Hello methods",
+          "userDescription": "Allows the app to read and write Windows Hello authentication methods of all users you have access to in your organization. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' Windows Hello authentication methods",
+          "adminDescription": "Allows the application to read and write Windows Hello authentication methods of all users in your organization, without a signed-in user. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods": "",
+            "/me/authentication/windowshelloforbusinessmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/windowshelloforbusinessmethods": "",
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
