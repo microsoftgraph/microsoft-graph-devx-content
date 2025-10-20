@@ -44816,7 +44816,7 @@
             "GET"
           ],
           "paths": {
-            "/applications/{id}/synchronization/templates": "",
+            "/applications/{id}/synchronization/templates": "least=DelegatedWork",
             "/applications/{id}/synchronization/templates/{id}/schema/filteroperators": "least=DelegatedWork",
             "/applications/{id}/synchronization/templates/{id}/schema/functions": "least=DelegatedWork",
             "/reports/reconciliations/provisioning": "",
@@ -44825,9 +44825,9 @@
             "/reports/reconciliations/provisioning/{id}/identities/{id}": "",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/filteroperators": "least=DelegatedWork",
             "/serviceprincipals/{id}/synchronization/jobs/{id}/schema/functions": "least=DelegatedWork",
-            "/serviceprincipals/{id}/synchronization/templates": "",
-            "/serviceprincipals/{id}/synchronization/templates/{id}": "",
-            "/serviceprincipals/{id}/synchronization/templates/{id}/schema": "",
+            "/serviceprincipals/{id}/synchronization/templates": "least=DelegatedWork",
+            "/serviceprincipals/{id}/synchronization/templates/{id}": "least=DelegatedWork",
+            "/serviceprincipals/{id}/synchronization/templates/{id}/schema": "least=DelegatedWork",
             "/serviceprincipals/{id}/synchronization/templates/{id}/schema/filteroperators": "least=DelegatedWork",
             "/serviceprincipals/{id}/synchronization/templates/{id}/schema/functions": "least=DelegatedWork"
           }
@@ -44896,6 +44896,18 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/synchronization/secrets": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}/synchronization/jobs/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
