@@ -1,5 +1,7 @@
 name: Validate sample queries
 on:
+  workflow_dispatch:
+
   push:
     paths:
       - sample-queries/sample-queries.json
@@ -7,6 +9,7 @@ on:
       - tests/**
       - package.json
       - package-lock.json
+
   pull_request:
     paths:
       - sample-queries/sample-queries.json
@@ -19,18 +22,19 @@ jobs:
   validate-json-schema:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Validate json schema
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: /tests/samples.schema.json
-          INPUT_JSONS: /sample-queries/sample-queries.json
+      - uses: actions/checkout@v5
+
+      - name: Validate JSON schema
+        uses: dsanders11/json-schema-validate-action@v1.4.0
+        with:
+          schema: tests/samples.schema.json
+          files: sample-queries/sample-queries.json
 
   test:
     runs-on: ubuntu-latest
     needs: validate-json-schema
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
 
       - name: Install
         run: npm install
