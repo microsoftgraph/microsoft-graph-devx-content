@@ -1269,7 +1269,6 @@
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications(appid={value})/sponsors": "least=DelegatedWork,Application",
-            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/{id}/authorization": "",
             "/applications/{id}/authorization/resourceSchema": "",
             "/applications/{id}/authorization/resourceSchema/environmentAttributes": "",
@@ -1296,7 +1295,6 @@
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes/{resourceAppId}": "least=DelegatedWork,Application",
             "/applications/{id}/sponsors": "least=DelegatedWork,Application",
-            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/delta": "",
             "/policies/appmanagementpolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "",
@@ -1315,7 +1313,6 @@
             "/serviceprincipals(appid={value})/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/owners": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/sponsors": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
@@ -1331,7 +1328,6 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/sponsors": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
           }
@@ -1711,11 +1707,7 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
-            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application"
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application"
           }
         },
         {
@@ -17574,6 +17566,94 @@
         "ownerSecurityGroup": "ixrdev"
       }
     },
+    "Domain-InternalFederation.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to read internal federation configuration for a domain.",
+          "userDisplayName": "Read internal federation configuration for a domain.",
+          "userDescription": "Allows the app to read internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to read internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration": "least=DelegatedWork,Application",
+            "/domains/{id}/federationConfiguration/{configurationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadusersandtenants"
+      }
+    },
+    "Domain-InternalFederation.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "userDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "userDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration/{configurationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadusersandtenants"
+      }
+    },
     "Domain.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -17701,7 +17781,7 @@
             "POST"
           ],
           "paths": {
-            "/domains/{id}/federationconfiguration": "least=DelegatedWork,Application",
+            "/domains/{id}/federationconfiguration": "",
             "/domains/{id}/forcedelete": "least=DelegatedWork,Application",
             "/domains/{id}/promote": "least=DelegatedWork,Application",
             "/domains/{id}/verify": "least=DelegatedWork,Application"
