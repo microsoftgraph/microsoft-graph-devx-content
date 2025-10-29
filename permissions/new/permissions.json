@@ -33609,6 +33609,8 @@
             "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/rooms": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/workspaces": "least=DelegatedWork,Application",
+            "/places/getOperation": "least=DelegatedWork,Application",
+            "/places/listOperations": "least=DelegatedWork,Application",
             "/places/microsoft.graph.building": "least=DelegatedWork,Application",
             "/places/microsoft.graph.desk": "least=DelegatedWork,Application",
             "/places/microsoft.graph.floor": "least=DelegatedWork,Application",
@@ -33620,7 +33622,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "o365location"
+        "ownerSecurityGroup": "places-directory-sg"
       }
     },
     "Place.ReadWrite.All": {
@@ -33641,10 +33643,10 @@
             "DelegatedWork"
           ],
           "methods": [
-            "DELETE",
             "PATCH"
           ],
           "paths": {
+            "/places": "least=DelegatedWork",
             "/places/{id}": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
@@ -33665,10 +33667,27 @@
             "/places": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/places/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "o365location"
+        "ownerSecurityGroup": "places-directory-sg"
       }
     },
     "PlaceDevice.Read.All": {
