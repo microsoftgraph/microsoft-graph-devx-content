@@ -10003,6 +10003,35 @@
         "ownerSecurityGroup": "m365adminsvcdevteam"
       }
     },
+    "CopilotTools.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Microsoft Copilot tools",
+          "adminDescription": "Allows the app to read all Microsoft Copilot tools on behalf of the signed-in user.",
+          "userDisplayName": "Read all Microsoft Agent365 Copilot tools",
+          "userDescription": "Allows the app to read all Microsoft Copilot tools on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/agents/discoverCopilotTools": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mcpplat"
+      }
+    },
     "CrossTenantInformation.ReadBasic.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -29473,7 +29502,7 @@
           ],
           "paths": {
             "/admin/exchange/mailboxes/{id}/createImportSession": "least=DelegatedWork",
-            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+            "/admin/exchange/mailboxes/{id}/exportItems": ""
           }
         }
       ],
@@ -29501,7 +29530,7 @@
           ],
           "paths": {
             "/admin/exchange/mailboxes/{id}/createImportSession": "least=Application",
-            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+            "/admin/exchange/mailboxes/{id}/exportItems": ""
           }
         }
       ],
