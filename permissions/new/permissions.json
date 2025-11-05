@@ -36164,8 +36164,12 @@
             "POST"
           ],
           "paths": {
+            "/users/{id}/presence/clearautomaticlocation": "least=DelegatedWork",
+            "/users/{id}/presence/clearlocation": "least=DelegatedWork",
             "/users/{id}/presence/clearpresence": "least=DelegatedWork",
             "/users/{id}/presence/clearuserpreferredpresence": "least=DelegatedWork",
+            "/users/{id}/presence/setautomaticlocation": "least=DelegatedWork",
+            "/users/{id}/presence/setmanuallocation": "least=DelegatedWork",
             "/users/{id}/presence/setpresence": "least=DelegatedWork",
             "/users/{id}/presence/setstatusmessage": "least=DelegatedWork",
             "/users/{id}/presence/setuserpreferredpresence": "least=DelegatedWork"
@@ -36196,8 +36200,12 @@
           ],
           "paths": {
             "/communications/getpresencesbyuserid": "",
+            "/users/{id}/presence/clearautomaticlocation": "least=Application",
+            "/users/{id}/presence/clearlocation": "least=Application",
             "/users/{id}/presence/clearpresence": "least=Application",
             "/users/{id}/presence/clearuserpreferredpresence": "least=Application",
+            "/users/{id}/presence/setautomaticlocation": "least=Application",
+            "/users/{id}/presence/setmanuallocation": "least=Application",
             "/users/{id}/presence/setpresence": "least=Application",
             "/users/{id}/presence/setstatusmessage": "least=Application",
             "/users/{id}/presence/setuserpreferredpresence": "least=Application"
@@ -54177,6 +54185,63 @@
         "ownerSecurityGroup": "mfateam"
       }
     },
+    "UserAuthMethod-Email.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's email authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your email authentication methods",
+          "userDescription": "Allows the app to read and write your email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods/{id}": "",
+            "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
     "UserAuthMethod-Email.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -54334,6 +54399,58 @@
           "paths": {
             "/users/{id}/authentication/externalauthenticationmethods": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-External.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's external authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your external authentication methods",
+          "userDescription": "Allows the app to read and write your external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork"
           }
         }
       ],
