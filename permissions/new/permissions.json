@@ -1269,7 +1269,6 @@
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications(appid={value})/sponsors": "least=DelegatedWork,Application",
-            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/{id}/authorization": "",
             "/applications/{id}/authorization/resourceSchema": "",
             "/applications/{id}/authorization/resourceSchema/environmentAttributes": "",
@@ -1296,7 +1295,6 @@
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}/perResourceAllowedScopes/{resourceAppId}": "least=DelegatedWork,Application",
             "/applications/{id}/sponsors": "least=DelegatedWork,Application",
-            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/applications/delta": "",
             "/policies/appmanagementpolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "",
@@ -1315,7 +1313,6 @@
             "/serviceprincipals(appid={value})/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/owners": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/sponsors": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application",
@@ -1331,7 +1328,6 @@
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/remotedesktopsecurityconfiguration/targetdevicegroups/{id}": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/sponsors": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/transitivememberof": "least=DelegatedWork,Application",
             "/serviceprincipals/delta": ""
           }
@@ -1711,11 +1707,7 @@
             "POST"
           ],
           "paths": {
-            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
-            "/applications(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
-            "/applications/{id}/tokenRevocations": "least=DelegatedWork,Application",
-            "/serviceprincipals(appid={value})/tokenRevocations": "least=DelegatedWork,Application",
-            "/serviceprincipals/{id}/tokenRevocations": "least=DelegatedWork,Application"
+            "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application"
           }
         },
         {
@@ -8916,6 +8908,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
@@ -10008,6 +10001,35 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
+    "CopilotTools.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Microsoft Copilot tools",
+          "adminDescription": "Allows the app to read all Microsoft Copilot tools on behalf of the signed-in user.",
+          "userDisplayName": "Read all Microsoft Agent365 Copilot tools",
+          "userDescription": "Allows the app to read all Microsoft Copilot tools on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/agents/discoverCopilotTools": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mcpplat"
       }
     },
     "CrossTenantInformation.ReadBasic.All": {
@@ -16461,7 +16483,6 @@
             "PATCH"
           ],
           "paths": {
-            "/domains/{id}": "",
             "/me/authentication/qrcodepinmethod/pin/updatepin": "least=DelegatedWork",
             "/users/{id}/authentication/qrcodepinmethod/pin/updatepin": "least=DelegatedWork"
           }
@@ -17575,6 +17596,94 @@
         "ownerSecurityGroup": "ixrdev"
       }
     },
+    "Domain-InternalFederation.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to read internal federation configuration for a domain.",
+          "userDisplayName": "Read internal federation configuration for a domain.",
+          "userDescription": "Allows the app to read internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to read internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration": "least=DelegatedWork,Application",
+            "/domains/{id}/federationConfiguration/{configurationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadusersandtenants"
+      }
+    },
+    "Domain-InternalFederation.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "userDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "userDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Create, read, update and delete internal federation configuration for a domain.",
+          "adminDescription": "Allows the app to create, read, update and delete internal federation configuration for a domain.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/domains/{id}/federationConfiguration/{configurationId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadusersandtenants"
+      }
+    },
     "Domain.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -17702,7 +17811,7 @@
             "POST"
           ],
           "paths": {
-            "/domains/{id}/federationconfiguration": "least=DelegatedWork,Application",
+            "/domains/{id}/federationconfiguration": "",
             "/domains/{id}/forcedelete": "least=DelegatedWork,Application",
             "/domains/{id}/promote": "least=DelegatedWork,Application",
             "/domains/{id}/verify": "least=DelegatedWork,Application"
@@ -29393,7 +29502,7 @@
           ],
           "paths": {
             "/admin/exchange/mailboxes/{id}/createImportSession": "least=DelegatedWork",
-            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+            "/admin/exchange/mailboxes/{id}/exportItems": ""
           }
         }
       ],
@@ -29421,7 +29530,7 @@
           ],
           "paths": {
             "/admin/exchange/mailboxes/{id}/createImportSession": "least=Application",
-            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+            "/admin/exchange/mailboxes/{id}/exportItems": ""
           }
         }
       ],
@@ -30288,6 +30397,8 @@
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/privateNetworks": "least=DelegatedWork,Application",
+            "/networkAccess/privateNetworks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicySchemas": "least=DelegatedWork,Application",
@@ -30381,6 +30492,8 @@
             "/networkaccess/logs/traffic": "",
             "/networkaccess/logs/traffic/{id}": "",
             "/networkaccess/privateAccessConfigs/{id}": "",
+            "/networkAccess/privateNetworks": "",
+            "/networkAccess/privateNetworks/{id}": "",
             "/networkaccess/reports/entitiesSummaries": "",
             "/networkaccess/reports/getApplicationUsageAnalytics(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "",
             "/networkaccess/reports/getCloudApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
@@ -30439,6 +30552,7 @@
             "/networkAccess/forwardingPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/privateNetworks": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviders/{id}/registration": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies": "least=DelegatedWork,Application",
@@ -30471,6 +30585,7 @@
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/privateNetworks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/settings/conditionalAccess": "least=DelegatedWork,Application",
             "/networkAccess/settings/crossTenantAccess": "least=DelegatedWork,Application",
@@ -30504,6 +30619,7 @@
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/privateNetworks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
@@ -32503,8 +32619,7 @@
             "/organization/{id}/branding/themes/{id}": "least=DelegatedWork,Application",
             "/organization/{id}/branding/themes/{id}/localizations": "least=DelegatedWork,Application",
             "/organization/{id}/branding/themes/{id}/localizations/{id}": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/owners": "least=DelegatedWork,Application"
+            "/organization/{id}/branding/themes/{id}/localizations/{id}/{streamObjectType}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32544,8 +32659,7 @@
             "/organization/{id}/branding/localizations": "",
             "/organization/{id}/branding/localizations/{id}": "",
             "/organization/{id}/branding/themes/{id}": "",
-            "/organization/{id}/branding/themes/{id}/localizations/{id}": "",
-            "/organization/{id}/branding/themes/{id}/owners": ""
+            "/organization/{id}/branding/themes/{id}/localizations/{id}": ""
           }
         },
         {
@@ -32561,8 +32675,7 @@
             "/organization/{id}/branding": "least=DelegatedWork,Application",
             "/organization/{id}/branding/localizations/{id}": "least=DelegatedWork,Application",
             "/organization/{id}/branding/themes/{id}": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/localizations/{id}": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/owners/{id}/$ref": "least=DelegatedWork,Application"
+            "/organization/{id}/branding/themes/{id}/localizations/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -32576,8 +32689,7 @@
           "paths": {
             "/organization/{id}/branding/localizations": "least=DelegatedWork,Application",
             "/organization/{id}/branding/themes": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/localizations": "least=DelegatedWork,Application",
-            "/organization/{id}/branding/themes/{id}/owners/$ref": "least=DelegatedWork,Application"
+            "/organization/{id}/branding/themes/{id}/localizations": "least=DelegatedWork,Application"
           }
         },
         {
@@ -33533,6 +33645,8 @@
             "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/rooms": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.roomlist/workspaces": "least=DelegatedWork,Application",
+            "/places/getOperation": "least=DelegatedWork,Application",
+            "/places/listOperations": "least=DelegatedWork,Application",
             "/places/microsoft.graph.building": "least=DelegatedWork,Application",
             "/places/microsoft.graph.desk": "least=DelegatedWork,Application",
             "/places/microsoft.graph.floor": "least=DelegatedWork,Application",
@@ -33544,7 +33658,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "o365location"
+        "ownerSecurityGroup": "places-directory-sg"
       }
     },
     "Place.ReadWrite.All": {
@@ -33565,10 +33679,10 @@
             "DelegatedWork"
           ],
           "methods": [
-            "DELETE",
             "PATCH"
           ],
           "paths": {
+            "/places": "least=DelegatedWork",
             "/places/{id}": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
@@ -33589,10 +33703,27 @@
             "/places": "least=DelegatedWork",
             "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/places/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "o365location"
+        "ownerSecurityGroup": "places-directory-sg"
       }
     },
     "PlaceDevice.Read.All": {
@@ -35924,9 +36055,9 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read user's presence information",
-          "adminDescription": "Allows the app to read presence information on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "adminDescription": "Allows the app to read presence information on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "userDisplayName": "Read your presence information",
-          "userDescription": "Allows the app to read your presence information on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "userDescription": "Allows the app to read your presence information on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "requiresAdminConsent": false,
           "privilegeLevel": 2
         }
@@ -35955,17 +36086,17 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read presence information of all users in your organization",
-          "adminDescription": "Allows the app to read presence information of all users in the directory on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "adminDescription": "Allows the app to read presence information of all users in the directory on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "userDisplayName": "Read presence information of all users in your organization",
-          "userDescription": "Allows the app to read presence information of all users in the directory on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "userDescription": "Allows the app to read presence information of all users in the directory on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "requiresAdminConsent": false,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read presence information of all users in your organization",
-          "adminDescription": "Allows the app to read presence information of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "adminDescription": "Allows the app to read presence information of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "userDisplayName": "Read presence information of all users in your organization",
-          "userDescription": "Allows the app to read presence information of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "userDescription": "Allows the app to read presence information of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -36017,9 +36148,9 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write a user's presence information",
-          "adminDescription": "Allows the app to read the presence information and write activity and availability on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "adminDescription": "Allows the app to read the presence information and write activity, availability and work location on behalf of the signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "userDisplayName": "Read and write your presence information",
-          "userDescription": "Allows the app to read the presence information and write activity and availability on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and location.",
+          "userDescription": "Allows the app to read the presence information and write activity, availability and work location on your behalf. Presence information includes activity, availability, status note, calendar out-of-office message, timezone and work location.",
           "requiresAdminConsent": false,
           "privilegeLevel": 2
         }
@@ -36033,8 +36164,12 @@
             "POST"
           ],
           "paths": {
+            "/users/{id}/presence/clearautomaticlocation": "least=DelegatedWork",
+            "/users/{id}/presence/clearlocation": "least=DelegatedWork",
             "/users/{id}/presence/clearpresence": "least=DelegatedWork",
             "/users/{id}/presence/clearuserpreferredpresence": "least=DelegatedWork",
+            "/users/{id}/presence/setautomaticlocation": "least=DelegatedWork",
+            "/users/{id}/presence/setmanuallocation": "least=DelegatedWork",
             "/users/{id}/presence/setpresence": "least=DelegatedWork",
             "/users/{id}/presence/setstatusmessage": "least=DelegatedWork",
             "/users/{id}/presence/setuserpreferredpresence": "least=DelegatedWork"
@@ -36050,7 +36185,7 @@
       "schemes": {
         "Application": {
           "adminDisplayName": "Read and write presence information for all users",
-          "adminDescription": "Allows the app to read all presence information and write activity and availability of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, time zone and location.",
+          "adminDescription": "Allows the app to read all presence information and write activity, availability and work location of all users in the directory without a signed-in user. Presence information includes activity, availability, status note, calendar out-of-office message, time zone and work location.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -36065,8 +36200,12 @@
           ],
           "paths": {
             "/communications/getpresencesbyuserid": "",
+            "/users/{id}/presence/clearautomaticlocation": "least=Application",
+            "/users/{id}/presence/clearlocation": "least=Application",
             "/users/{id}/presence/clearpresence": "least=Application",
             "/users/{id}/presence/clearuserpreferredpresence": "least=Application",
+            "/users/{id}/presence/setautomaticlocation": "least=Application",
+            "/users/{id}/presence/setmanuallocation": "least=Application",
             "/users/{id}/presence/setpresence": "least=Application",
             "/users/{id}/presence/setstatusmessage": "least=Application",
             "/users/{id}/presence/setuserpreferredpresence": "least=Application"
@@ -54046,6 +54185,63 @@
         "ownerSecurityGroup": "mfateam"
       }
     },
+    "UserAuthMethod-Email.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's email authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your email authentication methods",
+          "userDescription": "Allows the app to read and write your email authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "",
+            "/me/authentication/emailmethods/{id}": "",
+            "/users/{id}/authentication/emailmethods": "",
+            "/users/{id}/authentication/emailmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
     "UserAuthMethod-Email.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -54203,6 +54399,58 @@
           "paths": {
             "/users/{id}/authentication/externalauthenticationmethods": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-External.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write the signed-in user's external authentication methods",
+          "adminDescription": "Allows the app to read and write the signed-in user's external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "userDisplayName": "Read and write your external authentication methods",
+          "userDescription": "Allows the app to read and write your external authentication methods. This does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "",
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/externalauthenticationmethods/{id}": "least=DelegatedWork"
           }
         }
       ],
