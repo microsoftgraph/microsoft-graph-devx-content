@@ -54,7 +54,8 @@ extends:
             TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
     - stage: DeployStaging
-      condition: and(contains(variables['Build.SourceBranchName'], 'dev'), succeeded())
+      # condition: and(contains(variables['Build.SourceBranchName'], 'dev'), succeeded())
+      condition: false # disable this stage
       dependsOn: CopyArtifactFiles
       jobs:
       - deployment: staging
