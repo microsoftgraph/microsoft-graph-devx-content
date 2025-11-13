@@ -5356,6 +5356,7 @@
             "POST"
           ],
           "paths": {
+            "/me/findmeetinglocations": "least=DelegatedWork",
             "/me/findmeetingtimes": "least=DelegatedWork",
             "/users/{id}/findmeetingtimes": "least=DelegatedWork"
           }
@@ -5771,6 +5772,7 @@
             "POST"
           ],
           "paths": {
+            "/me/findmeetinglocations": "",
             "/me/findmeetingtimes": "",
             "/users/{id}/findmeetingtimes": ""
           }
@@ -8840,9 +8842,9 @@
             "/devicemanagement/virtualEndpoint/managedLicenses": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
@@ -8892,7 +8894,7 @@
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
@@ -26213,6 +26215,81 @@
             "/auditlogs/signins/confirmcompromised": "least=Application",
             "/auditlogs/signins/confirmsafe": "least=Application",
             "/auditlogs/signins/dismiss": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
+    "IdentityRiskyAgent.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read risky agents information",
+          "adminDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read risky agents information",
+          "userDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all risky agents information",
+          "adminDescription": "Allows the app to read the risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
+    "IdentityRiskyAgent.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on behalf of the signed-in user. Update operations include dismissing risky agents.",
+          "userDisplayName": "Read and write risky agents information",
+          "userDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on your behalf. Update operations include dismissing risky agents.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents/confirmcompromised": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/confirmSafe": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/dismiss": "least=DelegatedWork,Application"
           }
         }
       ],
