@@ -26222,6 +26222,81 @@
         "ownerSecurityGroup": "AadIpUxDevAdmin"
       }
     },
+    "IdentityRiskyAgent.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read risky agents information",
+          "adminDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read risky agents information",
+          "userDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all risky agents information",
+          "adminDescription": "Allows the app to read the risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
+    "IdentityRiskyAgent.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on behalf of the signed-in user. Update operations include dismissing risky agents.",
+          "userDisplayName": "Read and write risky agents information",
+          "userDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on your behalf. Update operations include dismissing risky agents.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents/confirmcompromised": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/confirmSafe": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/dismiss": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
     "IdentityRiskyServicePrincipal.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
