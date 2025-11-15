@@ -5263,6 +5263,22 @@
         },
         {
           "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/me/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal",
             "Application"
@@ -5707,6 +5723,22 @@
         },
         {
           "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/me/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "",
+            "/me/settings/workHoursAndLocations/recurrences": "",
+            "/users/{id}/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": ""
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal",
             "Application"
@@ -5744,6 +5776,62 @@
             "/places/{id}/checkIns": "least=DelegatedWork,Application",
             "/users/{id}/calendar/getschedule": "",
             "/users/{id}/calendar/permanentDelete": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/occurrences/setCurrentLocation": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/setCurrentLocation": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
           }
         }
       ],
@@ -8896,6 +8984,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
@@ -24425,6 +24514,17 @@
           "paths": {
             "/storage/fileStorage/containers/{id}/sharePointGroups/{id}": "least=Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/retrieval": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -29723,6 +29823,18 @@
             "/users/{id}/outlook/mastercategories": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -29830,6 +29942,30 @@
             "/me/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/inbox/messagerules/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
           }
         }
       ],
