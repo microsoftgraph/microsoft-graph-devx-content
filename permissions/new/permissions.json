@@ -5705,7 +5705,6 @@
             "/me/calendars/delta": "",
             "/me/calendarview/delta": "",
             "/me/events/delta": "",
-            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork,Application,DelegatedPersonal",
             "/users/{id}/calendar/calendarview": "",
             "/users/{id}/calendar/events/delta": "",
             "/users/{id}/calendargroups/{id}/calendars/{id}/calendarview": "",
@@ -5719,6 +5718,17 @@
             "/users/{id}/calendarview/delta": "",
             "/users/{id}/events/delta": "",
             "/users/{id}/reminderview(startdatetime={value},enddatetime={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork"
           }
         },
         {
@@ -5773,9 +5783,19 @@
           "paths": {
             "/me/calendar/getschedule": "",
             "/me/calendar/permanentDelete": "least=DelegatedWork,Application",
-            "/places/{id}/checkIns": "least=DelegatedWork,Application",
             "/users/{id}/calendar/getschedule": "",
             "/users/{id}/calendar/permanentDelete": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/places/{id}/checkIns": "least=DelegatedWork"
           }
         },
         {
@@ -34363,6 +34383,42 @@
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/getControls": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/validate": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -35539,6 +35595,30 @@
           ],
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "",
+            "/identity/conditionalaccess/claimProviders/validate": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": ""
           }
         }
       ],
