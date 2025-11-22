@@ -5705,7 +5705,6 @@
             "/me/calendars/delta": "",
             "/me/calendarview/delta": "",
             "/me/events/delta": "",
-            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork,Application,DelegatedPersonal",
             "/users/{id}/calendar/calendarview": "",
             "/users/{id}/calendar/events/delta": "",
             "/users/{id}/calendargroups/{id}/calendars/{id}/calendarview": "",
@@ -5719,6 +5718,17 @@
             "/users/{id}/calendarview/delta": "",
             "/users/{id}/events/delta": "",
             "/users/{id}/reminderview(startdatetime={value},enddatetime={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork"
           }
         },
         {
@@ -5773,9 +5783,19 @@
           "paths": {
             "/me/calendar/getschedule": "",
             "/me/calendar/permanentDelete": "least=DelegatedWork,Application",
-            "/places/{id}/checkIns": "least=DelegatedWork,Application",
             "/users/{id}/calendar/getschedule": "",
             "/users/{id}/calendar/permanentDelete": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/places/{id}/checkIns": "least=DelegatedWork"
           }
         },
         {
@@ -9017,7 +9037,6 @@
             "POST"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles": "least=DelegatedWork,Application",
@@ -9178,6 +9197,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roleassignments": "least=DelegatedWork,Application"
           }
@@ -29501,6 +29521,52 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxConfigItem.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' UserConfiguration objects",
+          "adminDescription": "Allows the app to read all users' UserConfiguration objects.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphExoSchemaAdmin"
+      }
+    },
     "MailboxFolder.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -34363,6 +34429,42 @@
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/getControls": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/validate": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -35539,6 +35641,30 @@
           ],
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "",
+            "/identity/conditionalaccess/claimProviders/validate": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": ""
           }
         }
       ],
