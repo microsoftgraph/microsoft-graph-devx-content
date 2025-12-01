@@ -545,6 +545,814 @@
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
+    "AgentCardManifest.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read agent card manifests in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read agent card manifests in Agent Registry",
+          "userDescription": "Allows the app to read agent card manifests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read all agent card manifests in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCardManifests/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCardManifest.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write agent card manifests in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write agent card manifests in Agent Registry",
+          "userDescription": "Allows the app to read and write agent card manifests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write to all agent card manifests in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "",
+            "/agentRegistry/agentCardManifests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCardManifest.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write agent card manifests that name it as manager in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "",
+            "/agentRegistry/agentCardManifests/{id}": "",
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to read collections and their membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read collections in Agent Registry",
+          "userDescription": "Allows the app to read collections and their membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to read all collections and their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCollections/{id}": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCollections/{id}/members": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.Global": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read global collection in Agent Registry",
+          "adminDescription": "Allows the app to read global collection and its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read global collection in Agent Registry",
+          "userDescription": "Allows the app to read global collection and its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": "",
+            "/agentRegistry/agentCollections/{global-collection-id}/members": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.Quarantined": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read quarantined collection in Agent Registry",
+          "adminDescription": "Allows the app to read quarantined collection and its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read quarantined collection in Agent Registry",
+          "userDescription": "Allows the app to read quarantined collection and its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": "",
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to create, read, update, and delete collections and manage their membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write collections in Agent Registry, except quarantined and global",
+          "userDescription": "Allows the app to create, read, update, and delete collections and manage their membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to create, read, update, and delete all collections and manage their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}": "",
+            "/agentRegistry/agentCollections/{id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/$ref": "least=DelegatedWork;AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/$ref": "least=Application;AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.Global": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write global collection in Agent Registry",
+          "adminDescription": "Allows the app to read and update global collection and manage its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write global collection in Agent Registry",
+          "userDescription": "Allows the app to read and update global collection and manage its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": "",
+            "/agentRegistry/agentCollections/{global-collection-id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by collections in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete collections that designate the calling app as their manager and manage their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}": "",
+            "/agentRegistry/agentCollections/{id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.Quarantined": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write quarantined collection in Agent Registry",
+          "adminDescription": "Allows the app to read and update quarantined collection and manage its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write quarantined collection in Agent Registry",
+          "userDescription": "Allows the app to read and update quarantined collection and manage its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": "",
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentInstance.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to read agent instances and their related collections in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read agent instances in Agent Registry",
+          "userDescription": "Allows the app to read agent instances and their related collections on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to read all agent instances and their related collections in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "least=DelegatedWork,Application",
+            "/agentRegistry/agentInstances/{id}": "least=DelegatedWork,Application",
+            "/agentRegistry/agentInstances/{id}/collections": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=DelegatedWork;AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.Global,AgentCollection.ReadWrite.Quarantined"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=Application;AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "least=DelegatedWork;AlsoRequires=AgentCardManifest.Read.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "least=DelegatedWork;AlsoRequires=AgentCardManifest.Read.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "least=Application;AlsoRequires=AgentCardManifest.Read.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "least=Application;AlsoRequires=AgentCardManifest.Read.All"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentInstance.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete agent instances in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write agent instances in Agent Registry",
+          "userDescription": "Allows the app to create, read, update, and delete agent instances on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete all agent instances in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "",
+            "/agentRegistry/agentInstances/{id}": "",
+            "/agentRegistry/agentInstances/{id}/collections": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.Global,AgentCollection.ReadWrite.Quarantined"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentInstance.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete agent instances that designate the calling app as their manager in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "",
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}": "",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/collections": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
     "Agreement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -9004,7 +9812,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
-            "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientUsageReport": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
@@ -9037,7 +9845,6 @@
             "POST"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles": "least=DelegatedWork,Application",
@@ -9198,6 +10005,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roleassignments": "least=DelegatedWork,Application"
           }
@@ -29521,6 +30329,52 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxConfigItem.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' UserConfiguration objects",
+          "adminDescription": "Allows the app to read all users' UserConfiguration objects.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphExoSchemaAdmin"
+      }
+    },
     "MailboxFolder.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -39183,6 +40037,9 @@
             "GET"
           ],
           "paths": {
+            "/copilot/reports/getmicrosoft365copilotusageuserdetail(period={value})": "least=DelegatedWork,Application",
+            "/copilot/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
+            "/copilot/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
             "/reports/credentialuserregistrationdetails": "least=DelegatedWork,Application",
             "/reports/getazureadapplicationsigninsummary(period={value})": "least=DelegatedWork,Application",
             "/reports/getbrowserdistributionusercounts(period={value})": "least=DelegatedWork,Application",
