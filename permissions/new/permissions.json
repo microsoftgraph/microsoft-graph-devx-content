@@ -30375,6 +30375,68 @@
         "ownerSecurityGroup": "GraphExoSchemaAdmin"
       }
     },
+    "MailboxConfigItem.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write user's UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write your UserConfiguration objects",
+          "userDescription": "Allows the app to create, read, update and delete your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read and write user's UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write your UserConfiguration objects",
+          "userDescription": "Allows the app to create, read, update and delete your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete all users' UserConfiguration objects.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphExoSchemaAdmin"
+      }
+    },
     "MailboxFolder.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
