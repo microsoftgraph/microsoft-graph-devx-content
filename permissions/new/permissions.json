@@ -21336,6 +21336,44 @@
         "ownerSecurityGroup": "cpimmsgraphadmins"
       }
     },
+    "ExchangeMessageTrace.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Search the email message trace",
+          "adminDescription": "Allows the app to search the email message trace on behalf of the signed-in user.",
+          "userDisplayName": "Search the email message trace",
+          "userDescription": "Allows the app to search the email message trace on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Search the email message trace",
+          "adminDescription": "Allows the app to search the email message trace, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/tracing/messagetraces": "least=DelegatedWork,Application",
+            "/admin/exchange/tracing/messagetraces/{id}": "least=DelegatedWork,Application",
+            "/admin/exchange/tracing/messagetraces/{id}/getDetailsByRecipient(recipientAddress={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "transportdp"
+      }
+    },
     "ExternalConnection.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
