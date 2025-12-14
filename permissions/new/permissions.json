@@ -10849,6 +10849,81 @@
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
       }
     },
+    "CopilotPackages.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all packages information",
+          "adminDescription": "Allows the user to read the packages information",
+          "userDisplayName": "Read all packages information",
+          "userDescription": "Allows the app to read packages information.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all packages information",
+          "adminDescription": "Allows the app to read packages information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
+    "CopilotPackages.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and update all packages information",
+          "adminDescription": "Allows the user to read and update the packages information",
+          "userDisplayName": "Read and update all packages information",
+          "userDescription": "Allows the app to read and update packages information.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and update all packages information",
+          "adminDescription": "Allows the app to read and update packages information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
     "CopilotSettings-LimitedMode.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
