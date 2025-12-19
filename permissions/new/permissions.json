@@ -19033,13 +19033,11 @@
             "/directory/administrativeunits/{id}/members": "",
             "/groups/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/groups/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
-            "/me/changepassword": "least=DelegatedWork",
             "/privilegedapproval": "least=DelegatedWork",
             "/privilegedroleassignments/{id}/makeeligible": "least=DelegatedWork",
             "/privilegedroleassignments/{id}/makepermanent": "least=DelegatedWork",
             "/privilegedroles/{id}/selfactivate": "least=DelegatedWork",
             "/privilegedroles/{id}/selfdeactivate": "least=DelegatedWork",
-            "/users/{id}/changepassword": "least=DelegatedWork",
             "/users/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/users/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork"
           }
@@ -37488,6 +37486,36 @@
         "ownerSecurityGroup": "hybridauth"
       }
     },
+    "Policy.Read.OnPremAuthenticationPolicy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's on-prem authentication policies",
+          "adminDescription": "Allows the app to read your organization's on-prem authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read your organization's on-prem authentication policies like PTA and single sign-on",
+          "userDescription": "Allows the app to read your organization's on-prem authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies": "least=DelegatedWork",
+            "/policies/onPremAuthenticationPolicies/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
+      }
+    },
     "Policy.Read.PermissionGrant": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -38818,6 +38846,49 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "mobilitypolicyperms"
+      }
+    },
+    "Policy.ReadWrite.OnPremAuthenticationPolicy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's on-prem authentication policies",
+          "adminDescription": "Allows the app to read and write your organization's on-prem authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's on-prem authentication policies like PTA and single sign-on",
+          "userDescription": "Allows the app to read and write your organization's on-prem authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
       }
     },
     "Policy.ReadWrite.PermissionGrant": {
@@ -53012,7 +53083,34 @@
             "/teams/{id}/channels/{id}/messages": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}/replies": "least=Application",
             "/teams/{id}/channels/{id}/startmigration": "least=Application",
-            "/teams/{id}/completemigration": "least=Application"
+            "/teams/{id}/completemigration": "least=Application",
+            "/users/{id}/teamwork/sections": "",
+            "/users/{id}/teamwork/sections/{id}/items": "",
+            "/users/{id}/teamwork/sections/{id}/items/reorder": "",
+            "/users/{id}/teamwork/sections/reorder": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/sections/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/sections/{id}": "",
+            "/users/{id}/teamwork/sections/{id}/items/{id}": ""
           }
         }
       ],
@@ -54382,6 +54480,17 @@
           ],
           "paths": {
             "/users/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/changePassword": "least=DelegatedWork"
           }
         }
       ],
