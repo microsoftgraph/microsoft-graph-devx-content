@@ -48242,6 +48242,7 @@
             "/planner/tasks/{id}/assignedtotaskboardformat": "least=DelegatedWork",
             "/planner/tasks/{id}/buckettaskboardformat": "least=DelegatedWork",
             "/planner/tasks/{id}/details": "least=DelegatedWork",
+            "/planner/tasks/{id}/messages": "least=DelegatedWork",
             "/planner/tasks/{id}/progresstaskboardformat": "least=DelegatedWork",
             "/planner/tasks/delta": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/planner/plans": "least=DelegatedWork",
@@ -48775,6 +48776,7 @@
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork",
             "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork",
+            "/planner/tasks/{id}/messages": "least=DelegatedWork",
             "/planner/undo": "least=DelegatedWork"
           }
         },
@@ -48789,6 +48791,30 @@
           "paths": {
             "/planner/rosters/{id}": "least=DelegatedWork",
             "/planner/rosters/{id}/members/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "POST"
+          ],
+          "paths": {
+            "/planner/tasks/{taskId}/messages/{id}/reactions": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/planner/tasks/{id}/messages/{id}": "least=DelegatedWork"
           }
         },
         {
