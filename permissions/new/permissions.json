@@ -32212,7 +32212,7 @@
           "adminDescription": "Allows the app to read the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox folders",
           "userDescription": "Allows the app to read your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32270,7 +32270,7 @@
           "adminDescription": "Allows the app to read and write the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read and write your mailbox folders",
           "userDescription": "Allows the app to read and write your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32346,6 +32346,62 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxItem.Export": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Export a user's mailbox items",
+          "adminDescription": "Allows the app to export the user's mailbox items, on behalf of the the signed-in user.",
+          "userDisplayName": "Export your mailbox items",
+          "userDescription": "Allows the app to export your mailbox items, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.Export.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Export all the users' mailbox items",
+          "adminDescription": "Allows the app to export all the users' mailbox items, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "MailboxItem.ImportExport": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -32354,7 +32410,7 @@
           "adminDescription": "Allows the app to export and import the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Export and import your mailbox items",
           "userDescription": "Allows the app to export and import your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32412,7 +32468,7 @@
           "adminDescription": "Allows the app to read the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox items",
           "userDescription": "Allows the app to read your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -36904,8 +36960,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
@@ -36915,9 +36974,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
@@ -38539,8 +38601,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         },
         {
@@ -38559,9 +38624,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -60640,6 +60708,7 @@
             "/admin/windows/updates/knownIssues/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
             "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/applicableContent": "least=DelegatedWork,Application",
             "/admin/windows/updates/products": "least=DelegatedWork,Application",
             "/admin/windows/updates/products/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
