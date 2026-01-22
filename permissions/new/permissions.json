@@ -11417,6 +11417,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrieveUserProvisioningPolicies(userId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
@@ -11469,6 +11470,8 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfdeprovision": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfprovision": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
@@ -11814,16 +11817,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationDrifts/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11834,8 +11837,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork",
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork",
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -11871,16 +11874,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "",
-            "/configurationManagement/configurationDrifts({id})": "",
-            "/configurationManagement/configurationMonitoringResults": "",
-            "/configurationManagement/configurationMonitoringResults({id})": "",
-            "/configurationManagement/configurationMonitors": "",
-            "/configurationManagement/configurationMonitors({id})": "",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "",
-            "/configurationManagement/configurationSnapshotJobs": "",
-            "/configurationManagement/configurationSnapshotJobs({id})": "",
-            "/configurationManagement/configurationSnapshots({id})": ""
+            "/admin/configurationManagement/configurationDrifts": "",
+            "/admin/configurationManagement/configurationDrifts/{id}": "",
+            "/admin/configurationManagement/configurationMonitoringResults": "",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "",
+            "/admin/configurationManagement/configurationMonitors": "",
+            "/admin/configurationManagement/configurationMonitors/{id}": "",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "",
+            "/admin/configurationManagement/configurationSnapshotJobs": "",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "",
+            "/admin/configurationManagement/configurationSnapshots/{id}": ""
           }
         },
         {
@@ -11891,8 +11894,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "",
-            "/configurationManagement/configurationApplications({id})": ""
+            "/admin/configurationManagement/configurationApplications": "",
+            "/admin/configurationManagement/configurationApplications/{id}": ""
           }
         },
         {
@@ -11904,8 +11907,8 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11916,7 +11919,7 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork"
           }
         },
         {
@@ -11928,7 +11931,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11939,7 +11942,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -11951,7 +11954,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11962,7 +11965,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
