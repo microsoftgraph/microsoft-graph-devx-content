@@ -11417,6 +11417,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrieveUserProvisioningPolicies(userId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
@@ -11463,11 +11464,14 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/start": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/stop": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/troubleshoot": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/deviceimages/{id}/retryUpload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfdeprovision": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfprovision": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
@@ -11813,16 +11817,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationDrifts/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11833,8 +11837,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork",
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork",
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -11870,16 +11874,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "",
-            "/configurationManagement/configurationDrifts({id})": "",
-            "/configurationManagement/configurationMonitoringResults": "",
-            "/configurationManagement/configurationMonitoringResults({id})": "",
-            "/configurationManagement/configurationMonitors": "",
-            "/configurationManagement/configurationMonitors({id})": "",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "",
-            "/configurationManagement/configurationSnapshotJobs": "",
-            "/configurationManagement/configurationSnapshotJobs({id})": "",
-            "/configurationManagement/configurationSnapshots({id})": ""
+            "/admin/configurationManagement/configurationDrifts": "",
+            "/admin/configurationManagement/configurationDrifts/{id}": "",
+            "/admin/configurationManagement/configurationMonitoringResults": "",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "",
+            "/admin/configurationManagement/configurationMonitors": "",
+            "/admin/configurationManagement/configurationMonitors/{id}": "",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "",
+            "/admin/configurationManagement/configurationSnapshotJobs": "",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "",
+            "/admin/configurationManagement/configurationSnapshots/{id}": ""
           }
         },
         {
@@ -11890,8 +11894,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "",
-            "/configurationManagement/configurationApplications({id})": ""
+            "/admin/configurationManagement/configurationApplications": "",
+            "/admin/configurationManagement/configurationApplications/{id}": ""
           }
         },
         {
@@ -11903,8 +11907,8 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11915,7 +11919,7 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork"
           }
         },
         {
@@ -11927,7 +11931,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11938,7 +11942,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -11950,7 +11954,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11961,7 +11965,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -12567,11 +12571,50 @@
             "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
             "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/block": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/reassign": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/unblock": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/update": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
             "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
           }
         }
@@ -32212,7 +32255,7 @@
           "adminDescription": "Allows the app to read the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox folders",
           "userDescription": "Allows the app to read your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32270,7 +32313,7 @@
           "adminDescription": "Allows the app to read and write the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read and write your mailbox folders",
           "userDescription": "Allows the app to read and write your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32346,6 +32389,62 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxItem.Export": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Export a user's mailbox items",
+          "adminDescription": "Allows the app to export the user's mailbox items, on behalf of the the signed-in user.",
+          "userDisplayName": "Export your mailbox items",
+          "userDescription": "Allows the app to export your mailbox items, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.Export.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Export all the users' mailbox items",
+          "adminDescription": "Allows the app to export all the users' mailbox items, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "MailboxItem.ImportExport": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -32354,7 +32453,7 @@
           "adminDescription": "Allows the app to export and import the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Export and import your mailbox items",
           "userDescription": "Allows the app to export and import your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -32412,7 +32511,7 @@
           "adminDescription": "Allows the app to read the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox items",
           "userDescription": "Allows the app to read your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -36904,8 +37003,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
@@ -36915,9 +37017,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
@@ -37377,7 +37482,8 @@
             "GET"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences": ""
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "",
+            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application"
           }
         },
         {
@@ -38242,6 +38348,7 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -38539,8 +38646,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         },
         {
@@ -38559,9 +38669,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -60640,6 +60753,7 @@
             "/admin/windows/updates/knownIssues/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
             "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/applicableContent": "least=DelegatedWork,Application",
             "/admin/windows/updates/products": "least=DelegatedWork,Application",
             "/admin/windows/updates/products/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
