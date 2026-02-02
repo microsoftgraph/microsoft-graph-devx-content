@@ -1258,7 +1258,7 @@
         "DelegatedWork": {
           "adminDisplayName": "Read all agent identities",
           "adminDescription": "Allows the client to read all agent identities.",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
@@ -1447,7 +1447,7 @@
         "DelegatedWork": {
           "adminDisplayName": "Read all agent identity blueprints",
           "adminDescription": "Allows the client to read all agent identity blueprints.",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
@@ -1706,7 +1706,7 @@
         "DelegatedWork": {
           "adminDisplayName": "Read agent identity blueprints principals.",
           "adminDescription": "Allows reading agent identity blueprint principals with a signed-in user.",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
@@ -42448,42 +42448,34 @@
           "userDescription": "Allows the app to read your organization's risk prevention providers, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read all identity risk prevention providers",
-          "adminDescription": "Allows the app to read your organization's risk prevention providers, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallVerifications": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallVerifications": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewalls/verify": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewalls/verify": "least=DelegatedWork"
           }
         }
       ],
@@ -42501,33 +42493,25 @@
           "userDescription": "Allows the app to read and write your organization's risk prevention providers, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all identity risk prevention providers",
-          "adminDescription": "Allows the app to read and write your organization's risk prevention providers, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "GET",
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "DELETE",
@@ -42535,33 +42519,31 @@
             "PATCH"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}/verify": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}/verify": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "DELETE",
             "GET"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -54116,42 +54098,6 @@
         "ownerSecurityGroup": "riskiq-dev"
       }
     },
-    "ThreatSubmission.Read": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read threat submissions",
-          "adminDescription": "Allows the app to read the threat submissions and threat submission policies owned by the signed-in user.",
-          "userDisplayName": "Read threat submissions",
-          "userDescription": "Allows the app to read the threat submissions and threat submission policies that you own on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreats/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreatsubmissionpolicies": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreatsubmissionpolicies/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
-      }
-    },
     "ThreatSubmission.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -54188,53 +54134,6 @@
             "/security/threatsubmission/filethreats/{id}": "least=Application",
             "/security/threatsubmission/urlthreats": "least=Application",
             "/security/threatsubmission/urlthreats/{id}": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
-      }
-    },
-    "ThreatSubmission.ReadWrite": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write threat submissions",
-          "adminDescription": "Allows the app to read the threat submissions and threat submission policies owned by the signed-in user. Also allows the app to create new threat submissions on behalf of the signed-in user.",
-          "userDisplayName": "Read and write threat submissions",
-          "userDescription": "Allows the app to read the threat submissions and threat submission policies that you own. Also allows the app to create new threat submissions on your behalf.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats/{id}": "",
-            "/security/threatsubmission/emailthreatsubmissionpolicies": "",
-            "/security/threatsubmission/emailthreatsubmissionpolicies/{id}": "",
-            "/security/threatsubmission/filethreats/{id}": "",
-            "/security/threatsubmission/urlthreats/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats": "least=DelegatedWork"
           }
         }
       ],
