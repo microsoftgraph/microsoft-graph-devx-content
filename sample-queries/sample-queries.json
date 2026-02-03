@@ -1555,6 +1555,70 @@
       "skipTest": false
     },
     {
+      "id": "446c2954-2b5c-4e27-a956-858bb197117f",
+      "category": "Teamwork and communications (beta)",
+      "method": "GET",
+      "humanName": "list Teams user configurations",
+      "requestUrl": "/beta/admin/teams/userConfigurations",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamsadminroot-list-userconfigurations?view=graph-rest-beta",
+      "tip": "This query requires the TeamsUserConfiguration.Read.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "26077dcc-9376-4889-b294-ce9f9e1dd977",
+      "category": "Teamwork and communications (beta)",
+      "method": "GET",
+      "humanName": "get Teams user configuration",
+      "requestUrl": "/beta/admin/teams/userConfigurations/{teamsUserConfigurationId}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamsuserconfiguration-get?view=graph-rest-beta",
+      "tip": "This query requires valid user id and valid permission",
+      "skipTest": false
+    },
+    {
+      "id": "6f8384ae-8225-43f0-81a1-7b569be2c5ca",
+      "category": "Teamwork and communications (beta)",
+      "method": "POST",
+      "humanName": "assign Teams policy to user",
+      "requestUrl": "/beta/admin/teams/policy/userAssignments/assign",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyuserassignment-assign?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"@odata.type\": \"#microsoft.graph.teamsAdministration.teamsPolicyUserAssignment\",\r\n      \"userId\": \"5c802b19-3600-83f1-1767-7b9edc7f38ab\",\r\n      \"policyType\": \"TeamsMeetingPolicy\",\r\n      \"policyId\": \"VnMAaN3X2X1B9tEHx1CJWfC76PSaKEzA4NoUuqIMRUo\"\r\n    }\r\n  ]\r\n}",
+      "tip": "This query requires valid user id, policy type, policy id, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "fdd80973-ebe8-4f46-9842-9764e8c8f0b1",
+      "category": "Teamwork and communications (beta)",
+      "method": "POST",
+      "humanName": "unassign Teams policy from user",
+      "requestUrl": "/beta/admin/teams/policy/userAssignments/unassign",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyuserassignment-unassign?view=graph-rest-beta",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"@odata.type\": \"#microsoft.graph.teamsAdministration.teamsPolicyUserAssignment\",\r\n      \"userId\": \"5c802b19-3600-83f1-1767-7b9edc7f38ab\",\r\n      \"policyType\": \"TeamsMeetingPolicy\"\r\n    }\r\n  ]\r\n}",
+      "tip": "This query requires valid user id, policy type, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "e04af7f8-29ad-4752-a740-68df46f2b885",
+      "category": "Teamwork and communications (beta)",
+      "method": "GET",
+      "humanName": "get Teams policy ID by name and type",
+      "requestUrl": "/beta/admin/teams/policy/getPolicyId(type='{policyType}',name='{policyName}')",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyassignment-getpolicyid?view=graph-rest-beta",
+      "tip": "This query requires valid policy type and policy name, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
       "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
       "category": "Microsoft Teams (beta)",
       "method": "GET",
