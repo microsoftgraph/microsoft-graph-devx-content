@@ -36672,54 +36672,98 @@
           "userDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization places",
+          "adminDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/places/{id}": "",
+            "/places/{id}/descendants": "",
+            "/places/{id}/microsoft.graph.building/map": "",
+            "/places/{id}/microsoft.graph.building/map/footprints": "",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "",
+            "/places/{id}/microsoft.graph.roomlist/rooms": "",
+            "/places/{id}/microsoft.graph.roomlist/workspaces": "",
+            "/places/getOperation": "",
+            "/places/listOperations": "",
+            "/places/microsoft.graph.building": "",
+            "/places/microsoft.graph.desk": "",
+            "/places/microsoft.graph.floor": "",
+            "/places/microsoft.graph.room": "",
+            "/places/microsoft.graph.roomlist": "",
+            "/places/microsoft.graph.section": "",
+            "/places/microsoft.graph.workspace": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "PATCH"
           ],
           "paths": {
-            "/places": "least=DelegatedWork",
-            "/places/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+            "/places": "least=DelegatedWork,Application",
+            "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/places": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork"
+            "/places": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE"
           ],
           "paths": {
-            "/places/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+            "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
