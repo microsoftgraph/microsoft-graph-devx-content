@@ -1491,6 +1491,70 @@
       "skipTest": false
     },
     {
+      "id": "35f6a1b1-d9a7-43c3-8c1c-b0ca1dffe91c",
+      "category": "Teamwork and communications",
+      "method": "GET",
+      "humanName": "list Teams user configurations",
+      "requestUrl": "/v1.0/admin/teams/userConfigurations",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamsadminroot-list-userconfigurations?view=graph-rest-1.0",
+      "tip": "This query requires the TeamsUserConfiguration.Read.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "005ba36b-3fc5-48b8-843e-790d0819bf2c",
+      "category": "Teamwork and communications",
+      "method": "GET",
+      "humanName": "get Teams user configuration",
+      "requestUrl": "/v1.0/admin/teams/userConfigurations/{teamsUserConfigurationId}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamsuserconfiguration-get?view=graph-rest-1.0",
+      "tip": "This query requires valid user id and valid permission",
+      "skipTest": false
+    },
+    {
+      "id": "3543ba48-7206-4959-9a66-afe42d3e04f6",
+      "category": "Teamwork and communications",
+      "method": "POST",
+      "humanName": "assign Teams policy to user",
+      "requestUrl": "/v1.0/admin/teams/policy/userAssignments/assign",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyuserassignment-assign?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"@odata.type\": \"#microsoft.graph.teamsAdministration.teamsPolicyUserAssignment\",\r\n      \"userId\": \"5c802b19-3600-83f1-1767-7b9edc7f38ab\",\r\n      \"policyType\": \"TeamsMeetingPolicy\",\r\n      \"policyId\": \"VnMAaN3X2X1B9tEHx1CJWfC76PSaKEzA4NoUuqIMRUo\"\r\n    }\r\n  ]\r\n}",
+      "tip": "This query requires valid user id, policy type, policy id, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "5bf910fe-0a9c-439a-af0a-0ae0d8c97006",
+      "category": "Teamwork and communications",
+      "method": "POST",
+      "humanName": "unassign Teams policy from user",
+      "requestUrl": "/v1.0/admin/teams/policy/userAssignments/unassign",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyuserassignment-unassign?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"value\": [\r\n    {\r\n      \"@odata.type\": \"#microsoft.graph.teamsAdministration.teamsPolicyUserAssignment\",\r\n      \"userId\": \"5c802b19-3600-83f1-1767-7b9edc7f38ab\",\r\n      \"policyType\": \"TeamsMeetingPolicy\"\r\n    }\r\n  ]\r\n}",
+      "tip": "This query requires valid user id, policy type, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
+      "id": "19957976-afb4-499b-9fa7-4d76b7ad01d0",
+      "category": "Teamwork and communications",
+      "method": "GET",
+      "humanName": "get Teams policy ID by name and type",
+      "requestUrl": "/v1.0/admin/teams/policy/getPolicyId(type='{policyType}',name='{policyName}')",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/teamsadministration-teamspolicyassignment-getpolicyid?view=graph-rest-1.0",
+      "tip": "This query requires valid policy type and policy name, and the TeamsPolicyUserAssign.ReadWrite.All permission",
+      "skipTest": false
+    },
+    {
       "id": "d8a3cd75-6ddf-4215-89de-3c2dab6b9585",
       "category": "Microsoft Teams (beta)",
       "method": "GET",
@@ -4073,6 +4137,69 @@
       "requestUrl": "/beta/employeeExperience/goals/exportJobs/{jobId}/content",
       "tip": "This query requires the Goals-Export.Read.All/Goals-Export.ReadWrite.All permission",
       "docLink": "https://learn.microsoft.com/en-us/graph/api/goalsexportjob-get?view=graph-rest-beta#example-6-get-the-content-of-a-successfully-completed-goalsexportjob-resource",
+      "skipTest": false
+    },
+    {
+      "id": "a6fdd771-19df-4e31-a515-800d5707db86",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "list agent identity blueprints",
+      "requestUrl": "/beta/applications/microsoft.graph.agentIdentityBlueprint",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentityblueprint-list",
+      "skipTest": false
+    },
+    {
+      "id": "646cd7b7-58f8-492e-b8d4-f54aab86628d",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "get agent identity blueprint",
+      "requestUrl": "/beta/applications/microsoft.graph.agentIdentityBlueprint/{id}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentityblueprint-get",
+      "skipTest": false
+    },
+    {
+      "id": "62efe2d1-f889-4724-b370-59fcae5fbab1",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "list agent identity blueprint principals",
+      "requestUrl": "/beta/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentityblueprintprincipal-list",
+      "skipTest": false
+    },
+    {
+      "id": "1359d5de-354b-4526-8fb2-ad5ec2a0f49a",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "get agent identity blueprint principal",
+      "requestUrl": "/beta/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentityblueprintprincipal-get",
+      "skipTest": false
+    },
+    {
+      "id": "46edf0dd-e196-415b-9c41-c1fd3987f7b0",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "list agent identities",
+      "requestUrl": "/beta/servicePrincipals/microsoft.graph.agentIdentity",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentity-list",
+      "skipTest": false
+    },
+    {
+      "id": "c8fd74a5-10f3-43ff-a56d-445bbb598d5f",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "get agent identity",
+      "requestUrl": "/beta/servicePrincipals/microsoft.graph.agentIdentity/{id}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentidentity-get",
+      "skipTest": false
+    },
+    {
+      "id": "cef7b606-dd9f-4a47-80b2-048f9c9b61ac",
+      "category": "Agents",
+      "method": "GET",
+      "humanName": "list agent ID users",
+      "requestUrl": "/beta/users/microsoft.graph.agentUser",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/agentuser-list",
       "skipTest": false
     }
   ]

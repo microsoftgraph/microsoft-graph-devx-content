@@ -545,6 +545,2457 @@
         "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
+    "AgentCardManifest.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read agent card manifests in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read agent card manifests in Agent Registry",
+          "userDescription": "Allows the app to read agent card manifests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read all agent card manifests in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCardManifests/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCardManifest.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write agent card manifests in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write agent card manifests in Agent Registry",
+          "userDescription": "Allows the app to read and write agent card manifests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write to all agent card manifests in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "",
+            "/agentRegistry/agentCardManifests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCardManifest.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by agent card manifests in Agent Registry",
+          "adminDescription": "Allows the app to read and write agent card manifests that name it as manager in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests": "",
+            "/agentRegistry/agentCardManifests/{id}": "",
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCardManifests/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to read collections and their membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read collections in Agent Registry",
+          "userDescription": "Allows the app to read collections and their membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to read all collections and their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCollections/{id}": "least=DelegatedWork,Application",
+            "/agentRegistry/agentCollections/{id}/members": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.Global": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read global collection in Agent Registry",
+          "adminDescription": "Allows the app to read global collection and its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read global collection in Agent Registry",
+          "userDescription": "Allows the app to read global collection and its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": "",
+            "/agentRegistry/agentCollections/{global-collection-id}/members": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.Read.Quarantined": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read quarantined collection in Agent Registry",
+          "adminDescription": "Allows the app to read quarantined collection and its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read quarantined collection in Agent Registry",
+          "userDescription": "Allows the app to read quarantined collection and its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": "",
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to create, read, update, and delete collections and manage their membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write collections in Agent Registry, except quarantined and global",
+          "userDescription": "Allows the app to create, read, update, and delete collections and manage their membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all collections in Agent Registry, except quarantined and global",
+          "adminDescription": "Allows the app to create, read, update, and delete all collections and manage their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}": "",
+            "/agentRegistry/agentCollections/{id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/$ref": "least=DelegatedWork;AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/$ref": "least=Application;AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.Global": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write global collection in Agent Registry",
+          "adminDescription": "Allows the app to read and update global collection and manage its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write global collection in Agent Registry",
+          "userDescription": "Allows the app to read and update global collection and manage its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": "",
+            "/agentRegistry/agentCollections/{global-collection-id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{global-collection-id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by collections in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete collections that designate the calling app as their manager and manage their membership in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All,AgentInstance.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections": "",
+            "/agentRegistry/agentCollections/{id}": "",
+            "/agentRegistry/agentCollections/{id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentCollection.ReadWrite.Quarantined": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write quarantined collection in Agent Registry",
+          "adminDescription": "Allows the app to read and update quarantined collection and manage its membership in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write quarantined collection in Agent Registry",
+          "userDescription": "Allows the app to read and update quarantined collection and manage its membership on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": "",
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members/$ref": "AlsoRequires=AgentInstance.Read.All,AgentInstance.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{quarantined-collection-id}/members/{member-id}/$ref": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentIdentity.Create.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create agent identities without an agent blueprint parent",
+          "adminDescription": "Allows client to create agent identities, even if client is not the parent agent identity blueprint.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Create agent identities without an agent blueprint parent",
+          "adminDescription": "Allows the app to create agent identities, even if the app is not the parent agent identity blueprint.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals": "",
+            "/servicePrincipals/graph.agentIdentity": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.CreateAsManager": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Create and manage agent identities as parent agent identity blueprint.",
+          "adminDescription": "Allows the app to create agent identities and manage agent identities as the parent agent identity blueprint without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals": "",
+            "/servicePrincipals(appid={value})/graph.agentIdentityBlueprintPrincipal/identities": "",
+            "/servicePrincipals/{id}/graph.agentIdentityBlueprintPrincipal/identities": "",
+            "/servicePrincipals/graph.agentIdentity": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.DeleteRestore.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete and restore agent identities",
+          "adminDescription": "Allows the client to delete and restore agent identities.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete and restore agent identities",
+          "adminDescription": "Allows the app to delete and restore agent identities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.EnableDisable.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Enable or disable agent identities",
+          "adminDescription": "Allows the client to enable or disable agent identities.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Enable or disable agent identities",
+          "adminDescription": "Allows the app to enable or disable agent identities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent identities",
+          "adminDescription": "Allows the client to read all agent identities.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent identities",
+          "adminDescription": "Allows the app to read all agent identities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/serviceprincipals": "",
+            "/serviceprincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentity": "least=Application,DelegatedWork",
+            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentity.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all agent identities",
+          "adminDescription": "Allows the client to read, update, and delete agent identities on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent identities",
+          "adminDescription": "Allows the app read, update, and delete agent identities without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentity/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.AddRemoveCreds.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update agent identity blueprint credentials",
+          "adminDescription": "Allows updating agent identity blueprint credentials on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Update agent identity blueprint credentials",
+          "adminDescription": "Allows updating agent identity blueprint credentials without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.Create": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create agent identity blueprints.",
+          "adminDescription": "Allows creating new agent identity blueprints with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Create agent identity blueprints.",
+          "adminDescription": "Allows creating new agent identity blueprints without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/applications": "",
+            "/applications/graph.agentIdentityBlueprint": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.DeleteRestore.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete and restore agent identity blueprints.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprints with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete and restore agent identity blueprints.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprints without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent identity blueprints",
+          "adminDescription": "Allows the client to read all agent identity blueprints.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent identity blueprints",
+          "adminDescription": "Allows the app to read all agent identity blueprints without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/applications": "",
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint": "least=Application,DelegatedWork",
+            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all agent identity blueprints.",
+          "adminDescription": "Allows the app to read, update, and delete agent identity blueprints on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent identity blueprints.",
+          "adminDescription": "Allows the app to read, update, and delete agent identity blueprints without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.UpdateAuthProperties.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update agent identity blueprint authorization and authentication properties",
+          "adminDescription": "Allows updating agent identity blueprint authorization and authentication properties on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Update agent identity blueprint authorization and authentication properties",
+          "adminDescription": "Allows updating agent identity blueprint authorization and authentication properties without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprint.UpdateBranding.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update agent identity blueprint branding",
+          "adminDescription": "Allows updating agent identity blueprint branding on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Update agent identity blueprint branding",
+          "adminDescription": "Allows updating agent identity blueprint branding without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprint/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprintPrincipal.Create": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create agent identity blueprint service principals.",
+          "adminDescription": "Allows creating new agent identity blueprint principals with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Create agent identity blueprint service principals.",
+          "adminDescription": "Allows creating new agent identity blueprint principals without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 5
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals": "",
+            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprintPrincipal.DeleteRestore.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Delete and restore agent identity blueprints.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprints with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Delete and restore agent identity blueprints.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprints without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/serviceprincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprintPrincipal.EnableDisable.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Enable or disable agent identity blueprint principals.",
+          "adminDescription": "Allows enabling or disabling agent identity blueprint principals with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Enable or disable agent identity blueprint principals.",
+          "adminDescription": "Allows enabling or disabling agent identity blueprint principals without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/servicePrincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprintPrincipal.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read agent identity blueprints principals.",
+          "adminDescription": "Allows reading agent identity blueprint principals with a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read agent identity blueprint principals.",
+          "adminDescription": "Allows reading agent identity blueprint principals without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/servicePrincipals": "",
+            "/servicePrincipals/{id}": "",
+            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork",
+            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdentityBlueprintPrincipal.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all agent identity blueprint principals.",
+          "adminDescription": "Allows the app to read, update, and delete agent identity blueprint principals on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent identity blueprint principals.",
+          "adminDescription": "Allows the app to read, update, and delete agent identity blueprint principals without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/applications/{id}": "",
+            "/applications/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
+    "AgentIdUser.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all agent ID users' full profiles",
+          "adminDescription": "Allows the app to create agent users, read and write the full set of profile properties, reports, and managers of agent ID users, delete and restore agent users in your organization, and read basic company properties, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all agent ID users' full profiles",
+          "userDescription": "Allows the app to create agent users, read and write the full set of profile properties, reports, and managers of agent ID users, delete and restore agent users in your organization, and read basic company properties, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent ID users' full profiles",
+          "adminDescription": "Allows the app to create agent users, read and update agent ID user profiles and read basic company properties, delete and restore agent users without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/contacts/{id}/checkmembergroups": "",
+            "/contacts/{id}/checkmemberobjects": "",
+            "/contacts/{id}/getmemberobjects": "",
+            "/devices/{id}/checkmembergroups": "",
+            "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/getmemberobjects": "",
+            "/directoryobjects/{id}/checkmembergroups": "",
+            "/directoryobjects/{id}/checkmemberobjects": "",
+            "/directoryobjects/{id}/getmemberobjects": "",
+            "/groups/{id}/checkmembergroups": "",
+            "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/getmemberobjects": "",
+            "/serviceprincipals/{id}/checkmembergroups": "",
+            "/serviceprincipals/{id}/checkmemberobjects": "",
+            "/serviceprincipals/{id}/getmemberobjects": "",
+            "/users/{id}/assignlicense": "",
+            "/users/{id}/checkmembergroups": "",
+            "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "",
+            "/users/{id}/getmemberobjects": "",
+            "/users/{id}/reprocesslicenseassignment": "",
+            "/users/{id}/revokesigninsessions": "",
+            "/users/{id}/translateexchangeids": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/cloudLicensing/assignments/reprocessAssignments": "",
+            "/me/getmemberobjects": "",
+            "/me/revokesigninsessions": "",
+            "/me/translateexchangeids": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/people/itemInsights": "",
+            "/me": "",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
+            "/me/createdobjects": "",
+            "/me/directreports": "",
+            "/me/joinedteams": "",
+            "/me/licensedetails": "",
+            "/me/manager": "",
+            "/me/ownedobjects": "",
+            "/me/sponsors": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
+            "/users/{id}/createdobjects": "",
+            "/users/{id}/directreports": "",
+            "/users/{id}/joinedteams": "",
+            "/users/{id}/licensedetails": "",
+            "/users/{id}/ownedobjects": "",
+            "/users/{id}/usagerights": "",
+            "/users/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/profile": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/me/profile": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/profile/account": "",
+            "/users/{id}/profile/addresses": "",
+            "/users/{id}/profile/anniversaries": "",
+            "/users/{id}/profile/awards": "",
+            "/users/{id}/profile/certifications": "",
+            "/users/{id}/profile/educationalactivities": "",
+            "/users/{id}/profile/emails": "",
+            "/users/{id}/profile/interests": "",
+            "/users/{id}/profile/languages": "",
+            "/users/{id}/profile/names": "",
+            "/users/{id}/profile/notes": "",
+            "/users/{id}/profile/patents": "",
+            "/users/{id}/profile/phones": "",
+            "/users/{id}/profile/positions": "",
+            "/users/{id}/profile/projects": "",
+            "/users/{id}/profile/publications": "",
+            "/users/{id}/profile/skills": "",
+            "/users/{id}/profile/webaccounts": "",
+            "/users/{id}/profile/websites": "",
+            "/users/{id}/responsibilities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments": "",
+            "/me/profile/account": "",
+            "/me/profile/addresses": "",
+            "/me/profile/anniversaries": "",
+            "/me/profile/awards": "",
+            "/me/profile/certifications": "",
+            "/me/profile/educationalactivities": "",
+            "/me/profile/emails": "",
+            "/me/profile/interests": "",
+            "/me/profile/languages": "",
+            "/me/profile/names": "",
+            "/me/profile/notes": "",
+            "/me/profile/patents": "",
+            "/me/profile/phones": "",
+            "/me/profile/positions": "",
+            "/me/profile/projects": "",
+            "/me/profile/publications": "",
+            "/me/profile/skills": "",
+            "/me/profile/webaccounts": "",
+            "/me/profile/websites": "",
+            "/me/responsibilities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/profile/account/{id}": "",
+            "/users/{id}/profile/addresses/{id}": "",
+            "/users/{id}/profile/anniversaries/{id}": "",
+            "/users/{id}/profile/awards/{id}": "",
+            "/users/{id}/profile/certifications/{id}": "",
+            "/users/{id}/profile/educationalactivities/{id}": "",
+            "/users/{id}/profile/emails/{id}": "",
+            "/users/{id}/profile/interests/{id}": "",
+            "/users/{id}/profile/languages/{id}": "",
+            "/users/{id}/profile/names/{id}": "",
+            "/users/{id}/profile/notes/{id}": "",
+            "/users/{id}/profile/patents/{id}": "",
+            "/users/{id}/profile/phones/{id}": "",
+            "/users/{id}/profile/positions/{id}": "",
+            "/users/{id}/profile/projects/{id}": "",
+            "/users/{id}/profile/publications/{id}": "",
+            "/users/{id}/profile/skills/{id}": "",
+            "/users/{id}/profile/webaccounts/{id}": "",
+            "/users/{id}/profile/websites/{id}": "",
+            "/users/{id}/responsibilities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/profile/account/{id}": "",
+            "/me/profile/addresses/{id}": "",
+            "/me/profile/anniversaries/{id}": "",
+            "/me/profile/awards/{id}": "",
+            "/me/profile/certifications/{id}": "",
+            "/me/profile/educationalactivities/{id}": "",
+            "/me/profile/emails/{id}": "",
+            "/me/profile/interests/{id}": "",
+            "/me/profile/languages/{id}": "",
+            "/me/profile/names/{id}": "",
+            "/me/profile/notes/{id}": "",
+            "/me/profile/patents/{id}": "",
+            "/me/profile/phones/{id}": "",
+            "/me/profile/positions/{id}": "",
+            "/me/profile/projects/{id}": "",
+            "/me/profile/publications/{id}": "",
+            "/me/profile/skills/{id}": "",
+            "/me/profile/webaccounts/{id}": "",
+            "/me/profile/websites/{id}": "",
+            "/me/responsibilities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/settings": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/organization/{id}/settings/contactinsights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings": "",
+            "/organization/{id}/settings/iteminsights": "",
+            "/organization/{id}/settings/peopleinsights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/organization/{id}/settings/profilecardproperties": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/organization/{id}/settings/profilecardproperties/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/settings/regionalandlanguagesettings": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/settings/regionalandlanguagesettings": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users": "",
+            "/users/{id}/sponsors": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/manager": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/photo": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/settings/shiftpreferences": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/sponsors/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "azureaduserentity"
+      }
+    },
+    "AgentIdUser.ReadWrite.IdentityParentedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write full profiles of agent ID users under an agent blueprint",
+          "adminDescription": "Allows the app to create agent users, read and write the full set of profile properties, reports, and managers of agent ID users in your organization, delete and restore agent users under an agent blueprint, and read basic company properties, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write full profiles of agent ID users under an agent blueprint",
+          "userDescription": "Allows the app to create agent users, read and write the full set of profile properties, reports, and managers of agent ID users in your organization, delete and restore agent users under an agent blueprint, and read basic company properties, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write full profiles of agent ID users under an agent blueprint",
+          "adminDescription": "Allows the app create agent users, to read and update agent ID user profiles, delete and restore agent users under an agent blueprint and read basic company properties without a signed in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/contacts/{id}/checkmembergroups": "",
+            "/contacts/{id}/checkmemberobjects": "",
+            "/contacts/{id}/getmemberobjects": "",
+            "/devices/{id}/checkmembergroups": "",
+            "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/getmemberobjects": "",
+            "/directoryobjects/{id}/checkmembergroups": "",
+            "/directoryobjects/{id}/checkmemberobjects": "",
+            "/directoryobjects/{id}/getmemberobjects": "",
+            "/groups/{id}/checkmembergroups": "",
+            "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/getmemberobjects": "",
+            "/serviceprincipals/{id}/checkmembergroups": "",
+            "/serviceprincipals/{id}/checkmemberobjects": "",
+            "/serviceprincipals/{id}/getmemberobjects": "",
+            "/users/{id}/assignlicense": "",
+            "/users/{id}/checkmembergroups": "",
+            "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/cloudLicensing/assignments/reprocessAssignments": "",
+            "/users/{id}/getmemberobjects": "",
+            "/users/{id}/reprocesslicenseassignment": "",
+            "/users/{id}/revokesigninsessions": "",
+            "/users/{id}/translateexchangeids": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/cloudLicensing/assignments/reprocessAssignments": "",
+            "/me/getmemberobjects": "",
+            "/me/revokesigninsessions": "",
+            "/me/translateexchangeids": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/people/itemInsights": "",
+            "/me": "",
+            "/me/cloudLicensing/assignmentErrors": "",
+            "/me/cloudLicensing/assignmentErrors/{id}": "",
+            "/me/cloudLicensing/assignments/{id}/allotment": "",
+            "/me/cloudLicensing/usageRights": "",
+            "/me/cloudLicensing/usageRights/{id}": "",
+            "/me/cloudLicensing/usageRights/{id}/assignments": "",
+            "/me/cloudLicensing/waitingMembers": "",
+            "/me/cloudLicensing/waitingMembers/{id}": "",
+            "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
+            "/me/createdobjects": "",
+            "/me/directreports": "",
+            "/me/joinedteams": "",
+            "/me/licensedetails": "",
+            "/me/manager": "",
+            "/me/ownedobjects": "",
+            "/me/sponsors": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/groups/{id}/cloudLicensing/usageRights": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}": "",
+            "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/assignmentErrors": "",
+            "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
+            "/users/{id}/cloudLicensing/usageRights": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}": "",
+            "/users/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/cloudLicensing/waitingMembers": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}": "",
+            "/users/{id}/cloudLicensing/waitingMembers/{id}/allotment": "",
+            "/users/{id}/createdobjects": "",
+            "/users/{id}/directreports": "",
+            "/users/{id}/joinedteams": "",
+            "/users/{id}/licensedetails": "",
+            "/users/{id}/ownedobjects": "",
+            "/users/{id}/usagerights": "",
+            "/users/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/profile": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/me/profile": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/cloudLicensing/assignments": "",
+            "/users/{id}/profile/account": "",
+            "/users/{id}/profile/addresses": "",
+            "/users/{id}/profile/anniversaries": "",
+            "/users/{id}/profile/awards": "",
+            "/users/{id}/profile/certifications": "",
+            "/users/{id}/profile/educationalactivities": "",
+            "/users/{id}/profile/emails": "",
+            "/users/{id}/profile/interests": "",
+            "/users/{id}/profile/languages": "",
+            "/users/{id}/profile/names": "",
+            "/users/{id}/profile/notes": "",
+            "/users/{id}/profile/patents": "",
+            "/users/{id}/profile/phones": "",
+            "/users/{id}/profile/positions": "",
+            "/users/{id}/profile/projects": "",
+            "/users/{id}/profile/publications": "",
+            "/users/{id}/profile/skills": "",
+            "/users/{id}/profile/webaccounts": "",
+            "/users/{id}/profile/websites": "",
+            "/users/{id}/responsibilities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments": "",
+            "/me/profile/account": "",
+            "/me/profile/addresses": "",
+            "/me/profile/anniversaries": "",
+            "/me/profile/awards": "",
+            "/me/profile/certifications": "",
+            "/me/profile/educationalactivities": "",
+            "/me/profile/emails": "",
+            "/me/profile/interests": "",
+            "/me/profile/languages": "",
+            "/me/profile/names": "",
+            "/me/profile/notes": "",
+            "/me/profile/patents": "",
+            "/me/profile/phones": "",
+            "/me/profile/positions": "",
+            "/me/profile/projects": "",
+            "/me/profile/publications": "",
+            "/me/profile/skills": "",
+            "/me/profile/webaccounts": "",
+            "/me/profile/websites": "",
+            "/me/responsibilities": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/cloudLicensing/assignments/{id}": "",
+            "/users/{id}/profile/account/{id}": "",
+            "/users/{id}/profile/addresses/{id}": "",
+            "/users/{id}/profile/anniversaries/{id}": "",
+            "/users/{id}/profile/awards/{id}": "",
+            "/users/{id}/profile/certifications/{id}": "",
+            "/users/{id}/profile/educationalactivities/{id}": "",
+            "/users/{id}/profile/emails/{id}": "",
+            "/users/{id}/profile/interests/{id}": "",
+            "/users/{id}/profile/languages/{id}": "",
+            "/users/{id}/profile/names/{id}": "",
+            "/users/{id}/profile/notes/{id}": "",
+            "/users/{id}/profile/patents/{id}": "",
+            "/users/{id}/profile/phones/{id}": "",
+            "/users/{id}/profile/positions/{id}": "",
+            "/users/{id}/profile/projects/{id}": "",
+            "/users/{id}/profile/publications/{id}": "",
+            "/users/{id}/profile/skills/{id}": "",
+            "/users/{id}/profile/webaccounts/{id}": "",
+            "/users/{id}/profile/websites/{id}": "",
+            "/users/{id}/responsibilities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}": "",
+            "/me/profile/account/{id}": "",
+            "/me/profile/addresses/{id}": "",
+            "/me/profile/anniversaries/{id}": "",
+            "/me/profile/awards/{id}": "",
+            "/me/profile/certifications/{id}": "",
+            "/me/profile/educationalactivities/{id}": "",
+            "/me/profile/emails/{id}": "",
+            "/me/profile/interests/{id}": "",
+            "/me/profile/languages/{id}": "",
+            "/me/profile/names/{id}": "",
+            "/me/profile/notes/{id}": "",
+            "/me/profile/patents/{id}": "",
+            "/me/profile/phones/{id}": "",
+            "/me/profile/positions/{id}": "",
+            "/me/profile/projects/{id}": "",
+            "/me/profile/publications/{id}": "",
+            "/me/profile/skills/{id}": "",
+            "/me/profile/webaccounts/{id}": "",
+            "/me/profile/websites/{id}": "",
+            "/me/responsibilities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/settings": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/organization/{id}/settings/contactinsights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/me/cloudLicensing/assignments/{id}/assignedTo/$ref": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings": "",
+            "/organization/{id}/settings/iteminsights": "",
+            "/organization/{id}/settings/peopleinsights": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/organization/{id}/settings/profilecardproperties": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/organization/{id}/settings/profilecardproperties/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/settings/regionalandlanguagesettings": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/groups/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/groups/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/settings/regionalandlanguagesettings": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/allotment/$ref": "",
+            "/users/{id}/cloudLicensing/assignments/{id}/assignedTo/$ref": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/users": "",
+            "/users/{id}/sponsors": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/manager": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/photo": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH",
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/settings/shiftpreferences": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/sponsors/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/deletedItems/{id}/restore": "",
+            "/users/{id}/getTeamsLicensingDetails": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "azureaduserentity"
+      }
+    },
+    "AgentInstance.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to read agent instances and their related collections in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read agent instances in Agent Registry",
+          "userDescription": "Allows the app to read agent instances and their related collections on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to read all agent instances and their related collections in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "least=DelegatedWork,Application",
+            "/agentRegistry/agentInstances/{id}": "least=DelegatedWork,Application",
+            "/agentRegistry/agentInstances/{id}/collections": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=DelegatedWork;AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.Global,AgentCollection.ReadWrite.Quarantined"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "least=Application;AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "least=DelegatedWork;AlsoRequires=AgentCardManifest.Read.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "least=DelegatedWork;AlsoRequires=AgentCardManifest.Read.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "least=Application;AlsoRequires=AgentCardManifest.Read.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "least=Application;AlsoRequires=AgentCardManifest.Read.All"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentInstance.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete agent instances in your organization's Agent Registry on behalf of the signed-in user.",
+          "userDisplayName": "Read and write agent instances in Agent Registry",
+          "userDescription": "Allows the app to create, read, update, and delete agent instances on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete all agent instances in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "",
+            "/agentRegistry/agentInstances/{id}": "",
+            "/agentRegistry/agentInstances/{id}/collections": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.Global,AgentCollection.ReadWrite.Quarantined"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentInstance.ReadWrite.ManagedBy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write managed-by agent instances in Agent Registry",
+          "adminDescription": "Allows the app to create, read, update, and delete agent instances that designate the calling app as their manager in your organization's Agent Registry without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances": "",
+            "/agentRegistry/agentInstances?$filter=agentCardManifest/id eq '{id}'": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}": "",
+            "/agentRegistry/agentInstances/{id}/agentCardManifest": "AlsoRequires=AgentCardManifest.Read.All,AgentCardManifest.ReadWrite.All,AgentCardManifest.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances/{id}/collections": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/agentRegistry/agentCollections/{id}/members/{member-id}/$ref": "AlsoRequires=AgentCollection.ReadWrite.All,AgentCollection.ReadWrite.ManagedBy",
+            "/agentRegistry/agentInstances": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/agentRegistry/agentInstances/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
     "Agreement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -3244,9 +5695,22 @@
             "GET"
           ],
           "paths": {
-            "/solutions/backupRestore/fullDrivesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullMailboxesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullSitesBackup": "least=DelegatedWork,Application"
+            "/solutions/backupRestore/allDrivesBackup": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allMailboxesBackup": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allSitesBackup": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/backupRestore/reports/getStatisticsByPolicy(policyId='{policyId}')": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/reports/getStatisticsByWorkload(workloadId='{workloadId}')": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -3492,26 +5956,12 @@
             "POST"
           ],
           "paths": {
-            "/solutions/backupRestore/fullDrivesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullDrivesBackup/enable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullMailboxesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullMailboxesBackup/enable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullSitesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullSitesBackup/enable": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/solutions/backupRestore/fullDrivesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullMailboxesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/fullSitesBackup": "least=DelegatedWork,Application"
+            "/solutions/backupRestore/allDrivesBackup/disable": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allDrivesBackup/enable": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allMailboxesBackup/disable": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allMailboxesBackup/enable": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allSitesBackup/disable": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/allSitesBackup/enable": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -5277,6 +7727,22 @@
         },
         {
           "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/me/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
             "DelegatedWork",
             "DelegatedPersonal",
             "Application"
@@ -5370,6 +7836,7 @@
             "POST"
           ],
           "paths": {
+            "/me/findmeetinglocations": "least=DelegatedWork",
             "/me/findmeetingtimes": "least=DelegatedWork",
             "/users/{id}/findmeetingtimes": "least=DelegatedWork"
           }
@@ -5702,7 +8169,6 @@
             "/me/calendars/delta": "",
             "/me/calendarview/delta": "",
             "/me/events/delta": "",
-            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork,Application,DelegatedPersonal",
             "/users/{id}/calendar/calendarview": "",
             "/users/{id}/calendar/events/delta": "",
             "/users/{id}/calendargroups/{id}/calendars/{id}/calendarview": "",
@@ -5716,6 +8182,33 @@
             "/users/{id}/calendarview/delta": "",
             "/users/{id}/events/delta": "",
             "/users/{id}/reminderview(startdatetime={value},enddatetime={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/places/{id}/checkIns/{calendarEventId}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/me/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "",
+            "/me/settings/workHoursAndLocations/recurrences": "",
+            "/users/{id}/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": ""
           }
         },
         {
@@ -5754,9 +8247,75 @@
           "paths": {
             "/me/calendar/getschedule": "",
             "/me/calendar/permanentDelete": "least=DelegatedWork,Application",
-            "/places/{id}/checkIns": "least=DelegatedWork,Application",
             "/users/{id}/calendar/getschedule": "",
             "/users/{id}/calendar/permanentDelete": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/places/{id}/checkIns": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/occurrences/setCurrentLocation": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/setCurrentLocation": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/me/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
           }
         }
       ],
@@ -5785,6 +8344,7 @@
             "POST"
           ],
           "paths": {
+            "/me/findmeetinglocations": "",
             "/me/findmeetingtimes": "",
             "/users/{id}/findmeetingtimes": ""
           }
@@ -8854,9 +11414,10 @@
             "/devicemanagement/virtualEndpoint/managedLicenses": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfiles(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/retrieveUserSettingsPersistenceProfileUsage(configurationId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrieveUserProvisioningPolicies(userId={value})": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionlatency(cloudpcid={value})": "",
             "/devicemanagement/virtualendpoint/reports/getrealtimeremoteconnectionstatus(cloudpcid={value})": "",
@@ -8903,11 +11464,15 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/start": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/stop": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/troubleshoot": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/deviceimages/{id}/retryUpload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages/{id}/reupload": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}/updateaddomainpassword": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assign": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail/batchCleanupUserSettingsPersistenceProfile": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfdeprovision": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfprovision": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "",
@@ -8940,7 +11505,6 @@
             "POST"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles": "least=DelegatedWork,Application",
@@ -9101,6 +11665,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roleassignments": "least=DelegatedWork,Application",
             "/rolemanagement/devicemanagement/roleassignments": "least=DelegatedWork,Application"
           }
@@ -9252,16 +11817,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationDrifts({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitoringResults({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshotJobs({id})": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationDrifts": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationDrifts/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -9272,8 +11837,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork",
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork",
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -9309,16 +11874,16 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationDrifts": "",
-            "/configurationManagement/configurationDrifts({id})": "",
-            "/configurationManagement/configurationMonitoringResults": "",
-            "/configurationManagement/configurationMonitoringResults({id})": "",
-            "/configurationManagement/configurationMonitors": "",
-            "/configurationManagement/configurationMonitors({id})": "",
-            "/configurationManagement/configurationMonitors({id})/configurationBaseline": "",
-            "/configurationManagement/configurationSnapshotJobs": "",
-            "/configurationManagement/configurationSnapshotJobs({id})": "",
-            "/configurationManagement/configurationSnapshots({id})": ""
+            "/admin/configurationManagement/configurationDrifts": "",
+            "/admin/configurationManagement/configurationDrifts/{id}": "",
+            "/admin/configurationManagement/configurationMonitoringResults": "",
+            "/admin/configurationManagement/configurationMonitoringResults/{id}": "",
+            "/admin/configurationManagement/configurationMonitors": "",
+            "/admin/configurationManagement/configurationMonitors/{id}": "",
+            "/admin/configurationManagement/configurationMonitors/{id}/configurationBaseline": "",
+            "/admin/configurationManagement/configurationSnapshotJobs": "",
+            "/admin/configurationManagement/configurationSnapshotJobs/{id}": "",
+            "/admin/configurationManagement/configurationSnapshots/{id}": ""
           }
         },
         {
@@ -9329,8 +11894,8 @@
             "GET"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "",
-            "/configurationManagement/configurationApplications({id})": ""
+            "/admin/configurationManagement/configurationApplications": "",
+            "/admin/configurationManagement/configurationApplications/{id}": ""
           }
         },
         {
@@ -9342,8 +11907,8 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
-            "/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
         {
@@ -9354,7 +11919,7 @@
             "POST"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications": "least=DelegatedWork"
           }
         },
         {
@@ -9366,7 +11931,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -9377,7 +11942,7 @@
             "PATCH"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -9389,7 +11954,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationMonitors({id})": "least=DelegatedWork,Application"
+            "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -9400,7 +11965,7 @@
             "DELETE"
           ],
           "paths": {
-            "/configurationManagement/configurationApplications({id})": "least=DelegatedWork"
+            "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -9942,6 +12507,120 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
+    "CopilotPackages.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all packages information",
+          "adminDescription": "Allows the user to read the packages information",
+          "userDisplayName": "Read all packages information",
+          "userDescription": "Allows the app to read packages information.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all packages information",
+          "adminDescription": "Allows the app to read packages information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
+    "CopilotPackages.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and update all packages information",
+          "adminDescription": "Allows the user to read and update the packages information",
+          "userDisplayName": "Read and update all packages information",
+          "userDescription": "Allows the app to read and update packages information.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and update all packages information",
+          "adminDescription": "Allows the app to read and update packages information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/block": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/reassign": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/unblock": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/update": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/admin/catalog/packages/{packageId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
       }
     },
     "CopilotSettings-LimitedMode.Read": {
@@ -16397,13 +19076,11 @@
             "/directory/administrativeunits/{id}/members": "",
             "/groups/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/groups/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork",
-            "/me/changepassword": "least=DelegatedWork",
             "/privilegedapproval": "least=DelegatedWork",
             "/privilegedroleassignments/{id}/makeeligible": "least=DelegatedWork",
             "/privilegedroleassignments/{id}/makepermanent": "least=DelegatedWork",
             "/privilegedroles/{id}/selfactivate": "least=DelegatedWork",
             "/privilegedroles/{id}/selfdeactivate": "least=DelegatedWork",
-            "/users/{id}/changepassword": "least=DelegatedWork",
             "/users/{id}/deletepasswordsinglesignoncredentials": "least=DelegatedWork",
             "/users/{id}/getpasswordsinglesignoncredentials": "least=DelegatedWork"
           }
@@ -20431,6 +23108,44 @@
         "ownerSecurityGroup": "cpimmsgraphadmins"
       }
     },
+    "ExchangeMessageTrace.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Search the email message trace",
+          "adminDescription": "Allows the app to search the email message trace on behalf of the signed-in user.",
+          "userDisplayName": "Search the email message trace",
+          "userDescription": "Allows the app to search the email message trace on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Search the email message trace",
+          "adminDescription": "Allows the app to search the email message trace, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/tracing/messagetraces": "least=DelegatedWork,Application",
+            "/admin/exchange/tracing/messagetraces/{id}": "least=DelegatedWork,Application",
+            "/admin/exchange/tracing/messagetraces/{id}/getDetailsByRecipient(recipientAddress={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "transportdp"
+      }
+    },
     "ExternalConnection.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -24437,6 +27152,17 @@
           "paths": {
             "/storage/fileStorage/containers/{id}/sharePointGroups/{id}": "least=Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/retrieval": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -26227,6 +28953,81 @@
             "/auditlogs/signins/confirmcompromised": "least=Application",
             "/auditlogs/signins/confirmsafe": "least=Application",
             "/auditlogs/signins/dismiss": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
+    "IdentityRiskyAgent.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read risky agents information",
+          "adminDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read risky agents information",
+          "userDescription": "Allows the app to read risky agents information in your organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all risky agents information",
+          "adminDescription": "Allows the app to read the risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AadIpUxDevAdmin"
+      }
+    },
+    "IdentityRiskyAgent.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on behalf of the signed-in user. Update operations include dismissing risky agents.",
+          "userDisplayName": "Read and write risky agents information",
+          "userDescription": "Allows the app to read and update identity risky agents information for all agents in your organization on your behalf. Update operations include dismissing risky agents.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write risky agents information",
+          "adminDescription": "Allows the app to read and update risky agents information in your organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identityprotection/riskyagents/confirmcompromised": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/confirmSafe": "least=DelegatedWork,Application",
+            "/identityprotection/riskyagents/dismiss": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -29338,6 +32139,114 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxConfigItem.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read user's UserConfiguration objects",
+          "adminDescription": "Allows the app to read user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read your UserConfiguration objects",
+          "userDescription": "Allows the app to read your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all users' UserConfiguration objects",
+          "adminDescription": "Allows the app to read all users' UserConfiguration objects.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphExoSchemaAdmin"
+      }
+    },
+    "MailboxConfigItem.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write user's UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write your UserConfiguration objects",
+          "userDescription": "Allows the app to create, read, update and delete your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read and write user's UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete user's UserConfiguration objects, on behalf of the the signed-in user.",
+          "userDisplayName": "Read and write your UserConfiguration objects",
+          "userDescription": "Allows the app to create, read, update and delete your UserConfiguration objects.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' UserConfiguration objects",
+          "adminDescription": "Allows the app to create, read, update and delete all users' UserConfiguration objects.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/me/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/mailFolders/{id}/userConfigurations/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "GraphExoSchemaAdmin"
+      }
+    },
     "MailboxFolder.Read": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -29346,7 +32255,7 @@
           "adminDescription": "Allows the app to read the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox folders",
           "userDescription": "Allows the app to read your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -29404,7 +32313,7 @@
           "adminDescription": "Allows the app to read and write the user's mailbox folders, on behalf of the the signed-in user.",
           "userDisplayName": "Read and write your mailbox folders",
           "userDescription": "Allows the app to read and write your mailbox folders, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -29480,6 +32389,62 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailboxItem.Export": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Export a user's mailbox items",
+          "adminDescription": "Allows the app to export the user's mailbox items, on behalf of the the signed-in user.",
+          "userDisplayName": "Export your mailbox items",
+          "userDescription": "Allows the app to export your mailbox items, on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.Export.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Export all the users' mailbox items",
+          "adminDescription": "Allows the app to export all the users' mailbox items, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/exportItems": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "MailboxItem.ImportExport": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -29488,7 +32453,7 @@
           "adminDescription": "Allows the app to export and import the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Export and import your mailbox items",
           "userDescription": "Allows the app to export and import your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -29546,7 +32511,7 @@
           "adminDescription": "Allows the app to read the user's mailbox items, on behalf of the the signed-in user.",
           "userDisplayName": "Read your mailbox items",
           "userDescription": "Allows the app to read your mailbox items, on your behalf",
-          "requiresAdminConsent": false,
+          "requiresAdminConsent": true,
           "privilegeLevel": 2
         }
       },
@@ -29660,6 +32625,18 @@
             "/users/{id}/outlook/mastercategories": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -29767,6 +32744,30 @@
             "/me/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/mailfolders/inbox/messagerules/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/outlook/mastercategories/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/settings/workHoursAndLocations": "least=DelegatedWork",
+            "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
           }
         }
       ],
@@ -34002,8 +37003,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
@@ -34013,9 +37017,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
@@ -34136,6 +37143,7 @@
             "GET"
           ],
           "paths": {
+            "/identity/conditionalaccess/classicpolicies": "least=DelegatedWork",
             "/identity/conditionalaccess/vpnconnectivitycertificates": "least=DelegatedWork",
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork",
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}/downloadbase64certificate": "least=DelegatedWork",
@@ -34163,6 +37171,53 @@
           ],
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/classicpolicies/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/getControls": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "least=DelegatedWork",
+            "/identity/conditionalaccess/claimProviders/{name}/validate": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": "least=DelegatedWork"
           }
         }
       ],
@@ -34427,7 +37482,8 @@
             "GET"
           ],
           "paths": {
-            "/identity/conditionalaccess/authenticationcontextclassreferences": ""
+            "/identity/conditionalaccess/authenticationcontextclassreferences": "",
+            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34541,6 +37597,36 @@
             "/onpremisespublishingprofiles/{id}/agents": "least=DelegatedWork",
             "/onpremisespublishingprofiles/{id}/agents/{id}": "least=DelegatedWork",
             "/policies/featurerolloutpolicies": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
+      }
+    },
+    "Policy.Read.OnPremAuthenticationPolicy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's on-prem authentication policies",
+          "adminDescription": "Allows the app to read your organization's on-prem authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read your organization's on-prem authentication policies like PTA and single sign-on",
+          "userDescription": "Allows the app to read your organization's on-prem authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies": "least=DelegatedWork",
+            "/policies/onPremAuthenticationPolicies/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -35262,6 +38348,7 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -35340,6 +38427,41 @@
           ],
           "paths": {
             "/identity/conditionalaccess/vpnconnectivitycertificates/{thumbprint}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/classicpolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders": "",
+            "/identity/conditionalaccess/claimProviders/{name}/validate": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/conditionalaccess/claimProviders/{name}": ""
           }
         }
       ],
@@ -35524,8 +38646,11 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         },
         {
@@ -35544,9 +38669,12 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTips": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -35854,6 +38982,49 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "mobilitypolicyperms"
+      }
+    },
+    "Policy.ReadWrite.OnPremAuthenticationPolicy": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's on-prem authentication policies",
+          "adminDescription": "Allows the app to read and write your organization's on-prem authentication policies on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's on-prem authentication policies like PTA and single sign-on",
+          "userDescription": "Allows the app to read and write your organization's on-prem authentication policies on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/onPremAuthenticationPolicies/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
       }
     },
     "Policy.ReadWrite.PermissionGrant": {
@@ -36200,12 +39371,8 @@
           ],
           "paths": {
             "/communications/getpresencesbyuserid": "",
-            "/users/{id}/presence/clearautomaticlocation": "least=Application",
-            "/users/{id}/presence/clearlocation": "least=Application",
             "/users/{id}/presence/clearpresence": "least=Application",
             "/users/{id}/presence/clearuserpreferredpresence": "least=Application",
-            "/users/{id}/presence/setautomaticlocation": "least=Application",
-            "/users/{id}/presence/setmanuallocation": "least=Application",
             "/users/{id}/presence/setpresence": "least=Application",
             "/users/{id}/presence/setstatusmessage": "least=Application",
             "/users/{id}/presence/setuserpreferredpresence": "least=Application"
@@ -38908,6 +42075,9 @@
             "GET"
           ],
           "paths": {
+            "/copilot/reports/getmicrosoft365copilotusageuserdetail(period={value})": "least=DelegatedWork,Application",
+            "/copilot/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
+            "/copilot/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
             "/reports/credentialuserregistrationdetails": "least=DelegatedWork,Application",
             "/reports/getazureadapplicationsigninsummary(period={value})": "least=DelegatedWork,Application",
             "/reports/getbrowserdistributionusercounts(period={value})": "least=DelegatedWork,Application",
@@ -39278,42 +42448,34 @@
           "userDescription": "Allows the app to read your organization's risk prevention providers, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read all identity risk prevention providers",
-          "adminDescription": "Allows the app to read your organization's risk prevention providers, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallVerifications": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallVerifications": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewalls/verify": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewalls/verify": "least=DelegatedWork"
           }
         }
       ],
@@ -39331,33 +42493,25 @@
           "userDescription": "Allows the app to read and write your organization's risk prevention providers, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write all identity risk prevention providers",
-          "adminDescription": "Allows the app to read and write your organization's risk prevention providers, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "GET",
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "DELETE",
@@ -39365,33 +42519,31 @@
             "PATCH"
           ],
           "paths": {
-            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork,Application",
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/fraudProtectionProviders/{id}": "least=DelegatedWork",
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewallProviders/{id}/verify": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewallProviders/{id}/verify": "least=DelegatedWork"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "Application"
+            "DelegatedWork"
           ],
           "methods": [
             "DELETE",
             "GET"
           ],
           "paths": {
-            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork,Application"
+            "/identity/riskPrevention/webApplicationFirewallVerifications/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -44800,7 +47952,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "privacymanagementDSR"
+        "ownerSecurityGroup": "PrivacySolutionAdmin"
       }
     },
     "SubjectRightsRequest.ReadWrite.All": {
@@ -44860,7 +48012,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "privacymanagementDSR"
+        "ownerSecurityGroup": "PrivacySolutionAdmin"
       }
     },
     "Synchronization.Read.All": {
@@ -45185,6 +48337,7 @@
             "/planner/tasks/{id}/assignedtotaskboardformat": "least=DelegatedWork",
             "/planner/tasks/{id}/buckettaskboardformat": "least=DelegatedWork",
             "/planner/tasks/{id}/details": "least=DelegatedWork",
+            "/planner/tasks/{id}/messages": "least=DelegatedWork",
             "/planner/tasks/{id}/progresstaskboardformat": "least=DelegatedWork",
             "/planner/tasks/delta": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/planner/plans": "least=DelegatedWork",
@@ -45718,6 +48871,7 @@
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork",
             "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork",
+            "/planner/tasks/{id}/messages": "least=DelegatedWork",
             "/planner/undo": "least=DelegatedWork"
           }
         },
@@ -45732,6 +48886,30 @@
           "paths": {
             "/planner/rosters/{id}": "least=DelegatedWork",
             "/planner/rosters/{id}/members/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "POST"
+          ],
+          "paths": {
+            "/planner/tasks/{taskId}/messages/{id}/reactions": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/planner/tasks/{id}/messages/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -50042,13 +53220,42 @@
             "/chats/{id}/completemigration": "least=Application",
             "/chats/{id}/messages": "least=Application",
             "/chats/{id}/startmigration": "least=Application",
+            "/chats/{id}/unhideChatForAllUsers": "least=Application",
             "/teams": "",
             "/teams/{id}/channels": "",
             "/teams/{id}/channels/{id}/completemigration": "least=Application",
             "/teams/{id}/channels/{id}/messages": "least=Application",
             "/teams/{id}/channels/{id}/messages/{id}/replies": "least=Application",
             "/teams/{id}/channels/{id}/startmigration": "least=Application",
-            "/teams/{id}/completemigration": "least=Application"
+            "/teams/{id}/completemigration": "least=Application",
+            "/users/{id}/teamwork/sections": "",
+            "/users/{id}/teamwork/sections/{id}/items": "",
+            "/users/{id}/teamwork/sections/{id}/items/{id}/move": "",
+            "/users/{id}/teamwork/sections/{id}/items/reorder": "",
+            "/users/{id}/teamwork/sections/reorder": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/sections/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/sections/{id}": "",
+            "/users/{id}/teamwork/sections/{id}/items/{id}": ""
           }
         }
       ],
@@ -50891,42 +54098,6 @@
         "ownerSecurityGroup": "riskiq-dev"
       }
     },
-    "ThreatSubmission.Read": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read threat submissions",
-          "adminDescription": "Allows the app to read the threat submissions and threat submission policies owned by the signed-in user.",
-          "userDisplayName": "Read threat submissions",
-          "userDescription": "Allows the app to read the threat submissions and threat submission policies that you own on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreats/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreatsubmissionpolicies": "least=DelegatedWork",
-            "/security/threatsubmission/emailthreatsubmissionpolicies/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats/{id}": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
-      }
-    },
     "ThreatSubmission.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -50963,53 +54134,6 @@
             "/security/threatsubmission/filethreats/{id}": "least=Application",
             "/security/threatsubmission/urlthreats": "least=Application",
             "/security/threatsubmission/urlthreats/{id}": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
-      }
-    },
-    "ThreatSubmission.ReadWrite": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write threat submissions",
-          "adminDescription": "Allows the app to read the threat submissions and threat submission policies owned by the signed-in user. Also allows the app to create new threat submissions on behalf of the signed-in user.",
-          "userDisplayName": "Read and write threat submissions",
-          "userDescription": "Allows the app to read the threat submissions and threat submission policies that you own. Also allows the app to create new threat submissions on your behalf.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats/{id}": "",
-            "/security/threatsubmission/emailthreatsubmissionpolicies": "",
-            "/security/threatsubmission/emailthreatsubmissionpolicies/{id}": "",
-            "/security/threatsubmission/filethreats/{id}": "",
-            "/security/threatsubmission/urlthreats/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/security/threatsubmission/emailthreats": "least=DelegatedWork",
-            "/security/threatsubmission/filethreats": "least=DelegatedWork",
-            "/security/threatsubmission/urlthreats": "least=DelegatedWork"
           }
         }
       ],
@@ -51418,6 +54542,17 @@
           ],
           "paths": {
             "/users/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/changePassword": "least=DelegatedWork"
           }
         }
       ],
@@ -53669,6 +56804,8 @@
             "/users/{id}/authentication/qrcodepinmethod/pin": "",
             "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
             "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "",
+            "/users/{id}/authentication/resourcekeyauthenticationmethods": "",
+            "/users/{id}/authentication/resourcekeyauthenticationmethods/{id}": "",
             "/users/{id}/authentication/softwareoathmethods": "",
             "/users/{id}/authentication/softwareoathmethods/{id}": "",
             "/users/{id}/authentication/temporaryaccesspassmethods": "",
@@ -54010,6 +57147,7 @@
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/platformCredentialMethods/{id}": "least=Application",
+            "/users/{id}/authentication/resourcekeyauthenticationmethods/{id}": "",
             "/users/{id}/authentication/softwareoathmethods/{id}": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods/{id}": "least=Application",
             "/users/{id}/authentication/windowshelloforbusinessmethods/{id}": "least=Application"
@@ -57508,30 +60646,31 @@
             "GET"
           ],
           "paths": {
-            "/admin/windows/updates/catalog/entries": "least=DelegatedWork,Application",
-            "/admin/windows/updates/deploymentaudiences/{id}/exclusions": "least=DelegatedWork,Application",
-            "/admin/windows/updates/deploymentaudiences/{id}/members": "least=DelegatedWork,Application",
-            "/admin/windows/updates/knownIssues": "least=DelegatedWork,Application",
-            "/admin/windows/updates/knownIssues/{id}": "least=DelegatedWork,Application",
-            "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/{id}": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/{id}/editions": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/{id}/getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/{id}/knownIssues": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/Default.findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/Default.findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/products/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
-            "/admin/windows/updates/resourceconnections/microsoft.graph.windowsupdates.operationalinsightsconnection": "least=DelegatedWork,Application",
-            "/admin/windows/updates/updatableassets/{id}/microsoft.graph.windowsupdates.updatableassetgroup/members": "least=DelegatedWork,Application",
-            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.azureaddevice": "least=DelegatedWork,Application",
-            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.updatableassetgroup": "least=DelegatedWork,Application",
-            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/microsoft.graph.windowsupdates.contentapproval": "least=DelegatedWork,Application"
+            "/admin/windows/updates/catalog/entries": "",
+            "/admin/windows/updates/deploymentaudiences/{id}/exclusions": "",
+            "/admin/windows/updates/deploymentaudiences/{id}/members": "",
+            "/admin/windows/updates/knownIssues": "",
+            "/admin/windows/updates/knownIssues/{id}": "",
+            "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "",
+            "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "",
+            "/admin/windows/updates/policies/{id}/applicableContent": "",
+            "/admin/windows/updates/products": "",
+            "/admin/windows/updates/products/{id}": "",
+            "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "",
+            "/admin/windows/updates/products/{id}/editions": "",
+            "/admin/windows/updates/products/{id}/getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "",
+            "/admin/windows/updates/products/{id}/knownIssues": "",
+            "/admin/windows/updates/products/Default.findByCatalogId(catalogID={catalogID})": "",
+            "/admin/windows/updates/products/Default.findByEndOfService(monthsFromToday={monthsFromToday})": "",
+            "/admin/windows/updates/products/Default.findByKbNumber(kbNumber={kbNumber})": "",
+            "/admin/windows/updates/products/findByCatalogId(catalogID={catalogID})": "",
+            "/admin/windows/updates/products/findByEndOfService(monthsFromToday={monthsFromToday})": "",
+            "/admin/windows/updates/products/findByKbNumber(kbNumber={kbNumber})": "",
+            "/admin/windows/updates/resourceconnections/microsoft.graph.windowsupdates.operationalinsightsconnection": "",
+            "/admin/windows/updates/updatableassets/{id}/microsoft.graph.windowsupdates.updatableassetgroup/members": "",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.azureaddevice": "",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.updatableassetgroup": "",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/microsoft.graph.windowsupdates.contentapproval": ""
           }
         },
         {
@@ -57546,6 +60685,9 @@
           "paths": {
             "/admin/windows/updates/deploymentaudiences": "least=DelegatedWork,Application",
             "/admin/windows/updates/deployments": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings": "least=DelegatedWork,Application",
             "/admin/windows/updates/resourceconnections": "least=DelegatedWork,Application",
             "/admin/windows/updates/updatableassets": "least=DelegatedWork,Application",
             "/admin/windows/updates/updatepolicies": "least=DelegatedWork,Application",
@@ -57579,6 +60721,9 @@
           ],
           "paths": {
             "/admin/windows/updates/deployments/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/updatepolicies/{id}": "least=DelegatedWork,Application",
             "/admin/windows/updates/updatepolicies/{id}/compliancechanges/{id}": "least=DelegatedWork,Application"
           }
@@ -57605,7 +60750,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "csiaadaccess"
+        "ownerSecurityGroup": "autopatchgraph"
       }
     },
     "WorkforceIntegration.Read.All": {
