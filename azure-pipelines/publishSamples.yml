@@ -53,23 +53,8 @@ extends:
               **\sample-queries\**
             TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-    # - stage: DeployStaging
-    #   # condition: and(contains(variables['Build.SourceBranchName'], 'dev'), succeeded())
-    #   condition: false # disable this stage
-    #   dependsOn: CopyArtifactFiles
-    #   jobs:
-    #   - deployment: staging
-    #     displayName: 'Deploy to Staging'
-    #     environment: graphexplorerapi-staging
-    #     templateContext:
-    #       type: releaseJob
-    #       isProduction: false
-    #       inputs:
-    #       - input: pipelineArtifact
-    #         artifactName: drop
-    #         targetPath: $(Build.ArtifactStagingDirectory)
-    #     strategy:
-    #       runOnce:
+    # Note: A staging deployment stage previously existed here. Reintroduce it as a
+    # conditionally included/guarded stage or template when a staging environment is ready.
     #         deploy:
     #           steps:
     #           - task: AzureFileCopy@6
