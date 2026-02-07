@@ -24104,6 +24104,33 @@
             "/copilot/sharepoint/grounding/fetchResources": "least=DelegatedWork",
             "/drives/{id}/items/{id}/checkAccess": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal"
+          }
         }
       ],
       "ownerInfo": {
@@ -24471,6 +24498,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -25983,6 +26037,25 @@
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/following/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/items/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/root/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/special/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{drivesId}/root/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/root/archive": "least=DelegatedWork,DelegatedPersonal"
+          }
         }
       ],
       "ownerInfo": {
@@ -26668,6 +26741,25 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/root/archive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/root/archive": ""
           }
         }
       ],
@@ -36672,54 +36764,98 @@
           "userDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write organization places",
+          "adminDescription": "Allows the app to manage organization places (conference rooms and room lists) for calendar events and other applications, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/places/{id}": "",
+            "/places/{id}/descendants": "",
+            "/places/{id}/microsoft.graph.building/map": "",
+            "/places/{id}/microsoft.graph.building/map/footprints": "",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units": "",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "",
+            "/places/{id}/microsoft.graph.roomlist/rooms": "",
+            "/places/{id}/microsoft.graph.roomlist/workspaces": "",
+            "/places/getOperation": "",
+            "/places/listOperations": "",
+            "/places/microsoft.graph.building": "",
+            "/places/microsoft.graph.desk": "",
+            "/places/microsoft.graph.floor": "",
+            "/places/microsoft.graph.room": "",
+            "/places/microsoft.graph.roomlist": "",
+            "/places/microsoft.graph.section": "",
+            "/places/microsoft.graph.workspace": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "PATCH"
           ],
           "paths": {
-            "/places": "least=DelegatedWork",
-            "/places/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+            "/places": "least=DelegatedWork,Application",
+            "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/places": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork"
+            "/places": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/ingestMapFile": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "DELETE"
           ],
           "paths": {
-            "/places/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork",
-            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork"
+            "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/fixtures/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/sections/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/microsoft.graph.building/map/levels/{id}/units/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -45649,6 +45785,8 @@
             "POST"
           ],
           "paths": {
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps/{appId}/unregister": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/{id}/cancel": "least=DelegatedWork,Application"
           }
@@ -45700,6 +45838,7 @@
           ],
           "paths": {
             "/solutions/sharepoint/migrations/crossOrganizationGroupMappings(sourceGroupObjectId={sourceGroupObjectId})": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps/{appId}": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/{id}": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getbysourcegroupmailnickname(sourcemailnickname={sourcemailnickname})": "least=DelegatedWork,Application",
