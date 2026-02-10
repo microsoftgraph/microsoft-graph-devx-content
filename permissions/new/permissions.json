@@ -24104,6 +24104,33 @@
             "/copilot/sharepoint/grounding/fetchResources": "least=DelegatedWork",
             "/drives/{id}/items/{id}/checkAccess": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal"
+          }
         }
       ],
       "ownerInfo": {
@@ -24471,6 +24498,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -25983,6 +26037,25 @@
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/following/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/items/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/root/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drive/special/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/drives/{drivesId}/root/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork,DelegatedPersonal",
+            "/shares/{sharesId}/root/archive": "least=DelegatedWork,DelegatedPersonal"
+          }
         }
       ],
       "ownerInfo": {
@@ -26668,6 +26741,25 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/root/archive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/root/archive": ""
           }
         }
       ],
@@ -45693,6 +45785,8 @@
             "POST"
           ],
           "paths": {
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps/{appId}/unregister": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/{id}/cancel": "least=DelegatedWork,Application"
           }
@@ -45744,6 +45838,7 @@
           ],
           "paths": {
             "/solutions/sharepoint/migrations/crossOrganizationGroupMappings(sourceGroupObjectId={sourceGroupObjectId})": "least=DelegatedWork,Application",
+            "/solutions/sharepoint/migrations/crossorganizationmigrationapps/{appId}": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/{id}": "least=DelegatedWork,Application",
             "/solutions/sharepoint/migrations/crossOrganizationmigrationtasks/getbysourcegroupmailnickname(sourcemailnickname={sourcemailnickname})": "least=DelegatedWork,Application",
