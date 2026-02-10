@@ -53,42 +53,9 @@ extends:
               **\sample-queries\**
             TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-    - stage: DeployStaging
-      # condition: and(contains(variables['Build.SourceBranchName'], 'dev'), succeeded())
-      condition: false # disable this stage
-      dependsOn: CopyArtifactFiles
-      jobs:
-      - deployment: staging
-        displayName: 'Deploy to Staging'
-        environment: graphexplorerapi-staging
-        templateContext:
-          type: releaseJob
-          isProduction: false
-          inputs:
-          - input: pipelineArtifact
-            artifactName: drop
-            targetPath: $(Build.ArtifactStagingDirectory)
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-              - task: AzureFileCopy@6
-                displayName: 'Upload Sample Query files'
-                inputs:
-                  SourcePath: '$(Build.ArtifactStagingDirectory)/sample-queries/*'
-                  azureSubscription: 'DevX PPE Content Managed Identity Connection'
-                  Destination: AzureBlob
-                  storage: devxapistppeeastus
-                  ContainerName: 'staging-sample-queries'
-
-              - task: AzureFileCopy@6
-                displayName: 'Upload Permission Description Files '
-                inputs:
-                  SourcePath: '$(Build.ArtifactStagingDirectory)/permissions/*'
-                  azureSubscription: 'DevX PPE Content Managed Identity Connection'
-                  Destination: AzureBlob
-                  storage: devxapistppeeastus
-                  ContainerName: 'staging-permissions'
+    # Note: A staging deployment stage previously existed here. Reintroduce it as a
+    # conditionally included/guarded stage or template when a staging environment is ready.
+    # Check history for complete
 
 
     - stage: DeployProduction
