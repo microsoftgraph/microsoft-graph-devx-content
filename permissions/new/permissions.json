@@ -27649,6 +27649,42 @@
         "ownerSecurityGroup": "ddsappperm"
       }
     },
+    "Group-XTenantIdentitySync.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "adminDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "userDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "adminDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idsync"
+      }
+    },
     "Group.Create": {
       "authorizationType": "oAuth2",
       "schemes": {
