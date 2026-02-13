@@ -11448,6 +11448,7 @@
             "/devicemanagement/manageddevices/bulkreprovisioncloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulkrestorecloudpc": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/bulksetcloudpcreviewstatus": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudApps": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudApps/publish": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudApps/reset": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudApps/unpublish": "least=DelegatedWork,Application",
@@ -11523,7 +11524,6 @@
             "PATCH"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/cloudApps/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/externalpartnersettings/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/organizationsettings": "least=DelegatedWork,Application"
           }
@@ -11648,6 +11648,7 @@
             "PATCH"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/cloudApps/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
@@ -27649,6 +27650,42 @@
         "ownerSecurityGroup": "ddsappperm"
       }
     },
+    "Group-XTenantIdentitySync.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "adminDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, on behalf of the signed-in user.",
+          "userDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "userDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all Group Cross-Tenant Identity Synchronization properties",
+          "adminDescription": "Allows the app to read all Cross-Tenant Identity Synchronization properties on Groups, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idsync"
+      }
+    },
     "Group.Create": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -33474,6 +33511,7 @@
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/efpConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -33564,6 +33602,7 @@
             "/networkAccess/contentPolicies/{id}/policyRules": "",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "",
             "/networkaccess/discovery/discoveredApplicationSegments": "",
+            "/networkAccess/efpConfig": "",
             "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
@@ -33670,6 +33709,7 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/efpConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
@@ -53793,6 +53833,74 @@
           ],
           "paths": {
             "/teams/{id}/tags/{id}/members/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamworkTargetedMessage.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all targeted messages of group chat or channel",
+          "adminDescription": "Allows the app to read all group chat or channel targeted messages in Microsoft Teams.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/teamwork/getAllRetainedTargetedMessages": "least=Application",
+            "/users/{id}/teamwork/getAllTargetedMessages": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "TeamworkTargetedMessage.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update targeted messages of group chat or channel belonging to the user",
+          "adminDescription": "Allows the user to update group chat or channel targeted messages in Microsoft Teams.",
+          "userDisplayName": "Update targeted messages belonging to the user",
+          "userDescription": "Update targeted messages of group chat or channel on your behalf",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{user-id | user-principal-name}/chats/{chat-id}/targetedMessages/{message-id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{user-id | user-principal-name}/teamwork/deleteTargetedMessage": "least=DelegatedWork"
           }
         }
       ],
