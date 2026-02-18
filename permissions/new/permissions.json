@@ -27714,6 +27714,55 @@
         "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
+    "Group.ManageProtection.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage the Microsoft Information Protection (MIP) label for M365 and security groups.",
+          "adminDescription": "Allows the app to list groups, and to read their basic properties and manage the MIP label for all label enabled groups on behalf of the signed-in user. ",
+          "userDisplayName": "Manage group label.",
+          "userDescription": "Allows the app to list groups, to read their properties, and manage the MIP label on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Manage the Microsoft Information Protection (MIP) label for M365 and security groups.",
+          "adminDescription": "Allows the app to list groups, and to read their basic properties and manage the MIP label for all label enabled groups without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups": "",
+            "/groups/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
     "Group.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
