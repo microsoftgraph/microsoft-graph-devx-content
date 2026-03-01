@@ -60918,6 +60918,84 @@
         "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
+    "WindowsUpdates.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Windows update deployment settings",
+          "adminDescription": "Allows the app to read all Windows update deployment settings for the organization on behalf of the signed-in user.",
+          "userDisplayName": "Read all Windows update deployment settings",
+          "userDescription": "Allows the app to read all Windows update deployment settings for the organization on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Windows update deployment settings",
+          "adminDescription": "Allows the app to read all Windows update deployment settings for the organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/windows/updates/catalog/entries": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}/exclusions": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}/members": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deployments": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deployments/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/applicableContent": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/editions": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/knownIssues": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections/microsoft.graph.windowsupdates.operationalinsightsconnection": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/{id}/microsoft.graph.windowsupdates.updatableassetgroup/members": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.azureaddevice": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.updatableassetgroup": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/microsoft.graph.windowsupdates.contentapproval": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "autopatchgraph"
+      }
+    },
     "WindowsUpdates.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
