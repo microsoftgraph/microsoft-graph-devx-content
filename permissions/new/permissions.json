@@ -1483,13 +1483,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all agent identity blueprints.",
-          "adminDescription": "Allows the app to read, update, and delete agent identity blueprints on behalf of the signed-in user.",
+          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprints on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read and write all agent identity blueprints.",
-          "adminDescription": "Allows the app to read, update, and delete agent identity blueprints without a signed-in user.",
+          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1742,13 +1742,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all agent identity blueprint principals.",
-          "adminDescription": "Allows the app to read, update, and delete agent identity blueprint principals on behalf of the signed-in user.",
+          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read and write all agent identity blueprint principals.",
-          "adminDescription": "Allows the app to read, update, and delete agent identity blueprint principals without a signed-in user.",
+          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -3760,6 +3760,7 @@
             "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/createdobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/delegatedpermissionclassifications": "least=DelegatedWork,Application",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/memberof": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/owners": "least=DelegatedWork,Application",
@@ -3770,6 +3771,7 @@
             "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/createdobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/memberof": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/owners": "least=DelegatedWork,Application",
@@ -3828,12 +3830,14 @@
             "/me/getmemberobjects": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/serviceprincipals/{id}/checkmembergroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/checkmemberobjects": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/getmembergroups": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/getmemberobjects": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "least=DelegatedWork,Application;AlsoRequires=AppRoleAssignment.ReadWrite.All",
             "/users/{id}/checkmembergroups": "least=DelegatedWork,Application",
             "/users/{id}/checkmemberobjects": "least=DelegatedWork,Application",
             "/users/{id}/getmembergroups": "least=DelegatedWork,Application",
@@ -4193,6 +4197,7 @@
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
             "/serviceprincipals(appid={value})/createdobjects": "",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "",
             "/serviceprincipals(appid={value})/memberof": "",
             "/serviceprincipals(appid={value})/ownedobjects": "",
             "/serviceprincipals(appid={value})/owners": "",
@@ -4201,6 +4206,7 @@
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/createdobjects": "",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/owners": "",
@@ -4474,6 +4480,7 @@
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
             "/serviceprincipals(appid={value})/delegatedpermissionclassifications": "",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "",
             "/serviceprincipals(appid={value})/ownedobjects": "",
             "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals(appid={value})/sponsors": "",
@@ -4481,6 +4488,7 @@
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/createdobjects": "",
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/ownedobjects": "",
             "/serviceprincipals/{id}/owners": "",
@@ -4624,8 +4632,10 @@
           "paths": {
             "/serviceprincipals(appid={value})/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
             "/serviceprincipals(appid={value})/approleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
             "/serviceprincipals/{id}/approleassignedto": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
-            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All"
+            "/serviceprincipals/{id}/approleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "least=DelegatedWork,Application;AlsoRequires=Application.Read.All,Directory.Read.All"
           }
         }
       ],
@@ -13634,7 +13644,9 @@
             "GET"
           ],
           "paths": {
+            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "least=Application",
             "/serviceprincipals(appid={value})/oauth2permissiongrants": "least=Application",
+            "/serviceprincipals/{id}/inheritedoauth2permissiongrants": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/users/{id}/oauth2permissiongrants": ""
           }
@@ -13647,6 +13659,7 @@
             "GET"
           ],
           "paths": {
+            "/me/inheritedoauth2permissiongrants": "",
             "/me/oauth2permissiongrants": ""
           }
         },
@@ -19345,6 +19358,7 @@
             "/serviceprincipals(appid={value})": "",
             "/serviceprincipals(appid={value})/createdobjects": "",
             "/serviceprincipals(appid={value})/delegatedpermissionclassifications": "",
+            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/memberof": "",
             "/serviceprincipals(appid={value})/oauth2permissiongrants": "least=DelegatedWork",
             "/serviceprincipals(appid={value})/ownedobjects": "",
@@ -19352,6 +19366,7 @@
             "/serviceprincipals/{id}": "",
             "/serviceprincipals/{id}/createdobjects": "",
             "/serviceprincipals/{id}/delegatedpermissionclassifications": "",
+            "/serviceprincipals/{id}/inheritedoauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "least=DelegatedWork,Application",
             "/serviceprincipals/{id}/ownedobjects": "",
@@ -19429,6 +19444,7 @@
             "/me/cloudLicensing/waitingMembers/{id}/allotment": "",
             "/me/createdobjects": "",
             "/me/directreports": "",
+            "/me/inheritedoauth2permissiongrants": "least=DelegatedWork",
             "/me/joinedteams": "",
             "/me/licensedetails": "",
             "/me/manager": "",
@@ -19457,9 +19473,11 @@
             "/applications/{id}/owners": "",
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "",
             "/serviceprincipals(appid={value})/owners": "",
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "",
             "/serviceprincipals/{id}/owners": ""
           }
         },
@@ -19647,6 +19665,8 @@
             "/serviceprincipals(appid={value})/approleassignedto": "",
             "/serviceprincipals(appid={value})/approleassignments": "",
             "/serviceprincipals(appid={value})/createdobjects": "",
+            "/serviceprincipals(appid={value})/inheritedapproleassignments": "",
+            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "",
             "/serviceprincipals(appid={value})/memberof": "",
             "/serviceprincipals(appid={value})/oauth2permissiongrants": "",
             "/serviceprincipals(appid={value})/ownedobjects": "",
@@ -19654,6 +19674,8 @@
             "/serviceprincipals/{id}/approleassignedto": "",
             "/serviceprincipals/{id}/approleassignments": "",
             "/serviceprincipals/{id}/createdobjects": "",
+            "/serviceprincipals/{id}/inheritedapproleassignments": "",
+            "/serviceprincipals/{id}/inheritedoauth2permissiongrants": "",
             "/serviceprincipals/{id}/memberof": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/ownedobjects": "",
@@ -33548,6 +33570,10 @@
             "GET"
           ],
           "paths": {
+            "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/connectivityConfiguration": "least=DelegatedWork,Application",
@@ -33558,6 +33584,10 @@
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
             "/networkAccess/efpConfig": "least=DelegatedWork,Application",
@@ -33579,6 +33609,10 @@
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
             "/networkAccess/privateNetworks": "least=DelegatedWork,Application",
             "/networkAccess/privateNetworks/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/promptPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/promptPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/promptPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/promptPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/securityProviderPolicySchemas": "least=DelegatedWork,Application",
@@ -33641,6 +33675,10 @@
             "/networkaccess/alerts/getAlertFrequencies": "",
             "/networkaccess/alerts/getAlertSeveritySummaries": "",
             "/networkaccess/alerts/getAlertSummaries": "",
+            "/networkAccess/cloudFirewallPolicies": "",
+            "/networkAccess/cloudFirewallPolicies/{id}": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "",
             "/networkAccess/connectivity/branches": "",
             "/networkAccess/connectivity/branches/{id}": "",
             "/networkAccess/connectivity/branches/{id}/connectivityConfiguration": "",
@@ -33721,6 +33759,8 @@
             "POST"
           ],
           "paths": {
+            "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
@@ -33754,6 +33794,8 @@
             "PATCH"
           ],
           "paths": {
+            "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
@@ -33791,6 +33833,8 @@
             "DELETE"
           ],
           "paths": {
+            "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -48558,6 +48602,7 @@
             "/planner/plans/{id}/details": "least=DelegatedWork",
             "/planner/plans/{id}/getUsageRights": "least=DelegatedWork",
             "/planner/plans/{id}/goals": "least=DelegatedWork",
+            "/planner/plans/{id}/historyItems": "least=DelegatedWork",
             "/planner/plans/{id}/tasks": "least=DelegatedWork",
             "/planner/rosters/{id}": "least=DelegatedWork",
             "/planner/rosters/{id}/members": "least=DelegatedWork",
@@ -48741,6 +48786,7 @@
             "/planner/plans/{id}/dependencies": "least=Application",
             "/planner/plans/{id}/details": "least=Application",
             "/planner/plans/{id}/goals": "least=Application",
+            "/planner/plans/{id}/historyItems": "least=Application",
             "/planner/plans/{id}/tasks": "least=Application",
             "/planner/rosters/{id}": "least=Application",
             "/planner/rosters/{id}/members": "least=Application",
@@ -48845,6 +48891,7 @@
             "/planner/plans/{id}/buckets": "",
             "/planner/plans/{id}/dependencies": "",
             "/planner/plans/{id}/goals": "",
+            "/planner/plans/{id}/historyItems": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
             "/teams/{id}/channels/{id}/planner/plans": "",
@@ -49193,6 +49240,7 @@
             "/planner/plans/{id}/buckets": "",
             "/planner/plans/{id}/dependencies": "",
             "/planner/plans/{id}/goals": "",
+            "/planner/plans/{id}/historyItems": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
             "/teams/{id}/channels/{id}/planner/plans": "",
@@ -60916,6 +60964,84 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
+    "WindowsUpdates.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Windows update deployment settings",
+          "adminDescription": "Allows the app to read all Windows update deployment settings for the organization on behalf of the signed-in user.",
+          "userDisplayName": "Read all Windows update deployment settings",
+          "userDescription": "Allows the app to read all Windows update deployment settings for the organization on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Windows update deployment settings",
+          "adminDescription": "Allows the app to read all Windows update deployment settings for the organization without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/windows/updates/catalog/entries": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}/exclusions": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deploymentaudiences/{id}/members": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deployments": "least=DelegatedWork,Application",
+            "/admin/windows/updates/deployments/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/knownIssues/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/applicableContent": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/approvals/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings": "least=DelegatedWork,Application",
+            "/admin/windows/updates/policies/{id}/rings/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/Default.getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/editions": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/getKnownIssuesByTimeRange(daysInPast={daysInPast},includeAllActive={includeAllActive})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/{id}/knownIssues": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/Default.findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByCatalogId(catalogID={catalogID})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByEndOfService(monthsFromToday={monthsFromToday})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/products/findByKbNumber(kbNumber={kbNumber})": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/resourceconnections/microsoft.graph.windowsupdates.operationalinsightsconnection": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/{id}/microsoft.graph.windowsupdates.updatableassetgroup/members": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.azureaddevice": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatableassets/microsoft.graph.windowsupdates.updatableassetgroup": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/{id}": "least=DelegatedWork,Application",
+            "/admin/windows/updates/updatepolicies/{id}/compliancechanges/microsoft.graph.windowsupdates.contentapproval": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "autopatchgraph"
       }
     },
     "WindowsUpdates.ReadWrite.All": {
