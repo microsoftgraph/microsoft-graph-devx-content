@@ -5706,9 +5706,8 @@
             "GET"
           ],
           "paths": {
-            "/solutions/backupRestore/allDrivesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allMailboxesBackup": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allSitesBackup": "least=DelegatedWork,Application"
+            "/solutions/backupRestore/reports/getStatisticsByPolicy(policyId='{policyId}')": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/reports/getStatisticsByWorkload(workloadId='{workloadId}')": "least=DelegatedWork,Application"
           }
         },
         {
@@ -5720,8 +5719,26 @@
             "GET"
           ],
           "paths": {
-            "/solutions/backupRestore/reports/getStatisticsByPolicy(policyId='{policyId}')": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/reports/getStatisticsByWorkload(workloadId='{workloadId}')": "least=DelegatedWork,Application"
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnits": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnits": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnits": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -5964,15 +5981,41 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnits": "",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnits": "",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnits": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": "",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnitsBulkAdditionJobs/{bulkAdditionJobId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
             "POST"
           ],
           "paths": {
-            "/solutions/backupRestore/allDrivesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allDrivesBackup/enable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allMailboxesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allMailboxesBackup/enable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allSitesBackup/disable": "least=DelegatedWork,Application",
-            "/solutions/backupRestore/allSitesBackup/enable": "least=DelegatedWork,Application"
+            "/solutions/backupRestore/exchangeProtectionPolicies/{policyId}/mailboxExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}/driveExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application",
+            "/solutions/backupRestore/sharePointProtectionPolicies/{policyId}/siteExclusionUnitsBulkAdditionJobs": "least=DelegatedWork,Application"
           }
         }
       ],
