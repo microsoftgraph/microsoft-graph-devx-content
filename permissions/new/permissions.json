@@ -13675,7 +13675,7 @@
           "adminDisplayName": "Manage all delegated permission grants",
           "adminDescription": "Allows the app to manage permission grants for delegated permissions exposed by any API (including Microsoft Graph), without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 5
         }
       },
       "pathSets": [
@@ -13688,8 +13688,8 @@
             "GET"
           ],
           "paths": {
-            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "least=Application",
-            "/serviceprincipals(appid={value})/oauth2permissiongrants": "least=Application",
+            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "",
+            "/serviceprincipals(appid={value})/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/inheritedoauth2permissiongrants": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/users/{id}/oauth2permissiongrants": ""
@@ -13717,7 +13717,7 @@
             "POST"
           ],
           "paths": {
-            "/oauth2permissiongrants": "least=DelegatedWork,Application"
+            "/oauth2permissiongrants": ""
           }
         },
         {
@@ -13731,7 +13731,7 @@
             "PATCH"
           ],
           "paths": {
-            "/oauth2permissiongrants/{id}": "least=DelegatedWork,Application"
+            "/oauth2permissiongrants/{id}": ""
           }
         },
         {
@@ -26488,6 +26488,21 @@
           "paths": {
             "/me/drive/items/{id}": "",
             "/me/drive/items/{id}/permissions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/me/drive/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": "least=DelegatedWork,Application"
           }
         },
         {
@@ -46591,6 +46606,20 @@
           "paths": {
             "/sites/getOperationStatus(operationId='{id}')": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "",
+            "/me/drive/items/{id}/retentionLabel": "",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -47900,6 +47929,21 @@
             "/sites/{site-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/items/{itemId}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "",
+            "/me/drive/items/{id}/retentionLabel": "",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
           }
         },
         {
