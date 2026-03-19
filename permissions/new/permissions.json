@@ -20742,6 +20742,10 @@
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
@@ -20882,6 +20886,7 @@
             "/compliance/ediscovery/cases/{id}/settings/resettodefault": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/purgedata": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/close": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "",
@@ -20964,6 +20969,10 @@
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "",
             "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "",
             "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations/{id}": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "",
@@ -20991,6 +21000,7 @@
             "DELETE"
           ],
           "paths": {
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources/{id}": "least=DelegatedWork,Application"
           }
@@ -46144,7 +46154,31 @@
           "privilegeLevel": 2
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}/$value": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/delta": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/delta": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46159,7 +46193,24 @@
           "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/notes": "least=Application",
+            "/users/{id}/notes/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "least=Application",
+            "/users/{id}/notes/delta": "least=Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46184,7 +46235,74 @@
           "privilegeLevel": 2
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/notes": "",
+            "/me/notes/{id}": "",
+            "/me/notes/{id}/attachments": "",
+            "/me/notes/{id}/attachments/{id}": "",
+            "/me/notes/{id}/attachments/{id}/$value": "",
+            "/me/notes/delta": "",
+            "/users/{id}/notes": "",
+            "/users/{id}/notes/{id}": "",
+            "/users/{id}/notes/{id}/attachments": "",
+            "/users/{id}/notes/{id}/attachments/{id}": "",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "",
+            "/users/{id}/notes/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46199,7 +46317,59 @@
           "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/notes": "",
+            "/users/{id}/notes/{id}": "",
+            "/users/{id}/notes/{id}/attachments": "",
+            "/users/{id}/notes/{id}/attachments/{id}": "",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "",
+            "/users/{id}/notes/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/notes": "least=Application",
+            "/users/{id}/notes/{id}/attachments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/notes/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/notes/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
