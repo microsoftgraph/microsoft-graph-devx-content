@@ -1287,6 +1287,97 @@
       "skipTest": false
     },
     {
+      "id": "523eeb65-f5dc-48b1-afd0-54a53418a9ca",
+      "category": "SharePoint Embedded",
+      "method": "POST",
+      "humanName": "create a container",
+      "requestUrl": "/v1.0/storage/fileStorage/containers",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/filestoragecontainer-post?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"displayName\": \"My Application Storage Container\",\r\n  \"description\": \"Description of My Application Storage Container\",\r\n  \"containerTypeId\": \"{containerTypeId}\"\r\n}",
+      "skipTest": false
+    },
+    {
+      "id": "3507a75c-e4d8-47d6-8e09-6f2d5382bf65",
+      "category": "SharePoint Embedded",
+      "method": "GET",
+      "humanName": "get a container",
+      "requestUrl": "/v1.0/storage/fileStorage/containers/{containerId}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/filestoragecontainer-get?view=graph-rest-1.0",
+      "skipTest": false
+    },
+    {
+      "id": "b850b24e-ff82-4946-861c-7c5ae1565e45",
+      "category": "SharePoint Embedded",
+      "method": "POST",
+      "humanName": "add a writer to a container",
+      "requestUrl": "/v1.0/storage/fileStorage/containers/{containerId}/permissions",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/filestoragecontainer-post-permissions?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"roles\": [\"writer\"],\r\n  \"grantedToV2\": {\r\n    \"user\": {\r\n      \"userPrincipalName\": \"{userEmail}\"\r\n    }\r\n  }\r\n}",
+      "skipTest": false
+    },
+    {
+      "id": "6a17fab7-4623-4173-9460-2417b60a4c04",
+      "category": "SharePoint Embedded",
+      "method": "POST",
+      "humanName": "add a choice column to a container",
+      "requestUrl": "/v1.0/storage/fileStorage/containers/{containerId}/columns",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/filestoragecontainer-post-columns?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"name\": \"color\",\r\n  \"displayName\": \"Color\",\r\n  \"description\": \"Color of the item\",\r\n  \"choice\": {\r\n    \"choices\": [\"red\", \"blue\", \"green\"]\r\n  }\r\n}",
+      "skipTest": false
+    },
+    {
+      "id": "66794bb1-0c60-4a43-aee9-95715c1765fc",
+      "category": "SharePoint Embedded",
+      "method": "POST",
+      "humanName": "create a folder in a container",
+      "requestUrl": "/v1.0/drives/{containerId}/root/children",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/driveitem-post-children?view=graph-rest-1.0",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "postBody": "{\r\n  \"name\": \"New Folder\",\r\n  \"folder\": {}\r\n}",
+      "skipTest": false
+    },
+    {
+      "id": "eb82d84e-b403-4adf-a790-8512675e69b5",
+      "category": "SharePoint Embedded",
+      "method": "GET",
+      "humanName": "list items in a container",
+      "requestUrl": "/v1.0/drives/{containerId}/items/root/children",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0",
+      "skipTest": false
+    },
+    {
+      "id": "d860e6da-a685-4f4f-a8ef-66a657268887",
+      "category": "SharePoint Embedded",
+      "method": "GET",
+      "humanName": "get an item in a container",
+      "requestUrl": "/v1.0/drives/{containerId}/items/{itemId}",
+      "docLink": "https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0",
+      "skipTest": false
+    },
+    {
       "id": "b7d7134b-6509-48c5-8ce6-79d431ac4e98",
       "category": "SharePoint Lists",
       "method": "GET",
