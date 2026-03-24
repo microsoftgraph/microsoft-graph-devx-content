@@ -453,8 +453,8 @@
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
             "/administrativeunits/delta": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork",
             "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
           }
@@ -495,8 +495,8 @@
           "paths": {
             "/administrativeunits": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application"
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}/members": "least=DelegatedWork"
           }
         },
         {
@@ -505,13 +505,25 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
+            "DELETE"
+          ],
+          "paths": {
+            "/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "GET",
             "PATCH"
           ],
           "paths": {
             "/administrativeunits/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -525,7 +537,7 @@
           ],
           "paths": {
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -55086,6 +55098,7 @@
             "Application"
           ],
           "methods": [
+            "GET",
             "POST"
           ],
           "paths": {
