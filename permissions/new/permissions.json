@@ -453,8 +453,8 @@
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
             "/administrativeunits/delta": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork",
             "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
           }
@@ -495,8 +495,8 @@
           "paths": {
             "/administrativeunits": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application"
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}/members": "least=DelegatedWork"
           }
         },
         {
@@ -505,13 +505,25 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
+            "DELETE"
+          ],
+          "paths": {
+            "/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "GET",
             "PATCH"
           ],
           "paths": {
             "/administrativeunits/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -525,7 +537,7 @@
           ],
           "paths": {
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -9945,7 +9957,9 @@
           ],
           "paths": {
             "/teams/(team-id)/channels/{id}/messages/{id}": "least=Application",
-            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=Application"
+            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/messages/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "least=Application"
           }
         }
       ],
@@ -13675,7 +13689,7 @@
           "adminDisplayName": "Manage all delegated permission grants",
           "adminDescription": "Allows the app to manage permission grants for delegated permissions exposed by any API (including Microsoft Graph), without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 5
         }
       },
       "pathSets": [
@@ -13688,8 +13702,8 @@
             "GET"
           ],
           "paths": {
-            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "least=Application",
-            "/serviceprincipals(appid={value})/oauth2permissiongrants": "least=Application",
+            "/serviceprincipals(appid={value})/inheritedoauth2permissiongrants": "",
+            "/serviceprincipals(appid={value})/oauth2permissiongrants": "",
             "/serviceprincipals/{id}/inheritedoauth2permissiongrants": "",
             "/serviceprincipals/{id}/oauth2permissiongrants": "",
             "/users/{id}/oauth2permissiongrants": ""
@@ -13717,7 +13731,7 @@
             "POST"
           ],
           "paths": {
-            "/oauth2permissiongrants": "least=DelegatedWork,Application"
+            "/oauth2permissiongrants": ""
           }
         },
         {
@@ -13731,7 +13745,7 @@
             "PATCH"
           ],
           "paths": {
-            "/oauth2permissiongrants/{id}": "least=DelegatedWork,Application"
+            "/oauth2permissiongrants/{id}": ""
           }
         },
         {
@@ -20742,6 +20756,10 @@
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/noncustodialsources": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "least=DelegatedWork,Application",
@@ -20882,6 +20900,7 @@
             "/compliance/ediscovery/cases/{id}/settings/resettodefault": "least=DelegatedWork,Application",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/estimatestatistics": "",
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/purgedata": "least=DelegatedWork,Application",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/close": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/activate": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/applyhold": "",
@@ -20964,6 +20983,10 @@
             "/compliance/ediscovery/cases/{id}/sourcecollections/{id}/lastestimatestatisticsoperation": "",
             "/compliance/ediscovery/cases/{id}/tags/{id}/childtags": "",
             "/compliance/ediscovery/cases/{id}/tags/ashierarchy": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations": "",
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}/locations/{id}": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}": "",
             "/security/cases/ediscoverycases/{id}/custodians/{id}/lastindexoperation": "",
             "/security/cases/ediscoverycases/{id}/noncustodialdatasources/{id}": "",
@@ -20991,6 +21014,7 @@
             "DELETE"
           ],
           "paths": {
+            "/security/cases/ediscoverycases/{id}/caseDatasources/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}/custodiansources/{id}": "least=DelegatedWork,Application",
             "/security/cases/ediscoverycases/{id}/searches/{id}/noncustodialsources/{id}": "least=DelegatedWork,Application"
           }
@@ -26488,6 +26512,21 @@
           "paths": {
             "/me/drive/items/{id}": "",
             "/me/drive/items/{id}/permissions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/me/drive/items/{id}/retentionLabel": "least=DelegatedWork,Application",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": "least=DelegatedWork,Application"
           }
         },
         {
@@ -33563,6 +33602,7 @@
             "/networkaccess/discovery/discoveredApplicationSegments": "least=DelegatedWork,Application",
             "/networkaccess/logs/connections": "least=DelegatedWork,Application",
             "/networkaccess/logs/connections/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/logs/generativeAIInsights": "least=DelegatedWork,Application",
             "/networkaccess/logs/remoteNetworks": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic/{id}": "least=DelegatedWork,Application",
@@ -33751,6 +33791,7 @@
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "",
             "/networkaccess/logs/connections": "",
             "/networkaccess/logs/connections/{id}": "",
+            "/networkaccess/logs/generativeAIInsights": "",
             "/networkaccess/logs/remoteNetworks": "",
             "/networkaccess/logs/traffic": "",
             "/networkaccess/logs/traffic/{id}": "",
@@ -42395,6 +42436,7 @@
             "/copilot/reports/getmicrosoft365copilotusageuserdetail(period={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
+            "/reports/azureADPremiumLicenseInsight": "least=DelegatedWork,Application",
             "/reports/credentialuserregistrationdetails": "least=DelegatedWork,Application",
             "/reports/getazureadapplicationsigninsummary(period={value})": "least=DelegatedWork,Application",
             "/reports/getbrowserdistributionusercounts(period={value})": "least=DelegatedWork,Application",
@@ -46126,7 +46168,31 @@
           "privilegeLevel": 2
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}/$value": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/delta": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/delta": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46141,7 +46207,24 @@
           "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/notes": "least=Application",
+            "/users/{id}/notes/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "least=Application",
+            "/users/{id}/notes/delta": "least=Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46166,7 +46249,74 @@
           "privilegeLevel": 2
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/notes": "",
+            "/me/notes/{id}": "",
+            "/me/notes/{id}/attachments": "",
+            "/me/notes/{id}/attachments/{id}": "",
+            "/me/notes/{id}/attachments/{id}/$value": "",
+            "/me/notes/delta": "",
+            "/users/{id}/notes": "",
+            "/users/{id}/notes/{id}": "",
+            "/users/{id}/notes/{id}/attachments": "",
+            "/users/{id}/notes/{id}/attachments/{id}": "",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "",
+            "/users/{id}/notes/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/me/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/me/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}": "least=DelegatedWork,DelegatedPersonal",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=DelegatedWork,DelegatedPersonal"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46181,7 +46331,59 @@
           "privilegeLevel": 4
         }
       },
-      "pathSets": [],
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/notes": "",
+            "/users/{id}/notes/{id}": "",
+            "/users/{id}/notes/{id}/attachments": "",
+            "/users/{id}/notes/{id}/attachments/{id}": "",
+            "/users/{id}/notes/{id}/attachments/{id}/$value": "",
+            "/users/{id}/notes/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/notes": "least=Application",
+            "/users/{id}/notes/{id}/attachments": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/notes/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/notes/{id}": "least=Application",
+            "/users/{id}/notes/{id}/attachments/{id}": "least=Application"
+          }
+        }
+      ],
       "ownerInfo": {
         "ownerSecurityGroup": "stickynotes"
       }
@@ -46590,6 +46792,20 @@
           ],
           "paths": {
             "/sites/getOperationStatus(operationId='{id}')": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "",
+            "/me/drive/items/{id}/retentionLabel": "",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
           }
         }
       ],
@@ -47900,6 +48116,21 @@
             "/sites/{site-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/items/{itemId}/media/reactions": "least=DelegatedWork,DelegatedPersonal",
             "/users/{user-id}/drive/root:/{item-path}/media/reactions": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/retentionLabel": "",
+            "/groups/{id}/drive/items/{id}/retentionLabel": "",
+            "/me/drive/items/{id}/retentionLabel": "",
+            "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
           }
         },
         {
@@ -53526,8 +53757,8 @@
           "requiresAdminConsent": false
         },
         "Application": {
-          "adminDisplayName": "Create chat and channel messages with anyone's identity and with any timestamp",
-          "adminDescription": "Allows the app to create chat and channel messages, without a signed in user. The app specifies which user appears as the sender, and can backdate the message to appear as if it was sent long ago. The messages can be sent to any chat or channel in the organization.",
+          "adminDisplayName": "Create and update chat and channel messages with anyone's identity and with any timestamp",
+          "adminDescription": "Allows the app to create and update chat and channel messages, without a signed in user. The app specifies which user appears as the sender, and can backdate the message to appear as if it was sent long ago. The messages can be sent to any chat or channel in the organization.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -53567,6 +53798,9 @@
             "PATCH"
           ],
           "paths": {
+            "/chats/{id}/messages/{id}": "",
+            "/teams/{id}/channels/{id}/messages/{id}": "",
+            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
             "/users/{id}/teamwork/sections/{id}": ""
           }
         },
@@ -54864,6 +55098,7 @@
             "Application"
           ],
           "methods": [
+            "GET",
             "POST"
           ],
           "paths": {
