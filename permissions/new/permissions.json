@@ -453,8 +453,8 @@
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
             "/administrativeunits/delta": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork",
             "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
           }
@@ -495,8 +495,8 @@
           "paths": {
             "/administrativeunits": "least=DelegatedWork,Application",
             "/administrativeunits/{id}/members": "least=DelegatedWork,Application",
-            "/directory/administrativeunits": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members": "least=DelegatedWork,Application"
+            "/directory/administrativeunits": "least=DelegatedWork",
+            "/directory/administrativeunits/{id}/members": "least=DelegatedWork"
           }
         },
         {
@@ -505,13 +505,25 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
+            "DELETE"
+          ],
+          "paths": {
+            "/administrativeunits/{id}": "least=DelegatedWork,Application",
+            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "GET",
             "PATCH"
           ],
           "paths": {
             "/administrativeunits/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -525,7 +537,7 @@
           ],
           "paths": {
             "/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application",
-            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork,Application"
+            "/directory/administrativeunits/{id}/members/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -9945,7 +9957,9 @@
           ],
           "paths": {
             "/teams/(team-id)/channels/{id}/messages/{id}": "least=Application",
-            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=Application"
+            "/teams/(team-id)/channels/{id}/messages/{id}/replies/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/messages/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "least=Application"
           }
         }
       ],
@@ -53743,8 +53757,8 @@
           "requiresAdminConsent": false
         },
         "Application": {
-          "adminDisplayName": "Create chat and channel messages with anyone's identity and with any timestamp",
-          "adminDescription": "Allows the app to create chat and channel messages, without a signed in user. The app specifies which user appears as the sender, and can backdate the message to appear as if it was sent long ago. The messages can be sent to any chat or channel in the organization.",
+          "adminDisplayName": "Create and update chat and channel messages with anyone's identity and with any timestamp",
+          "adminDescription": "Allows the app to create and update chat and channel messages, without a signed in user. The app specifies which user appears as the sender, and can backdate the message to appear as if it was sent long ago. The messages can be sent to any chat or channel in the organization.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -53784,6 +53798,9 @@
             "PATCH"
           ],
           "paths": {
+            "/chats/{id}/messages/{id}": "",
+            "/teams/{id}/channels/{id}/messages/{id}": "",
+            "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
             "/users/{id}/teamwork/sections/{id}": ""
           }
         },
@@ -55081,6 +55098,7 @@
             "Application"
           ],
           "methods": [
+            "GET",
             "POST"
           ],
           "paths": {
