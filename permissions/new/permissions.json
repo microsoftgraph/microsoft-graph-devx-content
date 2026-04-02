@@ -3491,8 +3491,8 @@
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "",
-          "adminDescription": "",
+          "adminDisplayName": "Read the trusted certificate authority configuration for applications",
+          "adminDescription": "Allows the app to read the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -3504,50 +3504,12 @@
             "Application"
           ],
           "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "least=DelegatedWork,Application",
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
             "GET"
           ],
           "paths": {
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "least=DelegatedWork,Application",
             "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": "least=DelegatedWork,Application"
           }
         }
@@ -3568,8 +3530,8 @@
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "",
-          "adminDescription": "",
+          "adminDisplayName": "Read and write the trusted certificate authority configuration for applications",
+          "adminDescription": "Allows the app to create, read, update and delete the trusted certificate authority configuration which can be used to restrict application certificates based on their issuing authority, without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -3581,37 +3543,26 @@
             "Application"
           ],
           "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/certificateauthoritypath/certificatebasedapplicationconfigurations/{id}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "",
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
             "GET"
           ],
           "paths": {
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": ""
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities": "least=DelegatedWork,Application"
           }
         },
         {
@@ -3621,11 +3572,11 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
-            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": ""
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}": "least=DelegatedWork,Application",
+            "/directory/certificateauthorities/certificatebasedapplicationconfigurations/{id}/trustedcertificateauthorities/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -5098,11 +5049,11 @@
             "/reports/conditionalaccess/protectedapps": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/securityalerts": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/unprotectedapps": "least=DelegatedWork,Application",
+            "/reports/correlations": "",
+            "/reports/correlations/{id}": "",
+            "/reports/correlations/{id}/identities": "",
+            "/reports/correlations/{id}/identities/{id}": "",
             "/reports/getAppManagementAuditSummary": "least=DelegatedWork,Application",
-            "/reports/identityCorrelation": "least=DelegatedWork,Application",
-            "/reports/identityCorrelation/{id}": "least=DelegatedWork,Application",
-            "/reports/identityCorrelation/{id}/identities": "least=DelegatedWork,Application",
-            "/reports/identityCorrelation/{id}/identities/{id}": "least=DelegatedWork,Application",
             "/reports/reconciliations/provisioning": "least=DelegatedWork,Application",
             "/reports/reconciliations/provisioning/{id}": "least=DelegatedWork,Application",
             "/reports/reconciliations/provisioning/{id}/identities": "least=DelegatedWork,Application",
@@ -5942,7 +5893,9 @@
             "PATCH"
           ],
           "paths": {
-            "/backupRestore/protectionUnits/{protectionUnitId}": "least=DelegatedWork"
+            "/backupRestore/driveProtectionUnits/{driveProtectionUnitId}": "least=DelegatedWork",
+            "/backupRestore/mailboxProtectionUnits/{mailboxProtectionUnitId}": "least=DelegatedWork",
+            "/backupRestore/siteProtectionUnits/{siteProtectionUnitId}": "least=DelegatedWork"
           }
         },
         {
@@ -12471,8 +12424,10 @@
             "POST"
           ],
           "paths": {
+            "/me/dataSecurityAndGovernance/contentUploadSession": "",
             "/me/dataSecurityAndGovernance/processContent": "",
             "/security/dataSecurityAndGovernance/processContentAsync": "least=Application,DelegatedWork",
+            "/users/{userId}/dataSecurityAndGovernance/contentUploadSession": "",
             "/users/{userId}/dataSecurityAndGovernance/processContent": ""
           }
         }
@@ -12509,7 +12464,9 @@
             "POST"
           ],
           "paths": {
+            "/me/dataSecurityAndGovernance/contentUploadSession": "",
             "/me/dataSecurityAndGovernance/processContent": "least=Application,DelegatedWork",
+            "/users/{userId}/dataSecurityAndGovernance/contentUploadSession": "",
             "/users/{userId}/dataSecurityAndGovernance/processContent": "least=Application,DelegatedWork"
           }
         }
@@ -23093,6 +23050,105 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "igaelmlivesite"
+      }
+    },
+    "EntraBackup.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Preview jobs and snapshots",
+          "adminDescription": "Allows the app to list the all the snapshots, jobs and enumerate the changes of a specific preview job, on behalf of the signed-in user.",
+          "userDisplayName": "Read Preview jobs and snapshots",
+          "userDescription": "Allows the app to list the all the snapshots, jobs and enumerate the changes of a specific preview job, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read Preview jobs and snapshots",
+          "adminDescription": "Allows the app to list the all the snapshots, jobs and enumerate the changes of a specific preview job, on behalf of the signed-in user.",
+          "userDisplayName": "Read Preview jobs and snapshots",
+          "userDescription": "Allows the app to list the all the snapshots, jobs and enumerate the changes of a specific preview job, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/directory/recovery/snapshots": "least=Application,DelegatedWork",
+            "/directory/recovery/snapshots/{id}": "least=Application,DelegatedWork",
+            "/directory/recovery/snapshots/{id}/recoveryJobs/{id}/getFailedChanges": "least=Application,DelegatedWork",
+            "/directory/recovery/snapshots/{id}/recoveryPreviewJobs/{id}/getChanges": "least=Application,DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "xtenantex"
+      }
+    },
+    "EntraBackup.ReadWrite.Preview": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create a preview job, read preview job and snapshots",
+          "adminDescription": "Allows the app to  list the all the snapshots, create a preview job and enumerate the changes of a specific preview job, on behalf of the signed-in user.",
+          "userDisplayName": "Create a preview job, read preview job and snapshots",
+          "userDescription": "Allows the app to  list the all the snapshots, create a preview job and enumerate the changes of a specific preview job, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/recovery/snapshots/{id}/recoveryPreviewJobs": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "xtenantex"
+      }
+    },
+    "EntraBackup.ReadWrite.Recovery": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create preview and recovery job, read recovery job and snapshots",
+          "adminDescription": "Allows the app to  list the all the snapshots, create a recovery job and enumerate the changes of a specific recovery job, on behalf of the signed-in user.",
+          "userDisplayName": "Create preview and recovery job, read recovery job and snapshots",
+          "userDescription": "Allows the app to  list the all the snapshots, create a recovery job and enumerate the changes of a specific recovery job, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/directory/recovery/snapshots/{id}/recoveryJobs": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "xtenantex"
       }
     },
     "EventListener.Read.All": {
@@ -33753,7 +33809,7 @@
             "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/efpConfig": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -33856,7 +33912,7 @@
             "/networkAccess/contentPolicies/{id}/policyRules": "",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "",
             "/networkaccess/discovery/discoveredApplicationSegments": "",
-            "/networkAccess/efpConfig": "",
+            "/networkAccess/explicitForwardProxyConfig": "",
             "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
@@ -33974,7 +34030,7 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/efpConfig": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
@@ -42070,7 +42126,11 @@
             "GET"
           ],
           "paths": {
-            "/auditlogs/provisioning": "least=DelegatedWork"
+            "/auditlogs/provisioning": "least=DelegatedWork",
+            "/reports/correlations": "least=DelegatedWork",
+            "/reports/correlations/{id}": "least=DelegatedWork",
+            "/reports/correlations/{id}/identities": "least=DelegatedWork",
+            "/reports/correlations/{id}/identities/{id}": "least=DelegatedWork"
           }
         }
       ],
