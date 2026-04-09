@@ -186,6 +186,8 @@
             "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/batchrecorddecisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/resetdecisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/sendreminder": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/stages/{id}/acceptrecommendations": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/stages/{id}/batchrecorddecisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/stages/{id}/stop": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/definitions/{id}/instances/{id}/stop": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/historydefinitions/{id}/instances/{id}/generatedownloaduri": "least=DelegatedWork,Application",
@@ -12426,6 +12428,7 @@
           "paths": {
             "/me/dataSecurityAndGovernance/contentUploadSession": "",
             "/me/dataSecurityAndGovernance/processContent": "",
+            "/security/dataSecurityAndGovernance/processContent": "least=Application,DelegatedWork",
             "/security/dataSecurityAndGovernance/processContentAsync": "least=Application,DelegatedWork",
             "/users/{userId}/dataSecurityAndGovernance/contentUploadSession": "",
             "/users/{userId}/dataSecurityAndGovernance/processContent": ""
@@ -27230,6 +27233,7 @@
             "/storage/fileStorage/containers/{id}/lock": "",
             "/storage/fileStorage/containers/{id}/permanentDelete": "",
             "/storage/fileStorage/containers/{id}/permissions": "",
+            "/storage/fileStorage/containers/{id}/transferPrincipalOwnership": "least=DelegatedWork",
             "/storage/fileStorage/containers/{id}/unarchive": "",
             "/storage/fileStorage/containers/{id}/unlock": "",
             "/storage/fileStorage/deletedContainers/{id}/restore": ""
