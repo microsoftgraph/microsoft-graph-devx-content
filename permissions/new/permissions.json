@@ -37502,8 +37502,8 @@
             "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy": "",
+            "/policies/crosstenantaccesspolicy/default": "",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
@@ -37515,9 +37515,9 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
@@ -39038,7 +39038,22 @@
             "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy": "",
+            "/policies/crosstenantaccesspolicy/default": "",
+            "/policies/crosstenantaccesspolicy/partners": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "PATCH"
           ],
           "paths": {
@@ -39064,7 +39079,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
@@ -39078,7 +39092,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -39092,7 +39105,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH",
             "PUT"
           ],
