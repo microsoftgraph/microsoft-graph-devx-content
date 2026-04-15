@@ -37502,8 +37502,8 @@
             "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
             "/policies/claimsmappingpolicies/{id}/appliesto": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/default": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy": "",
+            "/policies/crosstenantaccesspolicy/default": "",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
@@ -37515,9 +37515,9 @@
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/default/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": "",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityBasic": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarAvailabilityLimitedDetails": "least=DelegatedWork,Application",
@@ -39038,7 +39038,22 @@
             "Application"
           ],
           "methods": [
-            "GET",
+            "GET"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy": "",
+            "/policies/crosstenantaccesspolicy/default": "",
+            "/policies/crosstenantaccesspolicy/partners": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}": "",
+            "/policies/crosstenantaccesspolicy/partners/{id}/identitysynchronization": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "PATCH"
           ],
           "paths": {
@@ -39064,7 +39079,6 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
@@ -39078,7 +39092,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -39092,7 +39105,6 @@
           ],
           "methods": [
             "DELETE",
-            "GET",
             "PATCH",
             "PUT"
           ],
@@ -58105,7 +58117,6 @@
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/fido2methods/{id}": "",
             "/users/{id}/authentication/hardwareOathMethods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "",
@@ -58228,7 +58239,6 @@
           "paths": {
             "/me/authentication/fido2methods": "",
             "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "",
             "/me/authentication/hardwareoathmethods": "",
             "/me/authentication/methods": "",
             "/me/authentication/methods/{id}": "",
@@ -58245,7 +58255,7 @@
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "",
             "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/creationOptions": "",
+            "/users/{id}/authentication/fido2Methods/creationOptions": "",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/methods/{id}/isUpdateSupported": "",
@@ -58296,7 +58306,7 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "",
+            "/me/authentication/fido2methods": "least=DelegatedWork",
             "/me/authentication/hardwareOathMethods": "",
             "/me/authentication/hardwareOathMethods/{id}/activate": "",
             "/me/authentication/hardwareOathMethods/assignAndActivate": "",
@@ -58304,7 +58314,6 @@
             "/me/authentication/hardwareOathMethods/deactivate": "",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "",
-            "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
@@ -58361,14 +58370,11 @@
           "paths": {
             "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/fido2methods": "least=Application",
-            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application",
             "/me/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application",
             "/users/{id}/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/temporaryaccesspassmethods": "least=DelegatedWork,Application"
@@ -58432,6 +58438,7 @@
             "/me/authentication/temporaryaccesspassmethods": "",
             "/me/authentication/windowshelloforbusinessmethods": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "",
+            "/users/{id}/authentication/fido2Methods/creationOptions": "",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/microsoftauthenticatormethods": "",
@@ -58463,7 +58470,7 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
@@ -58489,6 +58496,7 @@
             "/me/authentication/hardwareOathMethods/deactivate": "least=Application",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=Application",
+            "/users/{id}/authentication/fido2methods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
@@ -59496,19 +59504,6 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -59518,7 +59513,7 @@
           "paths": {
             "/users/{id}/authentication/fido2methods": "least=Application",
             "/users/{id}/authentication/fido2methods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/creationOptions": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/fido2methods/creationOptions": "least=Application"
           }
         }
       ],
@@ -59549,10 +59544,10 @@
           "paths": {
             "/me/authentication/fido2Methods": "",
             "/me/authentication/fido2Methods/{id}": "",
-            "/me/authentication/fido2Methods/creationOptions": "",
+            "/me/authentication/fido2Methods/creationOptions": "least=DelegatedWork",
             "/users/{id}/authentication/fido2Methods": "",
             "/users/{id}/authentication/fido2Methods/{id}": "",
-            "/users/{id}/authentication/fido2Methods/creationOptions": ""
+            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork"
           }
         },
         {
@@ -59563,8 +59558,7 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/fido2Methods": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork"
+            "/me/authentication/fido2Methods": "least=DelegatedWork"
           }
         },
         {
@@ -59606,43 +59600,6 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
-            "/me/authentication/fido2methods/creationOptions": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/me/authentication/fido2methods": "least=DelegatedWork",
-            "/me/authentication/fido2methods/creationOptions": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE",
-            "PATCH"
-          ],
-          "paths": {
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
             "DelegatedWork",
             "Application"
           ],
@@ -59650,7 +59607,6 @@
             "GET"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2Methods": "",
             "/users/{id}/authentication/fido2methods/{id}": "",
             "/users/{id}/authentication/fido2Methods/creationOptions": ""
           }
@@ -59664,8 +59620,7 @@
             "POST"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/fido2Methods": "least=Application"
           }
         },
         {
