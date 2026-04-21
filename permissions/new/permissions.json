@@ -1338,54 +1338,6 @@
         "ownerSecurityGroup": "idappcore"
       }
     },
-    "AgentIdentity.UpdateSponsors.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Add or remove sponsors for agent identities",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identities on behalf of the signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Add or remove sponsors for agent identities",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identities without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/serviceprincipals/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentity/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/serviceprincipals/{id}/sponsors/$ref": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentity/{id}/sponsors/$ref": "least=Application,DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "aadlcmeng"
-      }
-    },
     "AgentIdentityBlueprint.AddRemoveCreds.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -1643,54 +1595,6 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "idappcore"
-      }
-    },
-    "AgentIdentityBlueprint.UpdateSponsors.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Add or remove sponsors for agent identity blueprint",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprint on behalf of the signed-in user.",
-          "userDisplayName": "Update agent identity blueprint authorization related properties",
-          "userDescription": "Update agent identity blueprint authorization related properties on user's' behalf",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Add or remove sponsors for agent identity blueprint",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprint without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/applications/graph.agentIdentityBlueprint/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/applications/graph.agentIdentityBlueprint/{id}/sponsors/$ref": "least=Application,DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "aadlcmeng"
       }
     },
     "AgentIdentityBlueprintPrincipal.Create": {
@@ -9599,30 +9503,6 @@
             "/teams/{id}/channels/{id}/sharedwithteams/{id}": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/sharedwithteams/{id}/allowedmembers": "least=DelegatedWork"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/joinedUsers": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/joinedUsers/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/joinedUsers": "least=Application",
-            "/teams/{id}/channels/{id}/joinedUsers/{id}": "least=Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -9720,8 +9600,6 @@
             "/teams/{id}/channels/{id}/allMembers": "",
             "/teams/{id}/channels/{id}/allMembers/{id}": "",
             "/teams/{id}/channels/{id}/doesuserhaveaccess": "",
-            "/teams/{id}/channels/{id}/joinedUsers": "",
-            "/teams/{id}/channels/{id}/joinedUsers/{id}": "",
             "/teams/{id}/channels/{id}/members": "",
             "/teams/{id}/channels/{id}/members/{id}": "",
             "/teams/{id}/channels/{id}/sharedwithteams": "",
@@ -9739,30 +9617,6 @@
           ],
           "paths": {
             "/teams/{id}/channels/{id}/members": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/joinedUsers": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/joinedUsers/add": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/teams/{id}/channels/{id}/joinedUsers": "least=Application",
-            "/teams/{id}/channels/{id}/joinedUsers/add": "least=Application"
           }
         },
         {
@@ -11500,7 +11354,6 @@
             "/devicemanagement/monitoring/alertrecords/getportalnotifications": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrules": "least=DelegatedWork",
             "/devicemanagement/monitoring/alertrules/{id}": "least=DelegatedWork",
-            "/devicemanagement/virtualendpoint/acquireazuremapsaccesstoken": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/crosscloudgovernmentorganizationmapping": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "least=DelegatedWork",
@@ -11774,7 +11627,6 @@
             "/devicemanagement/monitoring/alertrecords": "",
             "/devicemanagement/monitoring/alertrecords/{id}": "",
             "/devicemanagement/monitoring/alertrecords/getportalnotifications": "",
-            "/devicemanagement/virtualendpoint/acquireazuremapsaccesstoken": "",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "",
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
@@ -54428,222 +54280,6 @@
             "/teamwork/devices/{id}/restart": "least=DelegatedWork,Application",
             "/teamwork/devices/{id}/rundiagnostics": "least=DelegatedWork,Application",
             "/teamwork/devices/{id}/updatesoftware": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamworkSection.Read": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read user's teamwork sections (folders) in Teams",
-          "adminDescription": "Allows the app to read the signed-in user's teamwork sections (folders) for organizing chats and channels in Teams.",
-          "userDisplayName": "Read your teamwork sections (folders) in Teams",
-          "userDescription": "Allows the app to read your teamwork sections (folders) for organizing chats and channels in Teams.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/hostedContents": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}/$value": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/delta": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamworkSection.Read.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read all users' teamwork sections in Teams",
-          "adminDescription": "Allows the app to read all users' teamwork sections (folders) for organizing chats and channels in Teams, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "least=Application",
-            "/users/{id}/teamwork/sections/{id}": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/hostedContents": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}/$value": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "least=Application",
-            "/users/{id}/teamwork/sections/delta": "least=Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamworkSection.ReadWrite": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write user's teamwork sections (folders) in Teams",
-          "adminDescription": "Allows the app to read and write the signed-in user's teamwork sections (folders) for organizing chats and channels in Teams.",
-          "userDisplayName": "Read and write your teamwork sections (folders) in Teams",
-          "userDescription": "Allows the app to read and write your teamwork sections (folders) for organizing chats and channels in Teams.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "",
-            "/users/{id}/teamwork/sections/{id}": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}/$value": "",
-            "/users/{id}/teamwork/sections/{id}/items": "",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "",
-            "/users/{id}/teamwork/sections/delta": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items/{id}/move": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items/reorder": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/reorder": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections/{id}": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections/{id}": "least=DelegatedWork",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "least=DelegatedWork"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "TeamsPermissions"
-      }
-    },
-    "TeamworkSection.ReadWrite.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read and write all users' teamwork sections in Teams",
-          "adminDescription": "Allows the app to read and write all users' teamwork sections (folders) for organizing chats and channels in Teams, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "",
-            "/users/{id}/teamwork/sections/{id}": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}": "",
-            "/users/{id}/teamwork/sections/{id}/hostedContents/{id}/$value": "",
-            "/users/{id}/teamwork/sections/{id}/items": "",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "",
-            "/users/{id}/teamwork/sections/delta": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items/{id}/move": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items/reorder": "least=Application",
-            "/users/{id}/teamwork/sections/reorder": "least=Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections/{id}": "least=Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "DELETE"
-          ],
-          "paths": {
-            "/users/{id}/teamwork/sections/{id}": "least=Application",
-            "/users/{id}/teamwork/sections/{id}/items/{id}": "least=Application"
           }
         }
       ],
