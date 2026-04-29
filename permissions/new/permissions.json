@@ -1314,7 +1314,7 @@
         },
         "Application": {
           "adminDisplayName": "Read and write all agent identities",
-          "adminDescription": "Allows the app read, update, and delete agent identities without a signed-in user.",
+          "adminDescription": "Allows the app to read, update, and delete agent identities without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1649,16 +1649,16 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Add or remove sponsors for agent identity blueprint",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprint on behalf of the signed-in user.",
+          "adminDisplayName": "Add or remove sponsors for agent identity blueprints",
+          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprints on behalf of the signed-in user.",
           "userDisplayName": "Update agent identity blueprint authorization related properties",
           "userDescription": "Update agent identity blueprint authorization related properties on user's' behalf",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Add or remove sponsors for agent identity blueprint",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprint without a signed-in user.",
+          "adminDisplayName": "Add or remove sponsors for agent identity blueprints",
+          "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1697,13 +1697,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Create agent identity blueprint service principals.",
+          "adminDisplayName": "Create agent identity blueprint principals.",
           "adminDescription": "Allows creating new agent identity blueprint principals with a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Create agent identity blueprint service principals.",
+          "adminDisplayName": "Create agent identity blueprint principals.",
           "adminDescription": "Allows creating new agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 5
@@ -1732,14 +1732,14 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Delete and restore agent identity blueprints.",
-          "adminDescription": "Allows deleting or restoring agent identity blueprints with a signed-in user.",
+          "adminDisplayName": "Delete and restore agent identity blueprint principals.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprint principals with a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Delete and restore agent identity blueprints.",
-          "adminDescription": "Allows deleting or restoring agent identity blueprints without a signed-in user.",
+          "adminDisplayName": "Delete and restore agent identity blueprint principals.",
+          "adminDescription": "Allows deleting or restoring agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1814,7 +1814,7 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read agent identity blueprints principals.",
+          "adminDisplayName": "Read agent identity blueprint principals.",
           "adminDescription": "Allows reading agent identity blueprint principals with a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
@@ -3104,6 +3104,114 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "agentregistrydevs"
+      }
+    },
+    "AgentRegistration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all agent registrations",
+          "adminDescription": "Allows the user to read all agent registration information",
+          "userDisplayName": "Read all agent registrations",
+          "userDescription": "Allows the app to read agent registration information.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all agent registrations",
+          "adminDescription": "Allows the app to read agent registration information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/agentRegistrations/{agentId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
+      }
+    },
+    "AgentRegistration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all agent registrations",
+          "adminDescription": "Allows the user to read and write all agent registration information",
+          "userDisplayName": "Read and write all agent registrations",
+          "userDescription": "Allows the app to read and write agent registration information.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all agent registrations",
+          "adminDescription": "Allows the app to read and write agent registration information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/agentRegistrations/{agentId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/agentRegistrations": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/agentRegistrations/{agentId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/agentRegistrations/{agentId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "m365adminsvcdevteam"
       }
     },
     "Agreement.Read.All": {
@@ -5155,7 +5263,9 @@
             "/reports/reconciliations/provisioning": "least=DelegatedWork,Application",
             "/reports/reconciliations/provisioning/{id}": "least=DelegatedWork,Application",
             "/reports/reconciliations/provisioning/{id}/identities": "least=DelegatedWork,Application",
-            "/reports/reconciliations/provisioning/{id}/identities/{id}": "least=DelegatedWork,Application"
+            "/reports/reconciliations/provisioning/{id}/identities/{id}": "least=DelegatedWork,Application",
+            "/users/{id}/agentSignInSessions": "least=DelegatedWork,Application",
+            "/users/{id}/agentSignInSessions/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -11644,6 +11754,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/resize": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/restore": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrypartneragentinstallation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/setdevicename": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/start": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/stop": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/troubleshoot": "least=DelegatedWork,Application",
@@ -33987,6 +34098,7 @@
             "/networkaccess/reports/getCrossTenantSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDestinationSummaries": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDeviceUsageSummary": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
@@ -34187,6 +34299,7 @@
             "/networkaccess/reports/getCrossTenantSummary": "",
             "/networkaccess/reports/getDestinationSummaries": "",
             "/networkaccess/reports/getDeviceUsageSummary": "",
+            "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getUserThreatReport": "",
@@ -40185,6 +40298,50 @@
         "ownerSecurityGroup": "updev"
       }
     },
+    "PrintAlertSettings.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write tenant-wide alert settings",
+          "adminDescription": "Allows the application to read and write tenant-wide alert settings on behalf of the signed-in user.",
+          "userDisplayName": "Read and write tenant-wide alert settings",
+          "userDescription": "Allows the application to read and write tenant-wide alert settings on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/print/services": "",
+            "/print/services/{id}": "",
+            "/print/services/{id}/endpoints": "",
+            "/print/services/{id}/endpoints/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/print/alertSettings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "updev"
+      }
+    },
     "PrintConnector.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -42823,6 +42980,7 @@
             "/reports/getSharePointApiUsage(period={value})": "least=DelegatedWork",
             "/reports/getuserarchivedprintjobs": "least=DelegatedWork",
             "/reports/getuserarchivedprintjobs(userid={value},startdatetime={value},enddatetime={value})": "least=DelegatedWork",
+            "/reports/microsoftappsfilestoragecontainerusagesummary": "least=DelegatedWork",
             "/reports/monthlyprintusagebyprinter": "least=DelegatedWork",
             "/reports/monthlyprintusagebyprinter/{id}": "least=DelegatedWork",
             "/reports/monthlyprintusagebyuser": "least=DelegatedWork",
@@ -56653,6 +56811,8 @@
             "/admin/people/itemInsights": "least=DelegatedWork",
             "/education/me/user": "",
             "/education/users/{id}/user": "",
+            "/me/agentSignInSessions": "least=DelegatedWork",
+            "/me/agentSignInSessions/{id}": "least=DelegatedWork",
             "/me/analytics/settings": "least=DelegatedWork",
             "/me/cloudLicensing/assignmentErrors": "",
             "/me/cloudLicensing/assignmentErrors/{id}": "",
@@ -58348,8 +58508,10 @@
             "POST"
           ],
           "paths": {
+            "/me/agentSignInSessions/{id}/revoke": "least=DelegatedWork,Application",
             "/me/invalidateAllRefreshTokens": "least=DelegatedWork,Application",
             "/me/revokesigninsessions": "least=DelegatedWork,Application",
+            "/users/{id}/agentSignInSessions/{id}/revoke": "least=DelegatedWork,Application",
             "/users/{id}/invalidateAllRefreshTokens": "least=DelegatedWork,Application",
             "/users/{id}/revokeSignInSessions": "least=DelegatedWork,Application"
           }
