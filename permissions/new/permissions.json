@@ -1124,13 +1124,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Create agent identities without an agent blueprint parent",
-          "adminDescription": "Allows client to create agent identities, even if client is not the parent agent identity blueprint.",
+          "adminDescription": "Allows the client to create agent identities on behalf of the signed-in user, even if the client is not the parent agent identity blueprint.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Create agent identities without an agent blueprint parent",
-          "adminDescription": "Allows the app to create agent identities, even if the app is not the parent agent identity blueprint.",
+          "adminDescription": "Allows the client to create agent identities without a signed-in user, even if the client is not the parent agent identity blueprint.",
           "requiresAdminConsent": true,
           "privilegeLevel": 5
         }
@@ -1145,8 +1145,7 @@
             "POST"
           ],
           "paths": {
-            "/serviceprincipals": "",
-            "/servicePrincipals/graph.agentIdentity": "least=DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity": "least=DelegatedWork"
           }
         }
       ],
@@ -1158,8 +1157,8 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "Application": {
-          "adminDisplayName": "Create and manage agent identities as parent agent identity blueprint.",
-          "adminDescription": "Allows the app to create agent identities and manage agent identities as the parent agent identity blueprint without a signed-in user.",
+          "adminDisplayName": "Create and manage agent identities as the parent agent identity blueprint",
+          "adminDescription": "Allows the app to create agent identities as the parent agent identity blueprint and fully manage them, including reading, updating, and deleting, without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 5
         }
@@ -1173,10 +1172,9 @@
             "POST"
           ],
           "paths": {
-            "/serviceprincipals": "",
-            "/servicePrincipals(appid={value})/graph.agentIdentityBlueprintPrincipal/identities": "",
-            "/servicePrincipals/{id}/graph.agentIdentityBlueprintPrincipal/identities": "",
-            "/servicePrincipals/graph.agentIdentity": ""
+            "/servicePrincipals(appid={value})/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
+            "/servicePrincipals/{id}/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
+            "/servicePrincipals/microsoft.graph.agentIdentity": ""
           }
         }
       ],
@@ -1189,13 +1187,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Delete and restore agent identities",
-          "adminDescription": "Allows the client to delete and restore agent identities.",
+          "adminDescription": "Allows the client to delete and restore agent identities on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Delete and restore agent identities",
-          "adminDescription": "Allows the app to delete and restore agent identities without a signed-in user.",
+          "adminDescription": "Allows the client to delete and restore agent identities without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1210,8 +1208,7 @@
             "DELETE"
           ],
           "paths": {
-            "/serviceprincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": "least=Application,DelegatedWork"
           }
         },
         {
@@ -1236,13 +1233,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Enable or disable agent identities",
-          "adminDescription": "Allows the client to enable or disable agent identities.",
+          "adminDescription": "Allows the client to enable or disable agent identities on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Enable or disable agent identities",
-          "adminDescription": "Allows the app to enable or disable agent identities without a signed-in user.",
+          "adminDescription": "Allows the client to enable or disable agent identities without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1257,8 +1254,7 @@
             "PATCH"
           ],
           "paths": {
-            "/serviceprincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1271,7 +1267,7 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all agent identities",
-          "adminDescription": "Allows the client to read all agent identities.",
+          "adminDescription": "Allows the client to read all agent identities on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
@@ -1292,10 +1288,8 @@
             "GET"
           ],
           "paths": {
-            "/serviceprincipals": "",
-            "/serviceprincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentity": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity": "least=Application,DelegatedWork",
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1308,13 +1302,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all agent identities",
-          "adminDescription": "Allows the client to read, update, and delete agent identities on behalf of the signed-in user.",
+          "adminDescription": "Allows the client to read, update, create, and delete agent identities on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read and write all agent identities",
-          "adminDescription": "Allows the app to read, update, and delete agent identities without a signed-in user.",
+          "adminDescription": "Allows the client to read, update, create, and delete agent identities without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1326,11 +1320,25 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
+            "GET",
             "PATCH"
           ],
           "paths": {
-            "/serviceprincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentity/{id}": ""
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals/microsoft.graph.agentIdentity": ""
           }
         }
       ],
@@ -1343,13 +1351,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Add or remove sponsors for agent identities",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identities on behalf of the signed-in user.",
+          "adminDescription": "Allows the client to add or remove sponsors for agent identities on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Add or remove sponsors for agent identities",
-          "adminDescription": "Allows the app to add or remove sponsors for agent identities without a signed-in user.",
+          "adminDescription": "Allows the client to add or remove sponsors for agent identities without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1365,7 +1373,7 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentity/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
           }
         },
         {
@@ -1378,7 +1386,7 @@
           ],
           "paths": {
             "/serviceprincipals/{id}/sponsors/$ref": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentity/{id}/sponsors/$ref": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}/sponsors/$ref": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1412,8 +1420,7 @@
             "PATCH"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint/{id}": ""
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": ""
           }
         }
       ],
@@ -1425,13 +1432,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Create agent identity blueprints.",
-          "adminDescription": "Allows creating new agent identity blueprints with a signed-in user.",
+          "adminDisplayName": "Create agent identity blueprints",
+          "adminDescription": "Allows creating new agent identity blueprints on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Create agent identity blueprints.",
+          "adminDisplayName": "Create agent identity blueprints",
           "adminDescription": "Allows creating new agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 5
@@ -1447,8 +1454,7 @@
             "POST"
           ],
           "paths": {
-            "/applications": "",
-            "/applications/graph.agentIdentityBlueprint": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1460,13 +1466,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Delete and restore agent identity blueprints.",
-          "adminDescription": "Allows deleting or restoring agent identity blueprints with a signed-in user.",
+          "adminDisplayName": "Delete and restore agent identity blueprints",
+          "adminDescription": "Allows deleting or restoring agent identity blueprints on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Delete and restore agent identity blueprints.",
+          "adminDisplayName": "Delete and restore agent identity blueprints",
           "adminDescription": "Allows deleting or restoring agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
@@ -1482,8 +1488,7 @@
             "DELETE"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
           }
         },
         {
@@ -1508,13 +1513,13 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all agent identity blueprints",
-          "adminDescription": "Allows the client to read all agent identity blueprints.",
+          "adminDescription": "Allows the client to read all agent identity blueprints on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read all agent identity blueprints",
-          "adminDescription": "Allows the app to read all agent identity blueprints without a signed-in user.",
+          "adminDescription": "Allows the client to read all agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1529,10 +1534,8 @@
             "GET"
           ],
           "paths": {
-            "/applications": "",
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint": "least=Application,DelegatedWork",
-            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint": "least=Application,DelegatedWork",
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1544,14 +1547,14 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read and write all agent identity blueprints.",
-          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprints on behalf of the signed-in user.",
+          "adminDisplayName": "Read and write all agent identity blueprints",
+          "adminDescription": "Allows the client to read, update, create, and delete agent identity blueprints on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Read and write all agent identity blueprints.",
-          "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprints without a signed-in user.",
+          "adminDisplayName": "Read and write all agent identity blueprints",
+          "adminDescription": "Allows the client to read, update, create, and delete agent identity blueprints without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -1563,11 +1566,25 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
+            "GET",
             "PATCH"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/applications/microsoft.graph.agentIdentityBlueprint": ""
           }
         }
       ],
@@ -1601,8 +1618,7 @@
             "PATCH"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint/{id}": ""
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": ""
           }
         }
       ],
@@ -1636,8 +1652,7 @@
             "PATCH"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprint/{id}": ""
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1651,8 +1666,8 @@
         "DelegatedWork": {
           "adminDisplayName": "Add or remove sponsors for agent identity blueprints",
           "adminDescription": "Allows the app to add or remove sponsors for agent identity blueprints on behalf of the signed-in user.",
-          "userDisplayName": "Update agent identity blueprint authorization related properties",
-          "userDescription": "Update agent identity blueprint authorization related properties on user's' behalf",
+          "userDisplayName": "Add or remove sponsors for agent identity blueprints",
+          "userDescription": "Allows adding or removing sponsors for agent identity blueprints on your behalf.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
@@ -1673,7 +1688,7 @@
             "DELETE"
           ],
           "paths": {
-            "/applications/graph.agentIdentityBlueprint/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}/sponsors/{id}/$ref": "least=Application,DelegatedWork"
           }
         },
         {
@@ -1685,7 +1700,7 @@
             "POST"
           ],
           "paths": {
-            "/applications/graph.agentIdentityBlueprint/{id}/sponsors/$ref": "least=Application,DelegatedWork"
+            "/applications/microsoft.graph.agentIdentityBlueprint/{id}/sponsors/$ref": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1697,13 +1712,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Create agent identity blueprint principals.",
-          "adminDescription": "Allows creating new agent identity blueprint principals with a signed-in user.",
+          "adminDisplayName": "Create agent identity blueprint principals",
+          "adminDescription": "Allows creating new agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Create agent identity blueprint principals.",
+          "adminDisplayName": "Create agent identity blueprint principals",
           "adminDescription": "Allows creating new agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 5
@@ -1719,8 +1734,7 @@
             "POST"
           ],
           "paths": {
-            "/servicePrincipals": "",
-            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1732,13 +1746,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Delete and restore agent identity blueprint principals.",
-          "adminDescription": "Allows deleting or restoring agent identity blueprint principals with a signed-in user.",
+          "adminDisplayName": "Delete and restore agent identity blueprint principals",
+          "adminDescription": "Allows deleting or restoring agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Delete and restore agent identity blueprint principals.",
+          "adminDisplayName": "Delete and restore agent identity blueprint principals",
           "adminDescription": "Allows deleting or restoring agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
@@ -1754,8 +1768,7 @@
             "DELETE"
           ],
           "paths": {
-            "/serviceprincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
           }
         },
         {
@@ -1779,13 +1792,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Enable or disable agent identity blueprint principals.",
-          "adminDescription": "Allows enabling or disabling agent identity blueprint principals with a signed-in user.",
+          "adminDisplayName": "Enable or disable agent identity blueprint principals",
+          "adminDescription": "Allows enabling or disabling agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
-          "adminDisplayName": "Enable or disable agent identity blueprint principals.",
+          "adminDisplayName": "Enable or disable agent identity blueprint principals",
           "adminDescription": "Allows enabling or disabling agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
@@ -1801,8 +1814,7 @@
             "PATCH"
           ],
           "paths": {
-            "/servicePrincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1814,13 +1826,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read agent identity blueprint principals.",
-          "adminDescription": "Allows reading agent identity blueprint principals with a signed-in user.",
+          "adminDisplayName": "Read agent identity blueprint principals",
+          "adminDescription": "Allows reading agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Read agent identity blueprint principals.",
+          "adminDisplayName": "Read agent identity blueprint principals",
           "adminDescription": "Allows reading agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
@@ -1836,10 +1848,9 @@
             "GET"
           ],
           "paths": {
-            "/servicePrincipals": "",
-            "/servicePrincipals/{id}": "",
-            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork",
-            "/servicePrincipals/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal": "least=Application,DelegatedWork",
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork",
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}/sponsors/": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1851,13 +1862,13 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Read and write all agent identity blueprint principals.",
+          "adminDisplayName": "Read and write all agent identity blueprint principals",
           "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprint principals on behalf of the signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Read and write all agent identity blueprint principals.",
+          "adminDisplayName": "Read and write all agent identity blueprint principals",
           "adminDescription": "Allows the app to read, update, create, and delete agent identity blueprint principals without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
@@ -1870,11 +1881,25 @@
             "Application"
           ],
           "methods": [
+            "DELETE",
+            "GET",
             "PATCH"
           ],
           "paths": {
-            "/applications/{id}": "",
-            "/applications/graph.agentIdentityBlueprintPrincipal/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal": ""
           }
         }
       ],
@@ -2383,7 +2408,7 @@
         },
         "Application": {
           "adminDisplayName": "Read and write full profiles of agent ID users under an agent blueprint",
-          "adminDescription": "Allows the app create agent users, to read and update agent ID user profiles, delete and restore agent users under an agent blueprint and read basic company properties without a signed in user.",
+          "adminDescription": "Allows the app to create agent users, read and update agent ID user profiles, delete and restore agent users under an agent blueprint, and read basic company properties without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
