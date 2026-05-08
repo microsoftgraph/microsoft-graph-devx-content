@@ -1145,7 +1145,7 @@
             "POST"
           ],
           "paths": {
-            "/servicePrincipals/microsoft.graph.agentIdentity": "least=DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1172,8 +1172,6 @@
             "POST"
           ],
           "paths": {
-            "/servicePrincipals(appid={value})/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
-            "/servicePrincipals/{id}/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
             "/servicePrincipals/microsoft.graph.agentIdentity": ""
           }
         }
@@ -17741,6 +17739,18 @@
             "/devicemanagement/manageddevices/{id}/windowsdefenderupdatesignatures": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/{id}/wipe": "",
             "/devicemanagement/manageddevices/executeaction": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devicemanagement/manageddevices/{id}/getsyncstatus": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -37780,6 +37790,7 @@
             "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/applications/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/identity/conditionalaccess/namedlocations": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
             "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
@@ -37931,6 +37942,9 @@
           ],
           "paths": {
             "/identity/conditionalaccess/namedlocations/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -38364,6 +38378,10 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationcontextclassreferences": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/settings": "least=DelegatedWork,Application"
           }
         },
@@ -39215,6 +39233,10 @@
             "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "",
             "/identity/conditionalaccess/authenticationstrength/combinations": "",
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies": "",
             "/policies/authenticationstrengthpolicies/{id}/usage": "",
             "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": ""
@@ -39259,6 +39281,8 @@
           "paths": {
             "/identity/conditionalaccess/evaluate": "",
             "/identity/conditionalaccess/namedlocations": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies": "",
             "/policies/authenticationstrengthpolicies/{id}/updateallowedcombinations": "least=DelegatedWork,Application"
           }
@@ -39274,6 +39298,8 @@
           ],
           "paths": {
             "/identity/conditionalaccess/namedlocations/{id}": "",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies/{id}": ""
           }
         },
@@ -43182,6 +43208,17 @@
           "paths": {
             "/admin/reportsettings": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/reportsettings/sharepoint/apiusagereportmetrics": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -43218,6 +43255,18 @@
           ],
           "paths": {
             "/admin/reportsettings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/reportsettings/sharepoint/disableapiusagereport": "least=DelegatedWork",
+            "/admin/reportsettings/sharepoint/enableapiusagereport": "least=DelegatedWork"
           }
         }
       ],
@@ -46568,6 +46617,62 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ospred"
+      }
+    },
+    "ServicePrincipal.AddRemoveCreds.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update credentials for service principals",
+          "adminDescription": "Allows the app to update credentials for service principals on behalf of the signed-in user.",
+          "userDisplayName": "Update credentials for service principals",
+          "userDescription": "Allows the app to update credentials for service principals on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Update credentials for service principals",
+          "adminDescription": "Allows the app to update credentials for service principals, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork",
+            "/serviceprincipals/{id}/addkey": "least=DelegatedWork",
+            "/serviceprincipals/{id}/addpassword": "least=DelegatedWork",
+            "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
+            "/serviceprincipals/{id}/removepassword": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})": "",
+            "/serviceprincipals/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
       }
     },
     "SharePointCrossTenantMigration.Manage.All": {
