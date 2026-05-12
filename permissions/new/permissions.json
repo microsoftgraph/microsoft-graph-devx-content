@@ -33629,72 +33629,6 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
-    "MailTips.ReadBasic.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "Application": {
-          "adminDisplayName": "Read mail tips for all users",
-          "adminDescription": "Allows the app to read mail tips for all users in the organization without a signed-in user. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/users/{id}/getmailtips": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "stisaprvc"
-      }
-    },
-    "MailTips.ReadBasic.Shared": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read mail tips for accessible mailboxes",
-          "adminDescription": "Allows the app to read mail tips on behalf of the signed-in user for mailboxes they have access to, including their own mailbox and shared mailboxes. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
-          "userDisplayName": "Read mail tips for mailboxes you can access",
-          "userDescription": "Allows the app to read mail tips on your behalf for mailboxes you have access to, including your own mailbox and shared mailboxes.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 3
-        },
-        "DelegatedPersonal": {
-          "adminDisplayName": "Read mail tips for accessible mailboxes",
-          "adminDescription": "Allows the app to read mail tips on behalf of the signed-in user for mailboxes they have access to. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
-          "userDisplayName": "Read mail tips for mailboxes you can access",
-          "userDescription": "Allows the app to read mail tips on your behalf for mailboxes you have access to, including your own mailbox.",
-          "requiresAdminConsent": false,
-          "privilegeLevel": 2
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/me/getmailtips": "",
-            "/users/{id}/getmailtips": ""
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "stisaprvc"
-      }
-    },
     "ManagedTenants.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -34363,19 +34297,6 @@
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/networkAccess/classifyMcpTools": "least=DelegatedWork,Application",
-            "/networkAccess/discoverMcpTools": "least=DelegatedWork,Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -34504,14 +34425,12 @@
             "POST"
           ],
           "paths": {
-            "/networkAccess/classifyMcpTools": "",
             "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
-            "/networkAccess/discoverMcpTools": "",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -46749,6 +46668,62 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ospred"
+      }
+    },
+    "ServicePrincipal.AddRemoveCreds.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Update credentials for service principals",
+          "adminDescription": "Allows the app to update credentials for service principals on behalf of the signed-in user.",
+          "userDisplayName": "Update credentials for service principals",
+          "userDescription": "Allows the app to update credentials for service principals on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Update credentials for service principals",
+          "adminDescription": "Allows the app to update credentials for service principals, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/addkey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/addpassword": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removekey": "least=DelegatedWork",
+            "/serviceprincipals(appid={value})/removepassword": "least=DelegatedWork",
+            "/serviceprincipals/{id}/addkey": "least=DelegatedWork",
+            "/serviceprincipals/{id}/addpassword": "least=DelegatedWork",
+            "/serviceprincipals/{id}/removekey": "least=DelegatedWork",
+            "/serviceprincipals/{id}/removepassword": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})": "",
+            "/serviceprincipals/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
       }
     },
     "SharePointCrossTenantMigration.Manage.All": {
