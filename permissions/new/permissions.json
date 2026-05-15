@@ -12461,6 +12461,10 @@
             "/me/contactfolders/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/distributionlistmembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/distributionlistmembers/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
@@ -12473,7 +12477,11 @@
             "/users/{id}/contactfolders/{id}/contacts/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/distributionlistmembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/distributionlistmembers/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -12565,10 +12573,12 @@
             "/me/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contactfolders/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -12587,11 +12597,29 @@
             "/me/contactfolders/{id}/childfolders/{id}/.../contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contactfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders/{id}/.../contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/distributionlists/{id}/addMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/deleteMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/addMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/deleteMembers": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -34294,6 +34322,9 @@
           "paths": {
             "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
@@ -34416,6 +34447,9 @@
             "/networkaccess/alerts/getAlertSummaries": "",
             "/networkAccess/cloudFirewallPolicies": "",
             "/networkAccess/cloudFirewallPolicies/{id}": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "",
             "/networkAccess/connectivity/branches": "",
@@ -34506,6 +34540,9 @@
           "paths": {
             "/networkAccess/classifyMcpTools": "",
             "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/createDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/publish": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
@@ -34544,6 +34581,8 @@
           ],
           "paths": {
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
@@ -34585,6 +34624,8 @@
           ],
           "paths": {
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
