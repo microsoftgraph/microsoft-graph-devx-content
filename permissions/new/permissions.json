@@ -1145,7 +1145,7 @@
             "POST"
           ],
           "paths": {
-            "/servicePrincipals/microsoft.graph.agentIdentity": "least=DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -1172,8 +1172,6 @@
             "POST"
           ],
           "paths": {
-            "/servicePrincipals(appid={value})/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
-            "/servicePrincipals/{id}/microsoft.graph.agentIdentityBlueprintPrincipal/identities": "least=Application",
             "/servicePrincipals/microsoft.graph.agentIdentity": ""
           }
         }
@@ -12463,6 +12461,10 @@
             "/me/contactfolders/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/distributionlistmembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/distributionlistmembers/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
@@ -12475,7 +12477,11 @@
             "/users/{id}/contactfolders/{id}/contacts/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/delta": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/distributionlistmembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/distributionlistmembers/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -12567,10 +12573,12 @@
             "/me/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contactfolders/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -12589,11 +12597,29 @@
             "/me/contactfolders/{id}/childfolders/{id}/.../contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contactfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/me/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders/{id}/.../contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/childfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/users/{id}/contactfolders/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+            "/users/{id}/contacts/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/distributionlists/{id}/addMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/me/distributionlists/{id}/deleteMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/addMembers": "least=DelegatedWork,DelegatedPersonal,Application",
+            "/users/{id}/distributionlists/{id}/deleteMembers": "least=DelegatedWork,DelegatedPersonal,Application"
           }
         },
         {
@@ -17741,6 +17767,18 @@
             "/devicemanagement/manageddevices/{id}/windowsdefenderupdatesignatures": "least=DelegatedWork,Application",
             "/devicemanagement/manageddevices/{id}/wipe": "",
             "/devicemanagement/manageddevices/executeaction": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devicemanagement/manageddevices/{id}/getsyncstatus": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -28227,6 +28265,56 @@
         "ownerSecurityGroup": "GroupsIDCSG"
       }
     },
+    "Group-NestingSupport.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write groups' disableNesting property",
+          "adminDescription": "Allows the app to read and write groups' disableNesting property on behalf of the signed-in user.",
+          "userDisplayName": "Read and write groups' disableNesting property",
+          "userDescription": "Allows the app to read and write the disableNesting property on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read and write groups' disableNesting property",
+          "adminDescription": "Allows the app to read and write groups' disableNesting property without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups": "least=DelegatedWork,Application",
+            "/groups/{id}": "least=DelegatedWork,Application",
+            "/groups/delta": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
     "Group-OnPremisesSyncBehavior.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -32026,7 +32114,7 @@
             "/identitygovernance/lifecycleworkflows/workflows": "",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewscope": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewtaskfailures": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}": "least=DelegatedWork,Application",
@@ -32069,7 +32157,8 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -33568,6 +33657,72 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "MailTips.ReadBasic.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read mail tips for all users",
+          "adminDescription": "Allows the app to read mail tips for all users in the organization without a signed-in user. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/getmailtips": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailTips.ReadBasic.Shared": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read mail tips for accessible mailboxes",
+          "adminDescription": "Allows the app to read mail tips on behalf of the signed-in user for mailboxes they have access to, including their own mailbox and shared mailboxes. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
+          "userDisplayName": "Read mail tips for mailboxes you can access",
+          "userDescription": "Allows the app to read mail tips on your behalf for mailboxes you have access to, including your own mailbox and shared mailboxes.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "DelegatedPersonal": {
+          "adminDisplayName": "Read mail tips for accessible mailboxes",
+          "adminDescription": "Allows the app to read mail tips on behalf of the signed-in user for mailboxes they have access to. Mail tips include automatic replies, mailbox status, custom tips, and delivery information.",
+          "userDisplayName": "Read mail tips for mailboxes you can access",
+          "userDescription": "Allows the app to read mail tips on your behalf for mailboxes you have access to, including your own mailbox.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/getmailtips": "",
+            "/users/{id}/getmailtips": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "ManagedTenants.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -34167,6 +34322,9 @@
           "paths": {
             "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
@@ -34236,6 +34394,19 @@
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/networkAccess/classifyMcpTools": "least=DelegatedWork,Application",
+            "/networkAccess/discoverMcpTools": "least=DelegatedWork,Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -34276,6 +34447,9 @@
             "/networkaccess/alerts/getAlertSummaries": "",
             "/networkAccess/cloudFirewallPolicies": "",
             "/networkAccess/cloudFirewallPolicies/{id}": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "",
             "/networkAccess/connectivity/branches": "",
@@ -34364,12 +34538,17 @@
             "POST"
           ],
           "paths": {
+            "/networkAccess/classifyMcpTools": "",
             "/networkAccess/cloudFirewallPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/createDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/publish": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/discoverMcpTools": "",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -34402,6 +34581,8 @@
           ],
           "paths": {
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
@@ -34443,6 +34624,8 @@
           ],
           "paths": {
             "/networkAccess/cloudFirewallPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft": "least=DelegatedWork,Application",
+            "/networkAccess/cloudFirewallPolicies/{id}/policyDraft/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
@@ -37780,6 +37963,7 @@
             "/applications/{id}/tokenissuancepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/applications/{id}/tokenlifetimepolicies": "AlsoRequires=Application.ReadWrite.All",
             "/identity/conditionalaccess/namedlocations": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies": "least=DelegatedWork,Application",
             "/serviceprincipals(appid={value})/claimsmappingpolicies": "AlsoRequires=Application.ReadWrite.All",
             "/serviceprincipals(appid={value})/homerealmdiscoverypolicies": "AlsoRequires=Application.ReadWrite.All",
@@ -37905,6 +38089,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
+            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies/{id}/appliesto": "least=DelegatedWork,Application",
@@ -37931,6 +38116,9 @@
           ],
           "paths": {
             "/identity/conditionalaccess/namedlocations/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -38364,6 +38552,10 @@
           ],
           "paths": {
             "/identity/conditionalaccess/authenticationcontextclassreferences": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/settings": "least=DelegatedWork,Application"
           }
         },
@@ -38822,6 +39014,20 @@
           "paths": {
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application"
+          }
         }
       ],
       "ownerInfo": {
@@ -39215,6 +39421,10 @@
             "/identity/conditionalaccess/authenticationstrength/authenticationmethodmodes/{id}": "",
             "/identity/conditionalaccess/authenticationstrength/combinations": "",
             "/identity/conditionalaccess/authenticationstrength/policies/{id}/combinationconfigurations": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/policies/authenticationstrengthpolicies": "",
             "/policies/authenticationstrengthpolicies/{id}/usage": "",
             "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": ""
@@ -39259,6 +39469,8 @@
           "paths": {
             "/identity/conditionalaccess/evaluate": "",
             "/identity/conditionalaccess/namedlocations": "",
+            "/identity/conditionalaccess/plans": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies": "",
             "/policies/authenticationstrengthpolicies/{id}/updateallowedcombinations": "least=DelegatedWork,Application"
           }
@@ -39274,6 +39486,8 @@
           ],
           "paths": {
             "/identity/conditionalaccess/namedlocations/{id}": "",
+            "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
+            "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/policies/{id}": ""
           }
         },
@@ -43182,6 +43396,17 @@
           "paths": {
             "/admin/reportsettings": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/reportsettings/sharepoint/apiusagereportmetrics": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -43218,6 +43443,18 @@
           ],
           "paths": {
             "/admin/reportsettings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/reportsettings/sharepoint/disableapiusagereport": "least=DelegatedWork",
+            "/admin/reportsettings/sharepoint/enableapiusagereport": "least=DelegatedWork"
           }
         }
       ],
@@ -45281,6 +45518,18 @@
           ],
           "paths": {
             "/security/alerts_v2/{id}/comments": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/alerts_v2": "least=DelegatedWork,Application"
           }
         }
       ],
