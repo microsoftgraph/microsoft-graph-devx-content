@@ -29619,6 +29619,152 @@
         "ownerSecurityGroup": "ihxhealth"
       }
     },
+    "IdentityNotifications.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites on behalf of the signed-in user.",
+          "userDisplayName": "Read identity notification settings and templates",
+          "userDescription": "Allows the app to read identity notification settings and email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
+      }
+    },
+    "IdentityNotifications.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity notification settings and templates",
+          "userDescription": "Allows the app to read and write identity notification settings and customize email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "",
+            "/admin/identityAdminNotifications/emailTemplates": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/resetToDefault": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/sendTest": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "",
+            "/admin/identityAdminNotifications/sendTestEmail": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
+      }
+    },
     "IdentityProvider.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
