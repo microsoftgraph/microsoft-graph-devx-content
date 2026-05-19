@@ -24706,6 +24706,7 @@
           "paths": {
             "/drives/{id}/items/{id}/follow": "least=DelegatedWork",
             "/drives/{id}/items/{id}/preview": "least=DelegatedWork",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/follow": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/preview": "least=DelegatedWork",
             "/me/drive/items/{id}/follow": "least=DelegatedWork",
@@ -25054,6 +25055,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/drives/{id}/items/{id}/follow": "least=Application",
             "/drives/{id}/items/{id}/preview": "least=Application",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/follow": "least=Application",
@@ -25208,6 +25210,17 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/querycortexitemsnippetsinbatch": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedPersonal"
@@ -27116,6 +27129,7 @@
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/permissions/{id}/revokegrants": "least=Application",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
@@ -48352,6 +48366,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "",
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/follow": "",
@@ -48775,6 +48790,7 @@
             "/drives/{id}/items/{id}/versions/{id}/restoreversion": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}/appendContent": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "",
