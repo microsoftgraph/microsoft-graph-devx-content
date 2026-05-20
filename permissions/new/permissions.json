@@ -4071,23 +4071,23 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "userDisplayName": "Read and write applications",
-          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Does not allow management of consent grants.",
+          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "DelegatedPersonal": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "userDisplayName": "Read and write applications",
-          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Does not allow management of consent grants.",
+          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals without a signed-in user.  Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals without a signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -4470,6 +4470,36 @@
           ],
           "paths": {
             "/serviceTreeAttributionServices": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/approleassignedto": "",
+            "/serviceprincipals(appid={value})/approleassignments": "",
+            "/serviceprincipals/{id}/approleassignedto": "",
+            "/serviceprincipals/{id}/approleassignments": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/approleassignedto/{id}": "",
+            "/serviceprincipals(appid={value})/approleassignments/{id}": "",
+            "/serviceprincipals/{id}/approleassignedto/{id}": "",
+            "/serviceprincipals/{id}/approleassignments/{id}": ""
           }
         }
       ],
@@ -24706,6 +24736,7 @@
           "paths": {
             "/drives/{id}/items/{id}/follow": "least=DelegatedWork",
             "/drives/{id}/items/{id}/preview": "least=DelegatedWork",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/follow": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/preview": "least=DelegatedWork",
             "/me/drive/items/{id}/follow": "least=DelegatedWork",
@@ -25054,6 +25085,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/drives/{id}/items/{id}/follow": "least=Application",
             "/drives/{id}/items/{id}/preview": "least=Application",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/follow": "least=Application",
@@ -25208,6 +25240,17 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/querycortexitemsnippetsinbatch": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedPersonal"
@@ -27116,6 +27159,7 @@
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/permissions/{id}/revokegrants": "least=Application",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
@@ -29617,6 +29661,152 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "IdentityNotifications.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites on behalf of the signed-in user.",
+          "userDisplayName": "Read identity notification settings and templates",
+          "userDescription": "Allows the app to read identity notification settings and email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
+      }
+    },
+    "IdentityNotifications.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity notification settings and templates",
+          "userDescription": "Allows the app to read and write identity notification settings and customize email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "",
+            "/admin/identityAdminNotifications/emailTemplates": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/resetToDefault": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/sendTest": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "",
+            "/admin/identityAdminNotifications/sendTestEmail": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
       }
     },
     "IdentityProvider.Read.All": {
@@ -48206,6 +48396,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "",
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/follow": "",
@@ -48629,6 +48820,7 @@
             "/drives/{id}/items/{id}/versions/{id}/restoreversion": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}/appendContent": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "",
