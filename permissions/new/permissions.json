@@ -4071,23 +4071,23 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "userDisplayName": "Read and write applications",
-          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Does not allow management of consent grants.",
+          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "DelegatedPersonal": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals on behalf of the signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "userDisplayName": "Read and write applications",
-          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Does not allow management of consent grants.",
+          "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all applications",
-          "adminDescription": "Allows the app to create, read, update and delete applications and service principals without a signed-in user.  Does not allow management of consent grants.",
+          "adminDescription": "Allows the app to create, read, update and delete applications and service principals without a signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
           "privilegeLevel": 4
         }
@@ -4470,6 +4470,36 @@
           ],
           "paths": {
             "/serviceTreeAttributionServices": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/approleassignedto": "",
+            "/serviceprincipals(appid={value})/approleassignments": "",
+            "/serviceprincipals/{id}/approleassignedto": "",
+            "/serviceprincipals/{id}/approleassignments": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/serviceprincipals(appid={value})/approleassignedto/{id}": "",
+            "/serviceprincipals(appid={value})/approleassignments/{id}": "",
+            "/serviceprincipals/{id}/approleassignedto/{id}": "",
+            "/serviceprincipals/{id}/approleassignments/{id}": ""
           }
         }
       ],
@@ -24706,6 +24736,7 @@
           "paths": {
             "/drives/{id}/items/{id}/follow": "least=DelegatedWork",
             "/drives/{id}/items/{id}/preview": "least=DelegatedWork",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/follow": "least=DelegatedWork",
             "/groups/{id}/drive/items/{id}/preview": "least=DelegatedWork",
             "/me/drive/items/{id}/follow": "least=DelegatedWork",
@@ -24741,33 +24772,6 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "least=DelegatedWork",
             "/drives/{id}/items/{id}/checkAccess": "least=DelegatedWork"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/root/archive": "",
-            "/drive/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drives/{drivesId}/root/archive": "",
-            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/root/archive": "",
-            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal"
           }
         }
       ],
@@ -25054,6 +25058,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/drives/{id}/items/{id}/follow": "least=Application",
             "/drives/{id}/items/{id}/preview": "least=Application",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "least=Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/follow": "least=Application",
@@ -25137,33 +25142,6 @@
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/bundles/{driveItemId}/unarchive": "",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/unarchive": "",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/unarchive": "",
-            "/drive/root/archive": "",
-            "/drive/root/unarchive": "",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drive/special/{driveItemId}/unarchive": "",
-            "/drives/{drivesId}/root/archive": "",
-            "/drives/{drivesId}/root/unarchive": "",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/driveItem/unarchive": "",
-            "/shares/{sharesId}/root/archive": "",
-            "/shares/{sharesId}/root/unarchive": ""
-          }
         }
       ],
       "ownerInfo": {
@@ -25208,6 +25186,17 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drives/{id}/querycortexitemsnippetsinbatch": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedPersonal"
@@ -26678,21 +26667,28 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/following/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/items/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/root/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/special/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drives/{drivesId}/root/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/root/archive": "least=DelegatedWork,DelegatedPersonal"
+            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/following/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/items/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/root/archive": "least=DelegatedWork",
+            "/drive/root/unarchive": "least=DelegatedWork",
+            "/drive/special/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drives/{drivesId}/root/archive": "least=DelegatedWork",
+            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork",
+            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork",
+            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork",
+            "/shares/{sharesId}/root/archive": "least=DelegatedWork",
+            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork"
           }
         }
       ],
@@ -27116,6 +27112,7 @@
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/permissions/{id}/revokegrants": "least=Application",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "least=DelegatedWork,Application",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "least=DelegatedWork,Application",
@@ -27399,20 +27396,28 @@
         {
           "schemeKeys": [
             "DelegatedWork",
-            "DelegatedPersonal"
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/root/archive": "",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drives/{drivesId}/root/archive": "",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/root/archive": ""
+            "/drive/bundles/{driveItemId}/archive": "least=Application",
+            "/drive/bundles/{driveItemId}/unarchive": "least=Application",
+            "/drive/following/{driveItemId}/archive": "least=Application",
+            "/drive/following/{driveItemId}/unarchive": "least=Application",
+            "/drive/items/{driveItemId}/archive": "least=Application",
+            "/drive/items/{driveItemId}/unarchive": "least=Application",
+            "/drive/root/archive": "least=Application",
+            "/drive/root/unarchive": "least=Application",
+            "/drive/special/{driveItemId}/archive": "least=Application",
+            "/drive/special/{driveItemId}/unarchive": "least=Application",
+            "/drives/{drivesId}/root/archive": "least=Application",
+            "/drives/{drivesId}/root/unarchive": "least=Application",
+            "/shares/{sharesId}/driveItem/archive": "least=Application",
+            "/shares/{sharesId}/driveItem/unarchive": "least=Application",
+            "/shares/{sharesId}/root/archive": "least=Application",
+            "/shares/{sharesId}/root/unarchive": "least=Application"
           }
         }
       ],
@@ -29617,6 +29622,152 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "IdentityNotifications.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites on behalf of the signed-in user.",
+          "userDisplayName": "Read identity notification settings and templates",
+          "userDescription": "Allows the app to read identity notification settings and email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity notification settings and templates",
+          "adminDescription": "Allows the app to read identity notification settings, email templates, and prerequisites without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
+      }
+    },
+    "IdentityNotifications.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity notification settings and templates",
+          "userDescription": "Allows the app to read and write identity notification settings and customize email templates that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity notification settings and templates",
+          "adminDescription": "Allows the app to read and write identity notification settings, customize email templates, and send test emails without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "",
+            "/admin/identityAdminNotifications/emailTemplates": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/localizations/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/identityAdminNotifications/emailTemplates/{id}/preview": "",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/resetToDefault": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/emailTemplates/{id}/sendTest": "least=DelegatedWork,Application",
+            "/admin/identityAdminNotifications/getPrerequisites": "",
+            "/admin/identityAdminNotifications/sendTestEmail": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "iganotificationdev"
       }
     },
     "IdentityProvider.Read.All": {
@@ -46026,6 +46177,78 @@
         "ownerSecurityGroup": "tri-msgraph"
       }
     },
+    "SecurityIdentitiesMigration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security sensor migration",
+          "adminDescription": "Allows the app to read all the identity security sensor migration information of signed user",
+          "userDisplayName": "Read identity security sensor migration",
+          "userDescription": "Allows the app to read all the identity security sensor migration information on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security sensor migration",
+          "adminDescription": "Allows the app to read all the identity security sensor migration information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/sensorMigration": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesMigration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity security sensor migration",
+          "adminDescription": "Allows the app to read and write identity security sensor migration on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity security sensor migration",
+          "userDescription": "Allows the app to read and write identity security sensor migration on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity security sensor migration",
+          "adminDescription": "Allows the app to read and write identity security sensor migration without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/identities/sensorMigration/migrate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIdentitiesSensors.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -47646,6 +47869,33 @@
             "/me/drive/items/{id}/retentionLabel": "",
             "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -47862,6 +48112,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{id}/items/{id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -48206,6 +48483,7 @@
             "/drives/{id}/items/{id}/extractsensitivitylabels": "",
             "/drives/{id}/items/{id}/follow": "",
             "/drives/{id}/items/{id}/preview": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/follow": "",
@@ -48629,6 +48907,7 @@
             "/drives/{id}/items/{id}/versions/{id}/restoreversion": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}": "",
             "/drives/{id}/items/{id}/versions/{id}/streams/{id}/appendContent": "",
+            "/drives/{id}/querycortexitemsnippetsinbatch": "",
             "/drives/{id}/root:/{id}/assignsensitivitylabel": "",
             "/drives/{id}/root:/{id}/extractsensitivitylabels": "",
             "/groups/{id}/drive/items/{id}/assignsensitivitylabel": "",
@@ -48982,6 +49261,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
