@@ -9262,7 +9262,10 @@
             "/app/calls": "",
             "/app/calls/{id}/addlargegalleryview": "",
             "/app/calls/{id}/answer": "least=Application",
+            "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/app/calls/{id}/participants/{id}/mute": "least=Application",
+            "/app/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
+            "/app/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "least=Application",
             "/app/calls/{id}/startRecording": "least=Application",
@@ -9273,9 +9276,12 @@
             "/communications/calls": "",
             "/communications/calls/{id}/addlargegalleryview": "",
             "/communications/calls/{id}/answer": "least=Application",
+            "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/mute": "least=Application",
+            "/communications/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "",
+            "/communications/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": "least=Application",
             "/communications/calls/{id}/startRecording": "least=Application",
@@ -9374,12 +9380,18 @@
             "POST"
           ],
           "paths": {
+            "/app/calls/{id}/participants/{id}/admitFromLobby": "",
             "/app/calls/{id}/participants/{id}/mute": "",
+            "/app/calls/{id}/participants/{id}/removeFromLobby": "",
+            "/app/calls/{id}/participants/admitAllFromLobby": "",
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "",
+            "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
             "/communications/calls/{id}/participants/{id}/mute": "",
+            "/communications/calls/{id}/participants/{id}/removeFromLobby": "",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "least=Application",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "least=Application",
+            "/communications/calls/{id}/participants/admitAllFromLobby": "",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": ""
           }
@@ -17389,6 +17401,7 @@
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/approveapps": "least=DelegatedWork,Application",
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/completesignup": "least=DelegatedWork,Application",
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/creategoogleplaywebtoken": "least=DelegatedWork,Application",
+            "/devicemanagement/androidmanagedstoreaccountenterprisesettings/createzerotouchwebtoken": "least=DelegatedWork,Application",
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/requestsignupurl": "least=DelegatedWork,Application",
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/setandroiddeviceownerfullymanagedenrollmentstate": "least=DelegatedWork,Application",
             "/devicemanagement/androidmanagedstoreaccountenterprisesettings/syncapps": "least=DelegatedWork,Application",
@@ -24773,33 +24786,6 @@
             "/copilot/sharepoint/grounding/fetchResources": "least=DelegatedWork",
             "/drives/{id}/items/{id}/checkAccess": "least=DelegatedWork"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/root/archive": "",
-            "/drive/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/drives/{drivesId}/root/archive": "",
-            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/root/archive": "",
-            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork,DelegatedPersonal"
-          }
         }
       ],
       "ownerInfo": {
@@ -25168,33 +25154,6 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
-          ],
-          "methods": [
-            "POST"
-          ],
-          "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/bundles/{driveItemId}/unarchive": "",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/unarchive": "",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/unarchive": "",
-            "/drive/root/archive": "",
-            "/drive/root/unarchive": "",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drive/special/{driveItemId}/unarchive": "",
-            "/drives/{drivesId}/root/archive": "",
-            "/drives/{drivesId}/root/unarchive": "",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/driveItem/unarchive": "",
-            "/shares/{sharesId}/root/archive": "",
-            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -26721,21 +26680,28 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork",
-            "DelegatedPersonal"
+            "DelegatedWork"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/following/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/items/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/root/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drive/special/{driveItemId}/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/drives/{drivesId}/root/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork,DelegatedPersonal",
-            "/shares/{sharesId}/root/archive": "least=DelegatedWork,DelegatedPersonal"
+            "/drive/bundles/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/bundles/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/following/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/following/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/items/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/items/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drive/root/archive": "least=DelegatedWork",
+            "/drive/root/unarchive": "least=DelegatedWork",
+            "/drive/special/{driveItemId}/archive": "least=DelegatedWork",
+            "/drive/special/{driveItemId}/unarchive": "least=DelegatedWork",
+            "/drives/{drivesId}/root/archive": "least=DelegatedWork",
+            "/drives/{drivesId}/root/unarchive": "least=DelegatedWork",
+            "/shares/{sharesId}/driveItem/archive": "least=DelegatedWork",
+            "/shares/{sharesId}/driveItem/unarchive": "least=DelegatedWork",
+            "/shares/{sharesId}/root/archive": "least=DelegatedWork",
+            "/shares/{sharesId}/root/unarchive": "least=DelegatedWork"
           }
         }
       ],
@@ -27443,20 +27409,28 @@
         {
           "schemeKeys": [
             "DelegatedWork",
-            "DelegatedPersonal"
+            "Application"
           ],
           "methods": [
             "POST"
           ],
           "paths": {
-            "/drive/bundles/{driveItemId}/archive": "",
-            "/drive/following/{driveItemId}/archive": "",
-            "/drive/items/{driveItemId}/archive": "",
-            "/drive/root/archive": "",
-            "/drive/special/{driveItemId}/archive": "",
-            "/drives/{drivesId}/root/archive": "",
-            "/shares/{sharesId}/driveItem/archive": "",
-            "/shares/{sharesId}/root/archive": ""
+            "/drive/bundles/{driveItemId}/archive": "least=Application",
+            "/drive/bundles/{driveItemId}/unarchive": "least=Application",
+            "/drive/following/{driveItemId}/archive": "least=Application",
+            "/drive/following/{driveItemId}/unarchive": "least=Application",
+            "/drive/items/{driveItemId}/archive": "least=Application",
+            "/drive/items/{driveItemId}/unarchive": "least=Application",
+            "/drive/root/archive": "least=Application",
+            "/drive/root/unarchive": "least=Application",
+            "/drive/special/{driveItemId}/archive": "least=Application",
+            "/drive/special/{driveItemId}/unarchive": "least=Application",
+            "/drives/{drivesId}/root/archive": "least=Application",
+            "/drives/{drivesId}/root/unarchive": "least=Application",
+            "/shares/{sharesId}/driveItem/archive": "least=Application",
+            "/shares/{sharesId}/driveItem/unarchive": "least=Application",
+            "/shares/{sharesId}/root/archive": "least=Application",
+            "/shares/{sharesId}/root/unarchive": "least=Application"
           }
         }
       ],
@@ -34535,6 +34509,10 @@
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
             "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -34578,6 +34556,8 @@
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates": "least=DelegatedWork,Application",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -34651,9 +34631,17 @@
             "/networkAccess/contentPolicies": "",
             "/networkAccess/contentPolicies/{id}/policyRules": "",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "",
+            "/networkAccess/contentTypePolicies": "",
+            "/networkAccess/contentTypePolicies/{id}": "",
+            "/networkAccess/contentTypePolicies/{id}/policyRules": "",
+            "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/discovery/discoveredApplicationSegments": "",
             "/networkAccess/explicitForwardProxyConfig": "",
             "/networkAccess/fileDlpPolicies": "",
+            "/networkAccess/filePolicies": "",
+            "/networkAccess/filePolicies/{id}": "",
+            "/networkAccess/filePolicies/{id}/policyRules": "",
+            "/networkAccess/filePolicies/{id}/policyRules/{id}": "",
             "/networkAccess/filteringPolicies": "",
             "/networkAccess/filteringPolicies/{id}/policyRules": "",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "",
@@ -34712,6 +34700,7 @@
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules": "",
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsInspectionPolicies/{id}": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "",
@@ -34738,8 +34727,12 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/discoverMcpTools": "",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles": "least=DelegatedWork,Application",
@@ -34756,6 +34749,8 @@
             "/networkAccess/threatIntelligencePolicies": "least=DelegatedWork,Application",
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates": "least=DelegatedWork,Application",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates": "least=DelegatedWork,Application",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}/microsoft.graph.networkaccess.revoke": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
@@ -34778,8 +34773,12 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/forwardingProfiles": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
@@ -34820,7 +34819,11 @@
             "/networkAccess/connectivity/branches/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/filePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filteringProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
@@ -34835,6 +34838,7 @@
             "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
           }
@@ -39204,20 +39208,6 @@
           "paths": {
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -40088,6 +40078,43 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "hybridSvcTeam"
+      }
+    },
+    "Policy.ReadWrite.FedTokenValidation": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's federated token validation policy",
+          "adminDescription": "Allows the app to read and write your organization's federated token validation policy on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's federated token validation policy",
+          "userDescription": "Allows the app to read and write your organization's federated token validation policy on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's federated token validation policy",
+          "adminDescription": "Allows the app to read and write your organization's federated token validation policy without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "federationprotocols"
       }
     },
     "Policy.ReadWrite.HybridAuthentication": {
@@ -46216,6 +46243,78 @@
         "ownerSecurityGroup": "tri-msgraph"
       }
     },
+    "SecurityIdentitiesMigration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity security sensor migration",
+          "adminDescription": "Allows the app to read all the identity security sensor migration information of signed user",
+          "userDisplayName": "Read identity security sensor migration",
+          "userDescription": "Allows the app to read all the identity security sensor migration information on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all identity security sensor migration",
+          "adminDescription": "Allows the app to read all the identity security sensor migration information without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/identities/sensorMigration": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
+    "SecurityIdentitiesMigration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity security sensor migration",
+          "adminDescription": "Allows the app to read and write identity security sensor migration on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity security sensor migration",
+          "userDescription": "Allows the app to read and write identity security sensor migration on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all identity security sensor migration",
+          "adminDescription": "Allows the app to read and write identity security sensor migration without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/identities/sensorMigration/migrate": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "tri-msgraph"
+      }
+    },
     "SecurityIdentitiesSensors.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -47836,6 +47935,33 @@
             "/me/drive/items/{id}/retentionLabel": "",
             "/users/{user-id}/drive/items/{item-id}/retentionLabel": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -48052,6 +48178,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{id}/items/{id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -49174,6 +49327,33 @@
           "paths": {
             "/copilot/sharepoint/grounding/fetchResources": "",
             "/drives/{drive-id}/items/{item-id}/checkAccess": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/drive/bundles/{driveItemId}/archive": "",
+            "/drive/bundles/{driveItemId}/unarchive": "",
+            "/drive/following/{driveItemId}/archive": "",
+            "/drive/following/{driveItemId}/unarchive": "",
+            "/drive/items/{driveItemId}/archive": "",
+            "/drive/items/{driveItemId}/unarchive": "",
+            "/drive/root/archive": "",
+            "/drive/root/unarchive": "",
+            "/drive/special/{driveItemId}/archive": "",
+            "/drive/special/{driveItemId}/unarchive": "",
+            "/drives/{drivesId}/root/archive": "",
+            "/drives/{drivesId}/root/unarchive": "",
+            "/shares/{sharesId}/driveItem/archive": "",
+            "/shares/{sharesId}/driveItem/unarchive": "",
+            "/shares/{sharesId}/root/archive": "",
+            "/shares/{sharesId}/root/unarchive": ""
           }
         }
       ],
@@ -56347,11 +56527,22 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
             "/security/runhuntingquery": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/getrunhuntingquery": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -59067,8 +59258,8 @@
           "paths": {
             "/me/authentication/emailmethods": "",
             "/me/authentication/emailmethods/{id}": "",
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2Methods": "",
+            "/me/authentication/fido2Methods/{id}": "",
             "/me/authentication/hardwareOathMethods": "",
             "/me/authentication/hardwareOathMethods/{id}": "",
             "/me/authentication/methods": "least=DelegatedWork",
@@ -59101,8 +59292,8 @@
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=DelegatedWork",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods": "",
-            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/fido2Methods": "",
+            "/users/{id}/authentication/fido2Methods/{id}": "",
             "/users/{id}/authentication/hardwareOathMethods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/methods": "",
@@ -59167,8 +59358,6 @@
           "paths": {
             "/me/authentication/emailmethods": "least=Application",
             "/me/authentication/emailmethods/{id}": "least=Application",
-            "/me/authentication/fido2methods": "least=Application",
-            "/me/authentication/fido2methods/{id}": "least=Application",
             "/me/authentication/hardwareOathMethods": "",
             "/me/authentication/hardwareOathMethods/{id}": "",
             "/me/authentication/methods": "least=Application",
@@ -59199,7 +59388,7 @@
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "least=Application",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "",
+            "/users/{id}/authentication/fido2Methods/{id}": "",
             "/users/{id}/authentication/hardwareOathMethods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/methods": "least=DelegatedWork,Application",
@@ -59307,8 +59496,8 @@
             "PATCH"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2methods/{id}": ""
+            "/me/authentication/fido2Methods/{id}": "",
+            "/users/{id}/authentication/fido2Methods/{id}": ""
           }
         },
         {
@@ -59319,8 +59508,8 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "",
-            "/me/authentication/fido2methods/{id}": "",
+            "/me/authentication/fido2Methods": "",
+            "/me/authentication/fido2Methods/{id}": "",
             "/me/authentication/hardwareoathmethods": "",
             "/me/authentication/methods": "",
             "/me/authentication/methods/{id}": "",
@@ -59335,9 +59524,8 @@
             "/me/authentication/temporaryaccesspassmethods": "",
             "/me/authentication/windowshelloforbusinessmethods": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods": "",
-            "/users/{id}/authentication/fido2methods": "",
-            "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2Methods/creationOptions": "",
+            "/users/{id}/authentication/fido2Methods": "",
+            "/users/{id}/authentication/fido2Methods/{id}": "",
             "/users/{id}/authentication/methods": "",
             "/users/{id}/authentication/methods/{id}": "",
             "/users/{id}/authentication/methods/{id}/isUpdateSupported": "",
@@ -59388,7 +59576,7 @@
             "POST"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "least=DelegatedWork",
+            "/me/authentication/fido2Methods": "",
             "/me/authentication/hardwareOathMethods": "",
             "/me/authentication/hardwareOathMethods/{id}/activate": "",
             "/me/authentication/hardwareOathMethods/assignAndActivate": "",
@@ -59430,13 +59618,13 @@
           "userDisplayName": "Read and write all users' authentication methods",
           "userDescription": "Allows the app to read and write authentication methods of all users you have access to in your organization.                       Authentication methods include things like a user's phone numbers and Authenticator app settings. This does not allow                      the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 5
         },
         "Application": {
           "adminDisplayName": "Read and write all users' authentication methods ",
           "adminDescription": "Allows the application to read and write authentication methods of all users in your organization, without a signed-in user.                       Authentication methods include things like a user's phone numbers and Authenticator app settings. This                      does not allow the app to see secret information like passwords, or to sign-in or otherwise use the authentication methods",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 5
         }
       },
       "pathSets": [
@@ -59451,7 +59639,6 @@
           ],
           "paths": {
             "/me/authentication/emailmethods": "least=Application",
-            "/me/authentication/fido2methods": "least=Application",
             "/me/authentication/hardwareOathMethods": "least=DelegatedWork,Application",
             "/me/authentication/phonemethods": "least=Application",
             "/users/{id}/authentication/emailmethods": "least=Application",
@@ -59496,8 +59683,7 @@
             "PATCH"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/fido2methods/{id}": ""
+            "/users/{id}/authentication/fido2Methods/{id}": ""
           }
         },
         {
@@ -59542,7 +59728,6 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork,Application",
             "/me/authentication/hardwareoathmethods/{id}": "least=DelegatedWork,Application",
             "/me/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/me/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
@@ -59552,7 +59737,7 @@
             "/me/authentication/windowshelloforbusinessmethods/{id}": "least=Application",
             "/users/{id}/authentication/externalauthenticationmethods/{id}": "",
             "/users/{id}/authentication/federatedIdentityCredentialMethods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
+            "/users/{id}/authentication/fido2Methods/{id}": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}": "",
             "/users/{id}/authentication/microsoftauthenticatormethods/{id}": "least=Application",
             "/users/{id}/authentication/passwordlessmicrosoftauthenticatormethods/{id}": "least=Application",
@@ -59578,7 +59763,7 @@
             "/me/authentication/hardwareOathMethods/deactivate": "least=Application",
             "/me/authentication/phonemethods/{id}/disablesmssignin": "least=Application",
             "/me/authentication/phonemethods/{id}/enablesmssignin": "least=Application",
-            "/users/{id}/authentication/fido2methods": "",
+            "/users/{id}/authentication/fido2Methods": "",
             "/users/{id}/authentication/hardwareOathMethods/{id}/activate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivate": "",
             "/users/{id}/authentication/hardwareOathMethods/assignAndActivateBySerialNumber": "",
@@ -60554,10 +60739,10 @@
             "GET"
           ],
           "paths": {
-            "/me/authentication/fido2methods": "least=DelegatedWork",
-            "/me/authentication/fido2methods/{id}": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods": "least=DelegatedWork",
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork"
+            "/me/authentication/fido2Methods": "least=DelegatedWork",
+            "/me/authentication/fido2Methods/{id}": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork",
+            "/users/{id}/authentication/fido2Methods/{id}": "least=DelegatedWork"
           }
         }
       ],
@@ -60593,9 +60778,8 @@
             "GET"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2methods": "least=Application",
-            "/users/{id}/authentication/fido2methods/{id}": "least=Application",
-            "/users/{id}/authentication/fido2methods/creationOptions": "least=Application"
+            "/users/{id}/authentication/fido2Methods": "least=Application",
+            "/users/{id}/authentication/fido2Methods/{id}": "least=Application"
           }
         }
       ],
@@ -60628,8 +60812,7 @@
             "/me/authentication/fido2Methods/{id}": "",
             "/me/authentication/fido2Methods/creationOptions": "least=DelegatedWork",
             "/users/{id}/authentication/fido2Methods": "",
-            "/users/{id}/authentication/fido2Methods/{id}": "",
-            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork"
+            "/users/{id}/authentication/fido2Methods/{id}": ""
           }
         },
         {
@@ -60689,8 +60872,8 @@
             "GET"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2methods/{id}": "",
-            "/users/{id}/authentication/fido2Methods/creationOptions": ""
+            "/users/{id}/authentication/fido2Methods/{id}": "",
+            "/users/{id}/authentication/fido2Methods/creationOptions": "least=DelegatedWork,Application"
           }
         },
         {
@@ -60702,7 +60885,7 @@
             "POST"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2Methods": "least=Application"
+            "/users/{id}/authentication/fido2Methods": "least=DelegatedWork,Application"
           }
         },
         {
@@ -60715,7 +60898,7 @@
             "PATCH"
           ],
           "paths": {
-            "/users/{id}/authentication/fido2methods/{id}": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/fido2Methods/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
