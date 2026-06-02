@@ -39208,20 +39208,6 @@
           "paths": {
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application"
           }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application"
-          }
         }
       ],
       "ownerInfo": {
@@ -40092,6 +40078,43 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "hybridSvcTeam"
+      }
+    },
+    "Policy.ReadWrite.FedTokenValidation": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's federated token validation policy",
+          "adminDescription": "Allows the app to read and write your organization's federated token validation policy on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your organization's federated token validation policy",
+          "userDescription": "Allows the app to read and write your organization's federated token validation policy on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write your organization's federated token validation policy",
+          "adminDescription": "Allows the app to read and write your organization's federated token validation policy without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "federationprotocols"
       }
     },
     "Policy.ReadWrite.HybridAuthentication": {
@@ -56504,11 +56527,22 @@
             "Application"
           ],
           "methods": [
-            "GET",
             "POST"
           ],
           "paths": {
             "/security/runhuntingquery": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/getrunhuntingquery": "least=DelegatedWork,Application"
           }
         }
       ],
