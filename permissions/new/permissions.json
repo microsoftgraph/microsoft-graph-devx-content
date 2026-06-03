@@ -19720,8 +19720,6 @@
             "/auditlogs/directoryaudits": "",
             "/auditlogs/directoryaudits/{id}": "",
             "/auditlogs/provisioning": "",
-            "/auditlogs/signins": "",
-            "/auditlogs/signins/{id}": "",
             "/contacts": "",
             "/contacts/{id}": "",
             "/contacts/{id}/directreports": "",
@@ -38487,139 +38485,6 @@
         "ownerSecurityGroup": "cpimmsgraphadmins"
       }
     },
-    "Policy.Read.ApplicationConfiguration": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read your organization's application configuration policies",
-          "adminDescription": "Allows the app to read your organization's application configuration policies on behalf of the signed-in user.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy and tokenLifetimePolicy.",
-          "userDisplayName": "Read your organization's application configuration policies",
-          "userDescription": "Allows the app to read your organization's application configuration policies on your behalf.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy  and tokenLifetimePolicy.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        },
-        "Application": {
-          "adminDisplayName": "Read your organization's application configuration policies",
-          "adminDescription": "Allows the app to read your organization's application configuration policies, without a signed-in user.  This includes policies such as activityBasedTimeoutPolicy, claimsMappingPolicy, homeRealmDiscoveryPolicy, claimsPolicy, tokenIssuancePolicy  and tokenLifetimePolicy.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 4
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "POST"
-          ],
-          "paths": {
-            "/identity/events/onsignupstart": "least=DelegatedWork,Application",
-            "/policies/activitybasedtimeoutpolicies": "least=DelegatedWork,Application",
-            "/policies/appmanagementpolicies": "least=DelegatedWork,Application",
-            "/policies/claimsmappingpolicies": "least=DelegatedWork,Application",
-            "/policies/homerealmdiscoverypolicies": "least=DelegatedWork,Application",
-            "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
-            "/policies/tokenlifetimepolicies": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "POST"
-          ],
-          "paths": {
-            "/applications/{id}/appmanagementpolicies": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH",
-            "PUT"
-          ],
-          "paths": {
-            "/identity/events/onsignupstart/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/policies/activitybasedtimeoutpolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/appmanagementpolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/claimsmappingpolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/tokenissuancepolicies/{id}": "least=DelegatedWork,Application",
-            "/policies/tokenlifetimepolicies/{id}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/policies/appmanagementpolicies/{id}/appliesto": "",
-            "/policies/claimsmappingpolicies/{id}/appliesto": "",
-            "/policies/homerealmdiscoverypolicies/{id}/appliesto": "",
-            "/policies/tokenissuancepolicies/{id}/appliesto": "",
-            "/policies/tokenlifetimepolicies/{id}/appliesto": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "PATCH"
-          ],
-          "paths": {
-            "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET",
-            "PATCH",
-            "PUT"
-          ],
-          "paths": {
-            "/serviceprincipals/{id}/claimsPolicy": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "idappcore"
-      }
-    },
     "Policy.Read.AuthenticationMethod": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -39584,7 +39449,7 @@
           "paths": {
             "/identity/conditionalaccess/authenticationcontextclassreferences/{id}": "",
             "/identity/continuousaccessevaluationpolicy": "",
-            "/policies/identitysecuritydefaultsenforcementpolicy": ""
+            "/policies/identitysecuritydefaultsenforcementpolicy": "AlsoRequires=Policy.Read.All"
           }
         },
         {
@@ -40463,7 +40328,7 @@
             "PATCH"
           ],
           "paths": {
-            "/policies/identitysecuritydefaultsenforcementpolicy": "least=DelegatedWork,Application"
+            "/policies/identitysecuritydefaultsenforcementpolicy": "least=DelegatedWork,Application;AlsoRequires=Policy.Read.All"
           }
         }
       ],
