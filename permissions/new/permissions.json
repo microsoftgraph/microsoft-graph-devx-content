@@ -12268,6 +12268,7 @@
           ],
           "paths": {
             "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
@@ -32188,11 +32189,16 @@
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
@@ -32235,7 +32241,8 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32384,6 +32391,7 @@
             "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
           }
         },
@@ -32464,11 +32472,16 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
@@ -32575,11 +32588,16 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
@@ -32609,6 +32627,7 @@
             "/identitygovernance/lifecycleworkflows/workflows": "",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": "least=DelegatedWork,Application"
           }
@@ -34562,7 +34581,11 @@
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34707,7 +34730,11 @@
             "/networkAccess/tlsInspectionPolicies/{id}": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "",
-            "/networkAccess/tlsPolicies": ""
+            "/networkAccess/tlsPolicies": "",
+            "/networkAccess/webFilteringPolicies": "",
+            "/networkAccess/webFilteringPolicies/{id}": "",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": ""
           }
         },
         {
@@ -34756,7 +34783,9 @@
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}/microsoft.graph.networkaccess.revoke": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34804,7 +34833,9 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34845,7 +34876,9 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
