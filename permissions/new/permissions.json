@@ -3894,7 +3894,7 @@
           ],
           "paths": {
             "/applications": "least=DelegatedWork,DelegatedPersonal,Application",
-            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal",
+            "/applications(appid={value})": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties": "least=DelegatedWork,DelegatedPersonal,Application",
             "/applications/{id}/extensionproperties/{id}": "least=DelegatedWork,DelegatedPersonal,Application"
@@ -9262,10 +9262,10 @@
             "/app/calls": "",
             "/app/calls/{id}/addlargegalleryview": "",
             "/app/calls/{id}/answer": "least=Application",
-            "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
+            "/app/calls/{id}/participants/{id}/admitFromLobby": "",
             "/app/calls/{id}/participants/{id}/mute": "least=Application",
-            "/app/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
-            "/app/calls/{id}/participants/admitAllFromLobby": "least=Application",
+            "/app/calls/{id}/participants/{id}/removeFromLobby": "",
+            "/app/calls/{id}/participants/admitAllFromLobby": "",
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "least=Application",
             "/app/calls/{id}/startRecording": "least=Application",
@@ -9276,12 +9276,12 @@
             "/communications/calls": "",
             "/communications/calls/{id}/addlargegalleryview": "",
             "/communications/calls/{id}/answer": "least=Application",
-            "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
+            "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
             "/communications/calls/{id}/participants/{id}/mute": "least=Application",
-            "/communications/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
+            "/communications/calls/{id}/participants/{id}/removeFromLobby": "",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "",
-            "/communications/calls/{id}/participants/admitAllFromLobby": "least=Application",
+            "/communications/calls/{id}/participants/admitAllFromLobby": "",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": "least=Application",
             "/communications/calls/{id}/startRecording": "least=Application",
@@ -9380,18 +9380,18 @@
             "POST"
           ],
           "paths": {
-            "/app/calls/{id}/participants/{id}/admitFromLobby": "",
+            "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/app/calls/{id}/participants/{id}/mute": "",
-            "/app/calls/{id}/participants/{id}/removeFromLobby": "",
-            "/app/calls/{id}/participants/admitAllFromLobby": "",
+            "/app/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
+            "/app/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/muteall": "",
-            "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
+            "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/mute": "",
-            "/communications/calls/{id}/participants/{id}/removeFromLobby": "",
+            "/communications/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "least=Application",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "least=Application",
-            "/communications/calls/{id}/participants/admitAllFromLobby": "",
+            "/communications/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/muteall": ""
           }
@@ -12268,6 +12268,7 @@
           ],
           "paths": {
             "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application"
           }
         },
@@ -32188,11 +32189,16 @@
             "/identitygovernance/lifecycleworkflows/insights/workflowsProcessedSummary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
@@ -32235,7 +32241,8 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32384,6 +32391,7 @@
             "/identitygovernance/lifecycleworkflows/workflows": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "least=DelegatedWork,Application"
           }
         },
@@ -32464,11 +32472,16 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
@@ -32575,11 +32588,16 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/executionscope": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/summary(startdatetime={value},enddatetime={value})": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/taskreports/summary(startdatetime={value},enddatetime={value})": "",
@@ -32609,6 +32627,7 @@
             "/identitygovernance/lifecycleworkflows/workflows": "",
             "/identitygovernance/lifecycleworkflows/workflows({id})/previewworkflow": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/activate": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/activateandwait": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/createnewversion": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/tasks/{id}/taskprocessingresults/{id}/resume": "least=DelegatedWork,Application"
           }
@@ -34506,6 +34525,8 @@
             "/networkAccess/deployments": "least=DelegatedWork,Application",
             "/networkAccess/deployments/{id}": "least=DelegatedWork,Application",
             "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
@@ -34560,7 +34581,11 @@
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34635,6 +34660,8 @@
             "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/discovery/discoveredApplicationSegments": "",
             "/networkAccess/explicitForwardProxyConfig": "",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles": "",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles/{id}": "",
             "/networkAccess/fileDlpPolicies": "",
             "/networkAccess/filePolicies": "",
             "/networkAccess/filePolicies/{id}": "",
@@ -34703,7 +34730,11 @@
             "/networkAccess/tlsInspectionPolicies/{id}": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "",
-            "/networkAccess/tlsPolicies": ""
+            "/networkAccess/tlsPolicies": "",
+            "/networkAccess/webFilteringPolicies": "",
+            "/networkAccess/webFilteringPolicies/{id}": "",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": ""
           }
         },
         {
@@ -34728,6 +34759,7 @@
             "/networkAccess/contentTypePolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentTypePolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/discoverMcpTools": "",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -34751,7 +34783,9 @@
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}/microsoft.graph.networkaccess.revoke": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34774,6 +34808,7 @@
             "/networkAccess/contentTypePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/explicitForwardProxyConfig": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -34798,7 +34833,9 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34819,6 +34856,7 @@
             "/networkAccess/contentPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/contentTypePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/contentTypePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/explicitForwardProxyConfig/proxyAutoConfigurationFiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/fileDlpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/filePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
@@ -34838,7 +34876,9 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
-            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application"
+            "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/webFilteringPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
