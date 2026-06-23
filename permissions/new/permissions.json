@@ -1248,7 +1248,7 @@
             "DELETE"
           ],
           "paths": {
-            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": ""
           }
         },
         {
@@ -1294,7 +1294,7 @@
             "PATCH"
           ],
           "paths": {
-            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": "least=Application,DelegatedWork"
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}": ""
           }
         }
       ],
@@ -4102,6 +4102,17 @@
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages": "",
             "/tenantrelationships/managedtenants/conditionalaccesspolicycoverages/{id}": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/applications/validatepartner": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -4379,6 +4390,7 @@
             "/applications(appid={value})/unsetverifiedpublisher": "least=DelegatedWork",
             "/applications/{id}/setverifiedpublisher": "least=DelegatedWork",
             "/applications/{id}/unsetverifiedpublisher": "least=DelegatedWork",
+            "/applications/validatepartner": "",
             "/groups/{id}/deletepasswordsinglesignoncredentials": "",
             "/groups/{id}/getpasswordsinglesignoncredentials": "",
             "/users/{id}/deletepasswordsinglesignoncredentials": "",
@@ -23171,13 +23183,13 @@
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps/{id}": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackageassignments/filterbycurrentuser(on={value})": "",
+            "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": "",
+            "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork"
+            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": ""
           }
         },
         {
@@ -23212,12 +23224,14 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackagesincompatiblewith": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatibleaccesspackages": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatiblegroups": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "least=Application",
             "/identitygovernance/entitlementmanagement/assignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignments": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignments/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "least=Application",
             "/identitygovernance/entitlementmanagement/catalogs": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/catalogs/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations": "least=DelegatedWork,Application",
@@ -23267,7 +23281,7 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "least=DelegatedWork"
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": ""
           }
         }
       ],
@@ -23339,7 +23353,7 @@
           ],
           "paths": {
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/accesspackagecustomworkflowextensions": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageresourcerequests": "least=DelegatedWork,Application",
@@ -23347,7 +23361,7 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatibleaccesspackages": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatiblegroups": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentpolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/assignmentrequests": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/assignmentrequests": "least=Application",
             "/identitygovernance/entitlementmanagement/catalogs": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/externalsponsors": "least=DelegatedWork,Application",
@@ -23394,10 +23408,10 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}/cancel": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}/cancel": "",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/customaccesspackageworkflowextensions": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "",
-            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "least=DelegatedWork"
+            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": ""
           }
         },
         {
@@ -23439,8 +23453,10 @@
             "/identitygovernance/entitlementmanagement/accesspackageresourceenvironments": "",
             "/identitygovernance/entitlementmanagement/accesspackageresourceenvironments/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackagesincompatiblewith": "",
+            "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignments": "",
             "/identitygovernance/entitlementmanagement/assignments/{id}": "",
+            "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "",
             "/rolemanagement/entitlementmanagement/roledefinitions": "",
             "/rolemanagement/entitlementmanagement/roledefinitions/{id}": ""
@@ -23542,6 +23558,56 @@
           ],
           "paths": {
             "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "igaelmlivesite"
+      }
+    },
+    "EntitlementMgmt-SubjectAccess.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write entitlement management resources related to self-service operations",
+          "adminDescription": "Allows the app to manage self-service entitlement management resources on behalf of the signed-in user. This includes operations such as requesting access and approving access of others.",
+          "userDisplayName": "Read and write your entitlement management access",
+          "userDescription": "Allows the app to request, view, and cancel your access package assignments and view available access packages on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackageassignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}/cancel": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/assignmentrequests": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "least=DelegatedWork"
           }
         }
       ],
