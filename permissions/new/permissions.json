@@ -45675,6 +45675,42 @@
         "ownerSecurityGroup": "secgraphschema"
       }
     },
+    "SecurityAlert.Create.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create security alerts",
+          "adminDescription": "Allows the app to create security alerts in Microsoft 365 Defender, on behalf of the signed-in user.",
+          "userDisplayName": "Create security alerts",
+          "userDescription": "Allows the app to create security alerts on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Create security alerts without a signed-in user",
+          "adminDescription": "Allows the app to create security alerts in Microsoft 365 Defender, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/alerts_v2": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ThreatAPIApprovers"
+      }
+    },
     "SecurityAlert.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
