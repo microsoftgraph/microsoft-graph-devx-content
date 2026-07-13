@@ -4836,6 +4836,42 @@
         "ownerSecurityGroup": "IdentityReq"
       }
     },
+    "AppRegistration.Create": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Register new applications",
+          "adminDescription": "Allows the app to create new registrations for applications on behalf of the signed-in user.",
+          "userDisplayName": "Register new applications",
+          "userDescription": "Allows the app to create new registrations for applications on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Register new applications",
+          "adminDescription": "Allows the app to create new registrations for applications without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/applications": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "idappcore"
+      }
+    },
     "AppRoleAssignment.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
