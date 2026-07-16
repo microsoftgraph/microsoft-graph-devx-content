@@ -12370,6 +12370,7 @@
             "POST"
           ],
           "paths": {
+            "/admin/configurationManagement/configurationDrifts/{id}/remediate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application",
@@ -62011,6 +62012,92 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "mfateam"
+      }
+    },
+    "UserAuthMethod-ResourceKey.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read the keys associated with the user representing a resource account.",
+          "adminDescription": "Allows the app to read the keys associated with the user representing a resource account.",
+          "userDisplayName": "Read the keys associated with the user representing a resource account.",
+          "userDescription": "Allows the user to read the keys associated with the user representing a resource account.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all users' external authentication methods",
+          "adminDescription": "Allows the app to read the keys associated with the user representing a resource account.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/resourcekeyauthenticationmethods": "least=DelegatedWork,Application",
+            "/users/{id}/authentication/resourcekeyauthenticationmethods/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
+      }
+    },
+    "UserAuthMethod-ResourceKey.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and delete the keys associated with the user representing a resource account.",
+          "adminDescription": "Allows the app to read and delete the keys associated with the user representing a resource account.",
+          "userDisplayName": "Read and delete the keys associated with the user representing a resource account.",
+          "userDescription": "Allows the user to read and delete the keys associated with the user representing a resource account.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and delete all users' external authentication methods",
+          "adminDescription": "Allows the app to read and delete the keys associated with the user representing a resource account.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/authentication/resourcekeyauthenticationmethods/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/authentication/resourcekeyauthenticationmethods": "",
+            "/users/{id}/authentication/resourcekeyauthenticationmethods/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
       }
     },
     "UserAuthMethod-SoftwareOATH.Read": {
