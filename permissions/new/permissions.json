@@ -12290,8 +12290,17 @@
             "/admin/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshotJobs/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDrifts": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDrifts/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs/{id}/results": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs/{id}/results": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResults": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResults/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitors": "least=DelegatedWork,Application",
@@ -12308,6 +12317,20 @@
           "paths": {
             "/admin/configurationManagement/configurationApplications": "least=DelegatedWork",
             "/admin/configurationManagement/configurationApplications/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -12353,8 +12376,17 @@
             "/admin/configurationManagement/configurationSnapshotJobs": "",
             "/admin/configurationManagement/configurationSnapshotJobs/{id}": "",
             "/admin/configurationManagement/configurationSnapshots/{id}": "",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "",
             "/admin/configurationManagement/externalTenants/configurationDrifts": "",
             "/admin/configurationManagement/externalTenants/configurationDrifts/{id}": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs/{id}": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs/{id}/results": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs/{id}": "",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs/{id}/results": "",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResults": "",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResults/{id}": "",
             "/admin/configurationManagement/externalTenants/configurationMonitors": "",
@@ -12386,6 +12418,9 @@
             "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitors": "least=DelegatedWork,Application"
           }
         },
@@ -29877,7 +29912,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "iganotificationdev"
+        "ownerSecurityGroup": "IGANotificationsKen"
       }
     },
     "IdentityNotifications.ReadWrite.All": {
@@ -29970,7 +30005,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "iganotificationdev"
+        "ownerSecurityGroup": "IGANotificationsKen"
       }
     },
     "IdentityProvider.Read.All": {
