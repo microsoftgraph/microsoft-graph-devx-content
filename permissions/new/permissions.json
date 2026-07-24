@@ -9352,6 +9352,7 @@
             "/app/calls": "",
             "/app/calls/{id}/addlargegalleryview": "",
             "/app/calls/{id}/answer": "least=Application",
+            "/app/calls/{id}/lowerHand": "",
             "/app/calls/{id}/participants/{id}/admitFromLobby": "",
             "/app/calls/{id}/participants/{id}/lowerHand": "",
             "/app/calls/{id}/participants/{id}/mute": "least=Application",
@@ -9361,6 +9362,7 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/lowerAllHands": "",
             "/app/calls/{id}/participants/muteall": "least=Application",
+            "/app/calls/{id}/raiseHand": "",
             "/app/calls/{id}/startRecording": "least=Application",
             "/app/calls/{id}/startTranscription": "least=Application",
             "/app/calls/{id}/stopRecording": "least=Application",
@@ -9369,6 +9371,7 @@
             "/communications/calls": "",
             "/communications/calls/{id}/addlargegalleryview": "",
             "/communications/calls/{id}/answer": "least=Application",
+            "/communications/calls/{id}/lowerHand": "",
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
             "/communications/calls/{id}/participants/{id}/lowerHand": "",
             "/communications/calls/{id}/participants/{id}/mute": "least=Application",
@@ -9380,6 +9383,7 @@
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/lowerAllHands": "",
             "/communications/calls/{id}/participants/muteall": "least=Application",
+            "/communications/calls/{id}/raiseHand": "",
             "/communications/calls/{id}/startRecording": "least=Application",
             "/communications/calls/{id}/startTranscription": "least=Application",
             "/communications/calls/{id}/stopRecording": "least=Application",
@@ -9476,6 +9480,7 @@
             "POST"
           ],
           "paths": {
+            "/app/calls/{id}/lowerHand": "least=Application",
             "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/app/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/app/calls/{id}/participants/{id}/mute": "",
@@ -9485,6 +9490,8 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/lowerAllHands": "least=Application",
             "/app/calls/{id}/participants/muteall": "",
+            "/app/calls/{id}/raiseHand": "least=Application",
+            "/communications/calls/{id}/lowerHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/mute": "",
@@ -9495,7 +9502,8 @@
             "/communications/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/lowerAllHands": "least=Application",
-            "/communications/calls/{id}/participants/muteall": ""
+            "/communications/calls/{id}/participants/muteall": "",
+            "/communications/calls/{id}/raiseHand": "least=Application"
           }
         }
       ],
@@ -9572,6 +9580,34 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "Calls.ReportSyntheticMedia.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Report synthetic media detections in calls",
+          "adminDescription": "Allows the app to report synthetic media detections for participants in calls, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/app/calls/{id}/participants/{id}/reportsyntheticmedia": "least=Application",
+            "/communications/calls/{id}/participants/{id}/reportsyntheticmedia": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
       }
     },
     "CallTranscripts.Read.All": {
