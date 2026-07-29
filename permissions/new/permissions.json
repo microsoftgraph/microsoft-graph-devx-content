@@ -9667,6 +9667,171 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "CaseManagement.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read all cases, relations, tasks, attachments and activities, on behalf of the signed-in user.",
+          "userDisplayName": "Read all cases, relations, tasks, attachments and activities",
+          "userDescription": "Allows the app to read all cases, relations, tasks, attachments and activities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read all cases, relations, tasks, attachments and activities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.auditLog": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.comment": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.incidentRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.recommendationRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.workspaceIndicatorRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.exposureCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.genericCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.incidentCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
+      }
+    },
+    "CaseManagement.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write to cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write to all cases, relations, tasks, attachments and activities",
+          "userDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write to all cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "",
+            "/security/caseManagement/cases/{id}": "",
+            "/security/caseManagement/cases/{id}/activities": "",
+            "/security/caseManagement/cases/{id}/activities/{id}": "",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.auditLog": "",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.comment": "",
+            "/security/caseManagement/cases/{id}/attachments": "",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "",
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "",
+            "/security/caseManagement/cases/{id}/relations": "",
+            "/security/caseManagement/cases/{id}/relations/{id}": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.incidentRelation": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.recommendationRelation": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.workspaceIndicatorRelation": "",
+            "/security/caseManagement/cases/{id}/tasks": "",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.exposureCase": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.genericCase": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.incidentCase": "",
+            "/security/caseManagement/caseTypeConfigurations": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/caseManagement/cases/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
+      }
+    },
     "ChangeManagement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
