@@ -5,6 +5,8 @@ Content used by the DevX API to enhance clients and tooling. At the moment it ha
 
 This will also be used by the localization team to add translation files, and by feature teams to modify, add, or update samples.
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for setup, build, test, and usage instructions.
+
 ## Contributing
 ## Adding Sample Queries
 
@@ -161,3 +163,16 @@ Contributions to permissions are limited to contributors with write access. Howe
 In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
 
 If you run into any issues, reach out to @MaggieKimani1, @irvinesunday or @thewahome.
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Repository Context](repo-context.md) | Repository structure, content areas, configuration, dependencies, integrations, and conventions. |
+| [Contributing Guide](CONTRIBUTING.md) | Setup, validation, and contribution workflow. |
+| [Agent Guidance](AGENTS.md) | Repository-wide guidance and safety rules for AI agents. |
+| [Code of Conduct](CODE_OF_CONDUCT.md) | Community standards and conduct resources. |
+| [Pull Request Template](.github/pull_request_template.md) | Required pull request description, testing details, and checklist. |
+| [CI Workflow Instructions](.github/instructions/ci-workflows.instructions.md) | Scoped guidance for GitHub Actions workflow changes. |
+| [Content Catalog Instructions](.github/instructions/content.instructions.md) | Scoped guidance for content catalog changes. |
+| [Test Instructions](.github/instructions/tests.instructions.md) | Scoped guidance for validation and test changes. |
