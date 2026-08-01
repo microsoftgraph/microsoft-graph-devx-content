@@ -4142,7 +4142,7 @@
           "adminDisplayName": "Read and write all applications",
           "adminDescription": "Allows the app to create, read, update and delete applications and service principals without a signed-in user. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -4558,7 +4558,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "idappcore"
       }
     },
     "Application.ReadWrite.OwnedBy": {
@@ -4833,7 +4833,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "idappcore"
       }
     },
     "AppRegistration.Create": {
@@ -4887,7 +4887,7 @@
           "adminDisplayName": "Manage app permission grants and app role assignments",
           "adminDescription": "Allows the app to manage permission grants for application permissions to any API (including Microsoft Graph) and application assignments for any app, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -4964,7 +4964,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "idappcore"
       }
     },
     "ApprovalSolution.Read": {
@@ -8008,7 +8008,7 @@
           "adminDisplayName": "Read calendars in all mailboxes",
           "adminDescription": "Allows the app to read events of all calendars without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -9352,6 +9352,7 @@
             "/app/calls": "",
             "/app/calls/{id}/addlargegalleryview": "",
             "/app/calls/{id}/answer": "least=Application",
+            "/app/calls/{id}/lowerHand": "",
             "/app/calls/{id}/participants/{id}/admitFromLobby": "",
             "/app/calls/{id}/participants/{id}/lowerHand": "",
             "/app/calls/{id}/participants/{id}/mute": "least=Application",
@@ -9361,6 +9362,7 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/lowerAllHands": "",
             "/app/calls/{id}/participants/muteall": "least=Application",
+            "/app/calls/{id}/raiseHand": "",
             "/app/calls/{id}/startRecording": "least=Application",
             "/app/calls/{id}/startTranscription": "least=Application",
             "/app/calls/{id}/stopRecording": "least=Application",
@@ -9369,6 +9371,7 @@
             "/communications/calls": "",
             "/communications/calls/{id}/addlargegalleryview": "",
             "/communications/calls/{id}/answer": "least=Application",
+            "/communications/calls/{id}/lowerHand": "",
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
             "/communications/calls/{id}/participants/{id}/lowerHand": "",
             "/communications/calls/{id}/participants/{id}/mute": "least=Application",
@@ -9380,6 +9383,7 @@
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/lowerAllHands": "",
             "/communications/calls/{id}/participants/muteall": "least=Application",
+            "/communications/calls/{id}/raiseHand": "",
             "/communications/calls/{id}/startRecording": "least=Application",
             "/communications/calls/{id}/startTranscription": "least=Application",
             "/communications/calls/{id}/stopRecording": "least=Application",
@@ -9476,6 +9480,7 @@
             "POST"
           ],
           "paths": {
+            "/app/calls/{id}/lowerHand": "least=Application",
             "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/app/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/app/calls/{id}/participants/{id}/mute": "",
@@ -9485,6 +9490,8 @@
             "/app/calls/{id}/participants/configuremixer": "",
             "/app/calls/{id}/participants/lowerAllHands": "least=Application",
             "/app/calls/{id}/participants/muteall": "",
+            "/app/calls/{id}/raiseHand": "least=Application",
+            "/communications/calls/{id}/lowerHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/mute": "",
@@ -9495,7 +9502,8 @@
             "/communications/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/communications/calls/{id}/participants/configuremixer": "",
             "/communications/calls/{id}/participants/lowerAllHands": "least=Application",
-            "/communications/calls/{id}/participants/muteall": ""
+            "/communications/calls/{id}/participants/muteall": "",
+            "/communications/calls/{id}/raiseHand": "least=Application"
           }
         }
       ],
@@ -9574,6 +9582,34 @@
         "ownerSecurityGroup": "TeamsPermissions"
       }
     },
+    "Calls.ReportSyntheticMedia.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Report synthetic media detections in calls",
+          "adminDescription": "Allows the app to report synthetic media detections for participants in calls, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/app/calls/{id}/participants/{id}/reportsyntheticmedia": "least=Application",
+            "/communications/calls/{id}/participants/{id}/reportsyntheticmedia": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "RtsAvengersSG"
+      }
+    },
     "CallTranscripts.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -9629,6 +9665,171 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "TeamsPermissions"
+      }
+    },
+    "CaseManagement.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read all cases, relations, tasks, attachments and activities, on behalf of the signed-in user.",
+          "userDisplayName": "Read all cases, relations, tasks, attachments and activities",
+          "userDescription": "Allows the app to read all cases, relations, tasks, attachments and activities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read all cases, relations, tasks, attachments and activities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.auditLog": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.comment": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.incidentRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.recommendationRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.workspaceIndicatorRelation": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.exposureCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.genericCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.incidentCase": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
+      }
+    },
+    "CaseManagement.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write to cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write to all cases, relations, tasks, attachments and activities",
+          "userDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write to all cases, relations, tasks, attachments and activities",
+          "adminDescription": "Allows the app to read and write to all cases, relations, tasks, attachments and activities, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "",
+            "/security/caseManagement/cases/{id}": "",
+            "/security/caseManagement/cases/{id}/activities": "",
+            "/security/caseManagement/cases/{id}/activities/{id}": "",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.auditLog": "",
+            "/security/caseManagement/cases/{id}/activities/microsoft.graph.security.caseManagement.comment": "",
+            "/security/caseManagement/cases/{id}/attachments": "",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "",
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "",
+            "/security/caseManagement/cases/{id}/relations": "",
+            "/security/caseManagement/cases/{id}/relations/{id}": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.incidentRelation": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.recommendationRelation": "",
+            "/security/caseManagement/cases/{id}/relations/microsoft.graph.security.caseManagement.workspaceIndicatorRelation": "",
+            "/security/caseManagement/cases/{id}/tasks": "",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.exposureCase": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.genericCase": "",
+            "/security/caseManagement/cases/microsoft.graph.security.caseManagement.incidentCase": "",
+            "/security/caseManagement/caseTypeConfigurations": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/caseManagement/cases": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/caseManagement/cases/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/activities/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/attachments/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/relations/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/cases/{id}/tasks/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/security/caseManagement/cases/{id}/attachments/{id}/content": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
       }
     },
     "ChangeManagement.Read.All": {
@@ -10183,7 +10384,7 @@
           "adminDisplayName": "Read all channel messages",
           "adminDescription": "Allows the app to read all channel messages in Microsoft Teams",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -10232,7 +10433,7 @@
           "adminDisplayName": "",
           "adminDescription": "",
           "requiresAdminConsent": true,
-          "privilegeLevel": 2
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -10839,7 +11040,7 @@
           "adminDisplayName": "Read all chat messages",
           "adminDescription": "Allows the app to read all 1-to-1 or group chat messages in Microsoft Teams.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -11118,7 +11319,7 @@
           "adminDisplayName": "Read and write all chat messages",
           "adminDescription": "Allows an app to read and write all chat messages in Microsoft Teams, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -12558,7 +12759,7 @@
           "adminDisplayName": "Read and write all consent requests",
           "adminDescription": "Allows the app to read app consent requests and approvals, and deny or approve those requests without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -13811,13 +14012,13 @@
           "userDisplayName": "Read and write custom security attribute assignments",
           "userDescription": "Allows the app to read and write custom security attribute assignments for all principals in the tenant on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write custom security attribute assignments",
           "adminDescription": "Allows the app to read and write custom security attribute assignments for all principals in the tenant without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [],
@@ -13912,13 +14113,13 @@
           "userDisplayName": "Read and write custom security attribute definitions",
           "userDescription": "Allows the app to read and write custom security attribute definitions for the tenant on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write custom security attribute definitions",
           "adminDescription": "Allows the app to read and write custom security attribute definitions for the tenant without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -14256,7 +14457,7 @@
           "userDisplayName": "Manage all delegated permission grants",
           "userDescription": "Allows the app to manage permission grants for delegated permissions exposed by any API (including Microsoft Graph), on your behalf. ",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Manage all delegated permission grants",
@@ -14334,7 +14535,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "ssp"
       }
     },
     "Device.Command": {
@@ -14569,7 +14770,7 @@
           "adminDisplayName": "Read and write devices",
           "adminDescription": "Allows the app to read and write all device properties without a signed in user.  Does not allow device creation, device deletion or update of device alternative security identifiers.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -15475,7 +15676,7 @@
           "adminDisplayName": "Read Microsoft Intune device configuration and policies",
           "adminDescription": "Allows the app to read properties of Microsoft Intune-managed device configuration and device compliance policies and their assignment to groups, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -19824,7 +20025,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
     "Directory.Read.All": {
@@ -20200,13 +20401,13 @@
           "userDisplayName": "Read and write directory data",
           "userDescription": "Allows the app to read and write data in your organization's directory, such as other users, groups.  It does not allow the app to delete users or groups, or reset user passwords but it does allow modification of recovery properties that may lead to account takeover.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write directory data",
           "adminDescription": "Allows the app to read and write data in your organization's directory, such as users, and groups, without a signed-in user.  It does not allow user or group deletion.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -20825,7 +21026,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
     "DirectoryRecommendations.Read.All": {
@@ -21090,13 +21291,13 @@
           "userDisplayName": "Read and write domains",
           "userDescription": "Allows the app to read and write all domain properties on your behalf. Also allows the app to add, verify and remove domains.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write domains",
           "adminDescription": "Allows the app to read and write all domain properties without a signed in user.  Also allows the app to add,  verify and remove domains.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -21173,7 +21374,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "iamut-dev"
       }
     },
     "eDiscovery.Read.All": {
@@ -22908,7 +23109,7 @@
           "adminDisplayName": "Read and write the organization's roster",
           "adminDescription": "Allows the app to read and write the structure of schools and classes in the organization's roster and education-specific information about all users to be read and written.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -23426,7 +23627,7 @@
           "adminDisplayName": "Read and write all entitlement management resources",
           "adminDescription": "Allows the app to read and write access packages and related entitlement management resources without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -25049,7 +25250,7 @@
           "adminDisplayName": "Read files in all site collections",
           "adminDescription": "Allows the app to read all files in all site collections without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -26968,7 +27169,7 @@
           "adminDisplayName": "Read and write files in all site collections",
           "adminDescription": "Allows the app to read, create, update and delete all files in all site collections without a signed in user. ",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -28993,13 +29194,13 @@
           "userDisplayName": "Read and write all groups",
           "userDescription": "Allows the app to create groups and read all group properties and memberships on your behalf.  Additionally allows the app to manage your groups and to update group content for groups you are a member of.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all groups",
           "adminDescription": "Allows the app to create groups, read all group properties and memberships, update group properties and memberships, and delete groups. Also allows the app to read and write conversations. All of these operations can be performed by the app without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -29443,7 +29644,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
     "GroupMember.Read.All": {
@@ -29562,13 +29763,13 @@
           "userDisplayName": "Read and write group memberships",
           "userDescription": "Allows the app to list groups, read basic properties, read and update the membership of your groups. Group properties and owners cannot be updated and groups cannot be deleted.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all group memberships",
           "adminDescription": "Allows the app to list groups, read basic properties, read and update the membership of the groups this app has access to without a signed-in user. Group properties and owners cannot be updated and groups cannot be deleted.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -29601,7 +29802,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "AADGroupsPreAuth"
       }
     },
     "GroupSettings.Read.All": {
@@ -30081,7 +30282,7 @@
           "adminDisplayName": "Read and write identity providers",
           "adminDescription": "Allows the app to read and write your organization's identity (authentication) providers' properties without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -30468,7 +30669,7 @@
           "adminDisplayName": "Read and write all risky user information",
           "adminDescription": "Allows the app to read and update identity risky user information for your organization without a signed-in user.  Update operations include dismissing risky users.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -32237,7 +32438,7 @@
           "adminDisplayName": "Manage all license assignments.",
           "adminDescription": "Allows an app to manage license assignments for users and groups, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -34834,7 +35035,7 @@
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/getWebCategoryByUrl(url={value})": "least=DelegatedWork,Application",
-            "/networkAccess/connectivity/remoteNetworks/{id}/microsoft.graph.networkaccess.getBranchLinkHealth": "least=DelegatedWork,Application",
+            "/networkAccess/connectivity/remoteNetworks/{id}/microsoft.graph.networkaccess.getRemoteNetworkLinkHealth": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/webCategories": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -34922,7 +35123,7 @@
           ],
           "paths": {
             "/networkAccess/classifyMcpTools": "least=DelegatedWork,Application",
-            "/networkAccess/connectivity/remoteNetworks/microsoft.graph.networkaccess.getBatchHealth": "least=DelegatedWork,Application",
+            "/networkAccess/connectivity/remoteNetworks/microsoft.graph.networkaccess.getRemoteNetworksHealth": "least=DelegatedWork,Application",
             "/networkAccess/discoverMcpTools": "least=DelegatedWork,Application"
           }
         }
@@ -34975,7 +35176,7 @@
             "/networkAccess/connectivity/branches/{id}/connectivityConfiguration": "",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "",
             "/networkAccess/connectivity/branches/{id}/deviceLinks/{id}": "",
-            "/networkAccess/connectivity/remoteNetworks/{id}/microsoft.graph.networkaccess.getBranchLinkHealth": "",
+            "/networkAccess/connectivity/remoteNetworks/{id}/microsoft.graph.networkaccess.getRemoteNetworkLinkHealth": "",
             "/networkAccess/connectivity/webCategories": "",
             "/networkAccess/contentPolicies": "",
             "/networkAccess/contentPolicies/{id}/policyRules": "",
@@ -35083,7 +35284,7 @@
             "/networkAccess/cloudFirewallPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches": "least=DelegatedWork,Application",
             "/networkAccess/connectivity/branches/{id}/deviceLinks": "least=DelegatedWork,Application",
-            "/networkAccess/connectivity/remoteNetworks/microsoft.graph.networkaccess.getBatchHealth": "",
+            "/networkAccess/connectivity/remoteNetworks/microsoft.graph.networkaccess.getRemoteNetworksHealth": "",
             "/networkAccess/contentPolicies": "least=DelegatedWork,Application",
             "/networkAccess/contentPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/contentTypePolicies": "least=DelegatedWork,Application",
@@ -36034,7 +36235,8 @@
         "Application": {
           "adminDisplayName": "",
           "adminDescription": "",
-          "requiresAdminConsent": true
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
         }
       },
       "pathSets": [],
@@ -37017,7 +37219,7 @@
           "adminDisplayName": "Read and write organization information",
           "adminDescription": "Allows the app to read and write the organization and related resources, without a signed-in user. Related resources include things like subscribed skus and tenant branding information.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -38310,6 +38512,7 @@
           "paths": {
             "/places": "least=DelegatedWork,Application",
             "/places/{id}": "least=DelegatedWork,Application",
+            "/places/{id}/customProperties": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.building/map": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.building/map/footprints/{id}": "least=DelegatedWork,Application",
             "/places/{id}/microsoft.graph.building/map/levels/{id}": "least=DelegatedWork,Application",
@@ -39479,7 +39682,7 @@
           "adminDisplayName": "Read and write all authentication method policies ",
           "adminDescription": "Allows the app to read and write all authentication method policies for the tenant, without a signed-in user. ",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -39797,7 +40000,7 @@
           "adminDisplayName": "Read and write your organization's conditional access policies",
           "adminDescription": "Allows the app to read and write your organization's conditional access policies, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -40003,7 +40206,7 @@
           "adminDisplayName": "Read and write your organization's consent request policy",
           "adminDescription": "Allows the app to read and write your organization's consent requests policy without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -40040,7 +40243,7 @@
           "adminDisplayName": "Read and write your organization's cross tenant access policies",
           "adminDescription": "Allows the app to read and write your organization's cross tenant access policies without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -40615,7 +40818,7 @@
           "adminDisplayName": "Manage consent and permission grant policies",
           "adminDescription": "Allows the app to manage policies related to consent and permission grants for applications, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -41920,7 +42123,7 @@
           "adminDisplayName": "Read and write print jobs",
           "adminDescription": "Allows the application to read and update the metadata and document content of print jobs without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -43672,6 +43875,7 @@
             "/reports/dailyprintusagebyprinter/{id}": "least=DelegatedWork",
             "/reports/dailyprintusagebyuser": "least=DelegatedWork",
             "/reports/dailyprintusagebyuser/{id}": "least=DelegatedWork",
+            "/reports/enforcementNotices": "least=DelegatedWork",
             "/reports/getapiquota(period={value},servicearea={value},appid={value})": "least=DelegatedWork",
             "/reports/getgrouparchivedprintjobs": "least=DelegatedWork",
             "/reports/getgrouparchivedprintjobs(groupid={value},startdatetime={value},enddatetime={value})": "least=DelegatedWork",
@@ -44696,6 +44900,8 @@
             "/rolemanagement/cloudpc/roledefinitions/{id}": "",
             "/rolemanagement/devicemanagement/roledefinitions": "",
             "/rolemanagement/devicemanagement/roledefinitions/{id}": "",
+            "/rolemanagement/directory/deleteditems/roledefinitions": "least=DelegatedWork,Application",
+            "/rolemanagement/directory/deleteditems/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/resourcenamespaces": "least=DelegatedWork,Application",
             "/rolemanagement/directory/resourcenamespaces/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": "least=DelegatedWork,Application",
@@ -44897,13 +45103,13 @@
           "userDisplayName": "Read and write directory RBAC settings",
           "userDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your company's directory, on your behalf. This includes instantiating directory roles and managing directory role membership, and reading directory role templates, directory roles and memberships.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all directory RBAC settings",
           "adminDescription": "Allows the app to read and manage the role-based access control (RBAC) settings for your company's directory, without a signed-in user. This includes instantiating directory roles and managing directory role membership, and reading directory role templates, directory roles and memberships.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -44942,6 +45148,7 @@
           "paths": {
             "/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
             "/directory/administrativeunits/{id}/scopedrolemembers/{id}": "least=DelegatedWork,Application",
+            "/rolemanagement/directory/deleteditems/roledefinitions/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignments/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": ""
           }
@@ -44970,6 +45177,7 @@
             "/policies/rolemanagementpolicies/{id}/rules/{id}": "",
             "/policies/rolemanagementpolicyassignments": "",
             "/policies/rolemanagementpolicyassignments/{id}": "",
+            "/rolemanagement/directory/deleteditems/roledefinitions": "",
             "/rolemanagement/directory/resourcenamespaces": "",
             "/rolemanagement/directory/resourcenamespaces/{id}": "",
             "/rolemanagement/directory/resourcenamespaces/{id}/resourceactions": "",
@@ -45017,6 +45225,7 @@
           ],
           "paths": {
             "/directoryroles/roletemplateid={roletemplateid}/members": "least=DelegatedWork,Application",
+            "/rolemanagement/directory/deleteditems/roledefinitions/{id}/restore": "least=DelegatedWork,Application",
             "/rolemanagement/directory/roleassignmentschedulerequests/{id}/cancel": "",
             "/roleManagement/directory/roleEligibilityScheduleRequests/{unifiedRoleEligibilityScheduleRequestId}/cancel": ""
           }
@@ -45050,7 +45259,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "DirectoryPreAuthZReq"
       }
     },
     "RoleManagement.ReadWrite.Exchange": {
@@ -47952,7 +48161,7 @@
           "adminDisplayName": "Have full control of all site collections",
           "adminDescription": "Allows the app to have full control of all site collections without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -48271,7 +48480,7 @@
           "adminDisplayName": "Create, edit, and delete items and lists in all site collections",
           "adminDescription": "Allows the app to create or delete document libraries and lists in all site collections without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -48523,7 +48732,7 @@
           "adminDisplayName": "Read items in all site collections ",
           "adminDescription": "Allows the app to read documents and list items in all site collections without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -48977,7 +49186,7 @@
           "adminDisplayName": "Read and write items in all site collections",
           "adminDescription": "Allows the app to create, read, update, and delete documents and list items in all site collections without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -50126,7 +50335,7 @@
           "adminDisplayName": "Read and write all Azure AD synchronization data. ",
           "adminDescription": "Allows the application to configure the Azure AD synchronization service, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -50603,7 +50812,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "TodoOnGraph"
       }
     },
     "Tasks.Read.Shared": {
@@ -50997,7 +51206,7 @@
           "adminDisplayName": "Read and write all users' tasks and tasklists",
           "adminDescription": "Allows the app to create, read, update and delete all users' tasks and task lists in your organization, without a signed-in user",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -51136,7 +51345,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "TodoOnGraph"
       }
     },
     "Tasks.ReadWrite.Shared": {
@@ -53032,7 +53241,7 @@
           "adminDisplayName": "Allow the Teams app to manage itself and its permission grants in all user accounts",
           "adminDescription": "Allows a Teams app to read, install, upgrade, and uninstall itself for any user account, without a signed-in user, and manage its permission grants for accessing those specific users' data.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 4
+          "privilegeLevel": 3
         }
       },
       "pathSets": [
@@ -55279,14 +55488,14 @@
           ],
           "paths": {
             "/chats/{id}/completemigration": "least=Application",
-            "/chats/{id}/messages": "least=Application",
+            "/chats/{id}/messages": "",
             "/chats/{id}/startmigration": "least=Application",
             "/chats/{id}/unhideChatForAllUsers": "least=Application",
             "/teams": "",
             "/teams/{id}/channels": "",
             "/teams/{id}/channels/{id}/completemigration": "least=Application",
-            "/teams/{id}/channels/{id}/messages": "least=Application",
-            "/teams/{id}/channels/{id}/messages/{id}/replies": "least=Application",
+            "/teams/{id}/channels/{id}/messages": "",
+            "/teams/{id}/channels/{id}/messages/{id}/replies": "",
             "/teams/{id}/channels/{id}/startmigration": "least=Application",
             "/teams/{id}/completemigration": "least=Application",
             "/users/{id}/teamwork/sections": "",
@@ -57479,7 +57688,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "azureaduserentity"
       }
     },
     "User-OnPremisesSyncBehavior.ReadWrite.All": {
@@ -57529,13 +57738,13 @@
           "userDisplayName": "Update password profile property and reset password for all users",
           "userDescription": "Allows the app to update password profile property and reset password for all users, on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Update password profile property and reset password for all users",
           "adminDescription": "Allows the app to update password profile property and reset password for all users, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -57564,7 +57773,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "azureaduserentity"
       }
     },
     "User-Phone.ReadWrite.All": {
@@ -57600,7 +57809,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "azureaduserentity"
       }
     },
     "User.DeleteRestore.All": {
@@ -57612,13 +57821,13 @@
           "userDisplayName": "Delete and restore user accounts",
           "userDescription": "Allows the app to delete and restore users' accounts, on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Delete and restore user accounts",
           "adminDescription": "Allows the app to delete and restore users' accounts, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -57648,7 +57857,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "azureaduserentity"
       }
     },
     "User.EnableDisableAccount.All": {
@@ -57660,13 +57869,13 @@
           "userDisplayName": "Enable and disable user accounts",
           "userDescription": "Allows the app to enable and disable users' accounts, on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Enable and disable user accounts",
           "adminDescription": "Allows the app to enable and disable users' accounts, without a signed-in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
@@ -57684,7 +57893,7 @@
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "azureaduserentity"
       }
     },
     "User.Export.All": {
@@ -58991,13 +59200,13 @@
           "userDisplayName": "Read and write all users' full profiles",
           "userDescription": "Allows the app to read and write the full set of profile properties, reports, and managers of other users in your organization, and read basic company properties, on your behalf.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all users' full profiles",
           "adminDescription": "Allows the app to read and update user profiles and read basic company properties without a signed in user.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         }
       },
       "pathSets": [
