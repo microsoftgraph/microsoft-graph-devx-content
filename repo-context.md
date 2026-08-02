@@ -12,7 +12,7 @@
 | Frameworks | Jest test runner and JSON Schema validation |
 | Build system | npm scripts, with `npm run test` as the validation entry point |
 | Test framework | Jest, plus the `dsanders11/json-schema-validate-action` GitHub Action |
-| Source control | GitHub repository `chegeapollo11/microsoft-graph-devx-content`, default branch `master` |
+| Source control | GitHub repository `microsoftgraph/microsoft-graph-devx-content`, default branch `master` |
 | Package management | npm with `package.json` and `package-lock.json` |
 | Scale | A content repository organized into several independently maintained data areas, validation scripts, and CI/CD definitions |
 
