@@ -9356,7 +9356,6 @@
             "/app/calls/{id}/participants/{id}/admitFromLobby": "",
             "/app/calls/{id}/participants/{id}/lowerHand": "",
             "/app/calls/{id}/participants/{id}/mute": "least=Application",
-            "/app/calls/{id}/participants/{id}/raiseHand": "",
             "/app/calls/{id}/participants/{id}/removeFromLobby": "",
             "/app/calls/{id}/participants/admitAllFromLobby": "",
             "/app/calls/{id}/participants/configuremixer": "",
@@ -9375,7 +9374,6 @@
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "",
             "/communications/calls/{id}/participants/{id}/lowerHand": "",
             "/communications/calls/{id}/participants/{id}/mute": "least=Application",
-            "/communications/calls/{id}/participants/{id}/raiseHand": "",
             "/communications/calls/{id}/participants/{id}/removeFromLobby": "",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "",
@@ -9484,7 +9482,6 @@
             "/app/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/app/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/app/calls/{id}/participants/{id}/mute": "",
-            "/app/calls/{id}/participants/{id}/raiseHand": "least=Application",
             "/app/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
             "/app/calls/{id}/participants/admitAllFromLobby": "least=Application",
             "/app/calls/{id}/participants/configuremixer": "",
@@ -9495,7 +9492,6 @@
             "/communications/calls/{id}/participants/{id}/admitFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/lowerHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/mute": "",
-            "/communications/calls/{id}/participants/{id}/raiseHand": "least=Application",
             "/communications/calls/{id}/participants/{id}/removeFromLobby": "least=Application",
             "/communications/calls/{id}/participants/{id}/startholdmusic": "least=Application",
             "/communications/calls/{id}/participants/{id}/stopholdmusic": "least=Application",
@@ -11937,6 +11933,7 @@
             "/devicemanagement/virtualEndpoint/managedLicenses": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/onpremisesconnections/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/organizationConfiguration": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/cloudPCUserSettingsPersistence": "least=DelegatedWork,Application",
@@ -12201,6 +12198,7 @@
           ],
           "paths": {
             "/devicemanagement/virtualendpoint/externalpartnersettings/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/organizationConfiguration": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/organizationsettings": "least=DelegatedWork,Application"
           }
         },
@@ -12505,6 +12503,8 @@
             "/admin/configurationManagement/configurationSnapshotJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshotJobs/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "least=DelegatedWork,Application",
@@ -12591,6 +12591,8 @@
             "/admin/configurationManagement/configurationSnapshotJobs": "",
             "/admin/configurationManagement/configurationSnapshotJobs/{id}": "",
             "/admin/configurationManagement/configurationSnapshots/{id}": "",
+            "/admin/configurationManagement/configurationTemplates": "",
+            "/admin/configurationManagement/configurationTemplates/{id}": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "",
@@ -12633,6 +12635,7 @@
             "/admin/configurationManagement/configurationMonitors": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "least=DelegatedWork,Application",
@@ -12660,6 +12663,7 @@
           ],
           "paths": {
             "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -12684,6 +12688,7 @@
           ],
           "paths": {
             "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -46128,7 +46133,8 @@
             "POST"
           ],
           "paths": {
-            "/security/alerts_v2": "least=DelegatedWork,Application"
+            "/security/alerts_v2": "least=DelegatedWork,Application",
+            "/security/alerts_v2/createAlert": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -46238,7 +46244,8 @@
             "POST"
           ],
           "paths": {
-            "/security/alerts_v2": ""
+            "/security/alerts_v2": "",
+            "/security/alerts_v2/createAlert": ""
           }
         }
       ],
