@@ -122,8 +122,8 @@ The repository follows a content pipeline rather than an application service lay
 
 | Package/Library | Purpose | Owner |
 |----------------|---------|-------|
-| Jest | Runs the JavaScript validation specifications. | Not declared in this repository |
-| `node-fetch` | Sends HEAD requests when validating sample documentation links. | Not declared in this repository |
+| Jest | Runs the JavaScript validation specifications. | Declared in `package.json` `devDependencies`. |
+| `node-fetch` | Sends HEAD requests when validating sample documentation links. | Declared in `package.json` `devDependencies`. |
 | `tests/samples.schema.json` | Defines the structural contract for `sample-queries/sample-queries.json`. | `@microsoftgraph/msgraph-devx-api-write` |
 
 ### External Services
@@ -154,7 +154,7 @@ The repository follows a content pipeline rather than an application service lay
 ## Key Conventions for Agents
 
 1. Preserve the sample-query property order and field rules documented in `README.md`.
-2. Keep sample `humanName` values lowercased at the first word and use relative `/v1.0` or `/beta` request URLs, matching the Jest validations.
+2. Keep sample `humanName` values in small caps only (all lowercase), per the canonical rule in `README.md`, and use relative `/v1.0` or `/beta` request URLs matching the Jest validations.
 3. Add locale-specific content by following the existing `<base-name>_<locale>.json` naming pattern.
 4. Run `npm run test` for changes covered by the JavaScript validation suite; sample-query changes are also schema-validated in GitHub Actions.
 5. Do not bypass pull requests for `master` or `dev`; both branches require a pull request and one approving review according to the branch policy.
