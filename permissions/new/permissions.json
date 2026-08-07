@@ -23529,6 +23529,8 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork,Application",
@@ -23680,6 +23682,7 @@
             "POST"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs": "least=DelegatedWork,Application",
@@ -23723,6 +23726,7 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}": "least=DelegatedWork,Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "least=DelegatedWork,Application"
@@ -28816,6 +28820,67 @@
         "ownerSecurityGroup": "ddsappperm"
       }
     },
+    "Group-PreferredDataLocation.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all groups' preferred data location property that user can access",
+          "adminDescription": "Allows the app to create, read and update groups' preferred data location property that you have access to in the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all groups' preferred data location property that user can access",
+          "userDescription": "Allows the app to create, read and update groups' preferred data location property that you have access to in the organization, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all groups' preferred data location property",
+          "adminDescription": "Allows the app to create, read and update all groups' preferred data location property, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups": "",
+            "/groups/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/groups": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/groups/{id}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
     "Group-XTenantIdentitySync.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -29183,6 +29248,111 @@
           ],
           "paths": {
             "/teams/{id}/schedule/timesoff/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
+    "Group.ReadBasic.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all groups' basic property",
+          "adminDescription": "Allows the app to read all group basic properties on behalf of the signed-in user.",
+          "userDisplayName": "Read all groups' basic property",
+          "userDescription": "Allows the app to read all group basic properties on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all groups' basic property",
+          "adminDescription": "Allows the app to read all group basic properties. All of these operations can be performed by the app without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/contacts/{id}/checkmembergroups": "",
+            "/contacts/{id}/checkmemberobjects": "",
+            "/contacts/{id}/getmembergroups": "",
+            "/contacts/{id}/getmemberobjects": "",
+            "/devices/{id}/checkmembergroups": "",
+            "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/getmembergroups": "",
+            "/devices/{id}/getmemberobjects": "",
+            "/directoryobjects/{id}/checkmembergroups": "",
+            "/directoryobjects/{id}/checkmemberobjects": "",
+            "/directoryobjects/{id}/getmembergroups": "",
+            "/directoryobjects/{id}/getmemberobjects": "",
+            "/groups/{id}/checkmembergroups": "",
+            "/groups/{id}/checkmemberobjects": "",
+            "/groups/{id}/getmembergroups": "",
+            "/groups/{id}/getmemberobjects": "",
+            "/serviceprincipals/{id}/checkmembergroups": "",
+            "/serviceprincipals/{id}/checkmemberobjects": "",
+            "/serviceprincipals/{id}/getmembergroups": "",
+            "/serviceprincipals/{id}/getmemberobjects": "",
+            "/users/{id}/checkmembergroups": "",
+            "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/getmembergroups": "",
+            "/users/{id}/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups": "least=DelegatedWork,Application",
+            "/groups/{id}": "",
+            "/groups/{id}/memberof": "",
+            "/groups/{id}/members": "",
+            "/groups/{id}/transitivememberof": "",
+            "/groups/{id}/transitivemembers": "",
+            "/groups/delta": "least=DelegatedWork,Application",
+            "/users/{id}/memberof": "",
+            "/users/{id}/transitivememberof": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/memberof": "",
+            "/me/transitivememberof": ""
           }
         }
       ],
@@ -29752,6 +29922,108 @@
             "/me/memberof": "",
             "/me/transitivememberof": "",
             "/users/{id}/memberof": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "AADGroupsPreAuth"
+      }
+    },
+    "GroupMember.ReadBasic.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read group memberships",
+          "adminDescription": "Allows the app to read basic group memberships that you have access to in the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read group memberships",
+          "userDescription": "Allows the app to read basic group memberships that you have access to in the organization, on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all group memberships",
+          "adminDescription": "Allows the app to read all basic group memberships in the organization, without signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/contacts/{id}/checkmembergroups": "",
+            "/contacts/{id}/checkmemberobjects": "",
+            "/contacts/{id}/getmembergroups": "",
+            "/contacts/{id}/getmemberobjects": "",
+            "/devices/{id}/checkmembergroups": "",
+            "/devices/{id}/checkmemberobjects": "",
+            "/devices/{id}/getmembergroups": "",
+            "/devices/{id}/getmemberobjects": "",
+            "/directoryobjects/{id}/checkmembergroups": "",
+            "/directoryobjects/{id}/checkmemberobjects": "",
+            "/directoryobjects/{id}/getmembergroups": "",
+            "/directoryobjects/{id}/getmemberobjects": "",
+            "/groups/{id}/checkmembergroups": "least=DelegatedWork,Application",
+            "/groups/{id}/checkmemberobjects": "least=DelegatedWork,Application",
+            "/groups/{id}/getmembergroups": "least=DelegatedWork,Application",
+            "/groups/{id}/getmemberobjects": "least=DelegatedWork,Application",
+            "/serviceprincipals/{id}/checkmembergroups": "",
+            "/serviceprincipals/{id}/checkmemberobjects": "",
+            "/serviceprincipals/{id}/getmembergroups": "",
+            "/serviceprincipals/{id}/getmemberobjects": "",
+            "/users/{id}/checkmembergroups": "",
+            "/users/{id}/checkmemberobjects": "",
+            "/users/{id}/getmembergroups": "",
+            "/users/{id}/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/me/checkmembergroups": "",
+            "/me/checkmemberobjects": "",
+            "/me/getmembergroups": "",
+            "/me/getmemberobjects": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/groups/{id}/memberof": "least=DelegatedWork,Application",
+            "/groups/{id}/members": "least=DelegatedWork,Application",
+            "/groups/{id}/transitivememberof": "least=DelegatedWork,Application",
+            "/groups/{id}/transitivemembers": "least=DelegatedWork,Application",
+            "/users/{id}/memberof": "",
+            "/users/{id}/transitivememberof": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/me/memberof": "",
+            "/me/transitivememberof": ""
           }
         }
       ],
@@ -34142,6 +34414,86 @@
           ],
           "paths": {
             "/admin/exchange/mailboxes/{id}/folders/{id}/items": "least=Application",
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items/{id}": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.ReadWrite": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write a user's mailbox items",
+          "adminDescription": "Allows the app to read, write, and delete the user's mailbox items, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your mailbox items",
+          "userDescription": "Allows the app to read, write, and delete your mailbox items, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "MailboxItem.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write all users' mailbox items",
+          "adminDescription": "Allows the app to read, write, and delete all users' mailbox items, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/exchange/mailboxes/{id}/folders/{id}/items": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET"
+          ],
+          "paths": {
             "/admin/exchange/mailboxes/{id}/folders/{id}/items/{id}": "least=Application"
           }
         }
