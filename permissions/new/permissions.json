@@ -32990,6 +32990,7 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/summary(startdatetime={value},enddatetime={value})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "least=DelegatedWork,Application",
@@ -33273,6 +33274,7 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/summary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
@@ -33389,6 +33391,7 @@
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/{id}/taskprocessingresults": "",
+            "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/subjectprocessingresults/summary(startdatetime={value},enddatetime={value})": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/taskprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults": "",
             "/identitygovernance/lifecycleworkflows/workflows/{id}/runs/{id}/userprocessingresults/{id}": "",
@@ -64536,6 +64539,122 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "shifts-service-sg"
+      }
+    },
+    "Zone.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Zones in Microsoft Defender for Cloud",
+          "adminDescription": "Allows the app to read all Zones and their environments in Microsoft Defender for Cloud for the signed-in user.",
+          "userDisplayName": "Read all Zones in Microsoft Defender for Cloud",
+          "userDescription": "Allows the app to read all Zones and their environments in Microsoft Defender for Cloud on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Zones in Microsoft Defender for Cloud",
+          "adminDescription": "Allows the app to read all Zones and their environments in Microsoft Defender for Cloud without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/zones": "least=DelegatedWork,Application",
+            "/security/zones/{id}": "least=DelegatedWork,Application",
+            "/security/zones/{id}/environments": "least=DelegatedWork,Application",
+            "/security/zones/{id}/environments/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdcdefall"
+      }
+    },
+    "Zone.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and manage all Zones in Microsoft Defender for Cloud",
+          "adminDescription": "Allows the app to read, create, update, and delete Zones and manage their environments in Microsoft Defender for Cloud for the signed-in user.",
+          "userDisplayName": "Read and manage all Zones in Microsoft Defender for Cloud",
+          "userDescription": "Allows the app to read, create, update, and delete Zones and manage their environments in Microsoft Defender for Cloud on behalf of the signed-in user..",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and manage all Zones in Microsoft Defender for Cloud",
+          "adminDescription": "Allows the app to read, create, update, and delete Zones and manage their environments in Microsoft Defender for Cloud without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/zones": "",
+            "/security/zones/{id}": "",
+            "/security/zones/{id}/environments": "",
+            "/security/zones/{id}/environments/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/zones": "least=DelegatedWork,Application",
+            "/security/zones/{id}/environments": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/security/zones/{id}": "least=DelegatedWork,Application",
+            "/security/zones/{id}/environments/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/security/zones/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "mdcdefall"
       }
     }
   }
