@@ -12198,8 +12198,21 @@
           ],
           "paths": {
             "/devicemanagement/virtualendpoint/externalpartnersettings/{id}": "least=DelegatedWork,Application",
-            "/devicemanagement/virtualendpoint/organizationConfiguration": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/organizationsettings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/devicemanagement/virtualendpoint/organizationConfiguration": "least=DelegatedWork,Application"
           }
         },
         {
@@ -32803,9 +32816,13 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/complianceRules": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -32838,15 +32855,46 @@
             "Application"
           ],
           "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
             "DELETE",
-            "GET",
             "PATCH",
             "POST"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/complianceRules": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -50928,10 +50976,14 @@
             "GET"
           ],
           "paths": {
+            "/buckets": "least=DelegatedWork",
+            "/buckets/{id}": "least=DelegatedWork",
+            "/buckets/{id}/tasks": "least=DelegatedWork",
             "/drive/root/createdbyuser/planner/plans": "least=DelegatedWork",
             "/drive/root/createdbyuser/planner/tasks": "least=DelegatedWork",
             "/groups/{id}/planner/plans": "least=DelegatedWork",
             "/groups/{id}/planner/plans/delta": "least=DelegatedWork",
+            "/groups/{id}/plans": "least=DelegatedWork",
             "/me/planner": "least=DelegatedWork",
             "/me/planner/all/delta": "least=DelegatedWork",
             "/me/planner/favoriteplans": "least=DelegatedWork",
@@ -50940,6 +50992,8 @@
             "/me/planner/recentplans": "least=DelegatedWork",
             "/me/planner/tasks": "least=DelegatedWork",
             "/me/planner/tasks/delta": "least=DelegatedWork",
+            "/me/plans": "least=DelegatedWork",
+            "/me/tasks": "least=DelegatedWork",
             "/planner/buckets": "least=DelegatedWork",
             "/planner/buckets/{id}": "least=DelegatedWork",
             "/planner/buckets/{id}/tasks": "least=DelegatedWork",
@@ -50968,7 +51022,22 @@
             "/planner/tasks/{id}/messages": "least=DelegatedWork",
             "/planner/tasks/{id}/progresstaskboardformat": "least=DelegatedWork",
             "/planner/tasks/delta": "least=DelegatedWork",
+            "/plans": "least=DelegatedWork",
+            "/plans/{id}": "least=DelegatedWork",
+            "/plans/{id}/buckets": "least=DelegatedWork",
+            "/plans/{id}/categoryDefinitions": "least=DelegatedWork",
+            "/plans/{id}/contextLinks": "least=DelegatedWork",
+            "/plans/{id}/dependencies": "least=DelegatedWork",
+            "/plans/{id}/goals": "least=DelegatedWork",
+            "/plans/{id}/historyItems": "least=DelegatedWork",
+            "/plans/{id}/tasks": "least=DelegatedWork",
+            "/tasks": "least=DelegatedWork",
+            "/tasks/{id}": "least=DelegatedWork",
+            "/tasks/{id}/assignments": "least=DelegatedWork",
+            "/tasks/{id}/checklistItems": "least=DelegatedWork",
+            "/tasks/{id}/contentLinks": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/planner/plans": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/plans": "least=DelegatedWork",
             "/users/{id}/planner": "least=DelegatedWork",
             "/users/{id}/planner/all/delta": "least=DelegatedWork",
             "/users/{id}/planner/favoriteplans": "least=DelegatedWork",
@@ -50977,7 +51046,9 @@
             "/users/{id}/planner/recentplans": "least=DelegatedWork",
             "/users/{id}/planner/rosterplans": "least=DelegatedWork",
             "/users/{id}/planner/tasks": "least=DelegatedWork",
-            "/users/{id}/planner/tasks/delta": "least=DelegatedWork"
+            "/users/{id}/planner/tasks/delta": "least=DelegatedWork",
+            "/users/{id}/plans": "least=DelegatedWork",
+            "/users/{id}/tasks": "least=DelegatedWork"
           }
         },
         {
@@ -51105,13 +51176,18 @@
             "GET"
           ],
           "paths": {
+            "/buckets": "least=Application",
+            "/buckets/{id}": "least=Application",
+            "/buckets/{id}/tasks": "least=Application",
             "/drive/root/createdbyuser/planner/tasks": "least=Application",
             "/groups/{id}/planner/plans": "least=Application",
             "/groups/{id}/planner/plans/delta": "least=Application",
+            "/groups/{id}/plans": "least=Application",
             "/me/planner": "least=Application",
             "/me/planner/myDayTasks": "least=Application",
             "/me/planner/tasks": "least=Application",
             "/me/planner/tasks/delta": "least=Application",
+            "/me/tasks": "least=Application",
             "/me/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": "least=Application",
             "/me/todo/lists": "least=Application",
             "/me/todo/lists/{id}": "least=Application",
@@ -51151,12 +51227,28 @@
             "/planner/tasks/{id}/details": "least=Application",
             "/planner/tasks/{id}/progresstaskboardformat": "least=Application",
             "/planner/tasks/delta": "least=Application",
+            "/plans": "least=Application",
+            "/plans/{id}": "least=Application",
+            "/plans/{id}/buckets": "least=Application",
+            "/plans/{id}/categoryDefinitions": "least=Application",
+            "/plans/{id}/contextLinks": "least=Application",
+            "/plans/{id}/dependencies": "least=Application",
+            "/plans/{id}/goals": "least=Application",
+            "/plans/{id}/historyItems": "least=Application",
+            "/plans/{id}/tasks": "least=Application",
+            "/tasks": "least=Application",
+            "/tasks/{id}": "least=Application",
+            "/tasks/{id}/assignments": "least=Application",
+            "/tasks/{id}/checklistItems": "least=Application",
+            "/tasks/{id}/contentLinks": "least=Application",
             "/teams/{id}/channels/{id}/planner/plans": "least=Application",
+            "/teams/{id}/channels/{id}/plans": "least=Application",
             "/users/{id}/planner": "least=Application",
             "/users/{id}/planner/myDayTasks": "least=Application",
             "/users/{id}/planner/rosterplans": "least=Application",
             "/users/{id}/planner/tasks": "least=Application",
             "/users/{id}/planner/tasks/delta": "least=Application",
+            "/users/{id}/tasks": "least=Application",
             "/users/{id}/tasks/lists/{id}/tasks/{id}/checklistitems/{id}": "least=Application",
             "/users/{id}/todo/lists": "least=Application",
             "/users/{id}/todo/lists/{id}": "least=Application",
@@ -51228,15 +51320,20 @@
             "GET"
           ],
           "paths": {
+            "/buckets/{id}": "",
+            "/buckets/{id}/tasks": "",
             "/drive/root/createdbyuser/planner/plans": "",
             "/drive/root/createdbyuser/planner/tasks": "",
             "/groups/{id}/planner/plans": "",
+            "/groups/{id}/plans": "",
             "/me/planner/all/delta": "",
             "/me/planner/favoriteplans": "",
             "/me/planner/myDayTasks": "",
             "/me/planner/plans": "",
             "/me/planner/recentplans": "",
             "/me/planner/tasks": "",
+            "/me/plans": "",
+            "/me/tasks": "",
             "/planner/buckets/{id}/tasks": "",
             "/planner/copyPlanOperations/{id}": "least=DelegatedWork",
             "/planner/plans/{id}/buckets": "",
@@ -51245,14 +51342,24 @@
             "/planner/plans/{id}/historyItems": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
+            "/plans/{id}": "",
+            "/plans/{id}/buckets": "",
+            "/plans/{id}/dependencies": "",
+            "/plans/{id}/goals": "",
+            "/plans/{id}/historyItems": "",
+            "/plans/{id}/tasks": "",
+            "/tasks/{id}": "",
             "/teams/{id}/channels/{id}/planner/plans": "",
+            "/teams/{id}/channels/{id}/plans": "",
             "/users/{id}/planner/all/delta": "",
             "/users/{id}/planner/favoriteplans": "",
             "/users/{id}/planner/myDayTasks": "",
             "/users/{id}/planner/plans": "",
             "/users/{id}/planner/recentplans": "",
             "/users/{id}/planner/rosterplans": "",
-            "/users/{id}/planner/tasks": ""
+            "/users/{id}/planner/tasks": "",
+            "/users/{id}/plans": "",
+            "/users/{id}/tasks": ""
           }
         },
         {
@@ -51580,11 +51687,15 @@
             "GET"
           ],
           "paths": {
+            "/buckets/{id}": "",
+            "/buckets/{id}/tasks": "",
             "/drive/root/createdbyuser/planner/tasks": "",
             "/groups/{id}/planner/plans": "",
+            "/groups/{id}/plans": "",
             "/me/planner": "",
             "/me/planner/myDayTasks": "",
             "/me/planner/tasks": "",
+            "/me/tasks": "",
             "/me/todo/lists/{id}/tasks/delta": "least=Application",
             "/me/todo/lists/delta": "",
             "/planner/buckets/{id}/tasks": "",
@@ -51594,11 +51705,20 @@
             "/planner/plans/{id}/historyItems": "",
             "/planner/plans/{id}/tasks": "",
             "/planner/rosters/{id}/plans": "",
+            "/plans/{id}": "",
+            "/plans/{id}/buckets": "",
+            "/plans/{id}/dependencies": "",
+            "/plans/{id}/goals": "",
+            "/plans/{id}/historyItems": "",
+            "/plans/{id}/tasks": "",
+            "/tasks/{id}": "",
             "/teams/{id}/channels/{id}/planner/plans": "",
+            "/teams/{id}/channels/{id}/plans": "",
             "/users/{id}/planner": "",
             "/users/{id}/planner/myDayTasks": "",
             "/users/{id}/planner/rosterplans": "",
             "/users/{id}/planner/tasks": "",
+            "/users/{id}/tasks": "",
             "/users/{id}/todo/lists/{id}/tasks/delta": "",
             "/users/{id}/todo/lists/delta": ""
           }
