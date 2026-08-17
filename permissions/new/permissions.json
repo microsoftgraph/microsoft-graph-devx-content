@@ -32823,6 +32823,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
@@ -32865,6 +32866,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
           }
@@ -32875,16 +32877,11 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "PATCH",
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application"
           }
         },
         {
@@ -32896,7 +32893,22 @@
             "PATCH"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
