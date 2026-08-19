@@ -11922,6 +11922,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
@@ -11994,6 +11996,7 @@
             "/me/cloudpcs": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "least=DelegatedWork",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcdevices": "least=DelegatedWork",
@@ -12077,6 +12080,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
@@ -12286,6 +12291,7 @@
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "",
             "/tenantrelationships/managedtenants/cloudpcdevices": "",
@@ -32823,6 +32829,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
@@ -32865,6 +32872,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
           }
@@ -32875,16 +32883,11 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "PATCH",
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application"
           }
         },
         {
@@ -32896,7 +32899,22 @@
             "PATCH"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -35393,6 +35411,8 @@
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatSummaryReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/transactionSummaries": "least=DelegatedWork,Application",
@@ -35644,6 +35664,8 @@
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getUserThreatReport": "",
             "/networkaccess/reports/getUserThreatSummaryReport": "",
             "/networkaccess/reports/transactionSummaries": "",
@@ -57640,6 +57662,9 @@
             "GET"
           ],
           "paths": {
+            "/security/gethuntingschematables": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables()": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
             "/security/getrunhuntingquery": "least=DelegatedWork,Application"
           }
         }
