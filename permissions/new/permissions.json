@@ -11922,6 +11922,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
@@ -11994,6 +11996,7 @@
             "/me/cloudpcs": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "least=DelegatedWork",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcdevices": "least=DelegatedWork",
@@ -12077,6 +12080,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
@@ -12286,6 +12291,7 @@
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "",
             "/tenantrelationships/managedtenants/cloudpcdevices": "",
@@ -14556,6 +14562,87 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ssp"
+      }
+    },
+    "Device-CloudLicensing.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read Cloud Licensing resources for devices owned by the signed-in user-including allotments, assignments and usageRights-on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read Cloud Licensing resources for devices owned by you-including allotments, assignments and usageRights-on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-CloudLicensing.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices-including allotments, assignments, and usageRights-on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read all Cloud Licensing resources for devices-including allotments, assignments, and usageRights-on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices, including allotments, assignments and usageRights.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
       }
     },
     "Device.Command": {
@@ -32823,6 +32910,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
@@ -32865,6 +32953,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
           }
@@ -32875,16 +32964,11 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "PATCH",
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application"
           }
         },
         {
@@ -32896,7 +32980,22 @@
             "PATCH"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -35393,6 +35492,8 @@
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatSummaryReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/transactionSummaries": "least=DelegatedWork,Application",
@@ -35512,6 +35613,8 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/trustedCertificateAuthorities": "least=Application",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "least=Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -35644,6 +35747,8 @@
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getUserThreatReport": "",
             "/networkaccess/reports/getUserThreatSummaryReport": "",
             "/networkaccess/reports/transactionSummaries": "",
@@ -35666,6 +35771,8 @@
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "",
+            "/networkaccess/tls/trustedCertificateAuthorities": "",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsInspectionPolicies/{id}": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "",
@@ -57640,6 +57747,9 @@
             "GET"
           ],
           "paths": {
+            "/security/gethuntingschematables": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables()": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
             "/security/getrunhuntingquery": "least=DelegatedWork,Application"
           }
         }
@@ -58566,6 +58676,7 @@
             "/admin/people/itemInsights": "least=DelegatedWork",
             "/education/me/user": "",
             "/education/users/{id}/user": "",
+            "/me/accessibleTenants": "least=DelegatedWork",
             "/me/agentSignInSessions": "least=DelegatedWork",
             "/me/agentSignInSessions/{id}": "least=DelegatedWork",
             "/me/analytics/settings": "least=DelegatedWork",
@@ -58604,6 +58715,8 @@
             "/me/sponsorof": "least=DelegatedWork",
             "/me/sponsors": "least=DelegatedWork",
             "/me/transitivememberof": "least=DelegatedWork",
+            "/networkaccess/tls/trustedCertificateAuthorities": "least=DelegatedWork",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "least=DelegatedWork",
             "/organization": "",
             "/organization/{id}/branding": "least=DelegatedWork",
             "/organization/{id}/branding/localizations": "least=DelegatedWork",
@@ -58895,6 +59008,7 @@
             "/settings/regionalandlanguagesettings": "least=Application",
             "/users": "",
             "/users/{id}": "",
+            "/users/{id}/accessibleTenants": "least=DelegatedWork,Application",
             "/users/{id}/cloudLicensing/assignmentErrors": "",
             "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
             "/users/{id}/cloudLicensing/assignments": "",
@@ -59791,6 +59905,7 @@
             "/groups/{id}/cloudLicensing/usageRights": "",
             "/groups/{id}/cloudLicensing/usageRights/{id}": "",
             "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/accessibleTenants": "",
             "/users/{id}/cloudLicensing/assignmentErrors": "",
             "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
             "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
