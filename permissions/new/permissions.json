@@ -5395,6 +5395,7 @@
             "/reports/authenticationmethods/userregistrationdetails": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails/{id}": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessimpactanalyzerdata": "least=DelegatedWork,Application",
+            "/reports/conditionalaccess/getconditionalaccessperpolicyhighvalueidentityimpact": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessperpolicyimpactsummary": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/protectedapps": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/securityalerts": "least=DelegatedWork,Application",
@@ -5906,6 +5907,7 @@
             "GET"
           ],
           "paths": {
+            "/backupRestore/entraProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/exchangeProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/oneDriveForBusinessProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/protectionPolicies": "least=DelegatedWork,Application",
@@ -5921,6 +5923,7 @@
             "GET"
           ],
           "paths": {
+            "/backupRestore/entraProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/exchangeProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/protectionPolicies/{policyId}": "least=DelegatedWork,Application",
@@ -6127,6 +6130,7 @@
             "POST"
           ],
           "paths": {
+            "/backupRestore/entraProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/exchangeProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/oneDriveForBusinessProtectionPolicies": "least=DelegatedWork,Application",
             "/backupRestore/sharePointProtectionPolicies": "least=DelegatedWork,Application"
@@ -6139,9 +6143,11 @@
           ],
           "methods": [
             "DELETE",
-            "GET"
+            "GET",
+            "PATCH"
           ],
           "paths": {
+            "/backupRestore/entraProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/exchangeProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/oneDriveForBusinessProtectionPolicies/{policyId}": "least=DelegatedWork,Application",
             "/backupRestore/protectionPolicies/{policyId}": "least=DelegatedWork,Application",
@@ -9715,6 +9721,8 @@
             "/security/caseManagement/caseTypeConfigurations/{id}": "least=DelegatedWork,Application",
             "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "least=DelegatedWork,Application",
             "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "least=DelegatedWork,Application",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": "least=DelegatedWork,Application",
             "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "least=DelegatedWork,Application",
             "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": "least=DelegatedWork,Application"
           }
@@ -9775,6 +9783,8 @@
             "/security/caseManagement/caseTypeConfigurations/{id}": "",
             "/security/caseManagement/caseTypeConfigurations/{id}/customFields": "",
             "/security/caseManagement/caseTypeConfigurations/{id}/customFields/{id}": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": "",
             "/security/caseManagement/caseTypeConfigurations/{id}/statuses": "",
             "/security/caseManagement/caseTypeConfigurations/{id}/statuses/{id}": ""
           }
@@ -11922,6 +11932,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/deviceimages": "least=DelegatedWork,Application",
@@ -11994,6 +12006,7 @@
             "/me/cloudpcs": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "least=DelegatedWork",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcdevices": "least=DelegatedWork",
@@ -12077,6 +12090,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getCloudPcLaunchInfo": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/retrieveflexcloudpcconfigurationdetail": "",
             "/devicemanagement/virtualEndpoint/cloudPcs/{id}/retrieveFrontlineCloudPcDetail": "",
             "/devicemanagement/virtualendpoint/cloudpcs/retrievecloudpccountbystatus": "",
             "/devicemanagement/virtualendpoint/deviceimages/getsourceimages": "",
@@ -12286,6 +12301,7 @@
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "",
+            "/me/cloudpcs/{id}/retrieveflexcloudpcaccessconfiguration": "",
             "/tenantrelationships/managedtenants/cloudpcconnections": "",
             "/tenantrelationships/managedtenants/cloudpcconnections/{id}": "",
             "/tenantrelationships/managedtenants/cloudpcdevices": "",
@@ -14556,6 +14572,87 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "ssp"
+      }
+    },
+    "Device-CloudLicensing.Read": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read individually owned Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read Cloud Licensing resources for devices owned by the signed-in user-including allotments, assignments and usageRights-on their behalf.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read Cloud Licensing resources for devices owned by you-including allotments, assignments and usageRights-on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=DelegatedWork",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
+      }
+    },
+    "Device-CloudLicensing.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices-including allotments, assignments, and usageRights-on behalf of the signed-in user.",
+          "userDisplayName": "Read your Cloud Licensing resources for devices",
+          "userDescription": "Allows the app to read all Cloud Licensing resources for devices-including allotments, assignments, and usageRights-on your behalf.",
+          "requiresAdminConsent": false,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Cloud Licensing resources for devices.",
+          "adminDescription": "Allows the app to read all Cloud Licensing resources for devices, including allotments, assignments and usageRights.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/devices/{id}/cloudLicensing/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/assignments/{id}/allotment": "least=Application",
+            "/devices/{id}/cloudLicensing/usageRights": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}": "",
+            "/devices/{id}/cloudLicensing/usageRights/{id}/assignments": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}": "least=Application",
+            "/devices/{id}/cloudLicensing/waitingMembers/{id}/allotment": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "cloudlicensing"
       }
     },
     "Device.Command": {
@@ -23521,9 +23618,6 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps/{id}": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "",
@@ -23546,6 +23640,9 @@
           "paths": {
             "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork,Application",
@@ -23604,7 +23701,10 @@
             "/identitygovernance/accessevaluationdetections": "least=DelegatedWork,Application",
             "/identitygovernance/accessevaluationdetections/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessevaluationpolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
+            "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "least=DelegatedWork,Application"
           }
         },
         {
@@ -23627,6 +23727,33 @@
           ],
           "paths": {
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/insights/accessdriftsummary": "least=DelegatedWork,Application",
+            "/identitygovernance/insights/accessdriftsummary/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/insights/accessdriftsummary/{id}/details": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/insights/accessdriftreport/downloadfile": "least=DelegatedWork,Application",
+            "/identitygovernance/insights/accessdriftreport/generatedownloaduri": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -23661,9 +23788,8 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "",
@@ -23679,7 +23805,6 @@
             "DelegatedWork"
           ],
           "methods": [
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -23790,6 +23915,9 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentresourceroles": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentresourceroles/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignments": "",
@@ -23867,7 +23995,10 @@
             "/identitygovernance/accessevaluationdetections": "",
             "/identitygovernance/accessevaluationdetections/{id}": "",
             "/identitygovernance/accessevaluationpolicies": "",
-            "/identitygovernance/accessevaluationpolicies/{id}": ""
+            "/identitygovernance/accessevaluationpolicies/{id}": "",
+            "/identitygovernance/accessguardian/customextensions": "",
+            "/identitygovernance/accessguardian/customextensions/{id}": "",
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": ""
           }
         },
         {
@@ -23879,6 +24010,9 @@
             "POST"
           ],
           "paths": {
+            "/identitygovernance/accessevaluationdetections/{id}/remediate": "least=DelegatedWork,Application",
+            "/identitygovernance/accessevaluationdetections/remediate": "least=DelegatedWork,Application",
+            "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
             "/identitygovernance/catalogs/{id}/accessevaluationpolicies": "least=DelegatedWork,Application"
           }
         },
@@ -23892,6 +24026,7 @@
           ],
           "paths": {
             "/identitygovernance/accessevaluationdetections/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -23904,7 +24039,35 @@
             "DELETE"
           ],
           "paths": {
+            "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/insights/accessdriftsummary": "",
+            "/identitygovernance/insights/accessdriftsummary/{id}": "",
+            "/identitygovernance/insights/accessdriftsummary/{id}/details": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/insights/accessdriftreport/downloadfile": "",
+            "/identitygovernance/insights/accessdriftreport/generatedownloaduri": ""
           }
         }
       ],
@@ -32790,120 +32953,6 @@
       "pathSets": [],
       "ownerInfo": {}
     },
-    "LifecyclePolicies-AgentId.Read.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read identity lifecycle policies for agent identities",
-          "adminDescription": "Allows the app to read identity lifecycle policies for agent identities that the signed-in user has access to in the organization.",
-          "userDisplayName": "Read identity lifecycle policies for agent identities",
-          "userDescription": "Allows the app to read identity lifecycle policies for agent identities that you have access to.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read identity lifecycle policies for agent identities",
-          "adminDescription": "Allows the app to read identity lifecycle policies for agent identities in the organization, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "aadlcm"
-      }
-    },
-    "LifecyclePolicies-AgentId.ReadWrite.All": {
-      "authorizationType": "oAuth2",
-      "schemes": {
-        "DelegatedWork": {
-          "adminDisplayName": "Read and write identity lifecycle policies for agent identities",
-          "adminDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities that the signed-in user has access to in the organization.",
-          "userDisplayName": "Read and write identity lifecycle policies for agent identities",
-          "userDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities that you have access to.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        },
-        "Application": {
-          "adminDisplayName": "Read and write identity lifecycle policies for agent identities",
-          "adminDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities in the organization, without a signed-in user.",
-          "requiresAdminConsent": true,
-          "privilegeLevel": 3
-        }
-      },
-      "pathSets": [
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "",
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "DELETE",
-            "PATCH",
-            "POST"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "PATCH"
-          ],
-          "paths": {
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
-          }
-        }
-      ],
-      "ownerInfo": {
-        "ownerSecurityGroup": "aadlcm"
-      }
-    },
     "LifecycleWorkflows-CustomExt.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -33546,6 +33595,126 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "spauthsg"
+      }
+    },
+    "LockboxRequest.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all lockbox requests",
+          "adminDescription": "Allows the app to read lockbox requests on behalf of the signed-in user",
+          "userDisplayName": "Read lockbox requests",
+          "userDescription": "Allows the app to read lockbox requests that you can access.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/lockbox/requests": "least=DelegatedWork",
+            "/security/lockbox/requests/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxRequest.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and manage lockbox requests",
+          "adminDescription": "Allows the app to read and manage lockbox requests on behalf of the signed-in user",
+          "userDisplayName": "Read and manage lockbox requests",
+          "userDescription": "Allows the app to read and manage lockbox requests that you can access, including approving or denying access requests.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/security/lockbox/requests/{id}/approve": "least=DelegatedWork",
+            "/security/lockbox/requests/{id}/deny": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read lockbox settings",
+          "adminDescription": "Allows the app to read lockbox configuration settings on behalf of the signed-in user",
+          "userDisplayName": "Read lockbox settings",
+          "userDescription": "Allows the app to read lockbox configuration settings for your organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/lockbox/settings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxSettings.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write lockbox settings",
+          "adminDescription": "Allows the app to read and modify lockbox configuration settings on behalf of the signed-in user",
+          "userDisplayName": "Read and write lockbox settings",
+          "userDescription": "Allows the app to read and modify lockbox configuration settings for your organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/lockbox/settings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
       }
     },
     "Mail.Read": {
@@ -35383,16 +35552,26 @@
             "/networkaccess/logs/remoteNetworks": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic": "least=DelegatedWork,Application",
             "/networkaccess/logs/traffic/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/reports/clientTrafficActivity(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/entitiesSummaries": "least=DelegatedWork,Application",
             "/networkaccess/reports/getApplicationUsageAnalytics(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getClientVersionsByOperatingSystem(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getCloudApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getConnectionSummaries(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getCrossTenantSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDestinationSummaries": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDeviceOperatingSystemVersions(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDeviceUsageSummary": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDomainControllerDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDomainControllerDiscoveryDevices(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDomainControllerDiscoveryOnPremisesAccounts(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDomainControllerDiscoveryServicePrincipals(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getDomainControllerDiscoveryUsers(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/getUserThreatSummaryReport": "least=DelegatedWork,Application",
             "/networkaccess/reports/transactionSummaries": "least=DelegatedWork,Application",
@@ -35481,6 +35660,10 @@
             "/networkAccess/forwardingProfiles": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -35512,6 +35695,8 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkaccess/tls/trustedCertificateAuthorities": "least=Application",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "least=Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -35621,6 +35806,10 @@
             "/networkAccess/forwardingProfiles": "",
             "/networkAccess/forwardingProfiles/{id}": "",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "",
+            "/networkAccess/intelligentAppProtectPolicies": "",
+            "/networkAccess/intelligentAppProtectPolicies/{id}": "",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "",
             "/networkaccess/logs/connections": "",
             "/networkaccess/logs/connections/{id}": "",
             "/networkaccess/logs/generativeAIInsights": "",
@@ -35634,16 +35823,26 @@
             "/networkaccess/privateAccessConfigs/{id}": "",
             "/networkAccess/privateNetworks": "",
             "/networkAccess/privateNetworks/{id}": "",
+            "/networkaccess/reports/clientTrafficActivity(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/entitiesSummaries": "",
             "/networkaccess/reports/getApplicationUsageAnalytics(startDateTime={startDateTime},endDateTime={endDateTime},aggregatedBy={aggregatedBy})": "",
+            "/networkaccess/reports/getClientVersionsByOperatingSystem(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getCloudApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getConnectionSummaries(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getCrossTenantSummary": "",
             "/networkaccess/reports/getDestinationSummaries": "",
+            "/networkaccess/reports/getDeviceOperatingSystemVersions(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getDeviceUsageSummary": "",
             "/networkaccess/reports/getDiscoveredAIAgentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getDiscoveredApplicationSegmentReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getDomainControllerDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getDomainControllerDiscoveryDevices(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "",
+            "/networkaccess/reports/getDomainControllerDiscoveryOnPremisesAccounts(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "",
+            "/networkaccess/reports/getDomainControllerDiscoveryServicePrincipals(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "",
+            "/networkaccess/reports/getDomainControllerDiscoveryUsers(startDateTime={startDateTime},endDateTime={endDateTime},hostFqdn={hostFqdn})": "",
             "/networkaccess/reports/getEnterpriseApplicationReport(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscovery(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/networkaccess/reports/getMcpDiscoverySummary(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/networkaccess/reports/getUserThreatReport": "",
             "/networkaccess/reports/getUserThreatSummaryReport": "",
             "/networkaccess/reports/transactionSummaries": "",
@@ -35666,6 +35865,8 @@
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "",
+            "/networkaccess/tls/trustedCertificateAuthorities": "",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
             "/networkAccess/tlsInspectionPolicies/{id}": "",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules": "",
@@ -35710,6 +35911,8 @@
             "/networkAccess/filteringProfiles/{id}/policies": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/microsoft.graph.networkaccess.migrateFilteringPolicies": "least=DelegatedWork,Application",
@@ -35761,6 +35964,8 @@
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
@@ -35808,6 +36013,8 @@
             "/networkAccess/filteringProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/privateAccessConfigs/{id}": "least=DelegatedWork,Application",
@@ -39217,6 +39424,9 @@
             "/identity/conditionalaccess/templates/{id}": "least=DelegatedWork,Application",
             "/identity/events/onsignupstart": "least=DelegatedWork,Application",
             "/identity/events/onsignupstart/{id}": "least=DelegatedWork,Application",
+            "/identity/securitydefaults": "",
+            "/identity/securitydefaults/rules": "",
+            "/identity/securitydefaults/rules/{id}": "",
             "/identitygovernance/accessreviews/policy": "least=DelegatedWork,Application",
             "/policies/accessreviewpolicy": "least=DelegatedWork,Application",
             "/policies/activitybasedtimeoutpolicies": "least=DelegatedWork,Application",
@@ -39605,7 +39815,10 @@
             "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
-            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application"
+            "/identity/conditionalaccess/settings": "least=DelegatedWork,Application",
+            "/identity/securitydefaults": "",
+            "/identity/securitydefaults/rules": "",
+            "/identity/securitydefaults/rules/{id}": ""
           }
         },
         {
@@ -40460,6 +40673,9 @@
             "/identity/conditionalaccess/plans/{id}": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/plans/{id}/rules": "least=DelegatedWork,Application",
             "/identity/conditionalaccess/plans/{id}/rules/{id}": "least=DelegatedWork,Application",
+            "/identity/securitydefaults": "",
+            "/identity/securitydefaults/rules": "",
+            "/identity/securitydefaults/rules/{id}": "",
             "/policies/authenticationstrengthpolicies": "",
             "/policies/authenticationstrengthpolicies/{id}/usage": "",
             "/policies/authenticationstrengthpolicies/findbymethodmode(authenticationmethodmodes={value})": ""
@@ -41313,6 +41529,20 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/securitydefaults": "",
+            "/identity/securitydefaults/rules": "",
+            "/identity/securitydefaults/rules/{id}": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -44433,6 +44663,12 @@
             "/reports/serviceActivity/getMetricsForConditionalAccessBlockedSignIn(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessCompliantDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessManagedDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangeBacklog(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value},aggregationIntervalInMinutes={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangeBacklog(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangesApplied(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value},aggregationIntervalInMinutes={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangesApplied(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangesEvaluated(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value},aggregationIntervalInMinutes={value})": "least=DelegatedWork,Application",
+            "/reports/serviceActivity/getMetricsForDynamicMembershipChangesEvaluated(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForMfaSignInFailure(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForMfaSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForSamlSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
@@ -51607,6 +51843,7 @@
             "/planner/dependencies": "least=DelegatedWork",
             "/planner/goals/{id}": "least=DelegatedWork",
             "/planner/plans/{id}/archive": "least=DelegatedWork",
+            "/planner/plans/{id}/extendExpiry": "least=DelegatedWork",
             "/planner/plans/{id}/unarchive": "least=DelegatedWork",
             "/planner/rosters": "least=DelegatedWork",
             "/planner/rosters/{id}/assignSensitivityLabel": "least=DelegatedWork",
@@ -51791,6 +52028,7 @@
           ],
           "paths": {
             "/planner/plans/{id}/archive": "least=Application",
+            "/planner/plans/{id}/extendExpiry": "least=Application",
             "/planner/plans/{id}/unarchive": "least=Application",
             "/planner/rosters": "least=Application",
             "/planner/rosters/{id}/assignSensitivityLabel": "least=Application",
@@ -57640,12 +57878,17 @@
             "GET"
           ],
           "paths": {
-            "/security/getrunhuntingquery": "least=DelegatedWork,Application"
+            "/security/gethuntingschematables": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables()": "least=DelegatedWork,Application",
+            "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
+            "/security/getrunhuntingquery": "least=DelegatedWork,Application",
+            "/security/huntingFunctions": "least=DelegatedWork,Application",
+            "/security/huntingFunctions/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
       "ownerInfo": {
-        "ownerSecurityGroup": "IdentityReq"
+        "ownerSecurityGroup": "ine-dataplatform"
       }
     },
     "ThreatIndicators.Read.All": {
@@ -58566,6 +58809,7 @@
             "/admin/people/itemInsights": "least=DelegatedWork",
             "/education/me/user": "",
             "/education/users/{id}/user": "",
+            "/me/accessibleTenants": "least=DelegatedWork",
             "/me/agentSignInSessions": "least=DelegatedWork",
             "/me/agentSignInSessions/{id}": "least=DelegatedWork",
             "/me/analytics/settings": "least=DelegatedWork",
@@ -58604,6 +58848,8 @@
             "/me/sponsorof": "least=DelegatedWork",
             "/me/sponsors": "least=DelegatedWork",
             "/me/transitivememberof": "least=DelegatedWork",
+            "/networkaccess/tls/trustedCertificateAuthorities": "least=DelegatedWork",
+            "/networkaccess/tls/trustedCertificateAuthorities/{id}": "least=DelegatedWork",
             "/organization": "",
             "/organization/{id}/branding": "least=DelegatedWork",
             "/organization/{id}/branding/localizations": "least=DelegatedWork",
@@ -58895,6 +59141,7 @@
             "/settings/regionalandlanguagesettings": "least=Application",
             "/users": "",
             "/users/{id}": "",
+            "/users/{id}/accessibleTenants": "least=DelegatedWork,Application",
             "/users/{id}/cloudLicensing/assignmentErrors": "",
             "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
             "/users/{id}/cloudLicensing/assignments": "",
@@ -59791,6 +60038,7 @@
             "/groups/{id}/cloudLicensing/usageRights": "",
             "/groups/{id}/cloudLicensing/usageRights/{id}": "",
             "/groups/{id}/cloudLicensing/usageRights/{id}/assignments": "",
+            "/users/{id}/accessibleTenants": "",
             "/users/{id}/cloudLicensing/assignmentErrors": "",
             "/users/{id}/cloudLicensing/assignmentErrors/{id}": "",
             "/users/{id}/cloudLicensing/assignments/{id}/allotment": "",
