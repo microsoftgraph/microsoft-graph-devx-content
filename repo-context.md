@@ -73,8 +73,7 @@ The repository follows a content pipeline rather than an application service lay
 2. `tests/samples.schema.json` and the Jest specifications under `tests/` validate the sample-query and permission content through `scripts/test-initiator.js`.
 3. `.github/workflows/validate.yml` runs schema validation and the npm test suite for relevant pull requests and pushes.
 4. `azure-pipelines/publishSamples.yml` packages sample-query and permission files and uploads them to Azure Blob Storage from `master`.
-5. `.github/workflows/handover-translations.yml` copies translated `messages/GE_*` files to `microsoftgraph/microsoft-graph-explorer-v4` from the `dev` branch.
-6. The DevX API and Graph Explorer consume the published content, as described in `README.md`.
+5. The DevX API and Graph Explorer consume the published content, as described in `README.md`.
 
 ---
 
@@ -83,7 +82,7 @@ The repository follows a content pipeline rather than an application service lay
 - The unsuffixed JSON file is the base content file, such as `GE.json`, `sample-queries.json`, or `permissions-descriptions.json`.
 - Localized files append an underscore and locale code before `.json`, such as `_de-DE`, `_fr-FR`, or `_zh-CN`.
 - Jest test files use the `.spec.js` suffix.
-- GitHub workflow file names describe their action, such as `validate.yml`, `validate-patch.yml`, and `handover-translations.yml`.
+- GitHub workflow file names describe their action, such as `validate.yml` and `validate-patch.yml`.
 
 ---
 
@@ -93,14 +92,14 @@ The repository follows a content pipeline rather than an application service lay
 |--------|------|-----------|-------|
 | Content catalogs | JSON documents | `sample-queries/sample-queries.json`, `permissions/permissions-descriptions.json`, `permissions/new/permissions.json`, `permissions/new/provisioningInfo.json`, `messages/GE.json`, `ge-tour/tour-steps.json` | Canonical and localized data consumed outside this repository. |
 | Validation configuration | npm script and JSON Schema | `package.json`, `tests/samples.schema.json`, `scripts/test-initiator.js` | `npm run test` starts Jest; GitHub Actions separately validates the sample catalog against its schema. |
-| GitHub automation | GitHub Actions YAML | `.github/workflows/validate.yml`, `.github/workflows/validate-patch.yml`, `.github/workflows/handover-translations.yml` | Path filters select validation or translation handoff behavior. |
+| GitHub automation | GitHub Actions YAML | `.github/workflows/validate.yml`, `.github/workflows/validate-patch.yml` | Path filters select validation behavior. |
 | Publication automation | Azure Pipelines YAML | `azure-pipelines/publishSamples.yml` | Packages sample-query and permission content and publishes it to Azure Blob Storage. |
 | Branch governance | Repository policy YAML and CODEOWNERS | `.github/policies/microsoft-graph-devx-content-branch-protection.yml`, `.github/CODEOWNERS` | Protects `master` and `dev` and assigns repository-wide ownership. |
 
 ### Config Disambiguation
 
 - `package.json` defines the local test command and development dependencies; `tests/samples.schema.json` defines the allowed shape of sample-query content.
-- GitHub Actions validate pull requests and hand off translations; `azure-pipelines/publishSamples.yml` handles production artifact publication.
+- GitHub Actions validate pull requests; `azure-pipelines/publishSamples.yml` handles production artifact publication.
 
 ---
 
@@ -112,7 +111,6 @@ The repository follows a content pipeline rather than an application service lay
 - `tests/permissions-descriptions.spec.js` - checks display-name formatting in the canonical permission descriptions.
 - `.github/workflows/validate.yml` - CI entry point for schema and Jest validation.
 - `azure-pipelines/publishSamples.yml` - production publication entry point for sample-query and permission files.
-- `.github/workflows/handover-translations.yml` - translation handoff entry point for localized Graph Explorer messages.
 
 ---
 
@@ -134,12 +132,6 @@ The repository follows a content pipeline rather than an application service lay
 | DevX API | Serves repository content to clients and tooling. | Not declared in this repository |
 | Azure Blob Storage | Receives published sample-query and permission artifacts from the production pipeline. | Not declared in this repository |
 | Microsoft Graph documentation endpoints | Supply the `docLink` targets checked by the sample validation suite. | Not declared in this repository |
-
-### Related Repositories
-
-| Repo | Relationship | Purpose |
-|------|-------------|---------|
-| `microsoftgraph/microsoft-graph-explorer-v4` | Receives translated message files through `.github/workflows/handover-translations.yml`. | Hosts the Graph Explorer application that consumes the content. |
 
 ---
 
