@@ -4128,7 +4128,7 @@
           "userDisplayName": "Read and write applications",
           "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "DelegatedPersonal": {
           "adminDisplayName": "Read and write all applications",
@@ -4136,7 +4136,7 @@
           "userDisplayName": "Read and write applications",
           "userDescription": "Allows the app to create, read, update and delete applications and service principals on your behalf. Allows management of app role assignments, except those exposed by Microsoft Graph. Does not allow management of delegated permission grants.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all applications",
@@ -5395,6 +5395,7 @@
             "/reports/authenticationmethods/userregistrationdetails": "least=DelegatedWork,Application",
             "/reports/authenticationmethods/userregistrationdetails/{id}": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessimpactanalyzerdata": "least=DelegatedWork,Application",
+            "/reports/conditionalaccess/getconditionalaccessperpolicyhighvalueidentityimpact": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessperpolicyimpactsummary": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/protectedapps": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/securityalerts": "least=DelegatedWork,Application",
@@ -23617,9 +23618,6 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps/{id}": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "",
@@ -23642,6 +23640,9 @@
           "paths": {
             "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork,Application",
@@ -23787,9 +23788,8 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "",
-            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/steps/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "",
@@ -23805,7 +23805,6 @@
             "DelegatedWork"
           ],
           "methods": [
-            "GET",
             "PATCH"
           ],
           "paths": {
@@ -23916,6 +23915,9 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentresourceroles": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentresourceroles/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackageassignments": "",
@@ -33593,6 +33595,126 @@
       "pathSets": [],
       "ownerInfo": {
         "ownerSecurityGroup": "spauthsg"
+      }
+    },
+    "LockboxRequest.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all lockbox requests",
+          "adminDescription": "Allows the app to read lockbox requests on behalf of the signed-in user",
+          "userDisplayName": "Read lockbox requests",
+          "userDescription": "Allows the app to read lockbox requests that you can access.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/lockbox/requests": "least=DelegatedWork",
+            "/security/lockbox/requests/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxRequest.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and manage lockbox requests",
+          "adminDescription": "Allows the app to read and manage lockbox requests on behalf of the signed-in user",
+          "userDisplayName": "Read and manage lockbox requests",
+          "userDescription": "Allows the app to read and manage lockbox requests that you can access, including approving or denying access requests.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": {
+            "/security/lockbox/requests/{id}/approve": "least=DelegatedWork",
+            "/security/lockbox/requests/{id}/deny": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxSettings.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read lockbox settings",
+          "adminDescription": "Allows the app to read lockbox configuration settings on behalf of the signed-in user",
+          "userDisplayName": "Read lockbox settings",
+          "userDescription": "Allows the app to read lockbox configuration settings for your organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/lockbox/settings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
+      }
+    },
+    "LockboxSettings.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write lockbox settings",
+          "adminDescription": "Allows the app to read and modify lockbox configuration settings on behalf of the signed-in user",
+          "userDisplayName": "Read and write lockbox settings",
+          "userDescription": "Allows the app to read and modify lockbox configuration settings for your organization.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/lockbox/settings": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ihxhealth"
       }
     },
     "Mail.Read": {
