@@ -22,7 +22,6 @@ This repository publishes content rather than running an application service. Va
 
 > **WARNING:** Production publication and cross-repository handoff are destructive or externally visible operations. Always get explicit user approval before:
 > - Running or changing the production publication behavior in `azure-pipelines/publishSamples.yml`.
-> - Running or changing the translation handoff behavior in `.github/workflows/handover-translations.yml`.
 > - Changing protected-branch, required-check, credential, or secret handling.
 
 ### Rules
@@ -34,8 +33,6 @@ This repository publishes content rather than running an application service. Va
 - Treat `permissions/new/` as a separate data model from `permissions/permissions-descriptions.json`.
 
 ## Secrets Management
-
-GitHub Actions accesses credentials through repository secrets in `.github/workflows/handover-translations.yml`, including `API_TOKEN_GITHUB`, `ACTION_EMAIL`, and `ACTION_USERNAME`.
 
 ### Rules for AI Agents
 
