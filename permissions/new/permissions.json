@@ -28269,6 +28269,8 @@
             "/storage/fileStorage/containers/{id}/permissions(email={email})": "",
             "/storage/fileStorage/containers/{id}/permissions(userPrincipalName={userPrincipalName})": "",
             "/storage/fileStorage/containers/{id}/permissions/{id}": "",
+            "/storage/fileStorage/containers/getByUser(userObjectId={userObjectId},role={role})": "least=DelegatedWork",
+            "/storage/fileStorage/containers/getByUser(userObjectId={userObjectId})": "least=DelegatedWork",
             "/storage/fileStorage/containers/getByUser(userPrincipalName={userPrincipalName},role={role})": "least=DelegatedWork",
             "/storage/fileStorage/containers/getByUser(userPrincipalName={userPrincipalName})": "least=DelegatedWork",
             "/storage/fileStorage/deletedContainers": "",
@@ -38593,7 +38595,9 @@
             "POST"
           ],
           "paths": {
+            "/reports/partners/billing/aggregatedUsage/billed/export": "least=DelegatedWork,Application",
             "/reports/partners/billing/reconciliation/billed/export": "least=DelegatedWork,Application",
+            "/reports/partners/billing/reconciliation/unbilled/export": "least=DelegatedWork,Application",
             "/reports/partners/billing/usage/billed/export": "least=DelegatedWork,Application",
             "/reports/partners/billing/usage/unbilled/export": "least=DelegatedWork,Application"
           }
