@@ -13590,6 +13590,113 @@
         "ownerSecurityGroup": "mcpplat"
       }
     },
+    "CrossTenantContentMigration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all cross tenant content migration job details",
+          "adminDescription": "Allows the app to read your tenant's all cross tenant content migration job details on behalf of the signed-in user.",
+          "userDisplayName": "Read all cross tenant content migration job details",
+          "userDescription": "Allows the app to read your tenant's all cross tenant content migration job details on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all cross tenant content migration job details",
+          "adminDescription": "Allows the app to read your tenant's all cross tenant content migration job details without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/migrations/crosstenantmigrationjobs": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/users": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/users('{id}')": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "xtmigrationmsgraph"
+      }
+    },
+    "CrossTenantContentMigration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all cross tenant content migration job details",
+          "adminDescription": "Allows the app to read and write your tenant's all cross tenant content migration job details on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all cross tenant content migration job details",
+          "userDescription": "Allows the app to read and write your tenant's all cross tenant content migration job details on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all cross tenant content migration job details",
+          "adminDescription": "Allows the app to read and write your tenant's all cross tenant content migration job details without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/solutions/migrations/crosstenantmigrationjobs": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/cancel": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/migrate": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/users('{id}')/cancel": "least=DelegatedWork,Application",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/validate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/solutions/migrations/crosstenantmigrationjobs": "",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')": "",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/users": "",
+            "/solutions/migrations/crosstenantmigrationjobs('{id}')/users('{id}')": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "xtmigrationmsgraph"
+      }
+    },
     "CrossTenantInformation.ReadBasic.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -56846,10 +56953,10 @@
             "GET"
           ],
           "paths": {
-            "/teams/{id}/tags": "least=Application",
-            "/teams/{id}/tags/{id}": "least=Application",
-            "/teams/{id}/tags/{id}/members": "least=Application",
-            "/teams/{id}/tags/{id}/members/{id}": "least=Application"
+            "/teams/{id}/tags": "",
+            "/teams/{id}/tags/{id}": "",
+            "/teams/{id}/tags/{id}/members": "",
+            "/teams/{id}/tags/{id}/members/{id}": ""
           }
         }
       ],
@@ -56956,8 +57063,8 @@
             "POST"
           ],
           "paths": {
-            "/teams/{id}/tags": "least=Application",
-            "/teams/{id}/tags/{id}/members": "least=Application"
+            "/teams/{id}/tags": "",
+            "/teams/{id}/tags/{id}/members": ""
           }
         },
         {
@@ -56969,7 +57076,7 @@
             "PATCH"
           ],
           "paths": {
-            "/teams/{id}/tags/{id}": "least=Application"
+            "/teams/{id}/tags/{id}": ""
           }
         },
         {
@@ -56980,7 +57087,7 @@
             "DELETE"
           ],
           "paths": {
-            "/teams/{id}/tags/{id}/members/{id}": "least=Application"
+            "/teams/{id}/tags/{id}/members/{id}": ""
           }
         }
       ],
