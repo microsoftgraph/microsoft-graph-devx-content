@@ -4165,6 +4165,18 @@
         {
           "schemeKeys": [
             "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/serviceTreeConfiguration/validate": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
             "DelegatedPersonal",
             "Application"
           ],
@@ -8181,6 +8193,35 @@
         "ownerSecurityGroup": "stisaprvc"
       }
     },
+    "Calendars.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read all users' work hours and locations",
+          "adminDescription": "Allows the app to read work hours and locations settings, recurrences, and occurrences for all users in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
     "Calendars.Read.Shared": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -8705,6 +8746,83 @@
           "paths": {
             "/me/settings/workHoursAndLocations": "least=DelegatedWork",
             "/users/{id}/settings/workHoursAndLocations": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "stisaprvc"
+      }
+    },
+    "Calendars.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "Application": {
+          "adminDisplayName": "Read and write all users' work hours and locations",
+          "adminDescription": "Allows the app to read, create, update, and delete work hours and locations settings, recurrences, and occurrences for all users in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations": "",
+            "/users/{id}/settings/workHoursAndLocations/occurrencesView(startDateTime={value},endDateTime={value})": "",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations/occurrences": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/occurrences/setCurrentLocation": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/recurrences": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PUT"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations/occurrences/{id}": "least=Application",
+            "/users/{id}/settings/workHoursAndLocations/recurrences/{id}": "least=Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/users/{id}/settings/workHoursAndLocations": "least=Application"
           }
         }
       ],
@@ -23758,6 +23876,8 @@
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicypresets": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicypresets/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentresourceroles": "least=DelegatedWork,Application",
@@ -23777,6 +23897,7 @@
             "/identitygovernance/entitlementmanagement/accesspackages": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackagesincompatiblewith": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/getaccesspackageassignmentpolicypresets": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatibleaccesspackages": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatiblegroups": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "least=Application",
@@ -23937,6 +24058,7 @@
           "paths": {
             "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicypresets": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/accesspackagecustomworkflowextensions": "least=DelegatedWork",
@@ -23965,6 +24087,7 @@
           ],
           "paths": {
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicypresets/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/customaccesspackageworkflowextensions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentpolicies/{id}": "least=DelegatedWork,Application"
           }
@@ -24013,6 +24136,7 @@
             "/identitygovernance/entitlementmanagement/accesspackageassignments/{id}/reprocess": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/accessPackageResources/{id}/refresh": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackageresourcerolescopes": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/assignmentpolicypresets": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/movetocatalog": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/reprocess": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignments/{id}/reprocess": "least=DelegatedWork,Application",
@@ -24041,6 +24165,7 @@
             "/identitygovernance/entitlementmanagement/accesspackageresourceenvironments": "",
             "/identitygovernance/entitlementmanagement/accesspackageresourceenvironments/{id}": "",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/accesspackagesincompatiblewith": "",
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/getaccesspackageassignmentpolicypresets": "",
             "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignments": "",
             "/identitygovernance/entitlementmanagement/assignments/{id}": "",
@@ -24077,6 +24202,7 @@
             "DELETE"
           ],
           "paths": {
+            "/identitygovernance/entitlementmanagement/accesspackages/{id}/assignmentpolicypresets/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatibleaccesspackages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/incompatiblegroups/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/externalsponsors/{id}": "least=DelegatedWork,Application",
@@ -35810,6 +35936,7 @@
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates": "least=DelegatedWork,Application",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/tls/settings": "least=DelegatedWork,Application",
             "/networkaccess/tls/trustedCertificateAuthorities": "least=Application",
             "/networkaccess/tls/trustedCertificateAuthorities/{id}": "least=Application",
             "/networkAccess/tlsInspectionPolicies": "least=DelegatedWork,Application",
@@ -35980,6 +36107,7 @@
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "",
             "/networkaccess/tls/managedCertificateAuthorityCertificates/{id}": "",
+            "/networkAccess/tls/settings": "",
             "/networkaccess/tls/trustedCertificateAuthorities": "",
             "/networkaccess/tls/trustedCertificateAuthorities/{id}": "",
             "/networkAccess/tlsInspectionPolicies": "",
@@ -36094,6 +36222,7 @@
             "/networkAccess/threatIntelligencePolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/threatIntelligencePolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkaccess/tls/externalCertificateAuthorityCertificates/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/tls/settings": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsInspectionPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/tlsPolicies/{id}": "least=DelegatedWork,Application",
@@ -43573,9 +43702,6 @@
             "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances/{id}": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentScheduleInstances/filterByCurrentUser(on={value})": "least=DelegatedWork,Application",
-            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests": "least=DelegatedWork,Application",
-            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{id}": "least=DelegatedWork,Application",
-            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/filterByCurrentUser(on={value})": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules/{id}": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules/filterByCurrentUser(on={value})": "least=DelegatedWork,Application"
@@ -43617,8 +43743,8 @@
             "/identityGovernance/privilegedAccess/group/assignmentscheduleInstances": "",
             "/identityGovernance/privilegedAccess/group/assignmentscheduleInstances/{id}": "",
             "/identityGovernance/privilegedAccess/group/assignmentscheduleInstances/filterByCurrentUser(on={value})": "",
-            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{id}": "",
-            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/filterByCurrentUser(on={value})": "",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/{id}": "least=DelegatedWork,Application",
+            "/identityGovernance/privilegedAccess/group/assignmentScheduleRequests/filterByCurrentUser(on={value})": "least=DelegatedWork,Application",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules": "",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules/{id}": "",
             "/identityGovernance/privilegedAccess/group/assignmentSchedules/filterByCurrentUser(on={value})": ""
