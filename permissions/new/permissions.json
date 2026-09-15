@@ -23881,8 +23881,6 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentapprovals/{id}/stages/{id}": "least=DelegatedWork,Application",
@@ -23926,6 +23924,7 @@
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/externalsponsors": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/internalsponsors": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "least=Application",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "least=DelegatedWork,Application",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/settings": "least=DelegatedWork,Application",
@@ -24068,7 +24067,6 @@
             "POST"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accessorchestratorrequests": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicies": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentpolicypresets": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests": "least=Application",
@@ -24114,9 +24112,9 @@
             "GET"
           ],
           "paths": {
-            "/identitygovernance/entitlementmanagement/accessorchestratorrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}": "least=Application",
             "/rolemanagement/entitlementmanagement/roleassignments/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -24152,6 +24150,9 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/movetocatalog": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/reprocess": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/assignments/{id}/reprocess": "least=DelegatedWork,Application",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions": "least=Application",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/clarify": "least=Application",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/submit": "least=Application",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "least=DelegatedWork,Application"
           }
         },
@@ -24353,7 +24354,9 @@
             "/identitygovernance/entitlementmanagement/accesspackagesuggestions/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "least=DelegatedWork"
+            "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -24368,7 +24371,21 @@
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}/cancel": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignmentrequests": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "least=DelegatedWork"
+            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/clarify": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/submit": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}": "least=DelegatedWork"
           }
         }
       ],
