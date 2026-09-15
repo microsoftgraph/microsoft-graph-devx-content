@@ -14097,7 +14097,8 @@
           ],
           "paths": {
             "/identity/customAuthenticationExtensions": "least=DelegatedWork,Application",
-            "/identity/customAuthenticationExtensions/{id}": "least=DelegatedWork,Application"
+            "/identity/customAuthenticationExtensions/{id}": "least=DelegatedWork,Application",
+            "/identity/customAuthenticationExtensions/microsoft.graph.onAccountTakeoverProtectionStartCustomExtension": "least=DelegatedWork,Application"
           }
         },
         {
@@ -14148,6 +14149,18 @@
           ],
           "paths": {
             "/identity/customAuthenticationExtensions": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identity/customAuthenticationExtensions/microsoft.graph.onAccountTakeoverProtectionStartCustomExtension": ""
           }
         },
         {
@@ -24523,6 +24536,7 @@
             "/identity/authenticationEventListeners": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/conditions/applications/includeApplications": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onAccountTakeoverProtectionStartListener/handler/microsoft.graph.onAccountTakeoverProtectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionListener/handler/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
@@ -24532,6 +24546,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/conditions/applications/includeApplications": "least=DelegatedWork,Application",
@@ -24605,6 +24620,7 @@
             "GET"
           ],
           "paths": {
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onAccountTakeoverProtectionStartListener/handler/microsoft.graph.onAccountTakeoverProtectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionListener/handler/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
@@ -24614,6 +24630,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "",
+            "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
@@ -24629,6 +24646,7 @@
             "PUT"
           ],
           "paths": {
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onAccountTakeoverProtectionStartListener/handler/microsoft.graph.onAccountTakeoverProtectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionStartListener/handler/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onAttributeCollectionSubmitListener/handler/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onEmailOtpSendListener/handler/microsoft.graph.onOtpSendCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
@@ -58104,16 +58122,16 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Run hunting queries",
-          "adminDescription": "Allows the app to run hunting queries, on behalf of the signed-in user.",
-          "userDisplayName": "Run hunting queries",
-          "userDescription": "Allows the app to run hunting queries that you can execute.",
+          "adminDisplayName": "Run hunting queries and read saved hunting queries",
+          "adminDescription": "Allows the app to run hunting queries and read saved hunting queries, on behalf of the signed-in user.",
+          "userDisplayName": "Run hunting queries and read saved hunting queries",
+          "userDescription": "Allows the app to run hunting queries that you can execute and read saved hunting queries that you can access.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Run hunting queries",
-          "adminDescription": "Allows the app to run hunting queries, without a signed-in user.",
+          "adminDisplayName": "Run hunting queries and read shared saved hunting queries",
+          "adminDescription": "Allows the app to run hunting queries and read shared saved hunting queries, without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -58145,7 +58163,9 @@
             "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
             "/security/getrunhuntingquery": "least=DelegatedWork,Application",
             "/security/huntingFunctions": "least=DelegatedWork,Application",
-            "/security/huntingFunctions/{id}": "least=DelegatedWork,Application"
+            "/security/huntingFunctions/{id}": "least=DelegatedWork,Application",
+            "/security/threathunting/queries": "least=DelegatedWork,Application",
+            "/security/threathunting/queries/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
