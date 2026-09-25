@@ -1392,6 +1392,18 @@
           "paths": {
             "/servicePrincipals/microsoft.graph.agentIdentity": ""
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals/microsoft.graph.agentIdentity/{id}/microsoft.graph.identityGovernance.extend": "least=Application,DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -1952,6 +1964,18 @@
           ],
           "paths": {
             "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals/microsoft.graph.agentIdentityBlueprintPrincipal/{id}/microsoft.graph.identityGovernance.extend": "least=Application,DelegatedWork"
           }
         }
       ],
@@ -12673,6 +12697,7 @@
             "/admin/configurationManagement/configurationSnapshots/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationTemplates": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationTemplates/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}/versions/{version}/referencedExternalMonitors/{tenantId}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "least=DelegatedWork,Application",
@@ -12761,6 +12786,7 @@
             "/admin/configurationManagement/configurationSnapshots/{id}": "",
             "/admin/configurationManagement/configurationTemplates": "",
             "/admin/configurationManagement/configurationTemplates/{id}": "",
+            "/admin/configurationManagement/configurationTemplates/{id}/versions/{version}/referencedExternalMonitors/{tenantId}": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}": "",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs/{id}/results": "",
@@ -12804,6 +12830,7 @@
             "/admin/configurationManagement/configurationMonitors/{id}/validate": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationSnapshots/createSnapshot": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationTemplates": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}/versions/{version}/referencedExternalMonitors/{tenantId}/monitors/$ref": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationDriftFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitorFetchJobs": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitoringResultFetchJobs": "least=DelegatedWork,Application",
@@ -12857,6 +12884,7 @@
           "paths": {
             "/admin/configurationManagement/configurationMonitors/{id}": "least=DelegatedWork,Application",
             "/admin/configurationManagement/configurationTemplates/{id}": "least=DelegatedWork,Application",
+            "/admin/configurationManagement/configurationTemplates/{id}/versions/{version}/referencedExternalMonitors/{tenantId}/monitors/{monitorId}/$ref": "least=DelegatedWork,Application",
             "/admin/configurationManagement/externalTenants/configurationMonitors/{id}": "least=DelegatedWork,Application"
           }
         },
@@ -31157,6 +31185,7 @@
             "/identityprotection/riskdetections/{id}": "least=DelegatedWork,Application",
             "/identityprotection/serviceprincipalriskdetections": "least=DelegatedWork,Application",
             "/identityprotection/serviceprincipalriskdetections/{id}": "least=DelegatedWork,Application",
+            "/identityProtection/settings/agentNotifications": "least=DelegatedWork,Application",
             "/riskdetections": "least=DelegatedWork,Application",
             "/riskdetections/{id}": "least=DelegatedWork,Application"
           }
@@ -31169,6 +31198,14 @@
     "IdentityRiskEvent.ReadWrite.All": {
       "authorizationType": "oAuth2",
       "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity risk event information",
+          "adminDescription": "Allows the app to read and update identity risk event information for all users in your organization on behalf of the signed-in user. Update operations include confirming risk event detections.",
+          "userDisplayName": "Read and write identity risk event information",
+          "userDescription": "Allows the app to read and update identity risk event information for all users in your organization on your behalf. Update operations include confirming risk event detections.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
         "Application": {
           "adminDisplayName": "Read and write all risk detection information",
           "adminDescription": "Allows the app to read and update identity risk detection information for your organization without a signed-in user. Update operations include confirming risk event detections. ",
@@ -31177,6 +31214,30 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identityProtection/settings/agentNotifications": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identityProtection/settings/agentNotifications": "least=DelegatedWork,Application"
+          }
+        },
         {
           "schemeKeys": [
             "Application"
@@ -33247,6 +33308,248 @@
       },
       "pathSets": [],
       "ownerInfo": {}
+    },
+    "LifecyclePolicies-AgentId.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity lifecycle policies for agent identities",
+          "adminDescription": "Allows the app to read identity lifecycle policies for agent identities that the signed-in user has access to in the organization.",
+          "userDisplayName": "Read identity lifecycle policies for agent identities",
+          "userDescription": "Allows the app to read identity lifecycle policies for agent identities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read identity lifecycle policies for agent identities",
+          "adminDescription": "Allows the app to read identity lifecycle policies for agent identities in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadlcm"
+      }
+    },
+    "LifecyclePolicies-AgentId.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity lifecycle policies for agent identities",
+          "adminDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities that the signed-in user has access to in the organization.",
+          "userDisplayName": "Read and write identity lifecycle policies for agent identities",
+          "userDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write identity lifecycle policies for agent identities",
+          "adminDescription": "Allows the app to read, create, update and delete identity lifecycle policies for agent identities in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadlcm"
+      }
+    },
+    "LifecyclePolicies-Guests.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read identity lifecycle policies for external guests",
+          "adminDescription": "Allows the app to read identity lifecycle policies for external guests on behalf of the signed-in user.",
+          "userDisplayName": "Read identity lifecycle policies for external guests",
+          "userDescription": "Allows the app to read identity lifecycle policies for external guests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read identity lifecycle policies for external guests",
+          "adminDescription": "Allows the app to read identity lifecycle policies for external guests in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/users/{id}/lifecycle": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadlcm"
+      }
+    },
+    "LifecyclePolicies-Guests.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write identity lifecycle policies for external guests",
+          "adminDescription": "Allows the app to create, update, and delete identity lifecycle policies for external guests on behalf of the signed-in user.",
+          "userDisplayName": "Read and write identity lifecycle policies for external guests",
+          "userDescription": "Allows the app to create, update, and delete identity lifecycle policies for external guests on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write identity lifecycle policies for external guests",
+          "adminDescription": "Allows the app to create, update, and delete identity lifecycle policies for external guests in the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/users/{id}/lifecycle": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
+            "/users/{id}/microsoft.graph.identityGovernance.attest": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "aadlcm"
+      }
     },
     "LifecycleWorkflows-CustomExt.Read.All": {
       "authorizationType": "oAuth2",
