@@ -10869,7 +10869,7 @@
           "paths": {
             "/teams/{id}/channels/{id}/archive": "least=DelegatedWork,Application",
             "/teams/{id}/channels/{id}/unarchive": "least=DelegatedWork,Application",
-            "/teams/{id}/deletedchannels/{id}/restore": "least=DelegatedWork,Application"
+            "/teams/{id}/deletedchannels/{id}/restore": ""
           }
         }
       ],
@@ -15014,6 +15014,35 @@
           ],
           "paths": {
             "/directory/templates/deviceTemplates/{id}/createDeviceFromTemplate": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "adrsmsgraph"
+      }
+    },
+    "Device.ProvisionForVDI": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Provision a device for a virtual desktop infrastructure provider.",
+          "adminDescription": "Allows the onboarded VDI app to provision a device on behalf of a signed-in user.",
+          "userDisplayName": "Provision a device for a virtual desktop infrastructure provider.",
+          "userDescription": "Allows the onboarded VDI app to provision a device.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/devices/provision": "least=DelegatedWork"
           }
         }
       ],
