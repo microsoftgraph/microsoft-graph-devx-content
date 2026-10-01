@@ -12083,6 +12083,19 @@
             "/deviceManagement/virtualEndpoint/cloudApps": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/cloudApps/{id}": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/cloudApps/retrieveDiscoveredApps(sourceId={value},provisioningPolicyId={value})": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/microsoft.graph.cloudpcagentpool/retrievereprovisionschedule": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolfailbackoperation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolfailoveroperation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolreprovisionoperation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolsyncmetadataoperation": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/microsoft.graph.cloudpcagentpool": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/microsoft.graph.cloudpcflexpool": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "least=DelegatedWork,Application",
@@ -12160,6 +12173,8 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getsupportedcloudpcremoteactions": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/crosscloudgovernmentorganizationmapping": "least=DelegatedWork",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "least=DelegatedWork",
+            "/me/cloudpcpools": "",
+            "/me/cloudpcpools/{id}": "",
             "/me/cloudpcs": "least=DelegatedWork",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "least=DelegatedWork",
@@ -12170,6 +12185,8 @@
             "/tenantrelationships/managedtenants/cloudpcdevices/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcsoverview": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/cloudpcsoverview/{id}": "least=DelegatedWork",
+            "/users/{id}/cloudpcpools": "",
+            "/users/{id}/cloudpcpools/{id}": "",
             "/users/{id}/cloudpcs": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": "least=DelegatedWork",
             "/users/{id}/cloudpcs/{id}/retrievecloudpclaunchdetail": "least=DelegatedWork"
@@ -12244,6 +12261,19 @@
             "/devicemanagement/virtualendpoint/auditevents": "",
             "/devicemanagement/virtualendpoint/auditevents/{id}": "",
             "/devicemanagement/virtualendpoint/auditevents/getauditactivitytypes": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments/{id}": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/microsoft.graph.cloudpcagentpool/retrievereprovisionschedule": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/{id}": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolfailbackoperation": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolfailoveroperation": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolreprovisionoperation": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations/microsoft.graph.cloudpcpoolsyncmetadataoperation": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/microsoft.graph.cloudpcagentpool": "",
+            "/devicemanagement/virtualendpoint/cloudpcpools/microsoft.graph.cloudpcflexpool": "",
             "/devicemanagement/virtualendpoint/cloudpcs": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}": "",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/getcloudpcconnectivityhistory": "",
@@ -12298,6 +12328,10 @@
             "/devicemanagement/virtualendpoint/cloudApps/publish": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudApps/reset": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudApps/unpublish": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/microsoft.graph.cloudpcagentpool/schedulereprovisiontask": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/operations": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/changeuseraccounttype": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
@@ -12345,6 +12379,31 @@
             "/users/{id}/cloudpcs/{id}/rename": "least=DelegatedWork,Application",
             "/users/{id}/cloudpcs/{id}/reprovision": "least=DelegatedWork,Application",
             "/users/{id}/cloudpcs/{id}/troubleshoot": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}/assignments/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -12459,6 +12518,8 @@
             "/devicemanagement/monitoring/alertrecords/getportalnotifications": "",
             "/devicemanagement/virtualendpoint/acquireazuremapsaccesstoken": "",
             "/devicemanagement/virtualendpoint/geteffectivepermissions": "",
+            "/me/cloudpcpools": "",
+            "/me/cloudpcpools/{id}": "",
             "/me/cloudpcs": "",
             "/me/cloudpcs/{id}/getcloudpclaunchinfo": "",
             "/me/cloudpcs/{id}/retrievecloudpclaunchdetail": "",
@@ -12469,6 +12530,8 @@
             "/tenantrelationships/managedtenants/cloudpcdevices/{id}": "",
             "/tenantrelationships/managedtenants/cloudpcsoverview": "",
             "/tenantrelationships/managedtenants/cloudpcsoverview/{id}": "",
+            "/users/{id}/cloudpcpools": "",
+            "/users/{id}/cloudpcpools/{id}": "",
             "/users/{id}/cloudpcs": "",
             "/users/{id}/cloudpcs/{id}/getcloudpclaunchinfo": "",
             "/users/{id}/cloudpcs/{id}/retrievecloudpclaunchdetail": ""
@@ -45187,6 +45250,7 @@
             "/copilot/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
             "/reports/azureADPremiumLicenseInsight": "least=DelegatedWork,Application",
+            "/reports/conditionalaccess/getconditionalaccessperpolicyimpactsummary": "",
             "/reports/credentialuserregistrationdetails": "least=DelegatedWork,Application",
             "/reports/getazureadapplicationsigninsummary(period={value})": "least=DelegatedWork,Application",
             "/reports/getbrowserdistributionusercounts(period={value})": "least=DelegatedWork,Application",
@@ -45298,6 +45362,8 @@
             "/reports/getyammergroupsactivitydetail(date={value})": "least=DelegatedWork,Application",
             "/reports/getyammergroupsactivitydetail(period={value})": "least=DelegatedWork,Application",
             "/reports/getyammergroupsactivitygroupcounts(period={value})": "least=DelegatedWork,Application",
+            "/reports/identityanalytics/serviceprincipals": "least=DelegatedWork,Application",
+            "/reports/identityanalytics/serviceprincipals/{id}": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessBlockedSignIn(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessCompliantDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessManagedDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
