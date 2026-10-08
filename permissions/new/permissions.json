@@ -10868,8 +10868,7 @@
           ],
           "paths": {
             "/teams/{id}/channels/{id}/archive": "least=DelegatedWork,Application",
-            "/teams/{id}/channels/{id}/unarchive": "least=DelegatedWork,Application",
-            "/teams/{id}/deletedchannels/{id}/restore": ""
+            "/teams/{id}/channels/{id}/unarchive": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -24669,6 +24668,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPasswordUpdateListener/handler/microsoft.graph.onPasswordUpdateCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows": "least=DelegatedWork,Application",
@@ -24753,6 +24753,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPasswordUpdateListener/handler/microsoft.graph.onPasswordUpdateCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
@@ -24777,6 +24778,7 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onFraudProtectionLoadStartListener/handler/microsoft.graph.onFraudProtectionLoadStartExternalUsersAuthHandler/signUp/microsoft.graph.fraudProtectionProviderConfiguration/fraudProtectionProvider/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartBrandingOverrideHandler/brandingTheme/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
+            "/identity/authenticationEventListeners/{id}/microsoft.graph.onPasswordUpdateListener/handler/microsoft.graph.onPasswordUpdateCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onTokenIssuanceStartListener/handler/microsoft.graph.onTokenIssuanceStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension/$ref": "least=DelegatedWork,Application",
@@ -45245,11 +45247,13 @@
             "GET"
           ],
           "paths": {
+            "/copilot/reports/getmicrosoft365copilotemissions": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusageuserdetail(period={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusageuserdetailbydate(date={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
             "/copilot/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
             "/reports/azureADPremiumLicenseInsight": "least=DelegatedWork,Application",
+            "/reports/conditionalaccess/getconditionalaccessagenticimpactsummary": "least=DelegatedWork,Application",
             "/reports/conditionalaccess/getconditionalaccessperpolicyimpactsummary": "",
             "/reports/credentialuserregistrationdetails": "least=DelegatedWork,Application",
             "/reports/getazureadapplicationsigninsummary(period={value})": "least=DelegatedWork,Application",
@@ -45280,6 +45284,7 @@
             "/reports/getmicrosoft365copilotusageuserdetail(period={value})": "least=DelegatedWork,Application",
             "/reports/getmicrosoft365copilotusercountsummary(period={value})": "least=DelegatedWork,Application",
             "/reports/getmicrosoft365copilotusercounttrend(period={value})": "least=DelegatedWork,Application",
+            "/reports/getmicrosoft365emissions": "least=DelegatedWork,Application",
             "/reports/getoffice365activationcounts": "least=DelegatedWork,Application",
             "/reports/getoffice365activationsusercounts": "least=DelegatedWork,Application",
             "/reports/getoffice365activationsuserdetail": "least=DelegatedWork,Application",
@@ -50178,6 +50183,7 @@
             "/sites/{id}/analytics": "",
             "/sites/{id}/analytics/alltime": "",
             "/sites/{id}/analytics/lastsevendays": "",
+            "/sites/{id}/capabilities": "least=DelegatedWork,Application",
             "/sites/{id}/columns": "least=DelegatedWork,Application",
             "/sites/{id}/columns/{id}": "least=DelegatedWork,Application",
             "/sites/{id}/contentModels/{id}": "least=DelegatedWork,Application",
@@ -50620,6 +50626,7 @@
             "/sites/{id}/analytics": "",
             "/sites/{id}/analytics/alltime": "",
             "/sites/{id}/analytics/lastsevendays": "",
+            "/sites/{id}/capabilities": "",
             "/sites/{id}/columns": "",
             "/sites/{id}/columns/{id}": "",
             "/sites/{id}/contentModels/{id}": "",
@@ -57508,6 +57515,10 @@
             "GET"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/tags/{id}": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/tags/{id}/members": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "least=DelegatedWork",
             "/teams/{id}/tags": "least=DelegatedWork",
             "/teams/{id}/tags/{id}": "least=DelegatedWork",
             "/teams/{id}/tags/{id}/members": "least=DelegatedWork",
@@ -57538,6 +57549,10 @@
             "GET"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "least=Application",
+            "/teams/{id}/channels/{id}/tags/{id}": "least=Application",
+            "/teams/{id}/channels/{id}/tags/{id}/members": "least=Application",
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "least=Application",
             "/teams/{id}/tags": "",
             "/teams/{id}/tags/{id}": "",
             "/teams/{id}/tags/{id}/members": "",
@@ -57570,6 +57585,10 @@
             "GET"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "",
+            "/teams/{id}/channels/{id}/tags/{id}": "",
+            "/teams/{id}/channels/{id}/tags/{id}/members": "",
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "",
             "/teams/{id}/tags": "",
             "/teams/{id}/tags/{id}": "",
             "/teams/{id}/tags/{id}/members": "",
@@ -57584,6 +57603,7 @@
             "POST"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "least=DelegatedWork",
             "/teams/{id}/tags": "least=DelegatedWork"
           }
         },
@@ -57596,6 +57616,7 @@
             "PATCH"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags/{id}": "least=DelegatedWork",
             "/teams/{id}/tags/{id}": "least=DelegatedWork"
           }
         },
@@ -57607,6 +57628,7 @@
             "DELETE"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "least=DelegatedWork",
             "/teams/{id}/tags/{id}/members/{id}": "least=DelegatedWork"
           }
         }
@@ -57634,6 +57656,10 @@
             "GET"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "",
+            "/teams/{id}/channels/{id}/tags/{id}": "",
+            "/teams/{id}/channels/{id}/tags/{id}/members": "",
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "",
             "/teams/{id}/tags": "",
             "/teams/{id}/tags/{id}": "",
             "/teams/{id}/tags/{id}/members": "",
@@ -57648,6 +57674,8 @@
             "POST"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags": "least=Application",
+            "/teams/{id}/channels/{id}/tags/{id}/members": "least=Application",
             "/teams/{id}/tags": "",
             "/teams/{id}/tags/{id}/members": ""
           }
@@ -57661,6 +57689,7 @@
             "PATCH"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags/{id}": "least=Application",
             "/teams/{id}/tags/{id}": ""
           }
         },
@@ -57672,6 +57701,7 @@
             "DELETE"
           ],
           "paths": {
+            "/teams/{id}/channels/{id}/tags/{id}/members/{id}": "least=Application",
             "/teams/{id}/tags/{id}/members/{id}": ""
           }
         }
