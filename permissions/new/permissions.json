@@ -24030,7 +24030,12 @@
             "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "least=DelegatedWork",
-            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": ""
+            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}/request": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/filterbycurrentidentity(on={value})": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/filterbycurrentidentity(on={value})": ""
           }
         },
         {
@@ -24085,7 +24090,6 @@
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/externalsponsors": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/connectedorganizations/{id}/internalsponsors": "least=DelegatedWork,Application",
-            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "least=Application",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors": "least=DelegatedWork,Application",
             "/identityGovernance/entitlementManagement/externalOriginResourceConnectors/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/entitlementmanagement/settings": "least=DelegatedWork,Application",
@@ -24176,7 +24180,7 @@
           "userDisplayName": "Read and write entitlement management resources",
           "userDescription": "Allows the app to request access to and management of access packages and related entitlement management resources that you have access to.",
           "requiresAdminConsent": true,
-          "privilegeLevel": 3
+          "privilegeLevel": 4
         },
         "Application": {
           "adminDisplayName": "Read and write all entitlement management resources",
@@ -24203,7 +24207,12 @@
             "/identitygovernance/entitlementmanagement/accesspackages/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "",
             "/identitygovernance/entitlementmanagement/assignments/additionalaccess(accesspackageid={value},incompatibleaccesspackageid={value})": "",
-            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": ""
+            "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}/request": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/filterbycurrentidentity(on={value})": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/filterbycurrentidentity(on={value})": ""
           }
         },
         {
@@ -24290,7 +24299,9 @@
             "/identitygovernance/entitlementmanagement/accesspackageassignmentrequests/{id}/cancel": "",
             "/identitygovernance/entitlementmanagement/accesspackagecatalogs/{id}/customaccesspackageworkflowextensions": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "",
-            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": ""
+            "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}/approve": "",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}/deny": ""
           }
         },
         {
@@ -24497,7 +24508,7 @@
           "userDisplayName": "Read and write your entitlement management access",
           "userDescription": "Allows the app to request, view, and cancel your access package assignments and view available access packages on your behalf.",
           "requiresAdminConsent": false,
-          "privilegeLevel": 2
+          "privilegeLevel": 3
         }
       },
       "pathSets": [
@@ -24516,7 +24527,11 @@
             "/identitygovernance/entitlementmanagement/assignmentrequests/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignments/filterbycurrentuser(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/availableaccesspackages/{id}/resourcerolescopes": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/{id}/request": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessassignments/filterbycurrentidentity(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/filterbycurrentidentity(on={value})": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}": "least=DelegatedWork"
           }
         },
@@ -24533,6 +24548,8 @@
             "/identitygovernance/entitlementmanagement/accesspackages/{id}/getapplicablepolicyrequirements": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignmentrequests": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/assignmentrequests/{id}/cancel": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}/approve": "least=DelegatedWork",
+            "/identitygovernance/entitlementmanagement/dynamicaccessrequests/{id}/deny": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/dynamicaccesssessions": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/clarify": "least=DelegatedWork",
             "/identitygovernance/entitlementmanagement/dynamicaccesssessions/{id}/submit": "least=DelegatedWork"
@@ -44738,7 +44755,8 @@
           "paths": {
             "/me/dataSecurityAndGovernance/protectionScopes/compute": "",
             "/security/dataSecurityAndGovernance/protectionScopes/compute": "least=Application,DelegatedWork",
-            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/compute": ""
+            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/compute": "",
+            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/computePolicyXml": ""
           }
         }
       ],
@@ -44775,7 +44793,8 @@
           ],
           "paths": {
             "/me/dataSecurityAndGovernance/protectionScopes/compute": "least=Application,DelegatedWork",
-            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/compute": "least=Application,DelegatedWork"
+            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/compute": "least=Application,DelegatedWork",
+            "/users/{userId}/dataSecurityAndGovernance/protectionScopes/computePolicyXml": "least=Application,DelegatedWork"
           }
         }
       ],
