@@ -13558,6 +13558,88 @@
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
       }
     },
+    "CopilotCostManagement-CreditReq.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot credit requests",
+          "adminDescription": "Allows the app to read credit requests submitted in the organization, on behalf of the signed-in user. This exposes request details and the identities associated with each request.",
+          "userDisplayName": "Read Copilot credit requests",
+          "userDescription": "Allows the app to read credit requests submitted in your organization, on your behalf. This includes request details and the identities associated with each request.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "least=DelegatedWork",
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "CopilotCostManagement-CreditReq.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and decide Copilot credit requests",
+          "adminDescription": "Allows the app to read, approve, and reject credit requests in the organization, on behalf of the signed-in user. Approving a request records the decision but does not itself assign credits.",
+          "userDisplayName": "Read and decide Copilot credit requests",
+          "userDescription": "Allows the app to read, approve, and reject credit requests in your organization, on your behalf. Approving a request records the decision but does not itself assign credits.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "",
+            "/copilot/costManagement/creditRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/batchRecordDecisions": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
     "CopilotPackages.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -36218,6 +36300,23 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "simbaeng"
+      }
+    },
+    "MCP.Server.Access": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Access the Microsoft Graph MCP server",
+          "adminDescription": "Allows the app to connect to and call the Microsoft Graph Model Context Protocol (MCP) server on behalf of the signed-in user.",
+          "userDisplayName": "Access the Microsoft Graph MCP server",
+          "userDescription": "Allows the app to connect to the Microsoft Graph MCP server on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "entracopilot"
       }
     },
     "Member.Read.Group": {
