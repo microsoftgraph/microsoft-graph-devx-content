@@ -13620,6 +13620,104 @@
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
       }
     },
+    "CopilotCostManagement-Assignment.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, on behalf of the signed-in user. This exposes the identifiers of the security groups and the users that are targeted by each policy.",
+          "userDisplayName": "Read Copilot spending policy assignments",
+          "userDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, on your behalf. This includes the identifiers of the security groups and the users that each policy targets.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, without a signed-in user. This exposes the identifiers of the security groups and the users that are targeted by each policy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-Assignment.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, on behalf of the signed-in user. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits. This also exposes the identifiers of the security groups targeted by each policy.",
+          "userDisplayName": "Read and write Copilot spending policy assignments",
+          "userDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, on your behalf. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, without a signed-in user. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits. This also exposes the identifiers of the security groups targeted by each policy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/{groupId}/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
     "CopilotCostManagement-CreditReq.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -13700,6 +13798,274 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "CopilotCostManagement-Policy.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot spending policies",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration on behalf of the signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "userDisplayName": "Read Copilot spending policies",
+          "userDescription": "Allows the app to read your organization's Copilot spending policies and their configuration on your behalf, including budget limits, alert thresholds, who created and last changed each policy, and who receives its alerts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot spending policies",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration without a signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-Policy.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Copilot spending policies",
+          "adminDescription": "Allows the app to read, create, update, and delete Copilot spending policies on behalf of the signed-in user. It can set the initial audience, read and change alert recipients, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy.",
+          "userDisplayName": "Read and write Copilot spending policies",
+          "userDescription": "Allows the app to read, create, update, and delete your organization's Copilot spending policies on your behalf, including changing who receives a policy's spending alerts. Creating a policy also sets who it applies to, may take effect immediately and begin restricting how much users can spend, and may include selecting the billing method that funds it.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Copilot spending policies",
+          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a spending policy requires a signed-in administrator.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "",
+            "/copilot/costManagement/spendingPolicies/{id}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/{userId}/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-UserData.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot cost data for all users and groups",
+          "adminDescription": "Allows the app to read identity-attributed Copilot cost management data for the organization on behalf of the signed-in user, including any named user's Copilot credit balance, per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
+          "userDisplayName": "Read Copilot cost data for all users and groups",
+          "userDescription": "Allows the app to read Copilot cost data attributed to individual users and security groups in your organization, on your behalf. This includes any named user's credit balance, consumption rankings, usage totalled by security group, and raw usage grouped by service or activity session, including session identifiers when available and first and last activity timestamps.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot cost data for all users and groups",
+          "adminDescription": "Reserved for application access to identity-attributed Copilot cost management data. No API paths currently accept this application permission; it does not grant app-only access to user balances, user or group usage reports, or raw per-user service and session details. Those reads currently require delegated permissions.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/userBalances": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/groupUsageRecords": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageRecords": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Copilot cost management data",
+          "adminDescription": "Allows the app to read all organizational Copilot cost management data on behalf of the signed-in user, including any user's credit balance, per-user rankings and raw usage grouped by service or activity session, native session identifiers when available, first and last activity timestamps, usage by security group, spending policies, their configuration and assignments, and the identities of policy creators, modifiers, and alert recipients. This is the broadest Copilot cost management read permission.",
+          "userDisplayName": "Read all Copilot cost management data",
+          "userDescription": "Allows the app to read all of your organization's Copilot cost management data on your behalf. This includes any named user's credit balance, consumption rankings, raw usage grouped by service or activity session, session identifiers when available, first and last activity timestamps, and usage totalled by security group, along with Copilot spending policies, who they apply to, and who receives their alerts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Copilot cost management data",
+          "adminDescription": "Allows the app to read the organization's Copilot tenant credit balance and aggregate usage reports by service and funding class without a signed-in user. This application permission does not grant access to user or group usage reports, raw per-user service or session details, individual user balances, or spending policies and their assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/fundingUsageRecords": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/groupUsageRecords": "",
+            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "",
+            "/copilot/costManagement/usageReports/userUsageRecords": "",
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
       }
     },
     "CopilotPackages.Read.All": {
@@ -29919,7 +30285,7 @@
             "/groups/{id}/threads/{id}/posts/{id}": "",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
-            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "least=DelegatedWork,Application",
+            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "",
             "/groupsettings": "",
             "/groupsettings/{id}": "",
             "/settings": "",
@@ -30760,7 +31126,7 @@
             "/groups/{id}/permissiongrants": "least=DelegatedWork,Application",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
-            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "",
+            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "least=DelegatedWork,Application",
             "/users/{id}/transitivememberof": ""
           }
         },
