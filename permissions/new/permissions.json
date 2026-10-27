@@ -9851,6 +9851,68 @@
         "ownerSecurityGroup": "TeamsGraph1PPreAuthPermissionsApprovers"
       }
     },
+    "CaseManagement.ConfigManage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage case management configuration",
+          "adminDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, on behalf of the signed-in user.",
+          "userDisplayName": "Manage case management configuration",
+          "userDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Manage case management configuration",
+          "adminDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
+      }
+    },
     "CaseManagement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -13558,6 +13620,88 @@
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
       }
     },
+    "CopilotCostManagement-CreditReq.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot credit requests",
+          "adminDescription": "Allows the app to read credit requests submitted in the organization, on behalf of the signed-in user. This exposes request details and the identities associated with each request.",
+          "userDisplayName": "Read Copilot credit requests",
+          "userDescription": "Allows the app to read credit requests submitted in your organization, on your behalf. This includes request details and the identities associated with each request.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "least=DelegatedWork",
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "CopilotCostManagement-CreditReq.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and decide Copilot credit requests",
+          "adminDescription": "Allows the app to read, approve, and reject credit requests in the organization, on behalf of the signed-in user. Approving a request records the decision but does not itself assign credits.",
+          "userDisplayName": "Read and decide Copilot credit requests",
+          "userDescription": "Allows the app to read, approve, and reject credit requests in your organization, on your behalf. Approving a request records the decision but does not itself assign credits.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "",
+            "/copilot/costManagement/creditRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/batchRecordDecisions": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
     "CopilotPackages.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -14813,6 +14957,17 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/tenantrelationships/delegatedadmincustomers/filterbycurrentuser": "least=DelegatedWork"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -24168,7 +24323,9 @@
             "/identitygovernance/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "least=DelegatedWork,Application"
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "least=DelegatedWork,Application",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets": "least=DelegatedWork,Application",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24476,7 +24633,9 @@
             "/identitygovernance/accessevaluationpolicies/{id}": "",
             "/identitygovernance/accessguardian/customextensions": "",
             "/identitygovernance/accessguardian/customextensions/{id}": "",
-            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": ""
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets": "",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets/{id}": ""
           }
         },
         {
@@ -24491,7 +24650,8 @@
             "/identitygovernance/accessevaluationdetections/{id}/remediate": "least=DelegatedWork,Application",
             "/identitygovernance/accessevaluationdetections/remediate": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24505,7 +24665,8 @@
           "paths": {
             "/identitygovernance/accessevaluationdetections/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24518,7 +24679,8 @@
           ],
           "paths": {
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/catalogs/{id}/resources/{id}/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -36220,6 +36382,23 @@
         "ownerSecurityGroup": "simbaeng"
       }
     },
+    "MCP.Server.Access": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Access the Microsoft Graph MCP server",
+          "adminDescription": "Allows the app to connect to and call the Microsoft Graph Model Context Protocol (MCP) server on behalf of the signed-in user.",
+          "userDisplayName": "Access the Microsoft Graph MCP server",
+          "userDescription": "Allows the app to connect to the Microsoft Graph MCP server on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "entracopilot"
+      }
+    },
     "Member.Read.Group": {
       "authorizationType": "RSC",
       "schemes": {
@@ -36943,6 +37122,18 @@
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
             "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/networkAccess/microsoft.graph.networkaccess.generateClientDisablementCode": "least=DelegatedWork,Application"
           }
         },
         {
@@ -40021,6 +40212,106 @@
         "ownerSecurityGroup": "peopleadminadmin"
       }
     },
+    "Perception.Manage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and manage Agentic Security sessions",
+          "adminDescription": "Allows the app to read Agentic Security resources, create sessions and request cancellation on behalf of the signed-in user, subject to the user's access.",
+          "userDisplayName": "Read and manage Agentic Security sessions you can access",
+          "userDescription": "Allows the app to read Agentic Security resources, create sessions and request cancellation for those resources.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/agenticSecurity/playbookDefinitions": "",
+            "/security/agenticSecurity/playbookDefinitions/{playbookDefinitionId}": "",
+            "/security/agenticSecurity/sessions": "",
+            "/security/agenticSecurity/sessions/{sessionId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs": "",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/messages": "",
+            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "",
+            "/security/agenticSecurity/sessions/{sessionId}/playbookDefinition": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/agenticSecurity/sessions": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/cancel": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "seccopdea"
+      }
+    },
+    "Perception.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Agentic Security resources",
+          "adminDescription": "Allows the app to read Agentic Security playbook definitions, sessions, agent runs, inputs, outputs and messages on behalf of the signed-in user, subject to the user's access.",
+          "userDisplayName": "Read Agentic Security resources you can access",
+          "userDescription": "Allows the app to read Agentic Security playbook definitions, sessions, agent runs, inputs, outputs and messages that you can access.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/agenticSecurity/playbookDefinitions": "least=DelegatedWork",
+            "/security/agenticSecurity/playbookDefinitions/{playbookDefinitionId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/messages": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "least=DelegatedWork",
+            "/security/agenticSecurity/sessions/{sessionId}/playbookDefinition": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "seccopdea"
+      }
+    },
     "Place.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -40488,6 +40779,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantGroupDataMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantLabelSync": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
@@ -40495,6 +40787,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantUserDataMigration": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application",
@@ -42049,13 +42342,15 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantGroupDataMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantLabelSync": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantUserDataMigration": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -53297,6 +53592,18 @@
             "/teams/{id}/members": "least=DelegatedWork",
             "/teams/{id}/members/{id}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/{id}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -53412,6 +53719,32 @@
             "/teams/{id}/members/add": "",
             "/teams/{id}/members/remove": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests": "",
+            "/teams/{id}/joinRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests/{id}/approve": "",
+            "/teams/{id}/joinRequests/{id}/reject": "",
+            "/teams/{id}/joinRequests/approve": "",
+            "/teams/{id}/joinRequests/reject": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -53461,6 +53794,20 @@
           ],
           "paths": {
             "/teams/{id}/members/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests/{id}/approve": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/{id}/reject": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/approve": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/reject": "least=DelegatedWork"
           }
         }
       ],
