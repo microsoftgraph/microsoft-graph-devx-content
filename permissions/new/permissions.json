@@ -57,6 +57,9 @@
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions/filterbycurrentuser(on={value})": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports/{id}/content": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages/{id}/decisions": "least=DelegatedWork,Application",
@@ -209,6 +212,8 @@
             "/identitygovernance/accessreviews/historydefinitions/{id}/instances/{id}/generatedownloaduri": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/applydecisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/batchrecorddecisions": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports": "least=DelegatedWork,Application",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports/{id}/generatedownloaduri": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/resetdecisions": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/sendreminder": "least=DelegatedWork,Application",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages/{id}/acceptrecommendations": "least=DelegatedWork,Application",
@@ -277,6 +282,9 @@
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions": "",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions/{id}": "",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/decisions/filterbycurrentuser(on={value})": "",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports": "",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports/{id}": "",
+            "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/reports/{id}/content": "",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages": "",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages/{id}/decisions": "",
             "/identitygovernance/accessreviews/unified/definitions/{id}/instances/{id}/stages/{id}/decisions/{id}": "",
@@ -9851,6 +9859,68 @@
         "ownerSecurityGroup": "TeamsGraph1PPreAuthPermissionsApprovers"
       }
     },
+    "CaseManagement.ConfigManage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Manage case management configuration",
+          "adminDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, on behalf of the signed-in user.",
+          "userDisplayName": "Manage case management configuration",
+          "userDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Manage case management configuration",
+          "adminDescription": "Allows the app to create, read, update, and delete case management configuration, such as SLA policies, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "",
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/caseManagement/caseTypeConfigurations/{id}/slaPolicies/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "CaseManagement-SG"
+      }
+    },
     "CaseManagement.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -12244,9 +12314,14 @@
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/gettotalaggregatedremoteconnectionreports": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcConfigurationMonitoringReports": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcLicenseUtilizationReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcPerformanceMetricsReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcSettingStatusReport": "least=DelegatedWork,Application",
-            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application"
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTabularReports": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTenantMonitoringReports": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcUserDeviceReports": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -12389,10 +12464,15 @@
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "",
             "/devicemanagement/virtualendpoint/reports/gettotalaggregatedremoteconnectionreports": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcConfigurationMonitoringReports": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcLicenseUtilizationReports": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcPerformanceMetricsReport": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcSettingStatusReport": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTabularReports": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTenantMonitoringReports": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "",
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcUserDeviceReports": "",
             "/devicemanagement/virtualendpoint/settingprofiles/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/reorder": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/uploadimage": "least=DelegatedWork,Application",
@@ -13556,6 +13636,454 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "DcsMsGraphSchemaAdmins"
+      }
+    },
+    "CopilotCostManagement-Assignment.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, on behalf of the signed-in user. This exposes the identifiers of the security groups and the users that are targeted by each policy.",
+          "userDisplayName": "Read Copilot spending policy assignments",
+          "userDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, on your behalf. This includes the identifiers of the security groups and the users that each policy targets.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read which users and security groups each Copilot spending policy applies to, without a signed-in user. This exposes the identifiers of the security groups and the users that are targeted by each policy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-Assignment.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, on behalf of the signed-in user. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits. This also exposes the identifiers of the security groups targeted by each policy.",
+          "userDisplayName": "Read and write Copilot spending policy assignments",
+          "userDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, on your behalf. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Copilot spending policy assignments",
+          "adminDescription": "Allows the app to read and change which users and security groups each Copilot spending policy applies to, without a signed-in user. Adding or removing an assignment immediately changes which users are subject to that policy's spending limits, and may grant or remove their ability to consume Copilot credits. This also exposes the identifiers of the security groups targeted by each policy.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/{groupId}/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-CreditReq.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot credit requests",
+          "adminDescription": "Allows the app to read credit requests submitted in the organization, on behalf of the signed-in user. This exposes request details and the identities associated with each request.",
+          "userDisplayName": "Read Copilot credit requests",
+          "userDescription": "Allows the app to read credit requests submitted in your organization, on your behalf. This includes request details and the identities associated with each request.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "least=DelegatedWork",
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "CopilotCostManagement-CreditReq.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and decide Copilot credit requests",
+          "adminDescription": "Allows the app to read, approve, and reject credit requests in the organization, on behalf of the signed-in user. Approving a request records the decision but does not itself assign credits.",
+          "userDisplayName": "Read and decide Copilot credit requests",
+          "userDescription": "Allows the app to read, approve, and reject credit requests in your organization, on your behalf. Approving a request records the decision but does not itself assign credits.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests": "",
+            "/copilot/costManagement/creditRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/creditRequests/batchRecordDecisions": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "M365AdminSvcDevTeam"
+      }
+    },
+    "CopilotCostManagement-Policy.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot spending policies",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration on behalf of the signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "userDisplayName": "Read Copilot spending policies",
+          "userDescription": "Allows the app to read your organization's Copilot spending policies and their configuration on your behalf, including budget limits, alert thresholds, who created and last changed each policy, and who receives its alerts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot spending policies",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration without a signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-Policy.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write Copilot spending policies",
+          "adminDescription": "Allows the app to read, create, update, and delete Copilot spending policies on behalf of the signed-in user. It can set the initial audience, read and change alert recipients, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy.",
+          "userDisplayName": "Read and write Copilot spending policies",
+          "userDescription": "Allows the app to read, create, update, and delete your organization's Copilot spending policies on your behalf, including changing who receives a policy's spending alerts. Creating a policy also sets who it applies to, may take effect immediately and begin restricting how much users can spend, and may include selecting the billing method that funds it.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write Copilot spending policies",
+          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a spending policy requires a signed-in administrator.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "",
+            "/copilot/costManagement/spendingPolicies/{id}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/{userId}/$ref": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement-UserData.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Copilot cost data for all users and groups",
+          "adminDescription": "Allows the app to read identity-attributed Copilot cost management data for the organization on behalf of the signed-in user, including any named user's Copilot credit balance, per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
+          "userDisplayName": "Read Copilot cost data for all users and groups",
+          "userDescription": "Allows the app to read Copilot cost data attributed to individual users and security groups in your organization, on your behalf. This includes any named user's credit balance, consumption rankings, usage totalled by security group, and raw usage grouped by service or activity session, including session identifiers when available and first and last activity timestamps.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Copilot cost data for all users and groups",
+          "adminDescription": "Reserved for application access to identity-attributed Copilot cost management data. No API paths currently accept this application permission; it does not grant app-only access to user balances, user or group usage reports, or raw per-user service and session details. Those reads currently require delegated permissions.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/userBalances": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/groupUsageRecords": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageRecords": "least=DelegatedWork",
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
+      }
+    },
+    "CopilotCostManagement.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all Copilot cost management data",
+          "adminDescription": "Allows the app to read all organizational Copilot cost management data on behalf of the signed-in user, including any user's credit balance, per-user rankings and raw usage grouped by service or activity session, native session identifiers when available, first and last activity timestamps, usage by security group, spending policies, their configuration and assignments, and the identities of policy creators, modifiers, and alert recipients. This is the broadest Copilot cost management read permission.",
+          "userDisplayName": "Read all Copilot cost management data",
+          "userDescription": "Allows the app to read all of your organization's Copilot cost management data on your behalf. This includes any named user's credit balance, consumption rankings, raw usage grouped by service or activity session, session identifiers when available, first and last activity timestamps, and usage totalled by security group, along with Copilot spending policies, who they apply to, and who receives their alerts.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all Copilot cost management data",
+          "adminDescription": "Allows the app to read the organization's Copilot tenant credit balance and aggregate usage reports by service and funding class without a signed-in user. This application permission does not grant access to user or group usage reports, raw per-user service or session details, individual user balances, or spending policies and their assignments.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/fundingUsageRecords": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/copilot/costManagement/usageReports/groupUsageRecords": "",
+            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "",
+            "/copilot/costManagement/usageReports/userUsageRecords": "",
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "capalmneptune"
       }
     },
     "CopilotPackages.Read.All": {
@@ -14813,6 +15341,17 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/tenantrelationships/delegatedadmincustomers/filterbycurrentuser": "least=DelegatedWork"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -24168,7 +24707,12 @@
             "/identitygovernance/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "least=DelegatedWork,Application"
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/detections/{id}/catalog": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}/catalog": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/remediations/{id}/catalog": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24476,7 +25020,12 @@
             "/identitygovernance/accessevaluationpolicies/{id}": "",
             "/identitygovernance/accessguardian/customextensions": "",
             "/identitygovernance/accessguardian/customextensions/{id}": "",
-            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": ""
+            "/identitygovernance/accessguardian/customextensions/microsoft.graph.accessremediationextension": "",
+            "/identitygovernance/dynamicpermissionsmanagement/detections/{id}/catalog": "",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets": "",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}": "",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}/catalog": "",
+            "/identitygovernance/dynamicpermissionsmanagement/remediations/{id}/catalog": ""
           }
         },
         {
@@ -24491,7 +25040,8 @@
             "/identitygovernance/accessevaluationdetections/{id}/remediate": "least=DelegatedWork,Application",
             "/identitygovernance/accessevaluationdetections/remediate": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24505,7 +25055,8 @@
           "paths": {
             "/identitygovernance/accessevaluationdetections/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -24518,7 +25069,8 @@
           ],
           "paths": {
             "/identitygovernance/accessguardian/customextensions/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application"
+            "/identitygovernance/catalogs/{id}/accessevaluationpolicies/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/dynamicpermissionsmanagement/incompatiblepermissionsets/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -29757,7 +30309,7 @@
             "/groups/{id}/threads/{id}/posts/{id}": "",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
-            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "least=DelegatedWork,Application",
+            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "",
             "/groupsettings": "",
             "/groupsettings/{id}": "",
             "/settings": "",
@@ -30598,7 +31150,7 @@
             "/groups/{id}/permissiongrants": "least=DelegatedWork,Application",
             "/groups/{id}/transitivemembers": "",
             "/groups/delta": "",
-            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "",
+            "/groups/dynamicMembershipProcessingStatus(state={value},dynamicMembershipPriority={value})": "least=DelegatedWork,Application",
             "/users/{id}/transitivememberof": ""
           }
         },
@@ -36220,6 +36772,23 @@
         "ownerSecurityGroup": "simbaeng"
       }
     },
+    "MCP.Server.Access": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Access the Microsoft Graph MCP server",
+          "adminDescription": "Allows the app to connect to and call the Microsoft Graph Model Context Protocol (MCP) server on behalf of the signed-in user.",
+          "userDisplayName": "Access the Microsoft Graph MCP server",
+          "userDescription": "Allows the app to connect to the Microsoft Graph MCP server on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [],
+      "ownerInfo": {
+        "ownerSecurityGroup": "entracopilot"
+      }
+    },
     "Member.Read.Group": {
       "authorizationType": "RSC",
       "schemes": {
@@ -36943,6 +37512,18 @@
             "/networkAccess/tlsPolicies": "least=DelegatedWork,Application",
             "/networkAccess/webFilteringPolicies": "least=DelegatedWork,Application",
             "/networkAccess/webFilteringPolicies/{id}/policyRules": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/networkAccess/microsoft.graph.networkaccess.generateClientDisablementCode": "least=DelegatedWork,Application"
           }
         },
         {
@@ -40021,6 +40602,121 @@
         "ownerSecurityGroup": "peopleadminadmin"
       }
     },
+    "Perception.Manage.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and manage Agentic Security sessions",
+          "adminDescription": "Allows the app to read Agentic Security resources, create sessions and request cancellation on behalf of the signed-in user, subject to the user's access.",
+          "userDisplayName": "Read and manage Agentic Security sessions you can access",
+          "userDescription": "Allows the app to read Agentic Security resources, create sessions and request cancellation for those resources.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and manage Agentic Security sessions",
+          "adminDescription": "Allows the app to read Agentic Security resources, create sessions and request cancellation without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/agenticSecurity/playbookDefinitions": "",
+            "/security/agenticSecurity/playbookDefinitions/{playbookDefinitionId}": "",
+            "/security/agenticSecurity/sessions": "",
+            "/security/agenticSecurity/sessions/{sessionId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs": "",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/messages": "",
+            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "",
+            "/security/agenticSecurity/sessions/{sessionId}/playbookDefinition": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/agenticSecurity/sessions": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/cancel": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "seccopdea"
+      }
+    },
+    "Perception.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read Agentic Security resources",
+          "adminDescription": "Allows the app to read Agentic Security playbook definitions, sessions, agent runs, inputs, outputs and messages on behalf of the signed-in user, subject to the user's access.",
+          "userDisplayName": "Read Agentic Security resources you can access",
+          "userDescription": "Allows the app to read Agentic Security playbook definitions, sessions, agent runs, inputs, outputs and messages that you can access.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read Agentic Security resources",
+          "adminDescription": "Allows the app to read Agentic Security playbook definitions, sessions, agent runs, inputs, outputs and messages without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/agenticSecurity/playbookDefinitions": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/playbookDefinitions/{playbookDefinitionId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/messages": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "least=DelegatedWork,Application",
+            "/security/agenticSecurity/sessions/{sessionId}/playbookDefinition": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "seccopdea"
+      }
+    },
     "Place.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -40488,6 +41184,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantGroupDataMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantLabelSync": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
@@ -40495,6 +41192,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantUserDataMigration": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application",
@@ -42049,13 +42747,15 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyDetail": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusyReviewer": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantCalendarSharingFreeBusySimple": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantGroupDataMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantLabelSync": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsAll": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMailTipsLimited": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantMigration": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantOpenProfileCard": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
-            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application"
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantUserDataMigration": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -53297,6 +53997,18 @@
             "/teams/{id}/members": "least=DelegatedWork",
             "/teams/{id}/members/{id}": "least=DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/{id}": "least=DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -53412,6 +54124,32 @@
             "/teams/{id}/members/add": "",
             "/teams/{id}/members/remove": "least=DelegatedWork,Application"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests": "",
+            "/teams/{id}/joinRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests/{id}/approve": "",
+            "/teams/{id}/joinRequests/{id}/reject": "",
+            "/teams/{id}/joinRequests/approve": "",
+            "/teams/{id}/joinRequests/reject": ""
+          }
         }
       ],
       "ownerInfo": {
@@ -53461,6 +54199,20 @@
           ],
           "paths": {
             "/teams/{id}/members/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/joinRequests/{id}/approve": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/{id}/reject": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/approve": "least=DelegatedWork",
+            "/teams/{id}/joinRequests/reject": "least=DelegatedWork"
           }
         }
       ],
