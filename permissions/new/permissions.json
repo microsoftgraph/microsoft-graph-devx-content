@@ -12321,7 +12321,8 @@
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTabularReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTenantMonitoringReports": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "least=DelegatedWork,Application",
-            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcUserDeviceReports": "least=DelegatedWork,Application"
+            "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcUserDeviceReports": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/reports/retrievenotificationdeliveryhistoryreports": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -12473,6 +12474,7 @@
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTenantMonitoringReports": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcTroubleshootReports": "",
             "/deviceManagement/virtualEndpoint/reports/retrieveCloudPcUserDeviceReports": "",
+            "/devicemanagement/virtualendpoint/reports/retrievenotificationdeliveryhistoryreports": "",
             "/devicemanagement/virtualendpoint/settingprofiles/{id}/assign": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/reorder": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/settingprofiles/uploadimage": "least=DelegatedWork,Application",
@@ -14530,6 +14532,109 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "xtmigrationmsgraph"
+      }
+    },
+    "CrossTenantIdentityMapping.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all cross tenant identity mapping job details",
+          "adminDescription": "Allows the app to read your tenant's all cross tenant identity mapping job details on behalf of the signed-in user.",
+          "userDisplayName": "Read all cross tenant identity mapping job details",
+          "userDescription": "Allows the app to read your tenant's all cross tenant identity mapping job details on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all cross tenant identity mapping job details",
+          "adminDescription": "Allows the app to read your tenant's cross tenant identity mapping job details as itself, without a signed-in user. Used by authorized services that integrate with cross tenant identity mapping.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/tenantRelationships/identityMappingJobs/{id}": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/{id}/csvContent": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/getJobsBySourceTenantId(sourceTenantId={id})": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/getReportBySourceTenantIdAndRequestId(sourceTenantId={id},requestId={id})": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/getReportedIdentitiesBySourceTenantIdAndRequestId(sourceTenantId={id},requestId={id})": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/getReportsBySourceTenantId(sourceTenantId={id})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ctim"
+      }
+    },
+    "CrossTenantIdentityMapping.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all cross tenant identity mapping job details",
+          "adminDescription": "Allows the app to read and write your tenant's all cross tenant identity mapping job details on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all cross tenant identity mapping job details",
+          "userDescription": "Allows the app to read and write your tenant's all cross tenant identity mapping job details on behalf of the signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all cross tenant identity mapping job details",
+          "adminDescription": "Allows the app to read and write your tenant's cross tenant identity mapping job details as itself, without a signed-in user. Used by authorized services that integrate with cross tenant identity mapping.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/tenantRelationships/identityMappingJobs/autoMap": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/copy": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/copyAndAutoMap": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/copyAndExport": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/deleteIdentity": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/exportCopiedIdentities": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/mapIdentities": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/removeAllData": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/uploadCsv": "least=DelegatedWork,Application",
+            "/tenantRelationships/identityMappingJobs/uploadCsvAndMap": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/tenantRelationships/identityMappingJobs/{id}": "",
+            "/tenantRelationships/identityMappingJobs/{id}/csvContent": "",
+            "/tenantRelationships/identityMappingJobs/getJobsBySourceTenantId(sourceTenantId={id})": "",
+            "/tenantRelationships/identityMappingJobs/getReportBySourceTenantIdAndRequestId(sourceTenantId={id},requestId={id})": "",
+            "/tenantRelationships/identityMappingJobs/getReportedIdentitiesBySourceTenantIdAndRequestId(sourceTenantId={id},requestId={id})": "",
+            "/tenantRelationships/identityMappingJobs/getReportsBySourceTenantId(sourceTenantId={id})": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ctim"
       }
     },
     "CrossTenantInformation.ReadBasic.All": {
@@ -46469,6 +46574,11 @@
             "/reports/getyammergroupsactivitygroupcounts(period={value})": "least=DelegatedWork,Application",
             "/reports/identityanalytics/serviceprincipals": "least=DelegatedWork,Application",
             "/reports/identityanalytics/serviceprincipals/{id}": "least=DelegatedWork,Application",
+            "/reports/resourcePolicy/applicationComplianceTrend": "",
+            "/reports/resourcePolicy/complianceReports": "",
+            "/reports/resourcePolicy/impactedApplications": "",
+            "/reports/resourcePolicy/nonCompliantPolicies": "",
+            "/reports/resourcePolicy/policyComplianceTrend": "",
             "/reports/serviceActivity/getMetricsForConditionalAccessBlockedSignIn(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessCompliantDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
             "/reports/serviceActivity/getMetricsForConditionalAccessManagedDevicesSignInSuccess(inclusiveIntervalStartDateTime={value},exclusiveIntervalEndDateTime={value})": "least=DelegatedWork,Application",
@@ -46583,6 +46693,107 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "cia_o365"
+      }
+    },
+    "Repository.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read security content repositories",
+          "adminDescription": "Allows the app to read connected security content source-control repositories and their deployment status, and to discover candidate repositories accessible with a supplied provider credential, on behalf of the signed-in user.",
+          "userDisplayName": "Read security content repositories",
+          "userDescription": "Allows the app to read your organization's connected security content repositories, and discover candidate repositories with a supplied credential, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read all security content repositories",
+          "adminDescription": "Allows the app to read connected security content source-control repositories and their deployment status, and to discover candidate repositories accessible with a supplied provider credential, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/contentManagement/repositories": "least=DelegatedWork,Application",
+            "/security/contentManagement/repositories/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/contentManagement/repositories/microsoft.graph.security.contentManagement.discoverAvailableRepositories": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "contentmanagementdevteam"
+      }
+    },
+    "Repository.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write security content repositories",
+          "adminDescription": "Allows the app to read and manage connected security content source-control repositories, including connecting and disconnecting repositories, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write security content repositories",
+          "userDescription": "Allows the app to read and manage your organization's connected security content repositories on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all security content repositories",
+          "adminDescription": "Allows the app to read and manage connected security content source-control repositories, including connecting and disconnecting repositories, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/contentManagement/repositories": "",
+            "/security/contentManagement/repositories/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/contentManagement/repositories/{id}/microsoft.graph.security.contentManagement.disconnect": "least=DelegatedWork,Application",
+            "/security/contentManagement/repositories/{id}/microsoft.graph.security.contentManagement.modify": "least=DelegatedWork,Application",
+            "/security/contentManagement/repositories/microsoft.graph.security.contentManagement.connect": "least=DelegatedWork,Application",
+            "/security/contentManagement/repositories/microsoft.graph.security.contentManagement.discoverAvailableRepositories": ""
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "contentmanagementdevteam"
       }
     },
     "ResourceSpecificPermissionGrant.ReadForChat": {
