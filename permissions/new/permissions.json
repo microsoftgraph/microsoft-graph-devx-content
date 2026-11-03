@@ -5936,6 +5936,389 @@
         "ownerSecurityGroup": "cagraphscopeapproval"
       }
     },
+    "AutomationIntegrations.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all security automation integrations",
+          "adminDescription": "Allows the app to read all security automation integrations on behalf of the signed-in user.",
+          "userDisplayName": "Read all security automation integrations",
+          "userDescription": "Allows the app to read security automation integrations that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all security automation integrations",
+          "adminDescription": "Allows the app to read all security automation integrations without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/integrations": "least=DelegatedWork,Application",
+            "/security/automation/integrations/{id}": "least=DelegatedWork,Application",
+            "/security/automation/integrations/$count": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationIntegrations.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all security automation integrations",
+          "adminDescription": "Allows the app to read, create, update, and delete all security automation integrations on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all security automation integrations",
+          "userDescription": "Allows the app to read, create, update, and delete security automation integrations that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all security automation integrations",
+          "adminDescription": "Allows the app to read, create, update, and delete all security automation integrations without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/integrations": "",
+            "/security/automation/integrations/{id}": "",
+            "/security/automation/integrations/$count": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/automation/integrations": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/automation/integrations/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationPlaybooks.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all security playbooks",
+          "adminDescription": "Allows the app to list security playbooks and read generated playbook content, including scripts, tests, and documentation, on behalf of the signed-in user.",
+          "userDisplayName": "Read all security playbooks",
+          "userDescription": "Allows the app to list security playbooks and read generated playbook content that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all security playbooks",
+          "adminDescription": "Allows the app to list security playbooks and read generated playbook content, including scripts, tests, and documentation, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/playbooks": "least=DelegatedWork,Application",
+            "/security/automation/playbooks/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationPlaybooks.ReadExecutions.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all security playbook executions",
+          "adminDescription": "Allows the app to read all security playbook executions on behalf of the signed-in user.",
+          "userDisplayName": "Read all security playbook executions",
+          "userDescription": "Allows the app to read security playbook executions that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all security playbook executions",
+          "adminDescription": "Allows the app to read all security playbook executions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/playbooks/{playbookId}/executions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationPlaybooks.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write all security playbooks",
+          "adminDescription": "Allows the app to list security playbooks and read, create, update, and delete generated playbooks on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all security playbooks",
+          "userDescription": "Allows the app to list security playbooks and read, create, update, and delete generated playbooks that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all security playbooks",
+          "adminDescription": "Allows the app to list security playbooks and read, create, update, and delete generated playbooks without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/playbooks": "",
+            "/security/automation/playbooks/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/automation/playbooks": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/automation/playbooks/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationPlaybooks.ReadWriteExecutions.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Create and read all security playbook executions",
+          "adminDescription": "Allows the app to create and read all security playbook executions on behalf of the signed-in user.",
+          "userDisplayName": "Create and read all security playbook executions",
+          "userDescription": "Allows the app to create and read security playbook executions that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Create and read all security playbook executions",
+          "adminDescription": "Allows the app to create and read all security playbook executions without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/playbooks/{playbookId}/executions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/automation/playbooks/{playbookId}/executions": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationRules.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read security automation rules",
+          "adminDescription": "Allows the app to read all security automation rules, on behalf of the signed-in user.",
+          "userDisplayName": "Read all security automation rules",
+          "userDescription": "Allows the app to read all security automation rules that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        },
+        "Application": {
+          "adminDisplayName": "Read all security automation rules",
+          "adminDescription": "Allows the app to read all security automation rules, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 2
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/rules": "least=DelegatedWork,Application",
+            "/security/automation/rules/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
+    "AutomationRules.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write security automation rules",
+          "adminDescription": "Allows the app to read and write all security automation rules, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write all security automation rules",
+          "userDescription": "Allows the app to read and write all security automation rules that you have access to.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all security automation rules",
+          "adminDescription": "Allows the app to read and write all security automation rules, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/automation/rules": "",
+            "/security/automation/rules/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/automation/rules": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/security/automation/rules/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "asiinveng"
+      }
+    },
     "BackupRestore-Configuration.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -13967,7 +14350,7 @@
         },
         "Application": {
           "adminDisplayName": "Read Copilot cost data for all users and groups",
-          "adminDescription": "Reserved for application access to identity-attributed Copilot cost management data. No API paths currently accept this application permission; it does not grant app-only access to user balances, user or group usage reports, or raw per-user service and session details. Those reads currently require delegated permissions.",
+          "adminDescription": "Allows the app to read identity-attributed Copilot cost management data for the organization without a signed-in user, including any named user's Copilot credit balance, per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -13975,43 +14358,46 @@
       "pathSets": [
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork"
+            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/copilot/costManagement/userBalances": "least=DelegatedWork"
+            "/copilot/costManagement/userBalances": "least=DelegatedWork,Application"
           }
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
           ],
           "paths": {
-            "/copilot/costManagement/usageReports/groupUsageRecords": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/userUsageRecords": "least=DelegatedWork",
-            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork"
+            "/copilot/costManagement/usageReports/groupUsageRecords": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/userUsageRecords": "least=DelegatedWork,Application",
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14032,7 +14418,7 @@
         },
         "Application": {
           "adminDisplayName": "Read all Copilot cost management data",
-          "adminDescription": "Allows the app to read the organization's Copilot tenant credit balance and aggregate usage reports by service and funding class without a signed-in user. This application permission does not grant access to user or group usage reports, raw per-user service or session details, individual user balances, or spending policies and their assignments.",
+          "adminDescription": "Allows the app to read the organization's Copilot tenant credit balance and usage reports by service and funding class without a signed-in user, including per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session, with native session identifiers when available and first and last activity timestamps. This application permission does not grant access to individual user balances or spending policies and their assignments.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14066,7 +14452,8 @@
         },
         {
           "schemeKeys": [
-            "DelegatedWork"
+            "DelegatedWork",
+            "Application"
           ],
           "methods": [
             "GET"
@@ -21276,8 +21663,14 @@
             "/admin/cloudLicensing/allotments/{id}/assignments": "",
             "/admin/cloudLicensing/allotments/{id}/assignments/{id}": "",
             "/admin/cloudLicensing/allotments/{id}/owner": "",
+            "/admin/cloudLicensing/allotments/{id}/source": "",
             "/admin/cloudLicensing/allotments/{id}/waitingMembers": "",
             "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "",
+            "/admin/cloudLicensing/allotmentSources": "",
+            "/admin/cloudLicensing/allotmentSources/{id}": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/allotments": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/defaultAllotment": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/owner": "",
             "/admin/cloudLicensing/assignmentErrors": "",
             "/admin/cloudLicensing/assignmentErrors/{id}": "",
             "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "",
@@ -21639,8 +22032,14 @@
             "/admin/cloudLicensing/allotments": "",
             "/admin/cloudLicensing/allotments/{id}": "",
             "/admin/cloudLicensing/allotments/{id}/owner": "",
+            "/admin/cloudLicensing/allotments/{id}/source": "",
             "/admin/cloudLicensing/allotments/{id}/waitingMembers": "",
             "/admin/cloudLicensing/allotments/{id}/waitingMembers/{id}": "",
+            "/admin/cloudLicensing/allotmentSources": "",
+            "/admin/cloudLicensing/allotmentSources/{id}": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/allotments": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/defaultAllotment": "",
+            "/admin/cloudLicensing/allotmentSources/{id}/owner": "",
             "/admin/cloudLicensing/assignmentErrors": "",
             "/admin/cloudLicensing/assignmentErrors/{id}": "",
             "/admin/cloudLicensing/assignmentErrors/{id}/assignedTo": "",
@@ -21766,6 +22165,31 @@
             "/users/{id}/transitivememberof": "",
             "/users/{id}/usagerights": "",
             "/users/delta": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotmentSources/{id}/split": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/cloudLicensing/allotments/{id}": ""
           }
         },
         {
