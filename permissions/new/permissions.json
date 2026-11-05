@@ -14552,9 +14552,12 @@
           ],
           "paths": {
             "/copilot/admin/catalog/packages": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/activate": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/approve": "least=DelegatedWork,Application",
             "/copilot/admin/catalog/packages/{packageId}/block": "least=DelegatedWork,Application",
             "/copilot/admin/catalog/packages/{packageId}/reassign": "least=DelegatedWork,Application",
             "/copilot/admin/catalog/packages/{packageId}/reject": "least=DelegatedWork,Application",
+            "/copilot/admin/catalog/packages/{packageId}/restore": "least=DelegatedWork,Application",
             "/copilot/admin/catalog/packages/{packageId}/unblock": "least=DelegatedWork,Application",
             "/copilot/admin/catalog/packages/{packageId}/update": "least=DelegatedWork,Application"
           }
@@ -20185,6 +20188,11 @@
             "GET"
           ],
           "paths": {
+            "/devicemanagement/manageddevices/{id}/shieldingstate": "least=DelegatedWork",
+            "/devicemanagement/manageddevices/{id}/shieldingstate/controls": "least=DelegatedWork",
+            "/devicemanagement/manageddevices/{id}/shieldingstate/controls/{id}": "least=DelegatedWork",
+            "/devicemanagement/manageddevices/{id}/shieldingstate/events": "least=DelegatedWork",
+            "/devicemanagement/manageddevices/{id}/shieldingstate/events/{id}": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/devicecompliancepolicysettingstatesummaries": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/manageddevicecompliances": "least=DelegatedWork",
             "/tenantrelationships/managedtenants/manageddevicecompliances/{id}": "least=DelegatedWork",
