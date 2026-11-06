@@ -14256,7 +14256,7 @@
         },
         "Application": {
           "adminDisplayName": "Read and write Copilot spending policies",
-          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a spending policy requires a signed-in administrator.",
+          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a policy requires a signed-in administrator.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14342,7 +14342,7 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read Copilot cost data for all users and groups",
-          "adminDescription": "Allows the app to read identity-attributed Copilot cost management data for the organization on behalf of the signed-in user, including any named user's Copilot credit balance, per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
+          "adminDescription": "Allows the app to read organizational Copilot cost data on behalf of the signed-in user: any named user's credit balance, per-user consumption rankings, usage by security group, and raw per-user consumption by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
           "userDisplayName": "Read Copilot cost data for all users and groups",
           "userDescription": "Allows the app to read Copilot cost data attributed to individual users and security groups in your organization, on your behalf. This includes any named user's credit balance, consumption rankings, usage totalled by security group, and raw usage grouped by service or activity session, including session identifiers when available and first and last activity timestamps.",
           "requiresAdminConsent": true,
@@ -14350,7 +14350,7 @@
         },
         "Application": {
           "adminDisplayName": "Read Copilot cost data for all users and groups",
-          "adminDescription": "Allows the app to read identity-attributed Copilot cost management data for the organization without a signed-in user, including any named user's Copilot credit balance, per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
+          "adminDescription": "Allows the app to read organizational Copilot cost data without a signed-in user: any named user's credit balance, per-user consumption rankings, usage by security group, and raw per-user consumption by service or activity session. This exposes users' consumption, group identifiers, native session identifiers when available, and first and last activity timestamps.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14410,15 +14410,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read all Copilot cost management data",
-          "adminDescription": "Allows the app to read all organizational Copilot cost management data on behalf of the signed-in user, including any user's credit balance, per-user rankings and raw usage grouped by service or activity session, native session identifiers when available, first and last activity timestamps, usage by security group, spending policies, their configuration and assignments, and the identities of policy creators, modifiers, and alert recipients. This is the broadest Copilot cost management read permission.",
+          "adminDescription": "Allows the app to read all Copilot cost data on behalf of the signed-in user: any user's credit balance, rankings, raw usage by service or activity session, native session identifiers when available, first and last activity timestamps, security-group usage, spending policies, configuration, assignments, and creator, modifier and alert-recipient identities. This is the broadest read permission.",
           "userDisplayName": "Read all Copilot cost management data",
-          "userDescription": "Allows the app to read all of your organization's Copilot cost management data on your behalf. This includes any named user's credit balance, consumption rankings, raw usage grouped by service or activity session, session identifiers when available, first and last activity timestamps, and usage totalled by security group, along with Copilot spending policies, who they apply to, and who receives their alerts.",
+          "userDescription": "Allows the app to read all your organization's Copilot cost data on your behalf: any user's credit balance, consumption rankings, raw usage by service or activity session, session identifiers when available, first and last activity timestamps, security-group usage, spending policies, who they apply to, and who receives their alerts.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read all Copilot cost management data",
-          "adminDescription": "Allows the app to read the organization's Copilot tenant credit balance and usage reports by service and funding class without a signed-in user, including per-user consumption rankings, usage aggregated by security group, and raw per-user consumption grouped by service or activity session, with native session identifiers when available and first and last activity timestamps. This application permission does not grant access to individual user balances or spending policies and their assignments.",
+          "adminDescription": "Allows the app to read the organization's Copilot credit balance and usage by service and funding class without a signed-in user, plus per-user rankings, security-group usage and raw per-user usage by service or activity session, with native session identifiers when available and first and last activity timestamps. Excludes individual user balances, spending policies and assignments.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -47226,6 +47226,451 @@
         "ownerSecurityGroup": "contentmanagementdevteam"
       }
     },
+    "ResourcePolicyAssignment.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read resource policy assignments",
+          "adminDescription": "Allows the app to read resource policy assignments, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource policy assignments",
+          "userDescription": "Allows the app to read resource policy assignments, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all resource policy assignments",
+          "adminDescription": "Allows the app to read all resource policy assignments, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/assignments": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/assignments(uniqueName={value})": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/assignments/{uniqueName}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments(uniqueName={value})": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments/{uniqueName}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyAssignment.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write resource policy assignments",
+          "adminDescription": "Allows the app to read and write resource policy assignments, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write resource policy assignments",
+          "userDescription": "Allows the app to read and write resource policy assignments, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all resource policy assignments",
+          "adminDescription": "Allows the app to read and write all resource policy assignments, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/assignments": "",
+            "/admin/resourcePolicy/assignments(uniqueName={value})": "",
+            "/admin/resourcePolicy/assignments/{uniqueName}": "",
+            "/admin/resourcePolicy/deletedItems/assignments": "",
+            "/admin/resourcePolicy/deletedItems/assignments(uniqueName={value})": "",
+            "/admin/resourcePolicy/deletedItems/assignments/{uniqueName}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/assignments(uniqueName={value})": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/assignments/{uniqueName}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments(uniqueName={value})": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments/{uniqueName}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/assignments": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments(uniqueName={value})/restore": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/assignments/{uniqueName}/restore": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyConfiguration.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read tenant resource policy configuration",
+          "adminDescription": "Allows the app to read the tenant-wide resource policy configuration, including the configured privileged-read app ID, on behalf of the signed-in user.",
+          "userDisplayName": "Read tenant resource policy configuration",
+          "userDescription": "Allows the app to read the tenant-wide resource policy configuration, including the configured privileged-read app ID, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read tenant resource policy configuration",
+          "adminDescription": "Allows the app to read the tenant-wide resource policy configuration, including the configured privileged-read app ID, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/configuration": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/configuration/getFederatedIdentityCredentialSubject(appId={value})": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyConfiguration.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write tenant resource policy configuration",
+          "adminDescription": "Allows the app to read and write the tenant-wide resource policy configuration, including setting the privileged-read app ID used by all fetch() calls during policy evaluation, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write tenant resource policy configuration",
+          "userDescription": "Allows the app to read and write the tenant-wide resource policy configuration, including setting the privileged-read app ID used by all fetch() calls during policy evaluation, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write tenant resource policy configuration",
+          "adminDescription": "Allows the app to read and write the tenant-wide resource policy configuration, including setting the privileged-read app ID used by all fetch() calls during policy evaluation, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/configuration": "",
+            "/admin/resourcePolicy/configuration/getFederatedIdentityCredentialSubject(appId={value})": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/configuration": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyDefinition.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read resource policy definitions",
+          "adminDescription": "Allows the app to read resource policy definitions, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource policy definitions",
+          "userDescription": "Allows the app to read resource policy definitions, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all resource policy definitions",
+          "adminDescription": "Allows the app to read all resource policy definitions, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/builtInDefinitions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}/previousVersions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}/previousVersions/{version}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/definitions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/definitions/{uniqueName}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/definitions/{uniqueName}/previousVersions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/definitions/{uniqueName}/previousVersions/{version}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}/previousVersions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}/previousVersions/{version}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyDefinition.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write resource policy definitions",
+          "adminDescription": "Allows the app to read and write resource policy definitions, on behalf of the signed-in user.",
+          "userDisplayName": "Read and write resource policy definitions",
+          "userDescription": "Allows the app to read and write resource policy definitions, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read and write all resource policy definitions",
+          "adminDescription": "Allows the app to read and write all resource policy definitions, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/builtInDefinitions": "",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}": "",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}/previousVersions": "",
+            "/admin/resourcePolicy/builtInDefinitions/{uniqueName}/previousVersions/{version}": "",
+            "/admin/resourcePolicy/definitions": "",
+            "/admin/resourcePolicy/definitions/{uniqueName}": "",
+            "/admin/resourcePolicy/definitions/{uniqueName}/previousVersions": "",
+            "/admin/resourcePolicy/definitions/{uniqueName}/previousVersions/{version}": "",
+            "/admin/resourcePolicy/deletedItems/definitions": "",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}": "",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}/previousVersions": "",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}/previousVersions/{version}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/definitions/{uniqueName}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/definitions/{uniqueName}/previousVersions/{version}": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/definitions": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/deletedItems/definitions/{uniqueName}/restore": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyEvaluation.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Evaluate resource policies",
+          "adminDescription": "Allows the app to evaluate resource policies, on behalf of the signed-in user.",
+          "userDisplayName": "Evaluate resource policies",
+          "userDescription": "Allows the app to evaluate resource policies, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Evaluate resource policies",
+          "adminDescription": "Allows the app to evaluate resource policies, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/admin/resourcePolicy/evaluateAssignedPolicies": "least=DelegatedWork,Application",
+            "/admin/resourcePolicy/evaluatePolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyEvaluationEvent.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read all resource policy evaluation events",
+          "adminDescription": "Allows the app to read and query Entra Resource Policy evaluation audit events for your organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource policy evaluation events",
+          "userDescription": "Allows the app to read and query Entra Resource Policy evaluation audit events for your organization, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read all resource policy evaluation events",
+          "adminDescription": "Allows the app to read and query Entra Resource Policy evaluation audit events for your organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/auditlogs/resourcepolicy": "least=DelegatedWork,Application",
+            "/auditlogs/resourcepolicy/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
+    "ResourcePolicyReport.Read.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read resource policy reports",
+          "adminDescription": "Allows the app to read resource policy evaluation impact reports for the organization, on behalf of the signed-in user.",
+          "userDisplayName": "Read resource policy reports",
+          "userDescription": "Allows the app to read resource policy evaluation impact reports for your organization, on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read resource policy reports",
+          "adminDescription": "Allows the app to read resource policy evaluation impact reports for the organization, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/reports/resourcePolicy/applicationComplianceTrend": "least=DelegatedWork,Application",
+            "/reports/resourcePolicy/complianceReports": "least=DelegatedWork,Application",
+            "/reports/resourcePolicy/impactedApplications": "least=DelegatedWork,Application",
+            "/reports/resourcePolicy/nonCompliantPolicies": "least=DelegatedWork,Application",
+            "/reports/resourcePolicy/policyComplianceTrend": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "agsdev"
+      }
+    },
     "ResourceSpecificPermissionGrant.ReadForChat": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -60385,16 +60830,16 @@
       "authorizationType": "oAuth2",
       "schemes": {
         "DelegatedWork": {
-          "adminDisplayName": "Run hunting queries and read saved hunting queries",
-          "adminDescription": "Allows the app to run hunting queries and read saved hunting queries, on behalf of the signed-in user.",
-          "userDisplayName": "Run hunting queries and read saved hunting queries",
-          "userDescription": "Allows the app to run hunting queries that you can execute and read saved hunting queries that you can access.",
+          "adminDisplayName": "Run hunting queries and read schemas, saved queries, and functions",
+          "adminDescription": "Allows the app to run hunting queries and read hunting schema tables, saved hunting queries, and built-in and saved hunting functions, on behalf of the signed-in user.",
+          "userDisplayName": "Run hunting queries and read schemas, saved queries, and functions",
+          "userDescription": "Allows the app to run hunting queries and read hunting schema tables, saved hunting queries, and built-in and saved hunting functions that you can access.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
-          "adminDisplayName": "Run hunting queries and read shared saved hunting queries",
-          "adminDescription": "Allows the app to run hunting queries and read shared saved hunting queries, without a signed-in user.",
+          "adminDisplayName": "Run hunting queries and read schemas, shared queries, and functions",
+          "adminDescription": "Allows the app to run hunting queries and read hunting schema tables, shared saved hunting queries, and built-in and shared saved hunting functions, without a signed-in user.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -60425,8 +60870,8 @@
             "/security/gethuntingschematables()": "least=DelegatedWork,Application",
             "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
             "/security/getrunhuntingquery": "least=DelegatedWork,Application",
-            "/security/huntingFunctions": "least=DelegatedWork,Application",
-            "/security/huntingFunctions/{id}": "least=DelegatedWork,Application",
+            "/security/huntingsavedfunctions": "least=DelegatedWork,Application",
+            "/security/huntingsavedfunctions/{id}": "least=DelegatedWork,Application",
             "/security/threathunting/queries": "least=DelegatedWork,Application",
             "/security/threathunting/queries/{id}": "least=DelegatedWork,Application"
           }
