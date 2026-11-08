@@ -1412,6 +1412,19 @@
           "paths": {
             "/servicePrincipals/microsoft.graph.agentIdentity/{id}/microsoft.graph.identityGovernance.extend": "least=Application,DelegatedWork"
           }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/servicePrincipals/{id}/microsoft.graph.agentIdentity/microsoft.graph.identityGovernance.attest": "least=Application,DelegatedWork",
+            "/servicePrincipals/{id}/microsoft.graph.identityGovernance.attest": "least=Application,DelegatedWork"
+          }
         }
       ],
       "ownerInfo": {
@@ -12892,7 +12905,8 @@
             "PATCH"
           ],
           "paths": {
-            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "least=DelegatedWork,Application"
+            "/devicemanagement/virtualendpoint/cloudpcpools/{id}": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/assignments/{id}/userSettingsPersistenceDetail": "least=DelegatedWork,Application"
           }
         },
         {
@@ -34838,6 +34852,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/versions": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
@@ -34884,6 +34899,7 @@
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/versions": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
           }
@@ -34897,6 +34913,7 @@
             "POST"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/microsoft.graph.identityGovernance.restore": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application"
           }
@@ -34911,7 +34928,6 @@
           ],
           "paths": {
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "least=DelegatedWork,Application"
           }
         },
@@ -34961,15 +34977,16 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "least=DelegatedWork,Application",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/versions": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "",
             "/users/{id}/lifecycle": "least=DelegatedWork,Application"
           }
         }
@@ -35006,15 +35023,16 @@
             "GET"
           ],
           "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements": "",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/impact(startDateTime={startDateTime},endDateTime={endDateTime})": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/report/subjects": "",
             "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/versions": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": "",
             "/users/{id}/lifecycle": ""
           }
         },
@@ -35024,18 +35042,49 @@
             "Application"
           ],
           "methods": [
-            "DELETE",
-            "PATCH",
             "POST"
           ],
           "paths": {
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/attestationRequirements/{id}": "least=DelegatedWork,Application",
-            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}/rules": "least=DelegatedWork,Application",
-            "/users/{id}/microsoft.graph.identityGovernance.attest": "least=DelegatedWork,Application"
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/microsoft.graph.identityGovernance.restore": "",
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}/restore": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicyPriorityConfigurations/{subjectType}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identitygovernance/lifecycleworkflows/deletedItems/lifecyclePolicies/{id}": "",
+            "/identitygovernance/lifecycleworkflows/lifecyclePolicies/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/users/{id}/microsoft.graph.identityGovernance.attest": "least=DelegatedWork"
           }
         }
       ],
@@ -41728,6 +41777,7 @@
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesDeskBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantPlacesRoomBooking": "least=DelegatedWork,Application",
             "/policies/crosstenantaccesspolicy/partners/{id}/m365Capabilities/crossTenantUserDataMigration": "least=DelegatedWork,Application",
+            "/policies/crosstenantaccesspolicy/partners/m365CapabilityPartners": "least=DelegatedWork,Application",
             "/policies/defaultappmanagementpolicy": "least=DelegatedWork,Application",
             "/policies/externalidentitiespolicy": "least=DelegatedWork,Application",
             "/policies/federatedtokenvalidationpolicy": "least=DelegatedWork,Application",
@@ -43226,6 +43276,18 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/crosstenantaccesspolicy/partners/m365CapabilityPartners": ""
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
