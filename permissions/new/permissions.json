@@ -10750,7 +10750,9 @@
           ],
           "paths": {
             "/teams/{id}/channels/{id}/joinedUsers": "least=DelegatedWork",
-            "/teams/{id}/channels/{id}/joinedUsers/{id}": "least=DelegatedWork"
+            "/teams/{id}/channels/{id}/joinedUsers/{id}": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/joinRequests": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/joinRequests/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -10892,6 +10894,30 @@
           "paths": {
             "/teams/{id}/channels/{id}/joinedUsers": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/joinedUsers/add": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/joinRequests": "",
+            "/teams/{id}/channels/{id}/joinRequests/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/teams/{id}/channels/{id}/joinRequests/approve": "least=DelegatedWork",
+            "/teams/{id}/channels/{id}/joinRequests/reject": "least=DelegatedWork"
           }
         },
         {
@@ -29879,6 +29905,7 @@
             "/storage/fileStorage/containers/{id}/permissions(email={email})": "",
             "/storage/fileStorage/containers/{id}/permissions(userPrincipalName={userPrincipalName})": "",
             "/storage/fileStorage/containers/{id}/permissions/{id}": "",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy": "",
             "/storage/fileStorage/containers/getByUser(userObjectId={userObjectId},role={role})": "least=DelegatedWork",
             "/storage/fileStorage/containers/getByUser(userObjectId={userObjectId})": "least=DelegatedWork",
             "/storage/fileStorage/containers/getByUser(userPrincipalName={userPrincipalName},role={role})": "least=DelegatedWork",
@@ -29899,6 +29926,9 @@
             "/storage/fileStorage/containers/{id}/lock": "",
             "/storage/fileStorage/containers/{id}/permanentDelete": "",
             "/storage/fileStorage/containers/{id}/permissions": "",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups": "",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/removeAll": "",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/replaceAll": "",
             "/storage/fileStorage/containers/{id}/transferPrincipalOwnership": "least=DelegatedWork",
             "/storage/fileStorage/containers/{id}/unarchive": "",
             "/storage/fileStorage/containers/{id}/unlock": "",
@@ -29925,9 +29955,21 @@
             "DelegatedWork"
           ],
           "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
             "DELETE"
           ],
           "paths": {
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/{id}": "",
             "/storage/fileStorage/deletedContainers/{id}": ""
           }
         }
@@ -30050,7 +30092,8 @@
             "PATCH"
           ],
           "paths": {
-            "/storage/fileStorage/containers/{id}/recycleBin": "least=DelegatedWork,Application"
+            "/storage/fileStorage/containers/{id}/recycleBin": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy": "least=DelegatedWork,Application"
           }
         },
         {
@@ -30079,6 +30122,9 @@
             "/storage/fileStorage/containers/{id}/lock": "least=DelegatedWork,Application",
             "/storage/fileStorage/containers/{id}/migrationJobs": "least=DelegatedWork,Application",
             "/storage/fileStorage/containers/{id}/provisionMigrationContainers": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/removeAll": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/replaceAll": "least=DelegatedWork,Application",
             "/storage/fileStorage/containers/{id}/unarchive": "least=DelegatedWork,Application",
             "/storage/fileStorage/containers/{id}/unlock": "least=DelegatedWork,Application"
           }
@@ -30092,7 +30138,8 @@
             "DELETE"
           ],
           "paths": {
-            "/storage/fileStorage/containers/{id}/migrationJobs/{id}": "least=DelegatedWork,Application"
+            "/storage/fileStorage/containers/{id}/migrationJobs/{id}": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy/groups/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -30104,7 +30151,8 @@
             "GET"
           ],
           "paths": {
-            "/storage/fileStorage/containers/{id}/migrationJobs/{id}/progressEvents": "least=DelegatedWork,Application"
+            "/storage/fileStorage/containers/{id}/migrationJobs/{id}/progressEvents": "least=DelegatedWork,Application",
+            "/storage/fileStorage/containers/{id}/restrictedAccessControlPolicy": "least=DelegatedWork,Application"
           }
         },
         {
@@ -55293,8 +55341,6 @@
             "POST"
           ],
           "paths": {
-            "/teams/{id}/joinRequests/{id}/approve": "",
-            "/teams/{id}/joinRequests/{id}/reject": "",
             "/teams/{id}/joinRequests/approve": "",
             "/teams/{id}/joinRequests/reject": ""
           }
@@ -55357,8 +55403,6 @@
             "POST"
           ],
           "paths": {
-            "/teams/{id}/joinRequests/{id}/approve": "least=DelegatedWork",
-            "/teams/{id}/joinRequests/{id}/reject": "least=DelegatedWork",
             "/teams/{id}/joinRequests/approve": "least=DelegatedWork",
             "/teams/{id}/joinRequests/reject": "least=DelegatedWork"
           }
@@ -60928,6 +60972,8 @@
             "GET"
           ],
           "paths": {
+            "/security/gethuntingschema": "least=DelegatedWork,Application",
+            "/security/gethuntingschema()": "least=DelegatedWork,Application",
             "/security/gethuntingschematables": "least=DelegatedWork,Application",
             "/security/gethuntingschematables()": "least=DelegatedWork,Application",
             "/security/gethuntingschematables(workspaceid={workspaceid})": "least=DelegatedWork,Application",
