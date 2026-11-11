@@ -60989,6 +60989,74 @@
         "ownerSecurityGroup": "ine-dataplatform"
       }
     },
+    "ThreatHunting.ReadWrite.All": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Run hunting queries and manage hunting functions",
+          "adminDescription": "Allows the app to run hunting queries and to read and write hunting functions, on behalf of the signed-in user.",
+          "userDisplayName": "Run hunting queries and manage hunting functions",
+          "userDescription": "Allows the app to run hunting queries and to read and write hunting functions on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Run hunting queries and manage shared hunting functions",
+          "adminDescription": "Allows the app to run hunting queries and to read and write shared hunting functions, without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/security/runhuntingquery": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/security/gethuntingschematables": "",
+            "/security/gethuntingschematables()": "",
+            "/security/gethuntingschematables(workspaceid={workspaceid})": "",
+            "/security/getrunhuntingquery": "",
+            "/security/huntingsavedfunctions": "",
+            "/security/huntingsavedfunctions/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "PATCH",
+            "POST"
+          ],
+          "paths": {
+            "/security/huntingsavedfunctions": "least=DelegatedWork,Application",
+            "/security/huntingsavedfunctions/{id}": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "ine-dataplatform"
+      }
+    },
     "ThreatIndicators.Read.All": {
       "authorizationType": "oAuth2",
       "schemes": {
