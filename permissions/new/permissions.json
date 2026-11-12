@@ -11678,6 +11678,11 @@
             "/chats/{id}/messages/{id}": "least=DelegatedWork",
             "/chats/{id}/messages/{id}/hostedcontents": "least=DelegatedWork",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "least=DelegatedWork",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
@@ -11738,6 +11743,11 @@
             "/chats/{id}/messages/{id}": "",
             "/chats/{id}/messages/{id}/hostedcontents": "",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies": "",
+            "/chats/{id}/messages/{id}/replies/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/chats/{id}/pinnedmessages": "",
@@ -11907,6 +11917,7 @@
             "/chats": "",
             "/chats/{id}/members": "",
             "/chats/{id}/messages": "",
+            "/chats/{id}/messages/{id}/replies": "",
             "/chats/{id}/pinnedmessages": ""
           }
         },
@@ -11920,7 +11931,8 @@
           ],
           "paths": {
             "/chats/{id}": "least=DelegatedWork",
-            "/chats/{id}/messages/{id}": "least=DelegatedWork"
+            "/chats/{id}/messages/{id}": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}": "least=DelegatedWork"
           }
         },
         {
@@ -11934,7 +11946,10 @@
             "/chats/{id}/hideforuser": "least=DelegatedWork",
             "/chats/{id}/markchatreadforuser": "least=DelegatedWork",
             "/chats/{id}/markchatunreadforuser": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}/softdelete": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies/{id}/undosoftdelete": "least=DelegatedWork",
             "/chats/{id}/unhideforuser": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/replies": "",
             "/users/{id}/chats/{id}/messages/{id}/setreaction": "",
             "/users/{id}/chats/{id}/messages/{id}/softdelete": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/undosoftdelete": "least=DelegatedWork",
@@ -11952,6 +11967,9 @@
             "/chats/{id}/members/{id}": "",
             "/chats/{id}/messages/{id}/hostedcontents": "",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/me/chats": "",
@@ -12014,6 +12032,11 @@
             "/chats/{id}/messages": "",
             "/chats/{id}/messages/{id}/hostedcontents": "",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies": "",
+            "/chats/{id}/messages/{id}/replies/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "",
             "/chats/{id}/operations": "",
             "/chats/{id}/operations/{id}": "",
             "/me/chats": "",
@@ -12118,7 +12141,8 @@
             "PATCH"
           ],
           "paths": {
-            "/chats/{id}/messages/{id}": "least=Application"
+            "/chats/{id}/messages/{id}": "least=Application",
+            "/chats/{id}/messages/{id}/replies/{id}": "least=Application"
           }
         }
       ],
@@ -12373,6 +12397,11 @@
             "GET"
           ],
           "paths": {
+            "/chats/{id}/messages/{id}/replies": "",
+            "/chats/{id}/messages/{id}/replies/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "",
             "/chats/{id}/pinnedmessages": "least=Application"
           }
         }
@@ -12405,6 +12434,11 @@
             "/chats/{id}/messages/{id}/hostedcontents": "least=Application",
             "/chats/{id}/messages/{id}/hostedcontents/{id}": "least=Application",
             "/chats/{id}/messages/{id}/hostedcontents/{id}/$value": "least=Application",
+            "/chats/{id}/messages/{id}/replies": "least=Application",
+            "/chats/{id}/messages/{id}/replies/{id}": "least=Application",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents": "least=Application",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}": "least=Application",
+            "/chats/{id}/messages/{id}/replies/{id}/hostedcontents/{id}/$value": "least=Application",
             "/me/chats/{id}/messages": "least=Application",
             "/me/chats/{id}/messages/{id}": "least=Application",
             "/users/{id}/chats/{id}/messages": "least=Application",
@@ -12442,9 +12476,11 @@
             "/chats/{id}}/messages/forwardToChat": "least=DelegatedWork",
             "/chats/{id}}/messages/replyWithQuote": "least=DelegatedWork",
             "/chats/{id}/messages": "least=DelegatedWork",
+            "/chats/{id}/messages/{id}/replies": "least=DelegatedWork",
             "/chats/{id}/pinnedmessages": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/{id}/forwardToChat": "least=DelegatedWork",
             "/teams/{id}/channels/{id}/messages/forwardToChat": "least=DelegatedWork",
+            "/users/{id}/chats/{id}/messages/{id}/replies": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/setreaction": "least=DelegatedWork",
             "/users/{id}/chats/{id}/messages/{id}/unsetreaction": "least=DelegatedWork"
           }
@@ -15329,8 +15365,7 @@
           ],
           "paths": {
             "/identity/customAuthenticationExtensions": "least=DelegatedWork,Application",
-            "/identity/customAuthenticationExtensions/{id}": "least=DelegatedWork,Application",
-            "/identity/customAuthenticationExtensions/microsoft.graph.onAccountTakeoverProtectionStartCustomExtension": "least=DelegatedWork,Application"
+            "/identity/customAuthenticationExtensions/{id}": "least=DelegatedWork,Application"
           }
         },
         {
@@ -15381,18 +15416,6 @@
           ],
           "paths": {
             "/identity/customAuthenticationExtensions": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/identity/customAuthenticationExtensions/microsoft.graph.onAccountTakeoverProtectionStartCustomExtension": ""
           }
         },
         {
@@ -25894,7 +25917,6 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPasswordUpdateListener/handler/microsoft.graph.onPasswordUpdateCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
-            "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/conditions/applications/includeApplications": "least=DelegatedWork,Application",
@@ -25979,7 +26001,6 @@
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPageRenderStartListener/handler/microsoft.graph.onPageRenderStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onPasswordUpdateListener/handler/microsoft.graph.onPasswordUpdateCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventListeners/{id}/microsoft.graph.onVerifiedIdClaimValidationListener/handler/microsoft.graph.onVerifiedIdClaimValidationCustomExtensionHandler/customExtension": "",
-            "/identity/authenticationEventListeners/microsoft.graph.onAccountTakeoverProtectionStartListener": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
@@ -59256,6 +59277,7 @@
           "paths": {
             "/chats/{id}/completemigration": "least=Application",
             "/chats/{id}/messages": "",
+            "/chats/{id}/messages/{id}/replies": "least=Application",
             "/chats/{id}/startmigration": "least=Application",
             "/chats/{id}/unhideChatForAllUsers": "least=Application",
             "/teams": "",
@@ -59265,6 +59287,7 @@
             "/teams/{id}/channels/{id}/messages/{id}/replies": "",
             "/teams/{id}/channels/{id}/startmigration": "least=Application",
             "/teams/{id}/completemigration": "least=Application",
+            "/users/{id}/chats/{id}/messages/{id}/replies": "least=Application",
             "/users/{id}/teamwork/sections": "",
             "/users/{id}/teamwork/sections/{id}/items": "",
             "/users/{id}/teamwork/sections/{id}/items/{id}/move": "",
@@ -59281,6 +59304,7 @@
           ],
           "paths": {
             "/chats/{id}/messages/{id}": "",
+            "/chats/{id}/messages/{id}/replies/{id}": "",
             "/teams/{id}/channels/{id}/messages/{id}": "",
             "/teams/{id}/channels/{id}/messages/{id}/replies/{id}": "",
             "/users/{id}/teamwork/sections/{id}": ""
