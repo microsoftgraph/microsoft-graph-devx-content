@@ -17,7 +17,7 @@ Permission contributions are limited to contributors with write access. Other co
 
 ## Returning Developer Fast Path
 
-Pull the latest `master`, install dependencies if `package.json` or `package-lock.json` changed, make the content update, and run `npm run test`. For sample-query changes, also use the branch-specific Graph Explorer URL described in [Testing of Sample Queries](README.md#testing-of-sample-queries).
+Pull the latest `master`, install dependencies if `package.json` or `package-lock.json` changed, make the content update, and run `npm run test`. For sample-query changes, also use the Graph Explorer **Custom samples** workflow described in [Testing of Sample Queries](README.md#testing-of-sample-queries).
 
 ## Common Pitfalls
 
@@ -52,4 +52,4 @@ In CI mode, set `CI=true` and run `npm run test`. For PowerShell, the validated 
 
 ## Running
 
-There is no local application service to start. Exercise a content change by running the terminating validation command in [Building](#building). For sample-query changes, use the branch-specific Graph Explorer workflow in [Testing of Sample Queries](README.md#testing-of-sample-queries) after local validation passes.
+There is no local application service to start. Exercise a content change by running the terminating validation command in [Building](#building). For sample-query changes, use the Graph Explorer **Custom samples** workflow in [Testing of Sample Queries](README.md#testing-of-sample-queries) after local validation passes.
