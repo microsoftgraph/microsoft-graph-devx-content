@@ -14441,39 +14441,17 @@
             "GET"
           ],
           "paths": {
-            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork,Application",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork,Application",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
-            "/copilot/costManagement/userBalances": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
             "/copilot/costManagement/usageReports/groupUsageRecords": "least=DelegatedWork,Application",
             "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "least=DelegatedWork,Application",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "least=DelegatedWork,Application",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "least=DelegatedWork,Application",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "least=DelegatedWork,Application",
             "/copilot/costManagement/usageReports/userUsageRecords": "least=DelegatedWork,Application",
-            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork,Application"
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14494,7 +14472,7 @@
         },
         "Application": {
           "adminDisplayName": "Read all Copilot cost management data",
-          "adminDescription": "Allows the app to read the organization's Copilot credit balance and usage by service and funding class without a signed-in user, plus per-user rankings, security-group usage and raw per-user usage by service or activity session, with native session identifiers when available and first and last activity timestamps. Excludes individual user balances, spending policies and assignments.",
+          "adminDescription": "Allows the app to read all organizational Copilot cost data without a signed-in user: tenant and user credit balances, service and funding-class reports, per-user rankings, raw usage by service or session, native session IDs when available, first and last activity timestamps, security-group usage, spending policies, configuration, assignments, and creator, modifier and alert-recipient identities.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14509,39 +14487,30 @@
             "GET"
           ],
           "paths": {
-            "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application"
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
+            "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies": "",
+            "/copilot/costManagement/spendingPolicies/{id}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "",
             "/copilot/costManagement/usageReports/fundingUsageRecords": "",
-            "/copilot/costManagement/usageReports/serviceUsageRecords": "",
-            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": ""
-          }
-        },
-        {
-          "schemeKeys": [
-            "DelegatedWork",
-            "Application"
-          ],
-          "methods": [
-            "GET"
-          ],
-          "paths": {
             "/copilot/costManagement/usageReports/groupUsageRecords": "",
             "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "",
             "/copilot/costManagement/usageReports/userUsageRecords": "",
-            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": ""
+            "/copilot/costManagement/usageReports/userUsageRecords/{userId}": "",
+            "/copilot/costManagement/userBalances": "",
+            "/copilot/costManagement/userBalances/{userId}": "",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances": "",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": ""
           }
         }
       ],
@@ -37888,6 +37857,10 @@
             "/networkAccess/forwardingProfiles": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies/{id}/policyRules": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "least=DelegatedWork,Application",
@@ -38036,6 +38009,10 @@
             "/networkAccess/forwardingProfiles": "",
             "/networkAccess/forwardingProfiles/{id}": "",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "",
+            "/networkAccess/idpsPolicies": "",
+            "/networkAccess/idpsPolicies/{id}": "",
+            "/networkAccess/idpsPolicies/{id}/policyRules": "",
+            "/networkAccess/idpsPolicies/{id}/policyRules/{id}": "",
             "/networkAccess/intelligentAppProtectPolicies": "",
             "/networkAccess/intelligentAppProtectPolicies/{id}": "",
             "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "",
@@ -38145,6 +38122,7 @@
             "/networkAccess/filteringProfiles/{id}/policies": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies": "least=DelegatedWork,Application",
@@ -38210,6 +38188,7 @@
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}": "least=DelegatedWork,Application",
@@ -38261,6 +38240,7 @@
             "/networkAccess/filteringProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/forwardingProfiles/{id}/policies/{id}": "least=DelegatedWork,Application",
+            "/networkAccess/idpsPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}": "least=DelegatedWork,Application",
             "/networkAccess/intelligentAppProtectPolicies/{id}/policyRules/{id}": "least=DelegatedWork,Application",
             "/networkAccess/mcpPolicies/{id}": "least=DelegatedWork,Application",
