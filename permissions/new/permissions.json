@@ -2076,6 +2076,28 @@
             "DelegatedWork"
           ],
           "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/aiTeammateManagement/aiTeammates": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/aiTeammateManagement/lifecycleOperations/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
             "GET"
           ],
           "paths": {
@@ -2509,6 +2531,28 @@
         }
       },
       "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/aiTeammateManagement/aiTeammates": "least=DelegatedWork"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/aiTeammateManagement/lifecycleOperations/{id}": "least=DelegatedWork"
+          }
+        },
         {
           "schemeKeys": [
             "DelegatedWork",
@@ -41269,12 +41313,8 @@
             "/security/agenticSecurity/sessions/{sessionId}": "",
             "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "",
             "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "",
-            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "",
-            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "",
             "/security/agenticSecurity/sessions/{sessionId}/inputs": "",
             "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "",
-            "/security/agenticSecurity/sessions/{sessionId}/messages": "",
-            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "",
             "/security/agenticSecurity/sessions/{sessionId}/outputs": "",
             "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "",
             "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "",
@@ -41333,12 +41373,8 @@
             "/security/agenticSecurity/sessions/{sessionId}": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/agentRuns": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}": "least=DelegatedWork,Application",
-            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages": "least=DelegatedWork,Application",
-            "/security/agenticSecurity/sessions/{sessionId}/agentRuns/{agentRunId}/messages/{messageId}": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/inputs": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/inputs/{inputId}": "least=DelegatedWork,Application",
-            "/security/agenticSecurity/sessions/{sessionId}/messages": "least=DelegatedWork,Application",
-            "/security/agenticSecurity/sessions/{sessionId}/messages/{messageId}": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/outputs": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}": "least=DelegatedWork,Application",
             "/security/agenticSecurity/sessions/{sessionId}/outputs/{outputId}/content": "least=DelegatedWork,Application",
@@ -63991,10 +64027,10 @@
           "paths": {
             "/me/authentication/emailmethods/{id}": "least=DelegatedWork",
             "/me/authentication/phonemethods/{id}": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/pin": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork",
-            "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork",
+            "/me/authentication/qrcodepinmethod": "",
+            "/me/authentication/qrcodepinmethod/pin": "",
+            "/me/authentication/qrcodepinmethod/standardqrcode": "",
+            "/me/authentication/qrcodepinmethod/temporaryqrcode": "",
             "/users/{id}/authentication/emailmethods/{id}": "",
             "/users/{id}/authentication/phonemethods/{id}": "",
             "/users/{id}/authentication/qrcodepinmethod": "",
@@ -64116,8 +64152,8 @@
             "PUT"
           ],
           "paths": {
-            "/me/authentication/qrcodepinmethod": "least=DelegatedWork",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork"
+            "/me/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod": ""
           }
         }
       ],
@@ -64184,10 +64220,10 @@
             "/me/authentication/qrcodepinmethod/temporaryqrcode": "least=Application",
             "/users/{id}/authentication/emailmethods/{id}": "least=DelegatedWork,Application",
             "/users/{id}/authentication/phonemethods/{id}": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/qrcodepinmethod/pin": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "least=DelegatedWork,Application",
-            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/qrcodepinmethod": "",
+            "/users/{id}/authentication/qrcodepinmethod/pin": "",
+            "/users/{id}/authentication/qrcodepinmethod/standardqrcode": "",
+            "/users/{id}/authentication/qrcodepinmethod/temporaryqrcode": ""
           }
         },
         {
@@ -64310,7 +64346,7 @@
           ],
           "paths": {
             "/me/authentication/qrcodepinmethod": "least=Application",
-            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application"
+            "/users/{id}/authentication/qrcodepinmethod": ""
           }
         },
         {
@@ -66262,7 +66298,7 @@
             "PUT"
           ],
           "paths": {
-            "/users/{id}/authentication/qrcodepinmethod": ""
+            "/users/{id}/authentication/qrcodepinmethod": "least=DelegatedWork,Application"
           }
         },
         {
