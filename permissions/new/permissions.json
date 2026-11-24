@@ -42186,6 +42186,42 @@
         "ownerSecurityGroup": "AuthMethodProvTeam"
       }
     },
+    "Policy.Read.AuthFeatureToggle": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read your organization's feature toggle policy",
+          "adminDescription": "Allows the app to read your organization's feature toggle policy on behalf of the signed-in user.",
+          "userDisplayName": "Read your feature toggle policy",
+          "userDescription": "Allows the app to read your organization's feature toggle policy on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        },
+        "Application": {
+          "adminDisplayName": "Read feature toggle policy",
+          "adminDescription": "Allows the app to read your organization's feature toggle policy without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 3
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/authenticationfeaturetogglepolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
+      }
+    },
     "Policy.Read.B2BManagementPolicy": {
       "authorizationType": "oAuth2",
       "schemes": {
@@ -42934,6 +42970,54 @@
       ],
       "ownerInfo": {
         "ownerSecurityGroup": "AuthMethodProvTeam"
+      }
+    },
+    "Policy.ReadWrite.AuthFeatureToggle": {
+      "authorizationType": "oAuth2",
+      "schemes": {
+        "DelegatedWork": {
+          "adminDisplayName": "Read and write your organization's feature toggle policy",
+          "adminDescription": "Allows the app to read and update your organization's feature toggle policy on behalf of the signed-in user.",
+          "userDisplayName": "Read and write your feature toggle policy",
+          "userDescription": "Allows the app to read and update your organization's feature toggle policy on your behalf.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        },
+        "Application": {
+          "adminDisplayName": "Read and write feature toggle policy",
+          "adminDescription": "Allows the app to read and update your organization's feature toggle policy without a signed-in user.",
+          "requiresAdminConsent": true,
+          "privilegeLevel": 4
+        }
+      },
+      "pathSets": [
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "GET"
+          ],
+          "paths": {
+            "/policies/authenticationfeaturetogglepolicy": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/policies/authenticationfeaturetogglepolicy": "least=DelegatedWork,Application"
+          }
+        }
+      ],
+      "ownerInfo": {
+        "ownerSecurityGroup": "hybridauth"
       }
     },
     "Policy.ReadWrite.Authorization": {
