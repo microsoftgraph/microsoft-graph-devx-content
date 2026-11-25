@@ -4050,9 +4050,11 @@
             "GET"
           ],
           "paths": {
+            "/applications(appid={value})/allowedipranges": "",
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications(appid={value})/sponsors": "least=DelegatedWork,Application",
+            "/applications/{id}/allowedipranges": "",
             "/applications/{id}/authorization": "",
             "/applications/{id}/authorization/resourceSchema": "",
             "/applications/{id}/authorization/resourceSchema/environmentAttributes": "",
@@ -4615,6 +4617,8 @@
             "PATCH"
           ],
           "paths": {
+            "/applications(appid={value})/allowedipranges": "",
+            "/applications/{id}/allowedipranges": "",
             "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}": "least=DelegatedWork,Application",
@@ -12834,6 +12838,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrievebyuserids": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "least=DelegatedWork,Application",
@@ -12963,6 +12968,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweron": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/reassignpolicy": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/relocate": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/rename": "least=DelegatedWork,Application",
@@ -12986,6 +12992,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfdeprovision": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfprovision": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrievebyuserids": "",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
@@ -14383,7 +14390,8 @@
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application",
-            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14425,7 +14433,8 @@
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
-            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": ""
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": ""
           }
         },
         {
@@ -14523,7 +14532,8 @@
             "/copilot/costManagement/userBalances": "least=DelegatedWork,Application",
             "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork,Application",
             "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork,Application",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application"
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}/service": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14560,6 +14570,8 @@
           ],
           "paths": {
             "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application",
+            "/copilot/costManagement/services": "",
+            "/copilot/costManagement/services/{id}": "",
             "/copilot/costManagement/spendingPolicies": "",
             "/copilot/costManagement/spendingPolicies/{id}": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
@@ -14569,11 +14581,13 @@
             "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": "",
             "/copilot/costManagement/usageReports/fundingUsageRecords": "",
             "/copilot/costManagement/usageReports/groupUsageRecords": "",
             "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "",
             "/copilot/costManagement/usageReports/serviceUsageRecords": "",
             "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}/service": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "",
@@ -14582,7 +14596,8 @@
             "/copilot/costManagement/userBalances": "",
             "/copilot/costManagement/userBalances/{userId}": "",
             "/copilot/costManagement/userBalances/{userId}/serviceBalances": "",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": ""
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}/service": ""
           }
         }
       ],
@@ -28132,6 +28147,21 @@
             "DelegatedPersonal"
           ],
           "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
@@ -29300,6 +29330,21 @@
             "/me/drive/special/{id}": "",
             "/me/drive/special/{id}/children": "",
             "/me/drives": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": ""
           }
         },
         {
@@ -53275,6 +53320,21 @@
             "/me/insights/trending/{id}/resource": "",
             "/me/insights/used": "",
             "/me/insights/used/{id}/resource": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": "least=Application"
           }
         },
         {
