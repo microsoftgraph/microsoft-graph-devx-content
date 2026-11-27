@@ -133,34 +133,29 @@ Follow the instructions specified, then run this command again:<br/>
 `git push origin {your-branch-name}`
 
 ## Testing of Sample Queries
-Once you've added/updated the sample queries, you can test them out by going to [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer), and appending this to the end of the Graph Explorer url.
+Use **Custom samples** in [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to preview sample queries and permissions from your branch or fork. The action is available only to signed-in users whose active account username ends exactly in `@microsoft.com`, case-insensitively. The account display name and profile email do not determine eligibility.
 
-`?devx-api=https://graphexplorerapi.azurewebsites.net&org={org}&branchName={branchName}`
+1. Commit and push your sample-query changes to your branch.
+1. Open Graph Explorer and sign in with an eligible Microsoft account.
+1. Open the profile menu in the header and select **Custom samples**.
+1. Enter **Organization**: `microsoftgraph` for a branch in this repository, or your GitHub username or organization for a fork.
+1. Enter **Branch**: the full name of your pushed branch, including any slashes, for example `gb/update-sample`.
+1. Leave **DevX API URL** at the prefilled default unless you need a different trusted DevX service. A blank value uses the configured default, which falls back to `https://graph-devx-api.microsoft.com` when no valid build-time service URL is configured.
+1. Select **Apply**. The settings activate only after the samples and resource trees for both Graph API versions load successfully. A loading failure leaves default samples active and displays an error in the dialog.
 
-This fetches the permissions/samples from your specific branch or repo.
+After a successful apply, the profile action changes to **Reset samples**. Select it to restore defaults immediately, without confirmation. Custom settings are kept in memory only; reloading the page, signing out, or changing the active account also restores defaults. Applying or resetting settings does not reload the page or change your current Graph request.
 
-#### Full url/path format:
-```
-https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org={org}&branchName={branchName}
-```
-#### NB:
-i. Replace *{branchName}* with the name of your current branch.
+The selected service supplies samples, permissions, resource trees, code snippets, autocomplete, and collection permissions. Organization and branch values apply only to samples and permissions, including collection permissions. Service URLs must use HTTPS and must not contain credentials, a query string, or a fragment. Redirects are rejected, so use the service's final HTTPS URL.
 
-ii. In the case of a forked repo, replace the *{org}* parameter with your Github username.
-iii. If your branch is in this repo, replace *{org}* with microsoftgraph
+Use only a trusted service: generating code snippets may send your current Graph request headers and body to the selected service. The Microsoft-domain menu restriction is a client-side workflow guard, not server-side authorization or protection against browser tampering. DevX caches are separated by source; saved collections and query history are preserved.
 
-#### Example:
-```
-https://developer.microsoft.com/en-us/graph/graph-explorer?devx-api=https://graphexplorerapi.azurewebsites.net&org=MeganBowen&branchName=mk/update-sample
-```
-
-The samples/permissions will be populated on Graph Explorer and you can do further testing.
+Legacy preview links using the page URL parameters `devx-api`, `org`, and `branchName` no longer select a custom source. Use the profile dialog instead.
 
 ## Adding Permissions
 Contributions to permissions are limited to contributors with write access. However, issues on missing permissions can be raised as issue requests on the [issues tab](https://github.com/microsoftgraph/microsoft-graph-devx-content/issues).
 
 ### Please Note:
-In case you see *You are viewing a cached set of samples because of a network connection failure*, check the query parameters and confirm they're correct, then reload the page.
+If applying custom samples fails, check the organization, pushed branch name, and service URL, then select **Apply** again. Default samples remain active while the dialog shows the error. Selecting **Cancel**, using the title's **Close** button, or pressing Escape dismisses the dialog without applying pending settings.
 
 If you run into any issues, reach out to @MaggieKimani1, @irvinesunday or @thewahome.
 
