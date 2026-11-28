@@ -4050,9 +4050,11 @@
             "GET"
           ],
           "paths": {
+            "/applications(appid={value})/allowedipranges": "",
             "/applications(appid={value})/federatedidentitycredentials": "least=DelegatedWork,Application",
             "/applications(appid={value})/owners": "least=DelegatedWork,Application",
             "/applications(appid={value})/sponsors": "least=DelegatedWork,Application",
+            "/applications/{id}/allowedipranges": "",
             "/applications/{id}/authorization": "",
             "/applications/{id}/authorization/resourceSchema": "",
             "/applications/{id}/authorization/resourceSchema/environmentAttributes": "",
@@ -4615,6 +4617,8 @@
             "PATCH"
           ],
           "paths": {
+            "/applications(appid={value})/allowedipranges": "",
+            "/applications/{id}/allowedipranges": "",
             "/applications/{id}/onPremisesPublishing": "least=DelegatedWork,Application",
             "/applications/{id}/onPremisesPublishing/segmentsConfiguration/microsoft.graph.ipSegmentConfiguration/applicationSegments/{id}": "least=DelegatedWork,Application",
             "/applications/{id}/pairwisebrokerembeddedappconfig/{trustedHostPairwiseBrokerId}": "least=DelegatedWork,Application",
@@ -12834,6 +12838,7 @@
             "POST"
           ],
           "paths": {
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrievebyuserids": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getdailyaggregatedremoteconnectionreports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getremoteconnectionhistoricalreports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/getshareduselicenseusagereport": "least=DelegatedWork,Application",
@@ -12963,6 +12968,7 @@
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/endgraceperiod": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweroff": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/poweron": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/cloudpcs/{id}/reassignpolicy": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/reboot": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/relocate": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/cloudpcs/{id}/rename": "least=DelegatedWork,Application",
@@ -12986,6 +12992,7 @@
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/retry": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfdeprovision": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/provisioningpolicies/{id}/selfprovision": "least=DelegatedWork,Application",
+            "/devicemanagement/virtualendpoint/provisioningpolicies/retrievebyuserids": "",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcClientAppUsageReport": "least=DelegatedWork,Application",
             "/deviceManagement/virtualEndpoint/report/retrieveCloudPcRecommendationReports": "least=DelegatedWork,Application",
             "/devicemanagement/virtualendpoint/reports/exportjobs": "least=DelegatedWork,Application",
@@ -14354,15 +14361,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read Copilot spending policies",
-          "adminDescription": "Allows the app to read Copilot spending policies and their configuration on behalf of the signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration on behalf of the signed-in user, including budget limits, alert thresholds, and the Power Platform environments and Copilot packages each policy is assigned to. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
           "userDisplayName": "Read Copilot spending policies",
-          "userDescription": "Allows the app to read your organization's Copilot spending policies and their configuration on your behalf, including budget limits, alert thresholds, who created and last changed each policy, and who receives its alerts.",
+          "userDescription": "Allows the app to read your organization's Copilot spending policies and their configuration on your behalf, including budget limits, alert thresholds, the Power Platform environments and Copilot packages each policy is assigned to, who created and last changed each policy, and who receives its alerts.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read Copilot spending policies",
-          "adminDescription": "Allows the app to read Copilot spending policies and their configuration without a signed-in user, including budget limits and alert thresholds. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
+          "adminDescription": "Allows the app to read Copilot spending policies and their configuration without a signed-in user, including budget limits, alert thresholds, and the Power Platform environments and Copilot packages each policy is assigned to. This also exposes the identities of the users who created and last modified each policy and of the users who receive its alert notifications.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14382,8 +14389,11 @@
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedEnvironmentsSpendingPolicy/assignedEnvironments": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.specificPackagesSpendingPolicy/assignedPackages/$ref": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application",
-            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application"
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14396,15 +14406,15 @@
       "schemes": {
         "DelegatedWork": {
           "adminDisplayName": "Read and write Copilot spending policies",
-          "adminDescription": "Allows the app to read, create, update, and delete Copilot spending policies on behalf of the signed-in user. It can set the initial audience, read and change alert recipients, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy.",
+          "adminDescription": "Allows the app to read, create, update, and delete Copilot spending policies on behalf of the signed-in user. It can set the initial audience, change a policy's Power Platform environment and Copilot package assignments, read and change alert recipients, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy.",
           "userDisplayName": "Read and write Copilot spending policies",
-          "userDescription": "Allows the app to read, create, update, and delete your organization's Copilot spending policies on your behalf, including changing who receives a policy's spending alerts. Creating a policy also sets who it applies to, may take effect immediately and begin restricting how much users can spend, and may include selecting the billing method that funds it.",
+          "userDescription": "Allows the app to read, create, update, and delete your organization's Copilot spending policies on your behalf, including changing who receives a policy's spending alerts and which Power Platform environments and Copilot packages a policy applies to. Creating a policy also sets who it applies to, may take effect immediately and begin restricting how much users can spend, and may include selecting the billing method that funds it.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         },
         "Application": {
           "adminDisplayName": "Read and write Copilot spending policies",
-          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a policy requires a signed-in administrator.",
+          "adminDescription": "Allows the app to read, create, and update Copilot spending policies without a signed-in user. It can manage alert settings and recipients, set the initial audience, change a policy's Power Platform environment and Copilot package assignments, and select a billing method. New or changed policies may take effect immediately and restrict user spending. The app can also see who created and last modified each policy. Deleting a policy requires a signed-in administrator.",
           "requiresAdminConsent": true,
           "privilegeLevel": 3
         }
@@ -14424,8 +14434,11 @@
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedEnvironmentsSpendingPolicy/assignedEnvironments": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.specificPackagesSpendingPolicy/assignedPackages/$ref": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
-            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": ""
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": ""
           }
         },
         {
@@ -14439,6 +14452,8 @@
           "paths": {
             "/copilot/costManagement/spendingPolicies": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedEnvironmentsSpendingPolicy/assignedEnvironments": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.specificPackagesSpendingPolicy/assignedPackages/$ref": "least=DelegatedWork,Application",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "least=DelegatedWork,Application"
           }
         },
@@ -14477,7 +14492,9 @@
           ],
           "paths": {
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "least=DelegatedWork,Application",
-            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/{userId}/$ref": "least=DelegatedWork,Application"
+            "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/{userId}/$ref": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedEnvironmentsSpendingPolicy/assignedEnvironments/{environmentId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.specificPackagesSpendingPolicy/assignedPackages/{packageId}/$ref": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14523,7 +14540,8 @@
             "/copilot/costManagement/userBalances": "least=DelegatedWork,Application",
             "/copilot/costManagement/userBalances/{userId}": "least=DelegatedWork,Application",
             "/copilot/costManagement/userBalances/{userId}/serviceBalances": "least=DelegatedWork,Application",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application"
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "least=DelegatedWork,Application",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}/service": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -14560,20 +14578,26 @@
           ],
           "paths": {
             "/copilot/costManagement/getTenantCreditBalance": "least=DelegatedWork,Application",
+            "/copilot/costManagement/services": "",
+            "/copilot/costManagement/services/{id}": "",
             "/copilot/costManagement/spendingPolicies": "",
             "/copilot/costManagement/spendingPolicies/{id}": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients": "",
             "/copilot/costManagement/spendingPolicies/{id}/emailThresholdSettings/recipients/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedEnvironmentsSpendingPolicy/assignedEnvironments": "",
             "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups": "",
             "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.selectedGroupsSpendingPolicy/assignedGroups/$ref": "",
+            "/copilot/costManagement/spendingPolicies/{id}/microsoft.graph.specificPackagesSpendingPolicy/assignedPackages/$ref": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings": "",
             "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}": "",
+            "/copilot/costManagement/spendingPolicies/{id}/serviceSettings/{serviceId}/service": "",
             "/copilot/costManagement/usageReports/fundingUsageRecords": "",
             "/copilot/costManagement/usageReports/groupUsageRecords": "",
             "/copilot/costManagement/usageReports/groupUsageRecords/{groupId}": "",
             "/copilot/costManagement/usageReports/serviceUsageRecords": "",
             "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}": "",
+            "/copilot/costManagement/usageReports/serviceUsageRecords/{serviceId}/service": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/services": "",
             "/copilot/costManagement/usageReports/userUsageDetails/{userId}/sessions": "",
@@ -14582,7 +14606,8 @@
             "/copilot/costManagement/userBalances": "",
             "/copilot/costManagement/userBalances/{userId}": "",
             "/copilot/costManagement/userBalances/{userId}/serviceBalances": "",
-            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": ""
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}": "",
+            "/copilot/costManagement/userBalances/{userId}/serviceBalances/{serviceId}/service": ""
           }
         }
       ],
@@ -25977,7 +26002,14 @@
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "least=DelegatedWork,Application",
-            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAuthenticationMethodLoadStart/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "least=DelegatedWork,Application"
+            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAuthenticationMethodLoadStart/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "least=DelegatedWork,Application",
+            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/orchestrationPolicy": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}/stages": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}/steps": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}/steps/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -26058,7 +26090,51 @@
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollection/microsoft.graph.onAttributeCollectionExternalUsersSelfServiceSignUp/attributes": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionStart/microsoft.graph.onAttributeCollectionStartCustomExtensionHandler/customExtension": "",
             "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAttributeCollectionSubmit/microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler/customExtension": "",
-            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAuthenticationMethodLoadStart/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": ""
+            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/onAuthenticationMethodLoadStart/microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp/identityProviders": "",
+            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/orchestrationPolicy": "",
+            "/identity/signUpOrchestrationPolicies": "",
+            "/identity/signUpOrchestrationPolicies/{id}": "",
+            "/identity/signUpOrchestrationPolicies/{id}/stages": "",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}": "",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}/steps": "",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}/steps/{id}": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "POST"
+          ],
+          "paths": {
+            "/identity/signUpOrchestrationPolicies": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "PATCH"
+          ],
+          "paths": {
+            "/identity/signUpOrchestrationPolicies/{id}": "least=DelegatedWork,Application",
+            "/identity/signUpOrchestrationPolicies/{id}/stages/{id}": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identity/authenticationEventsFlows/{id}/microsoft.graph.externalUsersSelfServiceSignUpEventsFlow/orchestrationPolicy": "least=DelegatedWork,Application"
           }
         },
         {
@@ -26755,7 +26831,9 @@
           }
         }
       ],
-      "ownerInfo": {}
+      "ownerInfo": {
+        "ownerSecurityGroup": "TeamsGraph1PPreAuthPermissionsApprovers"
+      }
     },
     "FileIngestion.Ingest": {
       "authorizationType": "oAuth2",
@@ -28132,6 +28210,21 @@
             "DelegatedPersonal"
           ],
           "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": "least=DelegatedWork,DelegatedPersonal"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
             "POST"
           ],
           "paths": {
@@ -29300,6 +29393,21 @@
             "/me/drive/special/{id}": "",
             "/me/drive/special/{id}/children": "",
             "/me/drives": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "DelegatedPersonal"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": ""
           }
         },
         {
@@ -32780,6 +32888,8 @@
             "GET"
           ],
           "paths": {
+            "/identityprotection/bulkoperations": "least=DelegatedWork,Application",
+            "/identityprotection/bulkoperations/{id}": "least=DelegatedWork,Application",
             "/identityprotection/riskyagents/summary": ""
           }
         },
@@ -32792,9 +32902,22 @@
             "POST"
           ],
           "paths": {
+            "/identityprotection/riskyagents/bulkdismiss": "least=DelegatedWork,Application",
             "/identityprotection/riskyagents/confirmcompromised": "least=DelegatedWork,Application",
             "/identityprotection/riskyagents/confirmSafe": "least=DelegatedWork,Application",
             "/identityprotection/riskyagents/dismiss": "least=DelegatedWork,Application"
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE"
+          ],
+          "paths": {
+            "/identityprotection/bulkoperations/{id}": "least=DelegatedWork,Application"
           }
         }
       ],
@@ -41878,6 +42001,7 @@
             "/policies/authenticationflowspolicy": "least=DelegatedWork,Application",
             "/policies/authenticationmethodspolicy": "",
             "/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/{id}": "",
+            "/policies/authenticationmethodspolicy/authenticationmethodconfigurations/{id}/microsoft.graph.passwordauthenticationmethodconfiguration/passwordmanagementpolicy": "",
             "/policies/authenticationstrengthpolicies": "",
             "/policies/authenticationstrengthpolicies/{id}": "",
             "/policies/authenticationstrengthpolicies/{id}/usage": "",
@@ -41929,6 +42053,7 @@
             "/policies/homerealmdiscoverypolicies/{id}": "least=DelegatedWork,Application",
             "/policies/homerealmdiscoverypolicies/{id}/appliesto": "least=DelegatedWork,Application",
             "/policies/hybridAuthenticationPolicy": "least=DelegatedWork,Application",
+            "/policies/passwordmanagementpolicy": "",
             "/policies/tokenissuancepolicies": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies/{id}": "least=DelegatedWork,Application",
             "/policies/tokenissuancepolicies/{id}/appliesto": "least=DelegatedWork,Application",
@@ -46635,6 +46760,7 @@
           "paths": {
             "/me/dataSecurityAndGovernance/protectionScopes/compute": "",
             "/security/dataSecurityAndGovernance/protectionScopes/compute": "least=Application,DelegatedWork",
+            "/security/dataSecurityAndGovernance/protectionScopes/computePolicyXml": "least=Application,DelegatedWork",
             "/users/{userId}/dataSecurityAndGovernance/protectionScopes/compute": "",
             "/users/{userId}/dataSecurityAndGovernance/protectionScopes/computePolicyXml": ""
           }
@@ -53275,6 +53401,21 @@
             "/me/insights/trending/{id}/resource": "",
             "/me/insights/used": "",
             "/me/insights/used/{id}/resource": ""
+          }
+        },
+        {
+          "schemeKeys": [
+            "DelegatedWork",
+            "Application"
+          ],
+          "methods": [
+            "DELETE",
+            "GET",
+            "POST",
+            "PUT"
+          ],
+          "paths": {
+            "/drives/{id}/items/{id}/uploadsession": "least=Application"
           }
         },
         {
